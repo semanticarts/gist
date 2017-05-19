@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY gist "http://ontologies.semanticarts.com/gist#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://ontologies.semanticarts.com/o/gistAgreement"
+	xmlns:gist="http://ontologies.semanticarts.com/gist#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistAgreement">
+		<rdfs:comment rdf:datatype="&xs;string">gistAgreement</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistX.x agreement</rdfs:comment>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistIntention.X.x"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistAgreement.X.x"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\Offerings\gist\___workingGistMaster\gistX.x.vsd Page:agree</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&gist;Account">
+		<rdfs:label rdf:datatype="&xs;string">Account</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">An agreement having a balance, as in a bank account, or credit card account, or Accounts Receivable account.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Agreement">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasMagnitude"/>
+				<owl:someValuesFrom rdf:resource="&gist;Balance"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Agreement">
+		<rdfs:label rdf:datatype="&xs;string">Agreement</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A contract or other binding agreement, usually evidenced by signature(s).</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Commitment">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;party"/>
+				<owl:onClass rdf:resource="&gist;SocialBeing"/>
+				<owl:minQualifiedCardinality rdf:datatype="&xs;nonNegativeInteger">2</owl:minQualifiedCardinality>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasDirectPart"/>
+				<owl:onClass rdf:resource="&gist;Obligation"/>
+				<owl:minQualifiedCardinality rdf:datatype="&xs;nonNegativeInteger">2</owl:minQualifiedCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Balance">
+		<rdfs:label rdf:datatype="&xs;string">Balance</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">An amount decremented or incremented by a series of transactions.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Magnitude">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;affectedBy"/>
+				<owl:someValuesFrom rdf:resource="&gist;Transaction"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Category">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Commitment">
+		<rdfs:label rdf:datatype="&xs;string">Commitment</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">An obligation (possibly unilateral).</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;Restriction">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;Requirement">
+					</rdf:Description>
+				</owl:unionOf>
+			</owl:Class>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;giver"/>
+				<owl:someValuesFrom rdf:resource="&gist;SocialBeing"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;categorizedBy"/>
+				<owl:someValuesFrom rdf:resource="&gist;DegreeOfCommitment"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ContingentObligation">
+		<rdfs:label rdf:datatype="&xs;string">Contingent Obligation</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">An obligation that is not yet firm.  There is some contingent event, the occurrence of which will cause the obligation to become firm.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE: A contingent obligation might have a getter counterparty (as in the case of insurance); but it might not (as in the case of an offer).</rdfs:comment>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;Commitment">
+					</rdf:Description>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;giver"/>
+						<owl:someValuesFrom rdf:resource="&gist;SocialBeing"/>
+					</owl:Restriction>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;triggeredBy"/>
+						<owl:someValuesFrom rdf:resource="&gist;Event"/>
+					</owl:Restriction>
+				</owl:intersectionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ContractTerm">
+		<rdfs:subClassOf rdf:resource="&gist;Specification"/>
+		<rdfs:label rdf:datatype="&xs;string">Contract Term</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A specification of some aspect of a contract.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;DegreeOfCommitment">
+		<rdfs:subClassOf rdf:resource="&gist;Category"/>
+		<rdfs:label rdf:datatype="&xs;string">Degree Of Commitment</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLE:  A car rental typically has a lower degree of commitment than an airfare reservation.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">The difficulty of reversing a commitment.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Event">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Magnitude">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Obligation">
+		<rdfs:label rdf:datatype="&xs;string">Obligation</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A future commitment from one organization or person to another. Contracts are sets of obligations to do or forebear, or to indemnify or warrant.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE: Obligations will often be governed by some Agreement or Offer.</rdfs:comment>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;Commitment">
+					</rdf:Description>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;giver"/>
+						<owl:someValuesFrom rdf:resource="&gist;SocialBeing"/>
+					</owl:Restriction>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;getter"/>
+						<owl:someValuesFrom rdf:resource="&gist;SocialBeing"/>
+					</owl:Restriction>
+				</owl:intersectionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Offer">
+		<rdfs:label rdf:datatype="&xs;string">Offer</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A commitment to buy or sell a described or identified part or service.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;ContingentObligation">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;plannedEnd"/>
+				<owl:someValuesFrom rdf:resource="&gist;TimeInstant"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;start"/>
+				<owl:someValuesFrom rdf:resource="&gist;TimeInstant"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasMagnitude"/>
+				<owl:someValuesFrom rdf:resource="&gist;Monetary"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;giver"/>
+				<owl:someValuesFrom rdf:resource="&gist;SocialBeing"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasDirectPart"/>
+				<owl:someValuesFrom rdf:resource="&gist;CatalogItem"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Organization">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Person">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Requirement">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Restriction">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;SocialBeing">
+		<rdfs:label rdf:datatype="&xs;string">Social Being</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A Person or an Organization.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE: Includes anything than can be party to an Agreement (e.g. Contract).   But not all SocialBeing(s) can be parties to all Agreement(s).  For example, minors can be beneficiaries, but perhaps not primary signatories on contracts.</rdfs:comment>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;Organization">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;Person">
+					</rdf:Description>
+				</owl:unionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Specification">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Transaction">
+		<rdfs:subClassOf rdf:resource="&gist;Event"/>
+		<rdfs:label rdf:datatype="&xs;string">Transaction</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">An event which has an effect on at least one accumulator.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&gist;affectedBy">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;affects">
+		<rdfs:comment rdf:datatype="&xs;string">the subject has or had or will have an effect on the object</rdfs:comment>
+		<owl:inverseOf rdf:resource="&gist;affectedBy"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;categorizedBy">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;getter">
+		<rdfs:subPropertyOf rdf:resource="&gist;party"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;giver">
+		<rdfs:subPropertyOf rdf:resource="&gist;party"/>
+		<owl:disjointObjectProperties rdf:resource="&gist;getter"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasDirectPart">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasMagnitude">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;party">
+		<rdfs:comment rdf:datatype="&xs;string">The people or organizations participating in an agreement or obligation</rdfs:comment>
+		<rdfs:range rdf:resource="&gist;SocialBeing"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;plannedEnd">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;start">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;triggeredBy">
+		<rdfs:comment rdf:datatype="&xs;string">a property that describes what would happen to trigger the contingent obligation.  In most cases, before the Contingent becomes an Obligation, the triggered by event is a planned event (that is it hasn&apos;t happened yet -- if it had happened the contingency would no longer be contingent.  In most cases it will be  a ContingentEvent</rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;comment">
+	</owl:AnnotationProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
+
+</rdf:RDF>

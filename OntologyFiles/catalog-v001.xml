@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistAddress.X.x" uri="gistAddress.X.x.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistAgreement.X.x" uri="gistAgreement.X.x.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistCategory.X.x" uri="gistCategory.X.x.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistContent.X.x" uri="gistContent.X.x.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistCore.X.x" uri="gistCore.X.x.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistEvent.X.x" uri="gistEvent.X.x.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistID.X.x" uri="gistID.X.x.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistIntention.X.x" uri="gistIntention.X.x.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistMagnitude.X.x" uri="gistMagnitude.X.x.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistMeasure.X.x" uri="gistMeasure.X.x.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistOrganization.X.x" uri="gistOrganization.X.x.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistPerson.X.x" uri="gistPerson.X.x.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistPhysicalThing.X.x" uri="gistPhysicalThing.X.x.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistPlace.X.x" uri="gistPlace.X.x.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistTemporalRelation.X.x" uri="gistTemporalRelation.X.x.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistTime.X.x" uri="gistTime.X.x.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistTop.X.x" uri="gistTop.X.x.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistUnit.X.x" uri="gistUnit.X.x.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistUnitDim.X.x" uri="gistUnitDim.X.x.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistWiki.X.x" uri="gistWiki.X.x.owl"/>
+</catalog>

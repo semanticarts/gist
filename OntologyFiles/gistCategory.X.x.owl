@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY gist "http://ontologies.semanticarts.com/gist#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://ontologies.semanticarts.com/o/gistCategory"
+	xmlns:gist="http://ontologies.semanticarts.com/gist#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistCategory">
+		<rdfs:comment rdf:datatype="&xs;string">gistCategory</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistX.x Categoy</rdfs:comment>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTop.X.x"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistCategory.X.x"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\Offerings\gist\___workingGistMaster\gistX.x.vsd Page:cat</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&gist;Category">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Collection">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ControlledVocabulary">
+		<rdfs:label rdf:datatype="&xs;string">Controlled Vocabulary</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A collection of terms approved and managed by some organization or person.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Collection">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasMember"/>
+				<owl:someValuesFrom rdf:resource="&gist;Category"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;governedBy"/>
+				<owl:someValuesFrom>
+					<owl:Class>
+						<owl:unionOf rdf:parseType="Collection">
+							<rdf:Description rdf:about="&gist;Person">
+							</rdf:Description>
+							<rdf:Description rdf:about="&gist;Organization">
+							</rdf:Description>
+						</owl:unionOf>
+					</owl:Class>
+				</owl:someValuesFrom>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Organization">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Person">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Tag">
+		<rdfs:label rdf:datatype="&xs;string">Tag</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">This is for folksonomy type terms, which can be made up on the fly by users.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Category">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;containedText"/>
+				<owl:someValuesFrom rdf:resource="&xs;string"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Taxonomy">
+		<rdfs:label rdf:datatype="&xs;string">Taxonomy</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A controlled vocabulary arranged as a hierarchy of concepts.</rdfs:comment>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;ControlledVocabulary">
+					</rdf:Description>
+					<owl:Class>
+						<owl:unionOf rdf:parseType="Collection">
+							<owl:Restriction>
+								<owl:onProperty rdf:resource="&gist;hasSuperCategory"/>
+								<owl:someValuesFrom rdf:resource="&gist;Category"/>
+							</owl:Restriction>
+							<owl:Restriction>
+								<owl:onProperty rdf:resource="&gist;hasNavigationalParent"/>
+								<owl:someValuesFrom rdf:resource="&gist;Category"/>
+							</owl:Restriction>
+						</owl:unionOf>
+					</owl:Class>
+				</owl:intersectionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Text">
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&gist;allocatedBy">
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&gist;containedText">
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;governedBy">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasMember">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasNavigationalChild">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasNavigationalParent">
+		<rdfs:comment rdf:datatype="&xs;string">Used for informal hierarchical taxonomies.  Supports polyhierarchies</rdfs:comment>
+		<owl:inverseOf rdf:resource="&gist;hasNavigationalChild"/>
+	</owl:ObjectProperty>
+	
+	<rdf:Description rdf:about="&gist;hasPreferredTerm">
+		<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+		<rdf:type rdf:resource="&owl;ObjectProperty"/>
+		<rdfs:comment rdf:datatype="&xs;string">If there are many terms for a concept or specific instance, this is the one to use.</rdfs:comment>
+		<rdfs:range rdf:resource="&gist;Text"/>
+		<owl:inverseOf rdf:resource="&gist;preferredTermOf"/>
+	</rdf:Description>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasSubCategory">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasSuperCategory">
+		<rdfs:comment rdf:datatype="&xs;string">Categories linked in this way are to represeent true sub types.  The categories aren&apos;t subtypes but classes defined by a supercategory will be a superclass of one derrived from its sub</rdfs:comment>
+		<owl:inverseOf rdf:resource="&gist;hasSubCategory"/>
+	</owl:ObjectProperty>
+	
+	<rdf:Description rdf:about="&gist;hasUniqueNavigationalParent">
+		<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+		<rdf:type rdf:resource="&owl;ObjectProperty"/>
+		<rdfs:subPropertyOf rdf:resource="&gist;hasNavigationalParent"/>
+		<rdfs:comment rdf:datatype="&xs;string">Used for taxos that must have single parents</rdfs:comment>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&gist;hasUniqueSuperCategory">
+		<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+		<rdf:type rdf:resource="&owl;ObjectProperty"/>
+		<rdfs:subPropertyOf rdf:resource="&gist;hasSuperCategory"/>
+		<rdfs:comment rdf:datatype="&xs;string">Used for taxos that must have single parents</rdfs:comment>
+	</rdf:Description>
+	
+	<owl:ObjectProperty rdf:about="&gist;preferredTermOf">
+	</owl:ObjectProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
+
+</rdf:RDF>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY gist "http://ontologies.semanticarts.com/gist#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://ontologies.semanticarts.com/o/gistAddress"
+	xmlns:gist="http://ontologies.semanticarts.com/gist#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistAddress">
+		<rdfs:comment rdf:datatype="&xs;string">gistAddress</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistX.x Address</rdfs:comment>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistPlace.X.x"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistAddress.X.x"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\Offerings\gist\___workingGistMaster\gistX.x.vsd Page:address</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&gist;Address">
+		<rdfs:subClassOf rdf:resource="&gist;Content"/>
+		<rdfs:label rdf:datatype="&xs;string">Address</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A reference to a place (real or virtual) that can be located by some routing algorithm, and where messages or things can be sent to or retrieved from. E.g. PO Box or URL to a pdf file.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;BuildingAddress">
+		<rdfs:subClassOf rdf:resource="&gist;Address"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;streetAddressOf"/>
+				<owl:someValuesFrom rdf:resource="&gist;Building"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:label rdf:datatype="&xs;string">Building Address</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">An address to which you can send mail, or that you could find in the physical world.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Content">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ElectronicMessageAddress">
+		<rdfs:subClassOf rdf:resource="&gist;Address"/>
+		<rdfs:label rdf:datatype="&xs;string">Electronic Message Address</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Any place an electronic message (email, fax, etc.) can be sent.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Organization">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Person">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;PostalAddress">
+		<rdfs:subClassOf rdf:resource="&gist;Address"/>
+		<rdfs:label rdf:datatype="&xs;string">Postal Address</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A set of codes the postal authorities can use to deliver physical mail.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLES: a street address, a PO Box, an FPO code, or the route codes.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;TelephoneNumber">
+		<rdfs:subClassOf rdf:resource="&gist;Address"/>
+		<rdfs:label rdf:datatype="&xs;string">Telephone Number</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A numeric code a telephonic device uses for contacting another telephonic device.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLES:  Mobile, fax, or landline phone number.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&gist;communicationAddressOf">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasCommunicationAddress">
+		<rdfs:comment rdf:datatype="&xs;string">Points to a general class of places you can send messages including postal addresses, fax numbers, phone numbers, email, web site, etc.</rdfs:comment>
+		<rdfs:range rdf:resource="&gist;Address"/>
+		<owl:inverseOf rdf:resource="&gist;communicationAddressOf"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasStreetAddress">
+		<rdfs:comment rdf:datatype="&xs;string">A place that can be found on a map, has geo coordinates; you could live or work there.</rdfs:comment>
+		<rdfs:range rdf:resource="&gist;BuildingAddress"/>
+		<owl:inverseOf rdf:resource="&gist;streetAddressOf"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;streetAddressOf">
+	</owl:ObjectProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;comment">
+	</owl:AnnotationProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
+
+</rdf:RDF>
