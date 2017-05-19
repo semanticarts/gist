@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY gist "http://ontologies.semanticarts.com/gist#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://ontologies.semanticarts.com/o/gistIntention"
+	xmlns:gist="http://ontologies.semanticarts.com/gist#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistIntention">
+		<rdfs:comment rdf:datatype="&xs;string">gist 7.1 Intention</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistIntention</rdfs:comment>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTop7.1"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistIntention7.1"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from C:\Users\andibzzt\Dropbox\SemanticArts\gist\gist 7.0\gist7.1\gist7.1.vsd Page:intention</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&gist;Behavior">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Goal">
+		<rdfs:subClassOf rdf:resource="&gist;Intention"/>
+		<rdfs:label rdf:datatype="&xs;string">Goal</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A specific intentional endpoint.  Can tell whether its been achieved, as opposed to an intention which may not have an evaluation function</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Intention">
+		<rdfs:label rdf:datatype="&xs;string">Intention</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">This is the &quot;teleologic&quot; aspect of the system that indicates things are done with a purpose.  This answers the question: &quot;What do I (they) want?&quot; It is distinct from most of the other classes in the ontology as most of the others represent what is, rather that what is desired.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Permission">
+		<rdfs:label rdf:datatype="&xs;string">Permission</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A description of things one is permitted to do; could be broad such as free speech, but more often is very specific such as the right of egress through a particular property.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Intention">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;allows"/>
+				<owl:someValuesFrom rdf:resource="&gist;Behavior"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Requirement">
+		<rdfs:subClassOf rdf:resource="&gist;Intention"/>
+		<rdfs:label rdf:datatype="&xs;string">Requirement</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A documented physical and functional need that a particular design, product or process must be able to perform.  Alternately, the obligation of a Social Being to behave in a certain way (i.e., drive on the right side of the road for instance)</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Restriction">
+		<rdfs:label rdf:datatype="&xs;string">Restriction</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A description of things one is prevented from doing; could be broad such as free speech, but more often is very specific such as the right of egress through a particular property.  Most laws are restrictions</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Intention">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;prevents"/>
+				<owl:someValuesFrom rdf:resource="&gist;Behavior"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Specification">
+		<rdfs:subClassOf rdf:resource="&gist;Requirement"/>
+		<rdfs:label rdf:datatype="&xs;string">Specification</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A set of requirements to be satisfied by a material, design, product or service.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&gist;affectedBy">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;affects">
+		<rdfs:comment rdf:datatype="&xs;string">the subject has or had or will have an effect on the object</rdfs:comment>
+		<owl:inverseOf rdf:resource="&gist;affectedBy"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;allows">
+		<rdfs:domain rdf:resource="&gist;Intention"/>
+		<rdfs:range rdf:resource="&gist;Behavior"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;conformsTo">
+		<rdfs:comment rdf:datatype="&xs;string">The subject conforms to the Object, e.g. meet an obligation, meet terms of an offer, adhere to a specification</rdfs:comment>
+		<rdfs:range rdf:resource="&gist;Intention"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;prevents">
+		<rdfs:domain rdf:resource="&gist;Intention"/>
+		<rdfs:range rdf:resource="&gist;Behavior"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;requires">
+		<rdfs:domain rdf:resource="&gist;Intention"/>
+		<rdfs:range rdf:resource="&gist;Behavior"/>
+	</owl:ObjectProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
+
+</rdf:RDF>

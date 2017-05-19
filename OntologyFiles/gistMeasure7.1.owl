@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY gist "http://ontologies.semanticarts.com/gist#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://ontologies.semanticarts.com/o/gistMeasure"
+	xmlns:gist="http://ontologies.semanticarts.com/gist#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistMeasure">
+		<rdfs:comment rdf:datatype="&xs;string">gist 7.1 Measure</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gist:Measure</rdfs:comment>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistEvent7.1"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistMeasure7.1"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from C:\Users\andibzzt\Dropbox\SemanticArts\gist\gist 7.0\gist7.1\gist7.1.vsd Page:measure</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&gist;Aspect">
+		<rdfs:subClassOf rdf:resource="&gist;MeasurableConcept"/>
+		<rdfs:label rdf:datatype="&xs;string">Aspect</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A very general term for the characteristic of something that is being measured.  E.g property (height) or a process (cycle time) or a behavior (loyalty).</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Category">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Collection">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Content">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Event">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;HistoricalEvent">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;IntervalMeasure">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasMagnitude"/>
+				<owl:someValuesFrom rdf:resource="&gist;Magnitude"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:label rdf:datatype="&xs;string">Interval Measure</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Interval measures are measures where the distance between two numbers is comparable, but their absolute quantity is not, e.g., Fahrenheit temperatures.  Also called Scalar Measures.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Magnitude">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;MeasurableConcept">
+		<rdfs:subClassOf rdf:resource="&gist;Category"/>
+		<rdfs:label rdf:datatype="&xs;string">Measurable Concept</rdfs:label>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Measure">
+		<rdfs:subClassOf rdf:resource="&gist;Event"/>
+		<rdfs:label rdf:datatype="&xs;string">Measure</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">The unique result of a single measurement event; always corresponds to a measure value of some kind. There are four kinds: Nominal, Ordinal, Interval and Ratio corresponding to the four main scales of measure.  In the first two cases, the Measure has the Value. In the last two, the measure is the Value, a gist:Magnitude such as 82kg, or 4 degrees C.</rdfs:comment>
+		<owl:unionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;RatioMeasure">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;IntervalMeasure">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;OrdinalMeasure">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;NominalMeasure">
+			</rdf:Description>
+		</owl:unionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Measurement">
+		<rdfs:label rdf:datatype="&xs;string">Measurement</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">The event of taking a measurement.  Some measurement procedure is used to measure some aspect of something giving a result.  E.g. A laptop (Ownable) was put on a scale (the procedure), its weight (the aspect)  is 3 pounds 1 ounce (the measure). Also includes subjective assessments, like low, medium vs. high quality.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;HistoricalEvent">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasFeature"/>
+				<owl:someValuesFrom rdf:resource="&gist;Measure"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;measuring"/>
+				<owl:someValuesFrom rdf:resource="&gist;Aspect"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;basedOn"/>
+				<owl:someValuesFrom rdf:resource="&gist;MeasurementProcedure"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;thingMeasured"/>
+				<owl:someValuesFrom>
+					<owl:Class>
+						<owl:unionOf rdf:parseType="Collection">
+							<rdf:Description rdf:about="&gist;PhysicalThing">
+							</rdf:Description>
+							<rdf:Description rdf:about="&gist;Event">
+							</rdf:Description>
+						</owl:unionOf>
+					</owl:Class>
+				</owl:someValuesFrom>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;MeasurementProcedure">
+		<rdfs:label rdf:datatype="&xs;string">Measurement Procedure</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A means of taking a measurement.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Template">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;describedIn"/>
+				<owl:someValuesFrom rdf:resource="&gist;Method"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;MechanicalMeasurement">
+		<rdfs:label rdf:datatype="&xs;string">Mechanical Measurement</rdfs:label>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Measurement">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;producedBy"/>
+				<owl:someValuesFrom rdf:resource="&gist;MechanicalProcedure"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;MechanicalProcedure">
+		<rdfs:subClassOf rdf:resource="&gist;MeasurementProcedure"/>
+		<rdfs:label rdf:datatype="&xs;string">Mechanical Procedure</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A procedure that relies on a nonhuman instrument.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Method">
+		<rdfs:subClassOf rdf:resource="&gist;Content"/>
+		<rdfs:label rdf:datatype="&xs;string">Method</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Description of how to do something.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;NominalMeasure">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasNominalValue"/>
+				<owl:someValuesFrom rdf:resource="&gist;NominalValue"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:label rdf:datatype="&xs;string">Nominal Measure</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A Nominal measure is really a categorization disguised as a measure. There may be a number associated, but the numbers cannot be compared.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;NominalSet">
+		<rdfs:label rdf:datatype="&xs;string">Nominal Set</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A set of values used as a nominal scale of measure. The values have no relationship to each other. The only operations that apply are equivalence and set membership.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLES: [male,female] , [0,1] , [Ford, Subaru, Volvo, Chevrolet]</rdfs:comment>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;Collection">
+					</rdf:Description>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;hasMember"/>
+						<owl:someValuesFrom rdf:resource="&gist;NominalValue"/>
+					</owl:Restriction>
+				</owl:intersectionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;NominalValue">
+		<rdfs:subClassOf rdf:resource="&gist;Category"/>
+		<rdfs:label rdf:datatype="&xs;string">Nominal Value</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A Value that is member of a NominalSet.  A nominal value is really just a category.   Could be &quot;1&quot; but it  would only be treated as a symbol, not a number.</rdfs:comment>
+		<owl:equivalentClass>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;memberOf"/>
+				<owl:someValuesFrom rdf:resource="&gist;NominalSet"/>
+			</owl:Restriction>
+		</owl:equivalentClass>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ObjectiveMeasurement">
+		<rdfs:label rdf:datatype="&xs;string">Objective Measurement</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Where the person doing the assessment is different from the Person whose Personal Aspect we&apos;re measuring.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Measurement">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;producedBy"/>
+				<owl:someValuesFrom rdf:resource="&gist;ObjectiveProcedure"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;measuring"/>
+				<owl:someValuesFrom rdf:resource="&gist;PersonalAspect"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;assessedBy"/>
+				<owl:someValuesFrom rdf:resource="&gist;Person"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ObjectiveProcedure">
+		<rdfs:subClassOf rdf:resource="&gist;MeasurementProcedure"/>
+		<rdfs:label rdf:datatype="&xs;string">Objective Procedure</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A subjective judgment, but performed by someone who is not a direct participant in the effect being measured.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;OrderedCollection">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;OrdinalCollection">
+		<rdfs:subClassOf rdf:resource="&gist;OrderedCollection"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasOrderedMember"/>
+				<owl:allValuesFrom rdf:resource="&gist;OrdinalMember"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:label rdf:datatype="&xs;string">Ordinal Collection</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">An OrderedCollection, where no item can be the same rank as any other item.  This is a total order, in math terms.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;OrdinalMeasure">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasNominalValue"/>
+				<owl:someValuesFrom rdf:resource="&gist;OrdinalValue"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:label rdf:datatype="&xs;string">Ordinal Measure</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">An ordinal measure is a nominal measure where the order is significant. Likert scales (extremely dissatisified through to extremely satisfied, for instance, are ordered) as are questions where one answer assumes the lower ones (Amazon book ratings or, how much do you smoke: a) none, b) less than a pack a day, c) 1-2 packs, d) more than 2 packs).</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;OrdinalMember">
+		<rdfs:subClassOf rdf:resource="&gist;Category"/>
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;strictlyPrecedes"/>
+						<owl:someValuesFrom rdf:resource="&gist;OrdinalMember"/>
+					</owl:Restriction>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;strictlyPrecededBy"/>
+						<owl:someValuesFrom rdf:resource="&gist;OrdinalMember"/>
+					</owl:Restriction>
+				</owl:unionOf>
+			</owl:Class>
+		</rdfs:subClassOf>
+		<rdfs:label rdf:datatype="&xs;string">Ordinal Member</rdfs:label>
+		<rdfs:label rdf:datatype="&xs;string">OrdinalMember</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A member of an OrdinalCollection; necessarily precedes or is precededBy another OrdinalMember in the same collection (last part cannot be stated in OWL).</rdfs:comment>
+		<owl:equivalentClass>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;orderedMemberOf"/>
+				<owl:someValuesFrom rdf:resource="&gist;OrdinalCollection"/>
+			</owl:Restriction>
+		</owl:equivalentClass>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;OrdinalSet">
+		<rdfs:label rdf:datatype="&xs;string">Ordinal Set</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">An OrdinalCollection used as a scale of measure.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLES: Likert scales (extremely dissatisified through to extremely satisfied, for instance, are ordered). Questions where one answer assumes the lower ones (Amazon book ratings or, how much do you smoke: a) none, b) less than a pack a day, c) 1-2 packs, d) more than 2 packs).</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE: an OrdinalSet can be used to rank each item in an OrderedCollection where there may be ties, even though there are no ties in the values on the OrdinalSet.</rdfs:comment>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;OrdinalCollection">
+					</rdf:Description>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;hasMember"/>
+						<owl:someValuesFrom rdf:resource="&gist;OrdinalValue"/>
+					</owl:Restriction>
+				</owl:intersectionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;OrdinalValue">
+		<rdfs:label rdf:datatype="&xs;string">Ordinal Value</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A value  that is member of a an OrdinalSet.</rdfs:comment>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;OrdinalMember">
+					</rdf:Description>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;memberOf"/>
+						<owl:someValuesFrom rdf:resource="&gist;OrdinalSet"/>
+					</owl:Restriction>
+				</owl:intersectionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;PersonalAspect">
+		<rdfs:label rdf:datatype="&xs;string">Personal Aspect</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Measuring something about a person.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Aspect">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;aspectOf"/>
+				<owl:someValuesFrom rdf:resource="&gist;Person"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;PhysicalThing">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Prediction">
+		<rdfs:label rdf:datatype="&xs;string">Prediction</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">An estimate about an event or a thing which has not yet occurred. This is the date that the prediction is for.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Measurement">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;planned"/>
+				<owl:someValuesFrom rdf:resource="&gist;TimeInstant"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;RatioMeasure">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasMagnitude"/>
+				<owl:someValuesFrom rdf:resource="&gist;RatioMagnitude"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:label rdf:datatype="&xs;string">Ratio Measure</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Measures with a true zero, and therefore ratios can meaningfully be used. All Magnitudes are RatioMeasures with the exception of non-Kelvin temperatures.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ReferenceValue">
+		<rdfs:subClassOf rdf:resource="&gist;Magnitude"/>
+		<rdfs:label rdf:datatype="&xs;string">Reference Value</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A measure that was neither measured nor estimated but set by fiat, for instance, a goal. There is no Measurement assocated with a ReferenceValue.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;SubjectiveMeasurement">
+		<rdfs:label rdf:datatype="&xs;string">Subjective Measurement</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Where the Person assessing is the same as the Person whose aspect is being measured (self assement, essentially).</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Measurement">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;producedBy"/>
+				<owl:someValuesFrom rdf:resource="&gist;SubjectiveProcedure"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;assessedBy"/>
+				<owl:someValuesFrom rdf:resource="&gist;Person"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;measuring"/>
+				<owl:someValuesFrom rdf:resource="&gist;PersonalAspect"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;SubjectiveProcedure">
+		<rdfs:subClassOf rdf:resource="&gist;MeasurementProcedure"/>
+		<rdfs:label rdf:datatype="&xs;string">Subjective Procedure</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A procedure that relies on judgement of a human.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Template">
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&gist;aspectOf">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;assessedBy">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;basedOn">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;connectedTo">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;describedIn">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasAspect">
+		<rdfs:comment rdf:datatype="&xs;string">The Object is a measureable characteristic of the Subject.</rdfs:comment>
+		<rdfs:range rdf:resource="&gist;Aspect"/>
+		<owl:inverseOf rdf:resource="&gist;aspectOf"/>
+		<owl:propertyChainAxiom rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;thingMeasuredOn">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;measuring">
+			</rdf:Description>
+		</owl:propertyChainAxiom>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasFeature">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasMagnitude">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasMember">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasNominalValue">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasOrderedMember">
+		<rdfs:subPropertyOf rdf:resource="&gist;hasMember"/>
+		<rdfs:comment rdf:datatype="&xs;string">An inverse functional version of  hasMember to ensure that no OrderedMember can be in more than one OrderedCollection., which can quickly lead to problems.</rdfs:comment>
+		<owl:inverseOf rdf:resource="&gist;orderedMemberOf"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;measuredOn">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;measuredVia">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;measuring">
+		<rdfs:subPropertyOf rdf:resource="&gist;connectedTo"/>
+		<rdfs:comment rdf:datatype="&xs;string">Connects the Measurement to the Aspect that is being measured.</rdfs:comment>
+		<owl:inverseOf rdf:resource="&gist;measuredVia"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;memberOf">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;orderedMemberOf">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;planned">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;precedes">
+		<rdfs:comment rdf:datatype="&xs;string">A generic ordering relation indicating that the Subject has the same order as or comes before the Object. The &apos;greater than or equal to&apos; symbol is often used for this relation.</rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;producedBy">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;strictlyPrecededBy">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;strictlyPrecedes">
+		<rdfs:subPropertyOf rdf:resource="&gist;precedes"/>
+		<rdfs:comment rdf:datatype="&xs;string">A generic ordering relation indicating that the Subject comes before the Object, it may not be of equal rank. The greater than symbol is often used for this relation.</rdfs:comment>
+		<owl:inverseOf rdf:resource="&gist;strictlyPrecededBy"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;thingMeasured">
+		<rdfs:subPropertyOf rdf:resource="&gist;connectedTo"/>
+		<rdfs:comment rdf:datatype="&xs;string">Connects the Measurement to the thing whose characteristic is being measured.</rdfs:comment>
+		<rdfs:domain rdf:resource="&gist;Measurement"/>
+		<owl:inverseOf rdf:resource="&gist;measuredOn"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;thingMeasuredOn">
+	</owl:ObjectProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;comment">
+	</owl:AnnotationProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
+
+</rdf:RDF>

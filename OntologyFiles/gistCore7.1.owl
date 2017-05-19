@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY gist "http://ontologies.semanticarts.com/gist#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://ontologies.semanticarts.com/o/gistCore"
+	xmlns:gist="http://ontologies.semanticarts.com/gist#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistCore">
+		<rdfs:comment rdf:datatype="&xs;string">gist7.1 Core this is meant to recreate the equivalent of gistCore6.9 by reassembling the pieces`</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistCore</rdfs:comment>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistAgreement7.1"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistCategory7.1"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistEvent7.1"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistMeasure7.1"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistOrganization7.1"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTemporalRelation7.1"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistCore7.1"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from C:\Users\andibzzt\Dropbox\SemanticArts\gist\gist 7.0\gist7.1\gist7.1.vsd Page:gistCore</owl:versionInfo>
+	</owl:Ontology>
+
+</rdf:RDF>
