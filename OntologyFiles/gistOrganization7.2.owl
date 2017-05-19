@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY gist "http://ontologies.semanticarts.com/gist#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://ontologies.semanticarts.com/o/gistOrganization"
+	xmlns:gist="http://ontologies.semanticarts.com/gist#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistOrganization">
+		<rdfs:comment rdf:datatype="&xs;string">gist7.2 org</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistOrganization</rdfs:comment>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistAddress7.2"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistPerson7.2"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistPlace7.2"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistOrganization7.2"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\__internallyReleasedGists\_gist7.2 May 2015\gist7.2.vsd Page:org</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&gist;Agreement">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Category">
+		<rdfs:label rdf:datatype="&xs;string">Category</rdfs:label>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Collection">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Content">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;CountryGovernment">
+		<rdfs:label rdf:datatype="&xs;string">Country Government</rdfs:label>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;GovernmentOrganization">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;directlyRecognizedBy"/>
+				<owl:hasValue rdf:resource="&gist;_unitedNations"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;governs"/>
+				<owl:someValuesFrom rdf:resource="&gist;GeoRegion"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;GovernmentOrganization">
+		<rdfs:label rdf:datatype="&xs;string">Government Organization</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLE: State of WA Office of Financial Management; the FDA, the Scottish Parliament</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">Established either by fiat (as a conquering army overtakes a land and declares a government) or by delegation from a fiat government, such as a state or local government or a specific agency. Differ from corporations in that they cannot be owned.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE: Recognition by a CountryGovernment may be indirect via local, regional or national GovernmentOrganization(s) that ultimately are recognized by a CountryGovernment.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Organization">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;recognizedBy"/>
+				<owl:someValuesFrom rdf:resource="&gist;CountryGovernment"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Group">
+		<rdfs:label rdf:datatype="&xs;string">Group</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A gist:Group is a group of People, they may or may not be an organization.  Many organizations consist of groups of people but that isn&apos;t a defining characteristic.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Collection">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasMember"/>
+				<owl:someValuesFrom rdf:resource="&gist;Person"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;IntellectualProperty">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Intention">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Organization">
+		<rdfs:label rdf:datatype="&xs;string">Organization</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A generic organization that can be, e.g., formal or informal, legal or non-legal. It can have members or not</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLE: Legal entities like companies, non-legal entities like clubs, committees or departments.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE: There are a plethora of different kinds of organizations that differ along many facets, including members, structure, purpose, legal vs. non-legal etc.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;PhysicalThing">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Place">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;SocialBeing">
+	</owl:Class>
+	
+	<gist:GovernmentOrganization rdf:about="&gist;_unitedNations">
+		<rdf:type rdf:resource="&owl;Thing"/>
+		<rdfs:comment rdf:datatype="&xs;string">if the united nations recognizes you as a country you are a country</rdfs:comment>
+	</gist:GovernmentOrganization>
+	
+	<owl:ObjectProperty rdf:about="&gist;directlyRecognizedBy">
+		<rdfs:subPropertyOf rdf:resource="&gist;recognizedBy"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;governedBy">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;governs">
+		<rdfs:comment rdf:datatype="&xs;string">The subject controls or inhibits the object in some way</rdfs:comment>
+		<rdfs:domain>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;SocialBeing">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;Intention">
+					</rdf:Description>
+				</owl:unionOf>
+			</owl:Class>
+		</rdfs:domain>
+		<rdfs:range>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;SocialBeing">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;Place">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;Category">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;Content">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;Agreement">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;IntellectualProperty">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;PhysicalThing">
+					</rdf:Description>
+				</owl:unionOf>
+			</owl:Class>
+		</rdfs:range>
+		<owl:inverseOf rdf:resource="&gist;governedBy"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasJurisdiction">
+		<rdfs:domain rdf:resource="&gist;SocialBeing"/>
+		<owl:inverseOf rdf:resource="&gist;presidedOverBy"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasMember">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;presidedOverBy">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;recognizedBy">
+		<rdfs:comment rdf:datatype="&xs;string">The entity that formally acknowledges the existence of, as the State recognizes the existence of a particular company</rdfs:comment>
+		<rdfs:range rdf:resource="&gist;SocialBeing"/>
+		<owl:inverseOf rdf:resource="&gist;recognizes"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;recognizes">
+	</owl:ObjectProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;comment">
+	</owl:AnnotationProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
+
+</rdf:RDF>

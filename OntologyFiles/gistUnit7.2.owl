@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY gist "http://ontologies.semanticarts.com/gist#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://ontologies.semanticarts.com/o/gistUnit"
+	xmlns:gist="http://ontologies.semanticarts.com/gist#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistUnit">
+		<rdfs:comment rdf:datatype="&xs;string">gist7.2 units of measure</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistUnit</rdfs:comment>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTop7.2"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistUnit7.2"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\__internallyReleasedGists\_gist7.2 May 2015\gist7.2.vsd Page:unit</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&gist;AreaUnit">
+		<rdfs:label rdf:datatype="&xs;string">Area Unit</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Units of two-dimensional area such as square inches and hectares.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;ProductUnit">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;multiplier"/>
+				<owl:someValuesFrom rdf:resource="&gist;DistanceUnit"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;multiplicand"/>
+				<owl:someValuesFrom rdf:resource="&gist;DistanceUnit"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;BaseUnit">
+		<rdfs:subClassOf rdf:resource="&gist;SimpleUnitOfMeasure"/>
+		<rdfs:label rdf:datatype="&xs;string">Base Unit</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">The base units in gist are the seven primary ones from SI (second, kilogram etc) plus two convenience ones: each and usDollar.</rdfs:comment>
+		<owl:oneOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;each">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;kilogram">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;kelvin">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;ampere">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;candela">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;mole">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;second">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;meter">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;uSDollar">
+			</rdf:Description>
+		</owl:oneOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;CountingUnit">
+		<rdfs:label rdf:datatype="&xs;string">Counting Unit</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Units of counting, especially &quot;each&quot; but also units such as dozens.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;SimpleUnitOfMeasure">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasBaseUnit"/>
+				<owl:hasValue rdf:resource="&gist;each"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;CurrencyUnit">
+		<rdfs:label rdf:datatype="&xs;string">Currency Unit</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Units of money. Note: this is the only unit whose conversion factors include time (i.e., the conversion rates change on a daily basis).</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;SimpleUnitOfMeasure">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasBaseUnit"/>
+				<owl:hasValue rdf:resource="&gist;uSDollar"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;DistanceUnit">
+		<rdfs:label rdf:datatype="&xs;string">Distance Unit</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Units to measure linear distance such as feet and kilometers.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;SimpleUnitOfMeasure">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasBaseUnit"/>
+				<owl:hasValue rdf:resource="&gist;meter"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;DurationUnit">
+		<rdfs:label rdf:datatype="&xs;string">Duration Unit</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Units to measure passage of time, hours, days, years.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;SimpleUnitOfMeasure">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasBaseUnit"/>
+				<owl:hasValue rdf:resource="&gist;second"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ElectricalCurrentUnit">
+		<rdfs:label rdf:datatype="&xs;string">Electrical Current Unit</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Units of electrical current, which is charge per unit time.  Note that watts, current and kilowatt-hours are composed units.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;SimpleUnitOfMeasure">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasBaseUnit"/>
+				<owl:hasValue rdf:resource="&gist;ampere"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;LuminescenceUnit">
+		<rdfs:label rdf:datatype="&xs;string">Luminescence Unit</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Measure of brightness (candles).</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;SimpleUnitOfMeasure">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasBaseUnit"/>
+				<owl:hasValue rdf:resource="&gist;candela"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;MassUnit">
+		<rdfs:label rdf:datatype="&xs;string">Mass Unit</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Units of weight, e.g., pounds, kilos, etc.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;SimpleUnitOfMeasure">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasBaseUnit"/>
+				<owl:hasValue rdf:resource="&gist;kilogram"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;MoleUnit">
+		<rdfs:label rdf:datatype="&xs;string">Mole Unit</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Amount of chemical material.  Measured in avagadro units of 6.02 x 10 ^23 molecules</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;SimpleUnitOfMeasure">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasBaseUnit"/>
+				<owl:hasValue rdf:resource="&gist;mole"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ProductUnit">
+		<rdfs:label rdf:datatype="&xs;string">Product Unit</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Product Units are units of measure that are the product of two simpler ones.  Area and Volume are the classic cases, but other more exotics cases exist, like newtons.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;UnitOfMeasure">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;multiplier"/>
+				<owl:someValuesFrom rdf:resource="&gist;UnitOfMeasure"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;multiplicand"/>
+				<owl:someValuesFrom rdf:resource="&gist;UnitOfMeasure"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;convertToBase"/>
+				<owl:minQualifiedCardinality rdf:datatype="&xs;nonNegativeInteger">0</owl:minQualifiedCardinality>
+				<owl:onDataRange rdf:resource="&xs;double"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;RatioUnit">
+		<rdfs:label rdf:datatype="&xs;string">Ratio Unit</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A UnitOfMeasure composed of a numerator unit and a denominator unit.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLE: miles/hour</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE: If needed, a conversion factor for a RatioUnit can be (recursively) derived from the conversion factors of the numerator and denominator units.  E.g. the derived conversion factor from km/minute to meters/second is 1000/60 or 16 2/3.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;UnitOfMeasure">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;numerator"/>
+				<owl:someValuesFrom rdf:resource="&gist;UnitOfMeasure"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;denominator"/>
+				<owl:someValuesFrom rdf:resource="&gist;UnitOfMeasure"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;SimpleUnitOfMeasure">
+		<rdfs:subClassOf rdf:resource="&gist;UnitOfMeasure"/>
+		<rdfs:label rdf:datatype="&xs;string">Simple Unit Of Measure</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">The primitive units can be converted, the complex units (ratio or product) have to decompose to their primitives. Each unit has a base unit and a conversion factor to the base. The bases are from SI. This is the number you multiple a Unit by to get to base or divide by to get from base.  So the convertToBase for inch is 0.0254 to get you to the base (meter)</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;convertToBase"/>
+				<owl:someValuesFrom rdf:resource="&xs;double"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasBaseUnit"/>
+				<owl:onClass rdf:resource="&gist;BaseUnit"/>
+				<owl:qualifiedCardinality rdf:datatype="&xs;nonNegativeInteger">1</owl:qualifiedCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;TemperatureUnit">
+		<rdfs:label rdf:datatype="&xs;string">Temperature Unit</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Temperatures have a different zero value and therefore need an offset for conversion.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;SimpleUnitOfMeasure">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasBaseUnit"/>
+				<owl:hasValue rdf:resource="&gist;kelvin"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;conversionOffset"/>
+				<owl:someValuesFrom rdf:resource="&xs;double"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;UnitOfMeasure">
+		<rdfs:label rdf:datatype="&xs;string">Unit of Measure</rdfs:label>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;VolumeUnit">
+		<rdfs:label rdf:datatype="&xs;string">Volume Unit</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Units of three dimensional space, expressed here as an area times a distance</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;ProductUnit">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;multiplier"/>
+				<owl:someValuesFrom rdf:resource="&gist;AreaUnit"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;multiplicand"/>
+				<owl:someValuesFrom rdf:resource="&gist;DistanceUnit"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<gist:BaseUnit rdf:about="&gist;ampere">
+		<rdf:type rdf:resource="&owl;Thing"/>
+		<gist:convertToBase rdf:datatype="&xs;double">1.0</gist:convertToBase>
+		<gist:hasBaseUnit rdf:resource="&gist;ampere"/>
+	</gist:BaseUnit>
+	
+	<gist:BaseUnit rdf:about="&gist;candela">
+		<rdf:type rdf:resource="&owl;Thing"/>
+		<gist:convertToBase rdf:datatype="&xs;double">1.0</gist:convertToBase>
+		<gist:hasBaseUnit rdf:resource="&gist;candela"/>
+	</gist:BaseUnit>
+	
+	<owl:DatatypeProperty rdf:about="&gist;conversionOffset">
+		<rdfs:comment rdf:datatype="&xs;string">Add this number to get to the zero point.  On the Celsius scale, the conversionOffset is -273.15 degrees C. On the Fahrenheit scale it is -459.67 degrees.  Is equal to 0 when the unit has the same zero point as the base unit. e.g. inch, meter.</rdfs:comment>
+		<rdfs:domain rdf:resource="&gist;UnitOfMeasure"/>
+		<rdfs:range rdf:resource="&xs;double"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&gist;convertToBase">
+		<rdfs:comment rdf:datatype="&xs;string">The conversion factor used to get to the base unit.  E.g., multiplying by 0.0254 gets you from inches to meters. Divide by this number to go the other way. Used in conjunction with conversionOffset to convert from one unit to another. 
+Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)) * (5/9).  To go the other way: F = (K * 9/5) -469.67.  Try it on Google.</rdfs:comment>
+		<rdfs:domain rdf:resource="&gist;UnitOfMeasure"/>
+		<rdfs:range rdf:resource="&xs;double"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;denominator">
+		<rdfs:comment rdf:datatype="&xs;string">Relates a RatioUnit such as meters/second to the denominator Unit (e.g. second).</rdfs:comment>
+		<rdfs:domain rdf:resource="&gist;RatioUnit"/>
+		<rdfs:range rdf:resource="&gist;UnitOfMeasure"/>
+	</owl:ObjectProperty>
+	
+	<gist:BaseUnit rdf:about="&gist;each">
+		<rdf:type rdf:resource="&owl;Thing"/>
+		<gist:convertToBase rdf:datatype="&xs;double">1.0</gist:convertToBase>
+		<gist:hasBaseUnit rdf:resource="&gist;each"/>
+	</gist:BaseUnit>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasBaseUnit">
+		<rdfs:comment rdf:datatype="&xs;string">Relates a UnitOfMeasure to its BaseUnit.  This indicates what kind Unit something is, e.g. saying that a furlong hasBaseUnit  meter says it is a DistanceUnit.</rdfs:comment>
+		<rdfs:domain rdf:resource="&gist;UnitOfMeasure"/>
+		<rdfs:range rdf:resource="&gist;BaseUnit"/>
+	</owl:ObjectProperty>
+	
+	<gist:BaseUnit rdf:about="&gist;kelvin">
+		<rdf:type rdf:resource="&owl;Thing"/>
+		<gist:conversionOffset rdf:datatype="&xs;double">0</gist:conversionOffset>
+		<gist:convertToBase rdf:datatype="&xs;double">1.0</gist:convertToBase>
+		<gist:hasBaseUnit rdf:resource="&gist;kelvin"/>
+	</gist:BaseUnit>
+	
+	<gist:BaseUnit rdf:about="&gist;kilogram">
+		<rdf:type rdf:resource="&owl;Thing"/>
+		<gist:convertToBase rdf:datatype="&xs;double">1.0</gist:convertToBase>
+		<gist:hasBaseUnit rdf:resource="&gist;kilogram"/>
+	</gist:BaseUnit>
+	
+	<gist:BaseUnit rdf:about="&gist;meter">
+		<rdf:type rdf:resource="&owl;Thing"/>
+		<gist:convertToBase rdf:datatype="&xs;double">1.0</gist:convertToBase>
+		<gist:hasBaseUnit rdf:resource="&gist;meter"/>
+	</gist:BaseUnit>
+	
+	<gist:BaseUnit rdf:about="&gist;mole">
+		<rdf:type rdf:resource="&owl;Thing"/>
+		<gist:convertToBase rdf:datatype="&xs;double">1.0</gist:convertToBase>
+		<gist:hasBaseUnit rdf:resource="&gist;mole"/>
+	</gist:BaseUnit>
+	
+	<owl:ObjectProperty rdf:about="&gist;multiplicand">
+		<rdfs:comment rdf:datatype="&xs;string">Relates a ProductUnit such as square mile to the second of two units multiplied together (e.g. mile).</rdfs:comment>
+		<rdfs:domain rdf:resource="&gist;ProductUnit"/>
+		<rdfs:range rdf:resource="&gist;UnitOfMeasure"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;multiplier">
+		<rdfs:comment rdf:datatype="&xs;string">Relates a ProductUnit such as square mile to the first of two units multiplied together (e.g. mile)</rdfs:comment>
+		<rdfs:domain rdf:resource="&gist;ProductUnit"/>
+		<rdfs:range rdf:resource="&gist;UnitOfMeasure"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;numerator">
+		<rdfs:comment rdf:datatype="&xs;string">Relates a RatioUnit such as meter(s)/second to the numerator Unit (e.g. meter).</rdfs:comment>
+		<rdfs:domain rdf:resource="&gist;RatioUnit"/>
+		<rdfs:range rdf:resource="&gist;UnitOfMeasure"/>
+	</owl:ObjectProperty>
+	
+	<gist:BaseUnit rdf:about="&gist;second">
+		<rdf:type rdf:resource="&owl;Thing"/>
+		<gist:convertToBase rdf:datatype="&xs;double">1.0</gist:convertToBase>
+		<gist:hasBaseUnit rdf:resource="&gist;second"/>
+	</gist:BaseUnit>
+	
+	<gist:BaseUnit rdf:about="&gist;uSDollar">
+		<rdf:type rdf:resource="&owl;Thing"/>
+		<gist:convertToBase rdf:datatype="&xs;double">1.0</gist:convertToBase>
+		<gist:hasBaseUnit rdf:resource="&gist;uSDollar"/>
+	</gist:BaseUnit>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;comment">
+	</owl:AnnotationProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
+	
+	<owl:AllDifferent>
+		<owl:distinctMembers rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;each">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;kilogram">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;kelvin">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;ampere">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;candela">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;mole">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;second">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;meter">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;uSDollar">
+			</rdf:Description>
+		</owl:distinctMembers>
+	</owl:AllDifferent>
+</rdf:RDF>

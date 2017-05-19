@@ -1,0 +1,76 @@
+﻿------------------------
+Release notes gist 7.2
+------------------------
+7.2 added supprt for gistWiki, which is being built as a way to maintain a gist based semantic wiki
+ 
+Also added gistRDFShapes which will allows us to store RDFShapes in teh repository
+
+Added Tag as a new type in Categories and changed the restriction on the Governance Committee rather than the Controlled Vocabulary
+
+Moved a few concepts higher in the import order includeing OrderedCollection, categorizedBy and sequence 
+
+Made a number of refactoring type changes, see the change log in the visio for details.
+
+
+------------------------
+Release notes gist 7.1.1
+------------------------
+gist 7.1.1 was released to fix an erroneous disjoint statement on the class gist:Magnitude. 
+
+If you previously downloaded gist 7.1 you may have experienced an inference error if you attempted to run inference using Hermit. 
+The gist 7.1.1 release has eliminated the cause of this error. 
+
+In addition to using the OWL files locally, you can import these files via URL directly into your ontology editor of choice(Protegé, Topbraid, etc.) 
+The import will take care of the dependencies.
+
+Import URL: http://ontologies.semanticarts.com/o/gistCore7.1.1.owl
+
+----------------------
+Release notes gist 7.1
+----------------------
+
+gist 7.1 is a release that primarily fixes minor errors like typos in our gist 7.0 release. 
+
+Below is a brief summary of the changes that have semantic import from an inference perspective (axiom added, removed, changed, etc.)
+or that are backward incompatible.
+
+* Made gist:uniqueText a sub-property of gist:containedText
+* Added gist:Agreement to range of gist:governs
+* Changed gist:prevent, gist:allow and gist:require to gist:prevents, gist:allows, and gist:requires
+* Changed restriction on gist:Offer to use gist:hasDirectPart some gist:CatalogItem
+* Removed property gist:specifiedIn, no longer needed
+* Changed property restriction on gist:Account from gist:hasA some gist:Balance to gist:hasMagnitude some gist:Balance
+* Bugfix, inverse property of gist:hasDirectSubtask changed to gist:directSubtaskOf
+* Added gist:IntellectualProperty and gist:PhysicalThing to the range of gist:governs
+* In the definition of gist:Requirement, removed gist:Conformance from the range of gist:requires
+
+In addition to using the OWL files locally, you can import these files via URL directly into your ontology editor of choice(Protegé, Topbraid, etc.) 
+The import will take care of the dependencies.
+
+Import URL: http://ontologies.semanticarts.com/o/gistCore7.1.owl
+
+----------------------
+Release Notes gist 7.0
+----------------------
+
+gist 7.0 is a major upgrade from our last released version (6.7.1). The main differences are:
+
+* gist 7.0 is extremely modular. There are 18 modules that can be used collectively or in subsets if you don't need all the concepts in gist.
+* gist 7.0 is more elegant than its predecessors. We have reduced the number of top level concepts that everything else derives from to 12. 
+  And these 12 concepts are not philosophical abstractions like endurants and perdurants, or qualia, there are normal terms whose definitions 
+  are quite close to what you already believe.
+* gist 7.0 has more extensive and more-fine grained disjointness at the highest level. It turns out that in order for an upper ontology to 
+  help you avoid making logical errors in your derived enterprise or application ontology, it needs to make use of disjointness. Without 
+  disjointness, the reasoner does not find logic errors.
+
+For documentation and OWL files regarding terms that were deprecated when moving from version 6.7.1 to 7.0, please see the sub-folder called
+"Depricated terms from gist6.7.1" 
+
+In addition to using the OWL files locally, you can import these files via URL directly into your ontology editor of choice(Protegé, Topbraid, etc.) 
+The import will take care of the dependencies.
+
+Import URL: http://ontologies.semanticarts.com/o/gistCore7.0.owl
+
+
+
+

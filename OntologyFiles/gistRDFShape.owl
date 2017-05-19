@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY gist "http://ontologies.semanticarts.com/gist#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://ontologies.semanticarts.com/o/gistRDFShapes"
+	xmlns:gist="http://ontologies.semanticarts.com/gist#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistRDFShapes">
+		<rdfs:comment rdf:datatype="&xs;string">gist 7.2 RDFShapes to store and be able to do impact analysis on RDF shapes.  Note many of these don&apos;t descend from gist classes as they are very &quot;meta&quot;</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gist:RFShapes</rdfs:comment>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTop7.2"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistShapes7.2"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\__internallyReleasedGists\_gist7.2 May 2015\gist7.2.vsd Page:gistRDFShapes</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&gist;Category">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ErrorMessage">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;containedText"/>
+				<owl:someValuesFrom rdf:resource="&xs;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;RDFActionAllowed">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;containedText"/>
+				<owl:someValuesFrom rdf:resource="&xs;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&rdfs;label"/>
+				<owl:someValuesFrom rdf:resource="&xs;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:comment rdf:datatype="&xs;string">This allows us to set up arbitrary actions for UI.  The label is the display label, the text is code to be executed</rdfs:comment>
+	</owl:Class>
+	
+	<owl:AnnotationProperty rdf:about="&gist;RDFAndIncludes">
+		<rdfs:comment rdf:datatype="&xs;string">The rules that this shape includes</rdfs:comment>
+	</owl:AnnotationProperty>
+	
+	<owl:Class rdf:about="&gist;RDFAtom">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;categorizedBy"/>
+				<owl:someValuesFrom rdf:resource="&gist;VisibilityCategory"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:comment rdf:datatype="&xs;string">individual line in the Shape</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;RDFClassAtom">
+		<rdfs:subClassOf rdf:resource="&gist;RDFAtom"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;RDFDescribeQuery">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;containedText"/>
+				<owl:someValuesFrom rdf:resource="&xs;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:comment rdf:datatype="&xs;string">This is an improved version of DESCRIBE, and has possibility for variable substitution</rdfs:comment>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&gist;RDFExtends">
+		<rdfs:domain rdf:resource="&gist;RDFShape"/>
+		<rdfs:range rdf:resource="&gist;RDFShape"/>
+	</owl:ObjectProperty>
+	
+	<owl:Class rdf:about="&gist;RDFGroupAtom">
+		<rdfs:subClassOf rdf:resource="&gist;RDFAtom"/>
+		<rdfs:comment rdf:datatype="&xs;string">This can be a group of any of the three types</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;RDFLiteralAtom">
+		<rdfs:subClassOf rdf:resource="&gist;RDFAtom"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;containedText"/>
+				<owl:someValuesFrom rdf:resource="&xs;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:comment rdf:datatype="&xs;string">Here the text is just xsd:string, xsd:integer, xsd:double or xsd:dateTime</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;RDFMatchSpec">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;containedText"/>
+				<owl:someValuesFrom rdf:resource="&xs;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:AnnotationProperty rdf:about="&gist;RDFOrIncludes">
+		<rdfs:comment rdf:datatype="&xs;string">Any of the parts can be true</rdfs:comment>
+	</owl:AnnotationProperty>
+	
+	<owl:Class rdf:about="&gist;RDFPropertyType">
+		<rdfs:comment rdf:datatype="&xs;string">URI of a property</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;RDFRule">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;containedText"/>
+				<owl:someValuesFrom rdf:resource="&xs;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;maxOccurs"/>
+				<owl:someValuesFrom rdf:resource="&xs;integer"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;minOccurs"/>
+				<owl:someValuesFrom rdf:resource="&xs;integer"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:comment rdf:datatype="&xs;string">individual rule to be satisfied.  text is code to be executed</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;RDFShape">
+		<rdfs:comment rdf:datatype="&xs;string">Based on the RDF Shape standard (implementing a subset)</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;RDFShapeAtom">
+		<rdfs:subClassOf rdf:resource="&gist;RDFAtom"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;RDFShapeType">
+		<rdfs:comment rdf:datatype="&xs;string">URI of a class or a list of classes</rdfs:comment>
+	</owl:Class>
+	
+	<owl:AnnotationProperty rdf:about="&gist;RDFType">
+		<rdfs:comment rdf:datatype="&xs;string">Shape refers to a class or property   or list of classes or properties</rdfs:comment>
+	</owl:AnnotationProperty>
+	
+	<owl:Class rdf:about="&gist;VisibilityCategory">
+		<rdfs:subClassOf rdf:resource="&gist;Category"/>
+		<rdfs:comment rdf:datatype="&xs;string">Hidden or Visible</rdfs:comment>
+	</owl:Class>
+	
+	<gist:VisibilityCategory rdf:about="&gist;_category_hidden">
+	</gist:VisibilityCategory>
+	
+	<gist:VisibilityCategory rdf:about="&gist;_category_visible">
+	</gist:VisibilityCategory>
+	
+	<owl:ObjectProperty rdf:about="&gist;categorizedBy">
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&gist;containedText">
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&gist;maxOccurs">
+		<rdfs:range rdf:resource="&xs;integer"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&gist;minOccurs">
+		<rdfs:range rdf:resource="&xs;integer"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&rdfs;label">
+	</owl:DatatypeProperty>
+
+</rdf:RDF>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY gist "http://ontologies.semanticarts.com/gist#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://ontologies.semanticarts.com/o/gistCategory"
+	xmlns:gist="http://ontologies.semanticarts.com/gist#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistCategory">
+		<rdfs:comment rdf:datatype="&xs;string">gist7.2 Categoy</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistCategory</rdfs:comment>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistContent7.2"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistCategory7.2"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\__internallyReleasedGists\_gist7.2 May 2015\gist7.2.vsd Page:cat</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&gist;Category">
+		<rdfs:label rdf:datatype="&xs;string">Category</rdfs:label>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Collection">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ControlledVocabulary">
+		<rdfs:label rdf:datatype="&xs;string">Controlled Vocabulary</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Key terms and who is approving them</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Collection">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasMember"/>
+				<owl:someValuesFrom rdf:resource="&gist;Category"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;GovernanceCommittee">
+		<rdfs:label rdf:datatype="&xs;string">Governance Committee</rdfs:label>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Group">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;directPartOf"/>
+				<owl:someValuesFrom rdf:resource="&gist;Organization"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;governs"/>
+				<owl:someValuesFrom rdf:resource="&gist;ControlledVocabulary"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Group">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Tag">
+		<rdfs:subClassOf rdf:resource="&gist;Category"/>
+		<rdfs:label rdf:datatype="&xs;string">Tag</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">This is for folksonomy type terms, that can be made up on the fly by users</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Category">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;containedText"/>
+				<owl:someValuesFrom rdf:resource="&xs;string"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Taxonomy">
+		<rdfs:subClassOf rdf:resource="&gist;ControlledVocabulary"/>
+		<rdfs:label rdf:datatype="&xs;string">Taxonomy</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Hierarchical relationship of concepts in a controlled vocabulary.  Note we need to have a property that represents the hierachy and we need a way to distinguish formal and informal taxos</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Text">
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&gist;allocatedBy">
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&gist;containedText">
+		<rdfs:comment rdf:datatype="&xs;string">Links to the string corresponding to Text</rdfs:comment>
+		<rdfs:range rdf:resource="&xs;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;directPartOf">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;governedBy">
+		<owl:inverseOf rdf:resource="&gist;governs"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;governs">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasMember">
+	</owl:ObjectProperty>
+	
+	<rdf:Description rdf:about="&gist;hasPreferredTerm">
+		<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+		<rdf:type rdf:resource="&owl;ObjectProperty"/>
+		<rdfs:comment rdf:datatype="&xs;string">If there are many terms for a concept or specific instance, this is the one to use.</rdfs:comment>
+		<rdfs:range rdf:resource="&gist;Text"/>
+		<owl:inverseOf rdf:resource="&gist;preferredTermOf"/>
+	</rdf:Description>
+	
+	<owl:ObjectProperty rdf:about="&gist;preferredTermOf">
+	</owl:ObjectProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
+
+</rdf:RDF>

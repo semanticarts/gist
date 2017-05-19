@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY gist "http://ontologies.semanticarts.com/gist#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://ontologies.semanticarts.com/o/gistMagnitude"
+	xmlns:gist="http://ontologies.semanticarts.com/gist#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistMagnitude">
+		<rdfs:comment rdf:datatype="&xs;string">gist7.2 magnitudes</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistMagnitude</rdfs:comment>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTop7.2"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistUnit7.2"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistMagnitude7.2"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\__internallyReleasedGists\_gist7.2 May 2015\gist7.2.vsd Page:mag</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&gist;Area">
+		<rdfs:label rdf:datatype="&xs;string">Area</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Two-dimensional area.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Magnitude">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasUoM"/>
+				<owl:someValuesFrom rdf:resource="&gist;AreaUnit"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Count">
+		<rdfs:label rdf:datatype="&xs;string">Count</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Measures that involve countable amounts (&quot;eaches&quot; as well as cases, etc.). Can be decimal. Note: we did not make count disjoint with all the other magnitudes as there are some magnitudes that could conceivably be counted (say distance in rods, it&apos;s a bit of a stretch admittedly but shouldn&apos;t harm anything).</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Magnitude">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasUoM"/>
+				<owl:someValuesFrom rdf:resource="&gist;CountingUnit"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Duration">
+		<rdfs:label rdf:datatype="&xs;string">Duration</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Time, but not on time line. For instance one week, or seven days, but not Jan 1, 2008 to Jan 7, 2008 (which is an interval). Intervals have durations but aren&apos;t durations.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Magnitude">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasUoM"/>
+				<owl:someValuesFrom rdf:resource="&gist;DurationUnit"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ElectricCurrent">
+		<rdfs:label rdf:datatype="&xs;string">Electric Current</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Amperage</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Magnitude">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasUoM"/>
+				<owl:someValuesFrom rdf:resource="&gist;ElectricalCurrentUnit"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Extent">
+		<rdfs:label rdf:datatype="&xs;string">Extent</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A measure of distance which could be distances over the earth, and could also be height, width, length, depth, girth, etc.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Magnitude">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasUoM"/>
+				<owl:someValuesFrom rdf:resource="&gist;DistanceUnit"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Luminance">
+		<rdfs:label rdf:datatype="&xs;string">Luminance</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Measure of light</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Magnitude">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasUoM"/>
+				<owl:someValuesFrom rdf:resource="&gist;LuminescenceUnit"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Magnitude">
+		<rdfs:label rdf:datatype="&xs;string">Magnitude</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A scalar value which is either measured, estimated or set as a reference value. Magnitudes of the same dimensional type ( i.e., duration or electric current) can be compared with a greater than or less than operator, but can still differ in their relationToTheWorld type (i.e., you can compare actuals to estimates or references as long as the dimension is the same).</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE: Note the precision should be in the same type of unit as the magnitude but we&apos;d need rules to enforce that</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasUoM"/>
+				<owl:someValuesFrom rdf:resource="&gist;UnitOfMeasure"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasPrecision"/>
+				<owl:someValuesFrom rdf:resource="&gist;Magnitude"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;of"/>
+				<owl:someValuesFrom rdf:resource="&owl;Thing"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;decimalValue"/>
+				<owl:someValuesFrom rdf:resource="&xs;double"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;MolarQuantity">
+		<rdfs:label rdf:datatype="&xs;string">Molar Quantity</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Amount of a substance as counted molecules. It&apos;s here for completeness, in case we bridge to an SI unit conversion ontology. It is unlikely a commercial system, with the possible exception of some involved in chemical research, would use this. Note: I left out the disjointness with Count, Weight and Volume as there is some ambiguity, at least in my mind, as to whether they are mutually exclusive.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Magnitude">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasUoM"/>
+				<owl:someValuesFrom rdf:resource="&gist;MoleUnit"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Monetary">
+		<rdfs:label rdf:datatype="&xs;string">Monetary</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Special type of magnitude due to the way rounding is handled in math and temporal aspect of conversion.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Magnitude">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;decimalValue"/>
+				<owl:someValuesFrom rdf:resource="&xs;double"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasUoM"/>
+				<owl:someValuesFrom rdf:resource="&gist;CurrencyUnit"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Percentage">
+		<rdfs:subClassOf rdf:resource="&gist;RatioMagnitude"/>
+		<rdfs:label rdf:datatype="&xs;string">Percentage</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">This is a ratio class where the numerator and denominator are of the same unit of measure. This would have to be enforced as a SWRL rule. Note: there are various ways to represent percentage: 50/100 could be represented as &quot;50&quot; or &quot;0.5&quot;.  We have chosen the later as it involves fewer conversions for subsequent use.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ProductMagnitude">
+		<rdfs:label rdf:datatype="&xs;string">Product Magnitude</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">These are magnitudes expresses as products of primitives (such as force M*A)</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Magnitude">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasUoM"/>
+				<owl:someValuesFrom rdf:resource="&gist;ProductUnit"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;RatioMagnitude">
+		<rdfs:label rdf:datatype="&xs;string">Ratio Magnitude</rdfs:label>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Magnitude">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasUoM"/>
+				<owl:someValuesFrom rdf:resource="&gist;RatioUnit"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Temperature">
+		<rdfs:label rdf:datatype="&xs;string">Temperature</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Base of temperature is in Kelvin per SI to allow for all units to be expressed relative to a real (in this case absolute) zero.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Magnitude">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasUoM"/>
+				<owl:someValuesFrom rdf:resource="&gist;TemperatureUnit"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;UnitOfMeasure">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Volume">
+		<rdfs:label rdf:datatype="&xs;string">Volume</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Three dimensional space or equivalent fluid measurement.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Magnitude">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasUoM"/>
+				<owl:someValuesFrom rdf:resource="&gist;VolumeUnit"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Weight">
+		<rdfs:label rdf:datatype="&xs;string">Weight</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Magnitude of mass. Assumes object is near the earth&apos;s surface, so weight and mass are equivalent for our purposes.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Magnitude">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasUoM"/>
+				<owl:someValuesFrom rdf:resource="&gist;MassUnit"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:DatatypeProperty rdf:about="&gist;decimalValue">
+		<rdfs:domain rdf:resource="&gist;Magnitude"/>
+		<rdfs:range rdf:resource="&xs;double"/>
+	</owl:DatatypeProperty>
+	
+	<rdf:Description rdf:about="&gist;hasA">
+		<rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+		<rdf:type rdf:resource="&owl;ObjectProperty"/>
+	</rdf:Description>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasMagnitude">
+		<rdfs:subPropertyOf rdf:resource="&gist;hasA"/>
+		<rdfs:comment rdf:datatype="&xs;string">To have a comparable numerical value. Each magnitude has a unit.</rdfs:comment>
+		<rdfs:range rdf:resource="&gist;Magnitude"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasPrecision">
+		<rdfs:subPropertyOf rdf:resource="&gist;hasA"/>
+		<rdfs:comment rdf:datatype="&xs;string">Links a Magnitude to the degree of accuracy of the numeric value.   This allows for fuzzy numbers.  All magnitudes have a precision.  Usually we don&apos;t record them.  When we do this, it will be a value whose extent covers 2 standard deviations around the stated magnitude</rdfs:comment>
+		<rdfs:range rdf:resource="&gist;Magnitude"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasUoM">
+		<rdfs:comment rdf:datatype="&xs;string">Which unit of measure you are using. All measures are in some uom, even if we don&apos;t know what it is initially.</rdfs:comment>
+		<rdfs:domain rdf:resource="&gist;Magnitude"/>
+		<rdfs:range rdf:resource="&gist;UnitOfMeasure"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;of">
+	</owl:ObjectProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;comment">
+	</owl:AnnotationProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
+
+</rdf:RDF>
