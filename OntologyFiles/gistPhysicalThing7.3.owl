@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY gist "http://ontologies.semanticarts.com/gist#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://ontologies.semanticarts.com/o/gistPhysicalThing"
+	xmlns:gist="http://ontologies.semanticarts.com/gist#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistPhysicalThing">
+		<rdfs:comment rdf:datatype="&xs;string">gist7.3 PhysicalThing</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistPhysicalThing</rdfs:comment>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistID7.3"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistMagnitude7.3"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistPhysicalThing7.3"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from \\semartsserver\SemanticArts\_SemanticArts\Offerings\gist\__externallyReleasedGists\gist7.3\gist7.3.vsd Page:physThing</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&gist;Content">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;IntellectualProperty">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;PhysicalIdentifiableItem">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;identifiedBy"/>
+				<owl:someValuesFrom rdf:resource="&gist;ID"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;madeUpOf"/>
+				<owl:someValuesFrom rdf:resource="&gist;PhysicalSubstance"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:label rdf:datatype="&xs;string">Physical Identifiable Item</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLES: a computer, a book.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NEGATIVE EXAMPLE:  A discontinuous thing like a manufacturing line cannot reasonably have an RFID attached to it, even though its parts are not the same kind of thing as the whole.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE:  You could, at least in principle, put an RFID tag on members of this class. Physical things are made of something.  E.g., statues are made of bronze.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE: In practice, this always means that the parts are not the same kind of thing as the whole.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;PhysicalSubstance">
+		<rdfs:label rdf:datatype="&xs;string">Physical Substance</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLES: An amount of water, of penicillin, of sand, of gold.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE: An instance of this class must be a physical thing, and not just a categorical description.  Example: an actual piece of gold, not ?gold? as a concept.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE: Some things are substances at a macro level, but ultimately end up as not being divisible into the same kind of thing.  E.g. sand vs. grains of sand., bacteria vs. an individual bacterium.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;PhysicalThing">
+		<rdfs:label rdf:datatype="&xs;string">Physical Thing</rdfs:label>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;hasMagnitude"/>
+						<owl:someValuesFrom rdf:resource="&gist;Weight"/>
+					</owl:Restriction>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;hasMagnitude"/>
+						<owl:someValuesFrom rdf:resource="&gist;Volume"/>
+					</owl:Restriction>
+				</owl:intersectionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;PhysicalIdentifiableItem">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;PhysicalSubstance">
+					</rdf:Description>
+				</owl:unionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;SocialBeing">
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasMagnitude">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;identifiedBy">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;madeUpOf">
+		<rdfs:comment rdf:datatype="&xs;string">as in the vase is made up of clay</rdfs:comment>
+		<rdfs:domain rdf:resource="&gist;PhysicalThing"/>
+		<rdfs:range rdf:resource="&gist;PhysicalSubstance"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;ownedBy">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;owns">
+		<rdfs:comment rdf:datatype="&xs;string">Relationship where a Social Being can enjoy the rights of the asset being owned.  Note this could be made temporal with gistTemporalRelation</rdfs:comment>
+		<rdfs:domain rdf:resource="&gist;SocialBeing"/>
+		<rdfs:range>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;PhysicalThing">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;IntellectualProperty">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;Content">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;SocialBeing">
+					</rdf:Description>
+				</owl:unionOf>
+			</owl:Class>
+		</rdfs:range>
+		<owl:inverseOf rdf:resource="&gist;ownedBy"/>
+	</owl:ObjectProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;comment">
+	</owl:AnnotationProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
+
+</rdf:RDF>

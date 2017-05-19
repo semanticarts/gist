@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY gist "http://ontologies.semanticarts.com/gist#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://ontologies.semanticarts.com/o/gistMeasure"
+	xmlns:gist="http://ontologies.semanticarts.com/gist#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistMeasure">
+		<rdfs:comment rdf:datatype="&xs;string">gist 7.3 Measure</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistMeasure</rdfs:comment>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistEvent7.3"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistMeasure7.3"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from \\semartsserver\SemanticArts\_SemanticArts\Offerings\gist\__externallyReleasedGists\gist7.3\gist7.3.vsd Page:measure</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&gist;Aspect">
+		<rdfs:subClassOf rdf:resource="&gist;Category"/>
+		<rdfs:label rdf:datatype="&xs;string">Aspect</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A very general term for the characteristic of something that is being measured.  E.g., property (height) or a process (cycle time) or a behavior (loyalty).</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Category">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Event">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Magnitude">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;OrderedCollection">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;OrdinalCollection">
+		<rdfs:subClassOf rdf:resource="&gist;OrderedCollection"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasOrderedMember"/>
+				<owl:allValuesFrom rdf:resource="&gist;OrdinalMember"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:label rdf:datatype="&xs;string">Ordinal Collection</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">An Ordered Collection where no item can be of the same rank as any other item.  In mathematical terms, this is a ?total order?.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;OrdinalMember">
+		<rdfs:subClassOf rdf:resource="&gist;Category"/>
+		<rdfs:subClassOf>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;strictlyPrecedes"/>
+						<owl:someValuesFrom rdf:resource="&gist;OrdinalMember"/>
+					</owl:Restriction>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;strictlyPrecededBy"/>
+						<owl:someValuesFrom rdf:resource="&gist;OrdinalMember"/>
+					</owl:Restriction>
+				</owl:unionOf>
+			</owl:Class>
+		</rdfs:subClassOf>
+		<rdfs:label rdf:datatype="&xs;string">Ordinal Member</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A member of an Ordinal Collection.  It necessarily precedes or is preceded by another Ordinal Member in the same collection. (This last condition cannot be formally stated in OWL).</rdfs:comment>
+		<owl:equivalentClass>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;orderedMemberOf"/>
+				<owl:someValuesFrom rdf:resource="&gist;OrdinalCollection"/>
+			</owl:Restriction>
+		</owl:equivalentClass>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;PhysicalThing">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ReferenceValue">
+		<rdfs:subClassOf rdf:resource="&gist;Magnitude"/>
+		<rdfs:label rdf:datatype="&xs;string">Reference Value</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A measure that was neither measured nor estimated but set by fiat. For instance, a goal. There is no Measurement associated with a ReferenceValue.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&gist;aspectOf">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasMember">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasOrderedMember">
+		<rdfs:subPropertyOf rdf:resource="&gist;hasMember"/>
+		<rdfs:comment rdf:datatype="&xs;string">An inverse functional version of  hasMember to ensure that no OrderedMember can be in more than one OrderedCollection., which can quickly lead to problems.</rdfs:comment>
+		<owl:inverseOf rdf:resource="&gist;orderedMemberOf"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;orderedMemberOf">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;precedes">
+		<rdfs:comment rdf:datatype="&xs;string">A generic ordering relation indicating that the Subject has the same order as or comes before the Object. The &apos;greater than or equal to&apos; symbol is often used for this relation.</rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;strictlyPrecededBy">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;strictlyPrecedes">
+		<rdfs:subPropertyOf rdf:resource="&gist;precedes"/>
+		<rdfs:comment rdf:datatype="&xs;string">A generic ordering relation indicating that the Subject comes before the Object, it may not be of equal rank. The greater than symbol is often used for this relation.</rdfs:comment>
+		<owl:inverseOf rdf:resource="&gist;strictlyPrecededBy"/>
+	</owl:ObjectProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
+
+</rdf:RDF>

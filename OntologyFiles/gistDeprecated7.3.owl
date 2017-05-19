@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY gist "http://ontologies.semanticarts.com/gist#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://ontologies.semanticarts.com/o/gistDeprecated"
+	xmlns:gist="http://ontologies.semanticarts.com/gist#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistDeprecated">
+		<rdfs:comment rdf:datatype="&xs;string">Concepts that have been deprecated between the 7.2 and 7.3 release</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistDeprecated</rdfs:comment>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistCore7.3"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistDeprecated7.3"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from \\semartsserver\SemanticArts\_SemanticArts\Offerings\gist\__externallyReleasedGists\gist7.3\gist7.3.vsd Page:gistDeprecated</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&gist;Aspect">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;BaseUnit">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Category">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;GovernanceCommittee">
+		<rdfs:label rdf:datatype="&xs;string">Governance Committee</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A group empowered to maintain a controlled vocabulary</rdfs:comment>
+		<owl:deprecated rdf:datatype="&xs;string">true</owl:deprecated>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Group">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;directPartOf"/>
+				<owl:someValuesFrom rdf:resource="&gist;Organization"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;governs"/>
+				<owl:someValuesFrom rdf:resource="&gist;ControlledVocabulary"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Group">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Luminance">
+		<rdfs:label rdf:datatype="&xs;string">Luminance</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Measure of light</rdfs:comment>
+		<owl:deprecated rdf:datatype="&xs;string">true</owl:deprecated>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Magnitude">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasUoM"/>
+				<owl:someValuesFrom rdf:resource="&gist;LuminescenceUnit"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;LuminescenceUnit">
+		<rdfs:label rdf:datatype="&xs;string">Luminescence Unit</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Measure of brightness (candles).</rdfs:comment>
+		<owl:deprecated rdf:datatype="&xs;string">true</owl:deprecated>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;SimpleUnitOfMeasure">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasBaseUnit"/>
+				<owl:hasValue rdf:resource="&gist;candela"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Magnitude">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;MeasurableConcept">
+		<rdfs:subClassOf rdf:resource="&gist;Category"/>
+		<rdfs:label rdf:datatype="&xs;string">Measurable Concept</rdfs:label>
+		<owl:deprecated rdf:datatype="&xs;string">true</owl:deprecated>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Measure">
+		<rdfs:label rdf:datatype="&xs;string">Measure</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">The unique result of a single measurement event.  It always corresponds to a measure value of some kind. There are four kinds: Nominal, Ordinal, Interval, and Ratio, corresponding to the four main scales of measure.  In the first two cases, the Measure has the Value. In the latter two, the measure is the Value, a gist:Magnitude such as 82kg, or 4 degrees C.</rdfs:comment>
+		<owl:deprecated rdf:datatype="&xs;string">true</owl:deprecated>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;SimpleUnitOfMeasure">
+	</owl:Class>
+	
+	<gist:BaseUnit rdf:about="&gist;ampere">
+		<owl:deprecated rdf:datatype="&xs;string">true</owl:deprecated>
+	</gist:BaseUnit>
+	
+	<owl:ObjectProperty rdf:about="&gist;aspectOf">
+	</owl:ObjectProperty>
+	
+	<gist:BaseUnit rdf:about="&gist;candela">
+		<rdf:type rdf:resource="&owl;Thing"/>
+		<owl:deprecated rdf:datatype="&xs;string">true</owl:deprecated>
+	</gist:BaseUnit>
+	
+	<owl:ObjectProperty rdf:about="&gist;directPartOf">
+	</owl:ObjectProperty>
+	
+	<gist:BaseUnit rdf:about="&gist;each">
+		<owl:deprecated rdf:datatype="&xs;string">true</owl:deprecated>
+	</gist:BaseUnit>
+	
+	<owl:ObjectProperty rdf:about="&gist;governs">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasAspect">
+		<rdfs:comment rdf:datatype="&xs;string">The Object is a measureable characteristic of the Subject.</rdfs:comment>
+		<rdfs:range rdf:resource="&gist;Aspect"/>
+		<owl:deprecated rdf:datatype="&xs;string">true</owl:deprecated>
+		<owl:inverseOf rdf:resource="&gist;aspectOf"/>
+		<owl:propertyChainAxiom rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;thingMeasuredOn">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;measuring">
+			</rdf:Description>
+		</owl:propertyChainAxiom>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasBaseUnit">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasUoM">
+	</owl:ObjectProperty>
+	
+	<gist:BaseUnit rdf:about="&gist;kelvin">
+		<owl:deprecated rdf:datatype="&xs;string">true</owl:deprecated>
+	</gist:BaseUnit>
+	
+	<gist:BaseUnit rdf:about="&gist;kilogram">
+		<owl:deprecated rdf:datatype="&xs;string">true</owl:deprecated>
+	</gist:BaseUnit>
+	
+	<owl:ObjectProperty rdf:about="&gist;measuring">
+		<owl:deprecated rdf:datatype="&xs;string">true</owl:deprecated>
+	</owl:ObjectProperty>
+	
+	<gist:BaseUnit rdf:about="&gist;meter">
+		<owl:deprecated rdf:datatype="&xs;string">true</owl:deprecated>
+	</gist:BaseUnit>
+	
+	<gist:BaseUnit rdf:about="&gist;mole">
+		<owl:deprecated rdf:datatype="&xs;string">true</owl:deprecated>
+	</gist:BaseUnit>
+	
+	<gist:BaseUnit rdf:about="&gist;second">
+		<owl:deprecated rdf:datatype="&xs;string">true</owl:deprecated>
+	</gist:BaseUnit>
+	
+	<owl:ObjectProperty rdf:about="&gist;thingMeasuredOn">
+		<owl:deprecated rdf:datatype="&xs;string">true</owl:deprecated>
+	</owl:ObjectProperty>
+	
+	<gist:BaseUnit rdf:about="&gist;uSDollar">
+		<owl:deprecated rdf:datatype="&xs;string">true</owl:deprecated>
+	</gist:BaseUnit>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
+	
+	<owl:AnnotationProperty rdf:about="&owl;deprecated">
+	</owl:AnnotationProperty>
+
+</rdf:RDF>
