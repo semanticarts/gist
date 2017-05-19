@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY gist "http://ontologies.semanticarts.com/gist#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY sh "http://www.w3.org/ns/shacl#">
+	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://ontologies.semanticarts.com/o/gistShacl"
+	xmlns:gist="http://ontologies.semanticarts.com/gist#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:sh="http://www.w3.org/ns/shacl#"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistShacl">
+		<rdfs:comment rdf:datatype="&xs;string">gistShacl7.4</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">myShacl</rdfs:comment>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistID7.4"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTop7.4"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistShacl7.4"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\Offerings\gist\__internallyReleasedGists\gist7.4\gist7.4.vsd Page:gistSHACL</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&gist;Class">
+		<rdfs:subClassOf rdf:resource="&gist;ObjectValue"/>
+		<rdfs:comment rdf:datatype="&xs;string">this should be owl class or rdfs class</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ID">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;NamedInstance">
+		<rdfs:subClassOf rdf:resource="&gist;ObjectValue"/>
+		<rdfs:comment rdf:datatype="&xs;string">list of valid instances</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;NamedLiteral">
+		<rdfs:subClassOf rdf:resource="&gist;ObjectValue"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&sh;text"/>
+				<owl:someValuesFrom rdf:resource="&xs;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:comment rdf:datatype="&xs;string">specific literal</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ObjectList">
+		<rdfs:subClassOf rdf:resource="&gist;ObjectValue"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasDirectPart"/>
+				<owl:someValuesFrom rdf:resource="&gist;ObjectValue"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:comment rdf:datatype="&xs;string">Can be a grab bag of anything I assume, or homogenous?</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ObjectValue">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Repository">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ShapeId">
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;ID">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;allocatedBy"/>
+				<owl:someValuesFrom rdf:resource="&gist;Repository"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ShapeRule">
+		<rdfs:subClassOf rdf:resource="&sh;Constraint"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&sh;text"/>
+				<owl:someValuesFrom rdf:resource="&xs;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:comment rdf:datatype="&xs;string">Code that executes at the shape level.  Like cross field validation, but also the equal not equal predicate logic</rdfs:comment>
+	</owl:Class>
+	
+	<sh:NodeKind rdf:about="&gist;_isBlank">
+	</sh:NodeKind>
+	
+	<sh:NodeKind rdf:about="&gist;_isNotBlank">
+	</sh:NodeKind>
+	
+	<owl:ObjectProperty rdf:about="&gist;allocatedBy">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;allowedObject">
+		<rdfs:comment rdf:datatype="&xs;string">what can we put in the object position</rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&gist;defaultValue">
+		<rdfs:range rdf:resource="&xs;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasDirectPart">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;matchSpec">
+		<rdfs:comment rdf:datatype="&xs;string">Points  from the shape to the properties that make up its identify function</rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;negationPropertyConstraint">
+		<rdfs:comment rdf:datatype="&xs;string">Declares that the property and filter can not exist</rdfs:comment>
+		<rdfs:range rdf:resource="&sh;InversePropertyConstraint"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;notPropertyConstraint">
+		<rdfs:comment rdf:datatype="&xs;string">points to a property constraint that must not be present</rdfs:comment>
+		<rdfs:range rdf:resource="&sh;Scope"/>
+	</owl:ObjectProperty>
+	
+	<owl:Class rdf:about="&rdf;List">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&rdf;Property">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&rdfs;Class">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&rdfs;Datatype">
+	</owl:Class>
+	
+	<owl:DatatypeProperty rdf:about="&rdfs;comment">
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&rdfs;label">
+	</owl:DatatypeProperty>
+	
+	<owl:Class rdf:about="&owl;Class">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&owl;DatatypeProperty">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&owl;ObjectProperty">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&sh;AbstractDatatypePropertyConstraint">
+		<rdfs:subClassOf rdf:resource="&gist;ObjectValue"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&sh;datatype"/>
+				<owl:someValuesFrom rdf:resource="&rdfs;Datatype"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&sh;Constraint">
+		<rdfs:comment rdf:datatype="&xs;string">abstract super class</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&sh;Graph">
+		<rdfs:comment rdf:datatype="&xs;string">as in named graph</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&sh;InversePropertyConstraint">
+		<rdfs:subClassOf rdf:resource="&sh;PropertyConstraint"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&sh;NativeConstraint">
+		<rdfs:subClassOf rdf:resource="&sh;Constraint"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&rdfs;comment"/>
+				<owl:someValuesFrom rdf:resource="&xs;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&sh;message"/>
+				<owl:someValuesFrom rdf:resource="&xs;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&sh;predicate"/>
+				<owl:someValuesFrom rdf:resource="&rdf;Property"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&sh;sparql"/>
+				<owl:someValuesFrom rdf:resource="&xs;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:comment rdf:datatype="&xs;string">A constraint that has a native executable body attached with it.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&sh;NodeKind">
+		<rdfs:subClassOf rdf:resource="&gist;ObjectValue"/>
+		<rdfs:comment rdf:datatype="&xs;string">this is supposed to be blank, iri or literal, but the only ones we need are blank and !blank</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&sh;NotConstraint">
+		<rdfs:subClassOf rdf:resource="&sh;Constraint"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;notPropertyConstraint"/>
+				<owl:someValuesFrom rdf:resource="&sh;PropertyConstraint"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:comment rdf:datatype="&xs;string">*** I changed this to be the not property constraint as all the examples were that way</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&sh;OrConstraint">
+		<rdfs:subClassOf rdf:resource="&sh;Constraint"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&sh;shapes"/>
+				<owl:someValuesFrom rdf:resource="&sh;Constraint"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:comment rdf:datatype="&xs;string">Enforces a constraint that at least one of several provided shapes must be valid for the focus resource.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&sh;PropertyConstraint">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;allowedObject"/>
+				<owl:someValuesFrom rdf:resource="&gist;ObjectValue"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;defaultValue"/>
+				<owl:someValuesFrom rdf:resource="&xs;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&rdfs;label"/>
+				<owl:someValuesFrom rdf:resource="&xs;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&sh;maxCount"/>
+				<owl:someValuesFrom rdf:resource="&xs;integer"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&sh;minCount"/>
+				<owl:someValuesFrom rdf:resource="&xs;integer"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&sh;pattern"/>
+				<owl:someValuesFrom rdf:resource="&xs;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&sh;predicate"/>
+				<owl:someValuesFrom rdf:resource="&rdf;Property"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:comment rdf:datatype="&xs;string">pattern is regex, label is screen label</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&sh;ResultClass">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&sh;Scope">
+		<owl:unionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&sh;Graph">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;Repository">
+			</rdf:Description>
+			<rdf:Description rdf:about="&owl;Class">
+			</rdf:Description>
+			<rdf:Description rdf:about="&rdfs;Class">
+			</rdf:Description>
+		</owl:unionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&sh;Shape">
+		<rdfs:subClassOf rdf:resource="&gist;ObjectValue"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;matchSpec"/>
+				<owl:someValuesFrom rdf:resource="&sh;Shape"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&rdfs;label"/>
+				<owl:someValuesFrom rdf:resource="&xs;string"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&sh;constraint"/>
+				<owl:someValuesFrom rdf:resource="&sh;Constraint"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&sh;filterShape"/>
+				<owl:someValuesFrom rdf:resource="&sh;Shape"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&sh;inverseProperty"/>
+				<owl:someValuesFrom rdf:resource="&sh;PropertyConstraint"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&sh;property"/>
+				<owl:someValuesFrom rdf:resource="&sh;PropertyConstraint"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&sh;scope"/>
+				<owl:someValuesFrom rdf:resource="&sh;Scope"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&sh;allowedValues">
+		<rdfs:range rdf:resource="&rdf;List"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&sh;constraint">
+		<rdfs:comment rdf:datatype="&xs;string">Defines arbitrary constraints on the matching resources. Use sh:property for structural property declarations.</rdfs:comment>
+		<rdfs:range rdf:resource="&sh;Constraint"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&sh;datatype">
+		<rdfs:range rdf:resource="&rdfs;Datatype"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&sh;filterShape">
+		<rdfs:comment rdf:datatype="&xs;string">*** I&apos;m going to use this as extends</rdfs:comment>
+		<rdfs:range rdf:resource="&sh;Shape"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&sh;inverseProperty">
+		<rdfs:subPropertyOf rdf:resource="&sh;constraint"/>
+		<rdfs:comment rdf:datatype="&xs;string">Declares that a given incoming reference property is relevant for matching resources.</rdfs:comment>
+		<rdfs:range rdf:resource="&sh;InversePropertyConstraint"/>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&sh;maxCount">
+		<rdfs:range rdf:resource="&xs;integer"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&sh;message">
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&sh;minCount">
+		<rdfs:range rdf:resource="&xs;integer"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&sh;pattern">
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&sh;predicate">
+		<rdfs:range rdf:resource="&rdf;Property"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&sh;property">
+		<rdfs:subPropertyOf rdf:resource="&sh;constraint"/>
+		<rdfs:comment rdf:datatype="&xs;string">Declares that a given property is relevant for matching resources.</rdfs:comment>
+		<rdfs:range rdf:resource="&sh;PropertyConstraint"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&sh;scope">
+		<rdfs:comment rdf:datatype="&xs;string">Links a Shape to Scopes that produce the focus nodes that the shape applies to.</rdfs:comment>
+		<rdfs:range rdf:resource="&sh;Scope"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&sh;severity">
+		<rdfs:range rdf:resource="&sh;ResultClass"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&sh;shapes">
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&sh;sparql">
+		<rdfs:range rdf:resource="&xs;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&sh;text">
+		<rdfs:comment rdf:datatype="&xs;string">The union of xsd:string and rdf:langString, to be used in cases where a property can either be a string or a string with a language tag. This type should never be used directly as the type of literals.</rdfs:comment>
+		<rdfs:range rdf:resource="&xs;string"/>
+	</owl:DatatypeProperty>
+
+</rdf:RDF>

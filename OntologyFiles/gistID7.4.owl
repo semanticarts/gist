@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY gist "http://ontologies.semanticarts.com/gist#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://ontologies.semanticarts.com/o/gistID"
+	xmlns:gist="http://ontologies.semanticarts.com/gist#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistID">
+		<rdfs:comment rdf:datatype="&xs;string">gist7.4 id</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistID</rdfs:comment>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTop7.4"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistID7.4"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\Offerings\gist\__internallyReleasedGists\gist7.4\gist7.4.vsd Page:id</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&gist;Content">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ID">
+		<rdfs:label rdf:datatype="&xs;string">ID</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLE: e.g. SSN for a person, serial number for a product, employee id</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLES: SSN for a person; serial number for a product; employee ID.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Content">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;allocatedBy"/>
+				<owl:someValuesFrom>
+					<owl:Class>
+						<owl:unionOf rdf:parseType="Collection">
+							<rdf:Description rdf:about="&gist;Person">
+							</rdf:Description>
+							<rdf:Description rdf:about="&gist;Organization">
+							</rdf:Description>
+							<rdf:Description rdf:about="&gist;IntellectualProperty">
+							</rdf:Description>
+						</owl:unionOf>
+					</owl:Class>
+				</owl:someValuesFrom>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;uniqueText"/>
+				<owl:someValuesFrom rdf:resource="&xs;string"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;IntellectualProperty">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Organization">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Person">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;SocialBeing">
+		<rdfs:label rdf:datatype="&xs;string">Social Being</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A Person or an Organization.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE: Includes anything than can be party to an Agreement (e.g. Contract).   But not all SocialBeing(s) can be parties to all Agreement(s).  For example, minors can be beneficiaries, but perhaps not primary signatories on contracts.</rdfs:comment>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;Organization">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;Person">
+					</rdf:Description>
+				</owl:unionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&gist;allocatedBy">
+		<rdfs:comment rdf:datatype="&xs;string">Connection between an ID and the thing that minted the ID.  It may be a person or organization, or could be an algorithm (next available or random number generator)</rdfs:comment>
+		<rdfs:range>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;Person">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;Organization">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;IntellectualProperty">
+					</rdf:Description>
+				</owl:unionOf>
+			</owl:Class>
+		</rdfs:range>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasA">
+	</owl:ObjectProperty>
+	
+	<rdf:Description rdf:about="&gist;identifiedBy">
+		<rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+		<rdf:type rdf:resource="&owl;ObjectProperty"/>
+		<rdfs:subPropertyOf rdf:resource="&gist;hasA"/>
+		<rdfs:comment rdf:datatype="&xs;string">This is like a uri: a thing can have more than one ID, but each of the IDs must refer to a unique thing.</rdfs:comment>
+		<rdfs:range rdf:resource="&gist;ID"/>
+		<owl:inverseOf rdf:resource="&gist;identifies"/>
+	</rdf:Description>
+	
+	<owl:ObjectProperty rdf:about="&gist;identifies">
+	</owl:ObjectProperty>
+	
+	<rdf:Description rdf:about="&gist;uniqueText">
+		<rdf:type rdf:resource="&owl;DatatypeProperty"/>
+		<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+		<rdfs:comment rdf:datatype="&xs;string">This is used for the actual value of a key or ID where you don&apos;t want the possibility of having more than one.</rdfs:comment>
+		<rdfs:range rdf:resource="&xs;string"/>
+	</rdf:Description>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;comment">
+	</owl:AnnotationProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
+
+</rdf:RDF>

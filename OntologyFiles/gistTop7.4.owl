@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY gist "http://ontologies.semanticarts.com/gist#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://ontologies.semanticarts.com/o/gistTop"
+	xmlns:gist="http://ontologies.semanticarts.com/gist#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistTop">
+		<rdfs:comment rdf:datatype="&xs;string">gist7.4</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistTop</rdfs:comment>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistTop7.4"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\Offerings\gist\__internallyReleasedGists\gist7.4\gist7.4.vsd Page:top</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&gist;Category">
+		<rdfs:comment rdf:datatype="&xs;string">A concept or label used to categorize other instances informally. Things that can be thought of as types are usually Categories.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLE: Tags used in folksonomies; formal definitions from other systems.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE: Often a &apos;bucket&apos; can be modeled either as an owl:Class or as a gist:Category. Use the latter if you don&apos;t care much about the formal structure of the different types, or if there is a whole hierarchy of types that are going to be managed by a group separate from the ontology developers. The formal structure may be defined elsewhere and linked to, if necessary.</rdfs:comment>
+		<owl:disjointWith rdf:resource="&gist;Intention"/>
+		<owl:disjointWith rdf:resource="&gist;Language"/>
+		<owl:disjointWith rdf:resource="&gist;Magnitude"/>
+		<owl:disjointWith rdf:resource="&gist;Obligation"/>
+		<owl:disjointWith rdf:resource="&gist;Organization"/>
+		<owl:disjointWith rdf:resource="&gist;Person"/>
+		<owl:disjointWith rdf:resource="&gist;PhysicalThing"/>
+		<owl:disjointWith rdf:resource="&gist;Place"/>
+		<owl:disjointWith rdf:resource="&gist;TimeInterval"/>
+		<owl:disjointWith rdf:resource="&gist;UnitOfMeasure"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Collection">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasMember"/>
+				<owl:someValuesFrom rdf:resource="&owl;Thing"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:label rdf:datatype="&xs;string">Collection</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Any identifiable grouping of instances.  For instance, a jury is a collection of people.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLES: A jury is a group of documents; a financial ledger is a collection of transaction entries; a route is an (ordered) collection of segments.</rdfs:comment>
+		<owl:disjointWith rdf:resource="&gist;Magnitude"/>
+		<owl:disjointWith rdf:resource="&gist;Person"/>
+		<owl:disjointWith rdf:resource="&gist;UnitOfMeasure"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Content">
+		<rdfs:label rdf:datatype="&xs;string">Content</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A document, program, image, etc.  (Categories are not content until they are written down.)</rdfs:comment>
+		<owl:disjointWith rdf:resource="&gist;PhysicalThing"/>
+		<owl:disjointWith rdf:resource="&gist;Place"/>
+		<owl:disjointWith rdf:resource="&gist;UnitOfMeasure"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;IntellectualProperty">
+		<rdfs:label rdf:datatype="&xs;string">Intellectual Property</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A work, invention or concept, independent of its being expressed in text, audio, video, image, or live performance.  IP can also be tacit knowledge, know-how, or skill. Also includes Brands.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLES: ?The Old Man and The Sea?; the Page Rank algorithm; Coca Cola</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE:  For literature this could be called the ?Work?, except that ?work? is a highly overloaded term (expenditure of energy, resource consumption, art).  Often the first expression precedes our recognition of the IP, but subsequent expressions are known to be derivatives of the IP, even if they are expression-to-expression translations (or copies).</rdfs:comment>
+		<owl:disjointWith rdf:resource="&gist;Obligation"/>
+		<owl:disjointWith rdf:resource="&gist;Place"/>
+		<owl:disjointWith rdf:resource="&gist;TimeInterval"/>
+		<owl:disjointWith rdf:resource="&gist;UnitOfMeasure"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Intention">
+		<rdfs:comment rdf:datatype="&xs;string">Goal, desire, aspiration. This is the &quot;teleologic&quot; aspect of the system that indicates things are done with a purpose.</rdfs:comment>
+		<owl:disjointWith rdf:resource="&gist;Content"/>
+		<owl:disjointWith rdf:resource="&gist;IntellectualProperty"/>
+		<owl:disjointWith rdf:resource="&gist;Language"/>
+		<owl:disjointWith rdf:resource="&gist;Magnitude"/>
+		<owl:disjointWith rdf:resource="&gist;Organization"/>
+		<owl:disjointWith rdf:resource="&gist;Person"/>
+		<owl:disjointWith rdf:resource="&gist;PhysicalThing"/>
+		<owl:disjointWith rdf:resource="&gist;Place"/>
+		<owl:disjointWith rdf:resource="&gist;UnitOfMeasure"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Language">
+		<rdfs:label rdf:datatype="&xs;string">Language</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A recognized, organized set of symbols and grammar.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLES: Natural languages such as English and Spanish; computer languages such as OWL, Python, and XML.</rdfs:comment>
+		<owl:disjointWith rdf:resource="&gist;Magnitude"/>
+		<owl:disjointWith rdf:resource="&gist;Obligation"/>
+		<owl:disjointWith rdf:resource="&gist;Organization"/>
+		<owl:disjointWith rdf:resource="&gist;Person"/>
+		<owl:disjointWith rdf:resource="&gist;PhysicalThing"/>
+		<owl:disjointWith rdf:resource="&gist;Place"/>
+		<owl:disjointWith rdf:resource="&gist;UnitOfMeasure"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Magnitude">
+		<rdfs:comment rdf:datatype="&xs;string">A scalar value which is either measured, estimated, or set as a reference value.</rdfs:comment>
+		<owl:disjointWith rdf:resource="&gist;Content"/>
+		<owl:disjointWith rdf:resource="&gist;IntellectualProperty"/>
+		<owl:disjointWith rdf:resource="&gist;Obligation"/>
+		<owl:disjointWith rdf:resource="&gist;Organization"/>
+		<owl:disjointWith rdf:resource="&gist;Person"/>
+		<owl:disjointWith rdf:resource="&gist;PhysicalThing"/>
+		<owl:disjointWith rdf:resource="&gist;Place"/>
+		<owl:disjointWith rdf:resource="&gist;UnitOfMeasure"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Obligation">
+		<owl:disjointWith rdf:resource="&gist;PhysicalThing"/>
+		<owl:disjointWith rdf:resource="&gist;Place"/>
+		<owl:disjointWith rdf:resource="&gist;UnitOfMeasure"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;OrderedCollection">
+		<rdfs:subClassOf rdf:resource="&gist;Collection"/>
+		<rdfs:label rdf:datatype="&xs;string">Ordered Collection</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A collection where the members are in a fixed sequence.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Organization">
+		<rdfs:comment rdf:datatype="&xs;string">A generic organization that can be formal or informal, legal or non-legal. It can have members, or not.</rdfs:comment>
+		<owl:disjointWith rdf:resource="&gist;Content"/>
+		<owl:disjointWith rdf:resource="&gist;IntellectualProperty"/>
+		<owl:disjointWith rdf:resource="&gist;Obligation"/>
+		<owl:disjointWith rdf:resource="&gist;Person"/>
+		<owl:disjointWith rdf:resource="&gist;PhysicalThing"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Person">
+		<rdfs:comment rdf:datatype="&xs;string">A member of homo sapiens, who has lived at some point, and may or may not be dead. (With the open world assumptions, you might not know if someone has died.)</rdfs:comment>
+		<owl:disjointWith rdf:resource="&gist;Content"/>
+		<owl:disjointWith rdf:resource="&gist;IntellectualProperty"/>
+		<owl:disjointWith rdf:resource="&gist;Obligation"/>
+		<owl:disjointWith rdf:resource="&gist;Place"/>
+		<owl:disjointWith rdf:resource="&gist;UnitOfMeasure"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;PhysicalIdentifiableItem">
+		<rdfs:comment rdf:datatype="&xs;string">An individually identifiable physical thing in the real world.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;PhysicalSubstance">
+		<rdfs:comment rdf:datatype="&xs;string">?Stuff? having weight and volume, and which can be divided and still retain its essence.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;PhysicalThing">
+		<rdfs:comment rdf:datatype="&xs;string">Something that takes up space and has weight.</rdfs:comment>
+		<owl:disjointWith rdf:resource="&gist;UnitOfMeasure"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Place">
+		<rdfs:comment rdf:datatype="&xs;string">A locatable point in physical space.</rdfs:comment>
+		<owl:disjointWith rdf:resource="&gist;TimeInterval"/>
+		<owl:disjointWith rdf:resource="&gist;UnitOfMeasure"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Template">
+		<rdfs:label rdf:datatype="&xs;string">Template</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLE:  A form. A filled-in form has the structure of the form with data entered into some or all of the fields.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE: Use gist:basedOn to link the instantiation of a template back to its Template.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">Something used to make instances in its own image.  In manufacturing this would be specialized as a die to make stamped parts, cookie cutters are templates for cookies, and forms are templates for data.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;TimeInstant">
+		<rdfs:comment rdf:datatype="&xs;string">A point on a time line.  Time and dates are in xsd:dateTime format in Universal Time.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;TimeInterval">
+		<rdfs:comment rdf:datatype="&xs;string">A specific interval on a timeline with start and end TimeInstant instances and a Duration.</rdfs:comment>
+		<owl:disjointWith rdf:resource="&gist;Language"/>
+		<owl:disjointWith rdf:resource="&gist;Magnitude"/>
+		<owl:disjointWith rdf:resource="&gist;UnitOfMeasure"/>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;UnitOfMeasure">
+		<rdfs:comment rdf:datatype="&xs;string">Base class for units which can be converted.  The primitive units can be converted from one measurement system to another; the complex units (ratio or product) have to decompose to their primitives.</rdfs:comment>
+		<owl:disjointWith rdf:resource="&gist;Organization"/>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&gist;directPartOf">
+	</owl:ObjectProperty>
+	
+	<rdf:Description rdf:about="&gist;hasA">
+		<rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+		<rdf:type rdf:resource="&owl;ObjectProperty"/>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLE: a table has an edge, a car has weight (which cannot exist unless the car exists)</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE: Cascading delete.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">The subject exclusively has or possesses the object, the object does not have independent existence.</rdfs:comment>
+		<owl:inverseOf rdf:resource="&gist;of"/>
+	</rdf:Description>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasDirectPart">
+		<rdfs:subPropertyOf rdf:resource="&gist;hasPart"/>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE: No cascading delete.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE: Use this property to directly associate parts. hasPart is the transitive version.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">The relationship between a whole and a part where the part has independent existence.</rdfs:comment>
+		<owl:inverseOf rdf:resource="&gist;directPartOf"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasMember">
+		<rdfs:comment rdf:datatype="&xs;string">Relates a Collection to its member individuals.</rdfs:comment>
+		<rdfs:domain rdf:resource="&gist;Collection"/>
+		<owl:inverseOf rdf:resource="&gist;memberOf"/>
+	</owl:ObjectProperty>
+	
+	<rdf:Description rdf:about="&gist;hasPart">
+		<rdf:type rdf:resource="&owl;ObjectProperty"/>
+		<rdf:type rdf:resource="&owl;TransitiveProperty"/>
+		<rdfs:comment rdf:datatype="&xs;string">The transitive version of hasDirectPart</rdfs:comment>
+		<owl:inverseOf rdf:resource="&gist;partOf"/>
+	</rdf:Description>
+	
+	<owl:ObjectProperty rdf:about="&gist;memberOf">
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&gist;name">
+		<rdfs:comment rdf:datatype="&xs;string">Relates an individual to a casual name.  NOTE: For more formal use, consider using a sub property of the object property, identifiedBy.</rdfs:comment>
+		<rdfs:range rdf:resource="&xs;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;of">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;partOf">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;produces">
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLE: a task produces a deliverable.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">The subject creates the object.</rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&gist;sequence">
+		<rdfs:comment rdf:datatype="&xs;string">For ordering ordered lists.</rdfs:comment>
+		<rdfs:range rdf:resource="&xs;integer"/>
+	</owl:DatatypeProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;comment">
+	</owl:AnnotationProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
+
+</rdf:RDF>
