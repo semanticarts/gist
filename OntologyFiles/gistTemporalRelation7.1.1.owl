@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY gist "http://ontologies.semanticarts.com/gist#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://ontologies.semanticarts.com/o/gistTemporalRelation"
+	xmlns:gist="http://ontologies.semanticarts.com/gist#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistTemporalRelation">
+		<rdfs:comment rdf:datatype="&xs;string">gist7.1.1 temporalRelation</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistTemporalRelation</rdfs:comment>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTime7.1.1"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistTemporalRelation7.1.1"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from \\EXCHANGESERVER\SemanticArts\_SemanticArts\Offerings\gist\__externallyReleasedGists\gist7.1.1\gist7.1.1.vsd Page:TR</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&gist;TemporalRelation">
+		<rdfs:subClassOf rdf:resource="&gist;TimeInterval"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;connectedTo"/>
+				<owl:onClass rdf:resource="&owl;Thing"/>
+				<owl:minQualifiedCardinality rdf:datatype="&xs;nonNegativeInteger">2</owl:minQualifiedCardinality>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;end"/>
+				<owl:someValuesFrom rdf:resource="&gist;TimeInstant"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;start"/>
+				<owl:someValuesFrom rdf:resource="&gist;TimeInstant"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:label rdf:datatype="&xs;string">Temporal Relation</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A relationship holding for a period of time. E.g. employs-Employment, hasStreetAddress-EstablishedLocation. One important context for reifying a property.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLE: employs-Employment, hasStreetAddress-EstablishedLocation.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE: This is one important context for reifying a property.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;TimeInterval">
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&gist;connectedTo">
+		<rdfs:comment rdf:datatype="&xs;string">A non owning, non causal, non-subordinate (ie. peer to peer) relationship.</rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;end">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;start">
+	</owl:ObjectProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;comment">
+	</owl:AnnotationProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
+
+</rdf:RDF>
