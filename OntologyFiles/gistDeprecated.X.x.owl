@@ -16,8 +16,8 @@
 	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistDeprecated">
 		<rdfs:comment rdf:datatype="&xs;string">Concepts that have been deprecated since the last external release</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistDeprecated</rdfs:comment>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistCore.X.x"/>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistDeprecated.X.x"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistCoreX.x"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistDeprecatedX.x"/>
 		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\Offerings\gist\___workingGistMaster\gistX.x.vsd Page:gistDeprecated</owl:versionInfo>
 	</owl:Ontology>
 	
@@ -27,7 +27,25 @@
 	<owl:Class rdf:about="&gist;IntellectualProperty">
 	</owl:Class>
 	
+	<owl:Class rdf:about="&gist;PhysicalIdentifiableItem">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;PhysicalSubstance">
+	</owl:Class>
+	
 	<owl:Class rdf:about="&gist;PhysicalThing">
+		<rdfs:label rdf:datatype="&xs;string">Physical Thing</rdfs:label>
+		<owl:deprecated rdf:datatype="&xs;string">true</owl:deprecated>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;PhysicalIdentifiableItem">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;PhysicalSubstance">
+					</rdf:Description>
+				</owl:unionOf>
+			</owl:Class>
+		</owl:equivalentClass>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;SocialBeing">
@@ -122,6 +140,9 @@
 	</owl:DatatypeProperty>
 	
 	<owl:AnnotationProperty rdf:about="&rdfs;comment">
+	</owl:AnnotationProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
 	</owl:AnnotationProperty>
 	
 	<owl:AnnotationProperty rdf:about="&owl;deprecated">

@@ -16,17 +16,17 @@
 	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistCore">
 		<rdfs:comment rdf:datatype="&xs;string">gistCore</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistX.x Core</rdfs:comment>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistAddress.X.x"/>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistAgreement.X.x"/>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistCategory.X.x"/>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistContent.X.x"/>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistMeasure.X.x"/>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistOrganization.X.x"/>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistPlace.X.x"/>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTemporalRelation.X.x"/>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistUnitDim.X.x"/>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistWiki.X.x"/>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistCore.X.x"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistAddressX.x"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistAgreementX.x"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistCategoryX.x"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistContentX.x"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistMagnitudeX.x"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistMeasureX.x"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistOrganizationX.x"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTemporalRelationX.x"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistUnitDimX.x"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistWikiX.x"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistCoreX.x"/>
 		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\Offerings\gist\___workingGistMaster\gistX.x.vsd Page:gistCore</owl:versionInfo>
 	</owl:Ontology>
 

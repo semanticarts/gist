@@ -16,8 +16,8 @@
 	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistAgreement">
 		<rdfs:comment rdf:datatype="&xs;string">gistAgreement</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistX.x agreement</rdfs:comment>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistIntention.X.x"/>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistAgreement.X.x"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistIntentionX.x"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistAgreementX.x"/>
 		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\Offerings\gist\___workingGistMaster\gistX.x.vsd Page:agree</owl:versionInfo>
 	</owl:Ontology>
 	

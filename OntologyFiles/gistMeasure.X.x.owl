@@ -16,8 +16,8 @@
 	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistMeasure">
 		<rdfs:comment rdf:datatype="&xs;string">gistMeasure</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistX.x Measure</rdfs:comment>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistEvent.X.x"/>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistMeasure.X.x"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistEventX.x"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistMeasureX.x"/>
 		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\Offerings\gist\___workingGistMaster\gistX.x.vsd Page:measure</owl:versionInfo>
 	</owl:Ontology>
 	
@@ -77,7 +77,10 @@
 		</owl:equivalentClass>
 	</owl:Class>
 	
-	<owl:Class rdf:about="&gist;PhysicalThing">
+	<owl:Class rdf:about="&gist;PhysicalIdentifiableItem">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;PhysicalSubstance">
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;ReferenceValue">

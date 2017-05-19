@@ -16,10 +16,13 @@
 	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistTime">
 		<rdfs:comment rdf:datatype="&xs;string">gistTime</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistX.x time</rdfs:comment>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTop.X.x"/>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistTime.X.x"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTopX.x"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistTimeX.x"/>
 		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\Offerings\gist\___workingGistMaster\gistX.x.vsd Page:time</owl:versionInfo>
 	</owl:Ontology>
+	
+	<owl:Class rdf:about="&gist;BaseUnit">
+	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;DateInstant">
 		<rdfs:comment rdf:datatype="&xs;string">A point in time known only to the accuracy of one day.  Say the signing of the declaration of independence on 7/4/1776</rdfs:comment>
@@ -165,8 +168,10 @@
 		<gist:hasUoM rdf:resource="&gist;_minute"/>
 	</gist:Duration>
 	
-	<gist:DurationUnit rdf:about="&gist;_second">
-	</gist:DurationUnit>
+	<rdf:Description rdf:about="&gist;_second">
+		<rdf:type rdf:resource="&gist;BaseUnit"/>
+		<rdf:type rdf:resource="&gist;DurationUnit"/>
+	</rdf:Description>
 	
 	<owl:ObjectProperty rdf:about="&gist;basedOn">
 	</owl:ObjectProperty>

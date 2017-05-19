@@ -16,8 +16,8 @@
 	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistOrganization">
 		<rdfs:comment rdf:datatype="&xs;string">gistOrganization</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistX.x org</rdfs:comment>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTop.X.x"/>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistOrganization.X.x"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTopX.x"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistOrganizationX.x"/>
 		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\Offerings\gist\___workingGistMaster\gistX.x.vsd Page:org</owl:versionInfo>
 	</owl:Ontology>
 	

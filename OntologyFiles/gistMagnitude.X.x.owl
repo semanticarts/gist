@@ -16,8 +16,8 @@
 	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistMagnitude">
 		<rdfs:comment rdf:datatype="&xs;string">gistMagnitude</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistX.x magnitudes</rdfs:comment>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistUnit.X.x"/>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistMagnitude.X.x"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistUnitX.x"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistMagnitudeX.x"/>
 		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\Offerings\gist\___workingGistMaster\gistX.x.vsd Page:mag</owl:versionInfo>
 	</owl:Ontology>
 	

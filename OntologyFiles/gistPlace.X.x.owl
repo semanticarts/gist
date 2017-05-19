@@ -16,8 +16,8 @@
 	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistPlace">
 		<rdfs:comment rdf:datatype="&xs;string">gistPlace</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistX.x place</rdfs:comment>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTop.X.x"/>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistPlace.X.x"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTopX.x"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistPlaceX.x"/>
 		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\Offerings\gist\___workingGistMaster\gistX.x.vsd Page:place</owl:versionInfo>
 	</owl:Ontology>
 	
@@ -106,7 +106,7 @@
 	<owl:Class rdf:about="&gist;PhysicalIdentifiableItem">
 	</owl:Class>
 	
-	<owl:Class rdf:about="&gist;PhysicalThing">
+	<owl:Class rdf:about="&gist;PhysicalSubstance">
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Place">
@@ -214,7 +214,16 @@
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;geoOccupies">
-		<rdfs:domain rdf:resource="&gist;PhysicalThing"/>
+		<rdfs:domain>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;PhysicalIdentifiableItem">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;PhysicalSubstance">
+					</rdf:Description>
+				</owl:unionOf>
+			</owl:Class>
+		</rdfs:domain>
 		<rdfs:range>
 			<owl:Class>
 				<owl:unionOf rdf:parseType="Collection">

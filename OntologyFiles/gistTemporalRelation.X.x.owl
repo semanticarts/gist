@@ -16,8 +16,8 @@
 	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistTemporalRelation">
 		<rdfs:comment rdf:datatype="&xs;string">gistTemporalRelation</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistX.x temporalRelation</rdfs:comment>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTime.X.x"/>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistTemporalRelation.X.x"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTimeX.x"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistTemporalRelationX.x"/>
 		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\Offerings\gist\___workingGistMaster\gistX.x.vsd Page:TR</owl:versionInfo>
 	</owl:Ontology>
 	

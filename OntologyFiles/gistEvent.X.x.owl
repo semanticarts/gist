@@ -16,8 +16,8 @@
 	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistEvent">
 		<rdfs:comment rdf:datatype="&xs;string">gistEvent</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistX.x event</rdfs:comment>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTime.X.x"/>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistEvent.X.x"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTimeX.x"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistEventX.x"/>
 		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\Offerings\gist\___workingGistMaster\gistX.x.vsd Page:event</owl:versionInfo>
 	</owl:Ontology>
 	
@@ -172,23 +172,16 @@
 	<owl:Class rdf:about="&gist;TimeInstant">
 	</owl:Class>
 	
+	<owl:Class rdf:about="&gist;TimeInterval">
+	</owl:Class>
+	
 	<owl:ObjectProperty rdf:about="&gist;actual">
-		<rdfs:comment rdf:datatype="&xs;string">historical Dates</rdfs:comment>
-		<rdfs:range rdf:resource="&gist;TimeInstant"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;actualEnd">
-		<rdfs:subPropertyOf rdf:resource="&gist;actual"/>
-		<rdfs:subPropertyOf rdf:resource="&gist;end"/>
-		<rdfs:comment rdf:datatype="&xs;string">When something did end.</rdfs:comment>
-		<rdfs:range rdf:resource="&gist;TimeInstant"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;actualStart">
-		<rdfs:subPropertyOf rdf:resource="&gist;actual"/>
-		<rdfs:subPropertyOf rdf:resource="&gist;start"/>
-		<rdfs:comment rdf:datatype="&xs;string">When something did start, therefore noting an historical event.</rdfs:comment>
-		<rdfs:range rdf:resource="&gist;TimeInstant"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;characterizedAs">
@@ -236,7 +229,16 @@
 	
 	<owl:ObjectProperty rdf:about="&gist;planned">
 		<rdfs:comment rdf:datatype="&xs;string">Dates that were in the future at the time they were made.</rdfs:comment>
-		<rdfs:range rdf:resource="&gist;TimeInstant"/>
+		<rdfs:range>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;TimeInstant">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;TimeInterval">
+					</rdf:Description>
+				</owl:unionOf>
+			</owl:Class>
+		</rdfs:range>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;plannedEnd">
@@ -244,14 +246,32 @@
 		<rdfs:subPropertyOf rdf:resource="&gist;planned"/>
 		<rdfs:comment rdf:datatype="&xs;string">A date/time that was at least at some point in time in the future. It may be in the past now, but when we planned it, it was in the future.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">NOTE:  Most frequently apples to Event(s) and Offer(s). E.g. a conference or sale offer.</rdfs:comment>
-		<rdfs:range rdf:resource="&gist;TimeInstant"/>
+		<rdfs:range>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;TimeInstant">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;TimeInterval">
+					</rdf:Description>
+				</owl:unionOf>
+			</owl:Class>
+		</rdfs:range>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;plannedStart">
 		<rdfs:subPropertyOf rdf:resource="&gist;planned"/>
 		<rdfs:subPropertyOf rdf:resource="&gist;start"/>
 		<rdfs:comment rdf:datatype="&xs;string">A date/time that was at least at some point in time in the future. It may be in the past now, but when we planned it, it was in the future.</rdfs:comment>
-		<rdfs:range rdf:resource="&gist;TimeInstant"/>
+		<rdfs:range>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;TimeInstant">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;TimeInterval">
+					</rdf:Description>
+				</owl:unionOf>
+			</owl:Class>
+		</rdfs:range>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;recordedOn">
