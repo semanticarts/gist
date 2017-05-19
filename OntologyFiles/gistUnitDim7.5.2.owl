@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY gist "http://ontologies.semanticarts.com/gist#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://ontologies.semanticarts.com/o/gistUnitDim"
+	xmlns:gist="http://ontologies.semanticarts.com/gist#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistUnitDim">
+		<rdfs:comment rdf:datatype="&xs;string">gist7.5.2 dimensioned units of measure.  This extension allows (and requires) you to have a conversion factor for all units with the same dimension.  If you introduce MilesPerHour you will have to supply the conversion to MetersPerSecond (even though the system &quot;knows&quot; how to convert Miles to meters and hours to seconds.  You will have to supply and addtional conversion when you introduce KilometersPerHour.  Any new combination of primtive rations requires a new Dimension.  While this is a burden, it allows units to be converted in sparql</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistDimensionedUnits</rdfs:comment>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistUnit7.5.2"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistUnitDim7.5.2"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\Offerings\gist\__internallyReleasedGists\gist7.5.2\gist7.5.2.vsd Page:UnitDim</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&gist;BaseUnit">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;CoherentProductUnit">
+		<rdfs:comment rdf:datatype="&xs;string">A ratio unit whos numerator and denominator reduce to 1</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;ProductUnit">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;multiplier"/>
+				<owl:allValuesFrom>
+					<owl:Class>
+						<owl:unionOf rdf:parseType="Collection">
+							<rdf:Description rdf:about="&gist;CoherentRatioUnit">
+							</rdf:Description>
+							<rdf:Description rdf:about="&gist;CoherentProductUnit">
+							</rdf:Description>
+							<rdf:Description rdf:about="&gist;BaseUnit">
+							</rdf:Description>
+						</owl:unionOf>
+					</owl:Class>
+				</owl:allValuesFrom>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;multiplicand"/>
+				<owl:allValuesFrom>
+					<owl:Class>
+						<owl:unionOf rdf:parseType="Collection">
+							<rdf:Description rdf:about="&gist;CoherentRatioUnit">
+							</rdf:Description>
+							<rdf:Description rdf:about="&gist;CoherentProductUnit">
+							</rdf:Description>
+							<rdf:Description rdf:about="&gist;BaseUnit">
+							</rdf:Description>
+						</owl:unionOf>
+					</owl:Class>
+				</owl:allValuesFrom>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;CoherentRatioUnit">
+		<rdfs:comment rdf:datatype="&xs;string">A ratio unit whos numerator and denominator reduce to 1</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;RatioUnit">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;numerator"/>
+				<owl:allValuesFrom>
+					<owl:Class>
+						<owl:unionOf rdf:parseType="Collection">
+							<rdf:Description rdf:about="&gist;CoherentRatioUnit">
+							</rdf:Description>
+							<rdf:Description rdf:about="&gist;CoherentProductUnit">
+							</rdf:Description>
+							<rdf:Description rdf:about="&gist;BaseUnit">
+							</rdf:Description>
+						</owl:unionOf>
+					</owl:Class>
+				</owl:allValuesFrom>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;denominator"/>
+				<owl:allValuesFrom>
+					<owl:Class>
+						<owl:unionOf rdf:parseType="Collection">
+							<rdf:Description rdf:about="&gist;CoherentRatioUnit">
+							</rdf:Description>
+							<rdf:Description rdf:about="&gist;CoherentProductUnit">
+							</rdf:Description>
+							<rdf:Description rdf:about="&gist;BaseUnit">
+							</rdf:Description>
+						</owl:unionOf>
+					</owl:Class>
+				</owl:allValuesFrom>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;CoherentUnit">
+		<rdfs:comment rdf:datatype="&xs;string">A unit that is expressed in units that have no conversions.  It may be a simple unit.  It may also be a product or ratio unit that bottoms out in simple units.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLEs:  a simple unit: kilogram</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLEs: the standard unit for acceleration is meters per square second (feet per square second  requires a conversion)</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE: coherent unit is the physics term for this, informally you might think of it as the standard unit for a given dimension.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE: in principle, the CoherentUnit for a ProductUnit or RatioUnit can be inferred by recursively decomposing the products and ratios into their respective CoherentUnits, bottoming out in SimpleUnits</rdfs:comment>
+		<owl:unionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;BaseUnit">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;CoherentRatioUnit">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;CoherentProductUnit">
+			</rdf:Description>
+		</owl:unionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ProductUnit">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;RatioUnit">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;UnitOfMeasure">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;convertToStandard"/>
+				<owl:someValuesFrom rdf:resource="&xs;double"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasStandardUnit"/>
+				<owl:someValuesFrom rdf:resource="&gist;CoherentUnit"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+	
+	<owl:DatatypeProperty rdf:about="&gist;convertToBase">
+		<rdfs:subPropertyOf rdf:resource="&gist;convertToStandard"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&gist;convertToStandard">
+		<rdfs:comment rdf:datatype="&xs;string">Note this kind of conversion will only work with temperatures if they are in Kelvin or Rankine (with a true 0).  You multiple to get to the base, divide to go from the base. mph to mps is .44704.  The multiple from kph to mps is .277778 .  To convert 60 mph to kph is (60 * .44704 / .277778 or 96.56056 kph</rdfs:comment>
+		<rdfs:domain rdf:resource="&gist;UnitOfMeasure"/>
+		<rdfs:range rdf:resource="&xs;double"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;denominator">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasBaseUnit">
+		<rdfs:subPropertyOf rdf:resource="&gist;hasStandardUnit"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasStandardUnit">
+		<rdfs:comment rdf:datatype="&xs;string">For a complex unit refers to a unit that has all the component parts in SI</rdfs:comment>
+		<rdfs:range rdf:resource="&gist;CoherentUnit"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;multiplicand">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;multiplier">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;numerator">
+	</owl:ObjectProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;comment">
+	</owl:AnnotationProperty>
+
+</rdf:RDF>

@@ -1,0 +1,2137 @@
+@prefix : <http://ontologies.semanticarts.com/o/gistMaterializedOnly7.5.2#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://ontologies.semanticarts.com/o/gistMaterializedOnly7.5.2> .
+
+<http://ontologies.semanticarts.com/o/gistMaterializedOnly7.5.2> rdf:type owl:Ontology .
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://ontologies.semanticarts.com/gist#about
+
+<http://ontologies.semanticarts.com/gist#about> rdf:type owl:ObjectProperty .
+
+
+
+###  http://ontologies.semanticarts.com/gist#actual
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#actualEnd
+
+<http://ontologies.semanticarts.com/gist#actualEnd> rdf:type owl:ObjectProperty ;
+                                                    
+                                                    rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#actual> ,
+                                                                       <http://ontologies.semanticarts.com/gist#end> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#actualStart
+
+<http://ontologies.semanticarts.com/gist#actualStart> rdf:type owl:ObjectProperty ;
+                                                      
+                                                      rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#actual> ,
+                                                                         <http://ontologies.semanticarts.com/gist#start> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#affectedBy
+
+<http://ontologies.semanticarts.com/gist#affectedBy> rdf:type owl:ObjectProperty ;
+                                                     
+                                                     owl:inverseOf <http://ontologies.semanticarts.com/gist#affects> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#affects
+
+<http://ontologies.semanticarts.com/gist#affects> rdf:type owl:ObjectProperty .
+
+
+
+###  http://ontologies.semanticarts.com/gist#allocatedBy
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#allows
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#aspectOf
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#basedOn
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#categorizedBy
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#characterizedAs
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#communicationAddressOf
+
+<http://ontologies.semanticarts.com/gist#communicationAddressOf> rdf:type owl:ObjectProperty .
+
+
+
+###  http://ontologies.semanticarts.com/gist#conformsTo
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#connectedTo
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#denominator
+
+<http://ontologies.semanticarts.com/gist#denominator> rdf:type owl:FunctionalProperty ,
+                                                               owl:ObjectProperty .
+
+
+
+###  http://ontologies.semanticarts.com/gist#describedIn
+
+<http://ontologies.semanticarts.com/gist#describedIn> rdf:type owl:ObjectProperty ;
+                                                      
+                                                      owl:inverseOf <http://ontologies.semanticarts.com/gist#about> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#directPartOf
+
+<http://ontologies.semanticarts.com/gist#directPartOf> rdf:type owl:ObjectProperty ;
+                                                       
+                                                       rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#partOf> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#directSubTaskOf
+
+<http://ontologies.semanticarts.com/gist#directSubTaskOf> rdf:type owl:ObjectProperty ;
+                                                          
+                                                          owl:inverseOf <http://ontologies.semanticarts.com/gist#hasDirectSubTask> ;
+                                                          
+                                                          rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#subTaskOf> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#directlyRecognizedBy
+
+<http://ontologies.semanticarts.com/gist#directlyRecognizedBy> rdf:type owl:ObjectProperty ;
+                                                               
+                                                               rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#recognizedBy> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#end
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#expressedIn
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#fromAgent
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#fromPlace
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#geoContainedIn
+
+<http://ontologies.semanticarts.com/gist#geoContainedIn> rdf:type owl:ObjectProperty ,
+                                                                  owl:TransitiveProperty .
+
+
+
+###  http://ontologies.semanticarts.com/gist#geoContains
+
+<http://ontologies.semanticarts.com/gist#geoContains> rdf:type owl:ObjectProperty ,
+                                                               owl:TransitiveProperty ;
+                                                      
+                                                      owl:inverseOf <http://ontologies.semanticarts.com/gist#geoContainedIn> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#geoDirectlyContainedIn
+
+<http://ontologies.semanticarts.com/gist#geoDirectlyContainedIn> rdf:type owl:ObjectProperty ;
+                                                                 
+                                                                 rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#geoContainedIn> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#geoDirectlyContains
+
+<http://ontologies.semanticarts.com/gist#geoDirectlyContains> rdf:type owl:ObjectProperty ;
+                                                              
+                                                              rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#geoContains> ;
+                                                              
+                                                              owl:inverseOf <http://ontologies.semanticarts.com/gist#geoDirectlyContainedIn> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#geoOccupiedBy
+
+<http://ontologies.semanticarts.com/gist#geoOccupiedBy> rdf:type owl:ObjectProperty ;
+                                                        
+                                                        owl:inverseOf <http://ontologies.semanticarts.com/gist#geoOccupies> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#geoOccupies
+
+<http://ontologies.semanticarts.com/gist#geoOccupies> rdf:type owl:ObjectProperty .
+
+
+
+###  http://ontologies.semanticarts.com/gist#getter
+
+<http://ontologies.semanticarts.com/gist#getter> rdf:type owl:ObjectProperty ;
+                                                 
+                                                 rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#party> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#giver
+
+<http://ontologies.semanticarts.com/gist#giver> rdf:type owl:ObjectProperty ;
+                                                
+                                                rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#party> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#governedBy
+
+<http://ontologies.semanticarts.com/gist#governedBy> rdf:type owl:ObjectProperty ;
+                                                     
+                                                     owl:inverseOf <http://ontologies.semanticarts.com/gist#governs> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#governs
+
+<http://ontologies.semanticarts.com/gist#governs> rdf:type owl:ObjectProperty .
+
+
+
+###  http://ontologies.semanticarts.com/gist#hasAltitude
+
+<http://ontologies.semanticarts.com/gist#hasAltitude> rdf:type owl:AsymmetricProperty ,
+                                                               owl:IrreflexiveProperty ,
+                                                               owl:ObjectProperty ,
+                                                               owl:TransitiveProperty .
+
+
+
+###  http://ontologies.semanticarts.com/gist#hasBaseUnit
+
+<http://ontologies.semanticarts.com/gist#hasBaseUnit> rdf:type owl:AsymmetricProperty ,
+                                                               owl:ObjectProperty ,
+                                                               owl:TransitiveProperty ;
+                                                      
+                                                      rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#hasStandardUnit> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#hasBirthDate
+
+<http://ontologies.semanticarts.com/gist#hasBirthDate> rdf:type owl:AsymmetricProperty ,
+                                                                owl:IrreflexiveProperty ,
+                                                                owl:ObjectProperty ,
+                                                                owl:TransitiveProperty ;
+                                                       
+                                                       rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#actualStart> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#hasCommunicationAddress
+
+<http://ontologies.semanticarts.com/gist#hasCommunicationAddress> rdf:type owl:ObjectProperty ;
+                                                                  
+                                                                  owl:inverseOf <http://ontologies.semanticarts.com/gist#communicationAddressOf> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#hasDeathDate
+
+<http://ontologies.semanticarts.com/gist#hasDeathDate> rdf:type owl:AsymmetricProperty ,
+                                                                owl:IrreflexiveProperty ,
+                                                                owl:ObjectProperty ,
+                                                                owl:TransitiveProperty ;
+                                                       
+                                                       rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#actualEnd> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#hasDirectPart
+
+<http://ontologies.semanticarts.com/gist#hasDirectPart> rdf:type owl:ObjectProperty ;
+                                                        
+                                                        owl:inverseOf <http://ontologies.semanticarts.com/gist#directPartOf> ;
+                                                        
+                                                        rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#hasPart> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#hasDirectSubTask
+
+<http://ontologies.semanticarts.com/gist#hasDirectSubTask> rdf:type owl:ObjectProperty ;
+                                                           
+                                                           rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#hasSubTask> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#hasGoal
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#hasMagnitude
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#hasMember
+
+<http://ontologies.semanticarts.com/gist#hasMember> rdf:type owl:ObjectProperty ;
+                                                    
+                                                    owl:inverseOf <http://ontologies.semanticarts.com/gist#memberOf> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#hasNavigationalChild
+
+<http://ontologies.semanticarts.com/gist#hasNavigationalChild> rdf:type owl:ObjectProperty ;
+                                                               
+                                                               owl:inverseOf <http://ontologies.semanticarts.com/gist#hasNavigationalParent> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#hasNavigationalParent
+
+<http://ontologies.semanticarts.com/gist#hasNavigationalParent> rdf:type owl:ObjectProperty .
+
+
+
+###  http://ontologies.semanticarts.com/gist#hasOrderedMember
+
+<http://ontologies.semanticarts.com/gist#hasOrderedMember> rdf:type owl:InverseFunctionalProperty ,
+                                                                    owl:ObjectProperty ;
+                                                           
+                                                           rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#hasMember> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#hasPart
+
+<http://ontologies.semanticarts.com/gist#hasPart> rdf:type owl:ObjectProperty ,
+                                                           owl:TransitiveProperty .
+
+
+
+###  http://ontologies.semanticarts.com/gist#hasPrecision
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#hasPreferredTerm
+
+<http://ontologies.semanticarts.com/gist#hasPreferredTerm> rdf:type owl:FunctionalProperty ,
+                                                                    owl:ObjectProperty .
+
+
+
+###  http://ontologies.semanticarts.com/gist#hasStandardUnit
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#hasStreetAddress
+
+<http://ontologies.semanticarts.com/gist#hasStreetAddress> rdf:type owl:ObjectProperty .
+
+
+
+###  http://ontologies.semanticarts.com/gist#hasSubCategory
+
+<http://ontologies.semanticarts.com/gist#hasSubCategory> rdf:type owl:ObjectProperty ;
+                                                         
+                                                         owl:inverseOf <http://ontologies.semanticarts.com/gist#hasSuperCategory> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#hasSubTask
+
+<http://ontologies.semanticarts.com/gist#hasSubTask> rdf:type owl:ObjectProperty ,
+                                                              owl:TransitiveProperty .
+
+
+
+###  http://ontologies.semanticarts.com/gist#hasSuperCategory
+
+<http://ontologies.semanticarts.com/gist#hasSuperCategory> rdf:type owl:ObjectProperty .
+
+
+
+###  http://ontologies.semanticarts.com/gist#hasUniqueNavigationalParent
+
+<http://ontologies.semanticarts.com/gist#hasUniqueNavigationalParent> rdf:type owl:FunctionalProperty ,
+                                                                               owl:ObjectProperty ;
+                                                                      
+                                                                      rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#hasNavigationalParent> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#hasUniqueSuperCategory
+
+<http://ontologies.semanticarts.com/gist#hasUniqueSuperCategory> rdf:type owl:FunctionalProperty ,
+                                                                          owl:ObjectProperty ;
+                                                                 
+                                                                 rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#hasSuperCategory> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#hasUoM
+
+<http://ontologies.semanticarts.com/gist#hasUoM> rdf:type owl:AsymmetricProperty ,
+                                                          owl:IrreflexiveProperty ,
+                                                          owl:ObjectProperty ,
+                                                          owl:TransitiveProperty .
+
+
+
+###  http://ontologies.semanticarts.com/gist#identifiedBy
+
+<http://ontologies.semanticarts.com/gist#identifiedBy> rdf:type owl:InverseFunctionalProperty ,
+                                                                owl:ObjectProperty ;
+                                                       
+                                                       owl:inverseOf <http://ontologies.semanticarts.com/gist#identifies> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#identifies
+
+<http://ontologies.semanticarts.com/gist#identifies> rdf:type owl:FunctionalProperty ,
+                                                              owl:ObjectProperty .
+
+
+
+###  http://ontologies.semanticarts.com/gist#includes
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#lastModifiedOn
+
+<http://ontologies.semanticarts.com/gist#lastModifiedOn> rdf:type owl:ObjectProperty ;
+                                                         
+                                                         rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#actual> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#madeUpOf
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#memberOf
+
+<http://ontologies.semanticarts.com/gist#memberOf> rdf:type owl:ObjectProperty .
+
+
+
+###  http://ontologies.semanticarts.com/gist#multiplicand
+
+<http://ontologies.semanticarts.com/gist#multiplicand> rdf:type owl:FunctionalProperty ,
+                                                                owl:ObjectProperty .
+
+
+
+###  http://ontologies.semanticarts.com/gist#multiplier
+
+<http://ontologies.semanticarts.com/gist#multiplier> rdf:type owl:FunctionalProperty ,
+                                                              owl:ObjectProperty .
+
+
+
+###  http://ontologies.semanticarts.com/gist#numerator
+
+<http://ontologies.semanticarts.com/gist#numerator> rdf:type owl:FunctionalProperty ,
+                                                             owl:ObjectProperty .
+
+
+
+###  http://ontologies.semanticarts.com/gist#occurredAt
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#of
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#offsetToUniversal
+
+<http://ontologies.semanticarts.com/gist#offsetToUniversal> rdf:type owl:AsymmetricProperty ,
+                                                                     owl:IrreflexiveProperty ,
+                                                                     owl:ObjectProperty ,
+                                                                     owl:TransitiveProperty .
+
+
+
+###  http://ontologies.semanticarts.com/gist#offspringOf
+
+<http://ontologies.semanticarts.com/gist#offspringOf> rdf:type owl:ObjectProperty .
+
+
+
+###  http://ontologies.semanticarts.com/gist#orderedMemberOf
+
+<http://ontologies.semanticarts.com/gist#orderedMemberOf> rdf:type owl:FunctionalProperty ,
+                                                                   owl:ObjectProperty ;
+                                                          
+                                                          owl:inverseOf <http://ontologies.semanticarts.com/gist#hasOrderedMember> ;
+                                                          
+                                                          rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#memberOf> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#parentOf
+
+<http://ontologies.semanticarts.com/gist#parentOf> rdf:type owl:ObjectProperty ;
+                                                   
+                                                   owl:inverseOf <http://ontologies.semanticarts.com/gist#offspringOf> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#partOf
+
+<http://ontologies.semanticarts.com/gist#partOf> rdf:type owl:ObjectProperty ,
+                                                          owl:TransitiveProperty ;
+                                                 
+                                                 owl:inverseOf <http://ontologies.semanticarts.com/gist#hasPart> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#party
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#permanentGeoOccupiedBy
+
+<http://ontologies.semanticarts.com/gist#permanentGeoOccupiedBy> rdf:type owl:ObjectProperty ;
+                                                                 
+                                                                 rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#geoOccupiedBy> ;
+                                                                 
+                                                                 owl:inverseOf <http://ontologies.semanticarts.com/gist#permanentGeoOccupies> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#permanentGeoOccupies
+
+<http://ontologies.semanticarts.com/gist#permanentGeoOccupies> rdf:type owl:ObjectProperty ;
+                                                               
+                                                               rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#geoOccupies> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#planned
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#plannedEnd
+
+<http://ontologies.semanticarts.com/gist#plannedEnd> rdf:type owl:ObjectProperty ;
+                                                     
+                                                     rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#end> ,
+                                                                        <http://ontologies.semanticarts.com/gist#planned> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#plannedStart
+
+<http://ontologies.semanticarts.com/gist#plannedStart> rdf:type owl:ObjectProperty ;
+                                                       
+                                                       rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#planned> ,
+                                                                          <http://ontologies.semanticarts.com/gist#start> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#precedes
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#preferredTermOf
+
+<http://ontologies.semanticarts.com/gist#preferredTermOf> rdf:type owl:InverseFunctionalProperty ,
+                                                                   owl:ObjectProperty ;
+                                                          
+                                                          owl:inverseOf <http://ontologies.semanticarts.com/gist#hasPreferredTerm> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#prevents
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#produces
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#recognizedBy
+
+<http://ontologies.semanticarts.com/gist#recognizedBy> rdf:type owl:ObjectProperty .
+
+
+
+###  http://ontologies.semanticarts.com/gist#recognizes
+
+<http://ontologies.semanticarts.com/gist#recognizes> rdf:type owl:ObjectProperty ;
+                                                     
+                                                     owl:inverseOf <http://ontologies.semanticarts.com/gist#recognizedBy> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#recordedOn
+
+<http://ontologies.semanticarts.com/gist#recordedOn> rdf:type owl:ObjectProperty ;
+                                                     
+                                                     rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#actual> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#renderedOn
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#requires
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#sameTimeAs
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#start
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#streetAddressOf
+
+<http://ontologies.semanticarts.com/gist#streetAddressOf> rdf:type owl:ObjectProperty ;
+                                                          
+                                                          owl:inverseOf <http://ontologies.semanticarts.com/gist#hasStreetAddress> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#strictlyPrecededBy
+
+<http://ontologies.semanticarts.com/gist#strictlyPrecededBy> rdf:type owl:ObjectProperty ;
+                                                             
+                                                             owl:inverseOf <http://ontologies.semanticarts.com/gist#strictlyPrecedes> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#strictlyPrecedes
+
+<http://ontologies.semanticarts.com/gist#strictlyPrecedes> rdf:type owl:ObjectProperty ;
+                                                           
+                                                           rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#precedes> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#subTaskOf
+
+<http://ontologies.semanticarts.com/gist#subTaskOf> rdf:type owl:ObjectProperty ,
+                                                             owl:TransitiveProperty ;
+                                                    
+                                                    owl:inverseOf <http://ontologies.semanticarts.com/gist#hasSubTask> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#timeZoneStandardUsed
+
+<http://ontologies.semanticarts.com/gist#timeZoneStandardUsed> rdf:type owl:AsymmetricProperty ,
+                                                                        owl:IrreflexiveProperty ,
+                                                                        owl:ObjectProperty ,
+                                                                        owl:TransitiveProperty .
+
+
+
+###  http://ontologies.semanticarts.com/gist#toAgent
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#toPlace
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#triggeredBy
+
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://ontologies.semanticarts.com/gist#containedText
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#conversionOffset
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#convertToBase
+
+<http://ontologies.semanticarts.com/gist#convertToBase> rdf:type owl:DatatypeProperty ;
+                                                        
+                                                        rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#convertToStandard> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#convertToStandard
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#decimalValue
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#encryptedText
+
+<http://ontologies.semanticarts.com/gist#encryptedText> rdf:type owl:DatatypeProperty ;
+                                                        
+                                                        rdfs:subPropertyOf <http://ontologies.semanticarts.com/gist#containedText> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#epoch
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#latitude
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#localDate
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#localDateTime
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#localTime
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#longitude
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#name
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#sequence
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#uniqueText
+
+<http://ontologies.semanticarts.com/gist#uniqueText> rdf:type owl:DatatypeProperty ,
+                                                              owl:FunctionalProperty .
+
+
+
+###  http://ontologies.semanticarts.com/gist#unitSymbol
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#unitSymbolHTML
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#unitSymbolUnicode
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#universalDate
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#universalDateTime
+
+
+
+
+###  http://ontologies.semanticarts.com/gist#universalTime
+
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://ontologies.semanticarts.com/gist#Account
+
+<http://ontologies.semanticarts.com/gist#Account> rdf:type owl:Class ;
+                                                  
+                                                  rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Agreement> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Address
+
+<http://ontologies.semanticarts.com/gist#Address> rdf:type owl:Class ;
+                                                  
+                                                  rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Content> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Agreement
+
+<http://ontologies.semanticarts.com/gist#Agreement> rdf:type owl:Class ;
+                                                    
+                                                    rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Commitment> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Area
+
+<http://ontologies.semanticarts.com/gist#Area> rdf:type owl:Class ;
+                                               
+                                               rdfs:subClassOf <http://ontologies.semanticarts.com/gist#ProductMagnitude> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#AreaUnit
+
+<http://ontologies.semanticarts.com/gist#AreaUnit> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf <http://ontologies.semanticarts.com/gist#ProductUnit> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Aspect
+
+<http://ontologies.semanticarts.com/gist#Aspect> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Category> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Balance
+
+<http://ontologies.semanticarts.com/gist#Balance> rdf:type owl:Class ;
+                                                  
+                                                  rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Magnitude> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#BaseUnit
+
+<http://ontologies.semanticarts.com/gist#BaseUnit> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf <http://ontologies.semanticarts.com/gist#CoherentUnit> ,
+                                                                   <http://ontologies.semanticarts.com/gist#SimpleUnitOfMeasure> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Behavior
+
+<http://ontologies.semanticarts.com/gist#Behavior> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Category> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Building
+
+<http://ontologies.semanticarts.com/gist#Building> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Landmark> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#BuildingAddress
+
+<http://ontologies.semanticarts.com/gist#BuildingAddress> rdf:type owl:Class ;
+                                                          
+                                                          rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Address> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#BundledCatalogItem
+
+<http://ontologies.semanticarts.com/gist#BundledCatalogItem> rdf:type owl:Class ;
+                                                             
+                                                             rdfs:subClassOf <http://ontologies.semanticarts.com/gist#CatalogItem> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#CatalogItem
+
+<http://ontologies.semanticarts.com/gist#CatalogItem> rdf:type owl:Class ;
+                                                      
+                                                      rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Specification> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Category
+
+<http://ontologies.semanticarts.com/gist#Category> rdf:type owl:Class .
+
+
+
+###  http://ontologies.semanticarts.com/gist#CoherentProductUnit
+
+<http://ontologies.semanticarts.com/gist#CoherentProductUnit> rdf:type owl:Class ;
+                                                              
+                                                              rdfs:subClassOf <http://ontologies.semanticarts.com/gist#CoherentUnit> ,
+                                                                              <http://ontologies.semanticarts.com/gist#ProductUnit> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#CoherentRatioUnit
+
+<http://ontologies.semanticarts.com/gist#CoherentRatioUnit> rdf:type owl:Class ;
+                                                            
+                                                            rdfs:subClassOf <http://ontologies.semanticarts.com/gist#CoherentUnit> ,
+                                                                            <http://ontologies.semanticarts.com/gist#RatioUnit> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#CoherentUnit
+
+<http://ontologies.semanticarts.com/gist#CoherentUnit> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:subClassOf <http://ontologies.semanticarts.com/gist#UnitOfMeasure> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Collection
+
+<http://ontologies.semanticarts.com/gist#Collection> rdf:type owl:Class .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Commitment
+
+<http://ontologies.semanticarts.com/gist#Commitment> rdf:type owl:Class ;
+                                                     
+                                                     rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Intention> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Concept
+
+<http://ontologies.semanticarts.com/gist#Concept> rdf:type owl:Class ;
+                                                  
+                                                  rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Topic> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#ContemporaneousEvent
+
+<http://ontologies.semanticarts.com/gist#ContemporaneousEvent> rdf:type owl:Class ;
+                                                               
+                                                               rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Event> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Content
+
+<http://ontologies.semanticarts.com/gist#Content> rdf:type owl:Class .
+
+
+
+###  http://ontologies.semanticarts.com/gist#ContentExpression
+
+<http://ontologies.semanticarts.com/gist#ContentExpression> rdf:type owl:Class ;
+                                                            
+                                                            rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Content> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#ContingentEvent
+
+<http://ontologies.semanticarts.com/gist#ContingentEvent> rdf:type owl:Class ;
+                                                          
+                                                          rdfs:subClassOf <http://ontologies.semanticarts.com/gist#PlannedEvent> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#ContingentObligation
+
+<http://ontologies.semanticarts.com/gist#ContingentObligation> rdf:type owl:Class ;
+                                                               
+                                                               rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Commitment> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#ContractTerm
+
+<http://ontologies.semanticarts.com/gist#ContractTerm> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Specification> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#ControlledVocabulary
+
+<http://ontologies.semanticarts.com/gist#ControlledVocabulary> rdf:type owl:Class ;
+                                                               
+                                                               rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Collection> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Count
+
+<http://ontologies.semanticarts.com/gist#Count> rdf:type owl:Class ;
+                                                
+                                                rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Magnitude> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#CountingUnit
+
+<http://ontologies.semanticarts.com/gist#CountingUnit> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:subClassOf <http://ontologies.semanticarts.com/gist#SimpleUnitOfMeasure> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#CountryGovernment
+
+<http://ontologies.semanticarts.com/gist#CountryGovernment> rdf:type owl:Class ;
+                                                            
+                                                            rdfs:subClassOf <http://ontologies.semanticarts.com/gist#GovernmentOrganization> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#CurrencyUnit
+
+<http://ontologies.semanticarts.com/gist#CurrencyUnit> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:subClassOf <http://ontologies.semanticarts.com/gist#SimpleUnitOfMeasure> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#DataSizeUnit
+
+<http://ontologies.semanticarts.com/gist#DataSizeUnit> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:subClassOf <http://ontologies.semanticarts.com/gist#SimpleUnitOfMeasure> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#DateInstant
+
+<http://ontologies.semanticarts.com/gist#DateInstant> rdf:type owl:Class ;
+                                                      
+                                                      rdfs:subClassOf <http://ontologies.semanticarts.com/gist#TimeInstant> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#DegreeOfCommitment
+
+<http://ontologies.semanticarts.com/gist#DegreeOfCommitment> rdf:type owl:Class ;
+                                                             
+                                                             rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Category> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#DistanceUnit
+
+<http://ontologies.semanticarts.com/gist#DistanceUnit> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:subClassOf <http://ontologies.semanticarts.com/gist#SimpleUnitOfMeasure> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Duration
+
+<http://ontologies.semanticarts.com/gist#Duration> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Magnitude> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#DurationUnit
+
+<http://ontologies.semanticarts.com/gist#DurationUnit> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:subClassOf <http://ontologies.semanticarts.com/gist#SimpleUnitOfMeasure> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#ElectricCurrent
+
+<http://ontologies.semanticarts.com/gist#ElectricCurrent> rdf:type owl:Class ;
+                                                          
+                                                          rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Magnitude> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#ElectricalCurrentUnit
+
+<http://ontologies.semanticarts.com/gist#ElectricalCurrentUnit> rdf:type owl:Class ;
+                                                                
+                                                                rdfs:subClassOf <http://ontologies.semanticarts.com/gist#SimpleUnitOfMeasure> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#ElectronicMessageAddress
+
+<http://ontologies.semanticarts.com/gist#ElectronicMessageAddress> rdf:type owl:Class ;
+                                                                   
+                                                                   rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Address> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#ElectronicResource
+
+<http://ontologies.semanticarts.com/gist#ElectronicResource> rdf:type owl:Class ;
+                                                             
+                                                             rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Topic> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Event
+
+<http://ontologies.semanticarts.com/gist#Event> rdf:type owl:Class ;
+                                                
+                                                rdfs:subClassOf <http://ontologies.semanticarts.com/gist#TimeInterval> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Extent
+
+<http://ontologies.semanticarts.com/gist#Extent> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Magnitude> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#FormattedContent
+
+<http://ontologies.semanticarts.com/gist#FormattedContent> rdf:type owl:Class ;
+                                                           
+                                                           rdfs:subClassOf <http://ontologies.semanticarts.com/gist#ContentExpression> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#GeneralMediaType
+
+<http://ontologies.semanticarts.com/gist#GeneralMediaType> rdf:type owl:Class ;
+                                                           
+                                                           rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Category> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#GeoPoint
+
+<http://ontologies.semanticarts.com/gist#GeoPoint> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Place> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#GeoRegion
+
+<http://ontologies.semanticarts.com/gist#GeoRegion> rdf:type owl:Class ;
+                                                    
+                                                    rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Place> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#GeoRoute
+
+<http://ontologies.semanticarts.com/gist#GeoRoute> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf <http://ontologies.semanticarts.com/gist#OrderedCollection> ,
+                                                                   <http://ontologies.semanticarts.com/gist#Place> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#GeoSegment
+
+<http://ontologies.semanticarts.com/gist#GeoSegment> rdf:type owl:Class ;
+                                                     
+                                                     rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Place> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#GeoVolume
+
+<http://ontologies.semanticarts.com/gist#GeoVolume> rdf:type owl:Class ;
+                                                    
+                                                    rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Place> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Goal
+
+<http://ontologies.semanticarts.com/gist#Goal> rdf:type owl:Class ;
+                                               
+                                               rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Intention> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#GovernmentOrganization
+
+<http://ontologies.semanticarts.com/gist#GovernmentOrganization> rdf:type owl:Class ;
+                                                                 
+                                                                 rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Organization> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#GreenwichInstant
+
+<http://ontologies.semanticarts.com/gist#GreenwichInstant> rdf:type owl:Class ;
+                                                           
+                                                           rdfs:subClassOf <http://ontologies.semanticarts.com/gist#TimeInstant> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Group
+
+<http://ontologies.semanticarts.com/gist#Group> rdf:type owl:Class ;
+                                                
+                                                rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Collection> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#HistoricalEvent
+
+<http://ontologies.semanticarts.com/gist#HistoricalEvent> rdf:type owl:Class ;
+                                                          
+                                                          rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Event> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#HumanInstant
+
+<http://ontologies.semanticarts.com/gist#HumanInstant> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:subClassOf <http://ontologies.semanticarts.com/gist#TimeInstant> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#ID
+
+<http://ontologies.semanticarts.com/gist#ID> rdf:type owl:Class ;
+                                             
+                                             rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Content> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#InformationQuantity
+
+<http://ontologies.semanticarts.com/gist#InformationQuantity> rdf:type owl:Class ;
+                                                              
+                                                              rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Magnitude> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Intention
+
+<http://ontologies.semanticarts.com/gist#Intention> rdf:type owl:Class .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Landmark
+
+<http://ontologies.semanticarts.com/gist#Landmark> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf <http://ontologies.semanticarts.com/gist#PhysicalIdentifiableItem> ,
+                                                                   <http://ontologies.semanticarts.com/gist#Place> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#LivingThing
+
+<http://ontologies.semanticarts.com/gist#LivingThing> rdf:type owl:Class ;
+                                                      
+                                                      rdfs:subClassOf <http://ontologies.semanticarts.com/gist#PhysicalIdentifiableItem> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#LocalInstant
+
+<http://ontologies.semanticarts.com/gist#LocalInstant> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:subClassOf <http://ontologies.semanticarts.com/gist#TimeInstant> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#LuminousIntensity
+
+<http://ontologies.semanticarts.com/gist#LuminousIntensity> rdf:type owl:Class ;
+                                                            
+                                                            rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Magnitude> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#LuminousIntensityUnit
+
+<http://ontologies.semanticarts.com/gist#LuminousIntensityUnit> rdf:type owl:Class ;
+                                                                
+                                                                rdfs:subClassOf <http://ontologies.semanticarts.com/gist#SimpleUnitOfMeasure> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Magnitude
+
+<http://ontologies.semanticarts.com/gist#Magnitude> rdf:type owl:Class .
+
+
+
+###  http://ontologies.semanticarts.com/gist#MassUnit
+
+<http://ontologies.semanticarts.com/gist#MassUnit> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf <http://ontologies.semanticarts.com/gist#SimpleUnitOfMeasure> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Medium
+
+<http://ontologies.semanticarts.com/gist#Medium> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Category> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Message
+
+<http://ontologies.semanticarts.com/gist#Message> rdf:type owl:Class ;
+                                                  
+                                                  rdfs:subClassOf <http://ontologies.semanticarts.com/gist#ContentExpression> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#MimeType
+
+<http://ontologies.semanticarts.com/gist#MimeType> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Category> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#MolarQuantity
+
+<http://ontologies.semanticarts.com/gist#MolarQuantity> rdf:type owl:Class ;
+                                                        
+                                                        rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Magnitude> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#MoleUnit
+
+<http://ontologies.semanticarts.com/gist#MoleUnit> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf <http://ontologies.semanticarts.com/gist#SimpleUnitOfMeasure> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Monetary
+
+<http://ontologies.semanticarts.com/gist#Monetary> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Magnitude> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Obligation
+
+<http://ontologies.semanticarts.com/gist#Obligation> rdf:type owl:Class ;
+                                                     
+                                                     rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Commitment> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Offer
+
+<http://ontologies.semanticarts.com/gist#Offer> rdf:type owl:Class ;
+                                                
+                                                rdfs:subClassOf <http://ontologies.semanticarts.com/gist#ContingentObligation> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#OrderedCollection
+
+<http://ontologies.semanticarts.com/gist#OrderedCollection> rdf:type owl:Class ;
+                                                            
+                                                            rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Collection> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#OrdinalCollection
+
+<http://ontologies.semanticarts.com/gist#OrdinalCollection> rdf:type owl:Class ;
+                                                            
+                                                            rdfs:subClassOf <http://ontologies.semanticarts.com/gist#OrderedCollection> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#OrdinalMember
+
+<http://ontologies.semanticarts.com/gist#OrdinalMember> rdf:type owl:Class ;
+                                                        
+                                                        rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Category> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Organization
+
+<http://ontologies.semanticarts.com/gist#Organization> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:subClassOf <http://ontologies.semanticarts.com/gist#SocialBeing> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Percentage
+
+<http://ontologies.semanticarts.com/gist#Percentage> rdf:type owl:Class ;
+                                                     
+                                                     rdfs:subClassOf <http://ontologies.semanticarts.com/gist#RatioMagnitude> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Permission
+
+<http://ontologies.semanticarts.com/gist#Permission> rdf:type owl:Class ;
+                                                     
+                                                     rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Intention> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Person
+
+<http://ontologies.semanticarts.com/gist#Person> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:subClassOf <http://ontologies.semanticarts.com/gist#LivingThing> ,
+                                                                 <http://ontologies.semanticarts.com/gist#SocialBeing> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#PhysicalEvent
+
+<http://ontologies.semanticarts.com/gist#PhysicalEvent> rdf:type owl:Class ;
+                                                        
+                                                        rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Event> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#PhysicalIdentifiableItem
+
+<http://ontologies.semanticarts.com/gist#PhysicalIdentifiableItem> rdf:type owl:Class .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Place
+
+<http://ontologies.semanticarts.com/gist#Place> rdf:type owl:Class .
+
+
+
+###  http://ontologies.semanticarts.com/gist#PlannedEvent
+
+<http://ontologies.semanticarts.com/gist#PlannedEvent> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Event> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#PostalAddress
+
+<http://ontologies.semanticarts.com/gist#PostalAddress> rdf:type owl:Class ;
+                                                        
+                                                        rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Address> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#ProductCategory
+
+<http://ontologies.semanticarts.com/gist#ProductCategory> rdf:type owl:Class ;
+                                                          
+                                                          rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Category> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#ProductMagnitude
+
+<http://ontologies.semanticarts.com/gist#ProductMagnitude> rdf:type owl:Class ;
+                                                           
+                                                           rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Magnitude> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#ProductSpecification
+
+<http://ontologies.semanticarts.com/gist#ProductSpecification> rdf:type owl:Class ;
+                                                               
+                                                               rdfs:subClassOf <http://ontologies.semanticarts.com/gist#CatalogItem> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#ProductUnit
+
+<http://ontologies.semanticarts.com/gist#ProductUnit> rdf:type owl:Class ;
+                                                      
+                                                      rdfs:subClassOf <http://ontologies.semanticarts.com/gist#UnitOfMeasure> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Project
+
+<http://ontologies.semanticarts.com/gist#Project> rdf:type owl:Class ;
+                                                  
+                                                  rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Task> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#RatioMagnitude
+
+<http://ontologies.semanticarts.com/gist#RatioMagnitude> rdf:type owl:Class ;
+                                                         
+                                                         rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Magnitude> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#RatioUnit
+
+<http://ontologies.semanticarts.com/gist#RatioUnit> rdf:type owl:Class ;
+                                                    
+                                                    rdfs:subClassOf <http://ontologies.semanticarts.com/gist#UnitOfMeasure> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#ReferenceValue
+
+<http://ontologies.semanticarts.com/gist#ReferenceValue> rdf:type owl:Class ;
+                                                         
+                                                         rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Magnitude> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Referent
+
+<http://ontologies.semanticarts.com/gist#Referent> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Topic> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#RenderedContent
+
+<http://ontologies.semanticarts.com/gist#RenderedContent> rdf:type owl:Class ;
+                                                          
+                                                          rdfs:subClassOf <http://ontologies.semanticarts.com/gist#FormattedContent> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Requirement
+
+<http://ontologies.semanticarts.com/gist#Requirement> rdf:type owl:Class ;
+                                                      
+                                                      rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Intention> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Restriction
+
+<http://ontologies.semanticarts.com/gist#Restriction> rdf:type owl:Class ;
+                                                      
+                                                      rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Intention> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Room
+
+<http://ontologies.semanticarts.com/gist#Room> rdf:type owl:Class ;
+                                               
+                                               rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Place> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#ScheduledTask
+
+<http://ontologies.semanticarts.com/gist#ScheduledTask> rdf:type owl:Class ;
+                                                        
+                                                        rdfs:subClassOf <http://ontologies.semanticarts.com/gist#PlannedEvent> ,
+                                                                        <http://ontologies.semanticarts.com/gist#Task> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#ServiceSpecification
+
+<http://ontologies.semanticarts.com/gist#ServiceSpecification> rdf:type owl:Class ;
+                                                               
+                                                               rdfs:subClassOf <http://ontologies.semanticarts.com/gist#CatalogItem> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#SimpleUnitOfMeasure
+
+<http://ontologies.semanticarts.com/gist#SimpleUnitOfMeasure> rdf:type owl:Class ;
+                                                              
+                                                              rdfs:subClassOf <http://ontologies.semanticarts.com/gist#UnitOfMeasure> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#SocialBeing
+
+<http://ontologies.semanticarts.com/gist#SocialBeing> rdf:type owl:Class .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Specification
+
+<http://ontologies.semanticarts.com/gist#Specification> rdf:type owl:Class ;
+                                                        
+                                                        rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Requirement> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#SystemInstant
+
+<http://ontologies.semanticarts.com/gist#SystemInstant> rdf:type owl:Class ;
+                                                        
+                                                        rdfs:subClassOf <http://ontologies.semanticarts.com/gist#TimeInstant> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Tag
+
+<http://ontologies.semanticarts.com/gist#Tag> rdf:type owl:Class ;
+                                              
+                                              rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Category> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Task
+
+<http://ontologies.semanticarts.com/gist#Task> rdf:type owl:Class ;
+                                               
+                                               rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Event> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Taxonomy
+
+<http://ontologies.semanticarts.com/gist#Taxonomy> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf <http://ontologies.semanticarts.com/gist#ControlledVocabulary> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#TelephoneNumber
+
+<http://ontologies.semanticarts.com/gist#TelephoneNumber> rdf:type owl:Class ;
+                                                          
+                                                          rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Address> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Temperature
+
+<http://ontologies.semanticarts.com/gist#Temperature> rdf:type owl:Class ;
+                                                      
+                                                      rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Magnitude> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#TemperatureUnit
+
+<http://ontologies.semanticarts.com/gist#TemperatureUnit> rdf:type owl:Class ;
+                                                          
+                                                          rdfs:subClassOf <http://ontologies.semanticarts.com/gist#SimpleUnitOfMeasure> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Template
+
+<http://ontologies.semanticarts.com/gist#Template> rdf:type owl:Class .
+
+
+
+###  http://ontologies.semanticarts.com/gist#TemplateTask
+
+<http://ontologies.semanticarts.com/gist#TemplateTask> rdf:type owl:Class ;
+                                                       
+                                                       rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Template> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#TemporalRelation
+
+<http://ontologies.semanticarts.com/gist#TemporalRelation> rdf:type owl:Class ;
+                                                           
+                                                           rdfs:subClassOf <http://ontologies.semanticarts.com/gist#TimeInterval> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Text
+
+<http://ontologies.semanticarts.com/gist#Text> rdf:type owl:Class ;
+                                               
+                                               rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Content> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#TimeInstant
+
+<http://ontologies.semanticarts.com/gist#TimeInstant> rdf:type owl:Class .
+
+
+
+###  http://ontologies.semanticarts.com/gist#TimeInterval
+
+<http://ontologies.semanticarts.com/gist#TimeInterval> rdf:type owl:Class .
+
+
+
+###  http://ontologies.semanticarts.com/gist#TimeZone
+
+<http://ontologies.semanticarts.com/gist#TimeZone> rdf:type owl:Class ;
+                                                   
+                                                   rdfs:subClassOf <http://ontologies.semanticarts.com/gist#GeoRegion> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#TimeZoneStandard
+
+<http://ontologies.semanticarts.com/gist#TimeZoneStandard> rdf:type owl:Class ;
+                                                           
+                                                           rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Specification> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Topic
+
+<http://ontologies.semanticarts.com/gist#Topic> rdf:type owl:Class .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Transaction
+
+<http://ontologies.semanticarts.com/gist#Transaction> rdf:type owl:Class ;
+                                                      
+                                                      rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Event> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#UnitOfMeasure
+
+<http://ontologies.semanticarts.com/gist#UnitOfMeasure> rdf:type owl:Class .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Volume
+
+<http://ontologies.semanticarts.com/gist#Volume> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:subClassOf <http://ontologies.semanticarts.com/gist#ProductMagnitude> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#VolumeUnit
+
+<http://ontologies.semanticarts.com/gist#VolumeUnit> rdf:type owl:Class ;
+                                                     
+                                                     rdfs:subClassOf <http://ontologies.semanticarts.com/gist#ProductUnit> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#Weight
+
+<http://ontologies.semanticarts.com/gist#Weight> rdf:type owl:Class ;
+                                                 
+                                                 rdfs:subClassOf <http://ontologies.semanticarts.com/gist#Magnitude> .
+
+
+
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://ontologies.semanticarts.com/gist#_USDollar
+
+<http://ontologies.semanticarts.com/gist#_USDollar> rdf:type <http://ontologies.semanticarts.com/gist#BaseUnit> ,
+                                                             <http://ontologies.semanticarts.com/gist#CoherentUnit> ,
+                                                             <http://ontologies.semanticarts.com/gist#CurrencyUnit> ,
+                                                             <http://ontologies.semanticarts.com/gist#SimpleUnitOfMeasure> ,
+                                                             <http://ontologies.semanticarts.com/gist#UnitOfMeasure> ,
+                                                             owl:NamedIndividual ;
+                                                    
+                                                    <http://ontologies.semanticarts.com/gist#convertToBase> "1.0"^^xsd:double ;
+                                                    
+                                                    <http://ontologies.semanticarts.com/gist#convertToStandard> "1.0"^^xsd:double ;
+                                                    
+                                                    <http://ontologies.semanticarts.com/gist#hasBaseUnit> <http://ontologies.semanticarts.com/gist#_USDollar> ;
+                                                    
+                                                    <http://ontologies.semanticarts.com/gist#hasStandardUnit> <http://ontologies.semanticarts.com/gist#_USDollar> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#_ampere
+
+<http://ontologies.semanticarts.com/gist#_ampere> rdf:type <http://ontologies.semanticarts.com/gist#BaseUnit> ,
+                                                           <http://ontologies.semanticarts.com/gist#CoherentUnit> ,
+                                                           <http://ontologies.semanticarts.com/gist#ElectricalCurrentUnit> ,
+                                                           <http://ontologies.semanticarts.com/gist#SimpleUnitOfMeasure> ,
+                                                           <http://ontologies.semanticarts.com/gist#UnitOfMeasure> ,
+                                                           owl:NamedIndividual ;
+                                                  
+                                                  <http://ontologies.semanticarts.com/gist#convertToBase> "1.0"^^xsd:double ;
+                                                  
+                                                  <http://ontologies.semanticarts.com/gist#convertToStandard> "1.0"^^xsd:double ;
+                                                  
+                                                  <http://ontologies.semanticarts.com/gist#hasStandardUnit> <http://ontologies.semanticarts.com/gist#_ampere> ;
+                                                  
+                                                  <http://ontologies.semanticarts.com/gist#hasBaseUnit> <http://ontologies.semanticarts.com/gist#_ampere> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#_bit
+
+<http://ontologies.semanticarts.com/gist#_bit> rdf:type <http://ontologies.semanticarts.com/gist#BaseUnit> ,
+                                                        <http://ontologies.semanticarts.com/gist#CoherentUnit> ,
+                                                        <http://ontologies.semanticarts.com/gist#DataSizeUnit> ,
+                                                        <http://ontologies.semanticarts.com/gist#SimpleUnitOfMeasure> ,
+                                                        <http://ontologies.semanticarts.com/gist#UnitOfMeasure> ,
+                                                        owl:NamedIndividual ;
+                                               
+                                               <http://ontologies.semanticarts.com/gist#convertToStandard> "1.0"^^xsd:double ;
+                                               
+                                               <http://ontologies.semanticarts.com/gist#convertToBase> "1.0"^^xsd:double ;
+                                               
+                                               <http://ontologies.semanticarts.com/gist#hasBaseUnit> <http://ontologies.semanticarts.com/gist#_bit> ;
+                                               
+                                               <http://ontologies.semanticarts.com/gist#hasStandardUnit> <http://ontologies.semanticarts.com/gist#_bit> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#_candela
+
+<http://ontologies.semanticarts.com/gist#_candela> rdf:type <http://ontologies.semanticarts.com/gist#BaseUnit> ,
+                                                            <http://ontologies.semanticarts.com/gist#CoherentUnit> ,
+                                                            <http://ontologies.semanticarts.com/gist#LuminousIntensityUnit> ,
+                                                            <http://ontologies.semanticarts.com/gist#SimpleUnitOfMeasure> ,
+                                                            <http://ontologies.semanticarts.com/gist#UnitOfMeasure> ,
+                                                            owl:NamedIndividual ;
+                                                   
+                                                   <http://ontologies.semanticarts.com/gist#convertToBase> "1.0"^^xsd:double ;
+                                                   
+                                                   <http://ontologies.semanticarts.com/gist#convertToStandard> "1.0"^^xsd:double ;
+                                                   
+                                                   <http://ontologies.semanticarts.com/gist#hasStandardUnit> <http://ontologies.semanticarts.com/gist#_candela> ;
+                                                   
+                                                   <http://ontologies.semanticarts.com/gist#hasBaseUnit> <http://ontologies.semanticarts.com/gist#_candela> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#_day
+
+<http://ontologies.semanticarts.com/gist#_day> rdf:type <http://ontologies.semanticarts.com/gist#DurationUnit> ,
+                                                        <http://ontologies.semanticarts.com/gist#SimpleUnitOfMeasure> ,
+                                                        <http://ontologies.semanticarts.com/gist#UnitOfMeasure> ,
+                                                        owl:NamedIndividual ;
+                                               
+                                               <http://ontologies.semanticarts.com/gist#convertToBase> "86400.0"^^xsd:double ;
+                                               
+                                               <http://ontologies.semanticarts.com/gist#convertToStandard> "86400.0"^^xsd:double ;
+                                               
+                                               <http://ontologies.semanticarts.com/gist#hasStandardUnit> <http://ontologies.semanticarts.com/gist#_second> ;
+                                               
+                                               <http://ontologies.semanticarts.com/gist#hasBaseUnit> <http://ontologies.semanticarts.com/gist#_second> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#_each
+
+<http://ontologies.semanticarts.com/gist#_each> rdf:type <http://ontologies.semanticarts.com/gist#BaseUnit> ,
+                                                         <http://ontologies.semanticarts.com/gist#CoherentUnit> ,
+                                                         <http://ontologies.semanticarts.com/gist#CountingUnit> ,
+                                                         <http://ontologies.semanticarts.com/gist#SimpleUnitOfMeasure> ,
+                                                         <http://ontologies.semanticarts.com/gist#UnitOfMeasure> ,
+                                                         owl:NamedIndividual ;
+                                                
+                                                <http://ontologies.semanticarts.com/gist#convertToStandard> "1.0"^^xsd:double ;
+                                                
+                                                <http://ontologies.semanticarts.com/gist#convertToBase> "1.0"^^xsd:double ;
+                                                
+                                                <http://ontologies.semanticarts.com/gist#hasStandardUnit> <http://ontologies.semanticarts.com/gist#_each> ;
+                                                
+                                                <http://ontologies.semanticarts.com/gist#hasBaseUnit> <http://ontologies.semanticarts.com/gist#_each> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#_greenwichTimeZone
+
+<http://ontologies.semanticarts.com/gist#_greenwichTimeZone> rdf:type <http://ontologies.semanticarts.com/gist#Intention> ,
+                                                                      <http://ontologies.semanticarts.com/gist#Requirement> ,
+                                                                      <http://ontologies.semanticarts.com/gist#Specification> ,
+                                                                      <http://ontologies.semanticarts.com/gist#TimeZoneStandard> ,
+                                                                      owl:NamedIndividual .
+
+
+
+###  http://ontologies.semanticarts.com/gist#_kelvin
+
+<http://ontologies.semanticarts.com/gist#_kelvin> rdf:type <http://ontologies.semanticarts.com/gist#BaseUnit> ,
+                                                           <http://ontologies.semanticarts.com/gist#CoherentUnit> ,
+                                                           <http://ontologies.semanticarts.com/gist#SimpleUnitOfMeasure> ,
+                                                           <http://ontologies.semanticarts.com/gist#TemperatureUnit> ,
+                                                           <http://ontologies.semanticarts.com/gist#UnitOfMeasure> ,
+                                                           owl:NamedIndividual ;
+                                                  
+                                                  <http://ontologies.semanticarts.com/gist#conversionOffset> "0.0"^^xsd:double ;
+                                                  
+                                                  <http://ontologies.semanticarts.com/gist#convertToStandard> "1.0"^^xsd:double ;
+                                                  
+                                                  <http://ontologies.semanticarts.com/gist#convertToBase> "1.0"^^xsd:double ;
+                                                  
+                                                  <http://ontologies.semanticarts.com/gist#hasBaseUnit> <http://ontologies.semanticarts.com/gist#_kelvin> ;
+                                                  
+                                                  <http://ontologies.semanticarts.com/gist#hasStandardUnit> <http://ontologies.semanticarts.com/gist#_kelvin> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#_kilogram
+
+<http://ontologies.semanticarts.com/gist#_kilogram> rdf:type <http://ontologies.semanticarts.com/gist#BaseUnit> ,
+                                                             <http://ontologies.semanticarts.com/gist#CoherentUnit> ,
+                                                             <http://ontologies.semanticarts.com/gist#MassUnit> ,
+                                                             <http://ontologies.semanticarts.com/gist#SimpleUnitOfMeasure> ,
+                                                             <http://ontologies.semanticarts.com/gist#UnitOfMeasure> ,
+                                                             owl:NamedIndividual ;
+                                                    
+                                                    <http://ontologies.semanticarts.com/gist#convertToBase> "1.0"^^xsd:double ;
+                                                    
+                                                    <http://ontologies.semanticarts.com/gist#convertToStandard> "1.0"^^xsd:double ;
+                                                    
+                                                    <http://ontologies.semanticarts.com/gist#hasBaseUnit> <http://ontologies.semanticarts.com/gist#_kilogram> ;
+                                                    
+                                                    <http://ontologies.semanticarts.com/gist#hasStandardUnit> <http://ontologies.semanticarts.com/gist#_kilogram> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#_meter
+
+<http://ontologies.semanticarts.com/gist#_meter> rdf:type <http://ontologies.semanticarts.com/gist#BaseUnit> ,
+                                                          <http://ontologies.semanticarts.com/gist#CoherentUnit> ,
+                                                          <http://ontologies.semanticarts.com/gist#DistanceUnit> ,
+                                                          <http://ontologies.semanticarts.com/gist#SimpleUnitOfMeasure> ,
+                                                          <http://ontologies.semanticarts.com/gist#UnitOfMeasure> ,
+                                                          owl:NamedIndividual ;
+                                                 
+                                                 <http://ontologies.semanticarts.com/gist#convertToStandard> "1.0"^^xsd:double ;
+                                                 
+                                                 <http://ontologies.semanticarts.com/gist#convertToBase> "1.0"^^xsd:double ;
+                                                 
+                                                 <http://ontologies.semanticarts.com/gist#hasStandardUnit> <http://ontologies.semanticarts.com/gist#_meter> ;
+                                                 
+                                                 <http://ontologies.semanticarts.com/gist#hasBaseUnit> <http://ontologies.semanticarts.com/gist#_meter> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#_millisecond
+
+<http://ontologies.semanticarts.com/gist#_millisecond> rdf:type <http://ontologies.semanticarts.com/gist#DurationUnit> ,
+                                                                <http://ontologies.semanticarts.com/gist#SimpleUnitOfMeasure> ,
+                                                                <http://ontologies.semanticarts.com/gist#UnitOfMeasure> ,
+                                                                owl:NamedIndividual ;
+                                                       
+                                                       <http://ontologies.semanticarts.com/gist#convertToStandard> "0.0010"^^xsd:double ;
+                                                       
+                                                       <http://ontologies.semanticarts.com/gist#convertToBase> "0.0010"^^xsd:double ;
+                                                       
+                                                       <http://ontologies.semanticarts.com/gist#hasBaseUnit> <http://ontologies.semanticarts.com/gist#_second> ;
+                                                       
+                                                       <http://ontologies.semanticarts.com/gist#hasStandardUnit> <http://ontologies.semanticarts.com/gist#_second> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#_minute
+
+<http://ontologies.semanticarts.com/gist#_minute> rdf:type <http://ontologies.semanticarts.com/gist#DurationUnit> ,
+                                                           <http://ontologies.semanticarts.com/gist#SimpleUnitOfMeasure> ,
+                                                           <http://ontologies.semanticarts.com/gist#UnitOfMeasure> ,
+                                                           owl:NamedIndividual ;
+                                                  
+                                                  <http://ontologies.semanticarts.com/gist#convertToBase> "1.0"^^xsd:double ;
+                                                  
+                                                  <http://ontologies.semanticarts.com/gist#convertToStandard> "1.0"^^xsd:double ;
+                                                  
+                                                  <http://ontologies.semanticarts.com/gist#hasStandardUnit> <http://ontologies.semanticarts.com/gist#_second> ;
+                                                  
+                                                  <http://ontologies.semanticarts.com/gist#hasBaseUnit> <http://ontologies.semanticarts.com/gist#_second> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#_mole
+
+<http://ontologies.semanticarts.com/gist#_mole> rdf:type <http://ontologies.semanticarts.com/gist#BaseUnit> ,
+                                                         <http://ontologies.semanticarts.com/gist#CoherentUnit> ,
+                                                         <http://ontologies.semanticarts.com/gist#MoleUnit> ,
+                                                         <http://ontologies.semanticarts.com/gist#SimpleUnitOfMeasure> ,
+                                                         <http://ontologies.semanticarts.com/gist#UnitOfMeasure> ,
+                                                         owl:NamedIndividual ;
+                                                
+                                                <http://ontologies.semanticarts.com/gist#convertToBase> "1.0"^^xsd:double ;
+                                                
+                                                <http://ontologies.semanticarts.com/gist#convertToStandard> "1.0"^^xsd:double ;
+                                                
+                                                <http://ontologies.semanticarts.com/gist#hasStandardUnit> <http://ontologies.semanticarts.com/gist#_mole> ;
+                                                
+                                                <http://ontologies.semanticarts.com/gist#hasBaseUnit> <http://ontologies.semanticarts.com/gist#_mole> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#_one_day
+
+<http://ontologies.semanticarts.com/gist#_one_day> rdf:type <http://ontologies.semanticarts.com/gist#Duration> ,
+                                                            <http://ontologies.semanticarts.com/gist#Magnitude> ,
+                                                            owl:NamedIndividual ;
+                                                   
+                                                   <http://ontologies.semanticarts.com/gist#decimalValue> "1.0"^^xsd:double ;
+                                                   
+                                                   <http://ontologies.semanticarts.com/gist#hasUoM> <http://ontologies.semanticarts.com/gist#_day> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#_one_millisecond
+
+<http://ontologies.semanticarts.com/gist#_one_millisecond> rdf:type <http://ontologies.semanticarts.com/gist#Duration> ,
+                                                                    <http://ontologies.semanticarts.com/gist#Magnitude> ,
+                                                                    owl:NamedIndividual ;
+                                                           
+                                                           <http://ontologies.semanticarts.com/gist#decimalValue> "1.0"^^xsd:double ;
+                                                           
+                                                           <http://ontologies.semanticarts.com/gist#hasUoM> <http://ontologies.semanticarts.com/gist#_millisecond> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#_one_minute
+
+<http://ontologies.semanticarts.com/gist#_one_minute> rdf:type <http://ontologies.semanticarts.com/gist#Duration> ,
+                                                               <http://ontologies.semanticarts.com/gist#Magnitude> ,
+                                                               owl:NamedIndividual ;
+                                                      
+                                                      <http://ontologies.semanticarts.com/gist#decimalValue> "1.0"^^xsd:double ;
+                                                      
+                                                      <http://ontologies.semanticarts.com/gist#hasUoM> <http://ontologies.semanticarts.com/gist#_minute> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#_second
+
+<http://ontologies.semanticarts.com/gist#_second> rdf:type <http://ontologies.semanticarts.com/gist#BaseUnit> ,
+                                                           <http://ontologies.semanticarts.com/gist#CoherentUnit> ,
+                                                           <http://ontologies.semanticarts.com/gist#DurationUnit> ,
+                                                           <http://ontologies.semanticarts.com/gist#SimpleUnitOfMeasure> ,
+                                                           <http://ontologies.semanticarts.com/gist#UnitOfMeasure> ,
+                                                           owl:NamedIndividual ;
+                                                  
+                                                  <http://ontologies.semanticarts.com/gist#convertToBase> "1.0"^^xsd:double ;
+                                                  
+                                                  <http://ontologies.semanticarts.com/gist#convertToStandard> "1.0"^^xsd:double ;
+                                                  
+                                                  <http://ontologies.semanticarts.com/gist#hasStandardUnit> <http://ontologies.semanticarts.com/gist#_second> ;
+                                                  
+                                                  <http://ontologies.semanticarts.com/gist#hasBaseUnit> <http://ontologies.semanticarts.com/gist#_second> .
+
+
+
+###  http://ontologies.semanticarts.com/gist#_unitedNations
+
+<http://ontologies.semanticarts.com/gist#_unitedNations> rdf:type <http://ontologies.semanticarts.com/gist#GovernmentOrganization> ,
+                                                                  <http://ontologies.semanticarts.com/gist#Organization> ,
+                                                                  <http://ontologies.semanticarts.com/gist#SocialBeing> ,
+                                                                  owl:NamedIndividual .
+
+
+
+
+###  Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net
+
