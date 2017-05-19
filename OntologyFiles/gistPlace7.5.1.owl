@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY gist "http://ontologies.semanticarts.com/gist#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://ontologies.semanticarts.com/o/gistPlace"
+	xmlns:gist="http://ontologies.semanticarts.com/gist#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistPlace">
+		<rdfs:comment rdf:datatype="&xs;string">gist7.5.1 place</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistPlace</rdfs:comment>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTop7.5.1"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistPlace7.5.1"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from Y:\_SemanticArts\Offerings\gist\__internallyReleasedGists\gist7.5.1\gist7.5.1.vsd Page:place</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&gist;Building">
+		<rdfs:subClassOf rdf:resource="&gist;Landmark"/>
+		<rdfs:label rdf:datatype="&xs;string">Building</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A man-made structure for dwelling or working.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;GeoPoint">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;GeoRegion">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;GeoRoute">
+		<rdfs:label rdf:datatype="&xs;string">Geo Route</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">An ordered set of GeoPoints that defines a path from starting point to ending point.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;OrderedCollection">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasDirectPart"/>
+				<owl:someValuesFrom rdf:resource="&gist;GeoSegment"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;GeoSegment">
+		<rdfs:label rdf:datatype="&xs;string">Geo Segment</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A single portion of a GeoRegion which has been divided (i.e., segmented).</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;fromPlace"/>
+				<owl:onClass rdf:resource="&gist;GeoPoint"/>
+				<owl:qualifiedCardinality rdf:datatype="&xs;nonNegativeInteger">1</owl:qualifiedCardinality>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;toPlace"/>
+				<owl:onClass rdf:resource="&gist;GeoPoint"/>
+				<owl:qualifiedCardinality rdf:datatype="&xs;nonNegativeInteger">1</owl:qualifiedCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;GeoVolume">
+		<rdfs:label rdf:datatype="&xs;string">Geo Volume</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A three-dimensional space on or near the surface of the Earth, such as an oil reservoir, the body of a lake, or an airspace.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;geoDirectlyContains"/>
+				<owl:someValuesFrom rdf:resource="&gist;GeoPoint"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasMagnitude"/>
+				<owl:someValuesFrom rdf:resource="&gist;Volume"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Landmark">
+		<rdfs:label rdf:datatype="&xs;string">Landmark</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Something permanently attached to the Earth.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;PhysicalIdentifiableItem">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;permanentGeoOccupies"/>
+				<owl:someValuesFrom>
+					<owl:Class>
+						<owl:unionOf rdf:parseType="Collection">
+							<rdf:Description rdf:about="&gist;GeoVolume">
+							</rdf:Description>
+							<rdf:Description rdf:about="&gist;GeoRegion">
+							</rdf:Description>
+						</owl:unionOf>
+					</owl:Class>
+				</owl:someValuesFrom>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;OrderedCollection">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;PhysicalIdentifiableItem">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;PhysicalThing">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Place">
+		<rdfs:label rdf:datatype="&xs;string">Place</rdfs:label>
+		<owl:unionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;GeoRoute">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;GeoSegment">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;Landmark">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;Room">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;GeoPoint">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;GeoRegion">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;GeoVolume">
+			</rdf:Description>
+		</owl:unionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Room">
+		<rdfs:label rdf:datatype="&xs;string">Room</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">An enclosed area within a building.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;directPartOf"/>
+				<owl:someValuesFrom rdf:resource="&gist;Building"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;identifiedBy"/>
+				<owl:someValuesFrom rdf:resource="&gist;ID"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&gist;directPartOf">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;fromPlace">
+		<rdfs:range rdf:resource="&gist;Place"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;geoContainedIn">
+	</owl:ObjectProperty>
+	
+	<rdf:Description rdf:about="&gist;geoContains">
+		<rdf:type rdf:resource="&owl;ObjectProperty"/>
+		<rdf:type rdf:resource="&owl;TransitiveProperty"/>
+		<rdfs:comment rdf:datatype="&xs;string">Transitive version of geoDirectlyContains</rdfs:comment>
+		<rdfs:domain>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;GeoRoute">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;GeoSegment">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;Landmark">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;Room">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;GeoPoint">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;GeoRegion">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;GeoVolume">
+					</rdf:Description>
+				</owl:unionOf>
+			</owl:Class>
+		</rdfs:domain>
+		<rdfs:range>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;GeoRoute">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;GeoSegment">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;Landmark">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;Room">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;GeoPoint">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;GeoRegion">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;GeoVolume">
+					</rdf:Description>
+				</owl:unionOf>
+			</owl:Class>
+		</rdfs:range>
+		<owl:inverseOf rdf:resource="&gist;geoContainedIn"/>
+	</rdf:Description>
+	
+	<owl:ObjectProperty rdf:about="&gist;geoDirectlyContainedIn">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;geoDirectlyContains">
+		<rdfs:subPropertyOf rdf:resource="&gist;geoContains"/>
+		<rdfs:comment rdf:datatype="&xs;string">The subject geospatially contains the object.  E.g. the area of a city contains the area of its neighborhoods</rdfs:comment>
+		<owl:inverseOf rdf:resource="&gist;geoDirectlyContainedIn"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;geoOccupiedBy">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;geoOccupies">
+		<rdfs:domain rdf:resource="&gist;PhysicalThing"/>
+		<rdfs:range>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;GeoRegion">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;GeoVolume">
+					</rdf:Description>
+				</owl:unionOf>
+			</owl:Class>
+		</rdfs:range>
+		<owl:inverseOf rdf:resource="&gist;geoOccupiedBy"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasDirectPart">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasMagnitude">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;identifiedBy">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;permanentGeoOccupiedBy">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;permanentGeoOccupies">
+		<rdfs:subPropertyOf rdf:resource="&gist;geoOccupies"/>
+		<owl:inverseOf rdf:resource="&gist;permanentGeoOccupiedBy"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;toPlace">
+		<rdfs:range rdf:resource="&gist;Place"/>
+	</owl:ObjectProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
+
+</rdf:RDF>

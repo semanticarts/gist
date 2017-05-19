@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY gist "http://ontologies.semanticarts.com/gist#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://ontologies.semanticarts.com/o/gistEvent"
+	xmlns:gist="http://ontologies.semanticarts.com/gist#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistEvent">
+		<rdfs:comment rdf:datatype="&xs;string">gist7.5.1 event</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistEvent</rdfs:comment>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTime7.5.1"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistEvent7.5.1"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from Y:\_SemanticArts\Offerings\gist\__internallyReleasedGists\gist7.5.1\gist7.5.1.vsd Page:event</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&gist;Behavior">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ContemporaneousEvent">
+		<rdfs:label rdf:datatype="&xs;string">Contemporaneous Event</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">An event that actually started after the present time.  When we record an end time it ceases to be contemperaneous</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE: All contemporaneous events eventually end and, due to the nature of the open world, we can never be sure that a contemporaneous event hasn&apos;t ended. As a result, this is really a contemporaneous and historical event.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Event">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;actualStart"/>
+				<owl:someValuesFrom rdf:resource="&gist;TimeInterval"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;actualEnd"/>
+				<owl:onClass rdf:resource="&gist;TimeInterval"/>
+				<owl:maxQualifiedCardinality rdf:datatype="&xs;nonNegativeInteger">0</owl:maxQualifiedCardinality>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ContingentEvent">
+		<rdfs:label rdf:datatype="&xs;string">Contingent Event</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">An event with a probability of happening in the future, and usually dependent upon some other event or condition.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Event">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;plannedStart"/>
+				<owl:someValuesFrom rdf:resource="&gist;TimeInterval"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;plannedEnd"/>
+				<owl:someValuesFrom rdf:resource="&gist;TimeInterval"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasMagnitude"/>
+				<owl:someValuesFrom rdf:resource="&gist;Percentage"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Event">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;HistoricalEvent">
+		<rdfs:label rdf:datatype="&xs;string">Historical Event</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">An event which occurred in time, with an actual end earlier than the present moment.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Event">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;actualStart"/>
+				<owl:someValuesFrom rdf:resource="&gist;TimeInterval"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;actualEnd"/>
+				<owl:someValuesFrom rdf:resource="&gist;TimeInterval"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;PhysicalEvent">
+		<rdfs:label rdf:datatype="&xs;string">Physical Event</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">An event that can be said to have occurred at some place in space.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLES:  A meeting, a car accident.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NEGATIVE EXAMPLES:  Excludes events that have no meaningful location, such as financial events or project milestones.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Event">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;occurredAt"/>
+				<owl:someValuesFrom rdf:resource="&gist;GeoRegion"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;PlannedEvent">
+		<rdfs:label rdf:datatype="&xs;string">Planned Event</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">An event which, at the time it is created, is to occur in the future.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Event">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;plannedStart"/>
+				<owl:someValuesFrom rdf:resource="&gist;TimeInterval"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;plannedEnd"/>
+				<owl:someValuesFrom rdf:resource="&gist;TimeInterval"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Project">
+		<rdfs:label rdf:datatype="&xs;string">Project</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A project is a task (usually a longer duration task) made up of other tasks.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Task">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasSubTask"/>
+				<owl:someValuesFrom rdf:resource="&gist;Task"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ScheduledTask">
+		<rdfs:label rdf:datatype="&xs;string">Scheduled Task</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A task planned to occur.  When it was scheduled, it would have been in the future, but now might be in the past.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;PlannedEvent">
+			</rdf:Description>
+			<rdf:Description rdf:about="&gist;Task">
+			</rdf:Description>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Task">
+		<rdfs:label rdf:datatype="&xs;string">Task</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A task which has been defined and either scheduled or accomplished, or both.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Event">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasGoal"/>
+				<owl:someValuesFrom rdf:resource="&gist;Intention"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Template">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;TemplateTask">
+		<rdfs:label rdf:datatype="&xs;string">Template Task</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A prototypical task of a particular type, that will, when instantiated, generate an actual (unscheduled) task.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Template">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasGoal"/>
+				<owl:someValuesFrom rdf:resource="&gist;Intention"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;TimeInterval">
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&gist;actual">
+		<rdfs:comment rdf:datatype="&xs;string">historical Dates</rdfs:comment>
+		<rdfs:range rdf:resource="&gist;TimeInterval"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;actualEnd">
+		<rdfs:subPropertyOf rdf:resource="&gist;actual"/>
+		<rdfs:subPropertyOf rdf:resource="&gist;end"/>
+		<rdfs:comment rdf:datatype="&xs;string">When something did end.</rdfs:comment>
+		<rdfs:range rdf:resource="&gist;TimeInterval"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;actualStart">
+		<rdfs:subPropertyOf rdf:resource="&gist;actual"/>
+		<rdfs:subPropertyOf rdf:resource="&gist;start"/>
+		<rdfs:comment rdf:datatype="&xs;string">When something did start, therefore noting an historical event.</rdfs:comment>
+		<rdfs:range rdf:resource="&gist;TimeInterval"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;characterizedAs">
+		<rdfs:comment rdf:datatype="&xs;string">The kind of Behavior that took place during an Event.</rdfs:comment>
+		<rdfs:domain rdf:resource="&gist;Event"/>
+		<rdfs:range rdf:resource="&gist;Behavior"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;directSubTaskOf">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;end">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasDirectSubTask">
+		<rdfs:subPropertyOf rdf:resource="&gist;hasSubTask"/>
+		<rdfs:domain rdf:resource="&gist;Task"/>
+		<rdfs:range rdf:resource="&gist;Task"/>
+		<owl:inverseOf rdf:resource="&gist;directSubTaskOf"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasGoal">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasMagnitude">
+	</owl:ObjectProperty>
+	
+	<rdf:Description rdf:about="&gist;hasSubTask">
+		<rdf:type rdf:resource="&owl;ObjectProperty"/>
+		<rdf:type rdf:resource="&owl;TransitiveProperty"/>
+		<rdfs:comment rdf:datatype="&xs;string">A task that is part of a larger task. The time frame of the subtasks may overlap but may not extend beyond the timeframe of the parent task. A subtask may be part of more than one parent task.</rdfs:comment>
+		<rdfs:domain rdf:resource="&gist;Task"/>
+		<rdfs:range rdf:resource="&gist;Task"/>
+		<owl:inverseOf rdf:resource="&gist;subTaskOf"/>
+	</rdf:Description>
+	
+	<owl:ObjectProperty rdf:about="&gist;lastModifiedOn">
+		<rdfs:subPropertyOf rdf:resource="&gist;actual"/>
+		<rdfs:comment rdf:datatype="&xs;string">Date that something was modified.</rdfs:comment>
+		<rdfs:range rdf:resource="&gist;TimeInterval"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;occurredAt">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;planned">
+		<rdfs:comment rdf:datatype="&xs;string">Dates that were in the future at the time they were made.</rdfs:comment>
+		<rdfs:range rdf:resource="&gist;TimeInterval"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;plannedEnd">
+		<rdfs:subPropertyOf rdf:resource="&gist;end"/>
+		<rdfs:subPropertyOf rdf:resource="&gist;planned"/>
+		<rdfs:comment rdf:datatype="&xs;string">A date/time that was at least at some point in time in the future. It may be in the past now, but when we planned it, it was in the future.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE:  Most frequently apples to Event(s) and Offer(s). E.g. a conference or sale offer.</rdfs:comment>
+		<rdfs:range rdf:resource="&gist;TimeInterval"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;plannedStart">
+		<rdfs:subPropertyOf rdf:resource="&gist;planned"/>
+		<rdfs:subPropertyOf rdf:resource="&gist;start"/>
+		<rdfs:comment rdf:datatype="&xs;string">A date/time that was at least at some point in time in the future. It may be in the past now, but when we planned it, it was in the future.</rdfs:comment>
+		<rdfs:range rdf:resource="&gist;TimeInterval"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;recordedOn">
+		<rdfs:subPropertyOf rdf:resource="&gist;actual"/>
+		<rdfs:comment rdf:datatype="&xs;string">Date that something was posted, not necessarily the date it occurred. Must be after the occurred date, but could be before or after the planned date. (Unusual, but I could record today that I expected to be paid last week.)</rdfs:comment>
+		<rdfs:range rdf:resource="&gist;TimeInterval"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;start">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;subTaskOf">
+	</owl:ObjectProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;comment">
+	</owl:AnnotationProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
+
+</rdf:RDF>
