@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistMagnitude7.5" uri="gistMagnitude.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistTemporalRelation7.5" uri="gistTemporalRelation7.5.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistIntention7.5" uri="gistIntention7.5.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistAgreement7.5" uri="gistAgreement7.5.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistTime7.5" uri="gistTime7.5.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistEvent7.5" uri="gistEvent7.5.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistMeasure7.5" uri="gistMeasure7.5.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistUnit7.5" uri="gistUnit7.5.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistUnitDim7.5" uri="gistUoMDimension7.5.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistOrganization7.5" uri="gistOrganization7.5.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistPlace7.5" uri="gistPlace7.5.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistAddress7.5" uri="gistAddress7.5.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistContent7.5" uri="gistContent7.5.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistCategory7.5" uri="gistCategory7.5.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistTop7.5" uri="gistTop7.5.owl"/>
+    <uri id="User Entered Import Resolution" name="http://ontologies.semanticarts.com/o/gistWiki7.5" uri="gistWiki7.5.owl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1489016124925" name="http://ontologies.semanticarts.com/o/gistAddress" uri="gistAddress7.5.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489016124925" name="http://ontologies.semanticarts.com/o/gistAgreement" uri="gistAgreement7.5.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489016124925" name="http://ontologies.semanticarts.com/o/gistCategory" uri="gistCategory7.5.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489016124925" name="http://ontologies.semanticarts.com/o/gistContent" uri="gistContent7.5.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489016124925" name="http://ontologies.semanticarts.com/o/gistCore" uri="gistCore7.5.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489016124925" name="http://ontologies.semanticarts.com/o/gistDeprecated" uri="gistDeprecated7.5.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489016124925" name="http://ontologies.semanticarts.com/o/gistEvent" uri="gistEvent7.5.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489016124925" name="http://ontologies.semanticarts.com/o/gistIntention" uri="gistIntention7.5.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489016124925" name="duplicate:http://ontologies.semanticarts.com/o/gistMagnitude" uri="gistMagnitude.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489016124925" name="duplicate:http://ontologies.semanticarts.com/o/gistMagnitude" uri="gistMagnitude7.5.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489016124925" name="http://ontologies.semanticarts.com/o/gistMeasure" uri="gistMeasure7.5.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489016124925" name="http://ontologies.semanticarts.com/o/gistOrganization" uri="gistOrganization7.5.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489016124925" name="http://ontologies.semanticarts.com/o/gistPlace" uri="gistPlace7.5.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489016124925" name="http://ontologies.semanticarts.com/o/gistTemporalRelation" uri="gistTemporalRelation7.5.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489016124925" name="http://ontologies.semanticarts.com/o/gistTime" uri="gistTime7.5.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489016124925" name="http://ontologies.semanticarts.com/o/gistTop" uri="gistTop7.5.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489016124925" name="http://ontologies.semanticarts.com/o/gistUnit" uri="gistUnit7.5.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489016124925" name="duplicate:http://ontologies.semanticarts.com/o/gistUnitDim" uri="gistUnitDim7.5.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489016124925" name="duplicate:http://ontologies.semanticarts.com/o/gistUnitDim" uri="gistUoMDimension7.5.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1489016124925" name="http://ontologies.semanticarts.com/o/gistWiki" uri="gistWiki7.5.owl"/>
+    </group>
+</catalog>

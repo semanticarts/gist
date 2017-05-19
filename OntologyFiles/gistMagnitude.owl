@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY gist "http://ontologies.semanticarts.com/gist#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://ontologies.semanticarts.com/o/gistMagnitude"
+	xmlns:gist="http://ontologies.semanticarts.com/gist#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistMagnitude">
+		<rdfs:comment rdf:datatype="&xs;string">gist7.5 magnitudes</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistMagnitude</rdfs:comment>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistUnit7.5"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistMagnitude7.5"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from Y:\_SemanticArts\Offerings\gist\__externallyReleasedGists\gist7.5\gist7.5.vsd Page:mag</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&gist;Count">
+		<rdfs:label rdf:datatype="&xs;string">Count</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A measure that involves countable amounts (?eaches? as well as cases, etc.). Can be decimal.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE: Count is not disjoint with all the other magnitudes, as there are some magnitudes that could conceivably be counted.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Magnitude">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasUoM"/>
+				<owl:someValuesFrom rdf:resource="&gist;CountingUnit"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ElectricCurrent">
+		<rdfs:label rdf:datatype="&xs;string">Electric Current</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A flow of electric charge.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Magnitude">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasUoM"/>
+				<owl:someValuesFrom rdf:resource="&gist;ElectricalCurrentUnit"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;InformationQuantity">
+		<rdfs:label rdf:datatype="&xs;string">Information Quantity</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">An amount of data, such as 6 petabytes, or 640KB.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Magnitude">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasUoM"/>
+				<owl:someValuesFrom rdf:resource="&gist;DataSizeUnit"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;LuminousIntensity">
+		<rdfs:label rdf:datatype="&xs;string">Luminous Intensity</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A measure of the wavelength-weighted power emitted by a light source in a particular direction per unit solid angle.  This is based on the luminosity function, a standardized model of the sensitivity of the human eye.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Magnitude">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasUoM"/>
+				<owl:someValuesFrom rdf:resource="&gist;LuminousIntensityUnit"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Magnitude">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;MolarQuantity">
+		<rdfs:label rdf:datatype="&xs;string">Molar Quantity</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Amount of a substance, as counted molecules.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Magnitude">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasUoM"/>
+				<owl:someValuesFrom rdf:resource="&gist;MoleUnit"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Monetary">
+		<rdfs:label rdf:datatype="&xs;string">Monetary</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A special type of magnitude, due to the way rounding is handled in math and the temporal aspect of conversion.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Magnitude">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasUoM"/>
+				<owl:someValuesFrom rdf:resource="&gist;CurrencyUnit"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Percentage">
+		<rdfs:subClassOf rdf:resource="&gist;RatioMagnitude"/>
+		<rdfs:label rdf:datatype="&xs;string">Percentage</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A ratio where the numerator and denominator are of the same unit of measure.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE: there are various ways to represent percentage: 50/100 could be represented as ?50? or ?0.5?.  gist uses the latter, as it involves fewer conversions for subsequent use.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ProductMagnitude">
+		<rdfs:label rdf:datatype="&xs;string">Product Magnitude</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A magnitude expressed as a product of primitives.  (E.g., Force = M*A).</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Magnitude">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasUoM"/>
+				<owl:someValuesFrom rdf:resource="&gist;ProductUnit"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;RatioMagnitude">
+		<rdfs:label rdf:datatype="&xs;string">Ratio Magnitude</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLE:  Speed.  The ratio magnitude is 60, the unit of measure might be MilesPerHour.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE:  A RatioMagnitude just has one decimal value.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">This is a number whose unit of measure is a ratio.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Magnitude">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasUoM"/>
+				<owl:someValuesFrom rdf:resource="&gist;RatioUnit"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Temperature">
+		<rdfs:label rdf:datatype="&xs;string">Temperature</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">The degree or intensity of heat present in a substance or object, especially as expressed according to a comparative scale.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Magnitude">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasUoM"/>
+				<owl:someValuesFrom rdf:resource="&gist;TemperatureUnit"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasUoM">
+	</owl:ObjectProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;comment">
+	</owl:AnnotationProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
+
+</rdf:RDF>
