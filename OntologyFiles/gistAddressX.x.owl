@@ -18,7 +18,7 @@
 		<rdfs:comment rdf:datatype="&xs;string">gistX.x Address</rdfs:comment>
 		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistPlaceX.x"/>
 		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistAddressX.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\Offerings\gist\___workingGistMaster\gistX.x.vsd Page:address</owl:versionInfo>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from D:\SEMANTIC-ARTS\NAS\Offerings\gist\___workingGistMaster\OntologyFiles\gistX.x.vsd Page:address</owl:versionInfo>
 	</owl:Ontology>
 	
 	<owl:Class rdf:about="&gist;Address">

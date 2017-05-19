@@ -18,11 +18,28 @@
 		<rdfs:comment rdf:datatype="&xs;string">gistX.x Measure</rdfs:comment>
 		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistEventX.x"/>
 		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistMeasureX.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\Offerings\gist\___workingGistMaster\gistX.x.vsd Page:measure</owl:versionInfo>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from D:\SEMANTIC-ARTS\NAS\Offerings\gist\___workingGistMaster\OntologyFiles\gistX.x.vsd Page:measure</owl:versionInfo>
 	</owl:Ontology>
 	
 	<owl:Class rdf:about="&gist;Aspect">
 		<rdfs:subClassOf rdf:resource="&gist;Category"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;aspectOf"/>
+				<owl:someValuesFrom>
+					<owl:Class>
+						<owl:unionOf rdf:parseType="Collection">
+							<rdf:Description rdf:about="&gist;PhysicalIdentifiableItem">
+							</rdf:Description>
+							<rdf:Description rdf:about="&gist;PhysicalSubstance">
+							</rdf:Description>
+							<rdf:Description rdf:about="&gist;Event">
+							</rdf:Description>
+						</owl:unionOf>
+					</owl:Class>
+				</owl:someValuesFrom>
+			</owl:Restriction>
+		</rdfs:subClassOf>
 		<rdfs:label rdf:datatype="&xs;string">Aspect</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">A very general term for the characteristic of something that is being measured.  E.g., property (height) or a process (cycle time) or a behavior (loyalty).</rdfs:comment>
 	</owl:Class>

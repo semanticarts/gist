@@ -27,7 +27,7 @@
 		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistUnitDimX.x"/>
 		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistWikiX.x"/>
 		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistCoreX.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\Offerings\gist\___workingGistMaster\gistX.x.vsd Page:gistCore</owl:versionInfo>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from D:\SEMANTIC-ARTS\NAS\Offerings\gist\___workingGistMaster\OntologyFiles\gistX.x.vsd Page:gistCore</owl:versionInfo>
 	</owl:Ontology>
 
 </rdf:RDF>
