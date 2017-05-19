@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY gist "http://ontologies.semanticarts.com/gist#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://ontologies.semanticarts.com/o/gistColors"
+	xmlns:gist="http://ontologies.semanticarts.com/gist#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistColors">
+		<rdfs:comment rdf:datatype="&xs;string">Colors for visualization</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gist Color Annotation</rdfs:comment>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistCore7.0"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistColors7.0"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from D:\_LocalData\Offerings\gist7.0\gist7.0b.vsd Page:color</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&gist;Category">
+		<gist:centrality rdf:datatype="&xs;integer">100</gist:centrality>
+		<gist:hasColor rdf:datatype="&xs;string">#AAAAAA</gist:hasColor>
+		<gist:hasPosition rdf:datatype="&xs;integer">15</gist:hasPosition>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Collection">
+		<gist:centrality rdf:datatype="&xs;integer">100</gist:centrality>
+		<gist:hasColor rdf:datatype="&xs;string">#FDFBFD</gist:hasColor>
+		<gist:hasPosition rdf:datatype="&xs;integer">14</gist:hasPosition>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Content">
+		<gist:centrality rdf:datatype="&xs;integer">100</gist:centrality>
+		<gist:hasColor rdf:datatype="&xs;string">#06DCFB</gist:hasColor>
+		<gist:hasPosition rdf:datatype="&xs;integer">12</gist:hasPosition>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;IntellectualProperty">
+		<gist:centrality rdf:datatype="&xs;integer">100</gist:centrality>
+		<gist:hasColor rdf:datatype="&xs;string">#5757FF</gist:hasColor>
+		<gist:hasPosition rdf:datatype="&xs;integer">11</gist:hasPosition>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Intention">
+		<gist:centrality rdf:datatype="&xs;integer">100</gist:centrality>
+		<gist:hasColor rdf:datatype="&xs;string">#990066</gist:hasColor>
+		<gist:hasPosition rdf:datatype="&xs;integer">10</gist:hasPosition>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Language">
+		<gist:centrality rdf:datatype="&xs;integer">100</gist:centrality>
+		<gist:hasColor rdf:datatype="&xs;string">#C9EAF3</gist:hasColor>
+		<gist:hasPosition rdf:datatype="&xs;integer">13</gist:hasPosition>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Magnitude">
+		<gist:centrality rdf:datatype="&xs;integer">100</gist:centrality>
+		<gist:hasColor rdf:datatype="&xs;string">#006622</gist:hasColor>
+		<gist:hasPosition rdf:datatype="&xs;integer">1</gist:hasPosition>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Organization">
+		<gist:centrality rdf:datatype="&xs;integer">110</gist:centrality>
+		<gist:hasColor rdf:datatype="&xs;string">#66BBDD</gist:hasColor>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Person">
+		<gist:centrality rdf:datatype="&xs;integer">110</gist:centrality>
+		<gist:hasColor rdf:datatype="&xs;string">#FF0000</gist:hasColor>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;PhysicalIdentifiableItem">
+		<gist:centrality rdf:datatype="&xs;integer">100</gist:centrality>
+		<gist:hasColor rdf:datatype="&xs;string">#99EE00</gist:hasColor>
+		<gist:hasPosition rdf:datatype="&xs;integer">5</gist:hasPosition>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;PhysicalSubstance">
+		<gist:centrality rdf:datatype="&xs;integer">100</gist:centrality>
+		<gist:hasColor rdf:datatype="&xs;string">#B9264F</gist:hasColor>
+		<gist:hasPosition rdf:datatype="&xs;integer">6</gist:hasPosition>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Place">
+		<gist:centrality rdf:datatype="&xs;integer">100</gist:centrality>
+		<gist:hasColor rdf:datatype="&xs;string">#FFBB00</gist:hasColor>
+		<gist:hasPosition rdf:datatype="&xs;integer">8</gist:hasPosition>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;SocialBeing">
+		<gist:centrality rdf:datatype="&xs;integer">100</gist:centrality>
+		<gist:hasColor rdf:datatype="&xs;string">#D881ED</gist:hasColor>
+		<gist:hasPosition rdf:datatype="&xs;integer">9</gist:hasPosition>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;TimeInstant">
+		<gist:centrality rdf:datatype="&xs;integer">100</gist:centrality>
+		<gist:hasColor rdf:datatype="&xs;string">#FFFF00</gist:hasColor>
+		<gist:hasPosition rdf:datatype="&xs;integer">3</gist:hasPosition>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;TimeInterval">
+		<gist:centrality rdf:datatype="&xs;integer">100</gist:centrality>
+		<gist:hasColor rdf:datatype="&xs;string">#FFFF33</gist:hasColor>
+		<gist:hasPosition rdf:datatype="&xs;integer">4</gist:hasPosition>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;UnitOfMeasure">
+		<gist:centrality rdf:datatype="&xs;integer">100</gist:centrality>
+		<gist:hasColor rdf:datatype="&xs;string">#00FF00</gist:hasColor>
+		<gist:hasPosition rdf:datatype="&xs;integer">2</gist:hasPosition>
+	</owl:Class>
+	
+	<owl:AnnotationProperty rdf:about="&gist;centrality">
+		<rdfs:comment rdf:datatype="&xs;string">This marks the most important/ anchor concepts for visualization (0-100 100 being most central)</rdfs:comment>
+	</owl:AnnotationProperty>
+	
+	<owl:AnnotationProperty rdf:about="&gist;hasColor">
+		<rdfs:comment rdf:datatype="&xs;string">The #00000 style coloring for key classes</rdfs:comment>
+	</owl:AnnotationProperty>
+	
+	<owl:AnnotationProperty rdf:about="&gist;hasPosition">
+		<rdfs:comment rdf:datatype="&xs;string">A clock face position starting with 1 in the 12 oclock position</rdfs:comment>
+	</owl:AnnotationProperty>
+
+</rdf:RDF>

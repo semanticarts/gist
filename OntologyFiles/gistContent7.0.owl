@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY gist "http://ontologies.semanticarts.com/gist#">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF xml:base="http://ontologies.semanticarts.com/o/gistContent"
+	xmlns:gist="http://ontologies.semanticarts.com/gist#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistContent">
+		<rdfs:comment rdf:datatype="&xs;string">gist7.0 content</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistContent</rdfs:comment>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistID7.0"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistContent7.0"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from D:\_LocalData\Offerings\gist7.0\gist7.0b.vsd Page:content</owl:versionInfo>
+	</owl:Ontology>
+	
+	<owl:Class rdf:about="&gist;Category">
+		<rdfs:label rdf:datatype="&xs;string">Category</rdfs:label>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Content">
+		<rdfs:label rdf:datatype="&xs;string">Content</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Documents, programs, images and the like.  Categories are not content until they are written down.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ContentExpression">
+		<rdfs:subClassOf rdf:resource="&gist;Content"/>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;categorizedBy"/>
+				<owl:someValuesFrom rdf:resource="&gist;GeneralMediaType"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;expressedIn"/>
+				<owl:someValuesFrom rdf:resource="&gist;Language"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:label rdf:datatype="&xs;string">ContentExpression</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">what does FBRL call this --- this is IP reduced to text, audio etc.  If it contains text (written or spoken) it may be in a language</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;EncryptedText">
+		<rdfs:label rdf:datatype="&xs;string">EncryptedText</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">#Text that has been encrypted.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE: Will be likely be handled by an application by not showing the text in the UI.</rdfs:comment>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;Text">
+					</rdf:Description>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;encryptedText"/>
+						<owl:someValuesFrom rdf:resource="&xs;string"/>
+					</owl:Restriction>
+				</owl:intersectionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;FormattedContent">
+		<rdfs:label rdf:datatype="&xs;string">FormattedContent</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Content which is in a particular format (i.e. html, pdf, jpg)</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;ContentExpression">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;expressedIn"/>
+				<owl:someValuesFrom rdf:resource="&gist;MimeType"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;GeneralMediaType">
+		<rdfs:subClassOf rdf:resource="&gist;Category"/>
+		<rdfs:label rdf:datatype="&xs;string">GeneralMediaType</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">This is the real world media type (i.e., is it audio, image, video, textual, physical (ie a statue) or performance (i.e. a play) could be oil or pastel for painting</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;IntellectualProperty">
+		<rdfs:label rdf:datatype="&xs;string">IntellectualProperty</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A work, invention or concept, independent of its being expressed in text, audio, video, image or live performance.  For literature this could be called the &quot;Work&quot; except that &quot;work&quot; is a highly overloaded term (expenditure of energey, resource consumption, art).  Often the first expression preceeds our recognition of the IP, but subsequent expressions are known to be derrivaties of the IP, even if they are expresssion to expression translations (or copies).  IP can also be tacit knowledge, knowhow or skill. Also includes Brands</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLE: &quot;The Old Man and The Sea&quot; is Intellectual Property.  As is the page rank algorithm, and Coca Cola</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Language">
+		<rdfs:label rdf:datatype="&xs;string">Language</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A recognized, organized set of symbols and grammar.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLE: includes natural languages like English and Spanish and computer languages like C# and XML.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Medium">
+		<rdfs:subClassOf rdf:resource="&gist;Category"/>
+		<rdfs:label rdf:datatype="&xs;string">Medium</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A physicality that a work could be implemented or exposed on, for instance, paper, or clay or a computer monitor</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Message">
+		<rdfs:label rdf:datatype="&xs;string">Message</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A specific message from an Agent to at least one other agent. Could be email, a phone call, a voice message or a Web Service message between applications.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;ContentExpression">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;fromAgent"/>
+				<owl:someValuesFrom rdf:resource="&gist;SocialBeing"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;toAgent"/>
+				<owl:someValuesFrom rdf:resource="&gist;SocialBeing"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;MimeType">
+		<rdfs:subClassOf rdf:resource="&gist;Category"/>
+		<rdfs:label rdf:datatype="&xs;string">MimeType</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">These are digitized types that copmputer applications could recognize. These are the  Mime types of interest to a given ontology</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;RenderedContent">
+		<rdfs:label rdf:datatype="&xs;string">RenderedContent</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Content which has been expressed, either to print, or through speakers, or through a monitor.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;ContentExpression">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;expressedIn"/>
+				<owl:someValuesFrom rdf:resource="&gist;MimeType"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;renderedOn"/>
+				<owl:someValuesFrom rdf:resource="&gist;Medium"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Requirement">
+		<rdfs:label rdf:datatype="&xs;string">Requirement</rdfs:label>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;SocialBeing">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Specification">
+		<rdfs:subClassOf rdf:resource="&gist;Requirement"/>
+		<rdfs:label rdf:datatype="&xs;string">Specification</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A set of requirements to be satisfied by a material, design, product or service.</rdfs:comment>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Template">
+		<rdfs:label rdf:datatype="&xs;string">Template</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Any of a large variety of pieces of content that can be used to generate other content.  For example a form can be used to generate data sets, a class can be used to create instances</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLE: a form. A filled-in form has the structure of the form with data entered into some or all of the fields.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">NOTE: Use gist:basedOn to link the instantiation of a Template back to its Template.</rdfs:comment>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Content">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;produces"/>
+				<owl:someValuesFrom rdf:resource="&gist;Content"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Text">
+		<rdfs:label rdf:datatype="&xs;string">Text</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Content in words.</rdfs:comment>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;Content">
+					</rdf:Description>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;expressedIn"/>
+						<owl:someValuesFrom rdf:resource="&gist;Language"/>
+					</owl:Restriction>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;containedText"/>
+						<owl:someValuesFrom rdf:resource="&xs;string"/>
+					</owl:Restriction>
+				</owl:intersectionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+	</owl:Class>
+	
+	<owl:ObjectProperty rdf:about="&gist;about">
+		<rdfs:label rdf:datatype="&xs;string">about</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Subject matter of a document.</rdfs:comment>
+		<rdfs:domain rdf:resource="&gist;Content"/>
+		<owl:inverseOf rdf:resource="&gist;describedIn"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;basedOn">
+		<rdfs:label rdf:datatype="&xs;string">basedOn</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">pointer to the thing something was derrived from</rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;categorizedBy">
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&gist;containedText">
+		<rdfs:label rdf:datatype="&xs;string">containedText</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Links to the string corresponding to #Text</rdfs:comment>
+		<rdfs:range rdf:resource="&xs;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;describedIn">
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&gist;encryptedText">
+		<rdfs:subPropertyOf rdf:resource="&gist;containedText"/>
+		<rdfs:label rdf:datatype="&xs;string">encryptedText</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Links to the string corresponding to #EncryptedText</rdfs:comment>
+		<rdfs:range rdf:resource="&xs;string"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;expressedIn">
+		<rdfs:label rdf:datatype="&xs;string">expressedIn</rdfs:label>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;fromAgent">
+		<rdfs:label rdf:datatype="&xs;string">fromAgent</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">The source of a message or shipment</rdfs:comment>
+		<rdfs:range rdf:resource="&gist;SocialBeing"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;produces">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;renderedOn">
+		<rdfs:label rdf:datatype="&xs;string">renderedOn</rdfs:label>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;toAgent">
+		<rdfs:label rdf:datatype="&xs;string">toAgent</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Comment: this is not the inverse of fromAgent. A message can be from someone. If we made it the inverse the person would be &quot;to&quot; the message</rdfs:comment>
+		<rdfs:range rdf:resource="&gist;SocialBeing"/>
+	</owl:ObjectProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;comment">
+	</owl:AnnotationProperty>
+
+</rdf:RDF>
