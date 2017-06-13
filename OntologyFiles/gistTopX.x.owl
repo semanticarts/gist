@@ -17,7 +17,7 @@
 		<rdfs:comment rdf:datatype="&xs;string">gistTop</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistX.x</rdfs:comment>
 		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistTopX.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from D:\SEMANTIC-ARTS\NAS\Offerings\gist\___workingGistMaster\OntologyFiles\gistX.x--RenameToSayCHECKED-OUT-By-MU.vsd Page:top</owl:versionInfo>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from D:\SEMANTIC-ARTS\NAS\Offerings\gist\___workingGistMaster\OntologyFiles\gistX.x.vsd Page:top</owl:versionInfo>
 	</owl:Ontology>
 	
 	<owl:Class rdf:about="&gist;Area">
@@ -488,12 +488,6 @@
 		</owl:intersectionOf>
 	</owl:Class>
 	
-	<owl:Class rdf:about="&gist;Requirement">
-		<rdfs:subClassOf rdf:resource="&gist;Intention"/>
-		<rdfs:label rdf:datatype="&xs;string">Requirement</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A documented physical or functional need that a particular design, product, or process must be able to perform.  Alternately, the obligation of a person or organization to behave in a certain way (i.e., drive on the right side of the road).</rdfs:comment>
-	</owl:Class>
-	
 	<owl:Class rdf:about="&gist;SchemaMetaData">
 		<rdfs:comment rdf:datatype="&xs;string">Superclass for all types of metadata, including owl concepts (such as class) and relational (tables, elements) and tool related (queries, RWRML maps etc etc)</rdfs:comment>
 	</owl:Class>
@@ -514,12 +508,6 @@
 				<owl:qualifiedCardinality rdf:datatype="&xs;nonNegativeInteger">1</owl:qualifiedCardinality>
 			</owl:Restriction>
 		</owl:intersectionOf>
-	</owl:Class>
-	
-	<owl:Class rdf:about="&gist;Specification">
-		<rdfs:subClassOf rdf:resource="&gist;Requirement"/>
-		<rdfs:label rdf:datatype="&xs;string">Specification</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A set of requirements to be satisfied by a material, design, product, or service.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Template">
@@ -1038,11 +1026,6 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	<owl:ObjectProperty rdf:about="&gist;produces">
 		<rdfs:comment rdf:datatype="&xs;string">EXAMPLE: a task produces a deliverable.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">The subject creates the object.</rdfs:comment>
-	</owl:ObjectProperty>
-	
-	<owl:ObjectProperty rdf:about="&gist;requires">
-		<rdfs:domain rdf:resource="&gist;Intention"/>
-		<rdfs:range rdf:resource="&gist;Behavior"/>
 	</owl:ObjectProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;sequence">

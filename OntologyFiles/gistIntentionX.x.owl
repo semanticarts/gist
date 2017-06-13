@@ -88,6 +88,12 @@
 		</owl:intersectionOf>
 	</owl:Class>
 	
+	<owl:Class rdf:about="&gist;Requirement">
+		<rdfs:subClassOf rdf:resource="&gist;Intention"/>
+		<rdfs:label rdf:datatype="&xs;string">Requirement</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A documented physical or functional need that a particular design, product, or process must be able to perform.  Alternately, the obligation of a person or organization to behave in a certain way (i.e., drive on the right side of the road).</rdfs:comment>
+	</owl:Class>
+	
 	<owl:Class rdf:about="&gist;Restriction">
 		<rdfs:label rdf:datatype="&xs;string">Restriction</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">A description of things one is prevented from doing.  Most laws are restrictions.</rdfs:comment>
@@ -115,6 +121,9 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Specification">
+		<rdfs:subClassOf rdf:resource="&gist;Requirement"/>
+		<rdfs:label rdf:datatype="&xs;string">Specification</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A set of requirements to be satisfied by a material, design, product, or service.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:ObjectProperty rdf:about="&gist;allows">
@@ -139,6 +148,11 @@
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;produces">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;requires">
+		<rdfs:domain rdf:resource="&gist;Intention"/>
+		<rdfs:range rdf:resource="&gist;Behavior"/>
 	</owl:ObjectProperty>
 	
 	<owl:AnnotationProperty rdf:about="&rdfs;comment">
