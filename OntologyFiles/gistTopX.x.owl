@@ -17,7 +17,7 @@
 		<rdfs:comment rdf:datatype="&xs;string">gistTop</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistX.x</rdfs:comment>
 		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistTopX.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from D:\SEMANTIC-ARTS\NAS\Offerings\gist\___workingGistMaster\OntologyFiles\gistX.x.vsd Page:top</owl:versionInfo>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from D:\SEMANTIC-ARTS\NAS\Offerings\gist\___workingGistMaster\OntologyFiles\gistX.x--RenameToSayCHECKED-OUT-By-MU.vsd Page:top</owl:versionInfo>
 	</owl:Ontology>
 	
 	<owl:Class rdf:about="&gist;Area">
@@ -369,12 +369,6 @@
 				<owl:hasValue rdf:resource="&gist;_kilogram"/>
 			</owl:Restriction>
 		</owl:intersectionOf>
-	</owl:Class>
-	
-	<owl:Class rdf:about="&gist;OrderedCollection">
-		<rdfs:subClassOf rdf:resource="&gist;Collection"/>
-		<rdfs:label rdf:datatype="&xs;string">Ordered Collection</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A collection where the members are in a fixed sequence.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Organization">
