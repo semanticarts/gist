@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
-	<!ENTITY gist "http://ontologies.semanticarts.com/gist/">
+	<!ENTITY gist "http://ontologies.semanticarts.com/gist#">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
 	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF xml:base="http://ontologies.semanticarts.com/o/gistTime"
-	xmlns:gist="http://ontologies.semanticarts.com/gist/"
+	xmlns:gist="http://ontologies.semanticarts.com/gist#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -16,7 +16,7 @@
 	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistTime">
 		<rdfs:comment rdf:datatype="&xs;string">gistTime</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistX.x time</rdfs:comment>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTopX.x"/>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistIntentionX.x"/>
 		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistTimeX.x"/>
 		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from D:\SEMANTIC-ARTS\NAS\Offerings\gist\___workingGistMaster\OntologyFiles\gistX.x.vsd Page:time</owl:versionInfo>
 	</owl:Ontology>
@@ -197,9 +197,6 @@
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;sameTimeAs">
-		<rdfs:comment rdf:datatype="&xs;string">We can have two local time instants refer to the same time, the same universal time.</rdfs:comment>
-		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
-		<rdfs:range rdf:resource="&gist;TimeInstant"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;timeZoneStandardUsed">
