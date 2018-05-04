@@ -14,11 +14,11 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
 	
 	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistWiki">
+		<rdfs:comment rdf:datatype="&xs;string">gist Wiki</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistWiki</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">gistX.x Wiki</rdfs:comment>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTopX.x"/>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistWikiX.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from D:\SEMANTIC-ARTS\NAS\Offerings\gist\___workingGistMaster\OntologyFiles\gistX.x.vsd Page:gistWiki</owl:versionInfo>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTop"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistWiki"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from D:\github\test-repo\OntologyFiles\gistX.x.vsdx Page:gistWiki</owl:versionInfo>
 	</owl:Ontology>
 	
 	<owl:Class rdf:about="&gist;Concept">

@@ -14,11 +14,11 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
 	
 	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistIntention">
+		<rdfs:comment rdf:datatype="&xs;string">gist Intention</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistIntention</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">gistX.x Intention</rdfs:comment>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTopX.x"/>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistIntentionX.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from D:\SEMANTIC-ARTS\NAS\Offerings\gist\___workingGistMaster\OntologyFiles\gistX.x.vsd Page:intention</owl:versionInfo>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTop"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistIntention"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from D:\github\test-repo\OntologyFiles\gistX.x.vsdx Page:intention</owl:versionInfo>
 	</owl:Ontology>
 	
 	<owl:Class rdf:about="&gist;Behavior">

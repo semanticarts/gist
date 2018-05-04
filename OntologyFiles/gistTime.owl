@@ -14,11 +14,11 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
 	
 	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistTime">
+		<rdfs:comment rdf:datatype="&xs;string">gist time</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistTime</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">gistX.x time</rdfs:comment>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTopX.x"/>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistTimeX.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from D:\SEMANTIC-ARTS\NAS\Offerings\gist\___workingGistMaster\OntologyFiles\gistX.x.vsd Page:time</owl:versionInfo>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTop"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistTime"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from D:\github\test-repo\OntologyFiles\gistX.x.vsdx Page:time</owl:versionInfo>
 	</owl:Ontology>
 	
 	<owl:Class rdf:about="&gist;BaseUnit">

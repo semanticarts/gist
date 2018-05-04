@@ -14,10 +14,10 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
 	
 	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistTop">
+		<rdfs:comment rdf:datatype="&xs;string">gist</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistTop</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">gistX.x</rdfs:comment>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistTopX.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from D:\SEMANTIC-ARTS\NAS\Offerings\gist\___workingGistMaster\OntologyFiles\gistX.x.vsd Page:top</owl:versionInfo>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistTop"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from D:\github\test-repo\OntologyFiles\gistX.x.vsdx Page:top</owl:versionInfo>
 	</owl:Ontology>
 	
 	<owl:Class rdf:about="&gist;Area">

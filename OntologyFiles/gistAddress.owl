@@ -14,11 +14,11 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
 	
 	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistAddress">
+		<rdfs:comment rdf:datatype="&xs;string">gist Address</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistAddress</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">gistX.x Address</rdfs:comment>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistPlaceX.x"/>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistAddressX.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from D:\SEMANTIC-ARTS\NAS\Offerings\gist\___workingGistMaster\OntologyFiles\gistX.x.vsd Page:address</owl:versionInfo>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistPlace"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistAddress"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from D:\github\test-repo\OntologyFiles\gistX.x.vsdx Page:address</owl:versionInfo>
 	</owl:Ontology>
 	
 	<owl:Class rdf:about="&gist;Address">

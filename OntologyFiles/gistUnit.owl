@@ -14,11 +14,11 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
 	
 	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistUnit">
+		<rdfs:comment rdf:datatype="&xs;string">gist units of measure</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistUnit</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">gistX.x units of measure</rdfs:comment>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTopX.x"/>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistUnitX.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from D:\SEMANTIC-ARTS\NAS\Offerings\gist\___workingGistMaster\OntologyFiles\gistX.x.vsd Page:unit</owl:versionInfo>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTop"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistUnit"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from D:\github\test-repo\OntologyFiles\gistX.x.vsdx Page:unit</owl:versionInfo>
 	</owl:Ontology>
 	
 	<owl:Class rdf:about="&gist;CountingUnit">

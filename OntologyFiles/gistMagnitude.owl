@@ -14,11 +14,11 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
 	
 	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistMagnitude">
+		<rdfs:comment rdf:datatype="&xs;string">gist magnitudes</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistMagnitude</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">gistX.x magnitudes</rdfs:comment>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistUnitX.x"/>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistMagnitudeX.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from D:\SEMANTIC-ARTS\NAS\Offerings\gist\___workingGistMaster\OntologyFiles\gistX.x.vsd Page:mag</owl:versionInfo>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistUnit"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistMagnitude"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from D:\github\test-repo\OntologyFiles\gistX.x.vsdx Page:mag</owl:versionInfo>
 	</owl:Ontology>
 	
 	<owl:Class rdf:about="&gist;Count">
