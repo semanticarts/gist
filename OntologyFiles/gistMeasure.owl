@@ -6,7 +6,7 @@
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
 	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
 ]>
-<rdf:RDF xml:base="http://ontologies.semanticarts.com/o/gistMeasure"
+<rdf:RDF
 	xmlns:gist="http://ontologies.semanticarts.com/gist/"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -16,9 +16,9 @@
 	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistMeasure">
 		<rdfs:comment rdf:datatype="&xs;string">gist Measure</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistMeasure</rdfs:comment>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistEvent"/>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistMeasure"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from D:\github\test-repo\OntologyFiles\gistX.x.vsdx Page:measure</owl:versionInfo>
+		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistEventX.x.x"/>
+		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistMeasureX.x.x"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from C:\dev\gist\OntologyFiles\gist.vsdx Page:measure</owl:versionInfo>
 	</owl:Ontology>
 	
 	<owl:Class rdf:about="&gist;Aspect">
