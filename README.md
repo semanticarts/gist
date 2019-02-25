@@ -18,4 +18,6 @@ with *no* version number
 
 1. Run the `bundle.bat` script (double-click or run from command line).  It will 
 serialize the OWL, and create a ZIP-able folder containing everything needed for a web 
-download. 
+download.  The folder will have a name like `gist8.0.0_webDownload`
+
+1. ZIP up the resulting folder and put it where we host our downloads. 
