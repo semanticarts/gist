@@ -1,6 +1,8 @@
 # gist upper enterprise ontology
 
-## Prerequisites
+This repository has the raw files that we use to build the release files. If you just want the release files then you can download them from our [website](https://www.semanticarts.com/gist).
+
+## Prerequisites to build the output files
 
 You must have `java` installed for the serializer to work.  See JRE Installation instructions
 [here](https://jdk.java.net/). 
