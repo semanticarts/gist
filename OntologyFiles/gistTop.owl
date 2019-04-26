@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
-	<!ENTITY gist "http://ontologies.semanticarts.com/gist/">
+	<!ENTITY gist "https://ontologies.semanticarts.com/gist/">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
 	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF
-	xmlns:gist="http://ontologies.semanticarts.com/gist/"
+	xmlns:gist="https://ontologies.semanticarts.com/gist/"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistTop">
-		<rdfs:comment rdf:datatype="&xs;string">gist</rdfs:comment>
+	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistTop">
+		<rdfs:comment rdf:datatype="&xs;string">All the high level gist classes and key relastionships.  Most disjoints are declared at this level</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistTop</rdfs:comment>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistTopX.x.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from C:\dev\gist\OntologyFiles\gist.vsdx Page:top</owl:versionInfo>
+		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistTopX.x.x"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistX.x.x.vsd Page:top</owl:versionInfo>
+		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;comment">
+	</owl:AnnotationProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
 	
 	<owl:Class rdf:about="&gist;Area">
 		<rdfs:label rdf:datatype="&xs;string">Area</rdfs:label>
@@ -127,7 +134,6 @@
 		<owl:disjointWith rdf:resource="&gist;Organization"/>
 		<owl:disjointWith rdf:resource="&gist;PhysicalIdentifiableItem"/>
 		<owl:disjointWith rdf:resource="&gist;TimeInstant"/>
-		<owl:disjointWith rdf:resource="&gist;TimeInterval"/>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;DistanceUnit">
@@ -174,11 +180,17 @@
 		<rdfs:label rdf:datatype="&xs;string">Event</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Something happening over some period of time, often characterized as some kind of activity being carried out by some person, organization, or software application.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
-			<rdf:Description rdf:about="&gist;TimeInterval">
-			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;start"/>
+				<owl:someValuesFrom rdf:resource="&gist;TimeInstant"/>
+			</owl:Restriction>
 			<owl:Restriction>
 				<owl:onProperty rdf:resource="&gist;characterizedAs"/>
 				<owl:someValuesFrom rdf:resource="&gist;Behavior"/>
+			</owl:Restriction>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;end"/>
+				<owl:someValuesFrom rdf:resource="&gist;TimeInstant"/>
 			</owl:Restriction>
 		</owl:intersectionOf>
 	</owl:Class>
@@ -205,7 +217,6 @@
 		<owl:disjointWith rdf:resource="&gist;Organization"/>
 		<owl:disjointWith rdf:resource="&gist;PhysicalIdentifiableItem"/>
 		<owl:disjointWith rdf:resource="&gist;TimeInstant"/>
-		<owl:disjointWith rdf:resource="&gist;TimeInterval"/>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<owl:Restriction>
 				<owl:onProperty rdf:resource="&gist;hasAltitude"/>
@@ -233,7 +244,6 @@
 		<owl:disjointWith rdf:resource="&gist;PhysicalIdentifiableItem"/>
 		<owl:disjointWith rdf:resource="&gist;Template"/>
 		<owl:disjointWith rdf:resource="&gist;TimeInstant"/>
-		<owl:disjointWith rdf:resource="&gist;TimeInterval"/>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<owl:Restriction>
 				<owl:onProperty rdf:resource="&gist;hasMagnitude"/>
@@ -281,19 +291,17 @@
 		<owl:disjointWith rdf:resource="&gist;Organization"/>
 		<owl:disjointWith rdf:resource="&gist;PhysicalIdentifiableItem"/>
 		<owl:disjointWith rdf:resource="&gist;TimeInstant"/>
-		<owl:disjointWith rdf:resource="&gist;TimeInterval"/>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Intention">
+		<rdfs:label rdf:datatype="&xs;string">Intention</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Goal, desire, aspiration. This is the &quot;teleologic&quot; aspect of the system that indicates things are done with a purpose.</rdfs:comment>
-		<owl:disjointWith rdf:resource="&gist;Content"/>
 		<owl:disjointWith rdf:resource="&gist;GeoPoint"/>
 		<owl:disjointWith rdf:resource="&gist;GeoRegion"/>
 		<owl:disjointWith rdf:resource="&gist;IntellectualProperty"/>
 		<owl:disjointWith rdf:resource="&gist;Magnitude"/>
 		<owl:disjointWith rdf:resource="&gist;PhysicalIdentifiableItem"/>
 		<owl:disjointWith rdf:resource="&gist;TimeInstant"/>
-		<owl:disjointWith rdf:resource="&gist;TimeInterval"/>
 		<owl:disjointWith rdf:resource="&gist;UnitOfMeasure"/>
 	</owl:Class>
 	
@@ -335,26 +343,25 @@
 		<owl:disjointWith rdf:resource="&gist;Organization"/>
 		<owl:disjointWith rdf:resource="&gist;PhysicalIdentifiableItem"/>
 		<owl:disjointWith rdf:resource="&gist;TimeInstant"/>
-		<owl:disjointWith rdf:resource="&gist;TimeInterval"/>
 		<owl:disjointWith rdf:resource="&gist;UnitOfMeasure"/>
-		<owl:intersectionOf rdf:parseType="Collection">
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&gist;hasUoM"/>
-				<owl:someValuesFrom rdf:resource="&gist;UnitOfMeasure"/>
-			</owl:Restriction>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&gist;hasPrecision"/>
-				<owl:someValuesFrom rdf:resource="&gist;Magnitude"/>
-			</owl:Restriction>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&gist;decimalValue"/>
-				<owl:someValuesFrom rdf:resource="&xs;double"/>
-			</owl:Restriction>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&gist;of"/>
-				<owl:someValuesFrom rdf:resource="&owl;Thing"/>
-			</owl:Restriction>
-		</owl:intersectionOf>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;hasUoM"/>
+						<owl:someValuesFrom rdf:resource="&gist;UnitOfMeasure"/>
+					</owl:Restriction>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;decimalValue"/>
+						<owl:someValuesFrom rdf:resource="&xs;double"/>
+					</owl:Restriction>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;hasPrecision"/>
+						<owl:someValuesFrom rdf:resource="&gist;Magnitude"/>
+					</owl:Restriction>
+				</owl:intersectionOf>
+			</owl:Class>
+		</owl:equivalentClass>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;MassUnit">
@@ -459,7 +466,6 @@
 		<owl:disjointWith rdf:resource="&gist;Magnitude"/>
 		<owl:disjointWith rdf:resource="&gist;Organization"/>
 		<owl:disjointWith rdf:resource="&gist;TimeInstant"/>
-		<owl:disjointWith rdf:resource="&gist;TimeInterval"/>
 		<owl:disjointWith rdf:resource="&gist;UnitOfMeasure"/>
 	</owl:Class>
 	
@@ -472,13 +478,11 @@
 			</rdf:Description>
 			<owl:Restriction>
 				<owl:onProperty rdf:resource="&gist;multiplier"/>
-				<owl:onClass rdf:resource="&gist;UnitOfMeasure"/>
-				<owl:qualifiedCardinality rdf:datatype="&xs;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:someValuesFrom rdf:resource="&gist;UnitOfMeasure"/>
 			</owl:Restriction>
 			<owl:Restriction>
 				<owl:onProperty rdf:resource="&gist;multiplicand"/>
-				<owl:onClass rdf:resource="&gist;UnitOfMeasure"/>
-				<owl:qualifiedCardinality rdf:datatype="&xs;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:someValuesFrom rdf:resource="&gist;UnitOfMeasure"/>
 			</owl:Restriction>
 			<owl:Restriction>
 				<owl:onProperty rdf:resource="&gist;convertToBase"/>
@@ -489,6 +493,7 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;SchemaMetaData">
+		<rdfs:label rdf:datatype="&xs;string">Schema Meta Data</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Superclass for all types of metadata, including owl concepts (such as class) and relational (tables, elements) and tool related (queries, RWRML maps etc etc)</rdfs:comment>
 	</owl:Class>
 	
@@ -576,38 +581,9 @@
 		<owl:disjointWith rdf:resource="&gist;Template"/>
 	</owl:Class>
 	
-	<owl:Class rdf:about="&gist;TimeInterval">
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&gist;end"/>
-				<owl:someValuesFrom rdf:resource="&gist;TimeInstant"/>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&gist;hasMagnitude"/>
-				<owl:someValuesFrom rdf:resource="&gist;Duration"/>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:subClassOf>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&gist;start"/>
-				<owl:someValuesFrom rdf:resource="&gist;TimeInstant"/>
-			</owl:Restriction>
-		</rdfs:subClassOf>
-		<rdfs:label rdf:datatype="&xs;string">Time Interval</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">EXAMPLE: Jan 1 through Jan 8, 2013.</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">NEGATIVE EXAMPLE: &quot;8:00am&quot; (with no date).</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">NOTE:  The end should be later than the start, but this is not enforced via OWL.</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">NOTE: While Time Interval has a Duration, it is not itself a Duration.</rdfs:comment>
-		<owl:disjointWith rdf:resource="&gist;Language"/>
-		<owl:disjointWith rdf:resource="&gist;Organization"/>
-		<owl:disjointWith rdf:resource="&gist;PhysicalIdentifiableItem"/>
-		<owl:disjointWith rdf:resource="&gist;Template"/>
-	</owl:Class>
-	
 	<owl:Class rdf:about="&gist;UnitOfMeasure">
 		<rdfs:label rdf:datatype="&xs;string">Unit of Measure</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Stndard unit by which we measure things</rdfs:comment>
 		<owl:disjointWith rdf:resource="&gist;Content"/>
 		<owl:disjointWith rdf:resource="&gist;GeoPoint"/>
 		<owl:disjointWith rdf:resource="&gist;GeoRegion"/>
@@ -618,7 +594,6 @@
 		<owl:disjointWith rdf:resource="&gist;SchemaMetaData"/>
 		<owl:disjointWith rdf:resource="&gist;Template"/>
 		<owl:disjointWith rdf:resource="&gist;TimeInstant"/>
-		<owl:disjointWith rdf:resource="&gist;TimeInterval"/>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Volume">
@@ -727,52 +702,27 @@
 	</gist:BaseUnit>
 	
 	<owl:ObjectProperty rdf:about="&gist;actual">
+		<rdfs:label rdf:datatype="&xs;string">Actual</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">When something did occur, therefore noting an historical event.</rdfs:comment>
-		<rdfs:range>
-			<owl:Class>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="&gist;TimeInstant">
-					</rdf:Description>
-					<rdf:Description rdf:about="&gist;TimeInterval">
-					</rdf:Description>
-				</owl:unionOf>
-			</owl:Class>
-		</rdfs:range>
+		<rdfs:range rdf:resource="&gist;TimeInstant"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;actualEnd">
 		<rdfs:subPropertyOf rdf:resource="&gist;actual"/>
 		<rdfs:subPropertyOf rdf:resource="&gist;end"/>
+		<rdfs:label rdf:datatype="&xs;string">Actual End</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">When something did end, therefore noting an historical event.</rdfs:comment>
-		<rdfs:range>
-			<owl:Class>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="&gist;TimeInstant">
-					</rdf:Description>
-					<rdf:Description rdf:about="&gist;TimeInterval">
-					</rdf:Description>
-				</owl:unionOf>
-			</owl:Class>
-		</rdfs:range>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;actualStart">
 		<rdfs:subPropertyOf rdf:resource="&gist;actual"/>
 		<rdfs:subPropertyOf rdf:resource="&gist;start"/>
+		<rdfs:label rdf:datatype="&xs;string">Actual Start</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">When something did start, therefore noting an historical event.</rdfs:comment>
-		<rdfs:range>
-			<owl:Class>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="&gist;TimeInstant">
-					</rdf:Description>
-					<rdf:Description rdf:about="&gist;TimeInterval">
-					</rdf:Description>
-				</owl:unionOf>
-			</owl:Class>
-		</rdfs:range>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;allocatedBy">
+		<rdfs:label rdf:datatype="&xs;string">Allocated By</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Connection between an ID and the thing that minted the ID.  It may be a person or organization, or could be an algorithm (next available or random number generator)</rdfs:comment>
 		<rdfs:range>
 			<owl:Class>
@@ -788,21 +738,32 @@
 		</rdfs:range>
 	</owl:ObjectProperty>
 	
+	<owl:ObjectProperty rdf:about="&gist;basedOn">
+		<rdfs:label rdf:datatype="&xs;string">Based On</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">pointer to the thing something was derived from</rdfs:comment>
+	</owl:ObjectProperty>
+	
 	<owl:ObjectProperty rdf:about="&gist;categorizedBy">
+		<rdfs:label rdf:datatype="&xs;string">Categorized By</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Points to a taxonomy item or other less formally defined class.</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;characterizedAs">
+		<rdfs:label rdf:datatype="&xs;string">Characterized As</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A way to categorized a behavior</rdfs:comment>
+		<rdfs:domain rdf:resource="&gist;Event"/>
 		<rdfs:range rdf:resource="&gist;Behavior"/>
 	</owl:ObjectProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;conversionOffset">
+		<rdfs:label rdf:datatype="&xs;string">Conversion Offset</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Add this number to get to the zero point.  On the Celsius scale, the conversionOffset is -273.15 degrees C. On the Fahrenheit scale it is -459.67 degrees.  Is equal to 0 when the unit has the same zero point as the base unit. e.g. inch, meter.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;UnitOfMeasure"/>
 		<rdfs:range rdf:resource="&xs;double"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;convertToBase">
+		<rdfs:label rdf:datatype="&xs;string">ConvertToBase</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">The conversion factor used to get to the base unit.  E.g., multiplying by 0.0254 gets you from inches to meters. Divide by this number to go the other way. Used in conjunction with conversionOffset to convert from one unit to another. 
 Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)) * (5/9).  To go the other way: F = (K * 9/5) -469.67.  Try it on Google.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;UnitOfMeasure"/>
@@ -810,37 +771,37 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;decimalValue">
+		<rdfs:label rdf:datatype="&xs;string">Decimal Value</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">The actual value of a magnitude.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Magnitude"/>
 		<rdfs:range rdf:resource="&xs;double"/>
 	</owl:DatatypeProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;directPartOf">
+		<rdfs:label rdf:datatype="&xs;string">Direct Part Of</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">The relationship between a  part and a whole where the part has independent existence.</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;end">
+		<rdfs:label rdf:datatype="&xs;string">End</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Connects the subject to its end time.</rdfs:comment>
-		<rdfs:range>
-			<owl:Class>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="&gist;TimeInstant">
-					</rdf:Description>
-					<rdf:Description rdf:about="&gist;TimeInterval">
-					</rdf:Description>
-				</owl:unionOf>
-			</owl:Class>
-		</rdfs:range>
+		<rdfs:range rdf:resource="&gist;TimeInstant"/>
 	</owl:ObjectProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;epoch">
+		<rdfs:label rdf:datatype="&xs;string">Epoch</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">seconds since 1/1/1970 UTC (unix time )</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
 		<rdfs:range rdf:resource="&xs;double"/>
 	</owl:DatatypeProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;governedBy">
+		<rdfs:label rdf:datatype="&xs;string">Governed By</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A reference from the thing being governed to the governor</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;governs">
+		<rdfs:label rdf:datatype="&xs;string">Governs</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">The subject controls or inhibits the object in some way</rdfs:comment>
 		<rdfs:domain>
 			<owl:Class>
@@ -884,12 +845,14 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasAltitude">
+		<rdfs:label rdf:datatype="&xs;string">Has Altitude</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Distance above sea level</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;GeoPoint"/>
 		<rdfs:range rdf:resource="&gist;Extent"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasBaseUnit">
+		<rdfs:label rdf:datatype="&xs;string">Has Base Unit</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">EXAMPLE: saying that a furlong hasBaseUnit  meter says it is a DistanceUnit.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">Relates a UnitOfMeasure to its BaseUnit.  This indicates what kind Unit something is, e.g. saying that a furlong hasBaseUnit  meter says it is a DistanceUnit.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;UnitOfMeasure"/>
@@ -898,6 +861,7 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	
 	<owl:ObjectProperty rdf:about="&gist;hasBirthDate">
 		<rdfs:subPropertyOf rdf:resource="&gist;actualStart"/>
+		<rdfs:label rdf:datatype="&xs;string">Has Birthdate</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Date a living thing was &quot;born&quot; (or germinated, for plants).</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;LivingThing"/>
 		<rdfs:range rdf:resource="&gist;TimeInstant"/>
@@ -905,6 +869,7 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	
 	<owl:ObjectProperty rdf:about="&gist;hasDeathDate">
 		<rdfs:subPropertyOf rdf:resource="&gist;actualEnd"/>
+		<rdfs:label rdf:datatype="&xs;string">Has Death Date</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Date a living thing died</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;LivingThing"/>
 		<rdfs:range rdf:resource="&gist;TimeInstant"/>
@@ -912,6 +877,7 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	
 	<owl:ObjectProperty rdf:about="&gist;hasDirectPart">
 		<rdfs:subPropertyOf rdf:resource="&gist;hasPart"/>
+		<rdfs:label rdf:datatype="&xs;string">Has Direct Part</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">NOTE: No cascading delete.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">NOTE: Use this property to directly associate parts. hasPart is the transitive version.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">The relationship between a whole and a part where the part has independent existence.</rdfs:comment>
@@ -919,11 +885,13 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasMagnitude">
+		<rdfs:label rdf:datatype="&xs;string">Has Magnitude</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">To have a comparable numerical value. Each magnitude has a unit.</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;Magnitude"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasMember">
+		<rdfs:label rdf:datatype="&xs;string">Has Member</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Relates a Collection to its member individuals.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Collection"/>
 		<owl:inverseOf rdf:resource="&gist;memberOf"/>
@@ -932,11 +900,13 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	<rdf:Description rdf:about="&gist;hasPart">
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
 		<rdf:type rdf:resource="&owl;TransitiveProperty"/>
+		<rdfs:label rdf:datatype="&xs;string">Has Part</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">The transitive version of hasDirectPart</rdfs:comment>
 		<owl:inverseOf rdf:resource="&gist;partOf"/>
 	</rdf:Description>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasPrecision">
+		<rdfs:label rdf:datatype="&xs;string">Has Precision</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">EXAMPLE:  Temperature precise to tenth of a degree C; TimeInstant precise to 24 hours.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">Links a Magnitude to the degree of accuracy of the numeric value.   This allows for fuzzy numbers.  All magnitudes have a precision.  Usually we don&apos;t record them.  When we do this, it will be a value whose extent covers 2 standard deviations around the stated magnitude</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">NOTE:  Most frequently apples to Magnitude(s) and TimeInstant. Could also apply to a measurement.</rdfs:comment>
@@ -944,6 +914,7 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasUoM">
+		<rdfs:label rdf:datatype="&xs;string">Has Unit of Measure</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Which unit of measure you are using. All measures are in some uom, even if we don&apos;t know what it is initially.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Magnitude"/>
 		<rdfs:range rdf:resource="&gist;UnitOfMeasure"/>
@@ -952,126 +923,171 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	<rdf:Description rdf:about="&gist;identifiedBy">
 		<rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
+		<rdfs:label rdf:datatype="&xs;string">Identified By</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">This is like a uri: a thing can have more than one ID, but each of the IDs must refer to a unique thing.</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;ID"/>
 		<owl:inverseOf rdf:resource="&gist;identifies"/>
 	</rdf:Description>
 	
-	<owl:ObjectProperty rdf:about="&gist;identifies">
-	</owl:ObjectProperty>
+	<rdf:Description rdf:about="&gist;identifies">
+		<rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+		<rdf:type rdf:resource="&owl;ObjectProperty"/>
+		<rdfs:label rdf:datatype="&xs;string">Identifies</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">The thing the identifier is referringo</rdfs:comment>
+	</rdf:Description>
 	
 	<owl:DatatypeProperty rdf:about="&gist;latitude">
+		<rdfs:label rdf:datatype="&xs;string">Latitude</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">degrees above or below equator</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;GeoPoint"/>
 		<rdfs:range rdf:resource="&xs;double"/>
 	</owl:DatatypeProperty>
 	
+	<owl:AnnotationProperty rdf:about="&gist;license">
+		<rdfs:comment rdf:datatype="&xs;string">An annotation for providing the licensing on this or derrivative ontologies</rdfs:comment>
+	</owl:AnnotationProperty>
+	
 	<owl:DatatypeProperty rdf:about="&gist;localDate">
+		<rdfs:label rdf:datatype="&xs;string">Local Date</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">LD</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;localDateTime">
+		<rdfs:label rdf:datatype="&xs;string">Local Date Time</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">LDT</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
 		<rdfs:range rdf:resource="&xs;dateTime"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;localTime">
+		<rdfs:label rdf:datatype="&xs;string">Local Time</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">LT</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;longitude">
+		<rdfs:label rdf:datatype="&xs;string">Longitude</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">ddegrees from GM</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;GeoPoint"/>
 		<rdfs:range rdf:resource="&xs;double"/>
 	</owl:DatatypeProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;madeUpOf">
+		<rdfs:label rdf:datatype="&xs;string">Made Up Of</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">as in the vase is made up of clay</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;PhysicalSubstance"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;memberOf">
+		<rdfs:label rdf:datatype="&xs;string">Member Of</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">What group the member is in</rdfs:comment>
+		<rdfs:domain rdf:resource="&gist;Collection"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;multiplicand">
+		<rdfs:label rdf:datatype="&xs;string">Multiplicand</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Relates a ProductUnit such as square mile to the second of two units multiplied together (e.g. mile).</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;ProductUnit"/>
 		<rdfs:range rdf:resource="&gist;UnitOfMeasure"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;multiplier">
+		<rdfs:label rdf:datatype="&xs;string">Multiplier</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Relates a ProductUnit such as square mile to the first of two units multiplied together (e.g. mile)</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;ProductUnit"/>
 		<rdfs:range rdf:resource="&gist;UnitOfMeasure"/>
 	</owl:ObjectProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;name">
+		<rdfs:label rdf:datatype="&xs;string">Name</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Relates an individual to a casual name.  NOTE: For more formal use, consider using a sub property of the object property, identifiedBy.</rdfs:comment>
 		<rdfs:range rdf:resource="&xs;string"/>
 	</owl:DatatypeProperty>
 	
-	<owl:ObjectProperty rdf:about="&gist;of">
-	</owl:ObjectProperty>
-	
 	<owl:ObjectProperty rdf:about="&gist;offspringOf">
+		<rdfs:label rdf:datatype="&xs;string">Offspring Of</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Biological offspring</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;LivingThing"/>
 		<rdfs:range rdf:resource="&gist;LivingThing"/>
-		<owl:inverseOf rdf:resource="&gist;parentOf"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;owns">
+		<rdfs:label rdf:datatype="&xs;string">Owns</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Possessinng and controlling.  Ultimate form of ownership is the right to destroy.  Long list of potential Range classes</rdfs:comment>
+		<rdfs:domain>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;Person">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;Organization">
+					</rdf:Description>
+				</owl:unionOf>
+			</owl:Class>
+		</rdfs:domain>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;parentOf">
+		<rdfs:label rdf:datatype="&xs;string">Parent Of</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Biological Parent</rdfs:comment>
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="&gist;partOf">
-	</owl:ObjectProperty>
+	<rdf:Description rdf:about="&gist;partOf">
+		<rdf:type rdf:resource="&owl;ObjectProperty"/>
+		<rdf:type rdf:resource="&owl;TransitiveProperty"/>
+		<rdfs:label rdf:datatype="&xs;string">Part Of</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">The transitive version of directPartOf</rdfs:comment>
+	</rdf:Description>
 	
 	<owl:ObjectProperty rdf:about="&gist;produces">
+		<rdfs:label rdf:datatype="&xs;string">Produces</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">EXAMPLE: a task produces a deliverable.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">The subject creates the object.</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;sequence">
+		<rdfs:label rdf:datatype="&xs;string">Sequence</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">For ordering ordered lists.</rdfs:comment>
 		<rdfs:range rdf:resource="&xs;integer"/>
 	</owl:DatatypeProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;start">
+		<rdfs:label rdf:datatype="&xs;string">Start</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Connects the subject to its start time.</rdfs:comment>
-		<rdfs:range>
-			<owl:Class>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="&gist;TimeInstant">
-					</rdf:Description>
-					<rdf:Description rdf:about="&gist;TimeInterval">
-					</rdf:Description>
-				</owl:unionOf>
-			</owl:Class>
-		</rdfs:range>
+		<rdfs:range rdf:resource="&gist;TimeInstant"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;triggeredBy">
+		<rdfs:label rdf:datatype="&xs;string">Triggered By</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">general causal relation.  For obligations a property that describes what would happen to trigger the contingent obligation.  In most cases, before the Contingent becomes an Obligation, the triggered by event is a planned event (that is it hasn&apos;t happened yet -- if it had happened the contingency would no longer be contingent.  In most cases it will be  a ContingentEvent .  Otehr uses include controls, processes etc</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<rdf:Description rdf:about="&gist;uniqueText">
 		<rdf:type rdf:resource="&owl;DatatypeProperty"/>
 		<rdf:type rdf:resource="&owl;FunctionalProperty"/>
+		<rdfs:label rdf:datatype="&xs;string">Unique Text</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">This is used for the actual value of a key or ID where you don&apos;t want the possibility of having more than one.</rdfs:comment>
 		<rdfs:range rdf:resource="&xs;string"/>
 	</rdf:Description>
 	
 	<owl:DatatypeProperty rdf:about="&gist;universalDate">
+		<rdfs:label rdf:datatype="&xs;string">Universal Date</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">UD</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;universalDateTime">
+		<rdfs:label rdf:datatype="&xs;string">Universal Date Time</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">UDT</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
 		<rdfs:range rdf:resource="&xs;dateTime"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;universalTime">
+		<rdfs:label rdf:datatype="&xs;string">Universal Time</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">UT</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
 	</owl:DatatypeProperty>
-	
-	<owl:AnnotationProperty rdf:about="&rdfs;comment">
-	</owl:AnnotationProperty>
-	
-	<owl:AnnotationProperty rdf:about="&rdfs;label">
-	</owl:AnnotationProperty>
 	
 	<owl:AllDifferent>
 		<owl:distinctMembers rdf:parseType="Collection">

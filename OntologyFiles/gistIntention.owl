@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
-	<!ENTITY gist "http://ontologies.semanticarts.com/gist/">
+	<!ENTITY gist "https://ontologies.semanticarts.com/gist/">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
 	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF
-	xmlns:gist="http://ontologies.semanticarts.com/gist/"
+	xmlns:gist="https://ontologies.semanticarts.com/gist/"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistIntention">
-		<rdfs:comment rdf:datatype="&xs;string">gist Intention</rdfs:comment>
+	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistIntention">
 		<rdfs:comment rdf:datatype="&xs;string">gistIntention</rdfs:comment>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTopX.x.x"/>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistIntentionX.x.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from C:\dev\gist\OntologyFiles\gist.vsdx Page:intention</owl:versionInfo>
+		<rdfs:comment rdf:datatype="&xs;string">gistIntention the Teleological aspect of systems.  Whey are we doing something.</rdfs:comment>
+		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTopX.x.x"/>
+		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistIntentionX.x.x"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistX.x.x.vsd Page:intention</owl:versionInfo>
+		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;comment">
+	</owl:AnnotationProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
 	
 	<owl:Class rdf:about="&gist;Behavior">
 	</owl:Class>
@@ -114,8 +121,8 @@
 			<rdf:Description rdf:about="&gist;CatalogItem">
 			</rdf:Description>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&gist;produces"/>
-				<owl:someValuesFrom rdf:resource="&gist;Behavior"/>
+				<owl:onProperty rdf:resource="&gist;basisFor"/>
+				<owl:someValuesFrom rdf:resource="&gist;Event"/>
 			</owl:Restriction>
 		</owl:intersectionOf>
 	</owl:Class>
@@ -127,15 +134,26 @@
 	</owl:Class>
 	
 	<owl:ObjectProperty rdf:about="&gist;allows">
+		<rdfs:label rdf:datatype="&xs;string">Allows</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">The intention (say a grant) allows a particular kind of activity (for instance egress)</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Intention"/>
 		<rdfs:range rdf:resource="&gist;Behavior"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;basedOn">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;basisFor">
+		<rdfs:label rdf:datatype="&xs;string">Basis For</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Reason for an event</rdfs:comment>
+		<owl:inverseOf rdf:resource="&gist;basedOn"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;categorizedBy">
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;conformsTo">
+		<rdfs:label rdf:datatype="&xs;string">Conforms To</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">The subject conforms to the Object, e.g. meet an obligation, meet terms of an offer, adhere to a specification</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;Intention"/>
 	</owl:ObjectProperty>
@@ -143,25 +161,21 @@
 	<owl:ObjectProperty rdf:about="&gist;hasDirectPart">
 	</owl:ObjectProperty>
 	
+	<owl:AnnotationProperty rdf:about="&gist;license">
+	</owl:AnnotationProperty>
+	
 	<owl:ObjectProperty rdf:about="&gist;prevents">
+		<rdfs:label rdf:datatype="&xs;string">Prevents</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">The intention (say a law) is intended to prevent this kind of behavior (say jaywalking)</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Intention"/>
 		<rdfs:range rdf:resource="&gist;Behavior"/>
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="&gist;produces">
-	</owl:ObjectProperty>
-	
 	<owl:ObjectProperty rdf:about="&gist;requires">
+		<rdfs:label rdf:datatype="&xs;string">Requires</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">An intention that sets out a state of satisfaction (you are required to drive on right side of the road)</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Intention"/>
 		<rdfs:range rdf:resource="&gist;Behavior"/>
 	</owl:ObjectProperty>
-	
-	<owl:AnnotationProperty rdf:about="&rdfs;comment">
-	</owl:AnnotationProperty>
-	
-	<owl:AnnotationProperty rdf:about="&rdfs;label">
-	</owl:AnnotationProperty>
 
 </rdf:RDF>

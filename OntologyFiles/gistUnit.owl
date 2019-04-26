@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
-	<!ENTITY gist "http://ontologies.semanticarts.com/gist/">
+	<!ENTITY gist "https://ontologies.semanticarts.com/gist/">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
 	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF
-	xmlns:gist="http://ontologies.semanticarts.com/gist/"
+	xmlns:gist="https://ontologies.semanticarts.com/gist/"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistUnit">
-		<rdfs:comment rdf:datatype="&xs;string">gist units of measure</rdfs:comment>
+	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistUnit">
+		<rdfs:comment rdf:datatype="&xs;string">gist Unit of Measure, extends the base units from top to cover Rations and lesser used units (this allows someone to exclude Luminosity if they don&apos;t want it )</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistUnit</rdfs:comment>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTopX.x.x"/>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistUnitX.x.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from C:\dev\gist\OntologyFiles\gist.vsdx Page:unit</owl:versionInfo>
+		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTopX.x.x"/>
+		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistUnitX.x.x"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistX.x.x.vsd Page:unit</owl:versionInfo>
+		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;comment">
+	</owl:AnnotationProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
 	
 	<owl:Class rdf:about="&gist;CountingUnit">
 		<rdfs:label rdf:datatype="&xs;string">Counting Unit</rdfs:label>
@@ -109,13 +116,11 @@
 			</rdf:Description>
 			<owl:Restriction>
 				<owl:onProperty rdf:resource="&gist;numerator"/>
-				<owl:onClass rdf:resource="&gist;UnitOfMeasure"/>
-				<owl:qualifiedCardinality rdf:datatype="&xs;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:someValuesFrom rdf:resource="&gist;UnitOfMeasure"/>
 			</owl:Restriction>
 			<owl:Restriction>
 				<owl:onProperty rdf:resource="&gist;denominator"/>
-				<owl:onClass rdf:resource="&gist;UnitOfMeasure"/>
-				<owl:qualifiedCardinality rdf:datatype="&xs;nonNegativeInteger">1</owl:qualifiedCardinality>
+				<owl:someValuesFrom rdf:resource="&gist;UnitOfMeasure"/>
 			</owl:Restriction>
 		</owl:intersectionOf>
 	</owl:Class>
@@ -168,6 +173,7 @@
 	</owl:DatatypeProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;denominator">
+		<rdfs:label rdf:datatype="&xs;string">Denominator</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Relates a RatioUnit such as meters/second to the denominator Unit (e.g. second).</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;RatioUnit"/>
 		<rdfs:range rdf:resource="&gist;UnitOfMeasure"/>
@@ -176,34 +182,35 @@
 	<owl:ObjectProperty rdf:about="&gist;hasBaseUnit">
 	</owl:ObjectProperty>
 	
+	<owl:AnnotationProperty rdf:about="&gist;license">
+	</owl:AnnotationProperty>
+	
 	<owl:ObjectProperty rdf:about="&gist;numerator">
+		<rdfs:label rdf:datatype="&xs;string">Numerator</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Relates a RatioUnit such as meter(s)/second to the numerator Unit (e.g. meter).</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;RatioUnit"/>
 		<rdfs:range rdf:resource="&gist;UnitOfMeasure"/>
 	</owl:ObjectProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;unitSymbol">
+		<rdfs:label rdf:datatype="&xs;string">Unit Symbol</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">The standard symbol for the unit NOT using any special characters.  E.g. square meter would be m^2 rather than m?.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;UnitOfMeasure"/>
 		<rdfs:range rdf:resource="&xs;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;unitSymbolHTML">
+		<rdfs:label rdf:datatype="&xs;string">Unit Symbol HTML</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">The standard symbol for the unit in HTML format for  pretty printing, may use special characters.  E.g. to show square meter as  m? rather than m^2, the value of this property would be &quot;m&amp;sup2;&quot; This is for when Unicode not supported and the display will be HTML format.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;UnitOfMeasure"/>
 		<rdfs:range rdf:resource="&xs;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;unitSymbolUnicode">
+		<rdfs:label rdf:datatype="&xs;string">Unit Symbol Unicode</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">The standard symbol for the unit preferred for pretty printing, may use special characters.  E.g. square meter would be  m? rather than m^2.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;UnitOfMeasure"/>
 		<rdfs:range rdf:resource="&xs;string"/>
 	</owl:DatatypeProperty>
-	
-	<owl:AnnotationProperty rdf:about="&rdfs;comment">
-	</owl:AnnotationProperty>
-	
-	<owl:AnnotationProperty rdf:about="&rdfs;label">
-	</owl:AnnotationProperty>
 
 </rdf:RDF>
