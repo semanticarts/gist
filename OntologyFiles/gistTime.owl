@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
-	<!ENTITY gist "http://ontologies.semanticarts.com/gist/">
+	<!ENTITY gist "https://ontologies.semanticarts.com/gist/">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
 	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF
-	xmlns:gist="http://ontologies.semanticarts.com/gist/"
+	xmlns:gist="https://ontologies.semanticarts.com/gist/"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistTime">
-		<rdfs:comment rdf:datatype="&xs;string">gist time</rdfs:comment>
+	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistTime">
 		<rdfs:comment rdf:datatype="&xs;string">gistTime</rdfs:comment>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTopX.x.x"/>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistTimeX.x.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from C:\dev\gist\OntologyFiles\gist.vsdx Page:time</owl:versionInfo>
+		<rdfs:comment rdf:datatype="&xs;string">gistTime how timezones and some common precisions are modeled</rdfs:comment>
+		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTopX.x.x"/>
+		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistTimeX.x.x"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistX.x.x.vsd Page:time</owl:versionInfo>
+		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
 	
 	<owl:Class rdf:about="&gist;BaseUnit">
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;DateInstant">
+		<rdfs:label rdf:datatype="&xs;string">Date Instant</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">A point in time known only to the accuracy of one day.  Say the signing of the declaration of independence on 7/4/1776</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;TimeInstant">
@@ -59,6 +64,7 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;HumanInstant">
+		<rdfs:label rdf:datatype="&xs;string">Human Instant</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">A point in time known only to the accuracy of one minute.  For things like calendar appointments and time reporting</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;TimeInstant">
@@ -91,6 +97,7 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;SystemInstant">
+		<rdfs:label rdf:datatype="&xs;string">System Instant</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">A point in time known to the accuracy of a millisecond.  For posting transacion recorded on times</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;TimeInstant">
@@ -191,24 +198,28 @@
 	<owl:ObjectProperty rdf:about="&gist;hasUoM">
 	</owl:ObjectProperty>
 	
+	<owl:AnnotationProperty rdf:about="&gist;license">
+	</owl:AnnotationProperty>
+	
 	<owl:ObjectProperty rdf:about="&gist;offsetToUniversal">
+		<rdfs:label rdf:datatype="&xs;string">Offset To Universal</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">How many hours the timezone if off GMT</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;TimeZone"/>
 		<rdfs:range rdf:resource="&gist;Duration"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;sameTimeAs">
+		<rdfs:label rdf:datatype="&xs;string">Same Time As</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">We can have two local time instants refer to the same time, the same universal time.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
 		<rdfs:range rdf:resource="&gist;TimeInstant"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;timeZoneStandardUsed">
+		<rdfs:label rdf:datatype="&xs;string">Time Zone Standard Used</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">the &quot;timezone&quot; with Daylight savings adjust</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
 		<rdfs:range rdf:resource="&gist;TimeZoneStandard"/>
 	</owl:ObjectProperty>
-	
-	<owl:AnnotationProperty rdf:about="&rdfs;label">
-	</owl:AnnotationProperty>
 
 </rdf:RDF>

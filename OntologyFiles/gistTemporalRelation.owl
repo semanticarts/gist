@@ -1,32 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
-	<!ENTITY gist "http://ontologies.semanticarts.com/gist/">
+	<!ENTITY gist "https://ontologies.semanticarts.com/gist/">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
 	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF
-	xmlns:gist="http://ontologies.semanticarts.com/gist/"
+	xmlns:gist="https://ontologies.semanticarts.com/gist/"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistTemporalRelation">
-		<rdfs:comment rdf:datatype="&xs;string">gist temporalRelation</rdfs:comment>
+	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistTemporalRelation">
+		<rdfs:comment rdf:datatype="&xs;string">gistTe3mporal the parent class of all Temporal Relations</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistTemporalRelation</rdfs:comment>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTimeX.x.x"/>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistTemporalRelationX.x.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from C:\dev\gist\OntologyFiles\gist.vsdx Page:TR</owl:versionInfo>
+		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTimeX.x.x"/>
+		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistTemporalRelationX.x.x"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistX.x.x.vsd Page:TR</owl:versionInfo>
+		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	
+	<owl:AnnotationProperty rdf:about="&rdfs;comment">
+	</owl:AnnotationProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
+	
 	<owl:Class rdf:about="&gist;TemporalRelation">
-		<rdfs:subClassOf rdf:resource="&gist;TimeInterval"/>
 		<rdfs:subClassOf>
 			<owl:Restriction>
 				<owl:onProperty rdf:resource="&gist;connectedTo"/>
-				<owl:someValuesFrom rdf:resource="&owl;Thing"/>
+				<owl:onClass rdf:resource="&owl;Thing"/>
+				<owl:minQualifiedCardinality rdf:datatype="&xs;nonNegativeInteger">2</owl:minQualifiedCardinality>
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:subClassOf>
@@ -47,23 +54,18 @@
 		<rdfs:comment rdf:datatype="&xs;string">NOTE: A temporal relation must be gist:connectedTo a minimum of two objects. For example, a temporal relation representing a period of employment is connected both to the person and to the role/position they held.</rdfs:comment>
 	</owl:Class>
 	
-	<owl:Class rdf:about="&gist;TimeInterval">
-	</owl:Class>
-	
 	<owl:ObjectProperty rdf:about="&gist;connectedTo">
+		<rdfs:label rdf:datatype="&xs;string">Connected To</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">A non owning, non causal, non-subordinate (ie. peer to peer) relationship.</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;end">
 	</owl:ObjectProperty>
 	
+	<owl:AnnotationProperty rdf:about="&gist;license">
+	</owl:AnnotationProperty>
+	
 	<owl:ObjectProperty rdf:about="&gist;start">
 	</owl:ObjectProperty>
-	
-	<owl:AnnotationProperty rdf:about="&rdfs;comment">
-	</owl:AnnotationProperty>
-	
-	<owl:AnnotationProperty rdf:about="&rdfs;label">
-	</owl:AnnotationProperty>
 
 </rdf:RDF>

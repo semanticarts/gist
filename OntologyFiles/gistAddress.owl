@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
-	<!ENTITY gist "http://ontologies.semanticarts.com/gist/">
+	<!ENTITY gist "https://ontologies.semanticarts.com/gist/">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
 	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF
-	xmlns:gist="http://ontologies.semanticarts.com/gist/"
+	xmlns:gist="https://ontologies.semanticarts.com/gist/"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistAddress">
-		<rdfs:comment rdf:datatype="&xs;string">gist Address</rdfs:comment>
+	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistAddress">
+		<rdfs:comment rdf:datatype="&xs;string">gist:Address where we have the various kinds of addresses (postal, building as well as electronic)</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistAddress</rdfs:comment>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistPlaceX.x.x"/>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistAddressX.x.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from C:\dev\gist\OntologyFiles\gist.vsdx Page:address</owl:versionInfo>
+		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistPlaceX.x.x"/>
+		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistAddressX.x.x"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistX.x.x.vsd Page:address</owl:versionInfo>
+		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;comment">
+	</owl:AnnotationProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
 	
 	<owl:Class rdf:about="&gist;Address">
 		<rdfs:subClassOf rdf:resource="&gist;Content"/>
@@ -69,27 +76,30 @@
 	</owl:Class>
 	
 	<owl:ObjectProperty rdf:about="&gist;communicationAddressOf">
+		<rdfs:label rdf:datatype="&xs;string">Communication Address Of</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Whose address is this</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasCommunicationAddress">
+		<rdfs:label rdf:datatype="&xs;string">Has Communication Address</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Points to a general class of places you can send messages including postal addresses, fax numbers, phone numbers, email, web site, etc.</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;Address"/>
 		<owl:inverseOf rdf:resource="&gist;communicationAddressOf"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasStreetAddress">
+		<rdfs:label rdf:datatype="&xs;string">Has Street Address</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">A place that can be found on a map, has geo coordinates; you could live or work there.</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;BuildingAddress"/>
 		<owl:inverseOf rdf:resource="&gist;streetAddressOf"/>
 	</owl:ObjectProperty>
 	
+	<owl:AnnotationProperty rdf:about="&gist;license">
+	</owl:AnnotationProperty>
+	
 	<owl:ObjectProperty rdf:about="&gist;streetAddressOf">
+		<rdfs:label rdf:datatype="&xs;string">Street Address Of</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Whose street address is this</rdfs:comment>
 	</owl:ObjectProperty>
-	
-	<owl:AnnotationProperty rdf:about="&rdfs;comment">
-	</owl:AnnotationProperty>
-	
-	<owl:AnnotationProperty rdf:about="&rdfs;label">
-	</owl:AnnotationProperty>
 
 </rdf:RDF>

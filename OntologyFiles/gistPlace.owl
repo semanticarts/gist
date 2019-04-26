@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
-	<!ENTITY gist "http://ontologies.semanticarts.com/gist/">
+	<!ENTITY gist "https://ontologies.semanticarts.com/gist/">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
 	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF
-	xmlns:gist="http://ontologies.semanticarts.com/gist/"
+	xmlns:gist="https://ontologies.semanticarts.com/gist/"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistPlace">
-		<rdfs:comment rdf:datatype="&xs;string">gist place</rdfs:comment>
+	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistPlace">
 		<rdfs:comment rdf:datatype="&xs;string">gistPlace</rdfs:comment>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistMeasureX.x.x"/>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistPlaceX.x.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from C:\dev\gist\OntologyFiles\gist.vsdx Page:place</owl:versionInfo>
+		<rdfs:comment rdf:datatype="&xs;string">gistPlace key GIS style primitives</rdfs:comment>
+		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistMeasureX.x.x"/>
+		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistPlaceX.x.x"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistX.x.x.vsd Page:place</owl:versionInfo>
+		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
 	
 	<owl:Class rdf:about="&gist;Building">
 		<rdfs:subClassOf rdf:resource="&gist;Landmark"/>
@@ -111,6 +115,7 @@
 	
 	<owl:Class rdf:about="&gist;Place">
 		<rdfs:label rdf:datatype="&xs;string">Place</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Union of all the geo classes</rdfs:comment>
 		<owl:unionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;GeoRoute">
 			</rdf:Description>
@@ -148,15 +153,20 @@
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;fromPlace">
+		<rdfs:label rdf:datatype="&xs;string">From Place</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">origin</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;Place"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;geoContainedIn">
+		<rdfs:label rdf:datatype="&xs;string">Geo Contained In</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">All the transitive places something is located in</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<rdf:Description rdf:about="&gist;geoContains">
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
 		<rdf:type rdf:resource="&owl;TransitiveProperty"/>
+		<rdfs:label rdf:datatype="&xs;string">Geo Contains</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Transitive version of geoDirectlyContains</rdfs:comment>
 		<rdfs:domain>
 			<owl:Class>
@@ -202,18 +212,25 @@
 	</rdf:Description>
 	
 	<owl:ObjectProperty rdf:about="&gist;geoDirectlyContainedIn">
+		<rdfs:label rdf:datatype="&xs;string">Geo Directly Contained In</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">the neighborhood is in the city</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;geoDirectlyContains">
 		<rdfs:subPropertyOf rdf:resource="&gist;geoContains"/>
+		<rdfs:label rdf:datatype="&xs;string">Geo Directly Contains</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">The subject geospatially contains the object.  E.g. the area of a city contains the area of its neighborhoods</rdfs:comment>
 		<owl:inverseOf rdf:resource="&gist;geoDirectlyContainedIn"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;geoOccupiedBy">
+		<rdfs:label rdf:datatype="&xs;string">Geo Occupied By</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">what is in the location</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;geoOccupies">
+		<rdfs:label rdf:datatype="&xs;string">Geo Occupies</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A thing occupies are region</rdfs:comment>
 		<rdfs:domain>
 			<owl:Class>
 				<owl:unionOf rdf:parseType="Collection">
@@ -227,9 +244,7 @@
 		<rdfs:range>
 			<owl:Class>
 				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="&gist;GeoRegion">
-					</rdf:Description>
-					<rdf:Description rdf:about="&gist;GeoVolume">
+					<rdf:Description rdf:about="&gist;Place">
 					</rdf:Description>
 				</owl:unionOf>
 			</owl:Class>
@@ -243,22 +258,34 @@
 	<owl:ObjectProperty rdf:about="&gist;hasMagnitude">
 	</owl:ObjectProperty>
 	
+	<owl:ObjectProperty rdf:about="&gist;hasPhysicalLocation">
+		<rdfs:label rdf:datatype="&xs;string">Has Physical Location</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Where something is located</rdfs:comment>
+		<rdfs:range rdf:resource="&gist;Place"/>
+	</owl:ObjectProperty>
+	
 	<owl:ObjectProperty rdf:about="&gist;identifiedBy">
 	</owl:ObjectProperty>
 	
+	<owl:AnnotationProperty rdf:about="&gist;license">
+	</owl:AnnotationProperty>
+	
 	<owl:ObjectProperty rdf:about="&gist;permanentGeoOccupiedBy">
+		<rdfs:label rdf:datatype="&xs;string">Permanent Geo Occupied By</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">What is in the fixed location</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;permanentGeoOccupies">
 		<rdfs:subPropertyOf rdf:resource="&gist;geoOccupies"/>
+		<rdfs:label rdf:datatype="&xs;string">Permanent Geo Occupies</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">To be in a fixed position on the earth</rdfs:comment>
 		<owl:inverseOf rdf:resource="&gist;permanentGeoOccupiedBy"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;toPlace">
+		<rdfs:label rdf:datatype="&xs;string">To Place</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Destination</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;Place"/>
 	</owl:ObjectProperty>
-	
-	<owl:AnnotationProperty rdf:about="&rdfs;label">
-	</owl:AnnotationProperty>
 
 </rdf:RDF>

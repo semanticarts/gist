@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
-	<!ENTITY gist "http://ontologies.semanticarts.com/gist/">
+	<!ENTITY gist "https://ontologies.semanticarts.com/gist/">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
 	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF
-	xmlns:gist="http://ontologies.semanticarts.com/gist/"
+	xmlns:gist="https://ontologies.semanticarts.com/gist/"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistMeasure">
-		<rdfs:comment rdf:datatype="&xs;string">gist Measure</rdfs:comment>
+	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistMeasure">
 		<rdfs:comment rdf:datatype="&xs;string">gistMeasure</rdfs:comment>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistEventX.x.x"/>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistMeasureX.x.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from C:\dev\gist\OntologyFiles\gist.vsdx Page:measure</owl:versionInfo>
+		<rdfs:comment rdf:datatype="&xs;string">gistMeasure adds the act of measuring to magnitude</rdfs:comment>
+		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistEventX.x.x"/>
+		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistMeasureX.x.x"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistX.x.x.vsd Page:measure</owl:versionInfo>
+		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
 	
 	<owl:Class rdf:about="&gist;Aspect">
 		<rdfs:subClassOf rdf:resource="&gist;Category"/>
@@ -54,7 +58,7 @@
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:label rdf:datatype="&xs;string">Ordinal Collection</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">An Ordered Collection where no item can be of the same rank as any other item.  In mathematical terms, this is a ?total order?.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">An Ordered Collection where no item can be of the same rank as any other item.  In mathematical terms, this is a ?strict total order?.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;OrdinalMember">
@@ -63,11 +67,11 @@
 			<owl:Class>
 				<owl:unionOf rdf:parseType="Collection">
 					<owl:Restriction>
-						<owl:onProperty rdf:resource="&gist;strictlyPrecedes"/>
+						<owl:onProperty rdf:resource="&gist;directlyPrecedes"/>
 						<owl:someValuesFrom rdf:resource="&gist;OrdinalMember"/>
 					</owl:Restriction>
 					<owl:Restriction>
-						<owl:onProperty rdf:resource="&gist;strictlyPrecededBy"/>
+						<owl:onProperty rdf:resource="&gist;directlyPrecededBy"/>
 						<owl:someValuesFrom rdf:resource="&gist;OrdinalMember"/>
 					</owl:Restriction>
 				</owl:unionOf>
@@ -83,7 +87,13 @@
 		</owl:equivalentClass>
 	</owl:Class>
 	
-	<owl:Class rdf:about="&gist;PhysicalThing">
+	<owl:Class rdf:about="&gist;Organization">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;PhysicalIdentifiableItem">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;PhysicalSubstance">
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;ReferenceValue">
@@ -93,6 +103,20 @@
 	</owl:Class>
 	
 	<owl:ObjectProperty rdf:about="&gist;aspectOf">
+		<rdfs:label rdf:datatype="&xs;string">Aspect Of</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">What this aspect is referring to</rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;directlyPrecededBy">
+		<rdfs:label rdf:datatype="&xs;string">Directly Preceded By</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Inverse of directly precedes</rdfs:comment>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;directlyPrecedes">
+		<rdfs:subPropertyOf rdf:resource="&gist;precedes"/>
+		<rdfs:label rdf:datatype="&xs;string">Directly Precedes</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A generic ordering relation indicating that the Subject comes immediately  before the Object.</rdfs:comment>
+		<owl:inverseOf rdf:resource="&gist;directlyPrecededBy"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasMember">
@@ -102,27 +126,29 @@
 		<rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
 		<rdfs:subPropertyOf rdf:resource="&gist;hasMember"/>
+		<rdfs:label rdf:datatype="&xs;string">Has Ordered Member</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">An inverse functional version of  hasMember to ensure that no OrderedMember can be in more than one OrderedCollection., which can quickly lead to problems.</rdfs:comment>
 		<owl:inverseOf rdf:resource="&gist;orderedMemberOf"/>
 	</rdf:Description>
 	
-	<owl:ObjectProperty rdf:about="&gist;orderedMemberOf">
-	</owl:ObjectProperty>
-	
-	<owl:ObjectProperty rdf:about="&gist;precedes">
-		<rdfs:comment rdf:datatype="&xs;string">A generic ordering relation indicating that the Subject has the same order as or comes before the Object. The &apos;greater than or equal to&apos; symbol is often used for this relation.</rdfs:comment>
-	</owl:ObjectProperty>
-	
-	<owl:ObjectProperty rdf:about="&gist;strictlyPrecededBy">
-	</owl:ObjectProperty>
-	
-	<owl:ObjectProperty rdf:about="&gist;strictlyPrecedes">
-		<rdfs:subPropertyOf rdf:resource="&gist;precedes"/>
-		<rdfs:comment rdf:datatype="&xs;string">A generic ordering relation indicating that the Subject comes before the Object, it may not be of equal rank. The greater than symbol is often used for this relation.</rdfs:comment>
-		<owl:inverseOf rdf:resource="&gist;strictlyPrecededBy"/>
-	</owl:ObjectProperty>
-	
-	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	<owl:AnnotationProperty rdf:about="&gist;license">
 	</owl:AnnotationProperty>
+	
+	<rdf:Description rdf:about="&gist;orderedMemberOf">
+		<rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+		<rdf:type rdf:resource="&owl;ObjectProperty"/>
+		<rdfs:label rdf:datatype="&xs;string">Ordered Member Of</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">An inverse of has Ordinal Member</rdfs:comment>
+	</rdf:Description>
+	
+	<rdf:Description rdf:about="&gist;precedes">
+		<rdf:type rdf:resource="&owl;ObjectProperty"/>
+		<rdf:type rdf:resource="&owl;TransitiveProperty"/>
+		<rdfs:label rdf:datatype="&xs;string">Precedes</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A generic ordering relation indicating that the Subject has the same order as or comes before the Object. The &apos;greater than or equal to&apos; symbol is often used for this relation.</rdfs:comment>
+	</rdf:Description>
+	
+	<owl:DatatypeProperty rdf:about="&gist;sequence">
+	</owl:DatatypeProperty>
 
 </rdf:RDF>

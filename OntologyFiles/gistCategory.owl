@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
-	<!ENTITY gist "http://ontologies.semanticarts.com/gist/">
+	<!ENTITY gist "https://ontologies.semanticarts.com/gist/">
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
 	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF
-	xmlns:gist="http://ontologies.semanticarts.com/gist/"
+	xmlns:gist="https://ontologies.semanticarts.com/gist/"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
 	
-	<owl:Ontology rdf:about="http://ontologies.semanticarts.com/o/gistCategory">
-		<rdfs:comment rdf:datatype="&xs;string">gist Categoy</rdfs:comment>
+	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistCategory">
+		<rdfs:comment rdf:datatype="&xs;string">gist:Category is how we model Taxonomies and Tags</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistCategory</rdfs:comment>
-		<owl:imports rdf:resource="http://ontologies.semanticarts.com/o/gistTopX.x.x"/>
-		<owl:versionIRI rdf:resource="http://ontologies.semanticarts.com/o/gistCategoryX.x.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from C:\dev\gist\OntologyFiles\gist.vsdx Page:cat</owl:versionInfo>
+		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTopX.x.x"/>
+		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistCategoryX.x.x"/>
+		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistX.x.x.vsd Page:cat</owl:versionInfo>
+		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
 	
 	<owl:Class rdf:about="&gist;Category">
 	</owl:Class>
@@ -66,7 +70,7 @@
 			<rdf:Description rdf:about="&gist;Category">
 			</rdf:Description>
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&gist;containedText"/>
+				<owl:onProperty rdf:resource="&gist;hasTag"/>
 				<owl:someValuesFrom rdf:resource="&xs;string"/>
 			</owl:Restriction>
 		</owl:intersectionOf>
@@ -80,31 +84,33 @@
 				<owl:intersectionOf rdf:parseType="Collection">
 					<rdf:Description rdf:about="&gist;ControlledVocabulary">
 					</rdf:Description>
-					<owl:Class>
-						<owl:unionOf rdf:parseType="Collection">
-							<owl:Restriction>
-								<owl:onProperty rdf:resource="&gist;hasSuperCategory"/>
-								<owl:someValuesFrom rdf:resource="&gist;Category"/>
-							</owl:Restriction>
-							<owl:Restriction>
-								<owl:onProperty rdf:resource="&gist;hasNavigationalParent"/>
-								<owl:someValuesFrom rdf:resource="&gist;Category"/>
-							</owl:Restriction>
-						</owl:unionOf>
-					</owl:Class>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;hasMember"/>
+						<owl:someValuesFrom>
+							<owl:Class>
+								<owl:intersectionOf rdf:parseType="Collection">
+									<rdf:Description rdf:about="&gist;Category">
+									</rdf:Description>
+									<owl:Class>
+										<owl:unionOf rdf:parseType="Collection">
+											<owl:Restriction>
+												<owl:onProperty rdf:resource="&gist;hasSuperCategory"/>
+												<owl:someValuesFrom rdf:resource="&gist;Category"/>
+											</owl:Restriction>
+											<owl:Restriction>
+												<owl:onProperty rdf:resource="&gist;hasSubCategory"/>
+												<owl:someValuesFrom rdf:resource="&gist;Category"/>
+											</owl:Restriction>
+										</owl:unionOf>
+									</owl:Class>
+								</owl:intersectionOf>
+							</owl:Class>
+						</owl:someValuesFrom>
+					</owl:Restriction>
 				</owl:intersectionOf>
 			</owl:Class>
 		</owl:equivalentClass>
 	</owl:Class>
-	
-	<owl:Class rdf:about="&gist;Text">
-	</owl:Class>
-	
-	<owl:ObjectProperty rdf:about="&gist;allocatedBy">
-	</owl:ObjectProperty>
-	
-	<owl:DatatypeProperty rdf:about="&gist;containedText">
-	</owl:DatatypeProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;governedBy">
 	</owl:ObjectProperty>
@@ -113,33 +119,37 @@
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasNavigationalChild">
+		<rdfs:label rdf:datatype="&xs;string">Has Navigational Child</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Used for informal hierarchical taxonomies.  Supports polyhierarchies</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasNavigationalParent">
+		<rdfs:label rdf:datatype="&xs;string">Has Navigational Parent</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Used for informal hierarchical taxonomies.  Supports polyhierarchies</rdfs:comment>
 		<owl:inverseOf rdf:resource="&gist;hasNavigationalChild"/>
 	</owl:ObjectProperty>
 	
-	<rdf:Description rdf:about="&gist;hasPreferredTerm">
-		<rdf:type rdf:resource="&owl;FunctionalProperty"/>
-		<rdf:type rdf:resource="&owl;ObjectProperty"/>
-		<rdfs:comment rdf:datatype="&xs;string">If there are many terms for a concept or specific instance, this is the one to use.</rdfs:comment>
-		<rdfs:range rdf:resource="&gist;Text"/>
-		<owl:inverseOf rdf:resource="&gist;preferredTermOf"/>
-	</rdf:Description>
-	
 	<owl:ObjectProperty rdf:about="&gist;hasSubCategory">
+		<rdfs:label rdf:datatype="&xs;string">Has Sub Category</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Has Sub Category</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasSuperCategory">
-		<rdfs:comment rdf:datatype="&xs;string">Categories linked in this way are to represeent true sub types.  The categories aren&apos;t subtypes but classes defined by a supercategory will be a superclass of one derrived from its sub</rdfs:comment>
+		<rdfs:label rdf:datatype="&xs;string">Has Super Category</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Categories linked in this way are to represent true sub types.  The categories aren&apos;t subtypes but classes defined by a supercategory will be a superclass of one derrived from its sub</rdfs:comment>
 		<owl:inverseOf rdf:resource="&gist;hasSubCategory"/>
 	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&gist;hasTag">
+		<rdfs:label rdf:datatype="&xs;string">has Tag</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Used for folksonomy style categories (non controlled vocabulary)</rdfs:comment>
+	</owl:DatatypeProperty>
 	
 	<rdf:Description rdf:about="&gist;hasUniqueNavigationalParent">
 		<rdf:type rdf:resource="&owl;FunctionalProperty"/>
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
 		<rdfs:subPropertyOf rdf:resource="&gist;hasNavigationalParent"/>
+		<rdfs:label rdf:datatype="&xs;string">Has Unique Navigational Parent</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Used for taxos that must have single parents</rdfs:comment>
 	</rdf:Description>
 	
@@ -147,13 +157,11 @@
 		<rdf:type rdf:resource="&owl;FunctionalProperty"/>
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
 		<rdfs:subPropertyOf rdf:resource="&gist;hasSuperCategory"/>
+		<rdfs:label rdf:datatype="&xs;string">Has Unique Super Category</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Used for taxos that must have single parents</rdfs:comment>
 	</rdf:Description>
 	
-	<owl:ObjectProperty rdf:about="&gist;preferredTermOf">
-	</owl:ObjectProperty>
-	
-	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	<owl:AnnotationProperty rdf:about="&gist;license">
 	</owl:AnnotationProperty>
 
 </rdf:RDF>
