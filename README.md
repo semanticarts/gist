@@ -23,3 +23,25 @@ serialize the OWL, and create a ZIP-able folder containing everything needed for
 download.  The folder will have a name like `gist8.0.0_webDownload`
 
 1. ZIP up the resulting folder and put it where we host our downloads. 
+
+## Serializer tool
+
+You can also run the `serialize` tool manually to format RDF OWL files to our standard format. 
+
+Examples:
+
+Call it without arguments to show usage, e.g.:
+
+     C:\dev\gist> tools\serialize.bat
+
+     Serialize tool
+
+     usage: serialize somefile.owl
+     e.g.: serialize gistAddress.owl
+
+
+Call it with an argument to serialize the specified file in place (overwrites the file!), e.g.:
+
+     C:\dev\gist> tools\serialize.bat OntologyFiles\gistAddress.owl
+     1 file(s) copied.
+     serializing OntologyFiles\gistAddress.owl
