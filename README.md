@@ -17,7 +17,7 @@ with *no* version number (e.g., gistCore.owl) *to the OntologyFiles folder*.
 1. Make sure you edit `version.txt` and put in the desired version number with 
 **no leading nor trailing spaces** 
 
-1. From this folder, Run the `bundle.bat` script (double-click or run from command line).  It will
+1. From this folder, run the `bundle.bat` script (double-click or run from command line).  It will
 serialize the OWL, and create a ZIP-able folder containing everything needed for a web 
 download.  The folder will have a name like `gist8.0.0_webDownload`
 
