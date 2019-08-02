@@ -1,6 +1,6 @@
 #!/bin/bash
 # versionize.sh
-# Versionize an OWL file or files.
+# Versionizes one or more OWL files.
 
 usage() {
     scriptname=`basename "$0"`

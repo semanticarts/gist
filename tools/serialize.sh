@@ -1,6 +1,6 @@
 #!/bin/bash
 # serialize.sh
-# Serialize an OWL file.
+# Reformats one or more OWL files into a standard format using rdf-toolkit.
 # NB Should be renamed format.sh or reserialize.sh; a file already represents a 
 # serialization, here it is just being reformatted or reserialized.
 
@@ -17,15 +17,16 @@ usage() {
 format_file() {
     file=$1
     # Require '.owl' extension. rdf-toolkit throws exceptions on non-RDF input. 
-    # Avoid the exceptions on the '.txt' and '.xml' files typically stored in ../OntologyFiles. 
+    # Avoid the exceptions on the '.txt' and '.xml' files stored in ../OntologyFiles. 
+    # Later improvement: check actual file format rather than file extension.
     filename=`basename "$file"`
     ext=${filename##*.}
     if [ $ext != 'owl' ] ; then
-        echo Cannot reformat non-RDF/XML file $file. 
+        echo Skipping file $file. 
         return
     fi
-    tmp=$file.bak
     echo Reserializing $file into a standard format.
+    tmp=$file.bak
     cp $file $tmp
     java -jar ./rdf-toolkit.jar -tfmt rdf-xml -sdt explicit -dtd -ibn -s $tmp -t $file
     rm $tmp 
