@@ -3,10 +3,13 @@
 # Versionize an owl file.
 
 usage() {
-    echo Versionizes a single file or all files in a directory.
-    echo Usage: $0 versionNumber [ file \| directory ]
-    echo File example: $0 9.0.0 ../OntologyFiles/gistAddress.owl
-    echo Directory example: 9.0.0 ../OntologyFiles
+    scriptname=`basename "$0"`
+    echo Versionizes a single file, all files in a directory, or set of files specified with a wildcard.
+    echo Usage: $scriptname versionNumber [ file \| directory \| wildcard expression ]
+    echo Examples:
+    echo $scriptname 9.0.0 ../OntologyFiles/gistAddress.owl
+    echo $scriptname 9.0.0 ../OntologyFiles
+    echo $scriptname 9.0.0 ../OntologyFiles/*.owl
 }
 
 versionize_file() {
@@ -30,19 +33,24 @@ versionize_directory() {
 args=("$@")
  
 # Check for correct number of args (2)
-if [ ${#args[@]} != 2 ] 
-then
+if [ ${#args[@]} -lt 2 ] ; then 
     usage  
     exit  
 fi
 
 version=$1
-file=$2
 
-if [ -f $file ]; then
-    versionize_file $version $file
-elif [ -d $file ]; then
-    versionize_directory $version $file
+if [ ${#args[@]} -eq 2 ] ; then 
+    file=$2    
+    if [ -f $file ] ; then
+        versionize_file $version $file
+    elif [ -d $file ]; then
+        versionize_directory $version $file
+    fi
+else
+    for i in "${args[@]:1}"; do
+        versionize_file $version $i
+    done
 fi
 
 echo Done!
