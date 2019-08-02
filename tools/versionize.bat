@@ -1,6 +1,6 @@
 @echo off
 
-REM serialize an owl file
+REM Versionize an owl file
 setlocal
 
 set DIR=%~dp0
