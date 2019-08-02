@@ -14,7 +14,8 @@ usage() {
 
 versionize_file() {
     version=$1
-    file=$2
+    # Remove a trailing slash
+    file=${2%/}  
     echo Versioning $file to $version
     # For in-place substitution, Mac requires sed -i '' where 
     # Linux uses just -i; the version below works on both.
@@ -45,6 +46,8 @@ if [ ${#args[@]} -eq 2 ] ; then
     if [ -f $file ] ; then
         versionize_file $version $file
     elif [ -d $file ]; then
+        # Remove a trailing slash (for printing filenames).
+        file=${file%/}
         versionize_directory $version $file
     fi
 else
