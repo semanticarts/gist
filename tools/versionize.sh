@@ -1,15 +1,15 @@
 #!/bin/bash
 # versionize.sh
-# Versionize an owl file.
+# Versionize an OWL file or files.
 
 usage() {
     scriptname=`basename "$0"`
-    echo Versionizes a single file, all files in a directory, or set of files specified with a wildcard.
+    echo Versionizes OWL files. Operates on a single file, all files in a directory, or a set of files specified with a wildcard.
     echo Usage: $scriptname versionNumber [ file \| directory \| wildcard expression ]
     echo Examples:
     echo $scriptname 9.0.0 ../OntologyFiles/gistAddress.owl
     echo $scriptname 9.0.0 ../OntologyFiles
-    echo $scriptname 9.0.0 ../OntologyFiles/*.owl
+    echo "$scriptname 9.0.0 ../OntologyFiles/*.owl"
 }
 
 versionize_file() {
@@ -32,7 +32,7 @@ versionize_directory() {
 
 args=("$@")
  
-# Check for correct number of args (2)
+# Check for at least two args
 if [ ${#args[@]} -lt 2 ] ; then 
     usage  
     exit  
