@@ -1,8 +1,6 @@
 #!/bin/bash
 # serialize.sh
-# Reformats one or more OWL files into a standard format using rdf-toolkit.
-# NB Should be renamed format.sh or reserialize.sh; a file already represents a 
-# serialization, here it is just being reformatted or reserialized.
+# Reserializes one or more OWL files into a standard format using rdf-toolkit.
 
 usage() {
     scriptname=`basename "$0"`
@@ -14,11 +12,12 @@ usage() {
     echo "$scriptname ../OntologyFiles/*.owl"
 }
 
-format_file() {
+serialize_file() {
     file=$1
     # Require '.owl' extension. rdf-toolkit throws exceptions on non-RDF input. 
     # Avoid the exceptions on the '.txt' and '.xml' files stored in ../OntologyFiles. 
-    # Later improvement: check actual file format rather than file extension.
+    # Later improvement: check actual file format rather than file extension. 
+    # Should also extend to other RDF formats such as Turtle.
     filename=`basename "$file"`
     ext=${filename##*.}
     if [ $ext != 'owl' ] ; then
@@ -32,10 +31,10 @@ format_file() {
     rm $tmp 
 }
 
-format_directory() {
+serialize_directory() {
     dir=$1
     for file in $dir/*; do
-        format_file $file
+        serialize_file $file
     done
 }
 
@@ -50,15 +49,15 @@ fi
 if [ ${#args[@]} -eq 1 ] ; then 
     file=$1      
     if [ -f $file ] ; then
-        format_file $file
+        serialize_file $file
     elif [ -d $file ]; then
         # Remove a trailing slash (for printing filenames).
         file=${file%/}
-        format_directory $file
+        serialize_directory $file
     fi
 else
     for i in "${args[@]}"; do
-        format_file $i
+        serialize_file $i
     done
 fi
 
