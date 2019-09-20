@@ -35,16 +35,11 @@
 		<owl:intersectionOf rdf:parseType="Collection">
 			<owl:Class>
 				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="&gist;Content">
-					</rdf:Description>
-					<rdf:Description rdf:about="&gist;IntellectualProperty">
-					</rdf:Description>
-					<rdf:Description rdf:about="&gist;Equipment">
-					</rdf:Description>
-					<rdf:Description rdf:about="&gist;Building">
-					</rdf:Description>
-					<rdf:Description rdf:about="&gist;PhysicalSubstance">
-					</rdf:Description>
+					<rdf:Description rdf:about="&gist;Content"/>
+					<rdf:Description rdf:about="&gist;IntellectualProperty"/>
+					<rdf:Description rdf:about="&gist;Equipment"/>
+					<rdf:Description rdf:about="&gist;Building"/>
+					<rdf:Description rdf:about="&gist;PhysicalSubstance"/>
 				</owl:unionOf>
 			</owl:Class>
 			<owl:Restriction>
@@ -62,7 +57,7 @@
 	
 	<owl:Class rdf:about="&gist;Component">
 		<rdfs:label rdf:datatype="&xs;string">Component</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A component is an artifact that contributes to a system.  Coudl be simple mechanical such as the float contributing to the toilet tank maintaining a constant level, or much more complex as in the interenet of things</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">A component is an artifact that contributes to a system.  Could be a simple mechanical component, such as the float contributing to the toilet tank maintaining a constant level, or much more complex as in the interenet of things.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Artifact">
 			</rdf:Description>
@@ -149,10 +144,9 @@
 		<rdfs:label rdf:datatype="&xs;string">System</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">A system is an artifact with component parts where the parts contribute to the goal of the system</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
-			<rdf:Description rdf:about="&gist;Artifact">
-			</rdf:Description>
+			<rdf:Description rdf:about="&gist;Artifact"/>			
 			<owl:Restriction>
-				<owl:onProperty rdf:resource="&gist;hasDriectPart"/>
+				<owl:onProperty rdf:resource="&gist;hasDirectPart"/>
 				<owl:someValuesFrom rdf:resource="&gist;Component"/>
 			</owl:Restriction>
 		</owl:intersectionOf>
