@@ -127,7 +127,7 @@
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
 		<rdfs:subPropertyOf rdf:resource="&gist;hasMember"/>
 		<rdfs:label rdf:datatype="&xs;string">Has Ordered Member</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">An inverse functional version of  hasMember to ensure that no OrderedMember can be in more than one OrderedCollection., which can quickly lead to problems.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">An inverse functional version of hasMember to ensure that no OrderedMember can be in more than one OrderedCollection., which can quickly lead to problems.</rdfs:comment>
 		<owl:inverseOf rdf:resource="&gist;orderedMemberOf"/>
 	</rdf:Description>
 	
@@ -138,7 +138,7 @@
 		<rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
 		<rdfs:label rdf:datatype="&xs;string">Ordered Member Of</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">An inverse of has Ordinal Member</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">An inverse of hasOrderedMember</rdfs:comment>
 	</rdf:Description>
 	
 	<rdf:Description rdf:about="&gist;precedes">
