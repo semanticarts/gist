@@ -57,7 +57,7 @@
 	
 	<owl:Class rdf:about="&gist;Component">
 		<rdfs:label rdf:datatype="&xs;string">Component</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A component is an artifact that contributes to a system.  Could be a simple mechanical component, such as the float contributing to the toilet tank maintaining a constant level, or much more complex as in the interenet of things.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">A component is an artifact that contributes to a system.  Could be a simple mechanical component, such as the float contributing to the toilet tank maintaining a constant level, or much more complex as in the internet of things.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Artifact">
 			</rdf:Description>
