@@ -166,7 +166,7 @@
 	<owl:ObjectProperty rdf:about="&gist;goal">
 	</owl:ObjectProperty>
 	
-	<owl:ObjectProperty rdf:about="&gist;hasDriectPart">
+	<owl:ObjectProperty rdf:about="&gist;hasDirectPart">
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasFromNode">
