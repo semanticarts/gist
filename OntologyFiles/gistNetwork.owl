@@ -51,7 +51,7 @@
 						</owl:unionOf>
 					</owl:Class>
 					<owl:Restriction>
-						<owl:onProperty rdf:resource="&gist;goal"/>
+						<owl:onProperty rdf:resource="&gist;hasGoal"/>
 						<owl:someValuesFrom rdf:resource="&gist;Function"/>
 					</owl:Restriction>
 				</owl:intersectionOf>
@@ -188,9 +188,6 @@
 	<owl:ObjectProperty rdf:about="&gist;contributesTo">
 		<rdfs:label rdf:datatype="&xsd;string">Contributes To</rdfs:label>
 		<rdfs:comment rdf:datatype="&xsd;string">The parts of a system contribute to the goal/ function of the whole system</rdfs:comment>
-	</owl:ObjectProperty>
-	
-	<owl:ObjectProperty rdf:about="&gist;goal">
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasDirectPart">
