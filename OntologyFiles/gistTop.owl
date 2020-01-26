@@ -1031,6 +1031,7 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	</owl:DatatypeProperty>
 	
 	<owl:AnnotationProperty rdf:about="&gist;license">
+		<rdfs:label rdf:datatype="&xsd;string">License</rdfs:label>
 		<rdfs:comment rdf:datatype="&xsd;string">An annotation for providing the licensing on this or derrivative ontologies</rdfs:comment>
 	</owl:AnnotationProperty>
 	
