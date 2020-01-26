@@ -4,49 +4,59 @@
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF
+	xmlns="https://ontologies.semanticarts.com/o/gistNetwork#"
 	xmlns:gist="https://ontologies.semanticarts.com/gist/"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
 	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistNetwork">
-		<rdfs:comment rdf:datatype="&xs;string">gist Network Concepts for a virtual or actual network (communication, pipelines etc)</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">gistNetwork</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">gist Network Concepts for a virtual or actual network (communication, pipelines etc)</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">gistNetwork</rdfs:comment>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistCategoryX.x.x"/>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistContentX.x.x"/>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistMagnitudeX.x.x"/>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistPlaceX.x.x"/>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTemporalRelationX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistNetworkX.x.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistNetworkIoTx.x.x.vsd Page:Network</owl:versionInfo>
-		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
+		<owl:versionInfo rdf:datatype="&xsd;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistNetworkIoTx.x.x.vsd Page:Network</owl:versionInfo>
+		<gist:license rdf:datatype="&xsd;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	
 	<owl:AnnotationProperty rdf:about="&rdfs;label">
 	</owl:AnnotationProperty>
 	
 	<owl:Class rdf:about="&gist;Artifact">
-		<rdfs:label rdf:datatype="&xs;string">Artifact</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">An intentional person made thing, could be physical or content</rdfs:comment>
-		<owl:intersectionOf rdf:parseType="Collection">
+		<rdfs:label rdf:datatype="&xsd;string">Artifact</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">An intentional person made thing, could be physical or content</rdfs:comment>
+		<owl:equivalentClass>
 			<owl:Class>
-				<owl:unionOf rdf:parseType="Collection">
-					<rdf:Description rdf:about="&gist;Content"/>
-					<rdf:Description rdf:about="&gist;IntellectualProperty"/>
-					<rdf:Description rdf:about="&gist;Equipment"/>
-					<rdf:Description rdf:about="&gist;Building"/>
-					<rdf:Description rdf:about="&gist;PhysicalSubstance"/>
-				</owl:unionOf>
+				<owl:intersectionOf rdf:parseType="Collection">
+					<owl:Class>
+						<owl:unionOf rdf:parseType="Collection">
+							<rdf:Description rdf:about="&gist;Building">
+							</rdf:Description>
+							<rdf:Description rdf:about="&gist;Content">
+							</rdf:Description>
+							<rdf:Description rdf:about="&gist;Equipment">
+							</rdf:Description>
+							<rdf:Description rdf:about="&gist;IntellectualProperty">
+							</rdf:Description>
+							<rdf:Description rdf:about="&gist;PhysicalSubstance">
+							</rdf:Description>
+						</owl:unionOf>
+					</owl:Class>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;goal"/>
+						<owl:someValuesFrom rdf:resource="&gist;Function"/>
+					</owl:Restriction>
+				</owl:intersectionOf>
 			</owl:Class>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&gist;goal"/>
-				<owl:someValuesFrom rdf:resource="&gist;Function"/>
-			</owl:Restriction>
-		</owl:intersectionOf>
+		</owl:equivalentClass>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Building">
@@ -56,44 +66,52 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Component">
-		<rdfs:label rdf:datatype="&xs;string">Component</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A component is an artifact that contributes to a system.  Could be a simple mechanical component, such as the float contributing to the toilet tank maintaining a constant level, or much more complex as in the internet of things.</rdfs:comment>
-		<owl:intersectionOf rdf:parseType="Collection">
-			<rdf:Description rdf:about="&gist;Artifact">
-			</rdf:Description>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&gist;contributesTo"/>
-				<owl:someValuesFrom rdf:resource="&gist;System"/>
-			</owl:Restriction>
-		</owl:intersectionOf>
+		<rdfs:label rdf:datatype="&xsd;string">Component</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A component is an artifact that contributes to a system.  Could be a simple mechanical component, such as the float contributing to the toilet tank maintaining a constant level, or much more complex as in the internet of things.</rdfs:comment>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;Artifact">
+					</rdf:Description>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;contributesTo"/>
+						<owl:someValuesFrom rdf:resource="&gist;System"/>
+					</owl:Restriction>
+				</owl:intersectionOf>
+			</owl:Class>
+		</owl:equivalentClass>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Content">
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Equipment">
-		<rdfs:label rdf:datatype="&xs;string">Equipment</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">Tangible property other than land or buildings.  Any kind of equipment, could be machine, router, car etc.</rdfs:comment>
-		<owl:intersectionOf rdf:parseType="Collection">
-			<rdf:Description rdf:about="&gist;PhysicalIdentifiableItem">
-			</rdf:Description>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&gist;categorizedBy"/>
-				<owl:someValuesFrom rdf:resource="&gist;EquipmentType"/>
-			</owl:Restriction>
-		</owl:intersectionOf>
+		<rdfs:label rdf:datatype="&xsd;string">Equipment</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">Tangible property other than land or buildings.  Any kind of equipment, could be machine, router, car etc.</rdfs:comment>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;PhysicalIdentifiableItem">
+					</rdf:Description>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;categorizedBy"/>
+						<owl:someValuesFrom rdf:resource="&gist;EquipmentType"/>
+					</owl:Restriction>
+				</owl:intersectionOf>
+			</owl:Class>
+		</owl:equivalentClass>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;EquipmentType">
 		<rdfs:subClassOf rdf:resource="&gist;Category"/>
-		<rdfs:label rdf:datatype="&xs;string">Equipment Type</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">Categories of equipment</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Equipment Type</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">Categories of equipment</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Function">
 		<rdfs:subClassOf rdf:resource="&gist;Intention"/>
-		<rdfs:label rdf:datatype="&xs;string">Function</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A function is what a specific made item is intended to do.  For instance: transmit electricity, provide ballast, control ambient temperature.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Function</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A function is what a specific made item is intended to do.  For instance: transmit electricity, provide ballast, control ambient temperature.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;IntellectualProperty">
@@ -103,35 +121,39 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Network">
-		<rdfs:label rdf:datatype="&xs;string">Network</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A network is a connected set of links and nodes</rdfs:comment>
-		<owl:intersectionOf rdf:parseType="Collection">
-			<rdf:Description rdf:about="&gist;Artifact">
-			</rdf:Description>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&gist;hasMember"/>
-				<owl:someValuesFrom>
-					<owl:Class>
-						<owl:unionOf rdf:parseType="Collection">
-							<rdf:Description rdf:about="&gist;NetworkNode">
-							</rdf:Description>
-							<rdf:Description rdf:about="&gist;NetworkLink">
-							</rdf:Description>
-						</owl:unionOf>
-					</owl:Class>
-				</owl:someValuesFrom>
-			</owl:Restriction>
-		</owl:intersectionOf>
+		<rdfs:label rdf:datatype="&xsd;string">Network</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A network is a connected set of links and nodes</rdfs:comment>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;Artifact">
+					</rdf:Description>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;hasMember"/>
+						<owl:someValuesFrom>
+							<owl:Class>
+								<owl:unionOf rdf:parseType="Collection">
+									<rdf:Description rdf:about="&gist;NetworkLink">
+									</rdf:Description>
+									<rdf:Description rdf:about="&gist;NetworkNode">
+									</rdf:Description>
+								</owl:unionOf>
+							</owl:Class>
+						</owl:someValuesFrom>
+					</owl:Restriction>
+				</owl:intersectionOf>
+			</owl:Class>
+		</owl:equivalentClass>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;NetworkLink">
-		<rdfs:label rdf:datatype="&xs;string">Networkd Link</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">a link in a network.  This is the abstractino of the network.  The physical instantiation couple be pipes, or wire  but may also be non physical such as wireness networks or organization structures</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Networkd Link</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">a link in a network.  This is the abstractino of the network.  The physical instantiation couple be pipes, or wire  but may also be non physical such as wireness networks or organization structures</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;NetworkNode">
-		<rdfs:label rdf:datatype="&xs;string">Network Node</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">a node in a network.  Note the network is the abstract representation of the network.  It is physically instantiated with equipment, or in some cases People.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Network Node</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">a node in a network.  Note the network is the abstract representation of the network.  It is physically instantiated with equipment, or in some cases People.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;PhysicalIdentifiableItem">
@@ -141,15 +163,20 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;System">
-		<rdfs:label rdf:datatype="&xs;string">System</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A system is an artifact with component parts where the parts contribute to the goal of the system</rdfs:comment>
-		<owl:intersectionOf rdf:parseType="Collection">
-			<rdf:Description rdf:about="&gist;Artifact"/>			
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&gist;hasDirectPart"/>
-				<owl:someValuesFrom rdf:resource="&gist;Component"/>
-			</owl:Restriction>
-		</owl:intersectionOf>
+		<rdfs:label rdf:datatype="&xsd;string">System</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A system is an artifact with component parts where the parts contribute to the goal of the system</rdfs:comment>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;Artifact">
+					</rdf:Description>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;hasDirectPart"/>
+						<owl:someValuesFrom rdf:resource="&gist;Component"/>
+					</owl:Restriction>
+				</owl:intersectionOf>
+			</owl:Class>
+		</owl:equivalentClass>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;TemporalRelation">
@@ -159,8 +186,8 @@
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;contributesTo">
-		<rdfs:label rdf:datatype="&xs;string">Contributes To</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">The parts of a system contribute to the goal/ function of the whole system</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Contributes To</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">The parts of a system contribute to the goal/ function of the whole system</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;goal">
@@ -171,13 +198,13 @@
 	
 	<owl:ObjectProperty rdf:about="&gist;hasFromNode">
 		<rdfs:subPropertyOf rdf:resource="&gist;networkConnection"/>
-		<rdfs:label rdf:datatype="&xs;string">Has From Node</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">The connections at the abstract level of a network.  Note this is directed but the parent is the undirected version</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Has From Node</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">The connections at the abstract level of a network.  Note this is directed but the parent is the undirected version</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasIncumbent">
-		<rdfs:label rdf:datatype="&xs;string">Has Incumbant</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">What equipment or person is currently in this node.  Note to create a temporal view make a TemporalRelation for this property</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Has Incumbant</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">What equipment or person is currently in this node.  Note to create a temporal view make a TemporalRelation for this property</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasMember">
@@ -185,16 +212,16 @@
 	
 	<owl:ObjectProperty rdf:about="&gist;hasToNode">
 		<rdfs:subPropertyOf rdf:resource="&gist;networkConnection"/>
-		<rdfs:label rdf:datatype="&xs;string">Has To Node</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">The connections at the abstract level of a network. Note this is directed but the parent is the undirected version</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Has To Node</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">The connections at the abstract level of a network. Note this is directed but the parent is the undirected version</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:AnnotationProperty rdf:about="&gist;license">
 	</owl:AnnotationProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;networkConnection">
-		<rdfs:label rdf:datatype="&xs;string">Network Connection</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">abstract connection for when connections are undirected</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Network Connection</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">abstract connection for when connections are undirected</rdfs:comment>
 	</owl:ObjectProperty>
 
 </rdf:RDF>
