@@ -43,7 +43,7 @@
 	
 	<owl:Class rdf:about="&gist;Agreement">
 		<rdfs:label rdf:datatype="&xs;string">Agreement</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">soemthing which two or more People or Organizations mutually commit to do</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">Something which two or more People or Organizations mutually commit to do.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Commitment">
 			</rdf:Description>
