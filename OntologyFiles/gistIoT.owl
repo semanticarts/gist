@@ -73,7 +73,7 @@
 	<owl:Class rdf:about="&gist;PhysicalActionType">
 		<rdfs:subClassOf rdf:resource="&gist;Category"/>
 		<rdfs:label rdf:datatype="&xs;string">Physical Action Type</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">The effects to be realized in the real world, such as lifting a garage door, turning off a valve, dropping cadmium rods etc.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">The effects to be realized in the real world, such as lifting a garage door, turning off a valve, dropping cadmium rods, etc.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;SchemaMetaData">
