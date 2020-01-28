@@ -203,7 +203,7 @@
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasGoal">
-		<rdfs:label rdf:datatype="&xs;string">Hs Goal</rdfs:label>
+		<rdfs:label rdf:datatype="&xs;string">Ha	 s Goal</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">The reason for doing something</rdfs:comment>
 	</owl:ObjectProperty>
 	

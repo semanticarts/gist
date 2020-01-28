@@ -583,7 +583,7 @@
 	
 	<owl:Class rdf:about="&gist;UnitOfMeasure">
 		<rdfs:label rdf:datatype="&xs;string">Unit of Measure</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">Stndard unit by which we measure things</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">Standard unit by which we measure things</rdfs:comment>
 		<owl:disjointWith rdf:resource="&gist;Content"/>
 		<owl:disjointWith rdf:resource="&gist;GeoPoint"/>
 		<owl:disjointWith rdf:resource="&gist;GeoRegion"/>
