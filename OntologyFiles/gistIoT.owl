@@ -67,7 +67,7 @@
 	<owl:Class rdf:about="&gist;PhenomenaType">
 		<rdfs:subClassOf rdf:resource="&gist;Category"/>
 		<rdfs:label rdf:datatype="&xs;string">Phenomena Type</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">The things that a sensor can sense, such as light, heat, current, moisture etc.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">The things that a sensor can sense, such as light, heat, current, moisture, etc.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;PhysicalActionType">
