@@ -4,22 +4,23 @@
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF
+	xmlns="https://ontologies.semanticarts.com/o/gistIoT#"
 	xmlns:gist="https://ontologies.semanticarts.com/gist/"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
 	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistIoT">
-		<rdfs:comment rdf:datatype="&xs;string">gist Internet of Things.  This is meant to be the minimal covering concepts for IoT</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">gistIoT</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">gist Internet of Things.  This is meant to be the minimal covering concepts for IoT</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">gistIoT</rdfs:comment>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistNetworkX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistIoTX.x.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistNetworkIoTx.x.x.vsd Page:IoT</owl:versionInfo>
-		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
+		<owl:versionInfo rdf:datatype="&xsd;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistNetworkIoTx.x.x.vsd Page:IoT</owl:versionInfo>
+		<gist:license rdf:datatype="&xsd;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	
 	<owl:AnnotationProperty rdf:about="&rdfs;label">
@@ -27,32 +28,41 @@
 	
 	<owl:Class rdf:about="&gist;Actuator">
 		<rdfs:subClassOf rdf:resource="&gist;Equipment"/>
-		<rdfs:label rdf:datatype="&xs;string">Actuator</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A device that can affect the real world via a message interface</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Actuator</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A device that can affect the real world via a message interface</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Category">
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Controller">
-		<rdfs:label rdf:datatype="&xs;string">Controller</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A device that takes messsages or signals from a sensor and decides through algorithms whether and which actuator to fire via messages</rdfs:comment>
-		<owl:intersectionOf rdf:parseType="Collection">
-			<rdf:Description rdf:about="&gist;Equipment">
-			</rdf:Description>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&gist;categorizedBy"/>
-				<owl:someValuesFrom rdf:resource="&gist;ControllerType"/>
-			</owl:Restriction>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&gist;respondsTo"/>
-				<owl:someValuesFrom rdf:resource="&gist;Sensor"/>
-			</owl:Restriction>
-			<owl:Restriction>
-				<owl:onProperty rdf:resource="&gist;directs"/>
-				<owl:someValuesFrom rdf:resource="&gist;Actuator"/>
-			</owl:Restriction>
-		</owl:intersectionOf>
+		<rdfs:label rdf:datatype="&xsd;string">Controller</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A device that takes messsages or signals from a sensor and decides through algorithms whether and which actuator to fire via messages</rdfs:comment>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;Equipment">
+					</rdf:Description>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;categorizedBy"/>
+						<owl:someValuesFrom rdf:resource="&gist;ControllerType"/>
+					</owl:Restriction>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;directs"/>
+						<owl:someValuesFrom rdf:resource="&gist;Actuator"/>
+					</owl:Restriction>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;respondsTo"/>
+						<owl:someValuesFrom rdf:resource="&gist;Sensor"/>
+					</owl:Restriction>
+				</owl:intersectionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;ControllerType">
+		<rdfs:subClassOf rdf:resource="&gist;Category"/>
+		<rdfs:label rdf:datatype="&xsd;string">Controller type</rdfs:label>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Equipment">
@@ -60,20 +70,20 @@
 	
 	<owl:Class rdf:about="&gist;MessageDefinition">
 		<rdfs:subClassOf rdf:resource="&gist;SchemaMetaData"/>
-		<rdfs:label rdf:datatype="&xs;string">Message Definition</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">Each pulse from a Sensor is reflected in a message, as well as each instruction to an Actuator</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Message Definition</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">Each pulse from a Sensor is reflected in a message, as well as each instruction to an Actuator</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;PhenomenaType">
 		<rdfs:subClassOf rdf:resource="&gist;Category"/>
-		<rdfs:label rdf:datatype="&xs;string">Phenomena Type</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">The things that a sensor can sense, such as light, heat, current, moisture, etc.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Phenomena Type</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">The things that a sensor can sense, such as light, heat, current, moisture, etc.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;PhysicalActionType">
 		<rdfs:subClassOf rdf:resource="&gist;Category"/>
-		<rdfs:label rdf:datatype="&xs;string">Physical Action Type</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">The effects to be realized in the real world, such as lifting a garage door, turning off a valve, dropping cadmium rods, etc.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Physical Action Type</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">The effects to be realized in the real world, such as lifting a garage door, turning off a valve, dropping cadmium rods, etc.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;SchemaMetaData">
@@ -81,21 +91,21 @@
 	
 	<owl:Class rdf:about="&gist;Sensor">
 		<rdfs:subClassOf rdf:resource="&gist;Equipment"/>
-		<rdfs:label rdf:datatype="&xs;string">Sensor</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A device that can detect something and report it. Light sensors, temperature sensors,</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Sensor</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A device that can detect something and report it. Light sensors, temperature sensors,</rdfs:comment>
 	</owl:Class>
 	
 	<owl:ObjectProperty rdf:about="&gist;accepts">
-		<rdfs:label rdf:datatype="&xs;string">Accepts</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">The types of input messages that will be allowed</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Accepts</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">The types of input messages that will be allowed</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;categorizedBy">
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;directs">
-		<rdfs:label rdf:datatype="&xs;string">Directs</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">The set of actuators that a controller can affect</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Directs</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">The set of actuators that a controller can affect</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:AnnotationProperty rdf:about="&gist;license">
@@ -105,13 +115,13 @@
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;respondsTo">
-		<rdfs:label rdf:datatype="&xs;string">Responds to</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">The set of sensors that a controller is attached to</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Responds to</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">The set of sensors that a controller is attached to</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;viableRange">
-		<rdfs:label rdf:datatype="&xs;string">Viable Range</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">The area over which the sensor can sense (might be a small geospatial area or a specific wire in a circuit)</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Viable Range</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">The area over which the sensor can sense (might be a small geospatial area or a specific wire in a circuit)</rdfs:comment>
 	</owl:ObjectProperty>
 
 </rdf:RDF>
