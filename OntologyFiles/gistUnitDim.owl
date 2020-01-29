@@ -33,7 +33,7 @@
 	
 	<owl:Class rdf:about="&gist;CoherentProductUnit">
 		<rdfs:label rdf:datatype="&xs;string">Coherent Product Unit</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A ratio unit whos numerator and denominator reduce to 1</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">A ratio unit whose numerator and denominator reduce to 1</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;ProductUnit">
 			</rdf:Description>
