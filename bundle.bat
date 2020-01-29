@@ -23,7 +23,7 @@ REM Inject version number into OWL file IRIs
 for %%f in (%ZIPDIR%\*.owl) do call %TOOLSDIR%\versionize %VERSION% %%f 
 
 REM Inject version number into catalog file
-copy catalog-v001.xml %ZIPDIR%
+copy bundle-catalog-v001.xml %ZIPDIR%\catalog-v001.xml
 call %TOOLSDIR%\versionize %VERSION% %ZIPDIR%\catalog-v001.xml
 
 REM Include the license file in the download
@@ -41,7 +41,7 @@ REM Create a deprecated items directory for the distribution
 set DEPDIR=%DOCDIR%\Deprecated
 mkdir %DEPDIR%
 
-REM Copy items into deprecation directory
+REM Move select items into deprecation directory
 move %ZIPDIR%\gistDeprecated*.owl %DEPDIR%
 
 pause
