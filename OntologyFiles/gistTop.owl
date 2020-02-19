@@ -1030,7 +1030,7 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 		<rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
 		<rdfs:label rdf:datatype="&xsd;string">Identifies</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">The thing the identifier is referringo</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">The thing the identifier refers to.</rdfs:comment>
 	</rdf:Description>
 	
 	<owl:DatatypeProperty rdf:about="&gist;latitude">
