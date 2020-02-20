@@ -5,7 +5,7 @@ setlocal
 set DIR=%~dp0
 set TOOLSDIR=%DIR%\tools
 
-REM Get verison number from one place.
+REM Get version number from one place.
 for /f "delims=" %%v in ('type version.txt') do set VERSION=%%v
 
 REM Create a distribution directory
@@ -26,19 +26,12 @@ REM Inject version number into catalog file
 copy bundle-catalog-v001.xml %ZIPDIR%\catalog-v001.xml
 call %TOOLSDIR%\versionize %VERSION% %ZIPDIR%\catalog-v001.xml
 
-REM Include the license file in the download
+REM Include the license file & Release notes in the download
 copy ..\LICENSE.txt %ZIPDIR%
-
-REM Create a documentation directory for the distribution
-set DOCDIR=%ZIPDIR%\Documentation
-mkdir %DOCDIR%
-
-REM Copy items into documentation directory
-copy ReleaseNotes.txt %DOCDIR%
-copy gist.vsdx %DOCDIR%\gist%VERSION%.vsdx
+copy ReleaseNotes.txt %ZIPDIR%
 
 REM Create a deprecated items directory for the distribution
-set DEPDIR=%DOCDIR%\Deprecated
+set DEPDIR=%ZIPDIR%\Deprecated
 mkdir %DEPDIR%
 
 REM Move select items into deprecation directory
