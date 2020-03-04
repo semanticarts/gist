@@ -1,2 +1,0 @@
-gist Contributor Guidelines
-=====
