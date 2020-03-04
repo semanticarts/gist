@@ -16,10 +16,10 @@ Issues
   - impact 
   - effort level
   - area
-- Impact label categories are also defined in `[gistChangeManagementProcess.md]`(gistChangeManagementProcess.md).
+- Impact label categories are also defined in [gistChangeManagementProcess.md](gistChangeManagementProcess.md).
 - Do not apply status labels. These are applied during the review and triage process.
 - Any of the labels may be changed during the triage process.
-- Your issue will be reviewed according to the change management process described in `gistChangeManagementProcess.md`.
+- Your issue will be reviewed according to the change management process described in [gistChangeManagementProcess.md](gistChangeManagementProcess.md).
 - If you would like to implement a solution, assign the issue to yourself. This does not guarantee that the issue, your proposed solution, or your implementation of that solution will be accepted; all are subject to the normal review process. 
 
  
