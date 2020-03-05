@@ -42,17 +42,6 @@ Issue Submission
 - We request that bug reports and feature requests be submitted via issues in this repository rather than through email, the website contact form, or other communication channels, and all discussion is tracked through comments on the issue. These practices ensure that requests are addressed transparently and systematically, and that all discussion is recorded and preserved in a single, public location.
 - See [_Submission Guidelines_](SubmissionGuidelines.md) for further details.
 
-### Labels
-
-- Please review [label definitions](https://github.com/semanticarts/gist/labels) before use.
-- Labels can be applied to the issue based on your subjective assessment of:
-  - priority: must-have, should-have, nice-to-have
-  - impact: major, minor, patch (see definitions above)
-  - effort: small, medium, large
-  - type: bug, question, feature request
-  - area: tools, documentation - default is ontology, no label required
-- Do not apply status labels. These are applied during the review and triage process.
-- Any of the labels may be changed during the triage process.
 
 Issue Review and Triage 
 -----
