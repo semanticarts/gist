@@ -3,6 +3,13 @@ gist Style Guide
 
 This style guide documents standards and conventions we have adopted for gist implementation in order to ensure a consistent, professional, high-quality product.
 
+Serialization
+-----
+
+- gist files are serialized in RDF/XML. 
+- The serialization tool, `serialize.sh` or `serialize.bat`, should be run before each commit in order to standardize formatting and eliminate noise in git diffs.
+
+
 Local names
 -----
 
