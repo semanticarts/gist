@@ -16,7 +16,7 @@ Issues
 
 ### Labels
 
-- YOu can review [label definitions](https://github.com/semanticarts/gist/labels) before use.
+- You can review [label definitions](https://github.com/semanticarts/gist/labels) before use.
 - Labels can be applied to the issue based on your subjective assessment of:
   - priority: must-have, should-have, nice-to-have
   - impact: major, minor, patch (see [_Change and Release Management_](ChangeAndReleaseManagement.md) for definitions)
