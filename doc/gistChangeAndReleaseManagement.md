@@ -49,16 +49,16 @@ Triage
   1. Issues already added to the current release project that have not been triaged (very rare).
   1. All other issues in reverse chronological order.
 - Each open issue is categorized in one of three ways:
-  1. **Will not implement**
-    - Action: label as wontfix, duplicate, or can't reproduce, and close the issue. For duplicates, add the duplicated issue number in a comment.
-  1. **Will implement**
+   - **Will not implement**
+     - Action: label as wontfix, duplicate, or can't reproduce, and close the issue. For duplicates, add the duplicated issue number in a comment.
+   - **Will implement**
     - Assign an implementer.
     - Assign priority, impact level (major/minor/patch), and effort level (small/medium/large). Any provisional labels added by the submitter are reviewed and modified as necessary.
     - Assign to a release project. This will automatically place it in the project To Do column.
     - Label as `status:triaged`.
     - For smaller issues, implementation can be decided during the meeting. Specify the implementation in a comment, and label `status:implementation specified`. 
     - Larger issues may need additional discussion, in which case the assigned implementer will prepare a brief summary of alternative implementations, rationales, etc. to present at the next meeting.
-  1. **Needs further review**
+  - **Needs further review**
     - Assign an ontologist responsible for moving the discussion forward. In this case, the assignee prepares the issue for group review, summarizing the discussion, etc.
     - Apply the `status:in review` label.
     - May assign priority, impact level, and effort, or postpone to subsequent review.
