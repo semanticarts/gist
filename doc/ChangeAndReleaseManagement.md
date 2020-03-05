@@ -47,7 +47,7 @@ Issue Submission
 - Please review [label definitions](https://github.com/semanticarts/gist/labels) before use.
 - Labels can be applied to the issue based on your subjective assessment of:
   - priority: must-have, should-have, nice-to-have
-  - impact: major, minor, patch (see [_Change and Release Management_](ChangeAndReleaseManagement.md) for definitions)
+  - impact: major, minor, patch (see definitions above)
   - effort: small, medium, large
   - type: bug, question, feature request
   - area: tools, documentation - default is ontology, no label required
@@ -57,7 +57,6 @@ Issue Submission
 Issue Review and Triage 
 -----
 
-- The [_Submission Guidelines_ document](SubmissionGuidelines.md) provides details about how to submit issues.
 - The Semantic Arts ontologists meet at regularly scheduled intervals to review and triage issues (current schedule is twice monthly).
 - Triage requires a minimum of three Semantic Arts ontologists in attendance at the review meeting, except for very obvious items like fixing typos.
 - The triage sequence:

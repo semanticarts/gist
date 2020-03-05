@@ -16,7 +16,7 @@ Issues
 
 ### Labels
 
-- You can review [label definitions](https://github.com/semanticarts/gist/labels) before use.
+- Review [label definitions](https://github.com/semanticarts/gist/labels) before use.
 - Labels can be applied to the issue based on your subjective assessment of:
   - priority: must-have, should-have, nice-to-have
   - impact: major, minor, patch (see [_Change and Release Management_](ChangeAndReleaseManagement.md) for definitions)
@@ -30,7 +30,7 @@ Issues
 Pull Requests
 -----
 
-- All ontologists should refer to the emerging [_gist Style Guide_](StyleGuide.md) during implementation.
+- All ontologists should refer to the emerging [_gist Style Guide_](gistStyleGuide.md) during implementation.
 - The serializer tool must be run before each commit in order to standardize formatting and eliminate noise in git diffs.
 - Each PR should be atomic, addressing a single issue or set of closely related, interdependent issues. Exception: a single PR may encompass multiple small changes of the same type - e.g., fixing typos in labels.
 - A PR should address the entirety of an issue. If it does not, either the PR should be modified or the issue should be revisited and broken up into parts.
