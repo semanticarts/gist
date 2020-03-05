@@ -1,4 +1,4 @@
-gist Change and Release Management
+Change and Release Management
 =====
 
 This document describes the Semantic Arts change and release management processes for gist.
@@ -21,27 +21,43 @@ Additional notes:
 - Correction of an error, even if not backward-compatible, does not require a major release. The expectation is that users will not have implemented against an obvious error. This would be a patch.
 - When a local name is altered, the original term is deprecated to make it a minor rather than major change. The deprecated term receives an `owl:equivalentClass` or `owl:equivalentProperty` assertion to the new term. Deprecated terms may be removed in a future major release. Deprecated terms reside in the `gistDeprecated.owl` file.
 
+
+Workflow Overview
+-----
+
+1. An issue is submitted.
+1. The issue is reviewed and triaged.
+1. If the issue is approved for implementation, it is assigned to a release project and an ontologist is assigned to complete it.
+1. The assignee completes the work and submits a pull request (PR).
+1. The PR is reviewed by designated reviewers.
+1. It is approved or returned to the submitter for changes.
+1. Once approved, it is merged to develop.
+1. It is included in the designated release.
+
+**Note:** Our current workflow assumes an issue has been reviewed and approved for implementation before a PR is submitted.
+
 Issue Submission
 -----
 
 - We request that bug reports and feature requests be submitted via issues in this repository rather than through email, the website contact form, or other communication channels, and all discussion is tracked through comments on the issue. These practices ensure that requests are addressed transparently and systematically, and that all discussion is recorded and preserved in a single, public location.
-- Each issue should be atomic. Exception: several very small issues of the same type can be bundled together into a single issue - e.g., fixing typos in labels.
-- The title of the issue should clearly and concretely describe the issue. 
-- The description should include:
-  - gist version number
-  - proposed solution, where possible
-- [Labels](https://github.com/semanticarts/gist/labels) can be applied to the issue based on your subjective assessment of:
+- See [_Submission Guidelines_](SubmissionGuidelines.md) for further details.
+
+### Labels
+
+- Please review [label definitions](https://github.com/semanticarts/gist/labels) before use.
+- Labels can be applied to the issue based on your subjective assessment of:
   - priority: must-have, should-have, nice-to-have
-  - impact: major, minor, patch (see below)
+  - impact: major, minor, patch (see [_Change and Release Management_](ChangeAndReleaseManagement.md) for definitions)
   - effort: small, medium, large
   - type: bug, question, feature request
   - area: tools, documentation - default is ontology, no label required
 - Do not apply status labels. These are applied during the review and triage process.
 - Any of the labels may be changed during the triage process.
 
-Triage 
+Issue Review and Triage 
 -----
 
+- The [_Submission Guidelines_ document](SubmissionGuidelines.md) provides details about how to submit issues.
 - The Semantic Arts ontologists meet at regularly scheduled intervals to review and triage issues (current schedule is twice monthly).
 - Triage requires a minimum of three Semantic Arts ontologists in attendance at the review meeting, except for very obvious items like fixing typos.
 - The triage sequence:
@@ -69,12 +85,7 @@ Triage
 Pull Requests
 -----
 
-- All ontologists should refer to the emerging [gist Style Guide](gistStyleGuide.md) during implementation.
-- The serializer tool must be run before each commit in order to standardize formatting and eliminate noise in git diffs.
-- Each PR should be atomic, addressing a single issue or set of closely related, interdependent issues. Exception: a single PR may encompass multiple small changes of the same type - e.g., fixing typos in labels.
-- A PR should address the entirety of an issue. If it does not, the issue should be broken up into parts.
-- Submit the PR to the develop branch (the default branch) and assign it to the release project.
-- The title of the PR should contain the keywords "fixes #nnn" where nnn is the issue number; more than one issue can be listed as "fixes #nnn, #mmm". This ensures that the issue is closed when the PR is merged.
+- See [_Submission Guidelines_](SubmissionGuidelines.md) for details on submitting PRs.
 - PRs must be reviewed and approved by a specific number of Semantic Arts ontologists based on the impact level:
   - Patch: one additional ontologist
   - Minor: two additional ontologists

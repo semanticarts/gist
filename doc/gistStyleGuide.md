@@ -6,14 +6,16 @@ This style guide documents standards and conventions we have adopted for gist im
 Serialization
 -----
 
-- gist files are serialized in RDF/XML. 
-- The serialization tool, `serialize.sh` or `serialize.bat`, should be run before each commit in order to standardize formatting and eliminate noise in git diffs.
+- gist OWL files are serialized in RDF/XML. 
+- The serialization tool, `serialize.sh` or `serialize.bat`, should be run before each commit in order to standardize formatting and eliminate noise in git diffs. It is recommended to automate this as a pre-commit hook.
 
-
-Local names
+Naming
 -----
 
-### Classes
+### Local names
+
+
+#### Classes
 
 - Camelcase with initial uppercase
 - Acronyms are also camelcased so that word boundaries are unambiguous. 
@@ -22,29 +24,28 @@ Local names
 - Alphanumeric characters only. 
   - Example: `Isbn10`, not `Isbn-10` or `ISBN-10`.
   
-### Properties
+#### Properties
 
 - Camelcase with initial lowercase
 - Acronyms as above
 
-### All
+#### All
 
 - No non-standard abbreviations. E.g., `hasUoM` should be `hasUnitOfMeasure`.
 
-Labels
------
+### Labels
 
-### Classes
+#### Classes
 
 - Sentence case
 - Normalized to natural language standards. E.g., hyphens inserted, acronyms in all caps, etc.
   - Examples: _AMA guideline_, _ISBN-10_
   
-### Properties
+#### Properties
 
 - Same as classes, but initial lowercase 
 - Examples: _has unit of measure_, _has SSN_. 
 
-### Rationale
+#### Rationale
 
 We adopt sentence over title case because the latter, while technically well-defined, has more complex rules and can introduce inconsistencies when implemented by different users.
