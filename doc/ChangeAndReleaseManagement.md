@@ -70,7 +70,7 @@ Issue Review and Triage
     - Specify a subsequent review meeting for continued discussion.
  
  
-Pull Request Review
+Pull Request Submission and Review
 -----
 
 - See [_Submission Guidelines_](SubmissionGuidelines.md) for details on submitting PRs.
