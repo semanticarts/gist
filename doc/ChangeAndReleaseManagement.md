@@ -3,7 +3,7 @@ Change and Release Management
 
 This document describes the Semantic Arts change and release management processes for gist.
 
-Version Numbering
+Versions and Version Numbering
 -----
 
 Version numbers are of the form X.x.x (major.minor.patch), defined following [Semantic Versioning 2.0.0](https://semver.org/):
