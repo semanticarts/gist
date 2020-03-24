@@ -3,11 +3,16 @@ gist Style Guide
 
 This style guide documents standards and conventions we have adopted for gist implementation in order to ensure a consistent, professional, high-quality product.
 
+OWL Version [NEEDS REVIEW]
+-----
+gist uses OWL 2 DL.
+
+
 Serialization
 -----
 
 - gist OWL files are serialized in RDF/XML. 
-- The serialization tool, `serialize.sh` or `serialize.bat`, should be run before each commit in order to standardize formatting and eliminate noise in git diffs. It is recommended to automate this as a pre-commit hook.
+- The serialization tool, `serialize.sh` (Mac/Linus) or `serialize.bat` (Windows), should be run before each commit in order to standardize formatting and eliminate noise in git diffs. It is recommended to automate this as a pre-commit hook.
 
 Naming
 -----
@@ -20,7 +25,7 @@ Naming
 - Camelcase with initial uppercase
 - Acronyms are also camelcased so that word boundaries are unambiguous. 
   - Examples: `AmaGuideline`, not `AMAGuideline`; `UriScheme`, not `URIScheme`
-  - `ID` is an exception. Merriam-Webster spells it in all-caps.
+  - `ID` is an exception, because Merriam-Webster spells it in all-caps.
 - Alphanumeric characters only. 
   - Example: `Isbn10`, not `Isbn-10` or `ISBN-10`.
   
