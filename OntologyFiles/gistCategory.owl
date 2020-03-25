@@ -136,7 +136,7 @@
 	
 	<owl:ObjectProperty rdf:about="&gist;hasSuperCategory">
 		<rdfs:label rdf:datatype="&xs;string">Has Super Category</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">Categories linked in this way are to represent true sub types.  The categories aren&apos;t subtypes but classes defined by a supercategory will be a superclass of one derrived from its sub</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">Categories linked in this way are to represent true subtypes.  The categories aren&apos;t subtypes, but a class defined by a supercategory will be a superclass of one derived from its subcategory.</rdfs:comment>
 		<owl:inverseOf rdf:resource="&gist;hasSubCategory"/>
 	</owl:ObjectProperty>
 	

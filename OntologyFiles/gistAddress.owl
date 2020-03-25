@@ -31,7 +31,7 @@
 	<owl:Class rdf:about="&gist;Address">
 		<rdfs:subClassOf rdf:resource="&gist;Content"/>
 		<rdfs:label rdf:datatype="&xs;string">Address</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A reference to a place (real or virtual) that can be located by some routing algorithm, and where messages or things can be sent to or retrieved from. E.g. PO Box or URL to a pdf file.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">A reference to a place (real or virtual) that can be located by some routing algorithm, and where messages or things can be sent to or retrieved from. E.g. PO Box or URL to a PDF file.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;BuildingAddress">

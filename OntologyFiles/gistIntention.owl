@@ -166,7 +166,7 @@
 	
 	<owl:ObjectProperty rdf:about="&gist;prevents">
 		<rdfs:label rdf:datatype="&xs;string">Prevents</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">The intention (say a law) is intended to prevent this kind of behavior (say jaywalking)</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">The intention (say a law) is intended to prevent this kind of behavior (say jay-walking)</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Intention"/>
 		<rdfs:range rdf:resource="&gist;Behavior"/>
 	</owl:ObjectProperty>

@@ -37,7 +37,7 @@
 	
 	<owl:Class rdf:about="&gist;Controller">
 		<rdfs:label rdf:datatype="&xsd;string">Controller</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">A device that takes messsages or signals from a sensor and decides through algorithms whether and which actuator to fire via messages</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">A device that takes messages or signals from a sensor and decides through algorithms whether and which actuator to fire via messages</rdfs:comment>
 		<owl:equivalentClass>
 			<owl:Class>
 				<owl:intersectionOf rdf:parseType="Collection">
