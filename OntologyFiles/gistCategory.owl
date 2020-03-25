@@ -18,7 +18,6 @@
 		<rdfs:comment rdf:datatype="&xs;string">gistCategory</rdfs:comment>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTopX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistCategoryX.x.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistX.x.x.vsd Page:cat</owl:versionInfo>
 		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	

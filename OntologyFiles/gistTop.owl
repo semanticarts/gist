@@ -18,7 +18,6 @@
 		<rdfs:comment rdf:datatype="&xsd;string">All the high level gist classes and key relastionships.  Most disjoints are declared at this level</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">gistTop</rdfs:comment>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistTopX.x.x"/>
-		<owl:versionInfo rdf:datatype="&xsd;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistX.x.x.vsd Page:top</owl:versionInfo>
 		<gist:license rdf:datatype="&xsd;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	
