@@ -12,11 +12,13 @@
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:skos="http://www.w3.org/2004/02/skos/core#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
 	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistNetwork">
 		<rdfs:comment rdf:datatype="&xsd;string">gist Network Concepts for a virtual or actual network (communication, pipelines etc)</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">gistNetwork</rdfs:comment>
+		<skos:note rdf:datatype="&xsd;string">gistNetwork</skos:note>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistCategoryX.x.x"/>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistContentX.x.x"/>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistMagnitudeX.x.x"/>
@@ -31,7 +33,8 @@
 	
 	<owl:Class rdf:about="&gist;Artifact">
 		<rdfs:label rdf:datatype="&xsd;string">Artifact</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">An intentional person made thing, could be physical or content</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Artifact</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">An intentional person-made thing; could be physical or content.</rdfs:comment>
 		<owl:equivalentClass>
 			<owl:Class>
 				<owl:intersectionOf rdf:parseType="Collection">
@@ -66,7 +69,8 @@
 	
 	<owl:Class rdf:about="&gist;Component">
 		<rdfs:label rdf:datatype="&xsd;string">Component</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">A component is an artifact that contributes to a system.  Could be a simple mechanical component, such as the float contributing to the toilet tank maintaining a constant level, or much more complex as in the internet of things.</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Component</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">A component is an artifact that contributes to a system.  Could be a simple mechanical component, such as the float contributing to the toilet tank maintaining a constant level, or much more complex, as in the Internet of Things.</rdfs:comment>
 		<owl:equivalentClass>
 			<owl:Class>
 				<owl:intersectionOf rdf:parseType="Collection">
@@ -86,7 +90,8 @@
 	
 	<owl:Class rdf:about="&gist;Equipment">
 		<rdfs:label rdf:datatype="&xsd;string">Equipment</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">Tangible property other than land or buildings.  Any kind of equipment, could be machine, router, car etc.</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Equipment</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">Tangible property other than land or buildings.  Any kind of equipment, could be machine, router, car, etc.</rdfs:comment>
 		<owl:equivalentClass>
 			<owl:Class>
 				<owl:intersectionOf rdf:parseType="Collection">
@@ -104,13 +109,15 @@
 	<owl:Class rdf:about="&gist;EquipmentType">
 		<rdfs:subClassOf rdf:resource="&gist;Category"/>
 		<rdfs:label rdf:datatype="&xsd;string">Equipment Type</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">Categories of equipment</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Equipment Type</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">Categories of equipment.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Function">
 		<rdfs:subClassOf rdf:resource="&gist;Intention"/>
 		<rdfs:label rdf:datatype="&xsd;string">Function</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">A function is what a specific made item is intended to do.  For instance: transmit electricity, provide ballast, control ambient temperature.</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Function</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">A function is what a specific-made item is intended to do.  For instance: transmit electricity, provide ballast, control ambient temperature.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;IntellectualProperty">
@@ -121,7 +128,8 @@
 	
 	<owl:Class rdf:about="&gist;Network">
 		<rdfs:label rdf:datatype="&xsd;string">Network</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">A network is a connected set of links and nodes</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Network</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">A network is a connected set of links and nodes.</rdfs:comment>
 		<owl:equivalentClass>
 			<owl:Class>
 				<owl:intersectionOf rdf:parseType="Collection">
@@ -146,13 +154,15 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;NetworkLink">
-		<rdfs:label rdf:datatype="&xsd;string">Networkd Link</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">a link in a network.  This is the abstractino of the network.  The physical instantiation couple be pipes, or wire  but may also be non physical such as wireness networks or organization structures</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Network Link</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Network Link</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">A link in a network.  This is the abstraction of the network.  The physical instantiation could be pipes or wire, but may also be non-physical, such as wireless networks or organization structures.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;NetworkNode">
 		<rdfs:label rdf:datatype="&xsd;string">Network Node</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">a node in a network.  Note the network is the abstract representation of the network.  It is physically instantiated with equipment, or in some cases People.</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Network Node</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">A node in a network.  Note the network is the abstract representation of the network.  It is physically instantiated with equipment or, in some cases, Persons.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;PhysicalIdentifiableItem">
@@ -163,7 +173,8 @@
 	
 	<owl:Class rdf:about="&gist;System">
 		<rdfs:label rdf:datatype="&xsd;string">System</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">A system is an artifact with component parts where the parts contribute to the goal of the system</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">System</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">A system is an artifact with component parts where the parts contribute to the goal of the system.</rdfs:comment>
 		<owl:equivalentClass>
 			<owl:Class>
 				<owl:intersectionOf rdf:parseType="Collection">
@@ -186,7 +197,8 @@
 	
 	<owl:ObjectProperty rdf:about="&gist;contributesTo">
 		<rdfs:label rdf:datatype="&xsd;string">Contributes To</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">The parts of a system contribute to the goal/ function of the whole system</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Contributes To</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">The parts of a system contribute to the goal/function of the whole system.</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasDirectPart">
@@ -195,12 +207,15 @@
 	<owl:ObjectProperty rdf:about="&gist;hasFromNode">
 		<rdfs:subPropertyOf rdf:resource="&gist;networkConnection"/>
 		<rdfs:label rdf:datatype="&xsd;string">Has From Node</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">The connections at the abstract level of a network.  Note this is directed but the parent is the undirected version</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Has From Node</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">The connections at the abstract level of a network.  Note that this property is directed, but the parent property is the undirected version.</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasIncumbent">
-		<rdfs:label rdf:datatype="&xsd;string">Has Incumbant</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">What equipment or person is currently in this node.  Note to create a temporal view make a TemporalRelation for this property</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Has Incumbent</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Has Incumbent</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">The equipment or person currently in this node.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">NOTE: to create a temporal view, make a TemporalRelation for this property.</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasMember">
@@ -209,7 +224,8 @@
 	<owl:ObjectProperty rdf:about="&gist;hasToNode">
 		<rdfs:subPropertyOf rdf:resource="&gist;networkConnection"/>
 		<rdfs:label rdf:datatype="&xsd;string">Has To Node</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">The connections at the abstract level of a network. Note this is directed but the parent is the undirected version</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Has To Node</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">The connections at the abstract level of a network. Note that this property is directed, but the parent property is the undirected version.</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:AnnotationProperty rdf:about="&gist;license">
@@ -217,7 +233,8 @@
 	
 	<owl:ObjectProperty rdf:about="&gist;networkConnection">
 		<rdfs:label rdf:datatype="&xsd;string">Network Connection</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">abstract connection for when connections are undirected</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Network Connection</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">Abstract connection for when connections are undirected.</rdfs:comment>
 	</owl:ObjectProperty>
 
 </rdf:RDF>

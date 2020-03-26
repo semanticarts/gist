@@ -11,11 +11,13 @@
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:skos="http://www.w3.org/2004/02/skos/core#"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
 	
 	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistUnit">
 		<rdfs:comment rdf:datatype="&xs;string">gist Unit of Measure, extends the base units from top to cover Rations and lesser used units (this allows someone to exclude Luminosity if they don&apos;t want it )</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistUnit</rdfs:comment>
+		<skos:note rdf:datatype="&xs;string">gistUnit</skos:note>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTopX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistUnitX.x.x"/>
 		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
@@ -29,7 +31,8 @@
 	
 	<owl:Class rdf:about="&gist;CountingUnit">
 		<rdfs:label rdf:datatype="&xs;string">Counting Unit</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A unit of counting, especially ?each?, but also units such as dozens.</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xs;string">Counting Unit</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xs;string">A unit of counting, especially 'each', but also units such as dozens.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;SimpleUnitOfMeasure">
 			</rdf:Description>
@@ -42,7 +45,8 @@
 	
 	<owl:Class rdf:about="&gist;CurrencyUnit">
 		<rdfs:label rdf:datatype="&xs;string">Currency Unit</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A unit of money. Note: this is the only unit whose conversion factors include time (i.e., the conversion rates change on a daily basis).</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xs;string">Currency Unit</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xs;string">A unit of money. Note: this is the only unit whose conversion factors include time (because the conversion rates change on a daily basis).</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;SimpleUnitOfMeasure">
 			</rdf:Description>
@@ -55,6 +59,7 @@
 	
 	<owl:Class rdf:about="&gist;DataSizeUnit">
 		<rdfs:label rdf:datatype="&xs;string">Data Size Unit</rdfs:label>
+<skos:prefLabel rdf:datatype="&xs;string">Data Size Unit</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">A unit to measure amounts of digital information.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;SimpleUnitOfMeasure">
@@ -68,6 +73,7 @@
 	
 	<owl:Class rdf:about="&gist;ElectricalCurrentUnit">
 		<rdfs:label rdf:datatype="&xs;string">Electrical Current Unit</rdfs:label>
+<skos:prefLabel rdf:datatype="&xs;string">Electrical Current Unit</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">Unit of electrical current, which is charge per unit time.  The SI unit is the ampere.  (Note that electrical current is a composed unit.)</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;SimpleUnitOfMeasure">
@@ -81,6 +87,7 @@
 	
 	<owl:Class rdf:about="&gist;LuminousIntensityUnit">
 		<rdfs:label rdf:datatype="&xs;string">Luminous Intensity Unit</rdfs:label>
+<skos:prefLabel rdf:datatype="&xs;string">Luminous Intensity Unit</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">The measure of brightness. The SI unit is the candela.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;SimpleUnitOfMeasure">
@@ -94,6 +101,7 @@
 	
 	<owl:Class rdf:about="&gist;MoleUnit">
 		<rdfs:label rdf:datatype="&xs;string">Mole Unit</rdfs:label>
+<skos:prefLabel rdf:datatype="&xs;string">Mole Unit</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">Amount of chemical material.  Measured in Avogadro units (moles) of 6.02 x 10^23 molecules.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;SimpleUnitOfMeasure">
@@ -107,6 +115,7 @@
 	
 	<owl:Class rdf:about="&gist;RatioUnit">
 		<rdfs:label rdf:datatype="&xs;string">Ratio Unit</rdfs:label>
+<skos:prefLabel rdf:datatype="&xs;string">Ratio Unit</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">A UnitOfMeasure composed of a numerator unit and a denominator unit.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">EXAMPLE:  Miles per hour.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">NOTE: If needed, a conversion factor for a RatioUnit can be (recursively) derived from the conversion factors of the numerator and denominator units.  E.g., the derived conversion factor from km/minute to meters/second is 1000/60 or 16 2/3.</rdfs:comment>
@@ -129,6 +138,7 @@
 	
 	<owl:Class rdf:about="&gist;TemperatureUnit">
 		<rdfs:label rdf:datatype="&xs;string">Temperature Unit</rdfs:label>
+<skos:prefLabel rdf:datatype="&xs;string">Temperature Unit</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">Unit of measurement for expressing temperature.  Per SI, the base of temperature is in Kelvin, to allow for all units to be expressed relative to a real (in this case absolute) zero.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;SimpleUnitOfMeasure">
@@ -173,7 +183,8 @@
 	
 	<owl:ObjectProperty rdf:about="&gist;denominator">
 		<rdfs:label rdf:datatype="&xs;string">Denominator</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">Relates a RatioUnit such as meters/second to the denominator Unit (e.g. second).</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xs;string">Denominator</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xs;string">Relates a RatioUnit, such as meter(s)/second, to the denominator Unit (e.g. second).</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;RatioUnit"/>
 		<rdfs:range rdf:resource="&gist;UnitOfMeasure"/>
 	</owl:ObjectProperty>
@@ -186,28 +197,32 @@
 	
 	<owl:ObjectProperty rdf:about="&gist;numerator">
 		<rdfs:label rdf:datatype="&xs;string">Numerator</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">Relates a RatioUnit such as meter(s)/second to the numerator Unit (e.g. meter).</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xs;string">Numerator</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xs;string">Relates a RatioUnit, such as meter(s)/second, to the numerator Unit (e.g. meter).</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;RatioUnit"/>
 		<rdfs:range rdf:resource="&gist;UnitOfMeasure"/>
 	</owl:ObjectProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;unitSymbol">
 		<rdfs:label rdf:datatype="&xs;string">Unit Symbol</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">The standard symbol for the unit NOT using any special characters.  E.g. square meter would be m^2 rather than m?.</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xs;string">Unit Symbol</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xs;string">The standard symbol for the unit NOT using any special characters.  E.g. square meter would be m^2 rather than using a super-scripted '2'.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;UnitOfMeasure"/>
 		<rdfs:range rdf:resource="&xs;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;unitSymbolHTML">
 		<rdfs:label rdf:datatype="&xs;string">Unit Symbol HTML</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">The standard symbol for the unit in HTML format for  pretty printing, may use special characters.  E.g. to show square meter as  m? rather than m^2, the value of this property would be &quot;m&amp;sup2;&quot; This is for when Unicode not supported and the display will be HTML format.</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xs;string">Unit Symbol HTML</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xs;string">The standard symbol for the unit in HTML format for pretty printing; may use special characters.  E.g. to show square meter using a super-scripted '2' rather than m^2, the value of this property would be &quot;m&amp;sup2;&quot;. This is for when Unicode is not supported and the display will be HTML format.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;UnitOfMeasure"/>
 		<rdfs:range rdf:resource="&xs;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;unitSymbolUnicode">
 		<rdfs:label rdf:datatype="&xs;string">Unit Symbol Unicode</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">The standard symbol for the unit preferred for pretty printing, may use special characters.  E.g. square meter would be  m? rather than m^2.</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xs;string">Unit Symbol Unicode</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xs;string">The standard symbol for the unit preferred for pretty printing, may use special characters.  E.g. square meter would use a super-scripted '2' rather than m^2.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;UnitOfMeasure"/>
 		<rdfs:range rdf:resource="&xs;string"/>
 	</owl:DatatypeProperty>

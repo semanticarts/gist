@@ -12,11 +12,13 @@
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:skos="http://www.w3.org/2004/02/skos/core#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
 	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistTop">
 		<rdfs:comment rdf:datatype="&xsd;string">All the high level gist classes and key relastionships.  Most disjoints are declared at this level</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">gistTop</rdfs:comment>
+		<skos:note rdf:datatype="&xsd;string">gistTop</skos:note>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistTopX.x.x"/>
 		<gist:license rdf:datatype="&xsd;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
@@ -29,6 +31,7 @@
 	
 	<owl:Class rdf:about="&gist;Area">
 		<rdfs:label rdf:datatype="&xsd;string">Area</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Area</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">A measurement of two-dimensional space.</rdfs:comment>
 		<owl:equivalentClass>
 			<owl:Class>
@@ -46,6 +49,7 @@
 	
 	<owl:Class rdf:about="&gist;AreaUnit">
 		<rdfs:label rdf:datatype="&xsd;string">Area Unit</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Area Unit</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">A unit of two-dimensional area, such as square inches or hectares.</rdfs:comment>
 		<owl:equivalentClass>
 			<owl:Class>
@@ -68,6 +72,7 @@
 	<owl:Class rdf:about="&gist;BaseUnit">
 		<rdfs:subClassOf rdf:resource="&gist;SimpleUnitOfMeasure"/>
 		<rdfs:label rdf:datatype="&xsd;string">Base Unit</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Base Unit</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">A primitive unit that cannot be decomposed into other units. It can be converted from one measurement system to another.  The base units in gist are the seven primitive units from the System Internationale (SI): (meter, second, kilogram, ampere, kelvin, mole, candela), plus three convenience ones: each. bit and usDollar.</rdfs:comment>
 		<owl:equivalentClass>
 			<owl:Class>
@@ -100,6 +105,7 @@
 	<owl:Class rdf:about="&gist;Behavior">
 		<rdfs:subClassOf rdf:resource="&gist;Category"/>
 		<rdfs:label rdf:datatype="&xsd;string">Behavior</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Behavior</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">A way of categorizing events.  E.g., differentiating drilling versus cutting.</rdfs:comment>
 	</owl:Class>
 	
@@ -122,9 +128,10 @@
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:label rdf:datatype="&xsd;string">Category</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Category</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">A concept or label used to categorize other instances informally. Things that can be thought of as types are usually Categories.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLE: Tags used in folksonomies; formal definitions from other systems.</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xsd;string">NOTE: Often a &apos;bucket&apos; can be modeled either as an owl:Class or as a gist:Category. Use the latter if you don&apos;t care much about the formal structure of the different types, or if there is a whole hierarchy of types that are going to be managed by a group separate from the ontology developers. The formal structure may be defined elsewhere and linked to, if necessary.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">NOTE: Often a &apos;bucket&apos; it can be modeled either as an owl:Class or as a gist:Category. Use the latter if you do not care much about the formal structure of the different types, or if there is a whole hierarchy of types that are going to be managed by a group separate from the ontology developers. The formal structure may be defined elsewhere and linked to, if necessary.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Collection">
@@ -135,12 +142,14 @@
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:label rdf:datatype="&xsd;string">Collection</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">Any identifiable grouping of instances.  For instance, a jury is a collection of people.</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLES: A jury is a group of people,   a financial ledger is a collection of transaction entries; a route is an (ordered) collection of segments.</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Collection</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">Any identifiable grouping of instances.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLES: A jury is a group of persons, a financial ledger is a collection of transaction entries; a route is an (ordered) collection of segments.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Content">
 		<rdfs:label rdf:datatype="&xsd;string">Content</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Content</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">A document, program, image, etc.  (Categories are not content until they are written down.)</rdfs:comment>
 		<owl:disjointWith rdf:resource="&gist;GeoPoint"/>
 		<owl:disjointWith rdf:resource="&gist;GeoRegion"/>
@@ -153,6 +162,7 @@
 	
 	<owl:Class rdf:about="&gist;DistanceUnit">
 		<rdfs:label rdf:datatype="&xsd;string">Distance Unit</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Distance Unit</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">A unit to measure linear distance, such as feet or kilometers.</rdfs:comment>
 		<owl:equivalentClass>
 			<owl:Class>
@@ -170,7 +180,8 @@
 	
 	<owl:Class rdf:about="&gist;Duration">
 		<rdfs:label rdf:datatype="&xsd;string">Duration</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLE: One week (or seven days), but not Jan 1, 2008 to Jan 7, 2008 (which is an interval). Intervals have durations, but are not themselves durations.</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Duration</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">A length of time. EXAMPLE: One week (or seven days); but not Jan 1, 2008 to Jan 7, 2008 (which is an interval). Intervals have durations, but are not themselves durations.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">Time, but not on a timeline.</rdfs:comment>
 		<owl:equivalentClass>
 			<owl:Class>
@@ -188,6 +199,7 @@
 	
 	<owl:Class rdf:about="&gist;DurationUnit">
 		<rdfs:label rdf:datatype="&xsd;string">Duration Unit</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Duration Unit</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">A unit to measure passage of time: hours, days, years.</rdfs:comment>
 		<owl:equivalentClass>
 			<owl:Class>
@@ -205,6 +217,7 @@
 	
 	<owl:Class rdf:about="&gist;Event">
 		<rdfs:label rdf:datatype="&xsd;string">Event</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Event</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">Something happening over some period of time, often characterized as some kind of activity being carried out by some person, organization, or software application.</rdfs:comment>
 		<owl:equivalentClass>
 			<owl:Class>
@@ -228,6 +241,7 @@
 	
 	<owl:Class rdf:about="&gist;Extent">
 		<rdfs:label rdf:datatype="&xsd;string">Extent</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Extent</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">A measure of distance, which could be distances over the Earth, and could also be height, width, length, depth, girth, etc.</rdfs:comment>
 		<owl:equivalentClass>
 			<owl:Class>
@@ -244,8 +258,9 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;GeoPoint">
-		<rdfs:label rdf:datatype="&xsd;string">Geo Point</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">An individual point on the Earth&apos;s surface, identified by latitude, longitude and altitude. If altitude is missing, it is assumed to be at the Earth&apos;s surface.  However, altitude is measured from sea level.  these points are to the WGS-84 coordinate system using the GPS decimal lat/long</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Geo-Point</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Geo-Point</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">An individual point on the Earth&apos;s surface, identified by latitude, longitude, and altitude. If altitude is missing, it is assumed to be at the Earth&apos;s surface.  However, altitude is measured from sea level.  These geo-points are recorded in accordance with the WGS-84 coordinate system using the GPS decimal lat/long.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">NOTE: Assume coordinate system used by Google (WGS 84 Web Mercator).</rdfs:comment>
 		<owl:disjointWith rdf:resource="&gist;IntellectualProperty"/>
 		<owl:disjointWith rdf:resource="&gist;Intention"/>
@@ -277,7 +292,8 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;GeoRegion">
-		<rdfs:label rdf:datatype="&xsd;string">Geo Region</rdfs:label>
+		<rdfs:label rdf:datatype="&xsd;string">Geo-Region</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Geo-Region</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">A bounded region (or set of regions) on the surface of the Earth.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLES: The bounded shape that defines the region occupied by Crater Lake; the bounded area known as the contiguous USA.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">NOTE: A GeoRegion could be non-contiguous; e.g. the region governed by the USA is the region governed by the lower 48 states plus that of Alaska and Hawaii.  Child classes in lower ontologies can make this distinction.</rdfs:comment>
@@ -306,7 +322,8 @@
 	
 	<owl:Class rdf:about="&gist;ID">
 		<rdfs:label rdf:datatype="&xsd;string">ID</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLE: e.g. SSN for a person, serial number for a product, employee id</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">ID</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">An identifier.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLES: SSN for a person; serial number for a product; employee ID.</rdfs:comment>
 		<owl:equivalentClass>
 			<owl:Class>
@@ -339,9 +356,10 @@
 	
 	<owl:Class rdf:about="&gist;IntellectualProperty">
 		<rdfs:label rdf:datatype="&xsd;string">Intellectual Property</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">A work, invention or concept, independent of its being expressed in text, audio, video, image, or live performance.  IP can also be tacit knowledge, know-how, or skill. Also includes Brands.</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLES: ?The Old Man and The Sea?; the Page Rank algorithm; Coca Cola</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xsd;string">NOTE:  For literature this could be called the ?Work?, except that ?work? is a highly overloaded term (expenditure of energy, resource consumption, art).  Often the first expression precedes our recognition of the IP, but subsequent expressions are known to be derivatives of the IP, even if they are expression-to-expression translations (or copies).</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Intellectual Property</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">A work, invention or concept, independent of its being expressed in text, audio, video, image, or live performance.  Intellectual Property can also be tacit knowledge, know-how, or skill. Also includes Brands.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLES: 'The Old Man and The Sea'; the Page Rank algorithm; Coca Cola.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">NOTE:  For literature this could be called the 'Work', except that 'work' is a highly overloaded term (e.g., expenditure of energy, resource consumption, art).  Often the first expression precedes our recognition of the IP; but subsequent expressions are known to be derivatives of the IP, even if they are expression-to-expression translations (or copies).</rdfs:comment>
 		<owl:disjointWith rdf:resource="&gist;Intention"/>
 		<owl:disjointWith rdf:resource="&gist;Magnitude"/>
 		<owl:disjointWith rdf:resource="&gist;Organization"/>
@@ -353,6 +371,7 @@
 	
 	<owl:Class rdf:about="&gist;Intention">
 		<rdfs:label rdf:datatype="&xsd;string">Intention</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Intention</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">Goal, desire, aspiration. This is the &quot;teleologic&quot; aspect of the system that indicates things are done with a purpose.</rdfs:comment>
 		<owl:disjointWith rdf:resource="&gist;Magnitude"/>
 		<owl:disjointWith rdf:resource="&gist;Organization"/>
@@ -364,6 +383,7 @@
 	
 	<owl:Class rdf:about="&gist;Language">
 		<rdfs:label rdf:datatype="&xsd;string">Language</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Language</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">A recognized, organized set of symbols and grammar.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLES: Natural languages such as English and Spanish; computer languages such as OWL, Python, and XML.</rdfs:comment>
 		<owl:disjointWith rdf:resource="&gist;Magnitude"/>
@@ -376,8 +396,9 @@
 	
 	<owl:Class rdf:about="&gist;LivingThing">
 		<rdfs:label rdf:datatype="&xsd;string">Living Thing</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Living Thing</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLES: A cat, a mushroom, a tree.</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xsd;string">NEGATIVE EXAMPLES: fictional life forms such as Unicorns or Mickey Mouse.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">NEGATIVE EXAMPLES: Fictional life forms such as Unicorns or Mickey Mouse.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">NOTE: In the open world, you must assume that it might have since died.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">Something that is now, or at some point in time was, alive and growing.</rdfs:comment>
 		<owl:equivalentClass>
@@ -400,6 +421,7 @@
 	
 	<owl:Class rdf:about="&gist;Magnitude">
 		<rdfs:label rdf:datatype="&xsd;string">Magnitude</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Magnitude</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">Base class for units which can be converted.  The primitive units can be converted from one measurement system to another; the complex units (ratio or product) have to decompose to their primitives.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">NOTE:  Magnitudes of the same dimensional type (i.e., duration or electric current) can be compared with a greater-than or less-than operator, but can still differ in their relationToTheWorld type.  (I.e., you can compare actuals to estimates or references, so long as the dimension is the same.)</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">NOTE: Note the precision should be in the same type of unit as the magnitude.</rdfs:comment>
@@ -430,6 +452,7 @@
 	
 	<owl:Class rdf:about="&gist;MassUnit">
 		<rdfs:label rdf:datatype="&xsd;string">Mass Unit</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Mass Unit</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">A unit representing the amount of matter in a particle or object.  The SI unit of mass is the kilogram.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">NOTE:  Assuming an object is near the Earth&apos;s surface, weight and mass may be treated as equivalents.</rdfs:comment>
 		<owl:equivalentClass>
@@ -448,6 +471,7 @@
 	
 	<owl:Class rdf:about="&gist;Organization">
 		<rdfs:label rdf:datatype="&xsd;string">Organization</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Organization</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">A generic organization that can be formal or informal, legal or non-legal. It can have members, or not.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLES: Legal entities like companies; non-legal entities like clubs, committees, or departments.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">NOTE: There are a plethora of different kinds of organizations that differ along many facets, including members, structure, purpose, legal vs. non-legal, etc.</rdfs:comment>
@@ -460,6 +484,8 @@
 	
 	<owl:Class rdf:about="&gist;Person">
 		<rdfs:label rdf:datatype="&xsd;string">Person</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Person</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">A human being.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">NEGATIVE EXAMPLE: fictional characters.</rdfs:comment>
 		<owl:equivalentClass>
 			<owl:Class>
@@ -505,6 +531,7 @@
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:label rdf:datatype="&xsd;string">Physical Identifiable Item</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Physical Identifiable Item</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLES: a computer, a book.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">NEGATIVE EXAMPLE:  A discontinuous thing like a manufacturing line cannot reasonably have an RFID attached to it, even though its parts are not the same kind of thing as the whole.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">NOTE:  You could, at least in principle, put an RFID tag on members of this class. Physical things are made of something.  E.g., statues are made of bronze.</rdfs:comment>
@@ -528,8 +555,9 @@
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:label rdf:datatype="&xsd;string">Physical Substance</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Physical Substance</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLES: An amount of water, of penicillin, of sand, of gold.</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xsd;string">NOTE: An instance of this class must be a physical thing, and not just a categorical description.  Example: an actual piece of gold, not ?gold? as a concept.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">NOTE: An instance of this class must be a physical thing, and not just a categorical description.  Example: an actual piece of gold, not 'gold' as a concept.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">NOTE: Some things are substances at a macro level, but ultimately end up as not being divisible into the same kind of thing.  E.g. sand vs. grains of sand., bacteria vs. an individual bacterium.</rdfs:comment>
 		<owl:disjointWith rdf:resource="&gist;TimeInstant"/>
 		<owl:disjointWith rdf:resource="&gist;UnitOfMeasure"/>
@@ -537,6 +565,7 @@
 	
 	<owl:Class rdf:about="&gist;ProductUnit">
 		<rdfs:label rdf:datatype="&xsd;string">Product Unit</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Product Unit</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">A unit of measure that is the product of two simpler ones.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLES:  Area and Volume are the classic cases.  But other, more exotic cases exist, such as Newtons.</rdfs:comment>
 		<owl:equivalentClass>
@@ -563,13 +592,15 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;SchemaMetaData">
-		<rdfs:label rdf:datatype="&xsd;string">Schema Meta Data</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">Superclass for all types of metadata, including owl concepts (such as class) and relational (tables, elements) and tool related (queries, RWRML maps etc etc)</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Schema Metadata</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Schema Metadata</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">Superclass for all types of metadata, including OWL concepts (such as class) and relational (tables, elements) and tool-related (queries, RWRML maps etc etc).</rdfs:comment>
 		<owl:disjointWith rdf:resource="&gist;UnitOfMeasure"/>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;SimpleUnitOfMeasure">
 		<rdfs:label rdf:datatype="&xsd;string">Simple Unit Of Measure</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Simple Unit Of Measure</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">Each simple unit has a base unit and a conversion factor to the base. The bases are from the System International (SI). This is the number by which one multiplies a Unit by to get to base, or divides by to get from base.  So the convertToBase for inch is 0.0254 to get you to the base (meter).</rdfs:comment>
 		<owl:equivalentClass>
 			<owl:Class>
@@ -592,9 +623,10 @@
 	
 	<owl:Class rdf:about="&gist;Template">
 		<rdfs:label rdf:datatype="&xsd;string">Template</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Template</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLE:  A form. A filled-in form has the structure of the form with data entered into some or all of the fields.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">NOTE: Use gist:basedOn to link the instantiation of a template back to its Template.</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xsd;string">Something used to make instances in its own image.  In manufacturing this would be specialized as a die to make stamped parts, cookie cutters are templates for cookies, and forms are templates for data.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">Something used to make instances in its own image.  In manufacturing this would be specialized as a die to make stamped parts; cookie cutters are templates for cookies; and forms are templates for data.</rdfs:comment>
 		<owl:disjointWith rdf:resource="&gist;TimeInstant"/>
 		<owl:disjointWith rdf:resource="&gist;UnitOfMeasure"/>
 	</owl:Class>
@@ -649,15 +681,17 @@
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:label rdf:datatype="&xsd;string">Time Instant</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLES:  A literal instant (as in 12:01.0001 January 1, 2008), or a broader but still single point in time (January 1, 2008). In the latter case, we are declaring a time instant to be an interval with no duration (or really a duration only equal to its precision).</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xsd;string">In gistTop all time instants are greenwich and the local equal universal.  In gistTime we introduce local time zones</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Time Instant</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">A literal, specific instant (as in 12:01.0001 January 1, 2008), or a broader but still single point in time (January 1, 2008). In the latter case, we are declaring a time instant to be an interval with no duration (or really a duration only equal to its precision).</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">In gistTop, all time instants are in Greenwich Mean Time, and the local equal universal.  In gistTime, we introduce local time zones.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">NOTE: Our identity criteria require that something refers to each Time Instant instance.</rdfs:comment>
 		<owl:disjointWith rdf:resource="&gist;UnitOfMeasure"/>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;UnitOfMeasure">
 		<rdfs:label rdf:datatype="&xsd;string">Unit of Measure</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">Standard unit by which we measure things</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Unit of Measure</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">Standard unit by which we measure things.</rdfs:comment>
 		<owl:disjointWith rdf:resource="&gist;Content"/>
 		<owl:disjointWith rdf:resource="&gist;GeoPoint"/>
 		<owl:disjointWith rdf:resource="&gist;GeoRegion"/>
@@ -672,6 +706,7 @@
 	
 	<owl:Class rdf:about="&gist;Volume">
 		<rdfs:label rdf:datatype="&xsd;string">Volume</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Volume</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">Three-dimensional space, or equivalent fluid measurement.</rdfs:comment>
 		<owl:equivalentClass>
 			<owl:Class>
@@ -689,6 +724,7 @@
 	
 	<owl:Class rdf:about="&gist;VolumeUnit">
 		<rdfs:label rdf:datatype="&xsd;string">Volume Unit</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Volume Unit</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">Units of three-dimensional space, expressed here as an area times a distance.</rdfs:comment>
 		<owl:equivalentClass>
 			<owl:Class>
@@ -710,6 +746,7 @@
 	
 	<owl:Class rdf:about="&gist;Weight">
 		<rdfs:label rdf:datatype="&xsd;string">Weight</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Weight</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">Magnitude of mass.  Assumes object is near the Earth&apos;s surface. Thus weight and mass may be treated as equivalents.</rdfs:comment>
 		<owl:equivalentClass>
 			<owl:Class>
@@ -730,6 +767,8 @@
 		<rdf:type rdf:resource="&owl;Thing"/>
 		<gist:convertToBase rdf:datatype="&xsd;double">1.0</gist:convertToBase>
 		<gist:hasBaseUnit rdf:resource="&gist;_USDollar"/>
+<rdfs:label rdf:datatype="&xsd;string">US Dollar</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">US Dollar</skos:prefLabel>
 	</gist:BaseUnit>
 	
 	<gist:BaseUnit rdf:about="&gist;_ampere">
@@ -737,6 +776,8 @@
 		<rdf:type rdf:resource="&owl;Thing"/>
 		<gist:convertToBase rdf:datatype="&xsd;double">1.0</gist:convertToBase>
 		<gist:hasBaseUnit rdf:resource="&gist;_ampere"/>
+<rdfs:label rdf:datatype="&xsd;string">Ampere</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Ampere</skos:prefLabel>
 	</gist:BaseUnit>
 	
 	<gist:BaseUnit rdf:about="&gist;_bit">
@@ -745,6 +786,8 @@
 		<rdfs:comment rdf:datatype="&xsd;string">A bit (short for binary digit) is the smallest unit of data in a computer. A bit has a single binary value, either 0 or 1.</rdfs:comment>
 		<gist:convertToBase rdf:datatype="&xsd;double">1.0</gist:convertToBase>
 		<gist:hasBaseUnit rdf:resource="&gist;_bit"/>
+<rdfs:label rdf:datatype="&xsd;string">Bit</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Bit</skos:prefLabel>
 	</gist:BaseUnit>
 	
 	<gist:BaseUnit rdf:about="&gist;_candela">
@@ -752,6 +795,8 @@
 		<rdf:type rdf:resource="&owl;Thing"/>
 		<gist:convertToBase rdf:datatype="&xsd;double">1.0</gist:convertToBase>
 		<gist:hasBaseUnit rdf:resource="&gist;_candela"/>
+<rdfs:label rdf:datatype="&xsd;string">Candela</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Candela</skos:prefLabel>
 	</gist:BaseUnit>
 	
 	<gist:BaseUnit rdf:about="&gist;_each">
@@ -759,6 +804,8 @@
 		<rdf:type rdf:resource="&owl;Thing"/>
 		<gist:convertToBase rdf:datatype="&xsd;double">1.0</gist:convertToBase>
 		<gist:hasBaseUnit rdf:resource="&gist;_each"/>
+<rdfs:label rdf:datatype="&xsd;string">Each</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Each</skos:prefLabel>
 	</gist:BaseUnit>
 	
 	<gist:BaseUnit rdf:about="&gist;_kelvin">
@@ -767,6 +814,8 @@
 		<gist:conversionOffset rdf:datatype="&xsd;double">0.0</gist:conversionOffset>
 		<gist:convertToBase rdf:datatype="&xsd;double">1.0</gist:convertToBase>
 		<gist:hasBaseUnit rdf:resource="&gist;_kelvin"/>
+<rdfs:label rdf:datatype="&xsd;string">Kelvin</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Kelvin</skos:prefLabel>
 	</gist:BaseUnit>
 	
 	<gist:BaseUnit rdf:about="&gist;_kilogram">
@@ -774,6 +823,8 @@
 		<rdf:type rdf:resource="&owl;Thing"/>
 		<gist:convertToBase rdf:datatype="&xsd;double">1.0</gist:convertToBase>
 		<gist:hasBaseUnit rdf:resource="&gist;_kilogram"/>
+<rdfs:label rdf:datatype="&xsd;string">Kilogram</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Kilogram</skos:prefLabel>
 	</gist:BaseUnit>
 	
 	<gist:BaseUnit rdf:about="&gist;_meter">
@@ -781,6 +832,8 @@
 		<rdf:type rdf:resource="&owl;Thing"/>
 		<gist:convertToBase rdf:datatype="&xsd;double">1.0</gist:convertToBase>
 		<gist:hasBaseUnit rdf:resource="&gist;_meter"/>
+<rdfs:label rdf:datatype="&xsd;string">Meter</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Meter</skos:prefLabel>
 	</gist:BaseUnit>
 	
 	<gist:BaseUnit rdf:about="&gist;_mole">
@@ -788,6 +841,8 @@
 		<rdf:type rdf:resource="&owl;Thing"/>
 		<gist:convertToBase rdf:datatype="&xsd;double">1.0</gist:convertToBase>
 		<gist:hasBaseUnit rdf:resource="&gist;_mole"/>
+<rdfs:label rdf:datatype="&xsd;string">Mole</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Mole</skos:prefLabel>
 	</gist:BaseUnit>
 	
 	<gist:BaseUnit rdf:about="&gist;_second">
@@ -795,10 +850,13 @@
 		<rdf:type rdf:resource="&owl;Thing"/>
 		<gist:convertToBase rdf:datatype="&xsd;double">1.0</gist:convertToBase>
 		<gist:hasBaseUnit rdf:resource="&gist;_second"/>
+<rdfs:label rdf:datatype="&xsd;string">Second</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Second</skos:prefLabel>
 	</gist:BaseUnit>
 	
 	<owl:ObjectProperty rdf:about="&gist;actual">
 		<rdfs:label rdf:datatype="&xsd;string">Actual</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Actual</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">When something did occur, therefore noting an historical event.</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;TimeInstant"/>
 	</owl:ObjectProperty>
@@ -807,6 +865,7 @@
 		<rdfs:subPropertyOf rdf:resource="&gist;actual"/>
 		<rdfs:subPropertyOf rdf:resource="&gist;end"/>
 		<rdfs:label rdf:datatype="&xsd;string">Actual End</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Actual End</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">When something did end, therefore noting an historical event.</rdfs:comment>
 	</owl:ObjectProperty>
 	
@@ -814,12 +873,14 @@
 		<rdfs:subPropertyOf rdf:resource="&gist;actual"/>
 		<rdfs:subPropertyOf rdf:resource="&gist;start"/>
 		<rdfs:label rdf:datatype="&xsd;string">Actual Start</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Actual Start</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">When something did start, therefore noting an historical event.</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;allocatedBy">
 		<rdfs:label rdf:datatype="&xsd;string">Allocated By</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">Connection between an ID and the thing that minted the ID.  It may be a person or organization, or could be an algorithm (next available or random number generator)</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Allocated By</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">Connection between an ID and the thing that minted the ID.  It may be a person or organization, or could be an algorithm (next available or random number generator).</rdfs:comment>
 		<rdfs:range>
 			<owl:Class>
 				<owl:unionOf rdf:parseType="Collection">
@@ -836,38 +897,45 @@
 	
 	<owl:ObjectProperty rdf:about="&gist;basedOn">
 		<rdfs:label rdf:datatype="&xsd;string">Based On</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">pointer to the thing something was derived from</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Based On</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">A pointer to the thing from which something was derived.</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;categorizedBy">
 		<rdfs:label rdf:datatype="&xsd;string">Categorized By</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">Points to a taxonomy item or other less formally defined class.</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Categorized By</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">Points to a taxonomy item or other less-formally defined class.</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;characterizedAs">
 		<rdfs:label rdf:datatype="&xsd;string">Characterized As</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">A way to categorized a behavior</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Characterized As</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">A way to categorized a behavior.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Event"/>
 		<rdfs:range rdf:resource="&gist;Behavior"/>
 	</owl:ObjectProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;conversionOffset">
 		<rdfs:label rdf:datatype="&xsd;string">Conversion Offset</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">Add this number to get to the zero point.  On the Celsius scale, the conversionOffset is -273.15 degrees C. On the Fahrenheit scale it is -459.67 degrees.  Is equal to 0 when the unit has the same zero point as the base unit. e.g. inch, meter.</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Conversion Offset</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">The number to be added in order to get to the zero point.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">On the Celsius scale, the conversionOffset is -273.15 degrees C. On the Fahrenheit scale it is -459.67 degrees.  It is equal to 0 when the unit has the same zero point as the base unit. e.g. inch, meter.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;UnitOfMeasure"/>
 		<rdfs:range rdf:resource="&xsd;double"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;convertToBase">
 		<rdfs:label rdf:datatype="&xsd;string">ConvertToBase</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">The conversion factor used to get to the base unit.  E.g., multiplying by 0.0254 gets you from inches to meters. Divide by this number to go the other way. Used in conjunction with conversionOffset to convert from one unit to another. 
-Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)) * (5/9).  To go the other way: F = (K * 9/5) -469.67.  Try it on Google.</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">ConvertToBase</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">The conversion factor used to get to the base unit.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLES: multiplying by 0.0254 gets you from inches to meters. Divide by this number to go the other way. Used in conjunction with conversionOffset to convert from one unit to another. Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)) * (5/9).  To go the other way: F = (K * 9/5) -469.67.  Try it on Google.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;UnitOfMeasure"/>
 		<rdfs:range rdf:resource="&xsd;double"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;decimalValue">
 		<rdfs:label rdf:datatype="&xsd;string">Decimal Value</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Decimal Value</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">The actual value of a magnitude.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Magnitude"/>
 		<rdfs:range rdf:resource="&xsd;double"/>
@@ -875,32 +943,37 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	
 	<owl:ObjectProperty rdf:about="&gist;directPartOf">
 		<rdfs:label rdf:datatype="&xsd;string">Direct Part Of</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">The relationship between a  part and a whole where the part has independent existence.</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Direct Part Of</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">The relationship between a part and a whole, where the part has independent existence.</rdfs:comment>
 		<owl:inverseOf rdf:resource="&gist;hasDirectPart"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;end">
 		<rdfs:label rdf:datatype="&xsd;string">End</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">End</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">Connects the subject to its end time.</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;TimeInstant"/>
 	</owl:ObjectProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;epoch">
 		<rdfs:label rdf:datatype="&xsd;string">Epoch</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">seconds since 1/1/1970 UTC (unix time )</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Epoch</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">The number of seconds since 1/1/1970 UTC (unix time).</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
 		<rdfs:range rdf:resource="&xsd;double"/>
 	</owl:DatatypeProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;governedBy">
 		<rdfs:label rdf:datatype="&xsd;string">Governed By</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">A reference from the thing being governed to the governor</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Governed By</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">A reference from the thing being governed to the governor.</rdfs:comment>
 		<owl:inverseOf rdf:resource="&gist;governs"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;governs">
 		<rdfs:label rdf:datatype="&xsd;string">Governs</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">The subject controls or inhibits the object in some way</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Governs</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">The Subject controls or inhibits the Object in some way.</rdfs:comment>
 		<rdfs:domain>
 			<owl:Class>
 				<owl:unionOf rdf:parseType="Collection">
@@ -943,15 +1016,17 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	
 	<owl:ObjectProperty rdf:about="&gist;hasAltitude">
 		<rdfs:label rdf:datatype="&xsd;string">Has Altitude</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">Distance above sea level</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Has Altitude</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">Distance above sea level.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;GeoPoint"/>
 		<rdfs:range rdf:resource="&gist;Extent"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasBaseUnit">
 		<rdfs:label rdf:datatype="&xsd;string">Has Base Unit</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLE: saying that a furlong hasBaseUnit  meter says it is a DistanceUnit.</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xsd;string">Relates a UnitOfMeasure to its BaseUnit.  This indicates what kind Unit something is, e.g. saying that a furlong hasBaseUnit  meter says it is a DistanceUnit.</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Has Base Unit</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLE: saying that a furlong hasBaseUnit meter says it is a DistanceUnit.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">Relates a UnitOfMeasure to its BaseUnit.  This indicates what kind Unit something is, e.g. saying that a furlong hasBaseUnit meter says it is a DistanceUnit.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;UnitOfMeasure"/>
 		<rdfs:range rdf:resource="&gist;BaseUnit"/>
 	</owl:ObjectProperty>
@@ -959,6 +1034,7 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	<owl:ObjectProperty rdf:about="&gist;hasBirthDate">
 		<rdfs:subPropertyOf rdf:resource="&gist;actualStart"/>
 		<rdfs:label rdf:datatype="&xsd;string">Has Birthdate</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Has Birthdate</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">Date a living thing was &quot;born&quot; (or germinated, for plants).</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;LivingThing"/>
 		<rdfs:range rdf:resource="&gist;TimeInstant"/>
@@ -967,7 +1043,8 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	<owl:ObjectProperty rdf:about="&gist;hasDeathDate">
 		<rdfs:subPropertyOf rdf:resource="&gist;actualEnd"/>
 		<rdfs:label rdf:datatype="&xsd;string">Has Death Date</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">Date a living thing died</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Has Death Date</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">Date a living thing died.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;LivingThing"/>
 		<rdfs:range rdf:resource="&gist;TimeInstant"/>
 	</owl:ObjectProperty>
@@ -975,19 +1052,22 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	<owl:ObjectProperty rdf:about="&gist;hasDirectPart">
 		<rdfs:subPropertyOf rdf:resource="&gist;hasPart"/>
 		<rdfs:label rdf:datatype="&xsd;string">Has Direct Part</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Has Direct Part</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">NOTE: No cascading delete.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">NOTE: Use this property to directly associate parts. hasPart is the transitive version.</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xsd;string">The relationship between a whole and a part where the part has independent existence.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">The relationship between a whole and a part, where the part has independent existence.</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasMagnitude">
 		<rdfs:label rdf:datatype="&xsd;string">Has Magnitude</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Has Magnitude</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">To have a comparable numerical value. Each magnitude has a unit.</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;Magnitude"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasMember">
 		<rdfs:label rdf:datatype="&xsd;string">Has Member</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Has Member</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">Relates a Collection to its member individuals.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Collection"/>
 		<owl:inverseOf rdf:resource="&gist;memberOf"/>
@@ -997,21 +1077,24 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
 		<rdf:type rdf:resource="&owl;TransitiveProperty"/>
 		<rdfs:label rdf:datatype="&xsd;string">Has Part</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">The transitive version of hasDirectPart</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Has Part</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">The transitive version of hasDirectPart.</rdfs:comment>
 		<owl:inverseOf rdf:resource="&gist;partOf"/>
 	</rdf:Description>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasPrecision">
 		<rdfs:label rdf:datatype="&xsd;string">Has Precision</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Has Precision</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLE:  Temperature precise to tenth of a degree C; TimeInstant precise to 24 hours.</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xsd;string">Links a Magnitude to the degree of accuracy of the numeric value.   This allows for fuzzy numbers.  All magnitudes have a precision.  Usually we don&apos;t record them.  When we do this, it will be a value whose extent covers 2 standard deviations around the stated magnitude</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xsd;string">NOTE:  Most frequently apples to Magnitude(s) and TimeInstant. Could also apply to a measurement.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">Links a Magnitude to the degree of accuracy of the numeric value.   This allows for fuzzy numbers.  All magnitudes have a precision.  Usually we do not record them.  When we do this, it will be a value whose extent covers 2 standard deviations around the stated magnitude.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">NOTE:  Most frequently applies to Magnitude and TimeInstant. Could also apply to a measurement.</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;Magnitude"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasUoM">
 		<rdfs:label rdf:datatype="&xsd;string">Has Unit of Measure</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">Which unit of measure you are using. All measures are in some uom, even if we don&apos;t know what it is initially.</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Has Unit of Measure</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">The unit of measure being used. All measures are in some unit of measure (UoM), even if initially we do not know what it is.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Magnitude"/>
 		<rdfs:range rdf:resource="&gist;UnitOfMeasure"/>
 	</owl:ObjectProperty>
@@ -1020,7 +1103,8 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 		<rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
 		<rdfs:label rdf:datatype="&xsd;string">Identified By</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">This is like a uri: a thing can have more than one ID, but each of the IDs must refer to a unique thing.</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Identified By</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">This is like a URI; a thing can have more than one ID, but each of the IDs must refer to a unique thing.</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;ID"/>
 		<owl:inverseOf rdf:resource="&gist;identifies"/>
 	</rdf:Description>
@@ -1029,89 +1113,103 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 		<rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
 		<rdfs:label rdf:datatype="&xsd;string">Identifies</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">The thing the identifier refers to.</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Identifies</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">The thing to which the identifier refers.</rdfs:comment>
 	</rdf:Description>
 	
 	<owl:DatatypeProperty rdf:about="&gist;latitude">
 		<rdfs:label rdf:datatype="&xsd;string">Latitude</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">degrees above or below equator</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Latitude</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">Degrees above or below equator.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;GeoPoint"/>
 		<rdfs:range rdf:resource="&xsd;double"/>
 	</owl:DatatypeProperty>
 	
 	<owl:AnnotationProperty rdf:about="&gist;license">
 		<rdfs:label rdf:datatype="&xsd;string">License</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">An annotation for providing the licensing on this or derrivative ontologies</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">License</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">An annotation for providing the licensing on this or derivative ontologies.</rdfs:comment>
 	</owl:AnnotationProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;localDate">
 		<rdfs:label rdf:datatype="&xsd;string">Local Date</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">LD</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Local Date</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">A date without reference to its timezone or GMT offset.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;localDateTime">
-		<rdfs:label rdf:datatype="&xsd;string">Local Date Time</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">LDT</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Local Date-Time</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Local Date-Time</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">A date-time without reference to its timezone or GMT offset.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
 		<rdfs:range rdf:resource="&xsd;dateTime"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;localTime">
 		<rdfs:label rdf:datatype="&xsd;string">Local Time</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">LT</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Local Time</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">A time without reference to its timezone or GMT offset.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;longitude">
 		<rdfs:label rdf:datatype="&xsd;string">Longitude</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">ddegrees from GM</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Longitude</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">Degrees from Greenwich Meridian.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;GeoPoint"/>
 		<rdfs:range rdf:resource="&xsd;double"/>
 	</owl:DatatypeProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;madeUpOf">
 		<rdfs:label rdf:datatype="&xsd;string">Made Up Of</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">as in the vase is made up of clay</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Made Up Of</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">The Subject is composed of the Object, as in the vase is made up of clay.</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;PhysicalSubstance"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;memberOf">
 		<rdfs:label rdf:datatype="&xsd;string">Member Of</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">What group the member is in</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Member Of</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">What group the member is in.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Collection"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;multiplicand">
 		<rdfs:label rdf:datatype="&xsd;string">Multiplicand</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">Relates a ProductUnit such as square mile to the second of two units multiplied together (e.g. mile).</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Multiplicand</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">Relates a ProductUnit, such as square mile, to the second of two units multiplied together (e.g. mile).</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;ProductUnit"/>
 		<rdfs:range rdf:resource="&gist;UnitOfMeasure"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;multiplier">
 		<rdfs:label rdf:datatype="&xsd;string">Multiplier</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">Relates a ProductUnit such as square mile to the first of two units multiplied together (e.g. mile)</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Multiplier</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">Relates a ProductUnit, such as square mile, to the first of two units multiplied together (e.g. mile)</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;ProductUnit"/>
 		<rdfs:range rdf:resource="&gist;UnitOfMeasure"/>
 	</owl:ObjectProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;name">
 		<rdfs:label rdf:datatype="&xsd;string">Name</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">Relates an individual to a casual name.  NOTE: For more formal use, consider using a sub property of the object property, identifiedBy.</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Name</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">Relates an individual to a casual name.  NOTE: For more formal use, consider using a sub-property of the object property, identifiedBy.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</owl:DatatypeProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;offspringOf">
 		<rdfs:label rdf:datatype="&xsd;string">Offspring Of</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">Biological offspring</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Offspring Of</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">The Subject is biological offspring of the Object.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;LivingThing"/>
 		<rdfs:range rdf:resource="&gist;LivingThing"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;owns">
 		<rdfs:label rdf:datatype="&xsd;string">Owns</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">Possessinng and controlling.  Ultimate form of ownership is the right to destroy.  Long list of potential Range classes</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Owns</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">The Subject is possessing and controlling the Object. The ultimate form of ownership is the right to destroy.</rdfs:comment>
 		<rdfs:domain>
 			<owl:Class>
 				<owl:unionOf rdf:parseType="Collection">
@@ -1126,63 +1224,74 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	
 	<owl:ObjectProperty rdf:about="&gist;parentOf">
 		<rdfs:label rdf:datatype="&xsd;string">Parent Of</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">Biological Parent</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Parent Of</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">The Subject is the biological parent of the Object.</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<rdf:Description rdf:about="&gist;partOf">
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
 		<rdf:type rdf:resource="&owl;TransitiveProperty"/>
 		<rdfs:label rdf:datatype="&xsd;string">Part Of</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">The transitive version of directPartOf</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Part Of</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">The transitive version of directPartOf.</rdfs:comment>
 	</rdf:Description>
 	
 	<owl:ObjectProperty rdf:about="&gist;produces">
 		<rdfs:label rdf:datatype="&xsd;string">Produces</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Produces</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLE: a task produces a deliverable.</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xsd;string">The subject creates the object.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">The Subject creates the Object.</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;sequence">
 		<rdfs:label rdf:datatype="&xsd;string">Sequence</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Sequence</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">For ordering ordered lists.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;integer"/>
 	</owl:DatatypeProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;start">
 		<rdfs:label rdf:datatype="&xsd;string">Start</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Start</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xsd;string">Connects the subject to its start time.</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;TimeInstant"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;triggeredBy">
 		<rdfs:label rdf:datatype="&xsd;string">Triggered By</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">general causal relation.  For obligations a property that describes what would happen to trigger the contingent obligation.  In most cases, before the Contingent becomes an Obligation, the triggered by event is a planned event (that is it hasn&apos;t happened yet -- if it had happened the contingency would no longer be contingent.  In most cases it will be  a ContingentEvent .  Otehr uses include controls, processes etc</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Triggered By</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">General causal relation.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">For obligations, a property that describes what would happen to trigger the contingent obligation.  In most cases, before the Contingent becomes an Obligation, the triggered by event is a planned event (that is it has not happened yet; if it had happened, the contingency would no longer be contingent. In most cases it will be a ContingentEvent. Other uses include controls, processes, etc.</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<rdf:Description rdf:about="&gist;uniqueText">
 		<rdf:type rdf:resource="&owl;DatatypeProperty"/>
 		<rdf:type rdf:resource="&owl;FunctionalProperty"/>
 		<rdfs:label rdf:datatype="&xsd;string">Unique Text</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">This is used for the actual value of a key or ID where you don&apos;t want the possibility of having more than one.</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Unique Text</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">This is used for the actual value of a key or ID where you do not want the possibility of having more than one.</rdfs:comment>
 		<rdfs:range rdf:resource="&xsd;string"/>
 	</rdf:Description>
 	
 	<owl:DatatypeProperty rdf:about="&gist;universalDate">
 		<rdfs:label rdf:datatype="&xsd;string">Universal Date</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">UD</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Universal Date</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">A date at the Greenwich Meridian.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;universalDateTime">
-		<rdfs:label rdf:datatype="&xsd;string">Universal Date Time</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">UDT</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Universal Date-Time</rdfs:label>
+<skos:prefLabel rdf:datatype="&xsd;string">Universal Date-Time</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">A date-time at the Greenwich Meridian.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
 		<rdfs:range rdf:resource="&xsd;dateTime"/>
 	</owl:DatatypeProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;universalTime">
 		<rdfs:label rdf:datatype="&xsd;string">Universal Time</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">UT</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xsd;string">Universal Time</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xsd;string">A time at the Greenwich Meridian.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
 	</owl:DatatypeProperty>
 	

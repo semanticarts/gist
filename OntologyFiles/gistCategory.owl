@@ -11,11 +11,13 @@
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:skos="http://www.w3.org/2004/02/skos/core#"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
 	
 	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistCategory">
 		<rdfs:comment rdf:datatype="&xs;string">gist:Category is how we model Taxonomies and Tags</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistCategory</rdfs:comment>
+		<skos:note rdf:datatype="&xs;string">gistCategory</skos:note>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTopX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistCategoryX.x.x"/>
 		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
@@ -32,6 +34,7 @@
 	
 	<owl:Class rdf:about="&gist;ControlledVocabulary">
 		<rdfs:label rdf:datatype="&xs;string">Controlled Vocabulary</rdfs:label>
+<skos:prefLabel rdf:datatype="&xs;string">Controlled Vocabulary</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">A collection of terms approved and managed by some organization or person.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Collection">
@@ -64,7 +67,8 @@
 	
 	<owl:Class rdf:about="&gist;Tag">
 		<rdfs:label rdf:datatype="&xs;string">Tag</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">This is for folksonomy type terms, which can be made up on the fly by users.</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xs;string">Tag</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xs;string">Used for folksonomy-type terms, which can be made up on the fly by users.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Category">
 			</rdf:Description>
@@ -77,6 +81,7 @@
 	
 	<owl:Class rdf:about="&gist;Taxonomy">
 		<rdfs:label rdf:datatype="&xs;string">Taxonomy</rdfs:label>
+<skos:prefLabel rdf:datatype="&xs;string">Taxonomy</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">A controlled vocabulary arranged as a hierarchy of concepts.</rdfs:comment>
 		<owl:equivalentClass>
 			<owl:Class>
@@ -119,29 +124,34 @@
 	
 	<owl:ObjectProperty rdf:about="&gist;hasNavigationalChild">
 		<rdfs:label rdf:datatype="&xs;string">Has Navigational Child</rdfs:label>
+<skos:prefLabel rdf:datatype="&xs;string">Has Navigational Child</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">Used for informal hierarchical taxonomies.  Supports polyhierarchies</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasNavigationalParent">
 		<rdfs:label rdf:datatype="&xs;string">Has Navigational Parent</rdfs:label>
+<skos:prefLabel rdf:datatype="&xs;string">Has Navigational Parent</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">Used for informal hierarchical taxonomies.  Supports polyhierarchies</rdfs:comment>
 		<owl:inverseOf rdf:resource="&gist;hasNavigationalChild"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasSubCategory">
-		<rdfs:label rdf:datatype="&xs;string">Has Sub Category</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">Has Sub Category</rdfs:comment>
+		<rdfs:label rdf:datatype="&xs;string">Has Sub-Category</rdfs:label>
+<skos:prefLabel rdf:datatype="&xs;string">Has Sub-Category</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xs;string">Has Sub-Category</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasSuperCategory">
-		<rdfs:label rdf:datatype="&xs;string">Has Super Category</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">Categories linked in this way are to represent true sub types.  The categories aren&apos;t subtypes but classes defined by a supercategory will be a superclass of one derrived from its sub</rdfs:comment>
+		<rdfs:label rdf:datatype="&xs;string">Has Super-Category</rdfs:label>
+<skos:prefLabel rdf:datatype="&xs;string">Has Super-Category</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xs;string">Categories linked in this way are to represent true sub-types.  The categories are not subtypes, but classes defined by a super-category will be a super-class of one derived from its sub.</rdfs:comment>
 		<owl:inverseOf rdf:resource="&gist;hasSubCategory"/>
 	</owl:ObjectProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;hasTag">
-		<rdfs:label rdf:datatype="&xs;string">has Tag</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">Used for folksonomy style categories (non controlled vocabulary)</rdfs:comment>
+		<rdfs:label rdf:datatype="&xs;string">Has Tag</rdfs:label>
+<skos:prefLabel rdf:datatype="&xs;string">Has Tag</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xs;string">Used for folksonomy-style categories (non-controlled vocabularies).</rdfs:comment>
 	</owl:DatatypeProperty>
 	
 	<rdf:Description rdf:about="&gist;hasUniqueNavigationalParent">
@@ -149,15 +159,17 @@
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
 		<rdfs:subPropertyOf rdf:resource="&gist;hasNavigationalParent"/>
 		<rdfs:label rdf:datatype="&xs;string">Has Unique Navigational Parent</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">Used for taxos that must have single parents</rdfs:comment>
+<skos:prefLabel rdf:datatype="&xs;string">Has Unique Navigational Parent</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xs;string">Used for taxonomies that must have single parents.</rdfs:comment>
 	</rdf:Description>
 	
 	<rdf:Description rdf:about="&gist;hasUniqueSuperCategory">
 		<rdf:type rdf:resource="&owl;FunctionalProperty"/>
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
 		<rdfs:subPropertyOf rdf:resource="&gist;hasSuperCategory"/>
-		<rdfs:label rdf:datatype="&xs;string">Has Unique Super Category</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">Used for taxos that must have single parents</rdfs:comment>
+		<rdfs:label rdf:datatype="&xs;string">Has Unique Super-Category</rdfs:label>
+<skos:prefLabel rdf:datatype="&xs;string">Has Unique Super-Category</skos:prefLabel>
+		<rdfs:comment rdf:datatype="&xs;string">Used for taxonomies that must have single parents.</rdfs:comment>
 	</rdf:Description>
 	
 	<owl:AnnotationProperty rdf:about="&gist;license">
