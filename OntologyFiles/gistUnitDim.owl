@@ -15,7 +15,7 @@
 	
 	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistUnitDim">
 		<rdfs:comment rdf:datatype="&xs;string">gistDimensionedUnits</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">gistX.x.x dimensioned units of measure.  This extension allows (and requires) you to have a conversion factor for all units with the same dimension.  If you introduce MilesPerHour you will have to supply the conversion to MetersPerSecond (even though the system &quot;knows&quot; how to convert Miles to meters and hours to seconds.  You will have to supply and additional conversion when you introduce KilometersPerHour.  Any new combination of primitive rations requires a new Dimension.  While this is a burden, it allows units to be converted in SPARQL</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistX.x.x dimensioned units of measure.  This extension allows (and requires) you to have a conversion factor for all units with the same dimension.  If you introduce MilesPerHour you will have to supply the conversion to MetersPerSecond (even though the system &quot;knows&quot; how to convert Miles to meters and hours to seconds.  You will have to supply an additional conversion when you introduce KilometersPerHour.  Any new combination of primitive rations requires a new Dimension.  While this is a burden, it allows units to be converted in SPARQL.</rdfs:comment>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistUnitX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistUnitDimX.x.x"/>
 		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistX.x.x.vsd Page:UnitDim</owl:versionInfo>
