@@ -9,7 +9,7 @@ You must have `java` installed for the serializer to work.  See JRE Installation
 
 ## To release (Windows)
 
-To generate a folder suitable for ZIP-ing up and releaseing Gist:
+To generate a folder suitable for ZIP-ing up and releasing Gist:
 
 1. Make sure you edit `version.txt` and put in the desired version number with 
 **no leading nor trailing spaces** 
