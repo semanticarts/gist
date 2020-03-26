@@ -3,7 +3,7 @@ gist Style Guide
 
 This style guide documents standards and conventions we have adopted for gist implementation in order to ensure a consistent, professional, high-quality product.
 
-OWL Version [NEEDS REVIEW]
+OWL Version 
 -----
 gist uses OWL 2 DL.
 
