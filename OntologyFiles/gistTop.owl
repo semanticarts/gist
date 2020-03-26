@@ -15,7 +15,7 @@
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
 	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistTop">
-		<rdfs:comment rdf:datatype="&xsd;string">All the high level gist classes and key relastionships.  Most disjoints are declared at this level</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">All the high-level gist classes and key relationships.  Most disjoints are declared at this level</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">gistTop</rdfs:comment>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistTopX.x.x"/>
 		<gist:license rdf:datatype="&xsd;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
@@ -564,7 +564,7 @@
 	
 	<owl:Class rdf:about="&gist;SchemaMetaData">
 		<rdfs:label rdf:datatype="&xsd;string">Schema Meta Data</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">Superclass for all types of metadata, including owl concepts (such as class) and relational (tables, elements) and tool related (queries, RWRML maps etc etc)</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">Superclass for all types of metadata, including owl concepts (such as class) and relational (tables, elements) and tool related (queries, R2RML maps etc etc)</rdfs:comment>
 		<owl:disjointWith rdf:resource="&gist;UnitOfMeasure"/>
 	</owl:Class>
 	
@@ -650,7 +650,7 @@
 		</rdfs:subClassOf>
 		<rdfs:label rdf:datatype="&xsd;string">Time Instant</rdfs:label>
 		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLES:  A literal instant (as in 12:01.0001 January 1, 2008), or a broader but still single point in time (January 1, 2008). In the latter case, we are declaring a time instant to be an interval with no duration (or really a duration only equal to its precision).</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xsd;string">In gistTop all time instants are greenwich and the local equal universal.  In gistTime we introduce local time zones</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">In gistTop all time instants are Greenwich and the local equal universal.  In gistTime we introduce local time zones</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">NOTE: Our identity criteria require that something refers to each Time Instant instance.</rdfs:comment>
 		<owl:disjointWith rdf:resource="&gist;UnitOfMeasure"/>
 	</owl:Class>
@@ -1011,7 +1011,7 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	
 	<owl:ObjectProperty rdf:about="&gist;hasUoM">
 		<rdfs:label rdf:datatype="&xsd;string">Has Unit of Measure</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">Which unit of measure you are using. All measures are in some uom, even if we don&apos;t know what it is initially.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">Which unit of measure you are using. All measures are expressed in some unit of measure, even if we don&apos;t know what it is initially.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Magnitude"/>
 		<rdfs:range rdf:resource="&gist;UnitOfMeasure"/>
 	</owl:ObjectProperty>
@@ -1020,7 +1020,7 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 		<rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
 		<rdfs:label rdf:datatype="&xsd;string">Identified By</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">This is like a uri: a thing can have more than one ID, but each of the IDs must refer to a unique thing.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">This is like a URI: a thing can have more than one ID, but each of the IDs must refer to a unique thing.</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;ID"/>
 		<owl:inverseOf rdf:resource="&gist;identifies"/>
 	</rdf:Description>
@@ -1041,7 +1041,7 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	
 	<owl:AnnotationProperty rdf:about="&gist;license">
 		<rdfs:label rdf:datatype="&xsd;string">License</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">An annotation for providing the licensing on this or derrivative ontologies</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">An annotation for providing the licensing on this or derivative ontologies</rdfs:comment>
 	</owl:AnnotationProperty>
 	
 	<owl:DatatypeProperty rdf:about="&gist;localDate">
@@ -1065,7 +1065,7 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	
 	<owl:DatatypeProperty rdf:about="&gist;longitude">
 		<rdfs:label rdf:datatype="&xsd;string">Longitude</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">ddegrees from GM</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">degrees from GM</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;GeoPoint"/>
 		<rdfs:range rdf:resource="&xsd;double"/>
 	</owl:DatatypeProperty>
@@ -1111,7 +1111,7 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	
 	<owl:ObjectProperty rdf:about="&gist;owns">
 		<rdfs:label rdf:datatype="&xsd;string">Owns</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">Possessinng and controlling.  Ultimate form of ownership is the right to destroy.  Long list of potential Range classes</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">Possessing and controlling.  Ultimate form of ownership is the right to destroy.  Long list of potential Range classes</rdfs:comment>
 		<rdfs:domain>
 			<owl:Class>
 				<owl:unionOf rdf:parseType="Collection">
@@ -1156,7 +1156,7 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	
 	<owl:ObjectProperty rdf:about="&gist;triggeredBy">
 		<rdfs:label rdf:datatype="&xsd;string">Triggered By</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">general causal relation.  For obligations a property that describes what would happen to trigger the contingent obligation.  In most cases, before the Contingent becomes an Obligation, the triggered by event is a planned event (that is it hasn&apos;t happened yet -- if it had happened the contingency would no longer be contingent.  In most cases it will be  a ContingentEvent .  Otehr uses include controls, processes etc</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">general causal relation.  For obligations a property that describes what would happen to trigger the contingent obligation.  In most cases, before the Contingent becomes an Obligation, the triggered by event is a planned event (that is it hasn&apos;t happened yet -- if it had happened the contingency would no longer be contingent.  In most cases it will be  a ContingentEvent .  Other uses include controls, processes etc</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<rdf:Description rdf:about="&gist;uniqueText">

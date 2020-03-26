@@ -14,7 +14,7 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
 	
 	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistAgreement">
-		<rdfs:comment rdf:datatype="&xs;string">GistAgreement has the basics for all types of contracts</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistAgreement has the basics for all types of contracts</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistAgreement</rdfs:comment>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistIntentionX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistAgreementX.x.x"/>
@@ -180,7 +180,7 @@
 	
 	<owl:Class rdf:about="&gist;Obligation">
 		<rdfs:label rdf:datatype="&xs;string">Obligation</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A future commitment from one organization or person to another. Contracts are sets of obligations to do or forebear, or to indemnify or warrant.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">A future commitment from one organization or person to another. Contracts are sets of obligations to do or forbear, or to indemnify or warrant.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">NOTE: Obligations will often be governed by some Agreement or Offer.</rdfs:comment>
 		<owl:equivalentClass>
 			<owl:Class>
@@ -294,7 +294,7 @@
 	<owl:ObjectProperty rdf:about="&gist;getter">
 		<rdfs:subPropertyOf rdf:resource="&gist;hasParty"/>
 		<rdfs:label rdf:datatype="&xs;string">Getter</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">The reciptient</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">The recipient</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;giver">
@@ -309,7 +309,7 @@
 	
 	<owl:ObjectProperty rdf:about="&gist;hasJurisdiction">
 		<rdfs:label rdf:datatype="&xs;string">Has Jurisdiction</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">when laws and contracts are meeted out</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">when laws and contracts are meted out</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasMagnitude">
