@@ -4,6 +4,7 @@
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY skos "http://www.w3.org/2004/02/skos/core#">
 	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF
@@ -16,7 +17,6 @@
 	
 	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistCore">
 		<rdfs:comment rdf:datatype="&xs;string">gistCore</rdfs:comment>
-		<skos:note rdf:datatype="&xs;string">gistCore</skos:note>
 		<rdfs:comment rdf:datatype="&xs;string">gistCore convienience for including all of gist</rdfs:comment>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistAddressX.x.x"/>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistAgreementX.x.x"/>
@@ -28,6 +28,7 @@
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTemporalRelationX.x.x"/>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistUnitDimX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistCoreX.x.x"/>
+		<skos:note rdf:datatype="&xs;string">gistCore</skos:note>
 		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	

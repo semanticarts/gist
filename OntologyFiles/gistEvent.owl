@@ -4,6 +4,7 @@
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY skos "http://www.w3.org/2004/02/skos/core#">
 	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF
@@ -16,10 +17,10 @@
 	
 	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistEvent">
 		<rdfs:comment rdf:datatype="&xs;string">gistEvent</rdfs:comment>
-		<skos:note rdf:datatype="&xs;string">gistEvent</skos:note>
 		<rdfs:comment rdf:datatype="&xs;string">gistEvent introduces distinctions between planned actual and hypothetical events</rdfs:comment>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTimeX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistEventX.x.x"/>
+		<skos:note rdf:datatype="&xs;string">gistEvent</skos:note>
 		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	
@@ -31,7 +32,6 @@
 	
 	<owl:Class rdf:about="&gist;ContemporaneousEvent">
 		<rdfs:label rdf:datatype="&xs;string">Contemporaneous Event</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Contemporaneous Event</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">An event that actually started after the present time.  When we record an end time, it ceases to be contemperaneous.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">NOTE: All contemporaneous events eventually end and, due to the nature of the open world, we can never be sure that a contemporaneous event has not ended. As a result, this is really a contemporaneous and historical event.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
@@ -47,11 +47,11 @@
 				<owl:maxQualifiedCardinality rdf:datatype="&xs;nonNegativeInteger">0</owl:maxQualifiedCardinality>
 			</owl:Restriction>
 		</owl:intersectionOf>
+		<skos:prefLabel rdf:datatype="&xs;string">Contemporaneous Event</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;ContingentEvent">
 		<rdfs:label rdf:datatype="&xs;string">Contingent Event</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Contingent Event</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">An event with a probability of happening in the future, and usually dependent upon some other event or condition.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Event">
@@ -69,6 +69,7 @@
 				<owl:someValuesFrom rdf:resource="&gist;Percentage"/>
 			</owl:Restriction>
 		</owl:intersectionOf>
+		<skos:prefLabel rdf:datatype="&xs;string">Contingent Event</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Event">
@@ -76,7 +77,6 @@
 	
 	<owl:Class rdf:about="&gist;HistoricalEvent">
 		<rdfs:label rdf:datatype="&xs;string">Historical Event</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Historical Event</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">An event which occurred in time, with an actual end earlier than the present moment.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Event">
@@ -90,11 +90,11 @@
 				<owl:someValuesFrom rdf:resource="&gist;TimeInstant"/>
 			</owl:Restriction>
 		</owl:intersectionOf>
+		<skos:prefLabel rdf:datatype="&xs;string">Historical Event</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;PhysicalEvent">
 		<rdfs:label rdf:datatype="&xs;string">Physical Event</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Physical Event</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">An event that can be said to have occurred at some place in space.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">EXAMPLES:  A meeting, a car accident.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">NEGATIVE EXAMPLES:  Excludes events that have no meaningful location, such as financial events or project milestones.</rdfs:comment>
@@ -106,11 +106,11 @@
 				<owl:someValuesFrom rdf:resource="&gist;Place"/>
 			</owl:Restriction>
 		</owl:intersectionOf>
+		<skos:prefLabel rdf:datatype="&xs;string">Physical Event</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;PlannedEvent">
 		<rdfs:label rdf:datatype="&xs;string">Planned Event</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Planned Event</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">An event which, at the time it is created, is to occur in the future.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Event">
@@ -124,11 +124,11 @@
 				<owl:someValuesFrom rdf:resource="&gist;TimeInstant"/>
 			</owl:Restriction>
 		</owl:intersectionOf>
+		<skos:prefLabel rdf:datatype="&xs;string">Planned Event</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Project">
 		<rdfs:label rdf:datatype="&xs;string">Project</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Project</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">A project is a task (usually a longer duration task) made up of other tasks.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Task">
@@ -138,11 +138,11 @@
 				<owl:someValuesFrom rdf:resource="&gist;Task"/>
 			</owl:Restriction>
 		</owl:intersectionOf>
+		<skos:prefLabel rdf:datatype="&xs;string">Project</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;ScheduledTask">
 		<rdfs:label rdf:datatype="&xs;string">Scheduled Task</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Scheduled Task</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">A task which is planned to occur.  When it was scheduled, it would have been in the future, but now might be in the past.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;PlannedEvent">
@@ -150,11 +150,11 @@
 			<rdf:Description rdf:about="&gist;Task">
 			</rdf:Description>
 		</owl:intersectionOf>
+		<skos:prefLabel rdf:datatype="&xs;string">Scheduled Task</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Task">
 		<rdfs:label rdf:datatype="&xs;string">Task</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Task</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">A task which has been defined and either scheduled or accomplished, or both.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Event">
@@ -164,11 +164,11 @@
 				<owl:someValuesFrom rdf:resource="&gist;Intention"/>
 			</owl:Restriction>
 		</owl:intersectionOf>
+		<skos:prefLabel rdf:datatype="&xs;string">Task</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;TaskTemplate">
 		<rdfs:label rdf:datatype="&xs;string">Template Task</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Template Task</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">An outline of a task of a particular type, which will, when instantiated, generate an actual (unscheduled) task.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Template">
@@ -178,6 +178,7 @@
 				<owl:someValuesFrom rdf:resource="&gist;Intention"/>
 			</owl:Restriction>
 		</owl:intersectionOf>
+		<skos:prefLabel rdf:datatype="&xs;string">Template Task</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Template">
@@ -196,9 +197,9 @@
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;directSubTaskOf">
-		<rdfs:label rdf:datatype="&xs;string">Direct Sub-Task Of</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Direct Sub-Task Of</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">direct sub-task of</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Immediate parent task</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">direct sub-task of</skos:prefLabel>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;end">
@@ -206,18 +207,18 @@
 	
 	<owl:ObjectProperty rdf:about="&gist;hasDirectSubTask">
 		<rdfs:subPropertyOf rdf:resource="&gist;hasSubTask"/>
-		<rdfs:label rdf:datatype="&xs;string">Has Direct Sub-Task</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Has Direct Sub-Task</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">has direct sub-task</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Immediate child task</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Task"/>
 		<rdfs:range rdf:resource="&gist;Task"/>
 		<owl:inverseOf rdf:resource="&gist;directSubTaskOf"/>
+		<skos:prefLabel rdf:datatype="&xs;string">has direct sub-task</skos:prefLabel>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasGoal">
-		<rdfs:label rdf:datatype="&xs;string">Has Goal</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Has Goal</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">has goal</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">The reason for doing something</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">has goal</skos:prefLabel>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasMagnitude">
@@ -226,63 +227,63 @@
 	<rdf:Description rdf:about="&gist;hasSubTask">
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
 		<rdf:type rdf:resource="&owl;TransitiveProperty"/>
-		<rdfs:label rdf:datatype="&xs;string">Has Sub-Task</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Has Sub-Task</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">has sub-task</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">A task which is part of a larger task. The timeframe of the sub-tasks may overlap, but may not extend beyond the timeframe of the parent task. A sub-task may be part of more than one parent task.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Task"/>
 		<rdfs:range rdf:resource="&gist;Task"/>
 		<owl:inverseOf rdf:resource="&gist;subTaskOf"/>
+		<skos:prefLabel rdf:datatype="&xs;string">has sub-task</skos:prefLabel>
 	</rdf:Description>
 	
 	<owl:ObjectProperty rdf:about="&gist;lastModifiedOn">
 		<rdfs:subPropertyOf rdf:resource="&gist;actual"/>
-		<rdfs:label rdf:datatype="&xs;string">Last Modified On</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Last Modified On</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">last modified on</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Date on which something was modified.</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;TimeInstant"/>
+		<skos:prefLabel rdf:datatype="&xs;string">last modified on</skos:prefLabel>
 	</owl:ObjectProperty>
 	
 	<owl:AnnotationProperty rdf:about="&gist;license">
 	</owl:AnnotationProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;occursAt">
-		<rdfs:label rdf:datatype="&xs;string">Occur At</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Occur At</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">occur at</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">The geospatial place where something happened or will happen</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">occur at</skos:prefLabel>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;planned">
-		<rdfs:label rdf:datatype="&xs;string">Planned</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Planned</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">planned</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Date that was in the future at the time it were set.</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;TimeInstant"/>
+		<skos:prefLabel rdf:datatype="&xs;string">planned</skos:prefLabel>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;plannedEnd">
 		<rdfs:subPropertyOf rdf:resource="&gist;end"/>
 		<rdfs:subPropertyOf rdf:resource="&gist;planned"/>
-		<rdfs:label rdf:datatype="&xs;string">Planned End</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Planned End</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">planned end</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">A date/time that was, at least at some point in time, in the future. It may be in the past now; but when it was planned, it was in the future.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">NOTE:  Most frequently applies to Event(s) and Offer(s). E.g. a conference or sale offer.</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;TimeInstant"/>
+		<skos:prefLabel rdf:datatype="&xs;string">planned end</skos:prefLabel>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;plannedStart">
 		<rdfs:subPropertyOf rdf:resource="&gist;planned"/>
 		<rdfs:subPropertyOf rdf:resource="&gist;start"/>
-		<rdfs:label rdf:datatype="&xs;string">Planned Start</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Planned Start</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">planned start</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">A date/time that was, at least at some point in time, in the future. It may be in the past now, but when it was planned, it was in the future.</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;TimeInstant"/>
+		<skos:prefLabel rdf:datatype="&xs;string">planned start</skos:prefLabel>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;recordedOn">
 		<rdfs:subPropertyOf rdf:resource="&gist;actual"/>
-		<rdfs:label rdf:datatype="&xs;string">Recorded On</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Recorded On</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">recorded on</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Date on which something was posted, not necessarily the date it occurred. Must be on or after the occurred date, but could be before or after the planned date. (Unusual, but I could record today that I expected to be paid last week.)</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;TimeInstant"/>
+		<skos:prefLabel rdf:datatype="&xs;string">recorded on</skos:prefLabel>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;start">
@@ -291,9 +292,9 @@
 	<rdf:Description rdf:about="&gist;subTaskOf">
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
 		<rdf:type rdf:resource="&owl;TransitiveProperty"/>
-		<rdfs:label rdf:datatype="&xs;string">Sub-Task Of</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Sub-Task Of</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">sub-task of</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">All the upper tasks to which this task belongs.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">sub-task of</skos:prefLabel>
 	</rdf:Description>
 
 </rdf:RDF>

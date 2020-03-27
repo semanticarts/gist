@@ -4,6 +4,7 @@
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY skos "http://www.w3.org/2004/02/skos/core#">
 	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF
@@ -17,9 +18,9 @@
 	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistTemporalRelation">
 		<rdfs:comment rdf:datatype="&xs;string">gistTe3mporal the parent class of all Temporal Relations</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistTemporalRelation</rdfs:comment>
-		<skos:note rdf:datatype="&xs;string">gistTemporalRelation</skos:note>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTimeX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistTemporalRelationX.x.x"/>
+		<skos:note rdf:datatype="&xs;string">gistTemporalRelation</skos:note>
 		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	
@@ -50,16 +51,16 @@
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:label rdf:datatype="&xs;string">Temporal Relation</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Temporal Relation</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">A relationship existing for a period of time. One important context for reifying a property.</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">EXAMPLES:  employs-Employment, hasStreetAddress-EstablishedLocation. </rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">EXAMPLES:  employs-Employment, hasStreetAddress-EstablishedLocation.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">NOTE: A temporal relation must be gist:connectedTo a minimum of two objects. For example, a temporal relation representing a period of employment is connected both to the person and to the role/position they held.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">Temporal Relation</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:ObjectProperty rdf:about="&gist;connectedTo">
-		<rdfs:label rdf:datatype="&xs;string">Connected To</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Connected To</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">connected to</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">A non-owning, non-causal, non-subordinate (ie. peer-to-peer) relationship.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">connected to</skos:prefLabel>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;end">

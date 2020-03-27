@@ -4,6 +4,7 @@
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY skos "http://www.w3.org/2004/02/skos/core#">
 	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF
@@ -17,9 +18,9 @@
 	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistAddress">
 		<rdfs:comment rdf:datatype="&xs;string">gist:Address where we have the various kinds of addresses (postal, building as well as electronic)</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">gistAddress</rdfs:comment>
-		<skos:note rdf:datatype="&xs;string">gistAddress</skos:note>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistPlaceX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistAddressX.x.x"/>
+		<skos:note rdf:datatype="&xs;string">gistAddress</skos:note>
 		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	
@@ -32,8 +33,8 @@
 	<owl:Class rdf:about="&gist;Address">
 		<rdfs:subClassOf rdf:resource="&gist;Content"/>
 		<rdfs:label rdf:datatype="&xs;string">Address</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Address</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">A reference to a place (real or virtual) that can be located by some routing algorithm, and where messages or things can be sent to or retrieved from. E.g. PO Box or URL to a pdf file.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">Address</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;BuildingAddress">
@@ -45,8 +46,8 @@
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:label rdf:datatype="&xs;string">Building Address</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Building Address</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">An address to which you can send mail, or that you could find in the physical world.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">Building Address</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Content">
@@ -55,8 +56,8 @@
 	<owl:Class rdf:about="&gist;ElectronicMessageAddress">
 		<rdfs:subClassOf rdf:resource="&gist;Address"/>
 		<rdfs:label rdf:datatype="&xs;string">Electronic Message Address</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Electronic Message Address</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">Any place an electronic message (email, fax, etc.) can be sent.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">Electronic Message Address</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Organization">
@@ -68,48 +69,48 @@
 	<owl:Class rdf:about="&gist;PostalAddress">
 		<rdfs:subClassOf rdf:resource="&gist;Address"/>
 		<rdfs:label rdf:datatype="&xs;string">Postal Address</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Postal Address</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">A set of codes the postal authorities can use to deliver physical mail.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">EXAMPLES: a street address, a PO Box, an FPO code, or the route codes.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">Postal Address</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;TelephoneNumber">
 		<rdfs:subClassOf rdf:resource="&gist;Address"/>
 		<rdfs:label rdf:datatype="&xs;string">Telephone Number</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Telephone Number</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">A numeric code a telephonic device uses for contacting another telephonic device.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">EXAMPLES:  Mobile, fax, or landline phone number.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">Telephone Number</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:ObjectProperty rdf:about="&gist;communicationAddressOf">
-		<rdfs:label rdf:datatype="&xs;string">Communication Address Of</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Communication Address Of</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">communication address of</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Whose address this is.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">communication address of</skos:prefLabel>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasCommunicationAddress">
-		<rdfs:label rdf:datatype="&xs;string">Has Communication Address</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Has Communication Address</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">has communication address</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Points to a general class of places you can send messages, including postal addresses, fax numbers, phone numbers, email addresses, web sites, etc.</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;Address"/>
 		<owl:inverseOf rdf:resource="&gist;communicationAddressOf"/>
+		<skos:prefLabel rdf:datatype="&xs;string">has communication address</skos:prefLabel>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasStreetAddress">
-		<rdfs:label rdf:datatype="&xs;string">Has Street Address</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Has Street Address</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">has street address</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">A place that can be found on a map, having geo-coordinates; you could live or work there.</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;BuildingAddress"/>
 		<owl:inverseOf rdf:resource="&gist;streetAddressOf"/>
+		<skos:prefLabel rdf:datatype="&xs;string">has street address</skos:prefLabel>
 	</owl:ObjectProperty>
 	
 	<owl:AnnotationProperty rdf:about="&gist;license">
 	</owl:AnnotationProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;streetAddressOf">
-		<rdfs:label rdf:datatype="&xs;string">Street Address Of</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Street Address Of</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">street address of</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Whose street address this is.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">street address of</skos:prefLabel>
 	</owl:ObjectProperty>
 
 </rdf:RDF>

@@ -4,6 +4,7 @@
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY skos "http://www.w3.org/2004/02/skos/core#">
 	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF
@@ -16,10 +17,10 @@
 	
 	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistIntention">
 		<rdfs:comment rdf:datatype="&xs;string">gistIntention</rdfs:comment>
-		<skos:note rdf:datatype="&xs;string">gistIntention</skos:note>
 		<rdfs:comment rdf:datatype="&xs;string">gistIntention the Teleological aspect of systems.  Whey are we doing something.</rdfs:comment>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTopX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistIntentionX.x.x"/>
+		<skos:note rdf:datatype="&xs;string">gistIntention</skos:note>
 		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	
@@ -34,7 +35,6 @@
 	
 	<owl:Class rdf:about="&gist;BundledCatalogItem">
 		<rdfs:label rdf:datatype="&xs;string">Bundled Catalog Item</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Bundled Catalog Item</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">Any combination of descriptions of things offered together.  Could be a kit (several parts offered together), but could also be a product plus a warranty.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;CatalogItem">
@@ -44,14 +44,15 @@
 				<owl:someValuesFrom rdf:resource="&gist;CatalogItem"/>
 			</owl:Restriction>
 		</owl:intersectionOf>
+		<skos:prefLabel rdf:datatype="&xs;string">Bundled Catalog Item</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;CatalogItem">
 		<rdfs:subClassOf rdf:resource="&gist;Specification"/>
 		<rdfs:label rdf:datatype="&xs;string">Catalog Item</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Catalog Item</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">A description of a product or service to be delivered, given in a sufficient level of detail that a receiver could determine whether delivery constituted discharge of the obligation to deliver.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">NOTE: In short, an unambiguous characterization of what it is that a potential buyer is paying for.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">Catalog Item</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Category">
@@ -60,8 +61,8 @@
 	<owl:Class rdf:about="&gist;Goal">
 		<rdfs:subClassOf rdf:resource="&gist;Intention"/>
 		<rdfs:label rdf:datatype="&xs;string">Goal</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Goal</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">A specific intentional endpoint.  One can tell whether it has been achieved, as opposed to an intention, which may not have an evaluation function.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">Goal</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Intention">
@@ -69,7 +70,6 @@
 	
 	<owl:Class rdf:about="&gist;Permission">
 		<rdfs:label rdf:datatype="&xs;string">Permission</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Permission</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">A description of things one is permitted to do. This could be broad, such as free speech, but more often is very specific, such as the right of egress through a particular property.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Intention">
@@ -79,18 +79,18 @@
 				<owl:someValuesFrom rdf:resource="&gist;Behavior"/>
 			</owl:Restriction>
 		</owl:intersectionOf>
+		<skos:prefLabel rdf:datatype="&xs;string">Permission</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;ProductCategory">
 		<rdfs:subClassOf rdf:resource="&gist;Category"/>
 		<rdfs:label rdf:datatype="&xs;string">Product Category</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Product Category</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">Any of many ways of categorizing products, including models, NATO product codes, and the like.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">Product Category</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;ProductSpecification">
 		<rdfs:label rdf:datatype="&xs;string">Product Specification</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Product Specification</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">Description of an offering of something which could be physically warehoused or digitally stored.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;CatalogItem">
@@ -100,18 +100,18 @@
 				<owl:someValuesFrom rdf:resource="&gist;ProductCategory"/>
 			</owl:Restriction>
 		</owl:intersectionOf>
+		<skos:prefLabel rdf:datatype="&xs;string">Product Specification</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Requirement">
 		<rdfs:subClassOf rdf:resource="&gist;Intention"/>
 		<rdfs:label rdf:datatype="&xs;string">Requirement</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Requirement</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">A documented physical or functional need that a particular design, product, or process must be able to fulfill.  Alternately, the obligation of a person or organization to behave in a certain way (i.e., drive on the right side of the road).</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">Requirement</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Restriction">
 		<rdfs:label rdf:datatype="&xs;string">Restriction</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Restriction</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">A description of things one is prevented from doing.  Most laws are restrictions.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Intention">
@@ -121,11 +121,11 @@
 				<owl:someValuesFrom rdf:resource="&gist;Behavior"/>
 			</owl:Restriction>
 		</owl:intersectionOf>
+		<skos:prefLabel rdf:datatype="&xs;string">Restriction</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;ServiceSpecification">
 		<rdfs:label rdf:datatype="&xs;string">Service Specification</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Service Specification</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">A description of something that can be done for a person or organization (which produces some form of an act).</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;CatalogItem">
@@ -135,41 +135,42 @@
 				<owl:someValuesFrom rdf:resource="&gist;Event"/>
 			</owl:Restriction>
 		</owl:intersectionOf>
+		<skos:prefLabel rdf:datatype="&xs;string">Service Specification</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Specification">
 		<rdfs:subClassOf rdf:resource="&gist;Requirement"/>
 		<rdfs:label rdf:datatype="&xs;string">Specification</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Specification</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">A set of requirements to be satisfied by a material, design, product, or service.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">Specification</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:ObjectProperty rdf:about="&gist;allows">
-		<rdfs:label rdf:datatype="&xs;string">Allows</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Allows</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">allows</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">The intention (say a grant) allows a particular kind of activity (for instance egress).</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Intention"/>
 		<rdfs:range rdf:resource="&gist;Behavior"/>
+		<skos:prefLabel rdf:datatype="&xs;string">allows</skos:prefLabel>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;basedOn">
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;basisFor">
-		<rdfs:label rdf:datatype="&xs;string">Basis For</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Basis For</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">basis for</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Reason for an event.</rdfs:comment>
 		<owl:inverseOf rdf:resource="&gist;basedOn"/>
+		<skos:prefLabel rdf:datatype="&xs;string">basis for</skos:prefLabel>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;categorizedBy">
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;conformsTo">
-		<rdfs:label rdf:datatype="&xs;string">Conforms To</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Conforms To</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">conforms to</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">The Subject conforms to the Object intention, e.g. meets an obligation, meets terms of an offer, adheres to a specification.</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;Intention"/>
+		<skos:prefLabel rdf:datatype="&xs;string">conforms to</skos:prefLabel>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasDirectPart">
@@ -179,19 +180,19 @@
 	</owl:AnnotationProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;prevents">
-		<rdfs:label rdf:datatype="&xs;string">Prevents</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Prevents</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">prevents</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">The intention (say a law) is intended to prevent Object behavior (e.g., jaywalking).</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Intention"/>
 		<rdfs:range rdf:resource="&gist;Behavior"/>
+		<skos:prefLabel rdf:datatype="&xs;string">prevents</skos:prefLabel>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;requires">
-		<rdfs:label rdf:datatype="&xs;string">Requires</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Requires</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">requires</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">The Subject intention that sets out a state of satisfaction (i.e., you are required to drive on right side of the road).</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Intention"/>
 		<rdfs:range rdf:resource="&gist;Behavior"/>
+		<skos:prefLabel rdf:datatype="&xs;string">requires</skos:prefLabel>
 	</owl:ObjectProperty>
 
 </rdf:RDF>

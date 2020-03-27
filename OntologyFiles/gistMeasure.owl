@@ -4,6 +4,7 @@
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY skos "http://www.w3.org/2004/02/skos/core#">
 	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF
@@ -16,10 +17,10 @@
 	
 	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistMeasure">
 		<rdfs:comment rdf:datatype="&xs;string">gistMeasure</rdfs:comment>
-		<skos:note rdf:datatype="&xs;string">gistMeasure</skos:note>
 		<rdfs:comment rdf:datatype="&xs;string">gistMeasure adds the act of measuring to magnitude</rdfs:comment>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistEventX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistMeasureX.x.x"/>
+		<skos:note rdf:datatype="&xs;string">gistMeasure</skos:note>
 		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	
@@ -29,8 +30,8 @@
 	<owl:Class rdf:about="&gist;Aspect">
 		<rdfs:subClassOf rdf:resource="&gist;Category"/>
 		<rdfs:label rdf:datatype="&xs;string">Aspect</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Aspect</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">A very general term for the characteristic of something that is being measured.  E.g., property (height) or a process (cycle time) or a behavior (loyalty).</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">Aspect</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Category">
@@ -48,8 +49,8 @@
 	<owl:Class rdf:about="&gist;OrderedCollection">
 		<rdfs:subClassOf rdf:resource="&gist;Collection"/>
 		<rdfs:label rdf:datatype="&xs;string">Ordered Collection</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Ordered Collection</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">A collection where the members are in a fixed sequence.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">Ordered Collection</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;OrdinalCollection">
@@ -61,8 +62,8 @@
 			</owl:Restriction>
 		</rdfs:subClassOf>
 		<rdfs:label rdf:datatype="&xs;string">Ordinal Collection</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Ordinal Collection</skos:prefLabel>
-		<rdfs:comment rdf:datatype="&xs;string">An Ordered Collection where no item can be of the same rank as any other item.  In mathematical terms, this is a 'strict total order'.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">An Ordered Collection where no item can be of the same rank as any other item.  In mathematical terms, this is a &apos;strict total order&apos;.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">Ordinal Collection</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;OrdinalMember">
@@ -82,7 +83,6 @@
 			</owl:Class>
 		</rdfs:subClassOf>
 		<rdfs:label rdf:datatype="&xs;string">Ordinal Member</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Ordinal Member</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">A member of an Ordinal Collection.  It necessarily precedes or is preceded by another Ordinal Member in the same collection. (This last condition cannot be formally stated in OWL).</rdfs:comment>
 		<owl:equivalentClass>
 			<owl:Restriction>
@@ -90,6 +90,7 @@
 				<owl:someValuesFrom rdf:resource="&gist;OrdinalCollection"/>
 			</owl:Restriction>
 		</owl:equivalentClass>
+		<skos:prefLabel rdf:datatype="&xs;string">Ordinal Member</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Organization">
@@ -104,28 +105,28 @@
 	<owl:Class rdf:about="&gist;ReferenceValue">
 		<rdfs:subClassOf rdf:resource="&gist;Magnitude"/>
 		<rdfs:label rdf:datatype="&xs;string">Reference Value</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Reference Value</skos:prefLabel>
 		<rdfs:comment rdf:datatype="&xs;string">A measure that was neither measured nor estimated, but was set by fiat. For instance, a goal. There is no Measurement associated with a Reference Value.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">Reference Value</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:ObjectProperty rdf:about="&gist;aspectOf">
-		<rdfs:label rdf:datatype="&xs;string">Aspect Of</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Aspect Of</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">aspect of</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">What this aspect is referring to.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">aspect of</skos:prefLabel>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;directlyPrecededBy">
-		<rdfs:label rdf:datatype="&xs;string">Directly Preceded By</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Directly Preceded By</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">directly preceded by</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">Inverse of directly precedes.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">directly preceded by</skos:prefLabel>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;directlyPrecedes">
 		<rdfs:subPropertyOf rdf:resource="&gist;precedes"/>
-		<rdfs:label rdf:datatype="&xs;string">Directly Precedes</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Directly Precedes</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">directly precedes</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">A generic ordering relation indicating that the Subject comes immediately before the Object.</rdfs:comment>
 		<owl:inverseOf rdf:resource="&gist;directlyPrecededBy"/>
+		<skos:prefLabel rdf:datatype="&xs;string">directly precedes</skos:prefLabel>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasMember">
@@ -135,10 +136,10 @@
 		<rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
 		<rdfs:subPropertyOf rdf:resource="&gist;hasMember"/>
-		<rdfs:label rdf:datatype="&xs;string">Has Ordered Member</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Has Ordered Member</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">has ordered member</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">An inverse functional version of hasMember, intended to ensure that no OrderedMember can be in more than one OrderedCollection.</rdfs:comment>
 		<owl:inverseOf rdf:resource="&gist;orderedMemberOf"/>
+		<skos:prefLabel rdf:datatype="&xs;string">has ordered member</skos:prefLabel>
 	</rdf:Description>
 	
 	<owl:AnnotationProperty rdf:about="&gist;license">
@@ -147,18 +148,18 @@
 	<rdf:Description rdf:about="&gist;orderedMemberOf">
 		<rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
-		<rdfs:label rdf:datatype="&xs;string">Ordered Member Of</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Ordered Member Of</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">ordered member of</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">An inverse of hasOrderedMember.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">ordered member of</skos:prefLabel>
 	</rdf:Description>
 	
 	<rdf:Description rdf:about="&gist;precedes">
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
 		<rdf:type rdf:resource="&owl;TransitiveProperty"/>
-		<rdfs:label rdf:datatype="&xs;string">Precedes</rdfs:label>
-<skos:prefLabel rdf:datatype="&xs;string">Precedes</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">precedes</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">A generic ordering relation indicating that the Subject has the same order as, or comes before, the Object.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">The &apos;greater than or equal to&apos; symbol is often used for this relation.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">precedes</skos:prefLabel>
 	</rdf:Description>
 	
 	<owl:DatatypeProperty rdf:about="&gist;sequence">

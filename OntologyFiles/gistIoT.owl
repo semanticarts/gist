@@ -4,7 +4,8 @@
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY skos "http://www.w3.org/2004/02/skos/core#">
+	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF
 	xmlns="https://ontologies.semanticarts.com/o/gistIoT#"
@@ -16,12 +17,12 @@
 	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
 	
 	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistIoT">
-		<rdfs:comment rdf:datatype="&xsd;string">gist Internet of Things.  This is meant to be the minimal covering concepts for IoT.</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xsd;string">gistIoT</rdfs:comment>
-		<skos:note rdf:datatype="&xsd;string">gistIoT</skos:note>
+		<rdfs:comment rdf:datatype="&xs;string">gist Internet of Things.  This is meant to be the minimal covering concepts for IoT.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistIoT</rdfs:comment>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistNetworkX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistIoTX.x.x"/>
-		<gist:license rdf:datatype="&xsd;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
+		<skos:note rdf:datatype="&xs;string">gistIoT</skos:note>
+		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	
 	<owl:AnnotationProperty rdf:about="&rdfs;label">
@@ -29,18 +30,17 @@
 	
 	<owl:Class rdf:about="&gist;Actuator">
 		<rdfs:subClassOf rdf:resource="&gist;Equipment"/>
-		<rdfs:label rdf:datatype="&xsd;string">Actuator</rdfs:label>
-<skos:prefLabel rdf:datatype="&xsd;string">Actuator</skos:prefLabel>
-		<rdfs:comment rdf:datatype="&xsd;string">A device that can affect the real world via a message interface.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xs;string">Actuator</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A device that can affect the real world via a message interface.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">Actuator</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Category">
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Controller">
-		<rdfs:label rdf:datatype="&xsd;string">Controller</rdfs:label>
-<skos:prefLabel rdf:datatype="&xsd;string">Controller</skos:prefLabel>
-		<rdfs:comment rdf:datatype="&xsd;string">A device that takes messsages or signals from a sensor and decides through algorithms whether and which actuator to fire via messages.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xs;string">Controller</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A device that takes messsages or signals from a sensor and decides through algorithms whether and which actuator to fire via messages.</rdfs:comment>
 		<owl:equivalentClass>
 			<owl:Class>
 				<owl:intersectionOf rdf:parseType="Collection">
@@ -61,12 +61,13 @@
 				</owl:intersectionOf>
 			</owl:Class>
 		</owl:equivalentClass>
+		<skos:prefLabel rdf:datatype="&xs;string">Controller</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;ControllerType">
 		<rdfs:subClassOf rdf:resource="&gist;Category"/>
-		<rdfs:label rdf:datatype="&xsd;string">Controller Type</rdfs:label>
-<skos:prefLabel rdf:datatype="&xsd;string">Controller Type</skos:prefLabel>
+		<rdfs:label rdf:datatype="&xs;string">Controller Type</rdfs:label>
+		<skos:prefLabel rdf:datatype="&xs;string">Controller Type</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Equipment">
@@ -74,23 +75,23 @@
 	
 	<owl:Class rdf:about="&gist;MessageDefinition">
 		<rdfs:subClassOf rdf:resource="&gist;SchemaMetaData"/>
-		<rdfs:label rdf:datatype="&xsd;string">Message Definition</rdfs:label>
-<skos:prefLabel rdf:datatype="&xsd;string">Message Definition</skos:prefLabel>
-		<rdfs:comment rdf:datatype="&xsd;string">Each pulse from a Sensor is reflected in a message, as well as each instruction to an Actuator.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xs;string">Message Definition</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">Each pulse from a Sensor is reflected in a message, as well as each instruction to an Actuator.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">Message Definition</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;PhenomenaType">
 		<rdfs:subClassOf rdf:resource="&gist;Category"/>
-		<rdfs:label rdf:datatype="&xsd;string">Phenomena Type</rdfs:label>
-<skos:prefLabel rdf:datatype="&xsd;string">Phenomena Type</skos:prefLabel>
-		<rdfs:comment rdf:datatype="&xsd;string">The things that a sensor can sense, such as light, heat, current, moisture, etc.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xs;string">Phenomena Type</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">The things that a sensor can sense, such as light, heat, current, moisture, etc.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">Phenomena Type</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;PhysicalActionType">
 		<rdfs:subClassOf rdf:resource="&gist;Category"/>
-		<rdfs:label rdf:datatype="&xsd;string">Physical Action Type</rdfs:label>
-<skos:prefLabel rdf:datatype="&xsd;string">Physical Action Type</skos:prefLabel>
-		<rdfs:comment rdf:datatype="&xsd;string">The effects to be realized in the real world, such as lifting a garage door, turning off a valve, dropping cadmium rods, etc.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xs;string">Physical Action Type</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">The effects to be realized in the real world, such as lifting a garage door, turning off a valve, dropping cadmium rods, etc.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">Physical Action Type</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;SchemaMetaData">
@@ -98,24 +99,24 @@
 	
 	<owl:Class rdf:about="&gist;Sensor">
 		<rdfs:subClassOf rdf:resource="&gist;Equipment"/>
-		<rdfs:label rdf:datatype="&xsd;string">Sensor</rdfs:label>
-<skos:prefLabel rdf:datatype="&xsd;string">Sensor</skos:prefLabel>
-		<rdfs:comment rdf:datatype="&xsd;string">A device that can detect something and report it. Examples: light sensors, temperature sensors.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xs;string">Sensor</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">A device that can detect something and report it. Examples: light sensors, temperature sensors.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">Sensor</skos:prefLabel>
 	</owl:Class>
 	
 	<owl:ObjectProperty rdf:about="&gist;accepts">
-		<rdfs:label rdf:datatype="&xsd;string">Accepts</rdfs:label>
-<skos:prefLabel rdf:datatype="&xsd;string">Accepts</skos:prefLabel>
-		<rdfs:comment rdf:datatype="&xsd;string">The types of input messages that will be allowed.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xs;string">accepts</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">The types of input messages that will be allowed.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">accepts</skos:prefLabel>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;categorizedBy">
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;directs">
-		<rdfs:label rdf:datatype="&xsd;string">Directs</rdfs:label>
-<skos:prefLabel rdf:datatype="&xsd;string">Directs</skos:prefLabel>
-		<rdfs:comment rdf:datatype="&xsd;string">The set of actuators that a controller can affect.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xs;string">directs</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">The set of actuators that a controller can affect.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">directs</skos:prefLabel>
 	</owl:ObjectProperty>
 	
 	<owl:AnnotationProperty rdf:about="&gist;license">
@@ -125,15 +126,15 @@
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;respondsTo">
-		<rdfs:label rdf:datatype="&xsd;string">Responds To</rdfs:label>
-<skos:prefLabel rdf:datatype="&xsd;string">Responds To</skos:prefLabel>
-		<rdfs:comment rdf:datatype="&xsd;string">The set of sensors to which a controller is attached.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xs;string">responds to</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">The set of sensors to which a controller is attached.</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">responds to</skos:prefLabel>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;viableRange">
-		<rdfs:label rdf:datatype="&xsd;string">Viable Range</rdfs:label>
-<skos:prefLabel rdf:datatype="&xsd;string">Viable Range</skos:prefLabel>
-		<rdfs:comment rdf:datatype="&xsd;string">The area over which the sensor can sense input. (This might be a small geospatial area or a specific wire in a circuit.)</rdfs:comment>
+		<rdfs:label rdf:datatype="&xs;string">viable range</rdfs:label>
+		<rdfs:comment rdf:datatype="&xs;string">The area over which the sensor can sense input. (This might be a small geospatial area or a specific wire in a circuit.)</rdfs:comment>
+		<skos:prefLabel rdf:datatype="&xs;string">viable range</skos:prefLabel>
 	</owl:ObjectProperty>
 
 </rdf:RDF>
