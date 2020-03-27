@@ -17,7 +17,7 @@
 	
 	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistTime">
 		<rdfs:comment rdf:datatype="&xs;string">gistTime</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">gistTime how timezones and some common precisions are modeled</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistTime how time zones and some common precisions are modeled</rdfs:comment>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTopX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistTimeX.x.x"/>
 		<skos:note rdf:datatype="&xs;string">gistTime</skos:note>
@@ -56,6 +56,7 @@
 	<owl:Class rdf:about="&gist;GreenwichInstant">
 		<rdfs:label rdf:datatype="&xs;string">Greenwich Instant</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">By default, time instants are expressed in Greenwich Mean Time, if you need to be explicit (to calculate offset, for instance).</rdfs:comment>
+
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;TimeInstant">
 			</rdf:Description>

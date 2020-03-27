@@ -17,7 +17,7 @@
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
 	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistTop">
-		<rdfs:comment rdf:datatype="&xsd;string">All the high level gist classes and key relastionships.  Most disjoints are declared at this level</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">All the high-level gist classes and key relationships.  Most disjoints are declared at this level</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">gistTop</rdfs:comment>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistTopX.x.x"/>
 		<skos:note rdf:datatype="&xsd;string">gistTop</skos:note>
