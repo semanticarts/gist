@@ -12,7 +12,7 @@ Serialization
 -----
 
 - gist OWL files are serialized in RDF/XML. 
-- The serialization tool, `serialize.sh` (Mac/Linus) or `serialize.bat` (Windows), should be run before each commit in order to standardize formatting and eliminate noise in git diffs. It is recommended to automate this as a pre-commit hook.
+- The serialization tool, `serialize.sh` (Mac/Linus) or `serialize.bat` (Windows), should be run before each commit in order to standardize formatting and eliminate noise in git diffs. It is recommended to automate this as a pre-commit hook. Details on this are available from the [EDM Council](https://wiki.edmcouncil.org/display/FIBORDFKIT/Installing+and+Using+the+EDMC+RDF+Serializer)
 
 Naming
 -----
