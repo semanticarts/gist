@@ -706,38 +706,16 @@
 				<owl:intersectionOf rdf:parseType="Collection">
 					<rdf:Description rdf:about="&gist;ProductUnit">
 					</rdf:Description>
-					<owl:Class>
-						<owl:unionOf rdf:parseType="Collection">
-							<owl:Class>
-								<owl:intersectionOf rdf:parseType="Collection">
-									<owl:Restriction>
-										<owl:onProperty rdf:resource="&gist;multiplicand"/>
-										<owl:onClass rdf:resource="&gist;AreaUnit"/>
-										<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-									</owl:Restriction>
-									<owl:Restriction>
-										<owl:onProperty rdf:resource="&gist;multiplier"/>
-										<owl:onClass rdf:resource="&gist;DistanceUnit"/>
-										<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-									</owl:Restriction>
-								</owl:intersectionOf>
-							</owl:Class>
-							<owl:Class>
-								<owl:intersectionOf rdf:parseType="Collection">
-									<owl:Restriction>
-										<owl:onProperty rdf:resource="&gist;multiplicand"/>
-										<owl:onClass rdf:resource="&gist;DistanceUnit"/>
-										<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-									</owl:Restriction>
-									<owl:Restriction>
-										<owl:onProperty rdf:resource="&gist;multiplier"/>
-										<owl:onClass rdf:resource="&gist;AreaUnit"/>
-										<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-									</owl:Restriction>
-								</owl:intersectionOf>
-							</owl:Class>
-						</owl:unionOf>
-					</owl:Class>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;multiplicand"/>
+						<owl:onClass rdf:resource="&gist;AreaUnit"/>
+						<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+					</owl:Restriction>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;multiplier"/>
+						<owl:onClass rdf:resource="&gist;DistanceUnit"/>
+						<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+					</owl:Restriction>
 				</owl:intersectionOf>
 			</owl:Class>
 		</owl:equivalentClass>
