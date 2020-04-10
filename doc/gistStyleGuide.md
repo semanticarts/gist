@@ -16,7 +16,7 @@ Serialization
 - It is recommended to run this as a [pre-commit hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) in your git repository to circumvent memory lapses. This can be done in one of two ways:
   - Run the serialization tool, `serialize.sh` (Mac/Linux) or `serialize.bat` (Windows), which calls rdf-toolkit.jar on a set of files, and create a simple pre-commit hook to automate it.
   - Use the [pre-commit hook provided by the EDM Council] (https://github.com/edmcouncil/rdf-toolkit/blob/master/etc/git-hook/pre-commit).
-  
+
 
 Naming
 -----
