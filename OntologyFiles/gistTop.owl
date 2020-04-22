@@ -54,11 +54,13 @@
 					</rdf:Description>
 					<owl:Restriction>
 						<owl:onProperty rdf:resource="&gist;multiplicand"/>
-						<owl:someValuesFrom rdf:resource="&gist;DistanceUnit"/>
+						<owl:onClass rdf:resource="&gist;DistanceUnit"/>
+						<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
 					</owl:Restriction>
 					<owl:Restriction>
 						<owl:onProperty rdf:resource="&gist;multiplier"/>
-						<owl:someValuesFrom rdf:resource="&gist;DistanceUnit"/>
+						<owl:onClass rdf:resource="&gist;DistanceUnit"/>
+						<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
 					</owl:Restriction>
 				</owl:intersectionOf>
 			</owl:Class>
@@ -154,6 +156,8 @@
 	<owl:Class rdf:about="&gist;DistanceUnit">
 		<rdfs:label rdf:datatype="&xsd;string">Distance Unit</rdfs:label>
 		<rdfs:comment rdf:datatype="&xsd;string">A unit to measure linear distance, such as feet or kilometers.</rdfs:comment>
+		<owl:disjointWith rdf:resource="&gist;DurationUnit"/>
+		<owl:disjointWith rdf:resource="&gist;MassUnit"/>
 		<owl:equivalentClass>
 			<owl:Class>
 				<owl:intersectionOf rdf:parseType="Collection">
@@ -189,6 +193,7 @@
 	<owl:Class rdf:about="&gist;DurationUnit">
 		<rdfs:label rdf:datatype="&xsd;string">Duration Unit</rdfs:label>
 		<rdfs:comment rdf:datatype="&xsd;string">A unit to measure passage of time: hours, days, years.</rdfs:comment>
+		<owl:disjointWith rdf:resource="&gist;MassUnit"/>
 		<owl:equivalentClass>
 			<owl:Class>
 				<owl:intersectionOf rdf:parseType="Collection">
@@ -667,7 +672,6 @@
 		<owl:disjointWith rdf:resource="&gist;PhysicalIdentifiableItem"/>
 		<owl:disjointWith rdf:resource="&gist;SchemaMetaData"/>
 		<owl:disjointWith rdf:resource="&gist;Template"/>
-		<owl:disjointWith rdf:resource="&gist;TimeInstant"/>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Volume">
@@ -697,11 +701,13 @@
 					</rdf:Description>
 					<owl:Restriction>
 						<owl:onProperty rdf:resource="&gist;multiplicand"/>
-						<owl:someValuesFrom rdf:resource="&gist;DistanceUnit"/>
+						<owl:onClass rdf:resource="&gist;AreaUnit"/>
+						<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
 					</owl:Restriction>
 					<owl:Restriction>
 						<owl:onProperty rdf:resource="&gist;multiplier"/>
-						<owl:someValuesFrom rdf:resource="&gist;AreaUnit"/>
+						<owl:onClass rdf:resource="&gist;DistanceUnit"/>
+						<owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
 					</owl:Restriction>
 				</owl:intersectionOf>
 			</owl:Class>
