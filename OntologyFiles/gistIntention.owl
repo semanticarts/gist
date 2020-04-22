@@ -18,7 +18,6 @@
 		<rdfs:comment rdf:datatype="&xs;string">gistIntention the Teleological aspect of systems.  Whey are we doing something.</rdfs:comment>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTopX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistIntentionX.x.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistX.x.x.vsd Page:intention</owl:versionInfo>
 		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	
@@ -166,7 +165,7 @@
 	
 	<owl:ObjectProperty rdf:about="&gist;prevents">
 		<rdfs:label rdf:datatype="&xs;string">Prevents</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">The intention (say a law) is intended to prevent this kind of behavior (say jaywalking)</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">The intention (say a law) is intended to prevent this kind of behavior (say jay-walking)</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Intention"/>
 		<rdfs:range rdf:resource="&gist;Behavior"/>
 	</owl:ObjectProperty>

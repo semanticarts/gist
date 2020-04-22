@@ -18,7 +18,6 @@
 		<rdfs:comment rdf:datatype="&xs;string">gistEvent introduces distinctions between planned actual and hypothetical events</rdfs:comment>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTimeX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistEventX.x.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistX.x.x.vsd Page:event</owl:versionInfo>
 		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	
@@ -30,7 +29,7 @@
 	
 	<owl:Class rdf:about="&gist;ContemporaneousEvent">
 		<rdfs:label rdf:datatype="&xs;string">Contemporaneous Event</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">An event that actually started after the present time.  When we record an end time it ceases to be contemperaneous</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">An event that actually started after the present time.  When we record an end time it ceases to be contemporaneous</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">NOTE: All contemporaneous events eventually end and, due to the nature of the open world, we can never be sure that a contemporaneous event hasn&apos;t ended. As a result, this is really a contemporaneous and historical event.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Event">
@@ -214,7 +213,7 @@
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
 		<rdf:type rdf:resource="&owl;TransitiveProperty"/>
 		<rdfs:label rdf:datatype="&xs;string">Has Sub Task</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A task that is part of a larger task. The time frame of the subtasks may overlap but may not extend beyond the timeframe of the parent task. A subtask may be part of more than one parent task.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">A task that is part of a larger task. The time frame of the subtasks may overlap but may not extend beyond the time frame of the parent task. A subtask may be part of more than one parent task.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Task"/>
 		<rdfs:range rdf:resource="&gist;Task"/>
 		<owl:inverseOf rdf:resource="&gist;subTaskOf"/>
@@ -272,7 +271,7 @@
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
 		<rdf:type rdf:resource="&owl;TransitiveProperty"/>
 		<rdfs:label rdf:datatype="&xs;string">Sub Task Of</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">All the upper tasks this task belongs ot</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">All the upper tasks this task belongs to</rdfs:comment>
 	</rdf:Description>
 
 </rdf:RDF>

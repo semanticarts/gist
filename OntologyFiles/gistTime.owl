@@ -15,10 +15,9 @@
 	
 	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistTime">
 		<rdfs:comment rdf:datatype="&xs;string">gistTime</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">gistTime how timezones and some common precisions are modeled</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistTime how time zones and some common precisions are modeled</rdfs:comment>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTopX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistTimeX.x.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistX.x.x.vsd Page:time</owl:versionInfo>
 		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	
@@ -52,7 +51,7 @@
 	
 	<owl:Class rdf:about="&gist;GreenwichInstant">
 		<rdfs:label rdf:datatype="&xs;string">Greenwich instant</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">By default time instants are expressed in grenich, if you need to be explicit (to calculate offset for instance)</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">By default time instants are expressed in Greenwich, if you need to be explicit (to calculate offset for instance)</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;TimeInstant">
 			</rdf:Description>
@@ -98,7 +97,7 @@
 	
 	<owl:Class rdf:about="&gist;SystemInstant">
 		<rdfs:label rdf:datatype="&xs;string">System Instant</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A point in time known to the accuracy of a millisecond.  For posting transacion recorded on times</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">A point in time known to the accuracy of a millisecond.  For posting transaction recorded on times</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;TimeInstant">
 			</rdf:Description>
@@ -203,7 +202,7 @@
 	
 	<owl:ObjectProperty rdf:about="&gist;offsetToUniversal">
 		<rdfs:label rdf:datatype="&xs;string">Offset To Universal</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">How many hours the timezone if off GMT</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">How many hours the time zone is off GMT</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;TimeZone"/>
 		<rdfs:range rdf:resource="&gist;Duration"/>
 	</owl:ObjectProperty>
@@ -217,7 +216,7 @@
 	
 	<owl:ObjectProperty rdf:about="&gist;timeZoneStandardUsed">
 		<rdfs:label rdf:datatype="&xs;string">Time Zone Standard Used</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">the &quot;timezone&quot; with Daylight savings adjust</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">the &quot;time zone&quot; with Daylight Savings adjust</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
 		<rdfs:range rdf:resource="&gist;TimeZoneStandard"/>
 	</owl:ObjectProperty>

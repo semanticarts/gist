@@ -15,7 +15,7 @@
 	
 	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistCore">
 		<rdfs:comment rdf:datatype="&xs;string">gistCore</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">gistCore convienience for including all of gist</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistCore convenience for including all of gist</rdfs:comment>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistAddressX.x.x"/>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistAgreementX.x.x"/>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistCategoryX.x.x"/>
@@ -26,7 +26,6 @@
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTemporalRelationX.x.x"/>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistUnitDimX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistCoreX.x.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistX.x.x.vsd Page:gistCore</owl:versionInfo>
 		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	

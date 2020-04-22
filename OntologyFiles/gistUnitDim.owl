@@ -15,10 +15,9 @@
 	
 	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistUnitDim">
 		<rdfs:comment rdf:datatype="&xs;string">gistDimensionedUnits</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">gistX.x.x dimensioned units of measure.  This extension allows (and requires) you to have a conversion factor for all units with the same dimension.  If you introduce MilesPerHour you will have to supply the conversion to MetersPerSecond (even though the system &quot;knows&quot; how to convert Miles to meters and hours to seconds.  You will have to supply and addtional conversion when you introduce KilometersPerHour.  Any new combination of primtive rations requires a new Dimension.  While this is a burden, it allows units to be converted in sparql</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">gistX.x.x dimensioned units of measure.  This extension allows (and requires) you to have a conversion factor for all units with the same dimension.  If you introduce MilesPerHour you will have to supply the conversion to MetersPerSecond (even though the system &quot;knows&quot; how to convert Miles to meters and hours to seconds.  You will have to supply an additional conversion when you introduce KilometersPerHour.  Any new combination of primitive rations requires a new Dimension.  While this is a burden, it allows units to be converted in SPARQL.</rdfs:comment>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistUnitX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistUnitDimX.x.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistX.x.x.vsd Page:UnitDim</owl:versionInfo>
 		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	
@@ -112,8 +111,8 @@
 	<owl:Class rdf:about="&gist;CoherentUnit">
 		<rdfs:label rdf:datatype="&xs;string">Coherent Unit</rdfs:label>
 		<rdfs:comment rdf:datatype="&xs;string">A unit that is expressed in units that have no conversions.  It may be a simple unit.  It may also be a product or ratio unit that bottoms out in simple units.</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">EXAMPLEs:  a simple unit: kilogram</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">EXAMPLEs: the standard unit for acceleration is meters per square second (feet per square second  requires a conversion)</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">Example:  a simple unit: kilogram</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">Example: the standard unit for acceleration is meters per square second (feet per square second  requires a conversion)</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">NOTE: coherent unit is the physics term for this, informally you might think of it as the standard unit for a given dimension.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xs;string">NOTE: in principle, the CoherentUnit for a ProductUnit or RatioUnit can be inferred by recursively decomposing the products and ratios into their respective CoherentUnits, bottoming out in SimpleUnits</rdfs:comment>
 		<owl:unionOf rdf:parseType="Collection">

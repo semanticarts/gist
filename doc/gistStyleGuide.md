@@ -3,11 +3,20 @@ gist Style Guide
 
 This style guide documents standards and conventions we have adopted for gist implementation in order to ensure a consistent, professional, high-quality product.
 
+OWL Version 
+-----
+gist uses OWL 2 DL.
+
+
 Serialization
 -----
 
 - gist OWL files are serialized in RDF/XML. 
-- The serialization tool, `serialize.sh` or `serialize.bat`, should be run before each commit in order to standardize formatting and eliminate noise in git diffs. It is recommended to automate this as a pre-commit hook.
+- The [EDM Council's RDF serialization tool, rdf-toolkit.jar,](https://github.com/edmcouncil/rdf-toolkit) should be run before every commit in order to standardize formatting and eliminate noise in git diffs. 
+- It is recommended to run this as a [pre-commit hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) in your git repository to circumvent memory lapses. This can be done in one of two ways:
+  - Run the serialization tool, `serialize.sh` (Mac/Linux) or `serialize.bat` (Windows), which calls rdf-toolkit.jar on a set of files, and create a simple pre-commit hook to automate it.
+  - Use the [pre-commit hook provided by the EDM Council] (https://github.com/edmcouncil/rdf-toolkit/blob/master/etc/git-hook/pre-commit).
+
 
 Naming
 -----
@@ -20,7 +29,7 @@ Naming
 - Camelcase with initial uppercase
 - Acronyms are also camelcased so that word boundaries are unambiguous. 
   - Examples: `AmaGuideline`, not `AMAGuideline`; `UriScheme`, not `URIScheme`
-  - `ID` is an exception. Merriam-Webster spells it in all-caps.
+  - `ID` is an exception, because Merriam-Webster spells it in all-caps.
 - Alphanumeric characters only. 
   - Example: `Isbn10`, not `Isbn-10` or `ISBN-10`.
   

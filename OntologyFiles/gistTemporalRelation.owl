@@ -18,7 +18,6 @@
 		<rdfs:comment rdf:datatype="&xs;string">gistTemporalRelation</rdfs:comment>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTimeX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistTemporalRelationX.x.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistX.x.x.vsd Page:TR</owl:versionInfo>
 		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	
@@ -56,7 +55,7 @@
 	
 	<owl:ObjectProperty rdf:about="&gist;connectedTo">
 		<rdfs:label rdf:datatype="&xs;string">Connected To</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A non owning, non causal, non-subordinate (ie. peer to peer) relationship.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">A non-owning, non-causal, non-subordinate (i.e., peer-to-peer) relationship.</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;end">

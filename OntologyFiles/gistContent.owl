@@ -18,7 +18,6 @@
 		<rdfs:comment rdf:datatype="&xs;string">gistContent types of content and mediums</rdfs:comment>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTopX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistContentX.x.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistX.x.x.vsd Page:content</owl:versionInfo>
 		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	
@@ -57,7 +56,7 @@
 	
 	<owl:Class rdf:about="&gist;FormattedContent">
 		<rdfs:label rdf:datatype="&xs;string">Formatted Content</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">Content which is in a particular format. (E.g., html, pdf, jpg.)</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">Content which is in a particular format. (E.g., HTML, PDF, JPG.)</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;ContentExpression">
 			</rdf:Description>
@@ -226,7 +225,7 @@
 	
 	<owl:ObjectProperty rdf:about="&gist;renderedOn">
 		<rdfs:label rdf:datatype="&xs;string">Rendered On</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">What media somethign was rendered On</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">What media something was rendered On</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;toAgent">

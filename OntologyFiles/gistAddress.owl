@@ -18,7 +18,6 @@
 		<rdfs:comment rdf:datatype="&xs;string">gistAddress</rdfs:comment>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistPlaceX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistAddressX.x.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistX.x.x.vsd Page:address</owl:versionInfo>
 		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	
@@ -31,7 +30,7 @@
 	<owl:Class rdf:about="&gist;Address">
 		<rdfs:subClassOf rdf:resource="&gist;Content"/>
 		<rdfs:label rdf:datatype="&xs;string">Address</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A reference to a place (real or virtual) that can be located by some routing algorithm, and where messages or things can be sent to or retrieved from. E.g. PO Box or URL to a pdf file.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xs;string">A reference to a place (real or virtual) that can be located by some routing algorithm, and where messages or things can be sent to or retrieved from. E.g. PO Box or URL to a PDF file.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;BuildingAddress">

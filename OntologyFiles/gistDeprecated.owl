@@ -18,7 +18,6 @@
 		<rdfs:comment rdf:datatype="&xs;string">gistDeprecated</rdfs:comment>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistCoreX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistDeprecatedX.x.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistX.x.x.vsd Page:gistDeprecated</owl:versionInfo>
 	</owl:Ontology>
 	
 	<owl:AnnotationProperty rdf:about="&rdfs;comment">
