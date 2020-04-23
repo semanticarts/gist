@@ -575,7 +575,7 @@
 	
 	<owl:Class rdf:about="&gist;SimpleUnitOfMeasure">
 		<rdfs:label rdf:datatype="&xsd;string">Simple Unit Of Measure</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">Each simple unit has a base unit and a conversion factor to the base. The bases are from the System International (SI). This is the number by which one multiplies a Unit by to get to base, or divides by to get from base.  So the convertToBase for inch is 0.0254 to get you to the base (meter).</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">Each simple unit has a base unit and a conversion factor to the base. The bases are from the System International (SI). The conversion factor is the number which one multiplies a Unit by to get to base, or divides by to get from base.  E.g., the convertToBase for inch is 0.0254 to get to the base unit (meter).</rdfs:comment>
 		<owl:equivalentClass>
 			<owl:Class>
 				<owl:intersectionOf rdf:parseType="Collection">
