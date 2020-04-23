@@ -152,7 +152,7 @@
 	</gist:DurationUnit>
 	
 	<gist:DurationUnit rdf:about="&gist;_minute">
-		<gist:convertToBase rdf:datatype="&xsd;double">1.0</gist:convertToBase>
+		<gist:convertToBase rdf:datatype="&xsd;double">60.0</gist:convertToBase>
 		<gist:hasBaseUnit rdf:resource="&gist;_second"/>
 	</gist:DurationUnit>
 	
