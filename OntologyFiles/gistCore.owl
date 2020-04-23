@@ -4,29 +4,37 @@
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF
 	xmlns:gist="https://ontologies.semanticarts.com/gist/"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
 	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistCore">
-		<rdfs:comment rdf:datatype="&xs;string">gistCore</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">gistCore convenience for including all of gist</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">gistCore</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">gistCore convenience for including all of gist</rdfs:comment>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistAddressX.x.x"/>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistAgreementX.x.x"/>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistCategoryX.x.x"/>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistContentX.x.x"/>
+		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistEventX.x.x"/>
+		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistIntentionX.x.x"/>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistIoTX.x.x"/>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistMagnitudeX.x.x"/>
+		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistMeasureX.x.x"/>
+		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistNetworkX.x.x"/>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistOrganizationX.x.x"/>
+		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistPlaceX.x.x"/>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTemporalRelationX.x.x"/>
+		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTimeX.x.x"/>
+		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTopX.x.x"/>
+		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistUnitX.x.x"/>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistUnitDimX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistCoreX.x.x"/>
-		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
+		<gist:license rdf:datatype="&xsd;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	
 	<owl:AnnotationProperty rdf:about="&gist;license">
