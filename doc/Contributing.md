@@ -1,17 +1,18 @@
-Issue and Pull Request Submission Guidelines
+gist Contributor Guidelines for Issues and Pull Requests
 =====
 
-Semantic Arts gist Change and Release Management
+gist Change and Release Management
 -----
 
-- The current Semantic Arts workflow (details in a forthcoming change and release management document) for gist development requires that an issue be submitted, triaged, and approved for implementation before a pull request is submitted. We will not review or approve pull requests not based on approved issues.
+- The Semantic Arts workflow (details in a forthcoming change and release management document) for gist development requires that an issue be submitted, triaged, and approved for implementation before work proceeds and a pull request is submitted. We will not review or approve pull requests that are not based on issues approved for implementation.
 - All bug reports and feature requests should be submitted via issues in this repository rather than through email, the website contact form, or other communication channels, and all discussion will be tracked through comments on the issue. These practices ensure that requests are addressed transparently and systematically, and that all discussion is recorded and preserved in a single, public location.
+- gist Council presentations will have an associated issue created so that the proposals will be reviewed and acted on.
 
 
 Submitting an Issue
 -----
 
-### Atomic Issues
+### Content
 
 - Each issue should be atomic, to simplify the review process, implementation, and revert/rollback.
 - Exception: several very small issues of the same type can be bundled together into a single issue - e.g., fixing typos in labels. 
@@ -22,9 +23,9 @@ Submitting an Issue
 
 ### Issue Title
 
-- The title of the issue should clearly, concretely, and specifically describe the bug or feature request so that the basic meaning can be understood without reading the description. 
+- The title of the issue should clearly and concretely describe the bug or feature request so that the basic meaning can be understood without reading the description. 
 - Examples:
-  - YES: "Correct the someValuesFrom restriction on property gist:identifiedBy for gist:Room." 
+  - YES: "Correct the owl:someValuesFrom restriction on property gist:identifiedBy for gist:Room." 
   - YES: "gist:Room should not be required to have an ID"
   - NO: "Fix a restriction."
 
@@ -83,6 +84,7 @@ Implementation
     - NO: "Fix typo."
 
 
+
 ### Pushes
 
 - If you are working on a large project with other developers, you must publish your branch and keep it up-to-date with regular commits and pushes to the remote.
@@ -91,14 +93,26 @@ Implementation
 Pull Requests
 -----
 
+### Creating the Pull Request (PR)
+
 - Once your work is ready to be merged into the develop branch, you will create a pull request (PR).
 - Before submitting the PR, you should ensure that you have run the serializer and pulled from develop into your working branch, as above for implementation.
-- Content of the PR:  
-  - Each PR is atomic, addressing a single issue.
-  - The PR should address the entirety of an issue. If it does not, either the PR should be modified or the issue should be revisited and broken up into parts.
-  - Reviewers are charged with rejecting the PR with appropriate requests if either of these is violated. 
-- The title of the PR should contain the keywords "fixes #nnn" where nnn is the issue number. This automatically closes the issue when the PR is merged.
 - Submit the PR to develop (the default branch) and assign it to the release project.
+- Assign one or more reviewers, as specified below.
+
+### Contents of the PR
+
+- Each PR should be atomic, addressing a single issue. This allows it to be accepted or rejected as a whole 
+- The PR should address the entirety of an issue. If it does not, either the PR should be modified or the issue should be revisited and broken up into parts.
+- The title of the PR should contain the keywords "fixes #nnn" (or another of the [GitHub keywords](https://help.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)) where nnn is the issue number. This automatically closes the issue when the PR is merged.
+- The PR should include an update to the release notes for the issue. Format:
+  - One-line or so summary of change, followed by a link to the issue. This may be a copy of the issue title if that is well-phrased.
+  - Verbs hould be in the past tense: e.g., "changed" rather than "change," "corrected" rather than "corrects."
+  - Example: Replaced all "xs" namespace prefixes for XML Schema with "xsd." Corrects issue [158](https://github.com/semanticarts/gist/issues/158). 
+
+
+### Assigning Reviewers
+
 - Assign reviewer(s) based on the impact of the issue (major, minor, patch). The impact level should be labelled on the issue; if not, refer to the forthcoming Change and Release Management document.
   - Major: three reviewers
   - Minor: two reviewers
@@ -106,4 +120,19 @@ Pull Requests
 - You should assign exactly this number, or at most one more. If too many reviewers are assigned, there is a tendency for (i) each reviewer to ignore the request, hoping other reviewers will step in, and (ii) too many cooks spoiling the broth and spreading confusion. 
   - In the case of some issues, it may be that you need input from more than one type of expertise. That is the time to use the "at most one more" prerogative.
 - Reviewers must be internal to Semantic Arts. 
-  - External contributors should not assign themselves as reviewers.
+- External contributors should not assign themselves as reviewers.
+- Many issues are general enough to be reviewed by any Semantic Arts ontologist; some may require specific expertise. Use your judgement. 
+
+### Review Process
+
+- Reviewers are charged with rejecting the PR or requesting changes, with appropriate comments, if:
+  - The criteria for atomicity and completeness are not met.
+  - The implementation deviates from that agreed upon during the internal review.
+- If a reviewer does not deem him/herself qualified to review the issue, he/she should reassign it to another reviewer.
+
+
+### Merging the PR
+
+- There are three repository admins with permission to merge to develop. If your reviewer is not one of these, he/she will re-assign the PR to one of them after approving it for merge. 
+- The project board is configured to automatically move a merged PR and its associated issue to the Done column.
+- The repository is configured to automatically delete the implementation branch from the remote; those with local copies of this branch should delete them locally.

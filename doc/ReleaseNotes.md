@@ -1,11 +1,9 @@
 ﻿gist Release Notes
 ======
 
-
-
 ## Release notes gist 9.2.0
 
-- Corrected issue [158](https://github.com/semanticarts/gist/issues/158) - to replace all "xs" namespace prefixes for XML Schema with "xsd"
+- Replaced all "xs" namespace prefixes for XML Schema with "xsd." Corrected issue [158](https://github.com/semanticarts/gist/issues/158). 
 
 Release notes gist 9.1.0
 --------------------------
