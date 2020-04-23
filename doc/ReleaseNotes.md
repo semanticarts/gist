@@ -1,6 +1,12 @@
 ﻿gist Release Notes
 ======
 
+
+
+## Release notes gist 9.2.0
+
+- Corrected issue [158](https://github.com/semanticarts/gist/issues/158)
+
 Release notes gist 9.1.0
 --------------------------
 

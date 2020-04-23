@@ -4,21 +4,21 @@
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF
 	xmlns:gist="https://ontologies.semanticarts.com/gist/"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
 	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistOrganization">
-		<rdfs:comment rdf:datatype="&xs;string">gistOrganization</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">gistOrganization Government Organizations are introduced</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">gistOrganization</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">gistOrganization Government Organizations are introduced</rdfs:comment>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTopX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistOrganizationX.x.x"/>
-		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
+		<gist:license rdf:datatype="&xsd;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	
 	<owl:AnnotationProperty rdf:about="&rdfs;comment">
@@ -31,8 +31,8 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;CountryGovernment">
-		<rdfs:label rdf:datatype="&xs;string">Country Government</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">The geopolitical body that runs a geopolitical region recognized as a country.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Country Government</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">The geopolitical body that runs a geopolitical region recognized as a country.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;GovernmentOrganization">
 			</rdf:Description>
@@ -48,8 +48,8 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;GeoPoliticalRegion">
-		<rdfs:label rdf:datatype="&xs;string">GeoPolitical Region</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A collection of GeoRegions that are being administered by a Government Organization</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">GeoPolitical Region</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A collection of GeoRegions that are being administered by a Government Organization</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Collection">
 			</rdf:Description>
@@ -65,10 +65,10 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;GovernmentOrganization">
-		<rdfs:label rdf:datatype="&xs;string">Government Organization</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">An organization established either by fiat (as a conquering army overtakes a land and declares a government) or by delegation from a fiat government, such as a state or local government or a specific agency. Differs from a corporation in that it cannot be owned.</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">EXAMPLES: The State of Washington Office of Financial Management; the Food and Drug Administration; the Scottish Parliament.</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">NOTE: Establishment by a CountryGovernment may be indirect via local, regional, or national GovernmentOrganization(s) that ultimately are recognized by a CountryGovernment.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Government Organization</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">An organization established either by fiat (as a conquering army overtakes a land and declares a government) or by delegation from a fiat government, such as a state or local government or a specific agency. Differs from a corporation in that it cannot be owned.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLES: The State of Washington Office of Financial Management; the Food and Drug Administration; the Scottish Parliament.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">NOTE: Establishment by a CountryGovernment may be indirect via local, regional, or national GovernmentOrganization(s) that ultimately are recognized by a CountryGovernment.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Organization">
 			</rdf:Description>
@@ -80,8 +80,8 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Group">
-		<rdfs:label rdf:datatype="&xs;string">Group</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A collection of People. The group may or may not be an Organization.  Many organizations consist of groups of people, but that is not a defining characteristic.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Group</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A collection of People. The group may or may not be an Organization.  Many organizations consist of groups of people, but that is not a defining characteristic.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Collection">
 			</rdf:Description>
@@ -100,13 +100,13 @@
 	
 	<gist:GovernmentOrganization rdf:about="&gist;_unitedNations">
 		<rdf:type rdf:resource="&owl;Thing"/>
-		<rdfs:comment rdf:datatype="&xs;string">if the united nations recognizes you as a country you are a country</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">if the united nations recognizes you as a country you are a country</rdfs:comment>
 	</gist:GovernmentOrganization>
 	
 	<owl:ObjectProperty rdf:about="&gist;directlyRecognizedBy">
 		<rdfs:subPropertyOf rdf:resource="&gist;recognizedBy"/>
-		<rdfs:label rdf:datatype="&xs;string">Directly RecognizedBy</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">The party doing the recognition</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Directly RecognizedBy</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">The party doing the recognition</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;governedBy">
@@ -122,8 +122,8 @@
 	</owl:AnnotationProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;recognizedBy">
-		<rdfs:label rdf:datatype="&xs;string">Recognized By</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">The entity that formally acknowledges the existence of, as the State recognizes the existence of a particular company</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Recognized By</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">The entity that formally acknowledges the existence of, as the State recognizes the existence of a particular company</rdfs:comment>
 		<rdfs:range>
 			<owl:Class>
 				<owl:unionOf rdf:parseType="Collection">
@@ -138,8 +138,8 @@
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;recognizes">
-		<rdfs:label rdf:datatype="&xs;string">Recognizes</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">Recognizes</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Recognizes</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">Recognizes</rdfs:comment>
 	</owl:ObjectProperty>
 
 </rdf:RDF>
