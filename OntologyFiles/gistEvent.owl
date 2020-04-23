@@ -4,21 +4,21 @@
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF
 	xmlns:gist="https://ontologies.semanticarts.com/gist/"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
 	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistEvent">
-		<rdfs:comment rdf:datatype="&xs;string">gistEvent</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">gistEvent introduces distinctions between planned actual and hypothetical events</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">gistEvent</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">gistEvent introduces distinctions between planned actual and hypothetical events</rdfs:comment>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTimeX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistEventX.x.x"/>
-		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
+		<gist:license rdf:datatype="&xsd;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	
 	<owl:AnnotationProperty rdf:about="&rdfs;comment">
@@ -28,9 +28,9 @@
 	</owl:AnnotationProperty>
 	
 	<owl:Class rdf:about="&gist;ContemporaneousEvent">
-		<rdfs:label rdf:datatype="&xs;string">Contemporaneous Event</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">An event that actually started after the present time.  When we record an end time it ceases to be contemporaneous</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">NOTE: All contemporaneous events eventually end and, due to the nature of the open world, we can never be sure that a contemporaneous event hasn&apos;t ended. As a result, this is really a contemporaneous and historical event.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Contemporaneous Event</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">An event that actually started after the present time.  When we record an end time it ceases to be contemporaneous</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">NOTE: All contemporaneous events eventually end and, due to the nature of the open world, we can never be sure that a contemporaneous event hasn&apos;t ended. As a result, this is really a contemporaneous and historical event.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Event">
 			</rdf:Description>
@@ -41,14 +41,14 @@
 			<owl:Restriction>
 				<owl:onProperty rdf:resource="&gist;actualEnd"/>
 				<owl:onClass rdf:resource="&gist;TimeInstant"/>
-				<owl:maxQualifiedCardinality rdf:datatype="&xs;nonNegativeInteger">0</owl:maxQualifiedCardinality>
+				<owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:maxQualifiedCardinality>
 			</owl:Restriction>
 		</owl:intersectionOf>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;ContingentEvent">
-		<rdfs:label rdf:datatype="&xs;string">Contingent Event</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">An event with a probability of happening in the future, and usually dependent upon some other event or condition.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Contingent Event</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">An event with a probability of happening in the future, and usually dependent upon some other event or condition.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Event">
 			</rdf:Description>
@@ -71,8 +71,8 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;HistoricalEvent">
-		<rdfs:label rdf:datatype="&xs;string">Historical Event</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">An event which occurred in time, with an actual end earlier than the present moment.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Historical Event</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">An event which occurred in time, with an actual end earlier than the present moment.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Event">
 			</rdf:Description>
@@ -88,10 +88,10 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;PhysicalEvent">
-		<rdfs:label rdf:datatype="&xs;string">Physical Event</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">An event that can be said to have occurred at some place in space.</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">EXAMPLES:  A meeting, a car accident.</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">NEGATIVE EXAMPLES:  Excludes events that have no meaningful location, such as financial events or project milestones.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Physical Event</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">An event that can be said to have occurred at some place in space.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLES:  A meeting, a car accident.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">NEGATIVE EXAMPLES:  Excludes events that have no meaningful location, such as financial events or project milestones.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Event">
 			</rdf:Description>
@@ -103,8 +103,8 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;PlannedEvent">
-		<rdfs:label rdf:datatype="&xs;string">Planned Event</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">An event which, at the time it is created, is to occur in the future.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Planned Event</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">An event which, at the time it is created, is to occur in the future.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Event">
 			</rdf:Description>
@@ -120,8 +120,8 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Project">
-		<rdfs:label rdf:datatype="&xs;string">Project</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A project is a task (usually a longer duration task) made up of other tasks.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Project</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A project is a task (usually a longer duration task) made up of other tasks.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Task">
 			</rdf:Description>
@@ -133,8 +133,8 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;ScheduledTask">
-		<rdfs:label rdf:datatype="&xs;string">Scheduled Task</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A task planned to occur.  When it was scheduled, it would have been in the future, but now might be in the past.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Scheduled Task</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A task planned to occur.  When it was scheduled, it would have been in the future, but now might be in the past.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;PlannedEvent">
 			</rdf:Description>
@@ -144,8 +144,8 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Task">
-		<rdfs:label rdf:datatype="&xs;string">Task</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A task which has been defined and either scheduled or accomplished, or both.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Task</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A task which has been defined and either scheduled or accomplished, or both.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Event">
 			</rdf:Description>
@@ -157,8 +157,8 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;TaskTemplate">
-		<rdfs:label rdf:datatype="&xs;string">Template Task</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">An outline of task of a particular type, that will, when instantiated, generate an actual (unscheduled) task.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Template Task</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">An outline of task of a particular type, that will, when instantiated, generate an actual (unscheduled) task.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Template">
 			</rdf:Description>
@@ -185,8 +185,8 @@
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;directSubTaskOf">
-		<rdfs:label rdf:datatype="&xs;string">Direct Sub Task Of</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">Immediate parent task</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Direct Sub Task Of</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">Immediate parent task</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;end">
@@ -194,16 +194,16 @@
 	
 	<owl:ObjectProperty rdf:about="&gist;hasDirectSubTask">
 		<rdfs:subPropertyOf rdf:resource="&gist;hasSubTask"/>
-		<rdfs:label rdf:datatype="&xs;string">Has Direct Sub Task</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">Immediate child task</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Has Direct Sub Task</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">Immediate child task</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Task"/>
 		<rdfs:range rdf:resource="&gist;Task"/>
 		<owl:inverseOf rdf:resource="&gist;directSubTaskOf"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasGoal">
-		<rdfs:label rdf:datatype="&xs;string">Has Goal</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">The reason for doing something</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Has Goal</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">The reason for doing something</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasMagnitude">
@@ -212,8 +212,8 @@
 	<rdf:Description rdf:about="&gist;hasSubTask">
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
 		<rdf:type rdf:resource="&owl;TransitiveProperty"/>
-		<rdfs:label rdf:datatype="&xs;string">Has Sub Task</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A task that is part of a larger task. The time frame of the subtasks may overlap but may not extend beyond the time frame of the parent task. A subtask may be part of more than one parent task.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Has Sub Task</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A task that is part of a larger task. The time frame of the subtasks may overlap but may not extend beyond the time frame of the parent task. A subtask may be part of more than one parent task.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Task"/>
 		<rdfs:range rdf:resource="&gist;Task"/>
 		<owl:inverseOf rdf:resource="&gist;subTaskOf"/>
@@ -221,8 +221,8 @@
 	
 	<owl:ObjectProperty rdf:about="&gist;lastModifiedOn">
 		<rdfs:subPropertyOf rdf:resource="&gist;actual"/>
-		<rdfs:label rdf:datatype="&xs;string">Last Modified On</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">Date that something was modified.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Last Modified On</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">Date that something was modified.</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;TimeInstant"/>
 	</owl:ObjectProperty>
 	
@@ -230,37 +230,37 @@
 	</owl:AnnotationProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;occursAt">
-		<rdfs:label rdf:datatype="&xs;string">OccurAt</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">The geospatial place where something happened or will happen</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">OccurAt</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">The geospatial place where something happened or will happen</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;planned">
-		<rdfs:label rdf:datatype="&xs;string">Planned</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">Dates that were in the future at the time they were made.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Planned</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">Dates that were in the future at the time they were made.</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;TimeInstant"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;plannedEnd">
 		<rdfs:subPropertyOf rdf:resource="&gist;end"/>
 		<rdfs:subPropertyOf rdf:resource="&gist;planned"/>
-		<rdfs:label rdf:datatype="&xs;string">Planned End</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A date/time that was at least at some point in time in the future. It may be in the past now, but when we planned it, it was in the future.</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">NOTE:  Most frequently apples to Event(s) and Offer(s). E.g. a conference or sale offer.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Planned End</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A date/time that was at least at some point in time in the future. It may be in the past now, but when we planned it, it was in the future.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">NOTE:  Most frequently apples to Event(s) and Offer(s). E.g. a conference or sale offer.</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;TimeInstant"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;plannedStart">
 		<rdfs:subPropertyOf rdf:resource="&gist;planned"/>
 		<rdfs:subPropertyOf rdf:resource="&gist;start"/>
-		<rdfs:label rdf:datatype="&xs;string">Planned Start</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A date/time that was at least at some point in time in the future. It may be in the past now, but when we planned it, it was in the future.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Planned Start</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A date/time that was at least at some point in time in the future. It may be in the past now, but when we planned it, it was in the future.</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;TimeInstant"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;recordedOn">
 		<rdfs:subPropertyOf rdf:resource="&gist;actual"/>
-		<rdfs:label rdf:datatype="&xs;string">Recorded On</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">Date that something was posted, not necessarily the date it occurred. Must be after the occurred date, but could be before or after the planned date. (Unusual, but I could record today that I expected to be paid last week.)</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Recorded On</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">Date that something was posted, not necessarily the date it occurred. Must be after the occurred date, but could be before or after the planned date. (Unusual, but I could record today that I expected to be paid last week.)</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;TimeInstant"/>
 	</owl:ObjectProperty>
 	
@@ -270,8 +270,8 @@
 	<rdf:Description rdf:about="&gist;subTaskOf">
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
 		<rdf:type rdf:resource="&owl;TransitiveProperty"/>
-		<rdfs:label rdf:datatype="&xs;string">Sub Task Of</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">All the upper tasks this task belongs to</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Sub Task Of</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">All the upper tasks this task belongs to</rdfs:comment>
 	</rdf:Description>
 
 </rdf:RDF>
