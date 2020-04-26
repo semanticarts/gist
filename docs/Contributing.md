@@ -129,11 +129,13 @@ Pull Requests
 - Reviewers are charged with rejecting the PR or requesting changes, with appropriate comments, if:
   - The criteria of atomicity and completeness are not met.
   - The implementation deviates from that agreed upon during the internal review.
+- When you correct your PR based on reviewer comments, and commit these changes, they automaticallly get added to the existing PR, so you should not create another PR.
 - If a reviewer does not deem him/herself qualified to review the issue, he/she should reassign it to another reviewer.
 
 
 ### Merging the PR
 
 - There are three repository admins with permission to merge to develop. If your reviewer is not one of these, he/she will re-assign the PR to one of them after approving it for merge. 
+- Squat merges will not be used; however, the admin may choose to perform a rebase on the branch being merged into develop in order to clean up the commit history.
 - The project board is configured to automatically move a merged PR and its associated issue to the Done column.
 - The repository is configured to automatically delete the implementation branch from the remote; those with local copies of this branch should delete them locally.
