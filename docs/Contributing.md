@@ -4,7 +4,7 @@ gist Contributor Guidelines for Issues and Pull Requests
 gist Change and Release Management
 -----
 
-- The Semantic Arts workflow (details in a forthcoming change and release management document) for gist development requires that an issue be submitted, triaged, and approved for implementation before work proceeds and a pull request is submitted. We will not review or approve pull requests that are not based on issues approved for implementation.
+- The Semantic Arts workflow for gist development requires that an issue be submitted, triaged, and approved for implementation before work proceeds and a pull request is submitted. We will not review or approve pull requests that are not based on issues approved for implementation.
 - All bug reports and feature requests should be submitted via issues in this repository rather than through email, the website contact form, or other communication channels, and all discussion will be tracked through comments on the issue. These practices ensure that requests are addressed transparently and systematically, and that all discussion is recorded and preserved in a single, public location.
 - gist Council presentations will have an associated issue created so that the proposals will be reviewed and acted on.
 
@@ -43,7 +43,7 @@ Submitting an Issue
 - Please review [label definitions](https://github.com/semanticarts/gist/labels) before use.
 - Labels can be applied to the issue based on your subjective assessment of: 
   - Priority: must have, should have, nice to have
-  - Impact: major, minor, patch. See the forthcoming document on change and release management for definitions. These are based on [Semantic Versioning](https://semver.org/).
+  - Impact: major, minor, patch. See the document on [change and release management](ChangeAndReleaseManagement.md) for definitions. These are based on [Semantic Versioning](https://semver.org/).
   - Effort: small, medium, large
   - Area: tools, documentation (ontology is the default and does not need to be specified)
   - Type: bug, question, feature request
@@ -59,7 +59,7 @@ Implementation
 
 ### Development Branch
 
-- The first step is to create a new branch from the develop branch for your work: e.g., ```feature/document_submission_guidelines```. This branch will not be preserved after the work is merged into develop, so the name of the branch does not have to be particularly specific or detailed.
+- The first step is to create a new branch from the develop branch for your work: e.g., `feature/document_submission_guidelines`. This branch will not be preserved after the work is merged into develop, so the name of the branch does not have to be particularly specific or detailed.
 - For a large project implemented by more than one person, all developers would work on this same branch. 
 
 
