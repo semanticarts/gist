@@ -60,7 +60,7 @@ Implementation
 ### Development Branch
 
 - The first step is to create a new branch from the develop branch for your work: e.g., `feature/document_submission_guidelines`. This branch will not be preserved after the work is merged into develop, so the name of the branch does not have to be particularly specific or detailed.
-- For a large project implemented by more than one person, all developers would work on this same branch. 
+- For a large project implemented by more than one person, all developers would work on this same branch. This applies whether the contributions of different developers are concurrent or sequential.
 
 
 ### Style Guide
