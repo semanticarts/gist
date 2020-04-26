@@ -1,9 +1,12 @@
 ﻿gist Release Notes
 ======
 
-## Release notes gist 9.2.0
+Release notes gist 9.2.0
+-----
 
 - Replaced all "xs" namespace prefixes for XML Schema with "xsd." Corrected issue [158](https://github.com/semanticarts/gist/issues/158). 
+- Corrected gist:convertToBase value for gist:_minute from 1.0 to 60.0. Fixed issue [82](https://github.com/semanticarts/gist/issues/82).
+
 
 Release notes gist 9.1.0
 --------------------------
