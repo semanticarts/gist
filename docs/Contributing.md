@@ -122,7 +122,7 @@ Pull Requests
 - You should assign exactly this number, or at most one more. If too many reviewers are assigned, there is a tendency for (i) each reviewer to ignore the request, expecting other reviewers to step in, and (ii) too many cooks spoiling the broth and spreading confusion. 
   - In the case of some issues, it may be that you need input from more than one type of expertise. That is the time to use the "at most one more" prerogative.
 - Reviewers must be internal to Semantic Arts. 
-- Also assign the PR to the reviewers. This makes the assignee visible on the project board so it is clear who is currently responsible for moving the PR forward.
+- Also assign the PR (but not the issue) to the reviewers. This makes the assignee visible on the project board so it is clear who is currently responsible for moving the PR forward.
 - External contributors should not assign themselves as reviewers.
 - Many issues are general enough to be reviewed by any Semantic Arts ontologist; some may require specific expertise. Use your judgement. 
 
