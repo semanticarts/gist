@@ -17,9 +17,9 @@ Submitting an Issue
 - Each issue should be atomic, to simplify the review process, implementation, and revert/rollback.
 - Exception: several very small issues of the same type can be bundled together into a single issue - e.g., fixing typos in labels. 
 - Examples: 
-  - YES: An issue to change all rdfs:label annotations to skos:prefLabel
-  - YES: An issue to fix typos in labels in all gist files.
-  - NO: An issue to change all rdfs:label annotations to skos:prefLabel and rewrite definitions as full sentences.
+  - YES: Change all rdfs:label annotations to skos:prefLabel
+  - YES: Fix typos in labels in all gist files.
+  - NO: Change all rdfs:label annotations to skos:prefLabel and improve definitions.
 
 ### Issue Title
 
@@ -32,10 +32,7 @@ Submitting an Issue
 ### Issue Description
 
 - The issue should always include a description that elaborates on the title.
-
-### gist Version
-
-- The 3-segment version number (e.g., 9.1.0) should be referenced in the description.
+- The 3-segment version number (e.g., 9.1.0) should be referenced in the description unless it is the current version on the develop branch.
 
 ### Proposals for Resolution
 
@@ -46,7 +43,7 @@ Submitting an Issue
 - Please review [label definitions](https://github.com/semanticarts/gist/labels) before use.
 - Labels can be applied to the issue based on your subjective assessment of: 
   - Priority: must have, should have, nice to have
-  - Impact: major, minor, patch. See the forthcoming document on change and release management.
+  - Impact: major, minor, patch. See the forthcoming document on change and release management for definitions. These are based on [Semantic Versioning](https://semver.org/).
   - Effort: small, medium, large
   - Area: tools, documentation (ontology is the default and does not need to be specified)
   - Type: bug, question, feature request
@@ -63,17 +60,17 @@ Implementation
 ### Development Branch
 
 - The first step is to create a new branch from the develop branch for your work: e.g., ```feature/document_submission_guidelines```. This branch will not be preserved after the work is merged into develop, so the name of the branch does not have to be particularly specific or detailed.
-- For a large project implemented by more than one person, all ontologists would work on this same branch. 
+- For a large project implemented by more than one person, all developers would work on this same branch. 
 
 
 ### Style Guide
 
-- Ontologists should refer to and follow the emerging [_gist Style Guide_](gistStyleGuide.md) during implementation.
+- Ontologists should consult the emerging [_gist Style Guide_](gistStyleGuide.md) during implementation.
 - The serializer tool must be run before each commit in order to standardize formatting and eliminate noise in git diffs. See [_gist Style Guide_](gistStyleGuide.md) for details.
 
 ### Commits
 
-- If you are working on a project that will require more than one commit, you should commit to your branch regularly to create checkpoints that can be restored if necessary.
+- If you are working on a project that will require more than one commit, you should commit to your branch regularly to create logical checkpoints that can be restored if necessary.
 - However, it is possible to go overboard and commit every little change independently. This creates clutter in the repository history. 
 - This is especially important if working on a project with others, to reduce the likelihood of conflicts.
 - However, each commit should be atomic for ease of rollback or reversion. Finish working on one sub-task and commit it before taking up another.
@@ -88,7 +85,7 @@ Implementation
 ### Pushes
 
 - If you are working on a large project with other developers, you must publish your branch and keep it up-to-date with regular commits and pushes to the remote.
-- Even for solitary projects, publishing your branch and regular pushes are useful for safeguarding your work on the remote server in case of local failure.
+- Even for solitary projects, publishing your branch and pushing regularly are useful for safeguarding your work on the remote server in case of local failure.
 
 Pull Requests
 -----
@@ -102,22 +99,26 @@ Pull Requests
 
 ### Contents of the PR
 
-- Each PR should be atomic, addressing a single issue. This allows it to be accepted or rejected as a whole 
-- The PR should address the entirety of an issue. If it does not, either the PR should be modified or the issue should be revisited and broken up into parts.
+- Each PR should be atomic, addressing a single issue. This allows it to be accepted or rejected as a whole.
+  - Exception: If there are several very small issues such as typo corrections or definition fixes, these can be submitted in a single PR. 
+- The PR should address the entirety of an issue. If it does not, either the PR should be modified or the issue should be broken up into parts.
 - The title of the PR should contain the keywords "fixes #nnn" (or another of the [GitHub keywords](https://help.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)) where nnn is the issue number. This automatically closes the issue when the PR is merged.
+  - Example: "Correct cardinality restriction on class gist:Room. Fixes #98."
 - The PR should include an update to the release notes for the issue. Format:
   - One-line or so summary of change, followed by a link to the issue. This may be a copy of the issue title if that is well-phrased.
   - Verbs hould be in the past tense: e.g., "changed" rather than "change," "corrected" rather than "corrects."
   - Example: Replaced all "xs" namespace prefixes for XML Schema with "xsd." Corrects issue [158](https://github.com/semanticarts/gist/issues/158). 
+  - Exception: For very small issues, such as definition tweaks or typo corrections, a single line item will be included in the release notes. If such an item already exists, update it to include your issue number. If not, create it.
+    - Example: "Various minor wording changes in definitions."
 
 
 ### Assigning Reviewers
 
-- Assign reviewer(s) based on the impact of the issue (major, minor, patch). The impact level should be labelled on the issue; if not, refer to the forthcoming Change and Release Management document.
+- Assign reviewer(s) based on the impact of the issue (major, minor, patch). The impact level should be labelled on the issue; if not, refer to the forthcoming Change and Release Management document and [Semantic Versioning](https://semver.org/).
   - Major: three reviewers
   - Minor: two reviewers
   - Patch: one reviewer
-- You should assign exactly this number, or at most one more. If too many reviewers are assigned, there is a tendency for (i) each reviewer to ignore the request, hoping other reviewers will step in, and (ii) too many cooks spoiling the broth and spreading confusion. 
+- You should assign exactly this number, or at most one more. If too many reviewers are assigned, there is a tendency for (i) each reviewer to ignore the request, expecting other reviewers to step in, and (ii) too many cooks spoiling the broth and spreading confusion. 
   - In the case of some issues, it may be that you need input from more than one type of expertise. That is the time to use the "at most one more" prerogative.
 - Reviewers must be internal to Semantic Arts. 
 - External contributors should not assign themselves as reviewers.
@@ -126,7 +127,7 @@ Pull Requests
 ### Review Process
 
 - Reviewers are charged with rejecting the PR or requesting changes, with appropriate comments, if:
-  - The criteria for atomicity and completeness are not met.
+  - The criteria of atomicity and completeness are not met.
   - The implementation deviates from that agreed upon during the internal review.
 - If a reviewer does not deem him/herself qualified to review the issue, he/she should reassign it to another reviewer.
 
