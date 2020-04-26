@@ -110,6 +110,7 @@ Pull Requests
   - Example: Replaced all "xs" namespace prefixes for XML Schema with "xsd." Corrects issue [158](https://github.com/semanticarts/gist/issues/158). 
   - Exception: For very small issues, such as definition tweaks or typo corrections, a single line item will be included in the release notes. If such an item already exists, update it to include your issue number. If not, create it.
     - Example: "Various minor wording changes in definitions."
+- You should _not_ delete your working branch, either locally or on the remote, at this point. If reviewers request changes to the PR, these should be made on the same branch for automatic updating of the PR.
 
 
 ### Assigning Reviewers
