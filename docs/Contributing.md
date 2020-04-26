@@ -107,7 +107,7 @@ Pull Requests
   - Example: "Correct cardinality restriction on class gist:Room. Fixes #98."
 - The PR should include an update to the release notes for the issue. Format:
   - One-line or so summary of change, followed by a link to the issue. This may be a copy of the issue title if that is well-phrased.
-  - Verbs hould be in the past tense: e.g., "changed" rather than "change," "corrected" rather than "corrects."
+  - See notes for release 9.2.0 for examples.
   - Example: Replaced all "xs" namespace prefixes for XML Schema with "xsd." Corrects issue [158](https://github.com/semanticarts/gist/issues/158). 
   - Exception: For very small issues, such as definition tweaks or typo corrections, a single line item will be included in the release notes. If such an item already exists, update it to include your issue number. If not, create it.
     - Example: "Various minor wording changes in definitions."
