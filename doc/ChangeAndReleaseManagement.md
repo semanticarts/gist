@@ -54,7 +54,7 @@ Releases
   - Release notes have been added to the file [ReleaseNotes.md](ReleaseNotes.md) as part of the development process. The release manager will clean up these notes as needed.
   - Submit a PR to develop and request one review. After approval, the reviewer merges the PR.
   - Create and merge a new PR from develop to master.
-  - Create the release package by running the bundle function of ontology-toolkit. This adds version numbers to ontology IRIs import IRIs; adds rdfs:isDefinedBy to every term; adds additional files, such as release notes and license information, to the release package. This package is sent to the lead developer.
+  - Create the release package by running the bundle function of [ontology-toolkit](https://github.com/semanticarts/ontology-toolkit).. This adds version numbers to ontology IRIs and import IRIs, and includes additional files, such as release notes and license information, in the release package. This package is sent to the lead developer.
   - Close the project.
   - Draft and publish a [new GitHub release](https://github.com/semanticarts/gist/releases/new). The includes the creation of a tag, formatted as `vX.x.x` (e.g., `v9.1.2`).
 - Once the lead developer has received the release package:
