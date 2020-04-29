@@ -1,0 +1,63 @@
+bundle: gist
+variables:
+  name: "gist"
+  version: "X.x.x"
+  input: "."
+  rdf-toolkit: "{input}/tools/rdf-toolkit.jar"
+  output: "{name}{version}_webDownload"
+tools:
+- name: "serializer"
+  type: "Java"
+  jar: "{rdf-toolkit}"
+  arguments:
+    - "-tfmt"
+    - "rdf-xml"
+    - "-sdt"
+    - "explicit"
+    - "-dtd"
+    - "-ibn"
+    - "-s"
+    - "{inputFile}"
+    - "-t"
+    - "{outputFile}"
+actions:
+- action: "mkdir"
+  directory: "{output}"
+- action: "copy"
+  replace:
+    from: "X.x.x"
+    to: "{version}"
+  source: "{input}/OntologyFiles/bundle-catalog-v001.xml"
+  target: "{output}/catalog-v001.xml"
+- action: "transform"
+  tool: "serializer"
+  replace:
+    from: "X.x.x"
+    to: "{version}"
+  source: "{input}/OntologyFiles"
+  target: "{output}"
+  includes:
+    - "*.owl"
+- action: "copy"
+  source: "{input}/LICENSE.txt"
+  target: "{output}"
+- action: "copy"
+  source: "{input}/docs"
+  target: "{output}/Documentation"
+  includes:
+    - "ReleaseNotes.md"
+- action: "markdown"
+  source: "{input}/docs/ReleaseNotes.md"
+  target: "{output}/Documentation/ReleaseNotes.html"
+- action: "move"
+  source: "{output}"
+  target: "{output}/Deprecated"
+  includes:
+    - "*Deprecated*.owl"
+- action: "graph"
+  source: "{output}"
+  target: "{output}/Documentation"
+  title: "{name}"
+  version: "{version}"
+  includes:
+    - "*.owl"

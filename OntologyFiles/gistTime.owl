@@ -4,22 +4,21 @@
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF
 	xmlns:gist="https://ontologies.semanticarts.com/gist/"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
 	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistTime">
-		<rdfs:comment rdf:datatype="&xs;string">gistTime</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">gistTime how timezones and some common precisions are modeled</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">gistTime</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">gistTime how time zones and some common precisions are modeled</rdfs:comment>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTopX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistTimeX.x.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistX.x.x.vsd Page:time</owl:versionInfo>
-		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
+		<gist:license rdf:datatype="&xsd;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	
 	<owl:AnnotationProperty rdf:about="&rdfs;label">
@@ -29,8 +28,8 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;DateInstant">
-		<rdfs:label rdf:datatype="&xs;string">Date Instant</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A point in time known only to the accuracy of one day.  Say the signing of the declaration of independence on 7/4/1776</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Date Instant</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A point in time known only to the accuracy of one day.  Say the signing of the declaration of independence on 7/4/1776</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;TimeInstant">
 			</rdf:Description>
@@ -51,8 +50,8 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;GreenwichInstant">
-		<rdfs:label rdf:datatype="&xs;string">Greenwich instant</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">By default time instants are expressed in grenich, if you need to be explicit (to calculate offset for instance)</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Greenwich instant</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">By default time instants are expressed in Greenwich, if you need to be explicit (to calculate offset for instance)</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;TimeInstant">
 			</rdf:Description>
@@ -64,8 +63,8 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;HumanInstant">
-		<rdfs:label rdf:datatype="&xs;string">Human Instant</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A point in time known only to the accuracy of one minute.  For things like calendar appointments and time reporting</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Human Instant</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A point in time known only to the accuracy of one minute.  For things like calendar appointments and time reporting</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;TimeInstant">
 			</rdf:Description>
@@ -77,8 +76,8 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;LocalInstant">
-		<rdfs:label rdf:datatype="&xs;string">Local Instant</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A point in time expressed relative to a local time zone. Can be converted to Universal Time using the time zone offset. The precision is used to state how precise this instant is.  Typical values would be day, hour, minute or second.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Local Instant</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A point in time expressed relative to a local time zone. Can be converted to Universal Time using the time zone offset. The precision is used to state how precise this instant is.  Typical values would be day, hour, minute or second.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;TimeInstant">
 			</rdf:Description>
@@ -97,8 +96,8 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;SystemInstant">
-		<rdfs:label rdf:datatype="&xs;string">System Instant</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A point in time known to the accuracy of a millisecond.  For posting transacion recorded on times</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">System Instant</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A point in time known to the accuracy of a millisecond.  For posting transaction recorded on times</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;TimeInstant">
 			</rdf:Description>
@@ -113,8 +112,8 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;TimeZone">
-		<rdfs:label rdf:datatype="&xs;string">Time Zone</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A region that observes a uniform standard time for legal, commercial, and social purposes.  A typical time zone averages 15? of longitude in width and typically observes a clock time one hour earlier than the zone immediately to the east.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Time Zone</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A region that observes a uniform standard time for legal, commercial, and social purposes.  A typical time zone averages 15? of longitude in width and typically observes a clock time one hour earlier than the zone immediately to the east.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;GeoRegion">
 			</rdf:Description>
@@ -126,8 +125,8 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;TimeZoneStandard">
-		<rdfs:label rdf:datatype="&xs;string">Time Zone Standard</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">The algorithm for getting from Greenwich Mean Time to local time, which includes the time zone offset and rules about daylight savings time.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Time Zone Standard</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">The algorithm for getting from Greenwich Mean Time to local time, which includes the time zone offset and rules about daylight savings time.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Specification">
 			</rdf:Description>
@@ -139,7 +138,7 @@
 	</owl:Class>
 	
 	<gist:DurationUnit rdf:about="&gist;_day">
-		<gist:convertToBase rdf:datatype="&xs;double">86400.0</gist:convertToBase>
+		<gist:convertToBase rdf:datatype="&xsd;double">86400.0</gist:convertToBase>
 		<gist:hasBaseUnit rdf:resource="&gist;_second"/>
 	</gist:DurationUnit>
 	
@@ -148,30 +147,30 @@
 	</gist:TimeZoneStandard>
 	
 	<gist:DurationUnit rdf:about="&gist;_millisecond">
-		<gist:convertToBase rdf:datatype="&xs;double">0.001</gist:convertToBase>
+		<gist:convertToBase rdf:datatype="&xsd;double">0.001</gist:convertToBase>
 		<gist:hasBaseUnit rdf:resource="&gist;_second"/>
 	</gist:DurationUnit>
 	
 	<gist:DurationUnit rdf:about="&gist;_minute">
-		<gist:convertToBase rdf:datatype="&xs;double">1.0</gist:convertToBase>
+		<gist:convertToBase rdf:datatype="&xsd;double">60.0</gist:convertToBase>
 		<gist:hasBaseUnit rdf:resource="&gist;_second"/>
 	</gist:DurationUnit>
 	
 	<gist:Duration rdf:about="&gist;_one_day">
 		<rdf:type rdf:resource="&owl;Thing"/>
-		<gist:decimalValue rdf:datatype="&xs;double">1.0</gist:decimalValue>
+		<gist:decimalValue rdf:datatype="&xsd;double">1.0</gist:decimalValue>
 		<gist:hasUoM rdf:resource="&gist;_day"/>
 	</gist:Duration>
 	
 	<gist:Duration rdf:about="&gist;_one_millisecond">
 		<rdf:type rdf:resource="&owl;Thing"/>
-		<gist:decimalValue rdf:datatype="&xs;double">1.0</gist:decimalValue>
+		<gist:decimalValue rdf:datatype="&xsd;double">1.0</gist:decimalValue>
 		<gist:hasUoM rdf:resource="&gist;_millisecond"/>
 	</gist:Duration>
 	
 	<gist:Duration rdf:about="&gist;_one_minute">
 		<rdf:type rdf:resource="&owl;Thing"/>
-		<gist:decimalValue rdf:datatype="&xs;double">1.0</gist:decimalValue>
+		<gist:decimalValue rdf:datatype="&xsd;double">1.0</gist:decimalValue>
 		<gist:hasUoM rdf:resource="&gist;_minute"/>
 	</gist:Duration>
 	
@@ -202,22 +201,22 @@
 	</owl:AnnotationProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;offsetToUniversal">
-		<rdfs:label rdf:datatype="&xs;string">Offset To Universal</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">How many hours the timezone if off GMT</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Offset To Universal</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">How many hours the time zone is off GMT</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;TimeZone"/>
 		<rdfs:range rdf:resource="&gist;Duration"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;sameTimeAs">
-		<rdfs:label rdf:datatype="&xs;string">Same Time As</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">We can have two local time instants refer to the same time, the same universal time.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Same Time As</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">We can have two local time instants refer to the same time, the same universal time.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
 		<rdfs:range rdf:resource="&gist;TimeInstant"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;timeZoneStandardUsed">
-		<rdfs:label rdf:datatype="&xs;string">Time Zone Standard Used</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">the &quot;timezone&quot; with Daylight savings adjust</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Time Zone Standard Used</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">the &quot;time zone&quot; with Daylight Savings adjust</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
 		<rdfs:range rdf:resource="&gist;TimeZoneStandard"/>
 	</owl:ObjectProperty>

@@ -23,7 +23,6 @@
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistPlaceX.x.x"/>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTemporalRelationX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistNetworkX.x.x"/>
-		<owl:versionInfo rdf:datatype="&xsd;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistNetworkIoTx.x.x.vsd Page:Network</owl:versionInfo>
 		<gist:license rdf:datatype="&xsd;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	
@@ -147,8 +146,8 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;NetworkLink">
-		<rdfs:label rdf:datatype="&xsd;string">Networkd Link</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">a link in a network.  This is the abstractino of the network.  The physical instantiation couple be pipes, or wire  but may also be non physical such as wireness networks or organization structures</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Network Link</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">a link in a network.  This is the abstraction of the network.  The physical instantiation couple be pipes, or wire  but may also be non physical such as wireless networks or organization structures</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;NetworkNode">
@@ -200,7 +199,7 @@
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasIncumbent">
-		<rdfs:label rdf:datatype="&xsd;string">Has Incumbant</rdfs:label>
+		<rdfs:label rdf:datatype="&xsd;string">Has Incumbent</rdfs:label>
 		<rdfs:comment rdf:datatype="&xsd;string">What equipment or person is currently in this node.  Note to create a temporal view make a TemporalRelation for this property</rdfs:comment>
 	</owl:ObjectProperty>
 	

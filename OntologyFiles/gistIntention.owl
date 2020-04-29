@@ -4,22 +4,21 @@
 	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
 	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
-	<!ENTITY xs "http://www.w3.org/2001/XMLSchema#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
 ]>
 <rdf:RDF
 	xmlns:gist="https://ontologies.semanticarts.com/gist/"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema#">
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
 	
 	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistIntention">
-		<rdfs:comment rdf:datatype="&xs;string">gistIntention</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">gistIntention the Teleological aspect of systems.  Whey are we doing something.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">gistIntention</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">gistIntention the Teleological aspect of systems.  Whey are we doing something.</rdfs:comment>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistTopX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistIntentionX.x.x"/>
-		<owl:versionInfo rdf:datatype="&xs;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistX.x.x.vsd Page:intention</owl:versionInfo>
-		<gist:license rdf:datatype="&xs;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
+		<gist:license rdf:datatype="&xsd;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	
 	<owl:AnnotationProperty rdf:about="&rdfs;comment">
@@ -32,8 +31,8 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;BundledCatalogItem">
-		<rdfs:label rdf:datatype="&xs;string">Bundled Catalog Item</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">Any combination of descriptions of things offered together.  Could be a kit (several parts offered together), but could also be a product plus a warranty.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Bundled Catalog Item</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">Any combination of descriptions of things offered together.  Could be a kit (several parts offered together), but could also be a product plus a warranty.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;CatalogItem">
 			</rdf:Description>
@@ -46,9 +45,9 @@
 	
 	<owl:Class rdf:about="&gist;CatalogItem">
 		<rdfs:subClassOf rdf:resource="&gist;Specification"/>
-		<rdfs:label rdf:datatype="&xs;string">Catalog Item</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A description of a product or service to be delivered, given in a sufficient level of detail that a receiver could determine whether delivery constituted discharge of the obligation to deliver.</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xs;string">NOTE: In short, an unambiguous characterization of what it is that a potential buyer is paying for.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Catalog Item</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A description of a product or service to be delivered, given in a sufficient level of detail that a receiver could determine whether delivery constituted discharge of the obligation to deliver.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">NOTE: In short, an unambiguous characterization of what it is that a potential buyer is paying for.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Category">
@@ -56,16 +55,16 @@
 	
 	<owl:Class rdf:about="&gist;Goal">
 		<rdfs:subClassOf rdf:resource="&gist;Intention"/>
-		<rdfs:label rdf:datatype="&xs;string">Goal</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A specific intentional endpoint.  One can tell whether it has been achieved, as opposed to an intention, which may not have an evaluation function.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Goal</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A specific intentional endpoint.  One can tell whether it has been achieved, as opposed to an intention, which may not have an evaluation function.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Intention">
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Permission">
-		<rdfs:label rdf:datatype="&xs;string">Permission</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A description of things one is permitted to do. This could be broad, such as free speech, but more often is very specific, such as the right of egress through a particular property.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Permission</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A description of things one is permitted to do. This could be broad, such as free speech, but more often is very specific, such as the right of egress through a particular property.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Intention">
 			</rdf:Description>
@@ -78,13 +77,13 @@
 	
 	<owl:Class rdf:about="&gist;ProductCategory">
 		<rdfs:subClassOf rdf:resource="&gist;Category"/>
-		<rdfs:label rdf:datatype="&xs;string">Product Category</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">Any of many ways of categorizing products, including models, NATO product codes, and the like.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Product Category</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">Any of many ways of categorizing products, including models, NATO product codes, and the like.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;ProductSpecification">
-		<rdfs:label rdf:datatype="&xs;string">Product Specification</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">Offering something which could be physically warehoused or digitally stored.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Product Specification</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">Offering something which could be physically warehoused or digitally stored.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;CatalogItem">
 			</rdf:Description>
@@ -97,13 +96,13 @@
 	
 	<owl:Class rdf:about="&gist;Requirement">
 		<rdfs:subClassOf rdf:resource="&gist;Intention"/>
-		<rdfs:label rdf:datatype="&xs;string">Requirement</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A documented physical or functional need that a particular design, product, or process must be able to perform.  Alternately, the obligation of a person or organization to behave in a certain way (i.e., drive on the right side of the road).</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Requirement</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A documented physical or functional need that a particular design, product, or process must be able to perform.  Alternately, the obligation of a person or organization to behave in a certain way (i.e., drive on the right side of the road).</rdfs:comment>
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;Restriction">
-		<rdfs:label rdf:datatype="&xs;string">Restriction</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A description of things one is prevented from doing.  Most laws are restrictions.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Restriction</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A description of things one is prevented from doing.  Most laws are restrictions.</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;Intention">
 			</rdf:Description>
@@ -115,8 +114,8 @@
 	</owl:Class>
 	
 	<owl:Class rdf:about="&gist;ServiceSpecification">
-		<rdfs:label rdf:datatype="&xs;string">Service Specification</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A description of something that can be done for a person or organization (which produces some form of an act).</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Service Specification</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A description of something that can be done for a person or organization (which produces some form of an act).</rdfs:comment>
 		<owl:intersectionOf rdf:parseType="Collection">
 			<rdf:Description rdf:about="&gist;CatalogItem">
 			</rdf:Description>
@@ -129,13 +128,13 @@
 	
 	<owl:Class rdf:about="&gist;Specification">
 		<rdfs:subClassOf rdf:resource="&gist;Requirement"/>
-		<rdfs:label rdf:datatype="&xs;string">Specification</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">A set of requirements to be satisfied by a material, design, product, or service.</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Specification</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A set of requirements to be satisfied by a material, design, product, or service.</rdfs:comment>
 	</owl:Class>
 	
 	<owl:ObjectProperty rdf:about="&gist;allows">
-		<rdfs:label rdf:datatype="&xs;string">Allows</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">The intention (say a grant) allows a particular kind of activity (for instance egress)</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Allows</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">The intention (say a grant) allows a particular kind of activity (for instance egress)</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Intention"/>
 		<rdfs:range rdf:resource="&gist;Behavior"/>
 	</owl:ObjectProperty>
@@ -144,8 +143,8 @@
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;basisFor">
-		<rdfs:label rdf:datatype="&xs;string">Basis For</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">Reason for an event</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Basis For</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">Reason for an event</rdfs:comment>
 		<owl:inverseOf rdf:resource="&gist;basedOn"/>
 	</owl:ObjectProperty>
 	
@@ -153,8 +152,8 @@
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;conformsTo">
-		<rdfs:label rdf:datatype="&xs;string">Conforms To</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">The subject conforms to the Object, e.g. meet an obligation, meet terms of an offer, adhere to a specification</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Conforms To</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">The subject conforms to the Object, e.g. meet an obligation, meet terms of an offer, adhere to a specification</rdfs:comment>
 		<rdfs:range rdf:resource="&gist;Intention"/>
 	</owl:ObjectProperty>
 	
@@ -165,15 +164,15 @@
 	</owl:AnnotationProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;prevents">
-		<rdfs:label rdf:datatype="&xs;string">Prevents</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">The intention (say a law) is intended to prevent this kind of behavior (say jaywalking)</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Prevents</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">The intention (say a law) is intended to prevent this kind of behavior (say jay-walking)</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Intention"/>
 		<rdfs:range rdf:resource="&gist;Behavior"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;requires">
-		<rdfs:label rdf:datatype="&xs;string">Requires</rdfs:label>
-		<rdfs:comment rdf:datatype="&xs;string">An intention that sets out a state of satisfaction (you are required to drive on right side of the road)</rdfs:comment>
+		<rdfs:label rdf:datatype="&xsd;string">Requires</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">An intention that sets out a state of satisfaction (you are required to drive on right side of the road)</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Intention"/>
 		<rdfs:range rdf:resource="&gist;Behavior"/>
 	</owl:ObjectProperty>

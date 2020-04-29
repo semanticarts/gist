@@ -19,7 +19,6 @@
 		<rdfs:comment rdf:datatype="&xsd;string">gistIoT</rdfs:comment>
 		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistNetworkX.x.x"/>
 		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistIoTX.x.x"/>
-		<owl:versionInfo rdf:datatype="&xsd;string">Created with e6Tools Graphical OWL Editor from S:\_SemanticArts\Offerings\gist\_daveGistGit\gist\gistNetworkIoTx.x.x.vsd Page:IoT</owl:versionInfo>
 		<gist:license rdf:datatype="&xsd;string">https://creativecommons.org/licenses/by-sa/3.0/</gist:license>
 	</owl:Ontology>
 	
@@ -37,7 +36,7 @@
 	
 	<owl:Class rdf:about="&gist;Controller">
 		<rdfs:label rdf:datatype="&xsd;string">Controller</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">A device that takes messsages or signals from a sensor and decides through algorithms whether and which actuator to fire via messages</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">A device that takes messages or signals from a sensor and decides through algorithms whether and which actuator to fire via messages</rdfs:comment>
 		<owl:equivalentClass>
 			<owl:Class>
 				<owl:intersectionOf rdf:parseType="Collection">
