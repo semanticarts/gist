@@ -51,13 +51,13 @@ Releases
 - Each release has an associated GitHub project, which includes all the issues and PRs targeted for that release.
 - A rotating release manager is assigned to the release. His/her responsibilities are to:
   - Track the status of associated issues, making sure that they are fixed or deferred to a subsequent release.
-  - Release notes have been added to the file [ReleaseNotes.md](ReleaseNotes.md) as part of the development process. The release manager will clean up these notes as needed.
+  - Release notes should have been added to the file [ReleaseNotes.md](ReleaseNotes.md) as part of the development process. The release manager will complete and/or clean up these notes as needed.
   - Submit a PR to develop and request one review. After approval, the reviewer merges the PR.
   - Create and merge a new PR from develop to master.
-  - Create the release package by running the bundle function of [ontology-toolkit](https://github.com/semanticarts/ontology-toolkit).. This adds version numbers to ontology IRIs and import IRIs, and includes additional files, such as release notes and license information, in the release package. This package is sent to the lead developer.
-  - Close the project.
+  - Create the release package by running the bundle function of [ontology-toolkit](https://github.com/semanticarts/ontology-toolkit).This adds version numbers to ontology IRIs and import IRIs, and includes additional files, such as release notes and license information, in the release package. This package is sent to the lead developer.
+  - Close the project using the hamburger menu in the upper right corner of the project.
   - Draft and publish a [new GitHub release](https://github.com/semanticarts/gist/releases/new). The includes the creation of a tag, formatted as `vX.x.x` (e.g., `v9.1.2`).
 - Once the lead developer has received the release package:
-  - He/she will ut the new download package on the server and repoint the website download link to this new package. 
+  - He/she will place the new download package on the server and repoint the website download link to this new package. 
   - The download will be tested by the release manager and/or automated tools. (Test process TBD.)
-  - The release manager will send the release notification to the gist Council mailing list, and the release will also be announced at the following gist Council meeting.
+  - The lead developer will send the release notification to the gist Council mailing list, and the release will also be announced at the following gist Council meeting.
