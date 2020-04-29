@@ -139,6 +139,6 @@ Pull Requests
 ### Merging the PR
 
 - There are three repository admins with permission to merge to develop. If your reviewer is not one of these, he/she will re-assign the PR to one of them after approving it for merge. 
-- Squat merges will not be used; however, the admin may choose to perform a rebase on the branch being merged into develop in order to clean up the commit history.
+- Squash merges will not be used; however, the admin may choose to perform a rebase on the branch being merged into develop in order to clean up the commit history.
 - The project board is configured to automatically move a merged PR and its associated issue to the Done column.
 - The repository is configured to automatically delete the implementation branch from the remote; those with local copies of this branch should delete them locally.
