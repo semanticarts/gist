@@ -42,7 +42,7 @@ actions:
   source: "{input}/LICENSE.txt"
   target: "{output}"
 - action: "copy"
-  source: "{input}/doc"
+  source: "{input}/docs"
   target: "{output}/Documentation"
   includes:
     - "ReleaseNotes.md"
