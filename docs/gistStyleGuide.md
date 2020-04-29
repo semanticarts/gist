@@ -1,4 +1,4 @@
-gist Style Guide
+gist Style Guide [ IN PROGRESS ]
 =====
 
 This style guide documents standards and conventions we have adopted for gist implementation in order to ensure a consistent, professional, high-quality product.
