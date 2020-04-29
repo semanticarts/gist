@@ -13,10 +13,8 @@ Serialization
 
 - gist OWL files are serialized in RDF/XML. 
 - The [EDM Council's RDF serialization tool, rdf-toolkit.jar,](https://github.com/edmcouncil/rdf-toolkit) should be run before every commit in order to standardize formatting and eliminate noise in git diffs. 
-- It is recommended to run this as a [pre-commit hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) in your git repository to circumvent memory lapses. This can be done in one of two ways:
-  - Run the serialization tool, `serialize.sh` (Mac/Linux) or `serialize.bat` (Windows), which calls rdf-toolkit.jar on a set of files, and create a simple pre-commit hook to automate it.
-  - Use the [pre-commit hook provided by the EDM Council] (https://github.com/edmcouncil/rdf-toolkit/blob/master/etc/git-hook/pre-commit).
-
+- It is recommended to run this as a [pre-commit hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) in your git repository to ensure that it is done every time. You can use the [pre-commit hook provided by the EDM Council] (https://github.com/edmcouncil/rdf-toolkit/blob/master/etc/git-hook/pre-commit).
+  - Forthcoming: Information on an alternative pre-commit hook
 
 Naming
 -----
