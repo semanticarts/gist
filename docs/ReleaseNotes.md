@@ -4,9 +4,16 @@
 Release notes gist 9.2.0
 -----
 
-- Replaced all "xs" namespace prefixes for XML Schema with "xsd." Corrects issue [158](https://github.com/semanticarts/gist/issues/158). 
+- Replaced all "xs" namespace prefixes for XML Schema with "xsd". Corrects issue [158](https://github.com/semanticarts/gist/issues/158). 
 - Corrected gist:convertToBase value for gist:_minute from 1.0 to 60.0. Fixes issue [82](https://github.com/semanticarts/gist/issues/82).
-
+- Added initial draft of in-progress gist style guide. Fixes issue [163](https://github.com/semanticarts/gist/issues/163).
+- Added documentation of change and release management process. Fixes issue [233](https://github.com/semanticarts/gist/issues/233).
+- Added guidelines for submission of GitHub issues and pull requests. Fixes issue [190](https://github.com/semanticarts/gist/issues/190).
+- Remove defunct tools and documentation. Fixes issue [193](https://github.com/semanticarts/gist/issues/193).
+- Include direct imports of all gist modules in gistCore. Fixes issue [90](https://github.com/semanticarts/gist/issues/90).
+- Corrected all typos and misspellings in annotations. Fixes issue [210](https://github.com/semanticarts/gist/issues/210).
+- Added cardinality restrictions and disjoints to various gist unit classes. Fixes [69](https://github.com/semanticarts/gist/issues/69).
+- Removed defunct owl:versionInfo from all ontology files. Fixes issue [212](https://github.com/semanticarts/gist/issues/212).
 
 Release notes gist 9.1.0
 --------------------------

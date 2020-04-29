@@ -47,7 +47,7 @@ actions:
   includes:
     - "ReleaseNotes.md"
 - action: "markdown"
-  source: "{input}/doc/ReleaseNotes.md"
+  source: "{input}/docs/ReleaseNotes.md"
   target: "{output}/Documentation/ReleaseNotes.html"
 - action: "move"
   source: "{output}"
