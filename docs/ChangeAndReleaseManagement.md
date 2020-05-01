@@ -50,14 +50,18 @@ Releases
 - Releases occur monthly, approximately on the last working day of the month, unless it is determined during a review meeting that there are not a significant number of substantive changes to warrant a release.
 - Each release has an associated GitHub project, which includes all the issues and PRs targeted for that release.
 - A rotating release manager is assigned to the release. His/her responsibilities are to:
-  - Track the status of associated issues, making sure that they are fixed or deferred to a subsequent release.
-  - Release notes should have been added to the file [ReleaseNotes.md](ReleaseNotes.md) as part of the development process. The release manager will complete and/or clean up these notes as needed.
-  - Submit a PR to develop and request one review. After approval, the reviewer merges the PR.
-  - Create and merge a new PR from develop to master.
-  - Create the release package by running the bundle function of [ontology-toolkit](https://github.com/semanticarts/ontology-toolkit).This adds version numbers to ontology IRIs and import IRIs, and includes additional files, such as release notes and license information, in the release package. This package is sent to the lead developer.
-  - Close the project using the hamburger menu in the upper right corner of the project.
-  - Draft and publish a [new GitHub release](https://github.com/semanticarts/gist/releases/new). The includes the creation of a tag, formatted as `vX.x.x` (e.g., `v9.1.2`).
-- Once the lead developer has received the release package:
-  - He/she will place the new download package on the server and repoint the website download link to this new package. 
-  - The download will be tested by the release manager and/or automated tools. (Test process TBD.)
-  - The lead developer will send the release notification to the gist Council mailing list, and the release will also be announced at the following gist Council meeting.
+  - Track the status of associated issues, making sure that they are either completed or deferred to a subsequent release.
+  - Release notes have been added to the file [ReleaseNotes.md](ReleaseNotes.md) as part of the development process. The release manager will complete and clean up these notes as needed based on a review of the completed project PRs.
+  - Submit a PR to develop and request one review. After approval, the PR is merged into develop.
+  - Create the release package by running the bundle function of [ontology-toolkit](https://github.com/semanticarts/ontology-toolkit). This adds version numbers to filenames, ontology IRIs and import IRIs; and includes additional files, such as release notes and license information, in the release package. 
+  - Write a release announcement.
+  - Send the release package and release announcement to the lead developer.
+  - The lead developer inspects the release package. 
+- Once approved by the developer:
+  - The release manager submits a PR to merge the develop branch to master, assigning a reviewer. 
+  - The reviewer approves the PR and merges it to master.
+  - The release manager drafts and publishes a [new GitHub release](https://github.com/semanticarts/gist/releases/new). The includes the creation of a tag, formatted as `vX.x.x` (e.g., `v9.1.2`).
+  - The release manager closes the project.
+  - The developer uploads the new release package to the server and repoints the website download link to this new package.
+  - The download process will be tested by the developer, release manager, and/or automated tools. (Test process TBD.)
+  - The developer will send the release announcement to the gist Council mailing list. 
