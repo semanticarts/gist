@@ -995,7 +995,6 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	<owl:ObjectProperty rdf:about="&gist;hasMember">
 		<rdfs:label rdf:datatype="&xsd;string">Has Member</rdfs:label>
 		<rdfs:comment rdf:datatype="&xsd;string">Relates a Collection to its member individuals.</rdfs:comment>
-		<rdfs:domain rdf:resource="&gist;Collection"/>
 		<owl:inverseOf rdf:resource="&gist;memberOf"/>
 	</owl:ObjectProperty>
 	
@@ -1085,7 +1084,6 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	<owl:ObjectProperty rdf:about="&gist;memberOf">
 		<rdfs:label rdf:datatype="&xsd;string">Member Of</rdfs:label>
 		<rdfs:comment rdf:datatype="&xsd;string">What group the member is in</rdfs:comment>
-		<rdfs:domain rdf:resource="&gist;Collection"/>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;multiplicand">
