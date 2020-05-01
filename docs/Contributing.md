@@ -14,6 +14,7 @@ Submitting an Issue
 
 ### Content
 
+- Search existing open issues before adding a new one. If the issue already exists, add your comments to it.
 - Each issue should be atomic, to simplify the review process, implementation, and revert/rollback.
 - Exception: several very small issues of the same type can be bundled together into a single issue - e.g., fixing typos in labels. 
 - Examples: 
