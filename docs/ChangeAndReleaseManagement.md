@@ -54,14 +54,17 @@ Releases
   - Release notes have been added to the file [ReleaseNotes.md](ReleaseNotes.md) as part of the development process. The release manager will complete and clean up these notes as needed based on a review of the completed project PRs.
   - Submit a PR to develop and request one review. After approval, the PR is merged into develop.
   - Create the release package by running the bundle function of [ontology-toolkit](https://github.com/semanticarts/ontology-toolkit). This adds version numbers to filenames, ontology IRIs and import IRIs; and includes additional files, such as release notes and license information, in the release package. 
-  - Write a release announcement based on the release notes and send it to the PR team.
+  - Write a release announcement based on the release notes and send it to the lead developer and the PR team.
   - Send the release package to the lead developer.
-  - The lead developer inspects the release package. 
-- Once approved by the developer:
-  - The release manager submits a PR to merge the develop branch to master, assigning a reviewer. 
-  - The reviewer approves the PR and merges it to master.
-  - The release manager drafts and publishes a [new GitHub release](https://github.com/semanticarts/gist/releases/new). The includes the creation of a tag, formatted as `vX.x.x` (e.g., `v9.1.2`).
-  - The release manager closes the project.
-  - The developer uploads the new release package to the server and repoints the website download link to this new package.
+- The lead developer inspects the release package. Once approved:
+  - The release manager:
+    - Submits a PR to merge the develop branch to master, assigning a reviewer. The reviewer merges the PR to master.
+    - Drafts and publishes a [new GitHub release](https://github.com/semanticarts/gist/releases/new). The includes the creation of a tag, formatted as `vX.x.x` (e.g., `v9.1.2`).
+    - Creates the next project by copying the current project (this copies the column automation but not the issues). The copy button is found on the hamburger menu in the upper right corner of the project board.
+    - Moves any uncompleted issues to the new project.
+    - Closes the current project.
+  - The developer:
+    - Uploads the new release package to the server and repoints the website download link to this new package.
+    - Adds the summary of changes from the release notes to the website download page, replacing the previous one.
   - The download process will be tested by the developer, release manager, and/or automated tools. (Test process TBD.)
   - The PR team sends the release announcement to the gist Council mailing list and social media outlets. 
