@@ -18,12 +18,12 @@ Review and Triage of Outstanding Issues
     - Tentatively assign to a release project. This may be reassigned to a later release project as needed.
     - Label as `status:triaged`.
     - Determine and document the resolution to be implemented. For small issues this can be done at the current review meeting; larger issues may require additional discussion, in which case the label `status:in review` should also be added. In such cases the assignee will prepare a summary of alternative implementations, pros and cons, rationales, etc. to be presented at the next meeting. This process will continue until reviewers agree on an implementation. Once an implementation is determined, apply the label `status:implementation specified`.
-- **Needs further review**
+  - **Needs further review**
     - This case is similar to the will implement case, in that an assignee is designated to carry the discussion forward at a subsequent meeting; the difference is that here it is not yet agreed that the issue will be addressed rather than closed. Labels are applied as above.
 
 Workflow: Implementation, Pull Requests, and Merges
-- See [Contributing.md](Contributing.md).
 
+- See [Contributing.md](Contributing.md).
 
 Versions and Version Numbering
 -----
@@ -40,9 +40,9 @@ Version numbers are of the form X.x.x (major.minor.patch), defined following [Se
   - Examples: Fixing a typo in an annotation.
 
 Additional notes:
+
 - Correction of an error, even if not backward-compatible, does not require a major release. The expectation is that users will not have implemented against an obvious error. This would be a patch.
 - When a local name is altered, the original term is deprecated to make it a minor rather than major change. The deprecated term receives an `owl:equivalentClass` or `owl:equivalentProperty` assertion to the new term. Deprecated terms may be removed in a future major release. Deprecated terms reside in the `gistDeprecated.owl` file. If a user wants to use a deprecated term, he/she should import this file into his/her ontology, which in turn imports `gistCore.owl` and thus all of gist.
-
      
 Releases
 -----
@@ -51,7 +51,7 @@ Releases
 - Each release has an associated GitHub project, which includes all the issues and PRs targeted for that release.
 - A rotating release manager is assigned to the release. His/her responsibilities are to:
   - Track the status of associated issues, making sure that they are either completed or deferred to a subsequent release.
-  - Release notes have been added to the file [ReleaseNotes.md](ReleaseNotes.md) as part of the development process. The release manager will complete and clean up these notes as needed based on a review of the completed project PRs.
+  - Release notes have been added to the file [ReleaseNotes.md](ReleaseNotes.md) as part of the development process. The release manager will complete and clean up these notes as needed based on a review of the completed project PRs. A markdown linter should be used before finalizing the notes; see [gistStyleGuide](gistStyleGuide.md).
   - Submit a PR to develop and request one review. After approval, the PR is merged into develop.
   - Create the release package by running the bundle function of [ontology-toolkit](https://github.com/semanticarts/ontology-toolkit). This adds version numbers to filenames, ontology IRIs and import IRIs; and includes additional files, such as release notes and license information, in the release package. 
   - Write a release announcement based on the release notes and send it to the lead developer and the PR team.

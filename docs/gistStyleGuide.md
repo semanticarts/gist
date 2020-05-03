@@ -3,10 +3,10 @@ gist Style Guide [ IN PROGRESS ]
 
 This style guide documents standards and conventions we have adopted for gist implementation in order to ensure a consistent, professional, high-quality product.
 
-OWL Version 
+OWL Version
 -----
-gist uses OWL 2 DL.
 
+gist uses OWL 2 DL.
 
 Serialization
 -----
@@ -20,7 +20,6 @@ Naming
 -----
 
 ### Local names
-
 
 #### Classes
 
@@ -56,3 +55,8 @@ Naming
 #### Rationale
 
 We adopt sentence over title case because the latter, while technically well-defined, has more complex rules and can introduce inconsistencies when implemented by different users.
+
+Documentation
+-----
+
+Documentation is generally written in Markdown, and a Markdown linter should be applied. Currently we follow all [default Markdown formatting rules](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md). If using VS Code as an editor, [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) is a helpful extension that provides code hints and can be configured to automatically correct errors as you type.
