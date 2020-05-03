@@ -34,6 +34,9 @@ actions:
   replace:
     from: "X.x.x"
     to: "{version}"
+  rename:
+    from: "(.*)\\.owl"
+    to: "\\g<1>{version}.owl"
   source: "{input}/OntologyFiles"
   target: "{output}"
   includes:
