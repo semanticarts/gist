@@ -1,7 +1,14 @@
 gist Style Guide [ IN PROGRESS ]
 =====
 
-This style guide documents standards and conventions we have adopted for gist implementation in order to ensure a consistent, professional, high-quality product.
+
+Purpose of this document
+-----
+
+The purpose of this document is two-fold:
+
+- Define and implement conventions in order to standardize gist. 
+- Articulate what we consider best or "better" practices for ontology design and implementation.
 
 OWL Version
 -----

@@ -8,7 +8,6 @@ gist Change and Release Management
 - All bug reports and feature requests should be submitted via issues in this repository rather than through email, the website contact form, or other communication channels, and all discussion will be tracked through comments on the issue. These practices ensure that requests are addressed transparently and systematically, and that all discussion is recorded and preserved in a single, public location.
 - gist Council presentations will have an associated issue created so that the proposals will be reviewed and acted on.
 
-
 Submitting an Issue
 -----
 
@@ -17,7 +16,7 @@ Submitting an Issue
 - Search existing open issues before adding a new one. If the issue already exists, add your comments to it.
 - Each issue should be atomic, to simplify the review process, implementation, and revert/rollback.
 - Exception: several very small issues of the same type can be bundled together into a single issue - e.g., fixing typos in labels. 
-- Examples: 
+- Examples:
   - YES: Change all rdfs:label annotations to skos:prefLabel
   - YES: Fix typos in labels in all gist files.
   - NO: Change all rdfs:label annotations to skos:prefLabel and improve definitions.
