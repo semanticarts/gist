@@ -8,7 +8,7 @@
 - Added documentation of change and release management process. Fixes issue [233](https://github.com/semanticarts/gist/issues/233).
 - Added guidelines for submission of GitHub issues and pull requests. Fixes issue [190](https://github.com/semanticarts/gist/issues/190).
 - Remove defunct tools and documentation. Fixes issue [193](https://github.com/semanticarts/gist/issues/193).
-- Include direct imports of all gist modules in gistCore. Fixes issue [90](https://github.com/semanticarts/gist/issues/90).
+- Include direct imports of all gist modules in gistCore. Fixes issue [80](https://github.com/semanticarts/gist/issues/80).
 - Corrected all typos and misspellings in annotations. Fixes issue [210](https://github.com/semanticarts/gist/issues/210).
 - Added cardinality restrictions and disjoints to various gist unit classes. Fixes [69](https://github.com/semanticarts/gist/issues/69).
 - Removed defunct owl:versionInfo from all ontology files. Fixes issue [212](https://github.com/semanticarts/gist/issues/212).
