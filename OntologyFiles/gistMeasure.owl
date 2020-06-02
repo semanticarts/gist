@@ -134,7 +134,7 @@
 	</owl:AnnotationProperty>
 	
 	<rdf:Description rdf:about="&gist;orderedMemberOf">
-		<rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+		<rdf:type rdf:resource="&owl;FunctionalProperty"/>
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
 		<rdfs:label rdf:datatype="&xsd;string">Ordered Member Of</rdfs:label>
 		<rdfs:comment rdf:datatype="&xsd;string">An inverse of hasOrderedMember</rdfs:comment>
