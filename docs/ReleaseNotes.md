@@ -1,10 +1,13 @@
-# gist Release Notes
+gist Release Notes
+=====
 
-## Release notes gist 9.3.0 [ COULD BE 9.2.1 - REMAINS TO BE SEEN]
+Release notes gist 9.3.0 [ COULD BE 9.2.1 - REMAINS TO BE SEEN]
+-----
 
 - Amended bundle.yaml to add rdfs:isDefinedBy to all ontology terms during release bundling process. Fixes issue [266](https://github.com/semanticarts/gist/issues/266).
 
-## Release notes gist 9.2.0
+Release notes gist 9.2.0
+-----
 
 - Replaced all "xs" namespace prefixes for XML Schema with "xsd". Corrects issue [158](https://github.com/semanticarts/gist/issues/158).
 - Corrected gist:convertToBase value for gist:_minute from 1.0 to 60.0. Fixes issue [82](https://github.com/semanticarts/gist/issues/82).
@@ -17,7 +20,8 @@
 - Added cardinality restrictions and disjoints to various gist unit classes. Fixes [69](https://github.com/semanticarts/gist/issues/69).
 - Removed defunct owl:versionInfo from all ontology files. Fixes issue [212](https://github.com/semanticarts/gist/issues/212).
 
-## Release notes gist 9.1.0
+Release notes gist 9.1.0
+-----
 
 - Reformatted all files to match uniform serialization.
 - Corrected restriction for `gist:Collection`.
@@ -28,7 +32,8 @@
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore9.1.0>.
 
-## Release notes gist 9.0.0
+Release notes gist 9.0.0
+-----
 
 ### Miscellaneous
 
@@ -125,24 +130,28 @@ e.  `gist:dateTime`
 a.  `gist:strictlyPrecededBy` (using `directlyPrecededBy` instead)
 b.  `gist:strictlyPrecedes` (using `directlyPrecedes` instead)
 
-## Release notes gist 8.0.0
+Release notes gist 8.0.0
+-----
 
 This major version primarily changed all concept URIs to use `/` instead of `#`
 Additionally, gistWiki is no longer included by gistCore.
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore8.0.0>.
 
-## Release notes gist 7.5
+Release notes gist 7.5
+-----
 
 This version focused on making the import structure simpler and flatter, in order to make it easier for people to use subsets of gist if they want to.  Because all of gist is in one name space this was relatively easy to do and will have very little impact on anyone who is using gist 7.* (see the change log there were a few changes that you may want to review).
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.5.owl>.
 
-## Release notes gist 7.4
+Release notes gist 7.4
+-----
 
 Gist 7.4 was an internal release.
 
-## Release notes gist 7.3
+Release notes gist 7.3
+-----
 
 - An additional supplementary ontology was added for Units of Measure which introduces the concept of a Coherent Unit. This allows for conversions between units of the same dimension to be done using just SPARQL, as opposed to relying on rules.
 - There are new and/or improved annotations (definitions, notes, examples, negative examples, etc.) on all Classes.
@@ -157,7 +166,8 @@ See ChangeLog in pdf file for full details of changes.
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.3.owl>.
 
-## Release notes gist 7.2
+Release notes gist 7.2
+-----
 
 - Add wiki and rdfshape capability
 - Removed some redundant assertions, and moved some comments to the ontology where the concept was first introduced.
@@ -167,7 +177,8 @@ Import URL: <http://ontologies.semanticarts.com/o/gistCore7.3.owl>.
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.2.owl>.
 
-## Release notes gist 7.1.1
+Release notes gist 7.1.1
+-----
 
 - Fix an erroneous disjoint statement on the class gist:Magnitude.
 If you previously downloaded gist 7.1 you may have experienced an inference error if you attempted to run inference using Hermit.
@@ -176,7 +187,8 @@ The gist 7.1.1 release has eliminated the cause of this error.
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.1.1.owl>.
 
-## Release notes gist 7.1
+Release notes gist 7.1
+-----
 
 Primarily fixes minor errors like typos in our gist 7.0 release.
 
@@ -196,7 +208,8 @@ In addition to using the OWL files locally, you can import these files via URL d
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.1.owl>.
 
-## Release Notes gist 7.0
+Release Notes gist 7.0
+-----
 
 gist 7.0 is a major upgrade from our last released version (6.7.1). The main differences are:
 

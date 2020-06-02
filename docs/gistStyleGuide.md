@@ -65,4 +65,4 @@ We adopt sentence over title case because the latter, while technically well-def
 Documentation
 -----
 
-Documentation is generally written in Markdown, and a Markdown linter should be applied. Currently we follow all [default Markdown formatting rules](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md). If using VS Code as an editor, [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) is a helpful extension that provides code hints and can be configured to automatically correct errors as you type.
+Documentation is generally written in Markdown, and a Markdown linter should be applied to flag and fix [Markdown rule](https://github.com/DavidAnson/markdownlint/blob/v0.20.3/doc/Rules.md) violations. The Markdown config file [markdownlint.json](.markdownlint.json) configures the Markdown delinter. If using VS Code as an editor, [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) is a helpful extension that provides code hints and can be configured to automatically correct errors.
