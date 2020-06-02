@@ -36,14 +36,14 @@ Version numbers are of the form X.x.x (major.minor.patch), defined following [Se
 - **Minor:** New, backward-compatible functionality. May constitute a large change to the ontology, such as addition to new module.
   - Examples: adding a class or property; removing a restriction.
 
-- **Patch:** No new functionality. 
+- **Patch:** No new functionality.
   - Examples: Fixing a typo in an annotation.
 
 Additional notes:
 
 - Correction of an error, even if not backward-compatible, does not require a major release. The expectation is that users will not have implemented against an obvious error. This would be a patch.
 - When a local name is altered, the original term is deprecated to make it a minor rather than major change. The deprecated term receives an `owl:equivalentClass` or `owl:equivalentProperty` assertion to the new term. Deprecated terms may be removed in a future major release. Deprecated terms reside in the `gistDeprecated.owl` file. If a user wants to use a deprecated term, he/she should import this file into his/her ontology, which in turn imports `gistCore.owl` and thus all of gist.
-     
+
 Releases
 -----
 
@@ -53,7 +53,7 @@ Releases
   - Track the status of associated issues, making sure that they are either completed or deferred to a subsequent release.
   - Release notes have been added to the file [ReleaseNotes.md](ReleaseNotes.md) as part of the development process. The release manager will complete and clean up these notes as needed based on a review of the completed project PRs. A markdown linter should be used before finalizing the notes; see [gistStyleGuide](gistStyleGuide.md).
   - Submit a PR to develop and request one review. After approval, the PR is merged into develop.
-  - Create the release package by running the bundle function of [ontology-toolkit](https://github.com/semanticarts/ontology-toolkit). This adds version numbers to filenames, ontology IRIs and import IRIs; and includes additional files, such as release notes and license information, in the release package. 
+  - Create the release package by running the bundle function of [ontology-toolkit](https://github.com/semanticarts/ontology-toolkit). This adds version numbers to filenames, ontology IRIs and import IRIs; and includes additional files, such as release notes and license information, in the release package.
   - Write a release announcement based on the release notes and send it to the lead developer and the PR team.
   - Send the release package to the lead developer.
 - The lead developer inspects the release package. Once approved:
@@ -67,4 +67,4 @@ Releases
     - Uploads the new release package to the server and repoints the website download link to this new package.
     - Adds the summary of changes from the release notes to the website download page, replacing the previous one.
   - The download process will be tested by the developer, release manager, and/or automated tools. (Test process TBD.)
-  - The PR team sends the release announcement to the gist Council mailing list and social media outlets. 
+  - The PR team sends the release announcement to the gist Council mailing list and social media outlets.
