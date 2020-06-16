@@ -3,7 +3,6 @@
 ## Release notes gist 9.3.0 [ COULD BE 9.2.1 - REMAINS TO BE SEEN]
 
 - Merged into a single module/file all of gist except the gistDeprecated module. 
-- Gist files now formatted in Turtle instead of RDF/XML.
 - Amended bundle.yaml to add rdfs:isDefinedBy to all ontology terms during release bundling process. Fixes issue [266](https://github.com/semanticarts/gist/issues/266).
 
 ## Release notes gist 9.2.0

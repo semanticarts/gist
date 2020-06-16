@@ -11,9 +11,10 @@ tools:
   jar: "{rdf-toolkit}"
   arguments:
     - "-tfmt"
-    - "turtle"
+    - "rdf-xml"
     - "-sdt"
     - "explicit"
+    - "-dtd"
     - "-ibn"
     - "-s"
     - "{inputFile}"
@@ -29,21 +30,21 @@ actions:
     from: "X.x.x"
     to: "{version}"
   rename:
-    from: "(.*)\\.ttl"
-    to: "\\g<1>{version}.ttl"
+    from: "(.*)\\.owl"
+    to: "\\g<1>{version}.owl"
   includes:
-    - "*.ttl"
+    - "*.owl"
 - action: "definedBy"
   source: "{output}"
   target: "{output}"
   includes:
-    - "*.ttl"
+    - "*.owl"
 - action: "transform"
   tool: "serializer"
   source: "{output}"
   target: "{output}"
   includes:
-    - "*.ttl"
+    - "*.owl"
 - action: "copy"
   source: "{input}/LICENSE.txt"
   target: "{output}"
@@ -59,4 +60,4 @@ actions:
   source: "{output}"
   target: "{output}/Deprecated"
   includes:
-    - "*Deprecated*.ttl"
+    - "*Deprecated*.owl"

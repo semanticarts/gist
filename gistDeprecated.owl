@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+	<!ENTITY gist "https://ontologies.semanticarts.com/gist/">
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#">
+	<!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	<!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
+]>
+<rdf:RDF
+	xmlns:gist="https://ontologies.semanticarts.com/gist/"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+	
+	<owl:Ontology rdf:about="https://ontologies.semanticarts.com/o/gistDeprecated">
+		<rdfs:comment rdf:datatype="&xsd;string">Concepts that have been deprecated since the last external release</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">gistDeprecated</rdfs:comment>
+		<owl:imports rdf:resource="https://ontologies.semanticarts.com/o/gistCoreX.x.x"/>
+		<owl:versionIRI rdf:resource="https://ontologies.semanticarts.com/o/gistDeprecatedX.x.x"/>
+	</owl:Ontology>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;comment">
+	</owl:AnnotationProperty>
+	
+	<owl:AnnotationProperty rdf:about="&rdfs;label">
+	</owl:AnnotationProperty>
+	
+	<owl:AnnotationProperty rdf:about="&owl;deprecated">
+	</owl:AnnotationProperty>
+	
+	<owl:Class rdf:about="&gist;Organization">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Person">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;PhysicalIdentifiableItem">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;PhysicalSubstance">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;PhysicalThing">
+		<rdfs:label rdf:datatype="&xsd;string">Physical Thing</rdfs:label>
+		<owl:deprecated rdf:datatype="&xsd;boolean">true</owl:deprecated>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;PhysicalIdentifiableItem">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;PhysicalSubstance">
+					</rdf:Description>
+				</owl:unionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;SocialBeing">
+		<rdfs:label rdf:datatype="&xsd;string">Social Being</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A Person or an Organization.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">NOTE: Includes anything that can be party to an Agreement (e.g. Contract).   But not all SocialBeing(s) can be parties to all Agreement(s).  For example, minors can be beneficiaries, but perhaps not primary signatories on contracts.</rdfs:comment>
+		<owl:deprecated rdf:datatype="&xsd;boolean">true</owl:deprecated>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;Organization">
+					</rdf:Description>
+					<rdf:Description rdf:about="&gist;Person">
+					</rdf:Description>
+				</owl:unionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;Template">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;TemplateTask">
+		<rdfs:label rdf:datatype="&xsd;string">Template Task</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">A prototypical task of a particular type, that will, when instantiated, generate an actual (unscheduled) task.</rdfs:comment>
+		<owl:deprecated rdf:datatype="&xsd;boolean">true</owl:deprecated>
+		<owl:intersectionOf rdf:parseType="Collection">
+			<rdf:Description rdf:about="&gist;Template">
+			</rdf:Description>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasGoal"/>
+				<owl:someValuesFrom rdf:resource="&gist;Intention"/>
+			</owl:Restriction>
+		</owl:intersectionOf>
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;TimeInstant">
+	</owl:Class>
+	
+	<owl:Class rdf:about="&gist;TimeInterval">
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;end"/>
+				<owl:someValuesFrom rdf:resource="&gist;TimeInstant"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;hasMagnitude"/>
+				<owl:someValuesFrom rdf:resource="&gist;Duration"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:subClassOf>
+			<owl:Restriction>
+				<owl:onProperty rdf:resource="&gist;start"/>
+				<owl:someValuesFrom rdf:resource="&gist;TimeInstant"/>
+			</owl:Restriction>
+		</rdfs:subClassOf>
+		<rdfs:label rdf:datatype="&xsd;string">Time Interval</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLE: Jan 1 through Jan 8, 2013.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">NEGATIVE EXAMPLE: &quot;8:00am&quot; (with no date).</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">NOTE:  The end should be later than the start, but this is not enforced via OWL.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">NOTE: While Time Interval has a Duration, it is not itself a Duration.</rdfs:comment>
+		<owl:deprecated rdf:datatype="&xsd;boolean">true</owl:deprecated>
+	</owl:Class>
+	
+	<owl:DatatypeProperty rdf:about="&gist;date">
+		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
+		<owl:deprecated rdf:datatype="&xsd;boolean">true</owl:deprecated>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&gist;dateTime">
+		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
+		<rdfs:range rdf:resource="&xsd;dateTime"/>
+		<owl:deprecated rdf:datatype="&xsd;boolean">true</owl:deprecated>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;end">
+	</owl:ObjectProperty>
+	
+	<rdf:Description rdf:about="&gist;hasA">
+		<rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+		<rdf:type rdf:resource="&owl;ObjectProperty"/>
+		<rdfs:comment rdf:datatype="&xsd;string">EXAMPLE: a table has an edge, a car has weight (which cannot exist unless the car exists)</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">NOTE: Cascading delete.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">The subject exclusively has or possesses the object, the object does not have independent existence.</rdfs:comment>
+		<owl:deprecated rdf:datatype="&xsd;boolean">true</owl:deprecated>
+		<owl:inverseOf rdf:resource="&gist;of"/>
+	</rdf:Description>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasGoal">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasMagnitude">
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&gist;localDate">
+		<rdfs:subPropertyOf rdf:resource="&gist;date"/>
+		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&gist;localDateTime">
+		<rdfs:subPropertyOf rdf:resource="&gist;dateTime"/>
+		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
+		<rdfs:range rdf:resource="&xsd;dateTime"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&gist;localTime">
+		<rdfs:subPropertyOf rdf:resource="&gist;time"/>
+		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
+	</owl:DatatypeProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;of">
+		<owl:deprecated rdf:datatype="&xsd;boolean">true</owl:deprecated>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;party">
+		<rdfs:comment rdf:datatype="&xsd;string">The people or organizations participating in an agreement or obligation</rdfs:comment>
+		<rdfs:range rdf:resource="&gist;SocialBeing"/>
+		<owl:deprecated rdf:datatype="&xsd;boolean">true</owl:deprecated>
+	</owl:ObjectProperty>
+	
+	<rdf:Description rdf:about="&gist;sameOrderAs">
+		<rdf:type rdf:resource="&owl;ObjectProperty"/>
+		<rdf:type rdf:resource="&owl;ReflexiveProperty"/>
+		<rdf:type rdf:resource="&owl;SymmetricProperty"/>
+		<owl:deprecated rdf:datatype="&xsd;boolean">true</owl:deprecated>
+	</rdf:Description>
+	
+	<owl:ObjectProperty rdf:about="&gist;start">
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;strictlyPrecededBy">
+		<rdfs:comment rdf:datatype="&xsd;string">inverse of striclyPrecedes</rdfs:comment>
+		<owl:deprecated rdf:datatype="&xsd;boolean">true</owl:deprecated>
+		<owl:disjointObjectProperties rdf:resource="&gist;sameOrderAs"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;strictlyPrecedes">
+		<rdfs:comment rdf:datatype="&xsd;string">A generic ordering relation indicating that the Subject comes before the Object, it may not be of equal rank. The greater than symbol is often used for this relation.</rdfs:comment>
+		<owl:deprecated rdf:datatype="&xsd;boolean">true</owl:deprecated>
+	</owl:ObjectProperty>
+	
+	<owl:DatatypeProperty rdf:about="&gist;time">
+		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
+		<owl:deprecated rdf:datatype="&xsd;boolean">true</owl:deprecated>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&gist;universalDate">
+		<rdfs:subPropertyOf rdf:resource="&gist;date"/>
+		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&gist;universalDateTime">
+		<rdfs:subPropertyOf rdf:resource="&gist;dateTime"/>
+		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
+		<rdfs:range rdf:resource="&xsd;dateTime"/>
+	</owl:DatatypeProperty>
+	
+	<owl:DatatypeProperty rdf:about="&gist;universalTime">
+		<rdfs:subPropertyOf rdf:resource="&gist;time"/>
+		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
+	</owl:DatatypeProperty>
+
+</rdf:RDF>
