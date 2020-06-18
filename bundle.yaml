@@ -24,13 +24,7 @@ actions:
 - action: "mkdir"
   directory: "{output}"
 - action: "copy"
-  replace:
-    from: "X.x.x"
-    to: "{version}"
-  source: "{input}/OntologyFiles/bundle-catalog-v001.xml"
-  target: "{output}/catalog-v001.xml"
-- action: "copy"
-  source: "{input}/OntologyFiles"
+  source: "{input}"
   target: "{output}"
   replace:
     from: "X.x.x"
@@ -67,10 +61,3 @@ actions:
   target: "{output}/Deprecated"
   includes:
     - "*Deprecated*.owl"
-- action: "graph"
-  source: "{output}"
-  target: "{output}/Documentation"
-  title: "{name}"
-  version: "{version}"
-  includes:
-    - "*.owl"
