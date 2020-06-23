@@ -2790,7 +2790,7 @@
 	
 	<owl:ObjectProperty rdf:about="&gist;characterizedAs">
 		<rdfs:label rdf:datatype="&xsd;string">Characterized As</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">A way to categorized a behavior</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">A way to categorize a behavior.</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Event"/>
 		<rdfs:range rdf:resource="&gist;Behavior"/>
 	</owl:ObjectProperty>
