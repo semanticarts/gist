@@ -883,6 +883,12 @@
 		<rdfs:comment rdf:datatype="&xsd;string">Any place an electronic message (email, fax, etc.) can be sent.</rdfs:comment>
 	</owl:Class>
 	
+	<owl:Class rdf:about="&gist;EmailAddress">
+		<rdfs:subClassOf rdf:resource="&gist;ElectronicMessageAddress"/>
+		<rdfs:label rdf:datatype="&xsd;string">Email Address</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">An email address is a unique identifier for an email account. It is used to both send and receive email messages over the Internet.</rdfs:comment>
+	</owl:Class>
+	
 	<owl:Class rdf:about="&gist;Equipment">
 		<rdfs:label rdf:datatype="&xsd;string">Equipment</rdfs:label>
 		<rdfs:comment rdf:datatype="&xsd;string">Tangible property other than land or buildings.  Any kind of equipment, could be machine, router, car etc.</rdfs:comment>
