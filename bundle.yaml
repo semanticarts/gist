@@ -24,17 +24,24 @@ actions:
 - action: "mkdir"
   directory: "{output}"
 - action: "copy"
+  source: "{input}"
+  target: "{output}"
   replace:
     from: "X.x.x"
     to: "{version}"
-  source: "{input}/OntologyFiles/bundle-catalog-v001.xml"
-  target: "{output}/catalog-v001.xml"
+  rename:
+    from: "(.*)\\.owl"
+    to: "\\g<1>{version}.owl"
+  includes:
+    - "*.owl"
+- action: "definedBy"
+  source: "{output}"
+  target: "{output}"
+  includes:
+    - "*.owl"
 - action: "transform"
   tool: "serializer"
-  replace:
-    from: "X.x.x"
-    to: "{version}"
-  source: "{input}/OntologyFiles"
+  source: "{output}"
   target: "{output}"
   includes:
     - "*.owl"
@@ -54,10 +61,3 @@ actions:
   target: "{output}/Deprecated"
   includes:
     - "*Deprecated*.owl"
-- action: "graph"
-  source: "{output}"
-  target: "{output}/Documentation"
-  title: "{name}"
-  version: "{version}"
-  includes:
-    - "*.owl"

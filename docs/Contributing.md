@@ -104,7 +104,6 @@ Pull Requests
   - Exception: If there are several very small issues such as typo corrections or definition fixes, these can be submitted in a single PR. 
 - The PR should address the entirety of an issue. If it does not, either the PR should be modified or the issue should be broken up into parts.
 - The title of the PR should contain the keywords "fixes #nnn" (or another of the [GitHub keywords](https://help.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)) where nnn is the issue number. This automatically closes the issue when the PR is merged.
-  - Example: "Correct cardinality restriction on class gist:Room. Fixes #98."
 - The PR should include an update to the release notes for the issue. Format:
   - One-line or so summary of change, followed by a link to the issue. This may be a copy of the issue title if that is well-phrased.
   - See notes for release 9.2.0 for examples.
