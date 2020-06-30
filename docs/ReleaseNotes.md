@@ -1,11 +1,16 @@
 gist Release Notes
 =====
 
-Release notes gist 9.3.0 [ COULD BE 9.2.1 - REMAINS TO BE SEEN]
+Release notes gist 9.3.0
 -----
 
-- Merged into a single module/file all of gist except the gistDeprecated module. 
+- Merged into a single module/file all of gist except the gistDeprecated module.  Fixes issue [292](https://github.com/semanticarts/gist/issues/292).
+- Removed import diagram generation and catalog files from bundling. Fixes issue [309](https://github.com/semanticarts/gist/issues/309).
 - Amended bundle.yaml to add rdfs:isDefinedBy to all ontology terms during release bundling process. Fixes issue [266](https://github.com/semanticarts/gist/issues/266).
+- Added gist:EmailAddress as a subclass of gist:ElectronicMessageAddress. Fixes issue [99](https://github.com/semanticarts/gist/issues/99).
+- Changed gist:orderedMemberOf from Inverse Functional to Functional. Fixes issue [262](https://github.com/semanticarts/gist/issues/262).
+- Added gist:Collection as the range, instead of domain, of gist:memberOf. Fixes issue [142](https://github.com/semanticarts/gist/issues/142).
+- Removed redundant disjoints. Fixes issue [254](https://github.com/semanticarts/gist/issues/254).
 
 Release notes gist 9.2.0
 -----
