@@ -18,12 +18,11 @@ Review and Triage of Outstanding Issues
     - Tentatively assign to a release project. This may be reassigned to a later release project as needed.
     - Label as `status:triaged`.
     - Determine and document the resolution to be implemented. For small issues this can be done at the current review meeting; larger issues may require additional discussion, in which case the label `status:in review` should also be added. In such cases the assignee will prepare a summary of alternative implementations, pros and cons, rationales, etc. to be presented at the next meeting. This process will continue until reviewers agree on an implementation. Once an implementation is determined, apply the label `status:implementation specified`.
-- **Needs further review**
-    - This case is similar to the will implement case, in that an assignee is designated to carry the discussion forward at a subsequent meeting; the difference is that here it is not yet agreed that the issue will be addressed rather than closed. Labels are applied as above.
+    - **Needs further review** This case is similar to the will implement case, in that an assignee is designated to carry the discussion forward at a subsequent meeting; the difference is that here it is not yet agreed that the issue will be addressed rather than closed. Labels are applied as above.
 
 Workflow: Implementation, Pull Requests, and Merges
-- See [Contributing.md](Contributing.md).
 
+- See [Contributing.md](Contributing.md).
 
 Versions and Version Numbering
 -----
@@ -36,28 +35,39 @@ Version numbers are of the form X.x.x (major.minor.patch), defined following [Se
 - **Minor:** New, backward-compatible functionality. May constitute a large change to the ontology, such as addition to new module.
   - Examples: adding a class or property; removing a restriction.
 
-- **Patch:** No new functionality. 
+- **Patch:** No new functionality.
   - Examples: Fixing a typo in an annotation.
 
 Additional notes:
+
 - Correction of an error, even if not backward-compatible, does not require a major release. The expectation is that users will not have implemented against an obvious error. This would be a patch.
 - When a local name is altered, the original term is deprecated to make it a minor rather than major change. The deprecated term receives an `owl:equivalentClass` or `owl:equivalentProperty` assertion to the new term. Deprecated terms may be removed in a future major release. Deprecated terms reside in the `gistDeprecated.owl` file. If a user wants to use a deprecated term, he/she should import this file into his/her ontology, which in turn imports `gistCore.owl` and thus all of gist.
 
-     
 Releases
 -----
 
 - Releases occur monthly, approximately on the last working day of the month, unless it is determined during a review meeting that there are not a significant number of substantive changes to warrant a release.
 - Each release has an associated GitHub project, which includes all the issues and PRs targeted for that release.
 - A rotating release manager is assigned to the release. His/her responsibilities are to:
-  - Track the status of associated issues, making sure that they are fixed or deferred to a subsequent release.
+  - Track the status of associated issues, making sure that they are fixed or deferred to the next release. The project for the next release should already exist if created as part of the previous release (see below); otherwise create the new project by following the steps in [Creating a new project](#creating-a-new-project).
   - Release notes have been added to the file [ReleaseNotes.md](ReleaseNotes.md) as part of the development process. The release manager will clean up these notes as needed.
   - Submit a PR to develop and request one review. After approval, the reviewer merges the PR.
   - Create and merge a new PR from develop to master.
-  - Create the release package by running the bundle function of [ontology-toolkit](https://github.com/semanticarts/ontology-toolkit).. This adds version numbers to ontology IRIs and import IRIs, and includes additional files, such as release notes and license information, in the release package. This package is sent to the lead developer.
+  - Create the release package by running the bundle function of [ontology-toolkit](https://github.com/semanticarts/ontology-toolkit). This adds version numbers to ontology IRIs and import IRIs, and includes additional files, such as release notes and license information, in the release package. This package is sent to the lead developer.
   - Close the project.
+  - Copy any existing project to a new project for the release after the next release by following the steps in [Creating a new project](#creating-a-new-project). It is good to always have two open projects, one for the next release and one for the release after that, so that 
+  tasks can easily be postponed to the next project as the need arises.
   - Draft and publish a [new GitHub release](https://github.com/semanticarts/gist/releases/new). The includes the creation of a tag, formatted as `vX.x.x` (e.g., `v9.1.2`).
 - Once the lead developer has received the release package:
-  - He/she will ut the new download package on the server and repoint the website download link to this new package. 
+  - He/she will ut the new download package on the server and repoint the website download link to this new package.
   - The download will be tested by the release manager and/or automated tools. (Test process TBD.)
   - The release manager will send the release notification to the gist Council mailing list, and the release will also be announced at the following gist Council meeting.
+
+### Creating a new project {: #creating-a-new-project }
+
+The easiest way to create a new project is by copying an existing project:
+
+- Open the hamburger menu to the far right of the existing project board, select the three vertical dots, select Copy.
+- Select semanticarts/gist as the project owner (otherwise it goes into the semanticarts organization).
+- Add/modify name and description.
+- Check Copy Automation Settings.
