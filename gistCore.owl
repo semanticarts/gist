@@ -3271,7 +3271,7 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	<owl:ObjectProperty rdf:about="&gist;hasSubCategory">
 		<rdfs:label rdf:datatype="&xsd;string">has subcategory</rdfs:label>
 		<rdfs:comment rdf:datatype="&xsd;string">Categories linked in this way are to represent true subtypes.  The categories aren&apos;t supertypes, but a class defined by a supercategory will be a superclass of one derived from its subcategory.</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xsd;string">This subject category is the parent of, or broader than, the object category.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">The subject category is inclusive of, or broader than, the object category. Everything categorized by the subcategory can be inferred to be categorized by the supercategory.</rdfs:comment>
 		<owl:inverseOf rdf:resource="&gist;hasSuperCategory"/>
 	</owl:ObjectProperty>
 	
@@ -3290,7 +3290,7 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 		<rdf:type rdf:resource="&owl;TransitiveProperty"/>
 		<rdfs:label rdf:datatype="&xsd;string">has supercategory</rdfs:label>
 		<rdfs:comment rdf:datatype="&xsd;string">Categories linked in this way are to represent true subtypes.  The categories aren&apos;t subtypes, but a class defined by a supercategory will be a superclass of one derived from its subcategory.</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xsd;string">The subject category is the child of, or narrower than, the object category.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">The subject category is included by, or narrower than, the object category. Everything ategorized by the subcategory can be inferred to be categorized by the supercategory.</rdfs:comment>
 	</rdf:Description>
 	
 	<owl:DatatypeProperty rdf:about="&gist;hasTag">
