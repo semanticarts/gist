@@ -18,8 +18,7 @@ Review and Triage of Outstanding Issues
     - Tentatively assign to a release project. This may be reassigned to a later release project as needed.
     - Label as `status:triaged`.
     - Determine and document the resolution to be implemented. For small issues this can be done at the current review meeting; larger issues may require additional discussion, in which case the label `status:in review` should also be added. In such cases the assignee will prepare a summary of alternative implementations, pros and cons, rationales, etc. to be presented at the next meeting. This process will continue until reviewers agree on an implementation. Once an implementation is determined, apply the label `status:implementation specified`.
-  - **Needs further review**
-    - This case is similar to the will implement case, in that an assignee is designated to carry the discussion forward at a subsequent meeting; the difference is that here it is not yet agreed that the issue will be addressed rather than closed. Labels are applied as above.
+    - **Needs further review** This case is similar to the will implement case, in that an assignee is designated to carry the discussion forward at a subsequent meeting; the difference is that here it is not yet agreed that the issue will be addressed rather than closed. Labels are applied as above.
 
 Workflow: Implementation, Pull Requests, and Merges
 
@@ -50,21 +49,25 @@ Releases
 - Releases occur monthly, approximately on the last working day of the month, unless it is determined during a review meeting that there are not a significant number of substantive changes to warrant a release.
 - Each release has an associated GitHub project, which includes all the issues and PRs targeted for that release.
 - A rotating release manager is assigned to the release. His/her responsibilities are to:
-  - Track the status of associated issues, making sure that they are either completed or deferred to a subsequent release.
-  - Release notes have been added to the file [ReleaseNotes.md](ReleaseNotes.md) as part of the development process. The release manager will complete and clean up these notes as needed based on a review of the completed project PRs. A markdown linter should be used before finalizing the notes; see [gistStyleGuide](gistStyleGuide.md).
-  - Submit a PR to develop and request one review. After approval, the PR is merged into develop.
-  - Create the release package by running the bundle function of [ontology-toolkit](https://github.com/semanticarts/ontology-toolkit). This adds version numbers to filenames, ontology IRIs and import IRIs; and includes additional files, such as release notes and license information, in the release package.
-  - Write a release announcement based on the release notes and send it to the lead developer and the PR team.
-  - Send the release package to the lead developer.
-- The lead developer inspects the release package. Once approved:
-  - The release manager:
-    - Submits a PR to merge the develop branch to master, assigning a reviewer. The reviewer merges the PR to master.
-    - Drafts and publishes a [new GitHub release](https://github.com/semanticarts/gist/releases/new). The includes the creation of a tag, formatted as `vX.x.x` (e.g., `v9.1.2`).
-    - Creates the next project by copying the current project (this copies the column automation but not the issues). The copy button is found on the hamburger menu in the upper right corner of the project board.
-    - Moves any uncompleted issues to the new project.
-    - Closes the current project.
-  - The developer:
-    - Uploads the new release package to the server and repoints the website download link to this new package.
-    - Adds the summary of changes from the release notes to the website download page, replacing the previous one.
-  - The download process will be tested by the developer, release manager, and/or automated tools. (Test process TBD.)
-  - The PR team sends the release announcement to the gist Council mailing list and social media outlets.
+  - Track the status of associated issues, making sure that they are fixed or deferred to the next release. The project for the next release should already exist if created as part of the previous release (see below); otherwise create the new project by following the steps in [Creating a new project](#creating-a-new-project).
+  - Release notes have been added to the file [ReleaseNotes.md](ReleaseNotes.md) as part of the development process. The release manager will clean up these notes as needed.
+  - Submit a PR to develop and request one review. After approval, the reviewer merges the PR.
+  - Create and merge a new PR from develop to master.
+  - Create the release package by running the bundle function of [ontology-toolkit](https://github.com/semanticarts/ontology-toolkit). This adds version numbers to ontology IRIs and import IRIs, and includes additional files, such as release notes and license information, in the release package. This package is sent to the lead developer.
+  - Close the project.
+  - Copy any existing project to a new project for the release after the next release by following the steps in [Creating a new project](#creating-a-new-project). It is good to always have two open projects, one for the next release and one for the release after that, so that
+  tasks can easily be postponed to the next project as the need arises.
+  - Draft and publish a [new GitHub release](https://github.com/semanticarts/gist/releases/new). The includes the creation of a tag, formatted as `vX.x.x` (e.g., `v9.1.2`).
+- Once the lead developer has received the release package:
+  - He/she will ut the new download package on the server and repoint the website download link to this new package.
+  - The download will be tested by the release manager and/or automated tools. (Test process TBD.)
+  - The release manager will send the release notification to the gist Council mailing list, and the release will also be announced at the following gist Council meeting.
+
+### Creating a new project {: #creating-a-new-project }
+
+The easiest way to create a new project is by copying an existing project:
+
+- Open the hamburger menu to the far right of the existing project board, select the three vertical dots, select Copy.
+- Select semanticarts/gist as the project owner (otherwise it goes into the semanticarts organization).
+- Add/modify name and description.
+- Check Copy Automation Settings.

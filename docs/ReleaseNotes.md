@@ -12,6 +12,8 @@ Release notes gist 9.3.0
 - Added gist:Collection as the range, instead of domain, of gist:memberOf. Fixes issue [142](https://github.com/semanticarts/gist/issues/142).
 - Removed redundant disjoints. Fixes issue [254](https://github.com/semanticarts/gist/issues/254).
 
+Import URL: <http://ontologies.semanticarts.com/o/gistCore9.3.0>.
+
 Release notes gist 9.2.0
 -----
 
@@ -26,6 +28,8 @@ Release notes gist 9.2.0
 - Added cardinality restrictions and disjoints to various gist unit classes. Fixes [69](https://github.com/semanticarts/gist/issues/69).
 - Removed defunct owl:versionInfo from all ontology files. Fixes issue [212](https://github.com/semanticarts/gist/issues/212).
 
+Import URL: <http://ontologies.semanticarts.com/o/gistCore9.2.0>.
+
 Release notes gist 9.1.0
 -----
 
@@ -38,7 +42,7 @@ Release notes gist 9.1.0
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore9.1.0>.
 
-Release notes gist 9.0.0
+Release notes gist 9.0
 -----
 
 ### Miscellaneous
@@ -136,13 +140,13 @@ e.  `gist:dateTime`
 a.  `gist:strictlyPrecededBy` (using `directlyPrecededBy` instead)
 b.  `gist:strictlyPrecedes` (using `directlyPrecedes` instead)
 
-Release notes gist 8.0.0
+Release notes gist 8.0
 -----
 
 This major version primarily changed all concept URIs to use `/` instead of `#`
 Additionally, gistWiki is no longer included by gistCore.
 
-Import URL: <http://ontologies.semanticarts.com/o/gistCore8.0.0>.
+Import URL: <http://ontologies.semanticarts.com/o/gistCore8.0>.
 
 Release notes gist 7.5
 -----
