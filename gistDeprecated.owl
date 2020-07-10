@@ -55,7 +55,28 @@
 			</owl:Class>
 		</owl:equivalentClass>
 	</owl:Class>
+
 	
+	<owl:Class rdf:about="&gist;Room">
+		<rdfs:label rdf:datatype="&xsd;string">Room</rdfs:label>
+		<owl:deprecated rdf:datatype="&xsd;boolean">true</owl:deprecated>
+		<rdfs:comment rdf:datatype="&xsd;string">An enclosed area within a building.</rdfs:comment>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;directPartOf"/>
+						<owl:someValuesFrom rdf:resource="&gist;Building"/>
+					</owl:Restriction>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;identifiedBy"/>
+						<owl:someValuesFrom rdf:resource="&gist;ID"/>
+					</owl:Restriction>
+				</owl:intersectionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+	</owl:Class>
+
 	<owl:Class rdf:about="&gist;SocialBeing">
 		<rdfs:label rdf:datatype="&xsd;string">Social Being</rdfs:label>
 		<rdfs:comment rdf:datatype="&xsd;string">A Person or an Organization.</rdfs:comment>
