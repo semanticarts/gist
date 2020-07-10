@@ -3156,12 +3156,25 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 		<rdfs:comment rdf:datatype="&xsd;string">The relationship between a whole and a part where the part has independent existence.</rdfs:comment>
 	</owl:ObjectProperty>
 	
+	<owl:ObjectProperty rdf:about="&gist;hasDirectSubCategory">
+		<rdfs:label rdf:datatype="&xsd;string">has direct subcategory</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">The subject category is a supercategory of the object category, where no other category exists that is both the subcategory of the subject category and the supercategory of the object category.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">Unlike its superproperty gist:hasSubCategory, this property is not transitive.</rdfs:comment>
+	</owl:ObjectProperty>
+	
 	<owl:ObjectProperty rdf:about="&gist;hasDirectSubTask">
 		<rdfs:subPropertyOf rdf:resource="&gist;hasSubTask"/>
 		<rdfs:label rdf:datatype="&xsd;string">Has Direct Sub Task</rdfs:label>
 		<rdfs:comment rdf:datatype="&xsd;string">Immediate child task</rdfs:comment>
 		<rdfs:domain rdf:resource="&gist;Task"/>
 		<rdfs:range rdf:resource="&gist;Task"/>
+	</owl:ObjectProperty>
+	
+	<owl:ObjectProperty rdf:about="&gist;hasDirectSuperCategory">
+		<rdfs:subPropertyOf rdf:resource="&gist;hasSuperCategory"/>
+		<rdfs:label rdf:datatype="&xsd;string">has direct supercategory</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">The subject category is a subcategory of the object category, where no other category exists that is both the supercategory of the subject category and the subcategory of the object category.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">Unlike its superproperty gist:hasSuperCategory, this property is not transitive.</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasFromNode">
