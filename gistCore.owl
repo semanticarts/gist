@@ -3158,8 +3158,8 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	
 	<owl:ObjectProperty rdf:about="&gist;hasDirectSubCategory">
 		<rdfs:label rdf:datatype="&xsd;string">has direct subcategory</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">The subject category is a supercategory of the object category, where no other category exists that is both the subcategory of the subject category and the supercategory of the object category.</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xsd;string">Unlike its superproperty gist:hasSubCategory, this property is not transitive.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">The subject category is a supercategory of the object category. This property defines the direct links in a category hierarchy; no intermediate categories can exist between the direct links.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">Note: Unlike its superproperty gist:hasSubCategory, this property is not transitive. It is essentially the same as the non-transitive skos:narrower, using gist:Category rather than skos:Concept.</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasDirectSubTask">
@@ -3173,8 +3173,8 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	<owl:ObjectProperty rdf:about="&gist;hasDirectSuperCategory">
 		<rdfs:subPropertyOf rdf:resource="&gist;hasSuperCategory"/>
 		<rdfs:label rdf:datatype="&xsd;string">has direct supercategory</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">The subject category is a subcategory of the object category, where no other category exists that is both the supercategory of the subject category and the subcategory of the object category.</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xsd;string">Unlike its superproperty gist:hasSuperCategory, this property is not transitive.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">The subject category is a subcategory of the object category. This property defines the direct links in a category hierarchy; no intermediate categories can exist between the direct links.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">Note: Unlike its superproperty gist:hasSuperCategory, this property is not transitive. It is essentially the same as the non-transitive skos:broader, using gist:Category rather than skos:Concept.</rdfs:comment>
 	</owl:ObjectProperty>
 	
 	<owl:ObjectProperty rdf:about="&gist;hasFromNode">
@@ -3283,8 +3283,8 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 	
 	<owl:ObjectProperty rdf:about="&gist;hasSubCategory">
 		<rdfs:label rdf:datatype="&xsd;string">has subcategory</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">Categories linked in this way are to represent true subtypes.  The categories aren&apos;t supertypes, but a class defined by a supercategory will be a superclass of one derived from its subcategory.</rdfs:comment>
 		<rdfs:comment rdf:datatype="&xsd;string">The subject category is inclusive of, or broader than, the object category. Everything categorized by the subcategory can be inferred to be categorized by the supercategory.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">Note: This is essentially the same as skos:narrowerTransitive, using gist:Category instead of skos:Concept.</rdfs:comment>
 		<owl:inverseOf rdf:resource="&gist;hasSuperCategory"/>
 	</owl:ObjectProperty>
 	
@@ -3302,8 +3302,8 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 		<rdf:type rdf:resource="&owl;ObjectProperty"/>
 		<rdf:type rdf:resource="&owl;TransitiveProperty"/>
 		<rdfs:label rdf:datatype="&xsd;string">has supercategory</rdfs:label>
-		<rdfs:comment rdf:datatype="&xsd;string">Categories linked in this way are to represent true subtypes.  The categories aren&apos;t subtypes, but a class defined by a supercategory will be a superclass of one derived from its subcategory.</rdfs:comment>
-		<rdfs:comment rdf:datatype="&xsd;string">The subject category is included by, or narrower than, the object category. Everything ategorized by the subcategory can be inferred to be categorized by the supercategory.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">The subject category is included by, or narrower than, the object category. Everything categorized by the subcategory can be inferred to be categorized by the supercategory.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">Note: This is essentially the same as skos:broaderTransitive, using gist:Category instead of skos:Concept.</rdfs:comment>
 	</rdf:Description>
 	
 	<owl:DatatypeProperty rdf:about="&gist;hasTag">
