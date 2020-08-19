@@ -1,4 +1,5 @@
-# gist Release Notes
+gist Release Notes
+=====
 
 Release notes gist 9.3.0
 -----
