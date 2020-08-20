@@ -120,6 +120,25 @@
 		<owl:deprecated rdf:datatype="&xsd;boolean">true</owl:deprecated>
 	</owl:Class>
 	
+	<owl:Class rdf:about="&gist;Weight">
+		<rdfs:label rdf:datatype="&xsd;string">Weight</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">Magnitude of mass.  Assumes object is near the Earth&apos;s surface. Thus weight and mass may be treated as equivalents.</rdfs:comment>
+		<owl:deprecated rdf:datatype="&xsd;boolean">true</owl:deprecated>
+		<owl:equivalentClass rdf:about="&gist;Mass"/>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:intersectionOf rdf:parseType="Collection">
+					<rdf:Description rdf:about="&gist;Magnitude">
+					</rdf:Description>
+					<owl:Restriction>
+						<owl:onProperty rdf:resource="&gist;hasUoM"/>
+						<owl:someValuesFrom rdf:resource="&gist;MassUnit"/>
+					</owl:Restriction>
+				</owl:intersectionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+	</owl:Class>
+
 	<owl:DatatypeProperty rdf:about="&gist;date">
 		<rdfs:domain rdf:resource="&gist;TimeInstant"/>
 		<owl:deprecated rdf:datatype="&xsd;boolean">true</owl:deprecated>
