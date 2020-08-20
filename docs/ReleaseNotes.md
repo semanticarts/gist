@@ -4,40 +4,58 @@ gist Release Notes
 Release 9.4.0
 -----
 
-### Patch changes
+### Minor Updates
 
-#### Add release notes template
+*Changes to category predicates*
 
-- Description: Add release notes template to be followed by contributors submitting a PR.
+- Description: Added intransitive properties `hasDirectSubCategory` and `hasDirectSuperCategory` as subproperties of `hasSubCategory` and `hasSuperCategory`, respectively. The latter are defined as transitive.
+- Motivation/Rationale: The direct sub/supercategory properties provide a mechanism for defining gapless taxonomy trees. The existing properties are logically transitive.
+- Impact: No changes required to existing implementations. The changes enhance the definition of taxonomy trees.
+- Issues: [#104](https://github.com/semanticarts/gist/issues/104), [#107](https://github.com/semanticarts/gist/issues/107).
+
+*Use `Weight` rather than `Mass` in all contexts*
+
+- Description: Deprecated `Weight`; `Mass` should be used instead. All axiomatic references to `Weight` have been changed to `Mass`.
+- Motivation/Rationale: Standardize to `Mass` rather than mixing `Mass` and `Weight`.
+- Impact: Users can continue to use the `Weight` class if they import `gistDeprecated9.4.0`, but it will be removed in a future major release. New implementations should use `Mass`.
+- Issue: [#105](https://github.com/semanticarts/gist/issues/105).
+
+### Patch Updates
+
+*Added release notes template*
+
+- Description: Added release notes template to be followed by contributors submitting a PR.
 - Motivation/Rationale: Standardize release note format for readability.
 - Issue: [#338](https://github.com/semanticarts/gist/issues/338).
+
+Import URL: <http://ontologies.semanticarts.com/o/gistCore9.4.0>.
 
 Release 9.3.0
 -----
 
-- Merged into a single module/file all of gist except the gistDeprecated module.  Fixes issue [292](https://github.com/semanticarts/gist/issues/292).
-- Removed import diagram generation and catalog files from bundling. Fixes issue [309](https://github.com/semanticarts/gist/issues/309).
-- Amended bundle.yaml to add rdfs:isDefinedBy to all ontology terms during release bundling process. Fixes issue [266](https://github.com/semanticarts/gist/issues/266).
-- Added gist:EmailAddress as a subclass of gist:ElectronicMessageAddress. Fixes issue [99](https://github.com/semanticarts/gist/issues/99).
-- Changed gist:orderedMemberOf from Inverse Functional to Functional. Fixes issue [262](https://github.com/semanticarts/gist/issues/262).
-- Added gist:Collection as the range, instead of domain, of gist:memberOf. Fixes issue [142](https://github.com/semanticarts/gist/issues/142).
-- Removed redundant disjoints. Fixes issue [254](https://github.com/semanticarts/gist/issues/254).
+- Merged into a single module/file all of gist except the gistDeprecated module.  Fixes issue [#292](https://github.com/semanticarts/gist/issues/292).
+- Removed import diagram generation and catalog files from bundling. Fixes issue [#309](https://github.com/semanticarts/gist/issues/309).
+- Amended bundle.yaml to add rdfs:isDefinedBy to all ontology terms during release bundling process. Fixes issue [#266](https://github.com/semanticarts/gist/issues/266).
+- Added gist:EmailAddress as a subclass of gist:ElectronicMessageAddress. Fixes issue [#99](https://github.com/semanticarts/gist/issues/99).
+- Changed gist:orderedMemberOf from Inverse Functional to Functional. Fixes issue [#262](https://github.com/semanticarts/gist/issues/262).
+- Added gist:Collection as the range, instead of domain, of gist:memberOf. Fixes issue [#142](https://github.com/semanticarts/gist/issues/142).
+- Removed redundant disjoints. Fixes issue [#254](https://github.com/semanticarts/gist/issues/254).
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore9.3.0>.
 
 Release 9.2.0
 -----
 
-- Replaced all "xs" namespace prefixes for XML Schema with "xsd". Corrects issue [158](https://github.com/semanticarts/gist/issues/158).
-- Corrected gist:convertToBase value for gist:_minute from 1.0 to 60.0. Fixes issue [82](https://github.com/semanticarts/gist/issues/82).
-- Added initial draft of in-progress gist style guide. Fixes issue [163](https://github.com/semanticarts/gist/issues/163).
-- Added documentation of change and release management process. Fixes issue [233](https://github.com/semanticarts/gist/issues/233).
-- Added guidelines for submission of GitHub issues and pull requests. Fixes issue [190](https://github.com/semanticarts/gist/issues/190).
-- Remove defunct tools and documentation. Fixes issue [193](https://github.com/semanticarts/gist/issues/193).
-- Include direct imports of all gist modules in gistCore. Fixes issue [80](https://github.com/semanticarts/gist/issues/80).
-- Corrected all typos and misspellings in annotations. Fixes issue [210](https://github.com/semanticarts/gist/issues/210).
-- Added cardinality restrictions and disjoints to various gist unit classes. Fixes [69](https://github.com/semanticarts/gist/issues/69).
-- Removed defunct owl:versionInfo from all ontology files. Fixes issue [212](https://github.com/semanticarts/gist/issues/212).
+- Replaced all "xs" namespace prefixes for XML Schema with "xsd". Corrects issue [#158](https://github.com/semanticarts/gist/issues/158).
+- Corrected gist:convertToBase value for gist:_minute from 1.0 to 60.0. Fixes issue [#82](https://github.com/semanticarts/gist/issues/82).
+- Added initial draft of in-progress gist style guide. Fixes issue [#163](https://github.com/semanticarts/gist/issues/163).
+- Added documentation of change and release management process. Fixes issue [#233](https://github.com/semanticarts/gist/issues/233).
+- Added guidelines for submission of GitHub issues and pull requests. Fixes issue [#190](https://github.com/semanticarts/gist/issues/190).
+- Remove defunct tools and documentation. Fixes issue [#193](https://github.com/semanticarts/gist/issues/193).
+- Include direct imports of all gist modules in gistCore. Fixes issue [#80](https://github.com/semanticarts/gist/issues/80).
+- Corrected all typos and misspellings in annotations. Fixes issue [#210](https://github.com/semanticarts/gist/issues/210).
+- Added cardinality restrictions and disjoints to various gist unit classes. Fixes [#69](https://github.com/semanticarts/gist/issues/69).
+- Removed defunct owl:versionInfo from all ontology files. Fixes issue [#212](https://github.com/semanticarts/gist/issues/212).
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore9.2.0>.
 
@@ -47,7 +65,7 @@ Release 9.1.0
 - Reformatted all files to match uniform serialization.
 - Corrected restriction for `gist:Collection`.
 - Provided missing labels for classes and properties.
-- Corrected issues [72](https://github.com/semanticarts/gist/issues/72), [91](https://github.com/semanticarts/gist/issues/91), [95](https://github.com/semanticarts/gist/issues/95), [96](https://github.com/semanticarts/gist/issues/96), [97](https://github.com/semanticarts/gist/issues/97), [98](https://github.com/semanticarts/gist/issues/98), [101](https://github.com/semanticarts/gist/issues/101), [122](https://github.com/semanticarts/gist/issues/122), and [145](https://github.com/semanticarts/gist/issues/145).
+- Corrects issues [#72](https://github.com/semanticarts/gist/issues/72), [#91](https://github.com/semanticarts/gist/issues/91), [#95](https://github.com/semanticarts/gist/issues/95), [#96](https://github.com/semanticarts/gist/issues/96), [#97](https://github.com/semanticarts/gist/issues/97), [#98](https://github.com/semanticarts/gist/issues/98), [#101](https://github.com/semanticarts/gist/issues/101), [#122](https://github.com/semanticarts/gist/issues/122), and [#145](https://github.com/semanticarts/gist/issues/145).
 - Removed outdated Visio and PDF files, documentation is now auto-generated as part of the release process.
 - gistWiki has been removed.
 

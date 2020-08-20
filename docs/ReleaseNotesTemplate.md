@@ -1,12 +1,18 @@
 Release Notes Template
 =====
 
-As noted in the [contributor guidelines](Contributing.md), every PR should include an update to the release notes.  
+As noted in the [contributor guidelines](Contributing.md), every PR must include an update to the release notes, except in the rare cases where there is no user-facing change.
+
+Notes:
 
 - Reviewers will reject a PR that does not include an update to the release notes.
+- The release manager will review the release notes for content and formatting.
 - Please follow the heading conventions shown, as the [markdown configuration file](markdownlint.json) dictates the mixed heading style.
-- The Motivation/Rationale line for patch changes may be as simple as "Bug fix."
+- The Motivation/Rationale entry for patch changes may be as simple as "Bug fix."
 - Each bulleted line should end in a period.
+- Descriptions are stated in past tense.
+- Surround ontology terms with backticks; e.g., `gist:Weight`.
+- A full example is shown in the [release notes for version 9.4.0](ReleaseNotes.md).
 
 Template:
 
@@ -14,27 +20,29 @@ Template:
 Release X.x.x
 -----
 
-### Major changes
+### Major Updates
 
-#### Name
+*Name*
    - Description:
    - Motivation/Rationale:
    - Impact:
    - Migration plan:
    - Issue(s):
 
-### Minor changes
+### Minor Updates
 
-#### Name
+*Name*
    - Description:
    - Motivation/Rationale:
    - Impact:
    - Issue(s):
 
-### Patch changes
+### Patch Updates
 
-#### Name
+*Name*
    - Description:
    - Motivation/Rationale:
    - Issue(s):
+
+Import URL: <http://ontologies.semanticarts.com/o/gistCoreX.x.x>.
 ```

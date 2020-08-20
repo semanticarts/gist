@@ -101,9 +101,9 @@ Pull Requests
 - The PR should address the entirety of an issue. If it does not, either the PR should be modified or the issue should be broken up into parts.
 - The description of the PR should contain the keywords "fixes #nnn" (or another of the [GitHub keywords](https://help.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)) where nnn is the issue number. This automatically closes the issue when the PR is merged.
   - Example: "Correct cardinality restriction on class gist:Room. Fixes #98."
-- The PR should include an update to the release notes, except in the rare cases where no change needs to be reported to users.
-  - Reviewers will reject a PR that does not include an update to the release notes.
+- The PR should include an update to the release notes, except in the rare cases where there is no user-facing change.
   - Follow the [release notes template](ReleaseNotesTemplate.md).
+  - Reviewers will reject a PR that does not include an update to the release notes.
   - Please follow the heading conventions shown, as the [markdown configuration file](markdownlint.json) dictates the mixed heading style.
   - The Motivation/Rationale line for patch changes may be as simple as "Bug fix."
   - Example of a new release note section with one note:
@@ -112,13 +112,14 @@ Pull Requests
 Release notes gist 9.3.0
 -----
 
-### Minor changes
+### Minor Updates
 
-#### Added subproperties of gist:hasSubCategory and gist:hasSuperCategory
-- Description: Added intransitive properties gist:hasDirectSubCategory and gist:hasDirectSuperCategory as subproperties of gist:hasSubCategory and gist:hasSuperCategory, respectively.
-- Motivation/Rationale: Provides a mechanism for defining gapless taxonomy trees.
-- Impact: No changes required to existing implementations. Implementations can now define gapless taxonomy trees.
-- Issue: [#107](https://github.com/semanticarts/gist/issues/107).
+*Changes to category predicates*
+
+- Description: Added intransitive properties `hasDirectSubCategory` and `hasDirectSuperCategory` as subproperties of `hasSubCategory` and `hasSuperCategory`, respectively. The latter are defined as transitive.
+- Motivation/Rationale: The direct sub/supercategory properties provide a mechanism for defining gapless taxonomy trees. The existing properties are logically transitive.
+- Impact: No changes required to existing implementations. The changes enhance the definition of taxonomy trees.
+- Issues: [#104](https://github.com/semanticarts/gist/issues/104), [#107](https://github.com/semanticarts/gist/issues/107).
 ```
 
 ### Assigning Reviewers
