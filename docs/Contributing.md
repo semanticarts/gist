@@ -101,12 +101,25 @@ Pull Requests
 - The PR should address the entirety of an issue. If it does not, either the PR should be modified or the issue should be broken up into parts.
 - The description of the PR should contain the keywords "fixes #nnn" (or another of the [GitHub keywords](https://help.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)) where nnn is the issue number. This automatically closes the issue when the PR is merged.
   - Example: "Correct cardinality restriction on class gist:Room. Fixes #98."
-- The PR should include an update to the release notes for the issue. Format:
-  - One-line or so summary of change, followed by a link to the issue. This may be a copy of the issue title if that is well-phrased.
-  - See notes for release 9.2.0 for examples.
-  - Example: Replaced all "xs" namespace prefixes for XML Schema with "xsd." Corrects issue [158](https://github.com/semanticarts/gist/issues/158).
-  - Exception: For very small issues, such as definition tweaks or typo corrections, a single line item will be included in the release notes. If such an item already exists, update it to include your issue number. If not, create it.
-    - Example: "Various minor wording changes in definitions."
+- The PR should include an update to the release notes, except in the rare cases where no change needs to be reported to users.
+  - Reviewers will reject a PR that does not include an update to the release notes.
+  - Follow the [release notes template](ReleaseNotesTemplate.md).
+  - Please follow the heading conventions shown, as the [markdown configuration file](markdownlint.json) dictates the mixed heading style.
+  - The Motivation/Rationale line for patch changes may be as simple as "Bug fix."
+  - Example of a new release note section with one note:
+  
+```markdown
+Release notes gist 9.3.0
+-----
+
+### Minor changes
+
+#### Added subproperties of gist:hasSubCategory and gist:hasSuperCategory
+- Description: Added intransitive properties gist:hasDirectSubCategory and gist:hasDirectSuperCategory as subproperties of gist:hasSubCategory and gist:hasSuperCategory, respectively.
+- Motivation/Rationale: Provides a mechanism for defining gapless taxonomy trees.
+- Impact: No changes required to existing implementations. Implementations can now define gapless taxonomy trees.
+- Issue: [#107](https://github.com/semanticarts/gist/issues/107).
+```
 
 ### Assigning Reviewers
 
