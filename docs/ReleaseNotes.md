@@ -1,6 +1,13 @@
 gist Release Notes
 =====
 
+Next Release
+-----
+
+#### Minor Changes
+- Added `hasDirectSubCategory` and `hasDirectSuperCategory`, made `hasSubCategory`/`hasSuperCategory` `owl:Transitive`. Fixes issues [104](https://github.com/semanticarts/gist/issues/104),  [107](https://github.com/semanticarts/gist/issues/107).
+- Deprecated `Weight`, `Mass` should be used instead. Fixes issue  [105](https://github.com/semanticarts/gist/issues/105).
+
 Release notes gist 9.3.0
 -----
 
