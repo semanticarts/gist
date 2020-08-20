@@ -1,7 +1,18 @@
 gist Release Notes
 =====
 
-Release notes gist 9.3.0
+Release 9.4.0
+-----
+
+### Patch changes
+
+#### Add release notes template
+
+- Description: Add release notes template to be followed by contributors submitting a PR.
+- Motivation/Rationale: Standardize release note format for readability.
+- Issue: [#338](https://github.com/semanticarts/gist/issues/338).
+
+Release 9.3.0
 -----
 
 - Merged into a single module/file all of gist except the gistDeprecated module.  Fixes issue [292](https://github.com/semanticarts/gist/issues/292).
@@ -14,7 +25,7 @@ Release notes gist 9.3.0
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore9.3.0>.
 
-Release notes gist 9.2.0
+Release 9.2.0
 -----
 
 - Replaced all "xs" namespace prefixes for XML Schema with "xsd". Corrects issue [158](https://github.com/semanticarts/gist/issues/158).
@@ -30,7 +41,7 @@ Release notes gist 9.2.0
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore9.2.0>.
 
-Release notes gist 9.1.0
+Release 9.1.0
 -----
 
 - Reformatted all files to match uniform serialization.
@@ -42,7 +53,7 @@ Release notes gist 9.1.0
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore9.1.0>.
 
-Release notes gist 9.0
+Release 9.0
 -----
 
 ### Miscellaneous
@@ -140,7 +151,7 @@ e.  `gist:dateTime`
 a.  `gist:strictlyPrecededBy` (using `directlyPrecededBy` instead)
 b.  `gist:strictlyPrecedes` (using `directlyPrecedes` instead)
 
-Release notes gist 8.0
+Release 8.0
 -----
 
 This major version primarily changed all concept URIs to use `/` instead of `#`
@@ -148,19 +159,19 @@ Additionally, gistWiki is no longer included by gistCore.
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore8.0>.
 
-Release notes gist 7.5
+Release 7.5
 -----
 
 This version focused on making the import structure simpler and flatter, in order to make it easier for people to use subsets of gist if they want to.  Because all of gist is in one name space this was relatively easy to do and will have very little impact on anyone who is using gist 7.* (see the change log there were a few changes that you may want to review).
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.5.owl>.
 
-Release notes gist 7.4
+Release 7.4
 -----
 
 Gist 7.4 was an internal release.
 
-Release notes gist 7.3
+Release 7.3
 -----
 
 - An additional supplementary ontology was added for Units of Measure which introduces the concept of a Coherent Unit. This allows for conversions between units of the same dimension to be done using just SPARQL, as opposed to relying on rules.
@@ -176,7 +187,7 @@ See ChangeLog in pdf file for full details of changes.
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.3.owl>.
 
-Release notes gist 7.2
+Release 7.2
 -----
 
 - Add wiki and rdfshape capability
@@ -187,7 +198,7 @@ Release notes gist 7.2
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.2.owl>.
 
-Release notes gist 7.1.1
+Release 7.1.1
 -----
 
 - Fix an erroneous disjoint statement on the class gist:Magnitude.
@@ -197,7 +208,7 @@ The gist 7.1.1 release has eliminated the cause of this error.
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.1.1.owl>.
 
-Release notes gist 7.1
+Release 7.1
 -----
 
 Primarily fixes minor errors like typos in our gist 7.0 release.
