@@ -5,6 +5,7 @@ Next Release
 -----
 
 #### Minor Changes
+- Changed ontology edit format from RDF/XML (.owl) to Turtle (.ttl). Fixes issue [223](https://github.com/semanticarts/gist/issues/223)
 - Added `hasDirectSubCategory` and `hasDirectSuperCategory`, made `hasSubCategory`/`hasSuperCategory` `owl:Transitive`. Fixes issues [104](https://github.com/semanticarts/gist/issues/104),  [107](https://github.com/semanticarts/gist/issues/107).
 - Deprecated `Weight`, `Mass` should be used instead. Fixes issue  [105](https://github.com/semanticarts/gist/issues/105).
 
