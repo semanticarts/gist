@@ -1,8 +1,9 @@
 gist Release Notes
 =====
 
-Release X.x.x [*Release manager: please fill in version number*]
+Release X.x.x 
 -----
+[*Release manager: please fill in version number here and below in Import URL*]
 
 ### Minor Updates
 
@@ -28,7 +29,7 @@ Release X.x.x [*Release manager: please fill in version number*]
 - Motivation/Rationale: Standardize release note format for readability.
 - Issue: [#338](https://github.com/semanticarts/gist/issues/338).
 
-Import URL: <http://ontologies.semanticarts.com/o/gistCore9.4.0>.
+Import URL: <http://ontologies.semanticarts.com/o/gistCoreX.x.x>.
 
 Release 9.3.0
 -----
