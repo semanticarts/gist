@@ -1,7 +1,7 @@
 gist Release Notes
 =====
 
-Release 9.4.0
+Release X.x.x [*Release manager: please fill in version number*]
 -----
 
 ### Minor Updates
