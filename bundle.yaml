@@ -38,6 +38,22 @@ tools:
     - "{inputFile}"
     - "-t"
     - "{outputFile}"
+- name: "json-serializer"
+  type: "Java"
+  jar: "{rdf-toolkit}"
+  arguments:
+    - "-sfmt"
+    - "turtle"
+    - "-tfmt"
+    - "json-ld"
+    - "-sdt"
+    - "explicit"
+    - "-dtd"
+    - "-ibn"
+    - "-s"
+    - "{inputFile}"
+    - "-t"
+    - "{outputFile}"
 actions:
 - action: "mkdir"
   directory: "{output}"
@@ -72,6 +88,15 @@ actions:
     to: "\\g<1>.owl"
   includes:
     - "*.ttl"
+- action: "transform"
+  tool: "json-serializer"
+  source: "{output}"
+  target: "{output}"
+  rename:
+    from: "(.*)\\.ttl"
+    to: "\\g<1>.json"
+  includes:
+    - "*.ttl"
 - action: "copy"
   source: "{input}/LICENSE.txt"
   target: "{output}"
@@ -89,3 +114,4 @@ actions:
   includes:
     - "*Deprecated*.ttl"
     - "*Deprecated*.owl"
+    - "*Deprecated*.json"
