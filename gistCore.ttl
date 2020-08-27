@@ -13,14 +13,6 @@
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
 	.
 
-rdfs:comment
-	a owl:AnnotationProperty ;
-	.
-
-rdfs:label
-	a owl:AnnotationProperty ;
-	.
-
 gist:Account
 	a owl:Class ;
 	rdfs:label "Account"^^xsd:string ;
