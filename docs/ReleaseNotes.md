@@ -26,11 +26,11 @@ Release X.x.x
 
 ### Patch Updates
 
-*Changed ontology edit format from RDF/XML (.owl) to Turtle (.ttl).*
+*Changed ontology edit format from RDF/XML (.owl) to Turtle (.ttl)*
 
 - Description: OWL files are now stored in the repository as Turtle rather than RDF/XML. The release package will include RDF/XML, Turtle, and JSON-LD files.
 - Rationale: Turtle is an easier format to read and edit. Users may want to use any one of these three common serializations.
-- Issues: [#223](https://github.com/semanticarts/gist/issues/223), [#319](https://github.com/semanticarts/gist/issues/319)
+- Issues: [#223](https://github.com/semanticarts/gist/issues/223), [#319](https://github.com/semanticarts/gist/issues/319).
 
 *Added release notes template*
 
