@@ -48,10 +48,6 @@ gist:SocialBeing
 	] ;
 	.
 
-gist:Template
-	a owl:Class ;
-	.
-
 gist:TemplateTask
 	a owl:Class ;
 	rdfs:label "Template Task"^^xsd:string ;
@@ -134,10 +130,6 @@ gist:dateTime
 	owl:deprecated "true"^^xsd:boolean ;
 	.
 
-gist:end
-	a owl:ObjectProperty ;
-	.
-
 gist:hasA
 	a
 		owl:InverseFunctionalProperty ,
@@ -150,14 +142,6 @@ gist:hasA
 		;
 	owl:deprecated "true"^^xsd:boolean ;
 	owl:inverseOf gist:of ;
-	.
-
-gist:hasGoal
-	a owl:ObjectProperty ;
-	.
-
-gist:hasMagnitude
-	a owl:ObjectProperty ;
 	.
 
 gist:localDate
@@ -199,10 +183,6 @@ gist:sameOrderAs
 		;
 	owl:deprecated "true"^^xsd:boolean ;
 	owl:propertyDisjointWith gist:strictlyPrecededBy ;
-	.
-
-gist:start
-	a owl:ObjectProperty ;
 	.
 
 gist:strictlyPrecededBy
