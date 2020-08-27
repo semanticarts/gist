@@ -1,3 +1,6 @@
+# imports: https://ontologies.semanticarts.com/o/gistCoreX.x.x
+
+@prefix : <https://ontologies.semanticarts.com/o/gistDeprecated#> .
 @prefix gist: <https://ontologies.semanticarts.com/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -13,38 +16,6 @@
 		;
 	owl:imports <https://ontologies.semanticarts.com/o/gistCoreX.x.x> ;
 	owl:versionIRI <https://ontologies.semanticarts.com/o/gistDeprecatedX.x.x> ;
-	.
-
-rdfs:comment
-	a owl:AnnotationProperty ;
-	.
-
-rdfs:label
-	a owl:AnnotationProperty ;
-	.
-
-owl:deprecated
-	a owl:AnnotationProperty ;
-	.
-
-owl:equivalentClass
-	a owl:AnnotationProperty ;
-	.
-
-gist:Organization
-	a owl:Class ;
-	.
-
-gist:Person
-	a owl:Class ;
-	.
-
-gist:PhysicalIdentifiableItem
-	a owl:Class ;
-	.
-
-gist:PhysicalSubstance
-	a owl:Class ;
 	.
 
 gist:PhysicalThing
@@ -137,20 +108,17 @@ gist:Weight
 	rdfs:label "Weight"^^xsd:string ;
 	rdfs:comment "Magnitude of mass.  Assumes object is near the Earth's surface. Thus weight and mass may be treated as equivalents."^^xsd:string ;
 	owl:deprecated "true"^^xsd:boolean ;
-	owl:equivalentClass
-		""^^xsd:string ,
-		[
-			a owl:Class ;
-			owl:intersectionOf (
-				gist:Magnitude
-				[
-					a owl:Restriction ;
-					owl:onProperty gist:hasUoM ;
-					owl:someValuesFrom gist:MassUnit ;
-				]
-			) ;
-		]
-		;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:Magnitude
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasUoM ;
+				owl:someValuesFrom gist:MassUnit ;
+			]
+		) ;
+	] ;
 	.
 
 gist:date
