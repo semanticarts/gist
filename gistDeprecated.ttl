@@ -15,22 +15,6 @@
 	owl:versionIRI <https://ontologies.semanticarts.com/o/gistDeprecatedX.x.x> ;
 	.
 
-gist:Organization
-	a owl:Class ;
-	.
-
-gist:Person
-	a owl:Class ;
-	.
-
-gist:PhysicalIdentifiableItem
-	a owl:Class ;
-	.
-
-gist:PhysicalSubstance
-	a owl:Class ;
-	.
-
 gist:PhysicalThing
 	a owl:Class ;
 	rdfs:label "Physical Thing"^^xsd:string ;
@@ -59,10 +43,6 @@ gist:SocialBeing
 			gist:Person
 		) ;
 	] ;
-	.
-
-gist:Template
-	a owl:Class ;
 	.
 
 gist:TemplateTask
@@ -150,10 +130,6 @@ gist:dateTime
 	owl:deprecated "true"^^xsd:boolean ;
 	.
 
-gist:end
-	a owl:ObjectProperty ;
-	.
-
 gist:hasA
 	a
 		owl:InverseFunctionalProperty ,
@@ -166,14 +142,6 @@ gist:hasA
 		;
 	owl:deprecated "true"^^xsd:boolean ;
 	owl:inverseOf gist:of ;
-	.
-
-gist:hasGoal
-	a owl:ObjectProperty ;
-	.
-
-gist:hasMagnitude
-	a owl:ObjectProperty ;
 	.
 
 gist:localDate
@@ -215,10 +183,6 @@ gist:sameOrderAs
 		;
 	owl:deprecated "true"^^xsd:boolean ;
 	owl:propertyDisjointWith gist:strictlyPrecededBy ;
-	.
-
-gist:start
-	a owl:ObjectProperty ;
 	.
 
 gist:strictlyPrecededBy
