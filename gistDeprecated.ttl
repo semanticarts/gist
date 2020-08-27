@@ -15,22 +15,6 @@
 	owl:versionIRI <https://ontologies.semanticarts.com/o/gistDeprecatedX.x.x> ;
 	.
 
-rdfs:comment
-	a owl:AnnotationProperty ;
-	.
-
-rdfs:label
-	a owl:AnnotationProperty ;
-	.
-
-owl:deprecated
-	a owl:AnnotationProperty ;
-	.
-
-owl:equivalentClass
-	a owl:AnnotationProperty ;
-	.
-
 gist:Organization
 	a owl:Class ;
 	.
