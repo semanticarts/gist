@@ -85,7 +85,7 @@ actions:
   target: "{output}"
   rename:
     from: "(.*)\\.ttl"
-    to: "\\g<1>.owl"
+    to: "\\g<1>.rdf"
   includes:
     - "*.ttl"
 - action: "transform"
@@ -113,5 +113,5 @@ actions:
   target: "{output}/Deprecated"
   includes:
     - "*Deprecated*.ttl"
-    - "*Deprecated*.owl"
+    - "*Deprecated*.rdf"
     - "*Deprecated*.json"
