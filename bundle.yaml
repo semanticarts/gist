@@ -22,6 +22,22 @@ tools:
     - "{inputFile}"
     - "-t"
     - "{outputFile}"
+- name: "xml-serializer"
+  type: "Java"
+  jar: "{rdf-toolkit}"
+  arguments:
+    - "-sfmt"
+    - "turtle"
+    - "-tfmt"
+    - "rdf-xml"
+    - "-sdt"
+    - "explicit"
+    - "-dtd"
+    - "-ibn"
+    - "-s"
+    - "{inputFile}"
+    - "-t"
+    - "{outputFile}"
 actions:
 - action: "mkdir"
   directory: "{output}"
@@ -47,6 +63,15 @@ actions:
   target: "{output}"
   includes:
     - "*.ttl"
+- action: "transform"
+  tool: "xml-serializer"
+  source: "{output}"
+  target: "{output}"
+  rename:
+    from: "(.*)\\.ttl"
+    to: "\\g<1>.owl"
+  includes:
+    - "*.ttl"
 - action: "copy"
   source: "{input}/LICENSE.txt"
   target: "{output}"
@@ -63,3 +88,4 @@ actions:
   target: "{output}/Deprecated"
   includes:
     - "*Deprecated*.ttl"
+    - "*Deprecated*.owl"
