@@ -117,26 +117,11 @@ gist:AreaUnit
 gist:Artifact
 	a owl:Class ;
 	rdfs:label "Artifact"^^xsd:string ;
-	rdfs:comment "An intentional person made thing, could be physical or content"^^xsd:string ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			[
-				a owl:Class ;
-				owl:unionOf (
-					gist:Building
-					gist:Content
-					gist:Equipment
-					gist:IntellectualProperty
-					gist:PhysicalSubstance
-				) ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasGoal ;
-				owl:someValuesFrom gist:Function ;
-			]
-		) ;
+	rdfs:comment "An intentional, person-made thing, which could be physical or content"^^xsd:string ;
+	rdfs:subClassOf [ 
+		a owl:Restriction ;
+		owl:onProperty gist:hasGoal ;
+		owl:someValuesFrom gist:Function ;			
 	] ;
 	.
 
@@ -195,7 +180,12 @@ gist:Behavior
 
 gist:Building
 	a owl:Class ;
-	rdfs:subClassOf gist:Landmark ;
+	rdfs:subClassOf [
+		owl:intersectionOf (
+			gist:Landmark
+			gist:Artifact
+		); 
+	];
 	rdfs:label "Building"^^xsd:string ;
 	rdfs:comment "A man-made structure for dwelling or working."^^xsd:string ;
 	.
@@ -450,6 +440,7 @@ gist:Content
 	a owl:Class ;
 	rdfs:label "Content"^^xsd:string ;
 	rdfs:comment "A document, program, image, etc.  (Categories are not content until they are written down.)"^^xsd:string ;
+	rdfs:subClassOf gist:Artifact ;
 	owl:disjointWith
 		gist:GeoPoint ,
 		gist:GeoRegion ,
@@ -890,8 +881,8 @@ gist:Equipment
 	rdfs:label "Equipment"^^xsd:string ;
 	rdfs:comment "Tangible property other than land or buildings.  Any kind of equipment, could be machine, router, car etc."^^xsd:string ;
 	owl:equivalentClass [
-		a owl:Class ;
 		owl:intersectionOf (
+			gist:Artifact 
 			gist:PhysicalIdentifiableItem
 			[
 				a owl:Restriction ;
@@ -1300,6 +1291,7 @@ gist:IntellectualProperty
 		"EXAMPLES: ?The Old Man and The Sea?; the Page Rank algorithm; Coca Cola"^^xsd:string ,
 		"NOTE:  For literature this could be called the ?Work?, except that ?work? is a highly overloaded term (expenditure of energy, resource consumption, art).  Often the first expression precedes our recognition of the IP, but subsequent expressions are known to be derivatives of the IP, even if they are expression-to-expression translations (or copies)."^^xsd:string
 		;
+	rdfs:subClassOf gist:Artifact ;
 	owl:disjointWith
 		gist:Intention ,
 		gist:Magnitude ,
@@ -1946,18 +1938,21 @@ gist:PhysicalIdentifiableItem
 
 gist:PhysicalSubstance
 	a owl:Class ;
-	rdfs:subClassOf
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:hasMagnitude ;
-			owl:someValuesFrom gist:Mass ;
-		] ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:hasMagnitude ;
-			owl:someValuesFrom gist:Volume ;
-		]
-		;
+	rdfs:subClassOf [
+		owl:intersectionOf (
+			gist:Artifact 
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasMagnitude ;
+				owl:someValuesFrom gist:Mass ;
+			] 
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasMagnitude ;
+				owl:someValuesFrom gist:Volume ;
+			]
+		) ;
+	] ;
 	rdfs:label "Physical Substance"^^xsd:string ;
 	rdfs:comment
 		"EXAMPLES: An amount of water, of penicillin, of sand, of gold."^^xsd:string ,
@@ -4000,4 +3995,3 @@ gist:viableRange
 		gist:_second
 	) ;
 	.
-

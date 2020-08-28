@@ -1,4 +1,5 @@
 gist Release Notes
+=====
 
 Release X.x.x
 -----
@@ -25,6 +26,13 @@ Release X.x.x
 - Issue: [#105](https://github.com/semanticarts/gist/issues/105).
 
 ### Patch Updates
+
+*Removed equivalences to union classes from `gist:Artifact` and `gist:Place`*
+
+- Description: Replaced the union class equivalence assertions from `gist:Artifact` and `gist:Place` with `rdfs:subClassOf` assertions from each of the union class members to `gist:Artifact` or `gist:Place`, as appropriate.
+- Rationale: Stating equivalence of a class to a union class prevents adding a new subclass which is not also a subclass of one of the union class members, thus reducing extensibility of the ontology.
+- Impact: Removes the inference that an instance of `gist:Artifact` or `gist:Place` is also an instance of one of the members of the union class. Presumably low impact since this is a weak inference.
+- Issues: [#110](https://github.com/semanticarts/gist/issues/110), [#343](https://github.com/semanticarts/gist/issues/343).
 
 *hasPhysicalLocation should be transitive*
 
