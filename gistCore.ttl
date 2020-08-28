@@ -3439,7 +3439,10 @@ gist:hasParty
 	.
 
 gist:hasPhysicalLocation
-	a owl:ObjectProperty ;
+	a
+		owl:ObjectProperty ,
+		owl:TransitiveProperty
+		;
 	rdfs:label "Has Physical Location"^^xsd:string ;
 	rdfs:comment "Where something is located"^^xsd:string ;
 	rdfs:range gist:Place ;
