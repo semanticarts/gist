@@ -116,13 +116,13 @@ gist:AreaUnit
 
 gist:Artifact
 	a owl:Class ;
-	rdfs:label "Artifact"^^xsd:string ;
-	rdfs:comment "An intentional, person-made thing, which could be physical or content"^^xsd:string ;
-	rdfs:subClassOf [ 
+	rdfs:subClassOf [
 		a owl:Restriction ;
 		owl:onProperty gist:hasGoal ;
-		owl:someValuesFrom gist:Function ;			
+		owl:someValuesFrom gist:Function ;
 	] ;
+	rdfs:label "Artifact"^^xsd:string ;
+	rdfs:comment "An intentional, person-made thing, which could be physical or content"^^xsd:string ;
 	.
 
 gist:Aspect
@@ -184,8 +184,8 @@ gist:Building
 		owl:intersectionOf (
 			gist:Landmark
 			gist:Artifact
-		); 
-	];
+		) ;
+	] ;
 	rdfs:label "Building"^^xsd:string ;
 	rdfs:comment "A man-made structure for dwelling or working."^^xsd:string ;
 	.
@@ -438,9 +438,9 @@ gist:ContemporaneousEvent
 
 gist:Content
 	a owl:Class ;
+	rdfs:subClassOf gist:Artifact ;
 	rdfs:label "Content"^^xsd:string ;
 	rdfs:comment "A document, program, image, etc.  (Categories are not content until they are written down.)"^^xsd:string ;
-	rdfs:subClassOf gist:Artifact ;
 	owl:disjointWith
 		gist:GeoPoint ,
 		gist:GeoRegion ,
@@ -882,7 +882,7 @@ gist:Equipment
 	rdfs:comment "Tangible property other than land or buildings.  Any kind of equipment, could be machine, router, car etc."^^xsd:string ;
 	owl:equivalentClass [
 		owl:intersectionOf (
-			gist:Artifact 
+			gist:Artifact
 			gist:PhysicalIdentifiableItem
 			[
 				a owl:Restriction ;
@@ -1285,13 +1285,13 @@ gist:InformationQuantity
 
 gist:IntellectualProperty
 	a owl:Class ;
+	rdfs:subClassOf gist:Artifact ;
 	rdfs:label "Intellectual Property"^^xsd:string ;
 	rdfs:comment
 		"A work, invention or concept, independent of its being expressed in text, audio, video, image, or live performance.  IP can also be tacit knowledge, know-how, or skill. Also includes Brands."^^xsd:string ,
 		"EXAMPLES: ?The Old Man and The Sea?; the Page Rank algorithm; Coca Cola"^^xsd:string ,
 		"NOTE:  For literature this could be called the ?Work?, except that ?work? is a highly overloaded term (expenditure of energy, resource consumption, art).  Often the first expression precedes our recognition of the IP, but subsequent expressions are known to be derivatives of the IP, even if they are expression-to-expression translations (or copies)."^^xsd:string
 		;
-	rdfs:subClassOf gist:Artifact ;
 	owl:disjointWith
 		gist:Intention ,
 		gist:Magnitude ,
@@ -1940,12 +1940,12 @@ gist:PhysicalSubstance
 	a owl:Class ;
 	rdfs:subClassOf [
 		owl:intersectionOf (
-			gist:Artifact 
+			gist:Artifact
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasMagnitude ;
 				owl:someValuesFrom gist:Mass ;
-			] 
+			]
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasMagnitude ;
@@ -3995,3 +3995,4 @@ gist:viableRange
 		gist:_second
 	) ;
 	.
+
