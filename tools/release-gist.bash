@@ -10,13 +10,13 @@ fi
 # Construct the directory name and the versioned file extension
 VERSION=$1
 DIRECTORY=gist${VERSION}_webDownload/
-VERSIONED_EXT=${VERSION}.owl
+VERSIONED_EXT=${VERSION}.ttl
 [ -d $DIRECTORY ] || echo "Directory not found: $DIRECTORY" && exit 1
 
 echo "Processing Files in: $DIRECTORY"
 for full_filename in ${DIRECTORY}*${VERSIONED_EXT} ; do
   # Next line handles the case where no files match
-  [ -e "$filename" ] || echo "NO .owl FILES FOUND" && exit 1
+  [ -e "$filename" ] || echo "NO .ttl FILES FOUND" && exit 1
 
   echo $full_filename
 
@@ -28,27 +28,27 @@ for full_filename in ${DIRECTORY}*${VERSIONED_EXT} ; do
   filename_prefix=${filename%$VERSIONED_EXT}
   # echo $filename_prefix
 
-  # Link versioned .owl files to their source file
+  # Link versioned .ttl files to their source file
   rm $filename
   ln -s $full_filename $filename
 
-  # Link filenames without the .owl extension to their source file
+  # Link filenames without the .ttl extension to their source file
   rm $filename_prefix$VERSION
   ln -s $full_filename $filename_prefix$VERSION
 
   # Link unversioned filenames to their source file
-  rm $filename_prefix.owl
-  ln -s $full_filename $filename_prefix.owl
+  rm $filename_prefix.ttl
+  ln -s $full_filename $filename_prefix.ttl
 done
 
 rm Documentation catalog-v001.xml
 ln -s ${DIRECTORY}catalog-v001.xml catalog-v001.xml
 ln -s ${DIRECTORY}Documentation/ Documentation
 
-rm gistDeprecated.owl gistDeprecated$VERSION gistDeprecated$VERSION.owl
-ln -s ${DIRECTORY}Deprecated/gistDeprecated$VERSION.owl gistDeprecated.owl
-ln -s ${DIRECTORY}Deprecated/gistDeprecated$VERSION.owl gistDeprecated$VERSION
-ln -s ${DIRECTORY}Deprecated/gistDeprecated$VERSION.owl gistDeprecated$VERSION.owl
+rm gistDeprecated.ttl gistDeprecated$VERSION gistDeprecated$VERSION.ttl
+ln -s ${DIRECTORY}Deprecated/gistDeprecated$VERSION.ttl gistDeprecated.ttl
+ln -s ${DIRECTORY}Deprecated/gistDeprecated$VERSION.ttl gistDeprecated$VERSION
+ln -s ${DIRECTORY}Deprecated/gistDeprecated$VERSION.ttl gistDeprecated$VERSION.ttl
 
 rm ReleaseNotes.html ReleaseNotes.md LICENSE.txt
 ln -s ${DIRECTORY}Documentation/ReleaseNotes.html ReleaseNotes.html

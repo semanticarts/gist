@@ -42,7 +42,7 @@ Version numbers are of the form X.x.x (major.minor.patch). We follow [Semantic V
 Additional notes:
 
 - Correction of an error, even if not backward-compatible, does not require a major release. The expectation is that users will not have implemented against an obvious error. This would be a patch.
-- When a local name is altered, the original term is deprecated to make it a minor rather than major change. The deprecated term receives an `owl:equivalentClass` or `owl:equivalentProperty` assertion to the new term. Deprecated terms may be removed in a future major release. Deprecated terms reside in the `gistDeprecated.owl` file. If a user wants to use a deprecated term, he/she should import this file into his/her ontology, which in turn imports `gistCore.owl` and thus all of gist.
+- When a local name is altered, the original term is deprecated to make it a minor rather than major change. The deprecated term receives an `owl:equivalentClass` or `owl:equivalentProperty` assertion to the new term. Deprecated terms may be removed in a future major release. Deprecated terms reside in the `gistDeprecated.ttl` file. If a user wants to use a deprecated term, he/she should import this file into his/her ontology, which in turn imports `gistCore.ttl` and thus all of gist.
 - Major changes should have a significant impact aside from technically modifying inferencing if this is low-impact. E.g.,changing an equivalent class axiom to a union class to a subclass axiom in order to allow new subclasses to be defined. 
 
 Releases

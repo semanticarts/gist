@@ -1,11 +1,14 @@
 gist Release Notes
-=====
 
-Release X.x.x 
+Release X.x.x
 -----
+
 [*Release manager: please fill in version number here and below in Import URL*]
 
 ### Minor Updates
+
+- Added `hasDirectSubCategory` and `hasDirectSuperCategory`, made `hasSubCategory`/`hasSuperCategory` `owl:Transitive`. Fixes issues [104](https://github.com/semanticarts/gist/issues/104),  [107](https://github.com/semanticarts/gist/issues/107).
+- Deprecated `Weight`, `Mass` should be used instead. Fixes issue  [105](https://github.com/semanticarts/gist/issues/105).
 
 *Changes to category predicates*
 
@@ -22,6 +25,12 @@ Release X.x.x
 - Issue: [#105](https://github.com/semanticarts/gist/issues/105).
 
 ### Patch Updates
+
+*Changed ontology edit format from RDF/XML (.owl) to Turtle (.ttl)*
+
+- Description: OWL files are now stored in the repository as Turtle rather than RDF/XML. The release package will include RDF/XML, Turtle, and JSON-LD files.
+- Rationale: Turtle is an easier format to read and edit. Users may want to use any one of these three common serializations.
+- Issues: [#223](https://github.com/semanticarts/gist/issues/223), [#319](https://github.com/semanticarts/gist/issues/319).
 
 *Added release notes template*
 

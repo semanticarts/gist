@@ -1,0 +1,224 @@
+# imports: https://ontologies.semanticarts.com/o/gistCoreX.x.x
+
+@prefix : <https://ontologies.semanticarts.com/o/gistDeprecated#> .
+@prefix gist: <https://ontologies.semanticarts.com/gist/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://ontologies.semanticarts.com/o/gistDeprecated>
+	a owl:Ontology ;
+	rdfs:comment
+		"Concepts that have been deprecated since the last external release"^^xsd:string ,
+		"gistDeprecated"^^xsd:string
+		;
+	owl:imports <https://ontologies.semanticarts.com/o/gistCoreX.x.x> ;
+	owl:versionIRI <https://ontologies.semanticarts.com/o/gistDeprecatedX.x.x> ;
+	.
+
+gist:PhysicalThing
+	a owl:Class ;
+	rdfs:label "Physical Thing"^^xsd:string ;
+	owl:deprecated "true"^^xsd:boolean ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:unionOf (
+			gist:PhysicalIdentifiableItem
+			gist:PhysicalSubstance
+		) ;
+	] ;
+	.
+
+gist:SocialBeing
+	a owl:Class ;
+	rdfs:label "Social Being"^^xsd:string ;
+	rdfs:comment
+		"A Person or an Organization."^^xsd:string ,
+		"NOTE: Includes anything that can be party to an Agreement (e.g. Contract).   But not all SocialBeing(s) can be parties to all Agreement(s).  For example, minors can be beneficiaries, but perhaps not primary signatories on contracts."^^xsd:string
+		;
+	owl:deprecated "true"^^xsd:boolean ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:unionOf (
+			gist:Organization
+			gist:Person
+		) ;
+	] ;
+	.
+
+gist:TemplateTask
+	a owl:Class ;
+	rdfs:label "Template Task"^^xsd:string ;
+	rdfs:comment "A prototypical task of a particular type, that will, when instantiated, generate an actual (unscheduled) task."^^xsd:string ;
+	owl:deprecated "true"^^xsd:boolean ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:Template
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasGoal ;
+				owl:someValuesFrom gist:Intention ;
+			]
+		) ;
+	] ;
+	.
+
+gist:TimeInstant
+	a owl:Class ;
+	.
+
+gist:TimeInterval
+	a owl:Class ;
+	rdfs:subClassOf
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:end ;
+			owl:someValuesFrom gist:TimeInstant ;
+		] ,
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:hasMagnitude ;
+			owl:someValuesFrom gist:Duration ;
+		] ,
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:start ;
+			owl:someValuesFrom gist:TimeInstant ;
+		]
+		;
+	rdfs:label "Time Interval"^^xsd:string ;
+	rdfs:comment
+		"EXAMPLE: Jan 1 through Jan 8, 2013."^^xsd:string ,
+		'NEGATIVE EXAMPLE: "8:00am" (with no date).'^^xsd:string ,
+		"NOTE:  The end should be later than the start, but this is not enforced via OWL."^^xsd:string ,
+		"NOTE: While Time Interval has a Duration, it is not itself a Duration."^^xsd:string
+		;
+	owl:deprecated "true"^^xsd:boolean ;
+	.
+
+gist:Weight
+	a owl:Class ;
+	rdfs:label "Weight"^^xsd:string ;
+	rdfs:comment "Magnitude of mass.  Assumes object is near the Earth's surface. Thus weight and mass may be treated as equivalents."^^xsd:string ;
+	owl:deprecated "true"^^xsd:boolean ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:Magnitude
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasUoM ;
+				owl:someValuesFrom gist:MassUnit ;
+			]
+		) ;
+	] ;
+	.
+
+gist:date
+	a owl:DatatypeProperty ;
+	rdfs:domain gist:TimeInstant ;
+	owl:deprecated "true"^^xsd:boolean ;
+	.
+
+gist:dateTime
+	a owl:DatatypeProperty ;
+	rdfs:domain gist:TimeInstant ;
+	rdfs:range xsd:dateTime ;
+	owl:deprecated "true"^^xsd:boolean ;
+	.
+
+gist:hasA
+	a
+		owl:InverseFunctionalProperty ,
+		owl:ObjectProperty
+		;
+	rdfs:comment
+		"EXAMPLE: a table has an edge, a car has weight (which cannot exist unless the car exists)"^^xsd:string ,
+		"NOTE: Cascading delete."^^xsd:string ,
+		"The subject exclusively has or possesses the object, the object does not have independent existence."^^xsd:string
+		;
+	owl:deprecated "true"^^xsd:boolean ;
+	owl:inverseOf gist:of ;
+	.
+
+gist:localDate
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:date ;
+	rdfs:domain gist:TimeInstant ;
+	.
+
+gist:localDateTime
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:dateTime ;
+	rdfs:domain gist:TimeInstant ;
+	rdfs:range xsd:dateTime ;
+	.
+
+gist:localTime
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:time ;
+	rdfs:domain gist:TimeInstant ;
+	.
+
+gist:of
+	a owl:ObjectProperty ;
+	owl:deprecated "true"^^xsd:boolean ;
+	.
+
+gist:party
+	a owl:ObjectProperty ;
+	rdfs:comment "The people or organizations participating in an agreement or obligation"^^xsd:string ;
+	rdfs:range gist:SocialBeing ;
+	owl:deprecated "true"^^xsd:boolean ;
+	.
+
+gist:sameOrderAs
+	a
+		owl:ObjectProperty ,
+		owl:ReflexiveProperty ,
+		owl:SymmetricProperty
+		;
+	owl:deprecated "true"^^xsd:boolean ;
+	owl:propertyDisjointWith gist:strictlyPrecededBy ;
+	.
+
+gist:strictlyPrecededBy
+	a owl:ObjectProperty ;
+	rdfs:comment "inverse of striclyPrecedes"^^xsd:string ;
+	owl:deprecated "true"^^xsd:boolean ;
+	.
+
+gist:strictlyPrecedes
+	a owl:ObjectProperty ;
+	rdfs:comment "A generic ordering relation indicating that the Subject comes before the Object, it may not be of equal rank. The greater than symbol is often used for this relation."^^xsd:string ;
+	owl:deprecated "true"^^xsd:boolean ;
+	.
+
+gist:time
+	a owl:DatatypeProperty ;
+	rdfs:domain gist:TimeInstant ;
+	owl:deprecated "true"^^xsd:boolean ;
+	.
+
+gist:universalDate
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:date ;
+	rdfs:domain gist:TimeInstant ;
+	.
+
+gist:universalDateTime
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:dateTime ;
+	rdfs:domain gist:TimeInstant ;
+	rdfs:range xsd:dateTime ;
+	.
+
+gist:universalTime
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:time ;
+	rdfs:domain gist:TimeInstant ;
+	.
+
