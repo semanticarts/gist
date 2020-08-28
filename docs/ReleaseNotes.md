@@ -44,6 +44,13 @@ Release X.x.x
 - Motivation/Rationale: Standardize release note format for readability.
 - Issue: [#338](https://github.com/semanticarts/gist/issues/338).
 
+*Deprecated `gist:_unitedNations`*
+
+- Deprecated `gist:_unitedNations` and moved from `gistCore` to `gistDeprecated`. Replaced the restriction on `gist:CountryGovernment` that it must be recognized by the United Nations with a restriction that it must be recognized by some Organization.
+- Rationale: The only function of this individual was in the definition of `gist:CountryGovernment`, but the recognizing institution of a country government is context-dependent and thus does not belong in gist. Those wishing to refer to the United Nations should use an existing URI issued by an authoritative source.
+- Impact: `gist:_unitedNations` is still available for use in `gistDeprecated`. The definition of `gist:CountryGovernment` has been relaxed with the removal of an incorrect requirement.
+- Issue: [#207](https://github.com/semanticarts/gist/issues/207).
+
 Import URL: <http://ontologies.semanticarts.com/o/gistCoreX.x.x>.
 
 Release 9.3.0
