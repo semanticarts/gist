@@ -988,6 +988,7 @@ gist:GeneralMediaType
 
 gist:GeoPoint
 	a owl:Class ;
+	rdfs:subClassOf gist:Place ;
 	rdfs:label "Geo Point"^^xsd:string ;
 	rdfs:comment
 		"An individual point on the Earth's surface, identified by latitude, longitude and altitude. If altitude is missing, it is assumed to be at the Earth's surface.  However, altitude is measured from sea level.  these points are to the WGS-84 coordinate system using the GPS decimal lat/long"^^xsd:string ,
@@ -1050,6 +1051,7 @@ gist:GeoPoliticalRegion
 
 gist:GeoRegion
 	a owl:Class ;
+	rdfs:subClassOf gist:Place ;
 	rdfs:label "Geo Region"^^xsd:string ;
 	rdfs:comment
 		"A bounded region (or set of regions) on the surface of the Earth."^^xsd:string ,
@@ -1083,6 +1085,10 @@ gist:GeoRegion
 
 gist:GeoRoute
 	a owl:Class ;
+	rdfs:subClassOf
+		gist:OrderedCollection ,
+		gist:Place
+		;
 	rdfs:label "Geo Route"^^xsd:string ;
 	rdfs:comment "An ordered set of GeoPoints that defines a path from starting point to ending point."^^xsd:string ;
 	owl:equivalentClass [
@@ -1100,6 +1106,7 @@ gist:GeoRoute
 
 gist:GeoSegment
 	a owl:Class ;
+	rdfs:subClassOf gist:Place ;
 	rdfs:label "Geo Segment"^^xsd:string ;
 	rdfs:comment "A single portion of a GeoRegion which has been divided (i.e., segmented)."^^xsd:string ;
 	owl:equivalentClass [
@@ -1123,6 +1130,7 @@ gist:GeoSegment
 
 gist:GeoVolume
 	a owl:Class ;
+	rdfs:subClassOf gist:Place ;
 	rdfs:label "Geo Volume"^^xsd:string ;
 	rdfs:comment "A three-dimensional space on or near the surface of the Earth, such as an oil reservoir, the body of a lake, or an airspace."^^xsd:string ;
 	owl:equivalentClass [
@@ -1327,6 +1335,7 @@ gist:Intention
 
 gist:Landmark
 	a owl:Class ;
+	rdfs:subClassOf gist:Place ;
 	rdfs:label "Landmark"^^xsd:string ;
 	rdfs:comment "Something permanently attached to the Earth."^^xsd:string ;
 	owl:equivalentClass [
@@ -1974,18 +1983,6 @@ gist:Place
 	a owl:Class ;
 	rdfs:label "Place"^^xsd:string ;
 	rdfs:comment "Union of all the geo classes"^^xsd:string ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:unionOf (
-			gist:GeoPoint
-			gist:GeoRegion
-			gist:GeoRoute
-			gist:GeoSegment
-			gist:GeoVolume
-			gist:Landmark
-			gist:Room
-		) ;
-	] ;
 	.
 
 gist:PlannedEvent
@@ -2211,6 +2208,7 @@ gist:Restriction
 
 gist:Room
 	a owl:Class ;
+	rdfs:subClassOf gist:Place ;
 	rdfs:label "Room"^^xsd:string ;
 	rdfs:comment "An enclosed area within a building."^^xsd:string ;
 	owl:equivalentClass [
