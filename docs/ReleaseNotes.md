@@ -26,6 +26,12 @@ Release X.x.x
 
 ### Patch Updates
 
+*hasPhysicalLocation should be transitive*
+
+- Description: the `hasPhysicalLocation` property was erroneously not marked as being transitive.
+- Rationale: Logically, physical location is a transitive (containment) relationship.
+- Issues: [#109](https://github.com/semanticarts/gist/issues/109).
+
 *Changed ontology edit format from RDF/XML (.owl) to Turtle (.ttl)*
 
 - Description: OWL files are now stored in the repository as Turtle rather than RDF/XML. The release package will include RDF/XML, Turtle, and JSON-LD files.
