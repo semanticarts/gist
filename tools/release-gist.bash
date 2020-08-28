@@ -10,47 +10,66 @@ fi
 # Construct the directory name and the versioned file extension
 VERSION=$1
 DIRECTORY=gist${VERSION}_webDownload/
-VERSIONED_EXT=${VERSION}.ttl
-[ -d $DIRECTORY ] || echo "Directory not found: $DIRECTORY" && exit 1
+[ -d $DIRECTORY ] || ( echo "Directory not found: $DIRECTORY" && exit 1 )
+
+# Quiet rm, ignores non-existent files.
+qrm() {
+  for f
+  do
+    [ -e "$f" ] && rm "$f"
+  done
+}
 
 echo "Processing Files in: $DIRECTORY"
-for full_filename in ${DIRECTORY}*${VERSIONED_EXT} ; do
-  # Next line handles the case where no files match
-  [ -e "$filename" ] || echo "NO .ttl FILES FOUND" && exit 1
+for extension in ttl rdf json; do
+  VERSIONED_EXT=${VERSION}.${extension}
 
-  echo $full_filename
+  for full_filename in ${DIRECTORY}*${VERSIONED_EXT} ; do
+    # Next line handles the case where no files match
+    [ -e "$full_filename" ] || ( echo "NO ONTOLOGY FILES FOUND" && exit 1 )
 
-  # Remove the directory from the name
-  filename=${full_filename#$DIRECTORY}
-  # echo $filename
+    echo $full_filename
 
-  # Remove the version & extension, leaving just the base of the filename
-  filename_prefix=${filename%$VERSIONED_EXT}
-  # echo $filename_prefix
+    # Remove the directory from the name
+    filename=${full_filename#$DIRECTORY}
+    # echo $filename
 
-  # Link versioned .ttl files to their source file
-  rm $filename
-  ln -s $full_filename $filename
+    # Remove the version & extension, leaving just the base of the filename
+    filename_prefix=${filename%$VERSIONED_EXT}
+    # echo $filename_prefix
 
-  # Link filenames without the .ttl extension to their source file
-  rm $filename_prefix$VERSION
-  ln -s $full_filename $filename_prefix$VERSION
+    # Link versioned .ttl files to their source file
+    qrm $filename
+    ln -s $full_filename $filename
 
-  # Link unversioned filenames to their source file
-  rm $filename_prefix.ttl
-  ln -s $full_filename $filename_prefix.ttl
+    # Link filenames without the .ttl extension to their source file
+    if [ $extension == 'ttl' ]
+    then
+      qrm $filename_prefix$VERSION
+      ln -s $full_filename $filename_prefix$VERSION
+    fi
+
+    # Link unversioned filenames to their source file
+    qrm $filename_prefix.$extension
+    ln -s $full_filename $filename_prefix.$extension
+  done
 done
 
-rm Documentation catalog-v001.xml
-ln -s ${DIRECTORY}catalog-v001.xml catalog-v001.xml
+qrm Documentation
 ln -s ${DIRECTORY}Documentation/ Documentation
 
-rm gistDeprecated.ttl gistDeprecated$VERSION gistDeprecated$VERSION.ttl
-ln -s ${DIRECTORY}Deprecated/gistDeprecated$VERSION.ttl gistDeprecated.ttl
-ln -s ${DIRECTORY}Deprecated/gistDeprecated$VERSION.ttl gistDeprecated$VERSION
-ln -s ${DIRECTORY}Deprecated/gistDeprecated$VERSION.ttl gistDeprecated$VERSION.ttl
+for extension in ttl rdf json; do
+  qrm gistDeprecated.$extension gistDeprecated$VERSION.$extension
+  ln -s ${DIRECTORY}Deprecated/gistDeprecated$VERSION.$extension gistDeprecated.$extension
+  if [ $extension == 'ttl' ]
+  then
+    qrm gistDeprecated$VERSION
+    ln -s ${DIRECTORY}Deprecated/gistDeprecated$VERSION.$extension gistDeprecated$VERSION
+  fi
+  ln -s ${DIRECTORY}Deprecated/gistDeprecated$VERSION.$extension gistDeprecated$VERSION.$extension
+done
 
-rm ReleaseNotes.html ReleaseNotes.md LICENSE.txt
+qrm ReleaseNotes.html ReleaseNotes.md LICENSE.txt
 ln -s ${DIRECTORY}Documentation/ReleaseNotes.html ReleaseNotes.html
 ln -s ${DIRECTORY}Documentation/ReleaseNotes.md ReleaseNotes.md
 ln -s ${DIRECTORY}LICENSE.txt LICENSE.txt
