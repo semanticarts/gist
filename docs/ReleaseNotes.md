@@ -11,6 +11,14 @@ Release X.x.x
 - Added `hasDirectSubCategory` and `hasDirectSuperCategory`, made `hasSubCategory`/`hasSuperCategory` `owl:Transitive`. Fixes issues [104](https://github.com/semanticarts/gist/issues/104),  [107](https://github.com/semanticarts/gist/issues/107).
 - Deprecated `Weight`, `Mass` should be used instead. Fixes issue  [105](https://github.com/semanticarts/gist/issues/105).
 
+
+*Change Place to not be a Unioned Class*
+
+- Description: For `Place` class, removed its union-of-classes-style definition, instead defining the classes that were in the union as being subclasses of Place. See rationale below.  
+- Motivation/Rationale: When an upper ontology defines as the union of a set of other classes, it is not possible to define additional subclasses in child ontologies without changing the upper ontology class definition. Place was defined this way, and thus not extensible by importers of gist.  
+- Impact: Should not have an impact on reasoning, but allows new classes to be declared to be subclasses of `Place`.
+- Issues: [343](https://github.com/semanticarts/gist/issues/343)
+
 *Changes to category predicates*
 
 - Description: Added intransitive properties `hasDirectSubCategory` and `hasDirectSuperCategory` as subproperties of `hasSubCategory` and `hasSuperCategory`, respectively. The latter are defined as transitive.
