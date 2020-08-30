@@ -11,13 +11,12 @@ Release X.x.x
 - Added `hasDirectSubCategory` and `hasDirectSuperCategory`, made `hasSubCategory`/`hasSuperCategory` `owl:Transitive`. Fixes issues [104](https://github.com/semanticarts/gist/issues/104),  [107](https://github.com/semanticarts/gist/issues/107).
 - Deprecated `Weight`, `Mass` should be used instead. Fixes issue  [105](https://github.com/semanticarts/gist/issues/105).
 
+*Removed equivalences to union classes in the definitions of `gist:Artifact` and `gist:Place`*
 
-*Change Place to not be a Unioned Class*
-
-- Description: For `Place` class, removed its union-of-classes-style definition, instead defining the classes that were in the union as being subclasses of Place. See rationale below.  
-- Motivation/Rationale: When an upper ontology defines as the union of a set of other classes, it is not possible to define additional subclasses in child ontologies without changing the upper ontology class definition. Place was defined this way, and thus not extensible by importers of gist.  
-- Impact: Should not have an impact on reasoning, but allows new classes to be declared to be subclasses of `Place`.
-- Issues: [343](https://github.com/semanticarts/gist/issues/343)
+- Description: Replaced the union class equivalence assertions from `gist:Artifact` and `gist:Place` with `rdfs:subClassOf` assertions from each of the union class members to `gist:Artifact` or `gist:Place`, as appropriate. Also corrected erroneous subclassing of `gist:Artifact` by `gist:PhysicalSubstance`.
+- Rationale: Stating equivalence of a class to a union class prevents adding a new subclass which is not also a subclass of one of the union class members, thus reducing extensibility of the ontology.
+- Impact: Removes the inference that an instance of `gist:Artifact` or `gist:Place` is also an instance of one of the members of the union class. Presumed to be low impact since this is a weak inference.
+- Issues: [#110](https://github.com/semanticarts/gist/issues/110), [#343](https://github.com/semanticarts/gist/issues/343).
 
 *Changes to category predicates*
 
@@ -35,14 +34,7 @@ Release X.x.x
 
 ### Patch Updates
 
-*Removed equivalences to union classes from `gist:Artifact` and `gist:Place`*
-
-- Description: Replaced the union class equivalence assertions from `gist:Artifact` and `gist:Place` with `rdfs:subClassOf` assertions from each of the union class members to `gist:Artifact` or `gist:Place`, as appropriate.
-- Rationale: Stating equivalence of a class to a union class prevents adding a new subclass which is not also a subclass of one of the union class members, thus reducing extensibility of the ontology.
-- Impact: Removes the inference that an instance of `gist:Artifact` or `gist:Place` is also an instance of one of the members of the union class. Presumably low impact since this is a weak inference.
-- Issues: [#110](https://github.com/semanticarts/gist/issues/110), [#343](https://github.com/semanticarts/gist/issues/343).
-
-*hasPhysicalLocation should be transitive*
+*Made `hasPhysicalLocation` transitive*
 
 - Description: the `hasPhysicalLocation` property was erroneously not marked as being transitive.
 - Rationale: Logically, physical location is a transitive (containment) relationship.

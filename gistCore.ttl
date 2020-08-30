@@ -180,12 +180,7 @@ gist:Behavior
 
 gist:Building
 	a owl:Class ;
-	rdfs:subClassOf [
-		owl:intersectionOf (
-			gist:Landmark
-			gist:Artifact
-		) ;
-	] ;
+	rdfs:subClassOf gist:Landmark, gist:Artifact ;
 	rdfs:label "Building"^^xsd:string ;
 	rdfs:comment "A man-made structure for dwelling or working."^^xsd:string ;
 	.
@@ -881,6 +876,7 @@ gist:Equipment
 	rdfs:label "Equipment"^^xsd:string ;
 	rdfs:comment "Tangible property other than land or buildings.  Any kind of equipment, could be machine, router, car etc."^^xsd:string ;
 	owl:equivalentClass [
+		a owl:Class ;
 		owl:intersectionOf (
 			gist:Artifact
 			gist:PhysicalIdentifiableItem
@@ -1949,7 +1945,6 @@ gist:PhysicalSubstance
 	a owl:Class ;
 	rdfs:subClassOf [
 		owl:intersectionOf (
-			gist:Artifact
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasMagnitude ;
@@ -3993,4 +3988,3 @@ gist:viableRange
 		gist:_second
 	) ;
 	.
-
