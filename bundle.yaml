@@ -103,6 +103,9 @@ actions:
 - action: "copy"
   source: "{input}/docs"
   target: "{output}/Documentation"
+  replace:
+    from: "X.x.x"
+    to: "{version}"
   includes:
     - "ReleaseNotes.md"
 - action: "markdown"
