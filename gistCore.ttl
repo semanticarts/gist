@@ -116,28 +116,13 @@ gist:AreaUnit
 
 gist:Artifact
 	a owl:Class ;
-	rdfs:label "Artifact"^^xsd:string ;
-	rdfs:comment "An intentional person made thing, could be physical or content"^^xsd:string ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			[
-				a owl:Class ;
-				owl:unionOf (
-					gist:Building
-					gist:Content
-					gist:Equipment
-					gist:IntellectualProperty
-					gist:PhysicalSubstance
-				) ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasGoal ;
-				owl:someValuesFrom gist:Function ;
-			]
-		) ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty gist:hasGoal ;
+		owl:someValuesFrom gist:Function ;
 	] ;
+	rdfs:label "Artifact"^^xsd:string ;
+	rdfs:comment "An intentional, person-made thing, which could be physical or content"^^xsd:string ;
 	.
 
 gist:Aspect
@@ -195,7 +180,7 @@ gist:Behavior
 
 gist:Building
 	a owl:Class ;
-	rdfs:subClassOf gist:Landmark ;
+	rdfs:subClassOf gist:Landmark, gist:Artifact ;
 	rdfs:label "Building"^^xsd:string ;
 	rdfs:comment "A man-made structure for dwelling or working."^^xsd:string ;
 	.
@@ -448,6 +433,7 @@ gist:ContemporaneousEvent
 
 gist:Content
 	a owl:Class ;
+	rdfs:subClassOf gist:Artifact ;
 	rdfs:label "Content"^^xsd:string ;
 	rdfs:comment "A document, program, image, etc.  (Categories are not content until they are written down.)"^^xsd:string ;
 	owl:disjointWith
@@ -892,6 +878,7 @@ gist:Equipment
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
+			gist:Artifact
 			gist:PhysicalIdentifiableItem
 			[
 				a owl:Restriction ;
@@ -1302,6 +1289,7 @@ gist:InformationQuantity
 
 gist:IntellectualProperty
 	a owl:Class ;
+	rdfs:subClassOf gist:Artifact ;
 	rdfs:label "Intellectual Property"^^xsd:string ;
 	rdfs:comment
 		"A work, invention or concept, independent of its being expressed in text, audio, video, image, or live performance.  IP can also be tacit knowledge, know-how, or skill. Also includes Brands."^^xsd:string ,
@@ -1955,18 +1943,20 @@ gist:PhysicalIdentifiableItem
 
 gist:PhysicalSubstance
 	a owl:Class ;
-	rdfs:subClassOf
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:hasMagnitude ;
-			owl:someValuesFrom gist:Mass ;
-		] ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:hasMagnitude ;
-			owl:someValuesFrom gist:Volume ;
-		]
-		;
+	rdfs:subClassOf [
+		owl:intersectionOf (
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasMagnitude ;
+				owl:someValuesFrom gist:Mass ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasMagnitude ;
+				owl:someValuesFrom gist:Volume ;
+			]
+		) ;
+	] ;
 	rdfs:label "Physical Substance"^^xsd:string ;
 	rdfs:comment
 		"EXAMPLES: An amount of water, of penicillin, of sand, of gold."^^xsd:string ,
@@ -3989,4 +3979,3 @@ gist:viableRange
 		gist:_second
 	) ;
 	.
-

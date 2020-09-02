@@ -4,7 +4,7 @@ gist Release Notes
 Release X.x.x
 -----
 
-[*Release manager: please fill in version number here and below in Import URL*]
+[*__Release manager: please fill in version number here and below in Import URL, and remove this message.__*]
 
 ### Minor Updates
 
@@ -18,14 +18,14 @@ Release X.x.x
 *Changes to Category predicates*
 
 - Description: Added intransitive properties `gist:hasDirectSubCategory` and `gist:hasDirectSuperCategory` as subproperties of `gist:hasSubCategory` and `gist:hasSuperCategory`, respectively. The latter are now defined as transitive.
-- Motivation/Rationale: The direct sub/supercategory properties provide a mechanism for defining gapless taxonomy trees. The existing properties are logically transitive.
+- Rationale: The direct sub/supercategory properties provide a mechanism for defining gapless taxonomy trees. The existing properties are logically transitive.
 - Impact: No changes required to existing implementations. The changes enhance the definition of taxonomy trees.
 - Issues: [#104](https://github.com/semanticarts/gist/issues/104), [#107](https://github.com/semanticarts/gist/issues/107).
 
 *Replaced `gist:Weight` with `gist:Mass` in all contexts*
 
 - Description: Deprecated `gist:Weight`; `gist:Mass` should be used instead. All axiomatic references to `gist:Weight` have been changed to `gist:Mass`.
-- Motivation/Rationale: Standardize to `gist:Mass` rather than mixing `gist:Mass` and `gist:Weight`.
+- Rationale: Standardize to `gist:Mass` rather than mixing `gist:Mass` and `gist:Weight`.
 - Impact: Users can continue to use the `gist:Weight` class by importing `gistDeprecated`, but it will be removed in a future major release. New implementations should use `gist:Mass`.
 - Issue: [#105](https://github.com/semanticarts/gist/issues/105).
 
@@ -53,7 +53,7 @@ Release X.x.x
 *Added release notes template*
 
 - Description: Added release notes template to be followed by contributors submitting a PR.
-- Motivation/Rationale: Standardize release note format for readability.
+- Rationale: Standardize release note format for readability.
 - Issue: [#338](https://github.com/semanticarts/gist/issues/338).
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCoreX.x.x>.
