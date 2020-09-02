@@ -117,6 +117,16 @@ gist:Weight
 	] ;
 	.
 
+gist:_unitedNations
+	a
+		owl:NamedIndividual ,
+		owl:Thing ,
+		gist:GovernmentOrganization
+		;
+	rdfs:comment "if the united nations recognizes you as a country you are a country"^^xsd:string ;
+	owl:deprecated "true"^^xsd:boolean ;
+	.
+
 gist:date
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:TimeInstant ;

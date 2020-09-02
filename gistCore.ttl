@@ -649,7 +649,7 @@ gist:CountingUnit
 gist:CountryGovernment
 	a owl:Class ;
 	rdfs:label "Country Government"^^xsd:string ;
-	rdfs:comment "The geopolitical body that runs a geopolitical region recognized as a country."^^xsd:string ;
+	rdfs:comment "The geopolitical body that governs a geopolitical region recognized as a country."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -661,8 +661,8 @@ gist:CountryGovernment
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:directlyRecognizedBy ;
-				owl:hasValue gist:_unitedNations ;
+				owl:onProperty gist:recognizedBy ;
+				owl:someValuesFrom gist:Organization ;
 			]
 		) ;
 	] ;
@@ -2833,15 +2833,6 @@ gist:_second
 		;
 	gist:convertToBase "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
-	.
-
-gist:_unitedNations
-	a
-		owl:NamedIndividual ,
-		owl:Thing ,
-		gist:GovernmentOrganization
-		;
-	rdfs:comment "if the united nations recognizes you as a country you are a country"^^xsd:string ;
 	.
 
 gist:about

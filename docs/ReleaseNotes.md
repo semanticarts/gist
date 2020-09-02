@@ -4,41 +4,45 @@ gist Release Notes
 Release X.x.x
 -----
 
-[*Release manager: please fill in version number here and below in Import URL*]
+[*__Release manager: please fill in version number here and below in Import URL, and remove this message.__*]
 
 ### Minor Updates
 
-- Added `hasDirectSubCategory` and `hasDirectSuperCategory`, made `hasSubCategory`/`hasSuperCategory` `owl:Transitive`. Fixes issues [104](https://github.com/semanticarts/gist/issues/104),  [107](https://github.com/semanticarts/gist/issues/107).
-- Deprecated `Weight`, `Mass` should be used instead. Fixes issue  [105](https://github.com/semanticarts/gist/issues/105).
+*Removed equivalences to union classes from the definitions of `gist:Artifact` and `gist:Place`*
 
-*Removed equivalences to union classes in the definitions of `gist:Artifact` and `gist:Place`*
-
-- Description: Replaced the union class equivalence assertions from `gist:Artifact` and `gist:Place` with `rdfs:subClassOf` assertions from each of the union class members to `gist:Artifact` or `gist:Place`, as appropriate. Also corrected erroneous subclassing of `gist:Artifact` by `gist:PhysicalSubstance`.
+- Description: Replaced the union class equivalence assertions from `gist:Artifact` and `gist:Place` with `rdfs:subClassOf` assertions from each of the union class members to `gist:Artifact` or `gist:Place`, as appropriate.
 - Rationale: Stating equivalence of a class to a union class prevents adding a new subclass which is not also a subclass of one of the union class members, thus reducing extensibility of the ontology.
-- Impact: Removes the inference that an instance of `gist:Artifact` or `gist:Place` is also an instance of one of the members of the union class. Presumed to be low impact since this is a weak inference.
+- Impact: Removes the inference that an instance of `gist:Artifact` or `gist:Place` is also an instance of one of the members of the union class. Presumably low impact since this is a weak inference.
 - Issues: [#110](https://github.com/semanticarts/gist/issues/110), [#343](https://github.com/semanticarts/gist/issues/343).
 
-*Changes to category predicates*
+*Changes to Category predicates*
 
-- Description: Added intransitive properties `hasDirectSubCategory` and `hasDirectSuperCategory` as subproperties of `hasSubCategory` and `hasSuperCategory`, respectively. The latter are defined as transitive.
-- Motivation/Rationale: The direct sub/supercategory properties provide a mechanism for defining gapless taxonomy trees. The existing properties are logically transitive.
+- Description: Added intransitive properties `gist:hasDirectSubCategory` and `gist:hasDirectSuperCategory` as subproperties of `gist:hasSubCategory` and `gist:hasSuperCategory`, respectively. The latter are now defined as transitive.
+- Rationale: The direct sub/supercategory properties provide a mechanism for defining gapless taxonomy trees. The existing properties are logically transitive.
 - Impact: No changes required to existing implementations. The changes enhance the definition of taxonomy trees.
 - Issues: [#104](https://github.com/semanticarts/gist/issues/104), [#107](https://github.com/semanticarts/gist/issues/107).
 
-*Use `Weight` rather than `Mass` in all contexts*
+*Replaced `gist:Weight` with `gist:Mass` in all contexts*
 
-- Description: Deprecated `Weight`; `Mass` should be used instead. All axiomatic references to `Weight` have been changed to `Mass`.
-- Motivation/Rationale: Standardize to `Mass` rather than mixing `Mass` and `Weight`.
-- Impact: Users can continue to use the `Weight` class if they import `gistDeprecated9.4.0`, but it will be removed in a future major release. New implementations should use `Mass`.
+- Description: Deprecated `gist:Weight`; `gist:Mass` should be used instead. All axiomatic references to `gist:Weight` have been changed to `gist:Mass`.
+- Rationale: Standardize to `gist:Mass` rather than mixing `gist:Mass` and `gist:Weight`.
+- Impact: Users can continue to use the `gist:Weight` class by importing `gistDeprecated`, but it will be removed in a future major release. New implementations should use `gist:Mass`.
 - Issue: [#105](https://github.com/semanticarts/gist/issues/105).
 
 ### Patch Updates
 
-*Made `hasPhysicalLocation` transitive*
+*Made `gist:hasPhysicalLocation` transitive*
 
-- Description: the `hasPhysicalLocation` property was erroneously not marked as being transitive.
+- Description: the `gist:hasPhysicalLocation` property was erroneously not defined as transitive.
 - Rationale: Logically, physical location is a transitive (containment) relationship.
 - Issues: [#109](https://github.com/semanticarts/gist/issues/109).
+
+*Deprecated `gist:_unitedNations`*
+
+- Deprecated `gist:_unitedNations` and moved from `gistCore` to `gistDeprecated`.  A `gist:CountryGovernment` must be recognized by some organization, but not specifically the United Nations.
+- Rationale: The only function of this individual was in the definition of `gist:CountryGovernment`, but the recognizing institution of a country government is implementation-dependent and thus does not belong in gist. Those wishing to refer to the United Nations should use an existing URI issued by an authoritative source.
+- Impact: `gist:_unitedNations` is still available for use in `gistDeprecated`. The definition of `gist:CountryGovernment` has been relaxed with the removal of an incorrect requirement; client ontologies can subclass with their desired recognizing body.
+- Issue: [#207](https://github.com/semanticarts/gist/issues/207).
 
 *Changed ontology edit format from RDF/XML (.owl) to Turtle (.ttl)*
 
@@ -49,7 +53,7 @@ Release X.x.x
 *Added release notes template*
 
 - Description: Added release notes template to be followed by contributors submitting a PR.
-- Motivation/Rationale: Standardize release note format for readability.
+- Rationale: Standardize release note format for readability.
 - Issue: [#338](https://github.com/semanticarts/gist/issues/338).
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCoreX.x.x>.
