@@ -33,16 +33,23 @@ Release X.x.x
 
 *Made `gist:hasPhysicalLocation` transitive*
 
-- Description: the `gist:hasPhysicalLocation` property was erroneously not defined as transitive.
+- Description: `gist:hasPhysicalLocation` was erroneously not defined as transitive.
 - Rationale: Logically, physical location is a transitive (containment) relationship.
 - Issues: [#109](https://github.com/semanticarts/gist/issues/109).
 
 *Deprecated `gist:_unitedNations`*
 
-- Deprecated `gist:_unitedNations` and moved from `gistCore` to `gistDeprecated`.  A `gist:CountryGovernment` must be recognized by some organization, but not specifically the United Nations.
+- Description: Deprecated `gist:_unitedNations` and moved from `gistCore` to `gistDeprecated`.  A `gist:CountryGovernment` must be recognized by some organization, but not specifically the United Nations.
 - Rationale: The only function of this individual was in the definition of `gist:CountryGovernment`, but the recognizing institution of a country government is implementation-dependent and thus does not belong in gist. Those wishing to refer to the United Nations should use an existing URI issued by an authoritative source.
 - Impact: `gist:_unitedNations` is still available for use in `gistDeprecated`. The definition of `gist:CountryGovernment` has been relaxed with the removal of an incorrect requirement; client ontologies can subclass with their desired recognizing body.
 - Issue: [#207](https://github.com/semanticarts/gist/issues/207).
+
+*Trivial corrections to axioms in the definition of some geo terms*
+
+- Description: Trivial corrections to axioms in the definitions of `gist:GeoRoute`, `gist:geoContains`, and `gist:GeoRoute`.
+- Rationale: Bug fixes.
+- Impact: None.
+- Issues: [#64](https://github.com/semanticarts/gist/issues/64), [#334](https://github.com/semanticarts/gist/issues/334), [#361](https://github.com/semanticarts/gist/issues/361).
 
 *Changed ontology edit format from RDF/XML (.owl) to Turtle (.ttl)*
 

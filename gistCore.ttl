@@ -3130,30 +3130,8 @@ gist:geoContains
 		;
 	rdfs:label "Geo Contains"^^xsd:string ;
 	rdfs:comment "Transitive version of geoDirectlyContains"^^xsd:string ;
-	rdfs:domain [
-		a owl:Class ;
-		owl:unionOf (
-			gist:GeoPoint
-			gist:GeoRegion
-			gist:GeoRoute
-			gist:GeoSegment
-			gist:GeoVolume
-			gist:Landmark
-			gist:Room
-		) ;
-	] ;
-	rdfs:range [
-		a owl:Class ;
-		owl:unionOf (
-			gist:GeoPoint
-			gist:GeoRegion
-			gist:GeoRoute
-			gist:GeoSegment
-			gist:GeoVolume
-			gist:Landmark
-			gist:Room
-		) ;
-	] ;
+	rdfs:domain gist:Place ;
+	rdfs:range gist:Place ;
 	.
 
 gist:geoDirectlyContainedIn
@@ -3188,12 +3166,7 @@ gist:geoOccupies
 			gist:PhysicalSubstance
 		) ;
 	] ;
-	rdfs:range [
-		a owl:Class ;
-		owl:unionOf (
-			gist:Place
-		) ;
-	] ;
+	rdfs:range gist:Place ;
 	.
 
 gist:getter
