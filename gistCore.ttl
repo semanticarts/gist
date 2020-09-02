@@ -180,7 +180,10 @@ gist:Behavior
 
 gist:Building
 	a owl:Class ;
-	rdfs:subClassOf gist:Landmark, gist:Artifact ;
+	rdfs:subClassOf
+		gist:Artifact ,
+		gist:Landmark
+		;
 	rdfs:label "Building"^^xsd:string ;
 	rdfs:comment "A man-made structure for dwelling or working."^^xsd:string ;
 	.
@@ -1072,16 +1075,13 @@ gist:GeoRegion
 
 gist:GeoRoute
 	a owl:Class ;
-	rdfs:subClassOf
-		gist:OrderedCollection ,
-		gist:Place
-		;
 	rdfs:label "Geo Route"^^xsd:string ;
 	rdfs:comment "An ordered set of GeoPoints that defines a path from starting point to ending point."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
 			gist:OrderedCollection
+			gist:Place
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasDirectPart ;
@@ -3979,3 +3979,4 @@ gist:viableRange
 		gist:_second
 	) ;
 	.
+
