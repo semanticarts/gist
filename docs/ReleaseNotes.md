@@ -208,7 +208,7 @@ Release 8.0
 This major version primarily changed all concept URIs to use `/` instead of `#`
 Additionally, gistWiki is no longer included by gistCore.
 
-Import URL: <http://ontologies.semanticarts.com/o/gistCore8.0>.
+Import URL: <http://ontologies.semanticarts.com/o/gistCore8.0.0>.
 
 Release 7.5
 -----
