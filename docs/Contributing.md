@@ -99,17 +99,18 @@ Pull Requests
 - Each PR should be atomic, addressing a single issue. This allows it to be accepted or rejected as a whole.
   - Exception: If there are several very small issues such as typo corrections or definition fixes, these can be submitted in a single PR.
 - The PR should address the entirety of an issue. If it does not, either the PR should be modified or the issue should be broken up into parts.
-- The description of the PR should contain the keywords "fixes #nnn" (or another of the [GitHub keywords](https://help.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)) where nnn is the issue number. This automatically closes the issue when the PR is merged.
+- The description of the PR should contain the keywords "fixes #nnn" (or another of the [GitHub keywords](https://docs.github.com/en/enterprise/2.21/user/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)) where nnn is the issue number. This automatically closes the issue when the PR is merged.
   - Example: "Correct cardinality restriction on class gist:Room. Fixes #98."
+  - Note that if the PR fixes multiple issues, each issue number must be prefixed by the keyword. E.g., "Fixes #98, fixes #102", rather than "Fixes #98, #102" or "Fixes #98 and #102".
 - The PR should include an update to the release notes, except in the rare cases where there is no user-facing change.
   - Follow the [release notes template](ReleaseNotesTemplate.md).
   - Reviewers will reject a PR that does not include an update to the release notes.
   - Please follow the heading conventions shown, as the [markdown configuration file](markdownlint.json) dictates the mixed heading style.
-  - The Motivation/Rationale line for patch changes may be as simple as "Bug fix."
+  - The Rationale line for patch changes may be as simple as "Bug fix."
   - Example of a new release note section with one note:
   
 ```markdown
-Release notes gist 9.3.0
+Release notes gist 9.4.0
 -----
 
 ### Minor Updates
@@ -117,7 +118,7 @@ Release notes gist 9.3.0
 *Changes to category predicates*
 
 - Description: Added intransitive properties `hasDirectSubCategory` and `hasDirectSuperCategory` as subproperties of `hasSubCategory` and `hasSuperCategory`, respectively. The latter are defined as transitive.
-- Motivation/Rationale: The direct sub/supercategory properties provide a mechanism for defining gapless taxonomy trees. The existing properties are logically transitive.
+- Rationale: The direct sub/supercategory properties provide a mechanism for defining gapless taxonomy trees. The existing properties are logically transitive.
 - Impact: No changes required to existing implementations. The changes enhance the definition of taxonomy trees.
 - Issues: [#104](https://github.com/semanticarts/gist/issues/104), [#107](https://github.com/semanticarts/gist/issues/107).
 ```

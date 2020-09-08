@@ -13,6 +13,7 @@ Notes:
 - Descriptions are stated in past tense.
 - Surround ontology terms with backticks; e.g., `gist:Weight`.
 - A full example is shown in the [release notes for version 9.4.0](ReleaseNotes.md).
+- On release, X.x.x will be replaced with the correct version number.
 
 Template:
 
@@ -44,5 +45,5 @@ Release X.x.x
    - Rationale:
    - Issue(s):
 
-Import URL: <http://ontologies.semanticarts.com/o/gistCoreX.x.x>.
+Import URL: <https://ontologies.semanticarts.com/o/gistCoreX.x.x>.
 ```
