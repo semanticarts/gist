@@ -94,7 +94,7 @@ actions:
   target: "{output}"
   rename:
     from: "(.*)\\.ttl"
-    to: "\\g<1>.json"
+    to: "\\g<1>.jsonld"
   includes:
     - "*.ttl"
 - action: "copy"
@@ -114,4 +114,4 @@ actions:
   includes:
     - "*Deprecated*.ttl"
     - "*Deprecated*.rdf"
-    - "*Deprecated*.json"
+    - "*Deprecated*.jsonld"
