@@ -1,6 +1,17 @@
 gist Release Notes
 =====
 
+Release 9.4.1
+-----
+
+### Patch Updates
+
+*Modified build to create JSON-LD ontology files with `.jsonld` extension.*
+
+- Description: JSON-LD files were erroneously created with `.json` extension.
+- Rationale: The correct extension for the `application/ld+json` MIME type is `.jsonld`.
+- Issues: [#365](https://github.com/semanticarts/gist/issues/365).
+
 Release 9.4.0
 -----
 
