@@ -21,7 +21,7 @@ qrm() {
 }
 
 echo "Processing Files in: $DIRECTORY"
-for extension in ttl rdf json; do
+for extension in ttl rdf jsonld; do
   VERSIONED_EXT=${VERSION}.${extension}
 
   for full_filename in ${DIRECTORY}*${VERSIONED_EXT} ; do
@@ -38,14 +38,16 @@ for extension in ttl rdf json; do
     filename_prefix=${filename%$VERSIONED_EXT}
     # echo $filename_prefix
 
-    # Link versioned .ttl files to their source file
+    # Link versioned files to their source file
     qrm $filename
     ln -s $full_filename $filename
 
-    # Link filenames without the .ttl extension to their source file
-    if [ $extension == 'ttl' ]
+    # Link filenames without an extension to source file
+    # Link filenames without an extension & version to source file
+    if [ $extension == 'rdf' ]
     then
-      qrm $filename_prefix$VERSION
+      qrm $filename_prefix $filename_prefix$VERSION
+      ln -s $full_filename $filename_prefix
       ln -s $full_filename $filename_prefix$VERSION
     fi
 
@@ -58,14 +60,12 @@ done
 qrm Documentation
 ln -s ${DIRECTORY}Documentation/ Documentation
 
-for extension in ttl rdf json; do
+qrm gistDeprecated gistDeprecated$VERSION
+ln -s ${DIRECTORY}Deprecated/gistDeprecated$VERSION.rdf gistDeprecated
+ln -s ${DIRECTORY}Deprecated/gistDeprecated$VERSION.rdf gistDeprecated$VERSION
+for extension in ttl rdf jsonld; do
   qrm gistDeprecated.$extension gistDeprecated$VERSION.$extension
   ln -s ${DIRECTORY}Deprecated/gistDeprecated$VERSION.$extension gistDeprecated.$extension
-  if [ $extension == 'ttl' ]
-  then
-    qrm gistDeprecated$VERSION
-    ln -s ${DIRECTORY}Deprecated/gistDeprecated$VERSION.$extension gistDeprecated$VERSION
-  fi
   ln -s ${DIRECTORY}Deprecated/gistDeprecated$VERSION.$extension gistDeprecated$VERSION.$extension
 done
 
