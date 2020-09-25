@@ -224,10 +224,9 @@ gist:CatalogItem
 	a owl:Class ;
 	rdfs:subClassOf gist:Specification ;
 	skos:prefLabel "Catalog Item"^^xsd:string ;
+	skos:scopeNote "In short, an unambiguous characterization of what it is that a potential buyer is paying for."^^xsd:string ; 
 	rdfs:comment
-		"A description of a product or service to be delivered, given in a sufficient level of detail that a receiver could determine whether delivery constituted discharge of the obligation to deliver."^^xsd:string ,
-		"NOTE: In short, an unambiguous characterization of what it is that a potential buyer is paying for."^^xsd:string
-		;
+		"A description of a product or service to be delivered, given in a sufficient level of detail that a receiver could determine whether delivery constituted discharge of the obligation to deliver."^^xsd:string ;
 	.
 
 gist:Category
@@ -245,10 +244,10 @@ gist:Category
 		] ;
 	] ;
 	skos:prefLabel "Category"^^xsd:string ;
+	skos:example "Tags used in folksonomies; formal definitions from other systems."^^xsd:string ; 
+	skos:scopeNote "Often a 'bucket' can be modeled either as an owl:Class or as a gist:Category. Use the latter if you don't care much about the formal structure of the different types, or if there is a whole hierarchy of types that are going to be managed by a group separate from the ontology developers. The formal structure may be defined elsewhere and linked to, if necessary."^^xsd:string ; 
 	rdfs:comment
-		"A concept or label used to categorize other instances informally. Things that can be thought of as types are usually Categories."^^xsd:string ,
-		"EXAMPLE: Tags used in folksonomies; formal definitions from other systems."^^xsd:string ,
-		"NOTE: Often a 'bucket' can be modeled either as an owl:Class or as a gist:Category. Use the latter if you don't care much about the formal structure of the different types, or if there is a whole hierarchy of types that are going to be managed by a group separate from the ontology developers. The formal structure may be defined elsewhere and linked to, if necessary."^^xsd:string
+		"A concept or label used to categorize other instances informally. Things that can be thought of as types are usually Categories."^^xsd:string 
 		;
 	.
 
@@ -327,12 +326,12 @@ gist:CoherentRatioUnit
 gist:CoherentUnit
 	a owl:Class ;
 	skos:prefLabel "Coherent Unit"^^xsd:string ;
+	skos:scopeNote "coherent unit is the physics term for this, informally you might think of it as the standard unit for a given dimension."^^xsd:string ; 
+	skos:scopeNote "in principle, the CoherentUnit for a ProductUnit or RatioUnit can be inferred by recursively decomposing the products and ratios into their respective CoherentUnits, bottoming out in SimpleUnits"^^xsd:string ; 
+	skos:example "a simple unit: kilogram"^^xsd:string ; 
+	skos:example "the standard unit for acceleration is meters per square second (feet per square second  requires a conversion)"^^xsd:string ; 
 	rdfs:comment
-		"A unit that is expressed in units that have no conversions.  It may be a simple unit.  It may also be a product or ratio unit that bottoms out in simple units."^^xsd:string ,
-		"Example:  a simple unit: kilogram"^^xsd:string ,
-		"Example: the standard unit for acceleration is meters per square second (feet per square second  requires a conversion)"^^xsd:string ,
-		"NOTE: coherent unit is the physics term for this, informally you might think of it as the standard unit for a given dimension."^^xsd:string ,
-		"NOTE: in principle, the CoherentUnit for a ProductUnit or RatioUnit can be inferred by recursively decomposing the products and ratios into their respective CoherentUnits, bottoming out in SimpleUnits"^^xsd:string
+		"A unit that is expressed in units that have no conversions.  It may be a simple unit.  It may also be a product or ratio unit that bottoms out in simple units."^^xsd:string 
 		;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -352,9 +351,9 @@ gist:Collection
 		owl:someValuesFrom owl:Thing ;
 	] ;
 	skos:prefLabel "Collection"^^xsd:string ;
+	skos:example "A jury is a group of people,   a financial ledger is a collection of transaction entries; a route is an (ordered) collection of segments."^^xsd:string ; 
 	rdfs:comment
-		"Any identifiable grouping of instances.  For instance, a jury is a collection of people."^^xsd:string ,
-		"EXAMPLES: A jury is a group of people,   a financial ledger is a collection of transaction entries; a route is an (ordered) collection of segments."^^xsd:string
+		"Any identifiable grouping of instances.  For instance, a jury is a collection of people."^^xsd:string 
 		;
 	.
 
@@ -412,9 +411,9 @@ gist:Component
 gist:ContemporaneousEvent
 	a owl:Class ;
 	skos:prefLabel "Contemporaneous Event"^^xsd:string ;
+	skos:scopeNote "All contemporaneous events eventually end and, due to the nature of the open world, we can never be sure that a contemporaneous event hasn't ended. As a result, this is really a contemporaneous and historical event."^^xsd:string ; 
 	rdfs:comment
-		"An event that actually started after the present time.  When we record an end time it ceases to be contemporaneous"^^xsd:string ,
-		"NOTE: All contemporaneous events eventually end and, due to the nature of the open world, we can never be sure that a contemporaneous event hasn't ended. As a result, this is really a contemporaneous and historical event."^^xsd:string
+		"An event that actually started after the present time.  When we record an end time it ceases to be contemporaneous"^^xsd:string 
 		;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -500,9 +499,9 @@ gist:ContingentEvent
 gist:ContingentObligation
 	a owl:Class ;
 	skos:prefLabel "Contingent Obligation"^^xsd:string ;
+	skos:scopeNote "A contingent obligation might have a getter counterparty (as in the case of insurance); but it might not (as in the case of an offer)."^^xsd:string ; 
 	rdfs:comment
-		"An obligation that is not yet firm.  There is some contingent event, the occurrence of which will cause the obligation to become firm."^^xsd:string ,
-		"NOTE: A contingent obligation might have a getter counterparty (as in the case of insurance); but it might not (as in the case of an offer)."^^xsd:string
+		"An obligation that is not yet firm.  There is some contingent event, the occurrence of which will cause the obligation to become firm."^^xsd:string 
 		;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -616,9 +615,9 @@ gist:ControllerType
 gist:Count
 	a owl:Class ;
 	skos:prefLabel "Count"^^xsd:string ;
+	skos:scopeNote "Count is not disjoint with all the other magnitudes, as there are some magnitudes that could conceivably be counted."^^xsd:string ;  
 	rdfs:comment
-		"A measure that involves countable amounts (?eaches? as well as cases, etc.). Can be decimal."^^xsd:string ,
-		"NOTE: Count is not disjoint with all the other magnitudes, as there are some magnitudes that could conceivably be counted."^^xsd:string
+		"A measure that involves countable amounts (?eaches? as well as cases, etc.). Can be decimal."^^xsd:string 
 		;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -746,9 +745,8 @@ gist:DegreeOfCommitment
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
 	skos:prefLabel "Degree Of Commitment"^^xsd:string ;
-	rdfs:comment
-		"EXAMPLE:  A car rental typically has a lower degree of commitment than an airfare reservation."^^xsd:string ,
-		"The difficulty of reversing a commitment."^^xsd:string
+	skos:example "A car rental typically has a lower degree of commitment than an airfare reservation."^^xsd:string ;		 
+	rdfs:comment "The difficulty of reversing a commitment."^^xsd:string 
 		;
 	.
 
@@ -780,8 +778,8 @@ gist:DistanceUnit
 gist:Duration
 	a owl:Class ;
 	skos:prefLabel "Duration"^^xsd:string ;
+	skos:example "One week (or seven days), but not Jan 1, 2008 to Jan 7, 2008 (which is an interval). Intervals have durations, but are not themselves durations."^^xsd:string ; 
 	rdfs:comment
-		"EXAMPLE: One week (or seven days), but not Jan 1, 2008 to Jan 7, 2008 (which is an interval). Intervals have durations, but are not themselves durations."^^xsd:string ,
 		"Time, but not on a timeline."^^xsd:string
 		;
 	owl:equivalentClass [
@@ -971,8 +969,8 @@ gist:GeneralMediaType
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
 	skos:prefLabel "General Media Type"^^xsd:string ;
+	skos:example "audio, still image, video, textual, physical (e.g., a statue), or performance (i.e. a play).  Or it could be oil or pastel for a painting."^^xsd:string ; 
 	rdfs:comment
-		"EXAMPLE: audio, still image, video, textual, physical (e.g., a statue), or performance (i.e. a play).  Or it could be oil or pastel for a painting."^^xsd:string ,
 		"The real-world media type for content."^^xsd:string
 		;
 	.
@@ -981,9 +979,9 @@ gist:GeoPoint
 	a owl:Class ;
 	rdfs:subClassOf gist:Place ;
 	skos:prefLabel "Geo Point"^^xsd:string ;
+	skos:scopeNote "Assume coordinate system used by Google (WGS 84 Web Mercator)."^^xsd:string ;  
 	rdfs:comment
-		"An individual point on the Earth's surface, identified by latitude, longitude and altitude. If altitude is missing, it is assumed to be at the Earth's surface.  However, altitude is measured from sea level.  these points are to the WGS-84 coordinate system using the GPS decimal lat/long"^^xsd:string ,
-		"NOTE: Assume coordinate system used by Google (WGS 84 Web Mercator)."^^xsd:string
+		"An individual point on the Earth's surface, identified by latitude, longitude and altitude. If altitude is missing, it is assumed to be at the Earth's surface.  However, altitude is measured from sea level.  these points are to the WGS-84 coordinate system using the GPS decimal lat/long"^^xsd:string 
 		;
 	owl:disjointWith
 		gist:IntellectualProperty ,
@@ -1044,11 +1042,11 @@ gist:GeoRegion
 	a owl:Class ;
 	rdfs:subClassOf gist:Place ;
 	skos:prefLabel "Geo Region"^^xsd:string ;
+	skos:scopeNote "A GeoRegion could be non-contiguous; e.g. the region governed by the USA is the region governed by the lower 48 states plus that of Alaska and Hawaii.  Child classes in lower ontologies can make this distinction."^^xsd:string ;  
+	skos:scopeNote "A GeoRegion has an area, but it is not itself an instance of the Area class.  (Area in gist is a magnitude)."^^xsd:string ;  
+    skos:example "The bounded shape that defines the region occupied by Crater Lake; the bounded area known as the contiguous USA."^^xsd:string ; 
 	rdfs:comment
-		"A bounded region (or set of regions) on the surface of the Earth."^^xsd:string ,
-		"EXAMPLES: The bounded shape that defines the region occupied by Crater Lake; the bounded area known as the contiguous USA."^^xsd:string ,
-		"NOTE: A GeoRegion could be non-contiguous; e.g. the region governed by the USA is the region governed by the lower 48 states plus that of Alaska and Hawaii.  Child classes in lower ontologies can make this distinction."^^xsd:string ,
-		"NOTE: A GeoRegion has an area, but it is not itself an instance of the Area class.  (Area in gist is a magnitude)."^^xsd:string
+		"A bounded region (or set of regions) on the surface of the Earth."^^xsd:string 
 		;
 	owl:disjointWith
 		gist:IntellectualProperty ,
@@ -1148,10 +1146,10 @@ gist:Goal
 gist:GovernmentOrganization
 	a owl:Class ;
 	skos:prefLabel "Government Organization"^^xsd:string ;
+	skos:scopeNote "Establishment by a CountryGovernment may be indirect via local, regional, or national GovernmentOrganization(s) that ultimately are recognized by a CountryGovernment."^^xsd:string ;  
+	skos:example "The State of Washington Office of Financial Management; the Food and Drug Administration; the Scottish Parliament."^^xsd:string ; 
 	rdfs:comment
-		"An organization established either by fiat (as a conquering army overtakes a land and declares a government) or by delegation from a fiat government, such as a state or local government or a specific agency. Differs from a corporation in that it cannot be owned."^^xsd:string ,
-		"EXAMPLES: The State of Washington Office of Financial Management; the Food and Drug Administration; the Scottish Parliament."^^xsd:string ,
-		"NOTE: Establishment by a CountryGovernment may be indirect via local, regional, or national GovernmentOrganization(s) that ultimately are recognized by a CountryGovernment."^^xsd:string
+		"An organization established either by fiat (as a conquering army overtakes a land and declares a government) or by delegation from a fiat government, such as a state or local government or a specific agency. Differs from a corporation in that it cannot be owned."^^xsd:string 
 		;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1242,10 +1240,9 @@ gist:HumanInstant
 gist:ID
 	a owl:Class ;
 	skos:prefLabel "ID"^^xsd:string ;
-	rdfs:comment
-		"EXAMPLE: e.g. SSN for a person, serial number for a product, employee id"^^xsd:string ,
-		"EXAMPLES: SSN for a person; serial number for a product; employee ID."^^xsd:string
-		;
+	skos:example "SSN for a person; serial number for a product; employee ID."^^xsd:string ; 
+	skos:definition "Content that is used to uniquely identify something or someone."^^xsd:string ; 
+	skos:scopeNote "This is used in conjunction with gist:identifiedBy"^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -1292,10 +1289,10 @@ gist:IntellectualProperty
 	a owl:Class ;
 	rdfs:subClassOf gist:Artifact ;
 	skos:prefLabel "Intellectual Property"^^xsd:string ;
+	skos:example "The Old Man and The Sea; the Page Rank algorithm; Coca Cola"^^xsd:string ; 
+	skos:scopeNote "For literature this could be called the ?Work?, except that ?work? is a highly overloaded term (expenditure of energy, resource consumption, art).  Often the first expression precedes our recognition of the IP, but subsequent expressions are known to be derivatives of the IP, even if they are expression-to-expression translations (or copies)."^^xsd:string ;  
 	rdfs:comment
-		"A work, invention or concept, independent of its being expressed in text, audio, video, image, or live performance.  IP can also be tacit knowledge, know-how, or skill. Also includes Brands."^^xsd:string ,
-		"EXAMPLES: ?The Old Man and The Sea?; the Page Rank algorithm; Coca Cola"^^xsd:string ,
-		"NOTE:  For literature this could be called the ?Work?, except that ?work? is a highly overloaded term (expenditure of energy, resource consumption, art).  Often the first expression precedes our recognition of the IP, but subsequent expressions are known to be derivatives of the IP, even if they are expression-to-expression translations (or copies)."^^xsd:string
+		"A work, invention or concept, independent of its being expressed in text, audio, video, image, or live performance.  IP can also be tacit knowledge, know-how, or skill. Also includes Brands."^^xsd:string 
 		;
 	owl:disjointWith
 		gist:Intention ,
@@ -1349,9 +1346,9 @@ gist:Landmark
 gist:Language
 	a owl:Class ;
 	skos:prefLabel "Language"^^xsd:string ;
+	skos:example "Natural languages such as English and Spanish; computer languages such as OWL, Python, and XML."^^xsd:string ; 
 	rdfs:comment
-		"A recognized, organized set of symbols and grammar."^^xsd:string ,
-		"EXAMPLES: Natural languages such as English and Spanish; computer languages such as OWL, Python, and XML."^^xsd:string
+		"A recognized, organized set of symbols and grammar."^^xsd:string 
 		;
 	owl:disjointWith
 		gist:Magnitude ,
@@ -1366,11 +1363,11 @@ gist:Language
 gist:LivingThing
 	a owl:Class ;
 	skos:prefLabel "Living Thing"^^xsd:string ;
+	skos:scopeNote "In the open world, you must assume that it might have since died."^^xsd:string ;
+	skos:example "A cat, a mushroom, a tree."^^xsd:string ; 
+	skos:example "NEGATIVE EXAMPLES: fictional life forms such as Unicorns or Mickey Mouse."^^xsd:string ;  
 	rdfs:comment
-		"EXAMPLES: A cat, a mushroom, a tree."^^xsd:string ,
-		"NEGATIVE EXAMPLES: fictional life forms such as Unicorns or Mickey Mouse."^^xsd:string ,
-		"NOTE: In the open world, you must assume that it might have since died."^^xsd:string ,
-		"Something that is now, or at some point in time was, alive and growing."^^xsd:string
+		"Something that is now, or at some point in time was, alive and growing."^^xsd:string 
 		;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1454,10 +1451,10 @@ gist:LuminousIntensityUnit
 gist:Magnitude
 	a owl:Class ;
 	skos:prefLabel "Magnitude"^^xsd:string ;
+	skos:scopeNote "Magnitudes of the same dimensional type (i.e., duration or electric current) can be compared with a greater-than or less-than operator, but can still differ in their relationToTheWorld type.  (I.e., you can compare actuals to estimates or references, so long as the dimension is the same.)"^^xsd:string ;  
+	skos:scopeNote "The precision should be in the same type of unit as the magnitude."^^xsd:string ;  
 	rdfs:comment
-		"Base class for units which can be converted.  The primitive units can be converted from one measurement system to another; the complex units (ratio or product) have to decompose to their primitives."^^xsd:string ,
-		"NOTE:  Magnitudes of the same dimensional type (i.e., duration or electric current) can be compared with a greater-than or less-than operator, but can still differ in their relationToTheWorld type.  (I.e., you can compare actuals to estimates or references, so long as the dimension is the same.)"^^xsd:string ,
-		"NOTE: Note the precision should be in the same type of unit as the magnitude."^^xsd:string
+		"Base class for units which can be converted.  The primitive units can be converted from one measurement system to another; the complex units (ratio or product) have to decompose to their primitives."^^xsd:string 
 		;
 	owl:disjointWith
 		gist:Organization ,
@@ -1536,9 +1533,9 @@ gist:Medium
 gist:Message
 	a owl:Class ;
 	skos:prefLabel "Message"^^xsd:string ;
+	skos:example "An email message, a phone call, a voice message, or a Web Service message."^^xsd:string ; 
 	rdfs:comment
-		"A specific instance of content sent from an Organization, Person, or Application to at least one other Organization, Person, or Application."^^xsd:string ,
-		"EXAMPLES: An email message, a phone call, a voice message, or a Web Service message."^^xsd:string
+		"A specific instance of content sent from an Organization, Person, or Application to at least one other Organization, Person, or Application."^^xsd:string 
 		;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1676,9 +1673,9 @@ gist:NetworkNode
 gist:Obligation
 	a owl:Class ;
 	skos:prefLabel "Obligation"^^xsd:string ;
+	skos:scopeNote "Obligations will often be governed by some Agreement or Offer."^^xsd:string ;  
 	rdfs:comment
-		"A future commitment from one organization or person to another. Contracts are sets of obligations to do or forbear, or to indemnify or warrant."^^xsd:string ,
-		"NOTE: Obligations will often be governed by some Agreement or Offer."^^xsd:string
+		"A future commitment from one organization or person to another. Contracts are sets of obligations to do or forbear, or to indemnify or warrant."^^xsd:string 
 		;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1806,10 +1803,10 @@ gist:OrdinalMember
 gist:Organization
 	a owl:Class ;
 	skos:prefLabel "Organization"^^xsd:string ;
+	skos:scopeNote "There are a plethora of different kinds of organizations that differ along many facets, including members, structure, purpose, legal vs. non-legal, etc."^^xsd:string ; 
+	skos:example "Legal entities like companies; non-legal entities like clubs, committees, or departments."^^xsd:string ;  
 	rdfs:comment
-		"A generic organization that can be formal or informal, legal or non-legal. It can have members, or not."^^xsd:string ,
-		"EXAMPLES: Legal entities like companies; non-legal entities like clubs, committees, or departments."^^xsd:string ,
-		"NOTE: There are a plethora of different kinds of organizations that differ along many facets, including members, structure, purpose, legal vs. non-legal, etc."^^xsd:string
+		"A generic organization that can be formal or informal, legal or non-legal. It can have members, or not."^^xsd:string 
 		;
 	owl:disjointWith
 		gist:PhysicalIdentifiableItem ,
@@ -1824,9 +1821,9 @@ gist:Percentage
 	a owl:Class ;
 	rdfs:subClassOf gist:RatioMagnitude ;
 	skos:prefLabel "Percentage"^^xsd:string ;
+	skos:scopeNote "There are various ways to represent percentage: 50/100 could be represented as ?50? or ?0.5?.  gist uses the latter, as it involves fewer conversions for subsequent use."^^xsd:string ;  
 	rdfs:comment
-		"A ratio where the numerator and denominator are of the same unit of measure."^^xsd:string ,
-		"NOTE: there are various ways to represent percentage: 50/100 could be represented as ?50? or ?0.5?.  gist uses the latter, as it involves fewer conversions for subsequent use."^^xsd:string
+		"A ratio where the numerator and denominator are of the same unit of measure."^^xsd:string 
 		;
 	.
 
@@ -1850,7 +1847,8 @@ gist:Permission
 gist:Person
 	a owl:Class ;
 	skos:prefLabel "Person"^^xsd:string ;
-	rdfs:comment "NEGATIVE EXAMPLE: fictional characters."^^xsd:string ;
+	skos:example "NEGATIVE EXAMPLE: fictional characters."^^xsd:string ; 
+	skos:definition "A human being that may or may not still be alive."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -1886,10 +1884,10 @@ gist:PhysicalActionType
 gist:PhysicalEvent
 	a owl:Class ;
 	skos:prefLabel "Physical Event"^^xsd:string ;
+	skos:example "A meeting, a car accident."^^xsd:string ; 
+	skos:example "NEGATIVE EXAMPLES:  Excludes events that have no meaningful location, such as financial events or project milestones."^^xsd:string ; 
 	rdfs:comment
-		"An event that can be said to have occurred at some place in space."^^xsd:string ,
-		"EXAMPLES:  A meeting, a car accident."^^xsd:string ,
-		"NEGATIVE EXAMPLES:  Excludes events that have no meaningful location, such as financial events or project milestones."^^xsd:string
+		"An event that can be said to have occurred at some place in space."^^xsd:string 
 		;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1929,12 +1927,10 @@ gist:PhysicalIdentifiableItem
 		]
 		;
 	skos:prefLabel "Physical Identifiable Item"^^xsd:string ;
-	rdfs:comment
-		"EXAMPLES: a computer, a book."^^xsd:string ,
-		"NEGATIVE EXAMPLE:  A discontinuous thing like a manufacturing line cannot reasonably have an RFID attached to it, even though its parts are not the same kind of thing as the whole."^^xsd:string ,
-		"NOTE:  You could, at least in principle, put an RFID tag on members of this class. Physical things are made of something.  E.g., statues are made of bronze."^^xsd:string ,
-		"NOTE: In practice, this always means that the parts are not the same kind of thing as the whole."^^xsd:string
-		;
+	skos:definition "You could, at least in principle, put an RFID tag on members of this class. Physical things are made of something.  E.g., statues are made of bronze."^^xsd:string ;  
+	skos:scopeNote "In practice, this always means that the parts are not the same kind of thing as the whole."^^xsd:string ;  
+	skos:example "a computer, a book."^^xsd:string ; 
+	skos:example "NEGATIVE EXAMPLE:  A discontinuous thing like a manufacturing line cannot reasonably have an RFID attached to it, even though its parts are not the same kind of thing as the whole."^^xsd:string ; 
 	owl:disjointWith
 		gist:SchemaMetaData ,
 		gist:TimeInstant ,
@@ -1959,11 +1955,10 @@ gist:PhysicalSubstance
 		) ;
 	] ;
 	skos:prefLabel "Physical Substance"^^xsd:string ;
-	rdfs:comment
-		"EXAMPLES: An amount of water, of penicillin, of sand, of gold."^^xsd:string ,
-		"NOTE: An instance of this class must be a physical thing, and not just a categorical description.  Example: an actual piece of gold, not ?gold? as a concept."^^xsd:string ,
-		"NOTE: Some things are substances at a macro level, but ultimately end up as not being divisible into the same kind of thing.  E.g. sand vs. grains of sand., bacteria vs. an individual bacterium."^^xsd:string
-		;
+	skos:definition "Non corporeal material, i.e. 'stuff' which can be divided into parts where each part retains its essence."^^xsd:string ; 
+	skos:scopeNote "An instance of this class must be a physical thing, and not just a categorical description.  "^^xsd:string ;  
+	skos:scopeNote "Some things are substances at a macro level, but ultimately end up as not being divisible into the same kind of thing.  E.g. sand vs. grains of sand., bacteria vs. an individual bacterium."^^xsd:string ;  
+	skos:example "An amount of water, of penicillin, of sand, of gold. An actual piece of gold, not gold the concept."^^xsd:string ; 
 	owl:disjointWith
 		gist:TimeInstant ,
 		gist:UnitOfMeasure
@@ -2002,9 +1997,9 @@ gist:PostalAddress
 	a owl:Class ;
 	rdfs:subClassOf gist:Address ;
 	skos:prefLabel "Postal Address"^^xsd:string ;
+	skos:example "a street address, a PO Box, an FPO code, or the route codes."^^xsd:string ; 
 	rdfs:comment
-		"A set of codes the postal authorities can use to deliver physical mail."^^xsd:string ,
-		"EXAMPLES: a street address, a PO Box, an FPO code, or the route codes."^^xsd:string
+		"A set of codes the postal authorities can use to deliver physical mail."^^xsd:string 
 		;
 	.
 
@@ -2052,9 +2047,9 @@ gist:ProductSpecification
 gist:ProductUnit
 	a owl:Class ;
 	skos:prefLabel "Product Unit"^^xsd:string ;
+	skos:example "Area and Volume are the classic cases.  But other, more exotic cases exist, such as Newtons."^^xsd:string ; 
 	rdfs:comment
-		"A unit of measure that is the product of two simpler ones."^^xsd:string ,
-		"EXAMPLES:  Area and Volume are the classic cases.  But other, more exotic cases exist, such as Newtons."^^xsd:string
+		"A unit of measure that is the product of two simpler ones."^^xsd:string 
 		;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2100,9 +2095,9 @@ gist:Project
 gist:RatioMagnitude
 	a owl:Class ;
 	skos:prefLabel "Ratio Magnitude"^^xsd:string ;
+	skos:scopeNote "A RatioMagnitude just has one decimal value."^^xsd:string ;  
+	skos:example "Speed.  The ratio magnitude is 60, the unit of measure might be MilesPerHour."^^xsd:string ;  
 	rdfs:comment
-		"EXAMPLE:  Speed.  The ratio magnitude is 60, the unit of measure might be MilesPerHour."^^xsd:string ,
-		"NOTE:  A RatioMagnitude just has one decimal value."^^xsd:string ,
 		"This is a number whose unit of measure is a ratio."^^xsd:string
 		;
 	owl:equivalentClass [
@@ -2121,10 +2116,10 @@ gist:RatioMagnitude
 gist:RatioUnit
 	a owl:Class ;
 	skos:prefLabel "Ratio Unit"^^xsd:string ;
+	skos:scopeNote "If needed, a conversion factor for a RatioUnit can be (recursively) derived from the conversion factors of the numerator and denominator units.  E.g., the derived conversion factor from km/minute to meters/second is 1000/60 or 16 2/3."^^xsd:string ; 
+	skos:example "Miles per hour."^^xsd:string ;
 	rdfs:comment
-		"A UnitOfMeasure composed of a numerator unit and a denominator unit."^^xsd:string ,
-		"EXAMPLE:  Miles per hour."^^xsd:string ,
-		"NOTE: If needed, a conversion factor for a RatioUnit can be (recursively) derived from the conversion factors of the numerator and denominator units.  E.g., the derived conversion factor from km/minute to meters/second is 1000/60 or 16 2/3."^^xsd:string
+		"A UnitOfMeasure composed of a numerator unit and a denominator unit."^^xsd:string 
 		;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2419,9 +2414,9 @@ gist:TelephoneNumber
 	a owl:Class ;
 	rdfs:subClassOf gist:Address ;
 	skos:prefLabel "Telephone Number"^^xsd:string ;
+	skos:example "Mobile, fax, or landline phone number."^^xsd:string ; 
 	rdfs:comment
-		"A numeric code a telephonic device uses for contacting another telephonic device."^^xsd:string ,
-		"EXAMPLES:  Mobile, fax, or landline phone number."^^xsd:string
+		"A numeric code a telephonic device uses for contacting another telephonic device."^^xsd:string 
 		;
 	.
 
@@ -2467,9 +2462,9 @@ gist:TemperatureUnit
 gist:Template
 	a owl:Class ;
 	skos:prefLabel "Template"^^xsd:string ;
+	skos:scopeNote "Use gist:basedOn to link the instantiation of a template back to its Template."^^xsd:string ; 
+	skos:example "A form. A filled-in form has the structure of the form with data entered into some or all of the fields."^^xsd:string ; 
 	rdfs:comment
-		"EXAMPLE:  A form. A filled-in form has the structure of the form with data entered into some or all of the fields."^^xsd:string ,
-		"NOTE: Use gist:basedOn to link the instantiation of a template back to its Template."^^xsd:string ,
 		"Something used to make instances in its own image.  In manufacturing this would be specialized as a die to make stamped parts, cookie cutters are templates for cookies, and forms are templates for data."^^xsd:string
 		;
 	owl:disjointWith
@@ -2498,10 +2493,10 @@ gist:TemporalRelation
 		]
 		;
 	skos:prefLabel "Temporal Relation"^^xsd:string ;
+	skos:scopeNote "A temporal relation must be gist:connectedTo a minimum of two objects. For example, a temporal relation representing a period of employment is connected both to the person and to the role/position they held."^^xsd:string ; 
+	skos:example "employs-Employment, hasStreetAddress-EstablishedLocation. One important context for reifying a property."^^xsd:string ; 
 	rdfs:comment
-		"A relationship existing for a period of time."^^xsd:string ,
-		"EXAMPLES:  employs-Employment, hasStreetAddress-EstablishedLocation. One important context for reifying a property."^^xsd:string ,
-		"NOTE: A temporal relation must be gist:connectedTo a minimum of two objects. For example, a temporal relation representing a period of employment is connected both to the person and to the role/position they held."^^xsd:string
+		"A relationship existing for a period of time."^^xsd:string 
 		;
 	.
 
@@ -2572,10 +2567,10 @@ gist:TimeInstant
 		]
 		;
 	skos:prefLabel "Time Instant"^^xsd:string ;
+	skos:scopeNote "Our identity criteria require that something refers to each Time Instant instance."^^xsd:string ; 
+	skos:example "A literal instant (as in 12:01.0001 January 1, 2008), or a broader but still single point in time (January 1, 2008). In the latter case, we are declaring a time instant to be an interval with no duration (or really a duration only equal to its precision)."^^xsd:string ;
 	rdfs:comment
-		"EXAMPLES:  A literal instant (as in 12:01.0001 January 1, 2008), or a broader but still single point in time (January 1, 2008). In the latter case, we are declaring a time instant to be an interval with no duration (or really a duration only equal to its precision)."^^xsd:string ,
-		"In gistTop all time instants are Greenwich and the local equal universal.  In gistTime we introduce local time zones"^^xsd:string ,
-		"NOTE: Our identity criteria require that something refers to each Time Instant instance."^^xsd:string
+		"In gistTop all time instants are Greenwich and the local equal universal.  In gistTime we introduce local time zones"^^xsd:string 
 		;
 	owl:disjointWith gist:UnitOfMeasure ;
 	.
@@ -3233,9 +3228,9 @@ gist:hasBaseUnit
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasStandardUnit ;
 	skos:prefLabel "Has Base Unit"^^xsd:string ;
+	skos:example "saying that a furlong hasBaseUnit  meter says it is a DistanceUnit."^^xsd:string ; 
 	rdfs:comment
-		"EXAMPLE: saying that a furlong hasBaseUnit  meter says it is a DistanceUnit."^^xsd:string ,
-		"Relates a UnitOfMeasure to its BaseUnit.  This indicates what kind Unit something is, e.g. saying that a furlong hasBaseUnit  meter says it is a DistanceUnit."^^xsd:string
+		"Relates a UnitOfMeasure to its BaseUnit.  This indicates what kind of Unit something is."^^xsd:string
 		;
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range gist:BaseUnit ;
@@ -3270,9 +3265,9 @@ gist:hasDirectPart
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasPart ;
 	skos:prefLabel "Has Direct Part"^^xsd:string ;
+	skos:scopeNote "No cascading delete."^^xsd:string ;  
+	skos:scopeNote "Use this property to directly associate parts. hasPart is the transitive version."^^xsd:string ;  
 	rdfs:comment
-		"NOTE: No cascading delete."^^xsd:string ,
-		"NOTE: Use this property to directly associate parts. hasPart is the transitive version."^^xsd:string ,
 		"The relationship between a whole and a part where the part has independent existence."^^xsd:string
 		;
 	.
@@ -3404,10 +3399,10 @@ gist:hasPhysicalLocation
 gist:hasPrecision
 	a owl:ObjectProperty ;
 	skos:prefLabel "Has Precision"^^xsd:string ;
+	skos:scopeNote "Most frequently apples to Magnitude(s) and TimeInstant. Could also apply to a measurement."^^xsd:string ; 
+	skos:example "Temperature precise to tenth of a degree C; TimeInstant precise to 24 hours."^^xsd:string ; 
 	rdfs:comment
-		"EXAMPLE:  Temperature precise to tenth of a degree C; TimeInstant precise to 24 hours."^^xsd:string ,
-		"Links a Magnitude to the degree of accuracy of the numeric value.   This allows for fuzzy numbers.  All magnitudes have a precision.  Usually we don't record them.  When we do this, it will be a value whose extent covers 2 standard deviations around the stated magnitude"^^xsd:string ,
-		"NOTE:  Most frequently apples to Magnitude(s) and TimeInstant. Could also apply to a measurement."^^xsd:string
+		"Links a Magnitude to the degree of accuracy of the numeric value.   This allows for fuzzy numbers.  All magnitudes have a precision.  Usually we don't record them.  When we do this, it will be a value whose extent covers 2 standard deviations around the stated magnitude"^^xsd:string 
 		;
 	rdfs:range gist:Magnitude ;
 	.
@@ -3607,7 +3602,8 @@ gist:multiplier
 gist:name
 	a owl:DatatypeProperty ;
 	skos:prefLabel "Name"^^xsd:string ;
-	rdfs:comment "Relates an individual to a casual name.  NOTE: For more formal use, consider using a sub property of the object property, identifiedBy."^^xsd:string ;
+	skos:scopeNote "For more formal use, consider using a sub property of the object property, identifiedBy."^^xsd:string ;  
+	rdfs:comment "Relates an individual to a casual name."^^xsd:string ;
 	rdfs:range xsd:string ;
 	.
 
@@ -3712,9 +3708,9 @@ gist:plannedEnd
 		gist:planned
 		;
 	skos:prefLabel "Planned End"^^xsd:string ;
+	skos:scopeNote "Most frequently apples to Event(s) and Offer(s). E.g. a conference or sale offer."^^xsd:string ;  
 	rdfs:comment
-		"A date/time that was at least at some point in time in the future. It may be in the past now, but when we planned it, it was in the future."^^xsd:string ,
-		"NOTE:  Most frequently apples to Event(s) and Offer(s). E.g. a conference or sale offer."^^xsd:string
+		"A date/time that was at least at some point in time in the future. It may be in the past now, but when we planned it, it was in the future."^^xsd:string 
 		;
 	rdfs:range gist:TimeInstant ;
 	.
@@ -3750,8 +3746,8 @@ gist:prevents
 gist:produces
 	a owl:ObjectProperty ;
 	skos:prefLabel "Produces"^^xsd:string ;
+	skos:example "a task produces a deliverable."^^xsd:string ; 
 	rdfs:comment
-		"EXAMPLE: a task produces a deliverable."^^xsd:string ,
 		"The subject creates the object."^^xsd:string
 		;
 	.
