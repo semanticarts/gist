@@ -34,20 +34,20 @@ gist:Account
 gist:Actuator
 	a owl:Class ;
 	rdfs:subClassOf gist:Equipment ;
-	rdfs:label "Actuator"^^xsd:string ;
+	skos:prefLabel "Actuator"^^xsd:string ;
 	rdfs:comment "A device that can affect the real world via a message interface"^^xsd:string ;
 	.
 
 gist:Address
 	a owl:Class ;
 	rdfs:subClassOf gist:Content ;
-	rdfs:label "Address"^^xsd:string ;
+	skos:prefLabel "Address"^^xsd:string ;
 	rdfs:comment "A reference to a place (real or virtual) that can be located by some routing algorithm, and where messages or things can be sent to or retrieved from. E.g. PO Box or URL to a PDF file."^^xsd:string ;
 	.
 
 gist:Agreement
 	a owl:Class ;
-	rdfs:label "Agreement"^^xsd:string ;
+	skos:prefLabel "Agreement"^^xsd:string ;
 	rdfs:comment "Something which two or more People or Organizations mutually commit to do."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -76,7 +76,7 @@ gist:Agreement
 
 gist:Area
 	a owl:Class ;
-	rdfs:label "Area"^^xsd:string ;
+	skos:prefLabel "Area"^^xsd:string ;
 	rdfs:comment "A measurement of two-dimensional space."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -93,7 +93,7 @@ gist:Area
 
 gist:AreaUnit
 	a owl:Class ;
-	rdfs:label "Area Unit"^^xsd:string ;
+	skos:prefLabel "Area Unit"^^xsd:string ;
 	rdfs:comment "A unit of two-dimensional area, such as square inches or hectares."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -122,20 +122,20 @@ gist:Artifact
 		owl:onProperty gist:hasGoal ;
 		owl:someValuesFrom gist:Function ;
 	] ;
-	rdfs:label "Artifact"^^xsd:string ;
+	skos:prefLabel "Artifact"^^xsd:string ;
 	rdfs:comment "An intentional, person-made thing, which could be physical or content"^^xsd:string ;
 	.
 
 gist:Aspect
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	rdfs:label "Aspect"^^xsd:string ;
+	skos:prefLabel "Aspect"^^xsd:string ;
 	rdfs:comment "A very general term for the characteristic of something that is being measured.  E.g., property (height) or a process (cycle time) or a behavior (loyalty)."^^xsd:string ;
 	.
 
 gist:Balance
 	a owl:Class ;
-	rdfs:label "Balance"^^xsd:string ;
+	skos:prefLabel "Balance"^^xsd:string ;
 	rdfs:comment "An amount decremented or incremented by a series of transactions."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -153,7 +153,7 @@ gist:Balance
 gist:BaseUnit
 	a owl:Class ;
 	rdfs:subClassOf gist:SimpleUnitOfMeasure ;
-	rdfs:label "Base Unit"^^xsd:string ;
+	skos:prefLabel "Base Unit"^^xsd:string ;
 	rdfs:comment "A primitive unit that cannot be decomposed into other units. It can be converted from one measurement system to another.  The base units in gist are the seven primitive units from the System Internationale (SI): (meter, second, kilogram, ampere, kelvin, mole, candela), plus three convenience ones: each. bit and usDollar."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -175,7 +175,7 @@ gist:BaseUnit
 gist:Behavior
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	rdfs:label "Behavior"^^xsd:string ;
+	skos:prefLabel "Behavior"^^xsd:string ;
 	rdfs:comment "A way of categorizing events.  E.g., differentiating drilling versus cutting."^^xsd:string ;
 	.
 
@@ -185,7 +185,7 @@ gist:Building
 		gist:Artifact ,
 		gist:Landmark
 		;
-	rdfs:label "Building"^^xsd:string ;
+	skos:prefLabel "Building"^^xsd:string ;
 	rdfs:comment "A man-made structure for dwelling or working."^^xsd:string ;
 	.
 
@@ -199,13 +199,13 @@ gist:BuildingAddress
 			owl:someValuesFrom gist:Building ;
 		]
 		;
-	rdfs:label "Building Address"^^xsd:string ;
+	skos:prefLabel "Building Address"^^xsd:string ;
 	rdfs:comment "An address to which you can send mail, or that you could find in the physical world."^^xsd:string ;
 	.
 
 gist:BundledCatalogItem
 	a owl:Class ;
-	rdfs:label "Bundled Catalog Item"^^xsd:string ;
+	skos:prefLabel "Bundled Catalog Item"^^xsd:string ;
 	rdfs:comment "Any combination of descriptions of things offered together.  Could be a kit (several parts offered together), but could also be a product plus a warranty."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -223,7 +223,7 @@ gist:BundledCatalogItem
 gist:CatalogItem
 	a owl:Class ;
 	rdfs:subClassOf gist:Specification ;
-	rdfs:label "Catalog Item"^^xsd:string ;
+	skos:prefLabel "Catalog Item"^^xsd:string ;
 	rdfs:comment
 		"A description of a product or service to be delivered, given in a sufficient level of detail that a receiver could determine whether delivery constituted discharge of the obligation to deliver."^^xsd:string ,
 		"NOTE: In short, an unambiguous characterization of what it is that a potential buyer is paying for."^^xsd:string
@@ -244,7 +244,7 @@ gist:Category
 			) ;
 		] ;
 	] ;
-	rdfs:label "Category"^^xsd:string ;
+	skos:prefLabel "Category"^^xsd:string ;
 	rdfs:comment
 		"A concept or label used to categorize other instances informally. Things that can be thought of as types are usually Categories."^^xsd:string ,
 		"EXAMPLE: Tags used in folksonomies; formal definitions from other systems."^^xsd:string ,
@@ -254,7 +254,7 @@ gist:Category
 
 gist:CoherentProductUnit
 	a owl:Class ;
-	rdfs:label "Coherent Product Unit"^^xsd:string ;
+	skos:prefLabel "Coherent Product Unit"^^xsd:string ;
 	rdfs:comment "A ratio unit whose numerator and denominator reduce to 1"^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -290,7 +290,7 @@ gist:CoherentProductUnit
 
 gist:CoherentRatioUnit
 	a owl:Class ;
-	rdfs:label "Coherent Ratio Unit"^^xsd:string ;
+	skos:prefLabel "Coherent Ratio Unit"^^xsd:string ;
 	rdfs:comment "A ratio unit whose numerator and denominator reduce to 1"^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -326,7 +326,7 @@ gist:CoherentRatioUnit
 
 gist:CoherentUnit
 	a owl:Class ;
-	rdfs:label "Coherent Unit"^^xsd:string ;
+	skos:prefLabel "Coherent Unit"^^xsd:string ;
 	rdfs:comment
 		"A unit that is expressed in units that have no conversions.  It may be a simple unit.  It may also be a product or ratio unit that bottoms out in simple units."^^xsd:string ,
 		"Example:  a simple unit: kilogram"^^xsd:string ,
@@ -351,7 +351,7 @@ gist:Collection
 		owl:onProperty gist:hasMember ;
 		owl:someValuesFrom owl:Thing ;
 	] ;
-	rdfs:label "Collection"^^xsd:string ;
+	skos:prefLabel "Collection"^^xsd:string ;
 	rdfs:comment
 		"Any identifiable grouping of instances.  For instance, a jury is a collection of people."^^xsd:string ,
 		"EXAMPLES: A jury is a group of people,   a financial ledger is a collection of transaction entries; a route is an (ordered) collection of segments."^^xsd:string
@@ -360,7 +360,7 @@ gist:Collection
 
 gist:Commitment
 	a owl:Class ;
-	rdfs:label "Commitment"^^xsd:string ;
+	skos:prefLabel "Commitment"^^xsd:string ;
 	rdfs:comment "An obligation (possibly unilateral)."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -394,7 +394,7 @@ gist:Commitment
 
 gist:Component
 	a owl:Class ;
-	rdfs:label "Component"^^xsd:string ;
+	skos:prefLabel "Component"^^xsd:string ;
 	rdfs:comment "A component is an artifact that contributes to a system.  Could be a simple mechanical component, such as the float contributing to the toilet tank maintaining a constant level, or much more complex as in the internet of things."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -411,7 +411,7 @@ gist:Component
 
 gist:ContemporaneousEvent
 	a owl:Class ;
-	rdfs:label "Contemporaneous Event"^^xsd:string ;
+	skos:prefLabel "Contemporaneous Event"^^xsd:string ;
 	rdfs:comment
 		"An event that actually started after the present time.  When we record an end time it ceases to be contemporaneous"^^xsd:string ,
 		"NOTE: All contemporaneous events eventually end and, due to the nature of the open world, we can never be sure that a contemporaneous event hasn't ended. As a result, this is really a contemporaneous and historical event."^^xsd:string
@@ -438,7 +438,7 @@ gist:ContemporaneousEvent
 gist:Content
 	a owl:Class ;
 	rdfs:subClassOf gist:Artifact ;
-	rdfs:label "Content"^^xsd:string ;
+	skos:prefLabel "Content"^^xsd:string ;
 	rdfs:comment "A document, program, image, etc.  (Categories are not content until they are written down.)"^^xsd:string ;
 	owl:disjointWith
 		gist:GeoPoint ,
@@ -466,13 +466,13 @@ gist:ContentExpression
 			owl:someValuesFrom gist:Language ;
 		]
 		;
-	rdfs:label "Content Expression"^^xsd:string ;
+	skos:prefLabel "Content Expression"^^xsd:string ;
 	rdfs:comment "Intellectual Property reduced to text, audio etc.  If it contains text (written or spoken), it may be in a language."^^xsd:string ;
 	.
 
 gist:ContingentEvent
 	a owl:Class ;
-	rdfs:label "Contingent Event"^^xsd:string ;
+	skos:prefLabel "Contingent Event"^^xsd:string ;
 	rdfs:comment "An event with a probability of happening in the future, and usually dependent upon some other event or condition."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -499,7 +499,7 @@ gist:ContingentEvent
 
 gist:ContingentObligation
 	a owl:Class ;
-	rdfs:label "Contingent Obligation"^^xsd:string ;
+	skos:prefLabel "Contingent Obligation"^^xsd:string ;
 	rdfs:comment
 		"An obligation that is not yet firm.  There is some contingent event, the occurrence of which will cause the obligation to become firm."^^xsd:string ,
 		"NOTE: A contingent obligation might have a getter counterparty (as in the case of insurance); but it might not (as in the case of an offer)."^^xsd:string
@@ -530,7 +530,7 @@ gist:ContingentObligation
 
 gist:Contract
 	a owl:Class ;
-	rdfs:label "Contract"^^xsd:string ;
+	skos:prefLabel "Contract"^^xsd:string ;
 	rdfs:comment "an Agreement which can be enforced by law"^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -548,13 +548,13 @@ gist:Contract
 gist:ContractTerm
 	a owl:Class ;
 	rdfs:subClassOf gist:Specification ;
-	rdfs:label "Contract Term"^^xsd:string ;
+	skos:prefLabel "Contract Term"^^xsd:string ;
 	rdfs:comment "A specification of some aspect of a contract."^^xsd:string ;
 	.
 
 gist:ControlledVocabulary
 	a owl:Class ;
-	rdfs:label "Controlled Vocabulary"^^xsd:string ;
+	skos:prefLabel "Controlled Vocabulary"^^xsd:string ;
 	rdfs:comment "A collection of terms approved and managed by some organization or person."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -582,7 +582,7 @@ gist:ControlledVocabulary
 
 gist:Controller
 	a owl:Class ;
-	rdfs:label "Controller"^^xsd:string ;
+	skos:prefLabel "Controller"^^xsd:string ;
 	rdfs:comment "A device that takes messages or signals from a sensor and decides through algorithms whether and which actuator to fire via messages"^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -610,12 +610,12 @@ gist:Controller
 gist:ControllerType
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	rdfs:label "Controller type"^^xsd:string ;
+	skos:prefLabel "Controller type"^^xsd:string ;
 	.
 
 gist:Count
 	a owl:Class ;
-	rdfs:label "Count"^^xsd:string ;
+	skos:prefLabel "Count"^^xsd:string ;
 	rdfs:comment
 		"A measure that involves countable amounts (?eaches? as well as cases, etc.). Can be decimal."^^xsd:string ,
 		"NOTE: Count is not disjoint with all the other magnitudes, as there are some magnitudes that could conceivably be counted."^^xsd:string
@@ -635,7 +635,7 @@ gist:Count
 
 gist:CountingUnit
 	a owl:Class ;
-	rdfs:label "Counting Unit"^^xsd:string ;
+	skos:prefLabel "Counting Unit"^^xsd:string ;
 	rdfs:comment "A unit of counting, especially ?each?, but also units such as dozens."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -652,7 +652,7 @@ gist:CountingUnit
 
 gist:CountryGovernment
 	a owl:Class ;
-	rdfs:label "Country Government"^^xsd:string ;
+	skos:prefLabel "Country Government"^^xsd:string ;
 	rdfs:comment "The geopolitical body that governs a geopolitical region recognized as a country."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -674,7 +674,7 @@ gist:CountryGovernment
 
 gist:CurrencyUnit
 	a owl:Class ;
-	rdfs:label "Currency Unit"^^xsd:string ;
+	skos:prefLabel "Currency Unit"^^xsd:string ;
 	rdfs:comment "A unit of money. Note: this is the only unit whose conversion factors include time (i.e., the conversion rates change on a daily basis)."^^xsd:string ;
 	owl:disjointWith
 		gist:DataSizeUnit ,
@@ -701,7 +701,7 @@ gist:CurrencyUnit
 
 gist:DataSizeUnit
 	a owl:Class ;
-	rdfs:label "Data Size Unit"^^xsd:string ;
+	skos:prefLabel "Data Size Unit"^^xsd:string ;
 	rdfs:comment "A unit to measure amounts of digital information."^^xsd:string ;
 	owl:disjointWith
 		gist:DistanceUnit ,
@@ -727,7 +727,7 @@ gist:DataSizeUnit
 
 gist:DateInstant
 	a owl:Class ;
-	rdfs:label "Date Instant"^^xsd:string ;
+	skos:prefLabel "Date Instant"^^xsd:string ;
 	rdfs:comment "A point in time known only to the accuracy of one day.  Say the signing of the declaration of independence on 7/4/1776"^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -745,7 +745,7 @@ gist:DateInstant
 gist:DegreeOfCommitment
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	rdfs:label "Degree Of Commitment"^^xsd:string ;
+	skos:prefLabel "Degree Of Commitment"^^xsd:string ;
 	rdfs:comment
 		"EXAMPLE:  A car rental typically has a lower degree of commitment than an airfare reservation."^^xsd:string ,
 		"The difficulty of reversing a commitment."^^xsd:string
@@ -754,7 +754,7 @@ gist:DegreeOfCommitment
 
 gist:DistanceUnit
 	a owl:Class ;
-	rdfs:label "Distance Unit"^^xsd:string ;
+	skos:prefLabel "Distance Unit"^^xsd:string ;
 	rdfs:comment "A unit to measure linear distance, such as feet or kilometers."^^xsd:string ;
 	owl:disjointWith
 		gist:DurationUnit ,
@@ -779,7 +779,7 @@ gist:DistanceUnit
 
 gist:Duration
 	a owl:Class ;
-	rdfs:label "Duration"^^xsd:string ;
+	skos:prefLabel "Duration"^^xsd:string ;
 	rdfs:comment
 		"EXAMPLE: One week (or seven days), but not Jan 1, 2008 to Jan 7, 2008 (which is an interval). Intervals have durations, but are not themselves durations."^^xsd:string ,
 		"Time, but not on a timeline."^^xsd:string
@@ -799,7 +799,7 @@ gist:Duration
 
 gist:DurationUnit
 	a owl:Class ;
-	rdfs:label "Duration Unit"^^xsd:string ;
+	skos:prefLabel "Duration Unit"^^xsd:string ;
 	rdfs:comment "A unit to measure passage of time: hours, days, years."^^xsd:string ;
 	owl:disjointWith
 		gist:ElectricalCurrentUnit ,
@@ -823,7 +823,7 @@ gist:DurationUnit
 
 gist:ElectricCurrent
 	a owl:Class ;
-	rdfs:label "Electric Current"^^xsd:string ;
+	skos:prefLabel "Electric Current"^^xsd:string ;
 	rdfs:comment "A flow of electric charge."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -840,7 +840,7 @@ gist:ElectricCurrent
 
 gist:ElectricalCurrentUnit
 	a owl:Class ;
-	rdfs:label "Electrical Current Unit"^^xsd:string ;
+	skos:prefLabel "Electrical Current Unit"^^xsd:string ;
 	rdfs:comment "Unit of electrical current, which is charge per unit time.  The SI unit is the ampere.  (Note that electrical current is a composed unit.)"^^xsd:string ;
 	owl:disjointWith
 		gist:LuminousIntensityUnit ,
@@ -864,20 +864,20 @@ gist:ElectricalCurrentUnit
 gist:ElectronicMessageAddress
 	a owl:Class ;
 	rdfs:subClassOf gist:Address ;
-	rdfs:label "Electronic Message Address"^^xsd:string ;
+	skos:prefLabel "Electronic Message Address"^^xsd:string ;
 	rdfs:comment "Any place an electronic message (email, fax, etc.) can be sent."^^xsd:string ;
 	.
 
 gist:EmailAddress
 	a owl:Class ;
 	rdfs:subClassOf gist:ElectronicMessageAddress ;
-	rdfs:label "Email Address"^^xsd:string ;
+	skos:prefLabel "Email Address"^^xsd:string ;
 	rdfs:comment "An email address is a unique identifier for an email account. It is used to both send and receive email messages over the Internet."^^xsd:string ;
 	.
 
 gist:Equipment
 	a owl:Class ;
-	rdfs:label "Equipment"^^xsd:string ;
+	skos:prefLabel "Equipment"^^xsd:string ;
 	rdfs:comment "Tangible property other than land or buildings.  Any kind of equipment, could be machine, router, car etc."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -896,13 +896,13 @@ gist:Equipment
 gist:EquipmentType
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	rdfs:label "Equipment Type"^^xsd:string ;
+	skos:prefLabel "Equipment Type"^^xsd:string ;
 	rdfs:comment "Categories of equipment"^^xsd:string ;
 	.
 
 gist:Event
 	a owl:Class ;
-	rdfs:label "Event"^^xsd:string ;
+	skos:prefLabel "Event"^^xsd:string ;
 	rdfs:comment "Something happening over some period of time, often characterized as some kind of activity being carried out by some person, organization, or software application."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -928,7 +928,7 @@ gist:Event
 
 gist:Extent
 	a owl:Class ;
-	rdfs:label "Extent"^^xsd:string ;
+	skos:prefLabel "Extent"^^xsd:string ;
 	rdfs:comment "A measure of distance, which could be distances over the Earth, and could also be height, width, length, depth, girth, etc."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -945,7 +945,7 @@ gist:Extent
 
 gist:FormattedContent
 	a owl:Class ;
-	rdfs:label "Formatted Content"^^xsd:string ;
+	skos:prefLabel "Formatted Content"^^xsd:string ;
 	rdfs:comment "Content which is in a particular format. (E.g., HTML, PDF, JPG.)"^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -963,14 +963,14 @@ gist:FormattedContent
 gist:Function
 	a owl:Class ;
 	rdfs:subClassOf gist:Intention ;
-	rdfs:label "Function"^^xsd:string ;
+	skos:prefLabel "Function"^^xsd:string ;
 	rdfs:comment "A function is what a specific made item is intended to do.  For instance: transmit electricity, provide ballast, control ambient temperature."^^xsd:string ;
 	.
 
 gist:GeneralMediaType
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	rdfs:label "General Media Type"^^xsd:string ;
+	skos:prefLabel "General Media Type"^^xsd:string ;
 	rdfs:comment
 		"EXAMPLE: audio, still image, video, textual, physical (e.g., a statue), or performance (i.e. a play).  Or it could be oil or pastel for a painting."^^xsd:string ,
 		"The real-world media type for content."^^xsd:string
@@ -980,7 +980,7 @@ gist:GeneralMediaType
 gist:GeoPoint
 	a owl:Class ;
 	rdfs:subClassOf gist:Place ;
-	rdfs:label "Geo Point"^^xsd:string ;
+	skos:prefLabel "Geo Point"^^xsd:string ;
 	rdfs:comment
 		"An individual point on the Earth's surface, identified by latitude, longitude and altitude. If altitude is missing, it is assumed to be at the Earth's surface.  However, altitude is measured from sea level.  these points are to the WGS-84 coordinate system using the GPS decimal lat/long"^^xsd:string ,
 		"NOTE: Assume coordinate system used by Google (WGS 84 Web Mercator)."^^xsd:string
@@ -1020,7 +1020,7 @@ gist:GeoPoint
 
 gist:GeoPoliticalRegion
 	a owl:Class ;
-	rdfs:label "GeoPolitical Region"^^xsd:string ;
+	skos:prefLabel "GeoPolitical Region"^^xsd:string ;
 	rdfs:comment "A collection of GeoRegions that are being administered by a Government Organization"^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1043,7 +1043,7 @@ gist:GeoPoliticalRegion
 gist:GeoRegion
 	a owl:Class ;
 	rdfs:subClassOf gist:Place ;
-	rdfs:label "Geo Region"^^xsd:string ;
+	skos:prefLabel "Geo Region"^^xsd:string ;
 	rdfs:comment
 		"A bounded region (or set of regions) on the surface of the Earth."^^xsd:string ,
 		"EXAMPLES: The bounded shape that defines the region occupied by Crater Lake; the bounded area known as the contiguous USA."^^xsd:string ,
@@ -1076,7 +1076,7 @@ gist:GeoRegion
 
 gist:GeoRoute
 	a owl:Class ;
-	rdfs:label "Geo Route"^^xsd:string ;
+	skos:prefLabel "Geo Route"^^xsd:string ;
 	rdfs:comment "An ordered set of GeoPoints that defines a path from starting point to ending point."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1095,7 +1095,7 @@ gist:GeoRoute
 gist:GeoSegment
 	a owl:Class ;
 	rdfs:subClassOf gist:Place ;
-	rdfs:label "Geo Segment"^^xsd:string ;
+	skos:prefLabel "Geo Segment"^^xsd:string ;
 	rdfs:comment "A single portion of a GeoRegion which has been divided (i.e., segmented)."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1119,7 +1119,7 @@ gist:GeoSegment
 gist:GeoVolume
 	a owl:Class ;
 	rdfs:subClassOf gist:Place ;
-	rdfs:label "Geo Volume"^^xsd:string ;
+	skos:prefLabel "Geo Volume"^^xsd:string ;
 	rdfs:comment "A three-dimensional space on or near the surface of the Earth, such as an oil reservoir, the body of a lake, or an airspace."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1141,13 +1141,13 @@ gist:GeoVolume
 gist:Goal
 	a owl:Class ;
 	rdfs:subClassOf gist:Intention ;
-	rdfs:label "Goal"^^xsd:string ;
+	skos:prefLabel "Goal"^^xsd:string ;
 	rdfs:comment "A specific intentional endpoint.  One can tell whether it has been achieved, as opposed to an intention, which may not have an evaluation function."^^xsd:string ;
 	.
 
 gist:GovernmentOrganization
 	a owl:Class ;
-	rdfs:label "Government Organization"^^xsd:string ;
+	skos:prefLabel "Government Organization"^^xsd:string ;
 	rdfs:comment
 		"An organization established either by fiat (as a conquering army overtakes a land and declares a government) or by delegation from a fiat government, such as a state or local government or a specific agency. Differs from a corporation in that it cannot be owned."^^xsd:string ,
 		"EXAMPLES: The State of Washington Office of Financial Management; the Food and Drug Administration; the Scottish Parliament."^^xsd:string ,
@@ -1168,7 +1168,7 @@ gist:GovernmentOrganization
 
 gist:GreenwichInstant
 	a owl:Class ;
-	rdfs:label "Greenwich instant"^^xsd:string ;
+	skos:prefLabel "Greenwich instant"^^xsd:string ;
 	rdfs:comment "By default time instants are expressed in Greenwich, if you need to be explicit (to calculate offset for instance)"^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1185,7 +1185,7 @@ gist:GreenwichInstant
 
 gist:Group
 	a owl:Class ;
-	rdfs:label "Group"^^xsd:string ;
+	skos:prefLabel "Group"^^xsd:string ;
 	rdfs:comment "A collection of People. The group may or may not be an Organization.  Many organizations consist of groups of people, but that is not a defining characteristic."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1202,7 +1202,7 @@ gist:Group
 
 gist:HistoricalEvent
 	a owl:Class ;
-	rdfs:label "Historical Event"^^xsd:string ;
+	skos:prefLabel "Historical Event"^^xsd:string ;
 	rdfs:comment "An event which occurred in time, with an actual end earlier than the present moment."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1224,7 +1224,7 @@ gist:HistoricalEvent
 
 gist:HumanInstant
 	a owl:Class ;
-	rdfs:label "Human Instant"^^xsd:string ;
+	skos:prefLabel "Human Instant"^^xsd:string ;
 	rdfs:comment "A point in time known only to the accuracy of one minute.  For things like calendar appointments and time reporting"^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1241,7 +1241,7 @@ gist:HumanInstant
 
 gist:ID
 	a owl:Class ;
-	rdfs:label "ID"^^xsd:string ;
+	skos:prefLabel "ID"^^xsd:string ;
 	rdfs:comment
 		"EXAMPLE: e.g. SSN for a person, serial number for a product, employee id"^^xsd:string ,
 		"EXAMPLES: SSN for a person; serial number for a product; employee ID."^^xsd:string
@@ -1273,7 +1273,7 @@ gist:ID
 
 gist:InformationQuantity
 	a owl:Class ;
-	rdfs:label "Information Quantity"^^xsd:string ;
+	skos:prefLabel "Information Quantity"^^xsd:string ;
 	rdfs:comment "An amount of data, such as 6 petabytes, or 640KB."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1291,7 +1291,7 @@ gist:InformationQuantity
 gist:IntellectualProperty
 	a owl:Class ;
 	rdfs:subClassOf gist:Artifact ;
-	rdfs:label "Intellectual Property"^^xsd:string ;
+	skos:prefLabel "Intellectual Property"^^xsd:string ;
 	rdfs:comment
 		"A work, invention or concept, independent of its being expressed in text, audio, video, image, or live performance.  IP can also be tacit knowledge, know-how, or skill. Also includes Brands."^^xsd:string ,
 		"EXAMPLES: ?The Old Man and The Sea?; the Page Rank algorithm; Coca Cola"^^xsd:string ,
@@ -1310,7 +1310,7 @@ gist:IntellectualProperty
 
 gist:Intention
 	a owl:Class ;
-	rdfs:label "Intention"^^xsd:string ;
+	skos:prefLabel "Intention"^^xsd:string ;
 	rdfs:comment 'Goal, desire, aspiration. This is the "teleologic" aspect of the system that indicates things are done with a purpose.'^^xsd:string ;
 	owl:disjointWith
 		gist:Magnitude ,
@@ -1325,7 +1325,7 @@ gist:Intention
 gist:Landmark
 	a owl:Class ;
 	rdfs:subClassOf gist:Place ;
-	rdfs:label "Landmark"^^xsd:string ;
+	skos:prefLabel "Landmark"^^xsd:string ;
 	rdfs:comment "Something permanently attached to the Earth."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1348,7 +1348,7 @@ gist:Landmark
 
 gist:Language
 	a owl:Class ;
-	rdfs:label "Language"^^xsd:string ;
+	skos:prefLabel "Language"^^xsd:string ;
 	rdfs:comment
 		"A recognized, organized set of symbols and grammar."^^xsd:string ,
 		"EXAMPLES: Natural languages such as English and Spanish; computer languages such as OWL, Python, and XML."^^xsd:string
@@ -1365,7 +1365,7 @@ gist:Language
 
 gist:LivingThing
 	a owl:Class ;
-	rdfs:label "Living Thing"^^xsd:string ;
+	skos:prefLabel "Living Thing"^^xsd:string ;
 	rdfs:comment
 		"EXAMPLES: A cat, a mushroom, a tree."^^xsd:string ,
 		"NEGATIVE EXAMPLES: fictional life forms such as Unicorns or Mickey Mouse."^^xsd:string ,
@@ -1392,7 +1392,7 @@ gist:LivingThing
 
 gist:LocalInstant
 	a owl:Class ;
-	rdfs:label "Local Instant"^^xsd:string ;
+	skos:prefLabel "Local Instant"^^xsd:string ;
 	rdfs:comment "A point in time expressed relative to a local time zone. Can be converted to Universal Time using the time zone offset. The precision is used to state how precise this instant is.  Typical values would be day, hour, minute or second."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1414,7 +1414,7 @@ gist:LocalInstant
 
 gist:LuminousIntensity
 	a owl:Class ;
-	rdfs:label "Luminous Intensity"^^xsd:string ;
+	skos:prefLabel "Luminous Intensity"^^xsd:string ;
 	rdfs:comment "A measure of the wavelength-weighted power emitted by a light source in a particular direction per unit solid angle.  This is based on the luminosity function, a standardized model of the sensitivity of the human eye."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1431,7 +1431,7 @@ gist:LuminousIntensity
 
 gist:LuminousIntensityUnit
 	a owl:Class ;
-	rdfs:label "Luminous Intensity Unit"^^xsd:string ;
+	skos:prefLabel "Luminous Intensity Unit"^^xsd:string ;
 	rdfs:comment "The measure of brightness. The SI unit is the candela."^^xsd:string ;
 	owl:disjointWith
 		gist:MassUnit ,
@@ -1453,7 +1453,7 @@ gist:LuminousIntensityUnit
 
 gist:Magnitude
 	a owl:Class ;
-	rdfs:label "Magnitude"^^xsd:string ;
+	skos:prefLabel "Magnitude"^^xsd:string ;
 	rdfs:comment
 		"Base class for units which can be converted.  The primitive units can be converted from one measurement system to another; the complex units (ratio or product) have to decompose to their primitives."^^xsd:string ,
 		"NOTE:  Magnitudes of the same dimensional type (i.e., duration or electric current) can be compared with a greater-than or less-than operator, but can still differ in their relationToTheWorld type.  (I.e., you can compare actuals to estimates or references, so long as the dimension is the same.)"^^xsd:string ,
@@ -1490,7 +1490,7 @@ gist:Magnitude
 
 gist:Mass
 	a owl:Class ;
-	rdfs:label "Mass"^^xsd:string ;
+	skos:prefLabel "Mass"^^xsd:string ;
 	rdfs:comment "Magnitude of mass."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1507,7 +1507,7 @@ gist:Mass
 
 gist:MassUnit
 	a owl:Class ;
-	rdfs:label "Mass Unit"^^xsd:string ;
+	skos:prefLabel "Mass Unit"^^xsd:string ;
 	rdfs:comment "A unit representing the amount of matter in a particle or object.  The SI unit of mass is the kilogram."^^xsd:string ;
 	owl:disjointWith
 		gist:MoleUnit ,
@@ -1529,13 +1529,13 @@ gist:MassUnit
 gist:Medium
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	rdfs:label "Medium"^^xsd:string ;
+	skos:prefLabel "Medium"^^xsd:string ;
 	rdfs:comment "A physicality on which a work could be implemented or exposed. E.g., paper, clay, or a computer monitor."^^xsd:string ;
 	.
 
 gist:Message
 	a owl:Class ;
-	rdfs:label "Message"^^xsd:string ;
+	skos:prefLabel "Message"^^xsd:string ;
 	rdfs:comment
 		"A specific instance of content sent from an Organization, Person, or Application to at least one other Organization, Person, or Application."^^xsd:string ,
 		"EXAMPLES: An email message, a phone call, a voice message, or a Web Service message."^^xsd:string
@@ -1575,20 +1575,20 @@ gist:Message
 gist:MessageDefinition
 	a owl:Class ;
 	rdfs:subClassOf gist:SchemaMetaData ;
-	rdfs:label "Message Definition"^^xsd:string ;
+	skos:prefLabel "Message Definition"^^xsd:string ;
 	rdfs:comment "Each pulse from a Sensor is reflected in a message, as well as each instruction to an Actuator"^^xsd:string ;
 	.
 
 gist:MimeType
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	rdfs:label "MIME Type"^^xsd:string ;
+	skos:prefLabel "MIME Type"^^xsd:string ;
 	rdfs:comment "A digitized type that computer applications can recognize."^^xsd:string ;
 	.
 
 gist:MolarQuantity
 	a owl:Class ;
-	rdfs:label "Molar Quantity"^^xsd:string ;
+	skos:prefLabel "Molar Quantity"^^xsd:string ;
 	rdfs:comment "Amount of a substance, as counted molecules."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1605,7 +1605,7 @@ gist:MolarQuantity
 
 gist:MoleUnit
 	a owl:Class ;
-	rdfs:label "Mole Unit"^^xsd:string ;
+	skos:prefLabel "Mole Unit"^^xsd:string ;
 	rdfs:comment "Amount of chemical material.  Measured in Avogadro units (moles) of 6.02 x 10^23 molecules."^^xsd:string ;
 	owl:disjointWith gist:TemperatureUnit ;
 	owl:equivalentClass [
@@ -1623,7 +1623,7 @@ gist:MoleUnit
 
 gist:Monetary
 	a owl:Class ;
-	rdfs:label "Monetary"^^xsd:string ;
+	skos:prefLabel "Monetary"^^xsd:string ;
 	rdfs:comment "A special type of magnitude, due to the way rounding is handled in math and the temporal aspect of conversion."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1640,7 +1640,7 @@ gist:Monetary
 
 gist:Network
 	a owl:Class ;
-	rdfs:label "Network"^^xsd:string ;
+	skos:prefLabel "Network"^^xsd:string ;
 	rdfs:comment "A network is a connected set of links and nodes"^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1663,19 +1663,19 @@ gist:Network
 
 gist:NetworkLink
 	a owl:Class ;
-	rdfs:label "Network Link"^^xsd:string ;
+	skos:prefLabel "Network Link"^^xsd:string ;
 	rdfs:comment "a link in a network.  This is the abstraction of the network.  The physical instantiation couple be pipes, or wire  but may also be non physical such as wireless networks or organization structures"^^xsd:string ;
 	.
 
 gist:NetworkNode
 	a owl:Class ;
-	rdfs:label "Network Node"^^xsd:string ;
+	skos:prefLabel "Network Node"^^xsd:string ;
 	rdfs:comment "a node in a network.  Note the network is the abstract representation of the network.  It is physically instantiated with equipment, or in some cases People."^^xsd:string ;
 	.
 
 gist:Obligation
 	a owl:Class ;
-	rdfs:label "Obligation"^^xsd:string ;
+	skos:prefLabel "Obligation"^^xsd:string ;
 	rdfs:comment
 		"A future commitment from one organization or person to another. Contracts are sets of obligations to do or forbear, or to indemnify or warrant."^^xsd:string ,
 		"NOTE: Obligations will often be governed by some Agreement or Offer."^^xsd:string
@@ -1712,7 +1712,7 @@ gist:Obligation
 
 gist:Offer
 	a owl:Class ;
-	rdfs:label "Offer"^^xsd:string ;
+	skos:prefLabel "Offer"^^xsd:string ;
 	rdfs:comment "A commitment to buy or sell a described or identified part or service."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1756,7 +1756,7 @@ gist:Offer
 gist:OrderedCollection
 	a owl:Class ;
 	rdfs:subClassOf gist:Collection ;
-	rdfs:label "Ordered Collection"^^xsd:string ;
+	skos:prefLabel "Ordered Collection"^^xsd:string ;
 	rdfs:comment "A collection where the members are in a fixed sequence."^^xsd:string ;
 	.
 
@@ -1770,7 +1770,7 @@ gist:OrdinalCollection
 			owl:allValuesFrom gist:OrdinalMember ;
 		]
 		;
-	rdfs:label "Ordinal Collection"^^xsd:string ;
+	skos:prefLabel "Ordinal Collection"^^xsd:string ;
 	rdfs:comment "An Ordered Collection where no item can be of the same rank as any other item.  In mathematical terms, this is a ?strict total order?."^^xsd:string ;
 	.
 
@@ -1794,7 +1794,7 @@ gist:OrdinalMember
 			) ;
 		]
 		;
-	rdfs:label "Ordinal Member"^^xsd:string ;
+	skos:prefLabel "Ordinal Member"^^xsd:string ;
 	rdfs:comment "A member of an Ordinal Collection.  It necessarily precedes or is preceded by another Ordinal Member in the same collection. (This last condition cannot be formally stated in OWL)."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Restriction ;
@@ -1805,7 +1805,7 @@ gist:OrdinalMember
 
 gist:Organization
 	a owl:Class ;
-	rdfs:label "Organization"^^xsd:string ;
+	skos:prefLabel "Organization"^^xsd:string ;
 	rdfs:comment
 		"A generic organization that can be formal or informal, legal or non-legal. It can have members, or not."^^xsd:string ,
 		"EXAMPLES: Legal entities like companies; non-legal entities like clubs, committees, or departments."^^xsd:string ,
@@ -1823,7 +1823,7 @@ gist:Organization
 gist:Percentage
 	a owl:Class ;
 	rdfs:subClassOf gist:RatioMagnitude ;
-	rdfs:label "Percentage"^^xsd:string ;
+	skos:prefLabel "Percentage"^^xsd:string ;
 	rdfs:comment
 		"A ratio where the numerator and denominator are of the same unit of measure."^^xsd:string ,
 		"NOTE: there are various ways to represent percentage: 50/100 could be represented as ?50? or ?0.5?.  gist uses the latter, as it involves fewer conversions for subsequent use."^^xsd:string
@@ -1832,7 +1832,7 @@ gist:Percentage
 
 gist:Permission
 	a owl:Class ;
-	rdfs:label "Permission"^^xsd:string ;
+	skos:prefLabel "Permission"^^xsd:string ;
 	rdfs:comment "A description of things one is permitted to do. This could be broad, such as free speech, but more often is very specific, such as the right of egress through a particular property."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1849,7 +1849,7 @@ gist:Permission
 
 gist:Person
 	a owl:Class ;
-	rdfs:label "Person"^^xsd:string ;
+	skos:prefLabel "Person"^^xsd:string ;
 	rdfs:comment "NEGATIVE EXAMPLE: fictional characters."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1872,20 +1872,20 @@ gist:Person
 gist:PhenomenaType
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	rdfs:label "Phenomena Type"^^xsd:string ;
+	skos:prefLabel "Phenomena Type"^^xsd:string ;
 	rdfs:comment "The things that a sensor can sense, such as light, heat, current, moisture, etc."^^xsd:string ;
 	.
 
 gist:PhysicalActionType
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	rdfs:label "Physical Action Type"^^xsd:string ;
+	skos:prefLabel "Physical Action Type"^^xsd:string ;
 	rdfs:comment "The effects to be realized in the real world, such as lifting a garage door, turning off a valve, dropping cadmium rods, etc."^^xsd:string ;
 	.
 
 gist:PhysicalEvent
 	a owl:Class ;
-	rdfs:label "Physical Event"^^xsd:string ;
+	skos:prefLabel "Physical Event"^^xsd:string ;
 	rdfs:comment
 		"An event that can be said to have occurred at some place in space."^^xsd:string ,
 		"EXAMPLES:  A meeting, a car accident."^^xsd:string ,
@@ -1928,7 +1928,7 @@ gist:PhysicalIdentifiableItem
 			owl:someValuesFrom gist:PhysicalSubstance ;
 		]
 		;
-	rdfs:label "Physical Identifiable Item"^^xsd:string ;
+	skos:prefLabel "Physical Identifiable Item"^^xsd:string ;
 	rdfs:comment
 		"EXAMPLES: a computer, a book."^^xsd:string ,
 		"NEGATIVE EXAMPLE:  A discontinuous thing like a manufacturing line cannot reasonably have an RFID attached to it, even though its parts are not the same kind of thing as the whole."^^xsd:string ,
@@ -1958,7 +1958,7 @@ gist:PhysicalSubstance
 			]
 		) ;
 	] ;
-	rdfs:label "Physical Substance"^^xsd:string ;
+	skos:prefLabel "Physical Substance"^^xsd:string ;
 	rdfs:comment
 		"EXAMPLES: An amount of water, of penicillin, of sand, of gold."^^xsd:string ,
 		"NOTE: An instance of this class must be a physical thing, and not just a categorical description.  Example: an actual piece of gold, not ?gold? as a concept."^^xsd:string ,
@@ -1972,13 +1972,13 @@ gist:PhysicalSubstance
 
 gist:Place
 	a owl:Class ;
-	rdfs:label "Place"^^xsd:string ;
+	skos:prefLabel "Place"^^xsd:string ;
 	rdfs:comment "Union of all the geo classes"^^xsd:string ;
 	.
 
 gist:PlannedEvent
 	a owl:Class ;
-	rdfs:label "Planned Event"^^xsd:string ;
+	skos:prefLabel "Planned Event"^^xsd:string ;
 	rdfs:comment "An event which, at the time it is created, is to occur in the future."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2001,7 +2001,7 @@ gist:PlannedEvent
 gist:PostalAddress
 	a owl:Class ;
 	rdfs:subClassOf gist:Address ;
-	rdfs:label "Postal Address"^^xsd:string ;
+	skos:prefLabel "Postal Address"^^xsd:string ;
 	rdfs:comment
 		"A set of codes the postal authorities can use to deliver physical mail."^^xsd:string ,
 		"EXAMPLES: a street address, a PO Box, an FPO code, or the route codes."^^xsd:string
@@ -2011,13 +2011,13 @@ gist:PostalAddress
 gist:ProductCategory
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	rdfs:label "Product Category"^^xsd:string ;
+	skos:prefLabel "Product Category"^^xsd:string ;
 	rdfs:comment "Any of many ways of categorizing products, including models, NATO product codes, and the like."^^xsd:string ;
 	.
 
 gist:ProductMagnitude
 	a owl:Class ;
-	rdfs:label "Product Magnitude"^^xsd:string ;
+	skos:prefLabel "Product Magnitude"^^xsd:string ;
 	rdfs:comment "A magnitude expressed as a product of primitives.  (E.g., Force = M*A)."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2034,7 +2034,7 @@ gist:ProductMagnitude
 
 gist:ProductSpecification
 	a owl:Class ;
-	rdfs:label "Product Specification"^^xsd:string ;
+	skos:prefLabel "Product Specification"^^xsd:string ;
 	rdfs:comment "Offering something which could be physically warehoused or digitally stored."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2051,7 +2051,7 @@ gist:ProductSpecification
 
 gist:ProductUnit
 	a owl:Class ;
-	rdfs:label "Product Unit"^^xsd:string ;
+	skos:prefLabel "Product Unit"^^xsd:string ;
 	rdfs:comment
 		"A unit of measure that is the product of two simpler ones."^^xsd:string ,
 		"EXAMPLES:  Area and Volume are the classic cases.  But other, more exotic cases exist, such as Newtons."^^xsd:string
@@ -2082,7 +2082,7 @@ gist:ProductUnit
 
 gist:Project
 	a owl:Class ;
-	rdfs:label "Project"^^xsd:string ;
+	skos:prefLabel "Project"^^xsd:string ;
 	rdfs:comment "A project is a task (usually a longer duration task) made up of other tasks."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2099,7 +2099,7 @@ gist:Project
 
 gist:RatioMagnitude
 	a owl:Class ;
-	rdfs:label "Ratio Magnitude"^^xsd:string ;
+	skos:prefLabel "Ratio Magnitude"^^xsd:string ;
 	rdfs:comment
 		"EXAMPLE:  Speed.  The ratio magnitude is 60, the unit of measure might be MilesPerHour."^^xsd:string ,
 		"NOTE:  A RatioMagnitude just has one decimal value."^^xsd:string ,
@@ -2120,7 +2120,7 @@ gist:RatioMagnitude
 
 gist:RatioUnit
 	a owl:Class ;
-	rdfs:label "Ratio Unit"^^xsd:string ;
+	skos:prefLabel "Ratio Unit"^^xsd:string ;
 	rdfs:comment
 		"A UnitOfMeasure composed of a numerator unit and a denominator unit."^^xsd:string ,
 		"EXAMPLE:  Miles per hour."^^xsd:string ,
@@ -2147,13 +2147,13 @@ gist:RatioUnit
 gist:ReferenceValue
 	a owl:Class ;
 	rdfs:subClassOf gist:Magnitude ;
-	rdfs:label "Reference Value"^^xsd:string ;
+	skos:prefLabel "Reference Value"^^xsd:string ;
 	rdfs:comment "A measure that was neither measured nor estimated but set by fiat. For instance, a goal. There is no Measurement associated with a ReferenceValue."^^xsd:string ;
 	.
 
 gist:RenderedContent
 	a owl:Class ;
-	rdfs:label "Rendered Content"^^xsd:string ;
+	skos:prefLabel "Rendered Content"^^xsd:string ;
 	rdfs:comment "Content which has been expressed, either to print, or through speakers, or on a monitor."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2176,13 +2176,13 @@ gist:RenderedContent
 gist:Requirement
 	a owl:Class ;
 	rdfs:subClassOf gist:Intention ;
-	rdfs:label "Requirement"^^xsd:string ;
+	skos:prefLabel "Requirement"^^xsd:string ;
 	rdfs:comment "A documented physical or functional need that a particular design, product, or process must be able to perform.  Alternately, the obligation of a person or organization to behave in a certain way (i.e., drive on the right side of the road)."^^xsd:string ;
 	.
 
 gist:Restriction
 	a owl:Class ;
-	rdfs:label "Restriction"^^xsd:string ;
+	skos:prefLabel "Restriction"^^xsd:string ;
 	rdfs:comment "A description of things one is prevented from doing.  Most laws are restrictions."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2200,7 +2200,7 @@ gist:Restriction
 gist:Room
 	a owl:Class ;
 	rdfs:subClassOf gist:Place ;
-	rdfs:label "Room"^^xsd:string ;
+	skos:prefLabel "Room"^^xsd:string ;
 	rdfs:comment "An enclosed area within a building."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2221,7 +2221,7 @@ gist:Room
 
 gist:ScheduledTask
 	a owl:Class ;
-	rdfs:label "Scheduled Task"^^xsd:string ;
+	skos:prefLabel "Scheduled Task"^^xsd:string ;
 	rdfs:comment "A task planned to occur.  When it was scheduled, it would have been in the future, but now might be in the past."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2234,7 +2234,7 @@ gist:ScheduledTask
 
 gist:SchemaMetaData
 	a owl:Class ;
-	rdfs:label "Schema Meta Data"^^xsd:string ;
+	skos:prefLabel "Schema Meta Data"^^xsd:string ;
 	rdfs:comment "Superclass for all types of metadata, including owl concepts (such as class) and relational (tables, elements) and tool related (queries, R2RML maps etc etc)"^^xsd:string ;
 	owl:disjointWith gist:UnitOfMeasure ;
 	.
@@ -2242,13 +2242,13 @@ gist:SchemaMetaData
 gist:Sensor
 	a owl:Class ;
 	rdfs:subClassOf gist:Equipment ;
-	rdfs:label "Sensor"^^xsd:string ;
+	skos:prefLabel "Sensor"^^xsd:string ;
 	rdfs:comment "A device that can detect something and report it. Light sensors, temperature sensors,"^^xsd:string ;
 	.
 
 gist:ServiceSpecification
 	a owl:Class ;
-	rdfs:label "Service Specification"^^xsd:string ;
+	skos:prefLabel "Service Specification"^^xsd:string ;
 	rdfs:comment "A description of something that can be done for a person or organization (which produces some form of an act)."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2265,7 +2265,7 @@ gist:ServiceSpecification
 
 gist:SimpleUnitOfMeasure
 	a owl:Class ;
-	rdfs:label "Simple Unit Of Measure"^^xsd:string ;
+	skos:prefLabel "Simple Unit Of Measure"^^xsd:string ;
 	rdfs:comment "Each simple unit has a base unit and a conversion factor to the base. The bases are from the System International (SI). The conversion factor is the number which one multiplies a Unit by to get to base, or divides by to get from base.  E.g., the convertToBase for inch is 0.0254 to get to the base unit (meter)."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2289,13 +2289,13 @@ gist:SimpleUnitOfMeasure
 gist:Specification
 	a owl:Class ;
 	rdfs:subClassOf gist:Requirement ;
-	rdfs:label "Specification"^^xsd:string ;
+	skos:prefLabel "Specification"^^xsd:string ;
 	rdfs:comment "A set of requirements to be satisfied by a material, design, product, or service."^^xsd:string ;
 	.
 
 gist:System
 	a owl:Class ;
-	rdfs:label "System"^^xsd:string ;
+	skos:prefLabel "System"^^xsd:string ;
 	rdfs:comment "A system is an artifact with component parts where the parts contribute to the goal of the system"^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2312,7 +2312,7 @@ gist:System
 
 gist:SystemInstant
 	a owl:Class ;
-	rdfs:label "System Instant"^^xsd:string ;
+	skos:prefLabel "System Instant"^^xsd:string ;
 	rdfs:comment "A point in time known to the accuracy of a millisecond.  For posting transaction recorded on times"^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2329,7 +2329,7 @@ gist:SystemInstant
 
 gist:Tag
 	a owl:Class ;
-	rdfs:label "Tag"^^xsd:string ;
+	skos:prefLabel "Tag"^^xsd:string ;
 	rdfs:comment "This is for folksonomy type terms, which can be made up on the fly by users."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2346,7 +2346,7 @@ gist:Tag
 
 gist:Task
 	a owl:Class ;
-	rdfs:label "Task"^^xsd:string ;
+	skos:prefLabel "Task"^^xsd:string ;
 	rdfs:comment "A task which has been defined and either scheduled or accomplished, or both."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2363,7 +2363,7 @@ gist:Task
 
 gist:TaskTemplate
 	a owl:Class ;
-	rdfs:label "Template Task"^^xsd:string ;
+	skos:prefLabel "Template Task"^^xsd:string ;
 	rdfs:comment "An outline of task of a particular type, that will, when instantiated, generate an actual (unscheduled) task."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2380,7 +2380,7 @@ gist:TaskTemplate
 
 gist:Taxonomy
 	a owl:Class ;
-	rdfs:label "Taxonomy"^^xsd:string ;
+	skos:prefLabel "Taxonomy"^^xsd:string ;
 	rdfs:comment "A controlled vocabulary arranged as a hierarchy of concepts."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2418,7 +2418,7 @@ gist:Taxonomy
 gist:TelephoneNumber
 	a owl:Class ;
 	rdfs:subClassOf gist:Address ;
-	rdfs:label "Telephone Number"^^xsd:string ;
+	skos:prefLabel "Telephone Number"^^xsd:string ;
 	rdfs:comment
 		"A numeric code a telephonic device uses for contacting another telephonic device."^^xsd:string ,
 		"EXAMPLES:  Mobile, fax, or landline phone number."^^xsd:string
@@ -2427,7 +2427,7 @@ gist:TelephoneNumber
 
 gist:Temperature
 	a owl:Class ;
-	rdfs:label "Temperature"^^xsd:string ;
+	skos:prefLabel "Temperature"^^xsd:string ;
 	rdfs:comment "The degree or intensity of heat present in a substance or object, especially as expressed according to a comparative scale."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2444,7 +2444,7 @@ gist:Temperature
 
 gist:TemperatureUnit
 	a owl:Class ;
-	rdfs:label "Temperature Unit"^^xsd:string ;
+	skos:prefLabel "Temperature Unit"^^xsd:string ;
 	rdfs:comment "Unit of measurement for expressing temperature.  Per SI, the base of temperature is in Kelvin, to allow for all units to be expressed relative to a real (in this case absolute) zero."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2466,7 +2466,7 @@ gist:TemperatureUnit
 
 gist:Template
 	a owl:Class ;
-	rdfs:label "Template"^^xsd:string ;
+	skos:prefLabel "Template"^^xsd:string ;
 	rdfs:comment
 		"EXAMPLE:  A form. A filled-in form has the structure of the form with data entered into some or all of the fields."^^xsd:string ,
 		"NOTE: Use gist:basedOn to link the instantiation of a template back to its Template."^^xsd:string ,
@@ -2497,7 +2497,7 @@ gist:TemporalRelation
 			owl:someValuesFrom gist:TimeInstant ;
 		]
 		;
-	rdfs:label "Temporal Relation"^^xsd:string ;
+	skos:prefLabel "Temporal Relation"^^xsd:string ;
 	rdfs:comment
 		"A relationship existing for a period of time."^^xsd:string ,
 		"EXAMPLES:  employs-Employment, hasStreetAddress-EstablishedLocation. One important context for reifying a property."^^xsd:string ,
@@ -2507,7 +2507,7 @@ gist:TemporalRelation
 
 gist:Text
 	a owl:Class ;
-	rdfs:label "Text"^^xsd:string ;
+	skos:prefLabel "Text"^^xsd:string ;
 	rdfs:comment "Content expressed as words and numbers (not graphics)."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2571,7 +2571,7 @@ gist:TimeInstant
 			owl:someValuesFrom xsd:string ;
 		]
 		;
-	rdfs:label "Time Instant"^^xsd:string ;
+	skos:prefLabel "Time Instant"^^xsd:string ;
 	rdfs:comment
 		"EXAMPLES:  A literal instant (as in 12:01.0001 January 1, 2008), or a broader but still single point in time (January 1, 2008). In the latter case, we are declaring a time instant to be an interval with no duration (or really a duration only equal to its precision)."^^xsd:string ,
 		"In gistTop all time instants are Greenwich and the local equal universal.  In gistTime we introduce local time zones"^^xsd:string ,
@@ -2582,7 +2582,7 @@ gist:TimeInstant
 
 gist:TimeZone
 	a owl:Class ;
-	rdfs:label "Time Zone"^^xsd:string ;
+	skos:prefLabel "Time Zone"^^xsd:string ;
 	rdfs:comment "A region that observes a uniform standard time for legal, commercial, and social purposes.  A typical time zone averages 15? of longitude in width and typically observes a clock time one hour earlier than the zone immediately to the east."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2599,7 +2599,7 @@ gist:TimeZone
 
 gist:TimeZoneStandard
 	a owl:Class ;
-	rdfs:label "Time Zone Standard"^^xsd:string ;
+	skos:prefLabel "Time Zone Standard"^^xsd:string ;
 	rdfs:comment "The algorithm for getting from Greenwich Mean Time to local time, which includes the time zone offset and rules about daylight savings time."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2617,19 +2617,19 @@ gist:TimeZoneStandard
 gist:Transaction
 	a owl:Class ;
 	rdfs:subClassOf gist:Event ;
-	rdfs:label "Transaction"^^xsd:string ;
+	skos:prefLabel "Transaction"^^xsd:string ;
 	rdfs:comment "An event which has an effect on at least one accumulator."^^xsd:string ;
 	.
 
 gist:UnitOfMeasure
 	a owl:Class ;
-	rdfs:label "Unit of Measure"^^xsd:string ;
+	skos:prefLabel "Unit of Measure"^^xsd:string ;
 	rdfs:comment "Standard unit by which we measure things"^^xsd:string ;
 	.
 
 gist:Volume
 	a owl:Class ;
-	rdfs:label "Volume"^^xsd:string ;
+	skos:prefLabel "Volume"^^xsd:string ;
 	rdfs:comment "Three-dimensional space, or equivalent fluid measurement."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2646,7 +2646,7 @@ gist:Volume
 
 gist:VolumeUnit
 	a owl:Class ;
-	rdfs:label "Volume Unit"^^xsd:string ;
+	skos:prefLabel "Volume Unit"^^xsd:string ;
 	rdfs:comment "Units of three-dimensional space, expressed here as an area times a distance."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2838,7 +2838,7 @@ gist:_second
 
 gist:about
 	a owl:ObjectProperty ;
-	rdfs:label "About"^^xsd:string ;
+	skos:prefLabel "About"^^xsd:string ;
 	rdfs:comment "Subject matter of a document."^^xsd:string ;
 	rdfs:domain gist:Content ;
 	owl:inverseOf gist:describedIn ;
@@ -2846,13 +2846,13 @@ gist:about
 
 gist:accepts
 	a owl:ObjectProperty ;
-	rdfs:label "Accepts"^^xsd:string ;
+	skos:prefLabel "Accepts"^^xsd:string ;
 	rdfs:comment "The types of input messages that will be allowed"^^xsd:string ;
 	.
 
 gist:actual
 	a owl:ObjectProperty ;
-	rdfs:label "Actual"^^xsd:string ;
+	skos:prefLabel "Actual"^^xsd:string ;
 	rdfs:comment "When something did occur, therefore noting an historical event."^^xsd:string ;
 	rdfs:range gist:TimeInstant ;
 	.
@@ -2863,7 +2863,7 @@ gist:actualEnd
 		gist:actual ,
 		gist:end
 		;
-	rdfs:label "Actual End"^^xsd:string ;
+	skos:prefLabel "Actual End"^^xsd:string ;
 	rdfs:comment "When something did end, therefore noting an historical event."^^xsd:string ;
 	.
 
@@ -2873,26 +2873,26 @@ gist:actualStart
 		gist:actual ,
 		gist:start
 		;
-	rdfs:label "Actual Start"^^xsd:string ;
+	skos:prefLabel "Actual Start"^^xsd:string ;
 	rdfs:comment "When something did start, therefore noting an historical event."^^xsd:string ;
 	.
 
 gist:affectedBy
 	a owl:ObjectProperty ;
-	rdfs:label "Affected By"^^xsd:string ;
+	skos:prefLabel "Affected By"^^xsd:string ;
 	rdfs:comment "Where the effect came from"^^xsd:string ;
 	owl:inverseOf gist:affects ;
 	.
 
 gist:affects
 	a owl:ObjectProperty ;
-	rdfs:label "Affects"^^xsd:string ;
+	skos:prefLabel "Affects"^^xsd:string ;
 	rdfs:comment "the subject has or had or will have an effect on the object"^^xsd:string ;
 	.
 
 gist:allocatedBy
 	a owl:ObjectProperty ;
-	rdfs:label "Allocated By"^^xsd:string ;
+	skos:prefLabel "Allocated By"^^xsd:string ;
 	rdfs:comment "Connection between an ID and the thing that minted the ID.  It may be a person or organization, or could be an algorithm (next available or random number generator)"^^xsd:string ;
 	rdfs:range [
 		a owl:Class ;
@@ -2906,7 +2906,7 @@ gist:allocatedBy
 
 gist:allows
 	a owl:ObjectProperty ;
-	rdfs:label "Allows"^^xsd:string ;
+	skos:prefLabel "Allows"^^xsd:string ;
 	rdfs:comment "The intention (say a grant) allows a particular kind of activity (for instance egress)"^^xsd:string ;
 	rdfs:domain gist:Intention ;
 	rdfs:range gist:Behavior ;
@@ -2914,32 +2914,32 @@ gist:allows
 
 gist:aspectOf
 	a owl:ObjectProperty ;
-	rdfs:label "Aspect Of"^^xsd:string ;
+	skos:prefLabel "Aspect Of"^^xsd:string ;
 	rdfs:comment "What this aspect is referring to"^^xsd:string ;
 	.
 
 gist:basedOn
 	a owl:ObjectProperty ;
-	rdfs:label "Based On"^^xsd:string ;
+	skos:prefLabel "Based On"^^xsd:string ;
 	rdfs:comment "pointer to the thing something was derived from"^^xsd:string ;
 	owl:inverseOf gist:basisFor ;
 	.
 
 gist:basisFor
 	a owl:ObjectProperty ;
-	rdfs:label "Basis For"^^xsd:string ;
+	skos:prefLabel "Basis For"^^xsd:string ;
 	rdfs:comment "Reason for an event"^^xsd:string ;
 	.
 
 gist:categorizedBy
 	a owl:ObjectProperty ;
-	rdfs:label "Categorized By"^^xsd:string ;
+	skos:prefLabel "Categorized By"^^xsd:string ;
 	rdfs:comment "Points to a taxonomy item or other less formally defined class."^^xsd:string ;
 	.
 
 gist:characterizedAs
 	a owl:ObjectProperty ;
-	rdfs:label "Characterized As"^^xsd:string ;
+	skos:prefLabel "Characterized As"^^xsd:string ;
 	rdfs:comment "A way to categorize a behavior."^^xsd:string ;
 	rdfs:domain gist:Event ;
 	rdfs:range gist:Behavior ;
@@ -2947,40 +2947,40 @@ gist:characterizedAs
 
 gist:communicationAddressOf
 	a owl:ObjectProperty ;
-	rdfs:label "Communication Address Of"^^xsd:string ;
+	skos:prefLabel "Communication Address Of"^^xsd:string ;
 	rdfs:comment "Whose address is this"^^xsd:string ;
 	owl:inverseOf gist:hasCommunicationAddress ;
 	.
 
 gist:conformsTo
 	a owl:ObjectProperty ;
-	rdfs:label "Conforms To"^^xsd:string ;
+	skos:prefLabel "Conforms To"^^xsd:string ;
 	rdfs:comment "The subject conforms to the Object, e.g. meet an obligation, meet terms of an offer, adhere to a specification"^^xsd:string ;
 	rdfs:range gist:Intention ;
 	.
 
 gist:connectedTo
 	a owl:ObjectProperty ;
-	rdfs:label "Connected To"^^xsd:string ;
+	skos:prefLabel "Connected To"^^xsd:string ;
 	rdfs:comment "A non-owning, non-causal, non-subordinate (i.e., peer-to-peer) relationship."^^xsd:string ;
 	.
 
 gist:containedText
 	a owl:DatatypeProperty ;
-	rdfs:label "Contained Text"^^xsd:string ;
+	skos:prefLabel "Contained Text"^^xsd:string ;
 	rdfs:comment "Links to the string corresponding to Text"^^xsd:string ;
 	rdfs:range xsd:string ;
 	.
 
 gist:contributesTo
 	a owl:ObjectProperty ;
-	rdfs:label "Contributes To"^^xsd:string ;
+	skos:prefLabel "Contributes To"^^xsd:string ;
 	rdfs:comment "The parts of a system contribute to the goal/ function of the whole system"^^xsd:string ;
 	.
 
 gist:conversionOffset
 	a owl:DatatypeProperty ;
-	rdfs:label "Conversion Offset"^^xsd:string ;
+	skos:prefLabel "Conversion Offset"^^xsd:string ;
 	rdfs:comment "Add this number to get to the zero point.  On the Celsius scale, the conversionOffset is -273.15 degrees C. On the Fahrenheit scale it is -459.67 degrees.  Is equal to 0 when the unit has the same zero point as the base unit. e.g. inch, meter."^^xsd:string ;
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:double ;
@@ -2988,7 +2988,7 @@ gist:conversionOffset
 
 gist:convertToBase
 	a owl:DatatypeProperty ;
-	rdfs:label "ConvertToBase"^^xsd:string ;
+	skos:prefLabel "ConvertToBase"^^xsd:string ;
 	rdfs:comment """The conversion factor used to get to the base unit.  E.g., multiplying by 0.0254 gets you from inches to meters. Divide by this number to go the other way. Used in conjunction with conversionOffset to convert from one unit to another. 
 Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)) * (5/9).  To go the other way: F = (K * 9/5) -469.67.  Try it on Google."""^^xsd:string ;
 	rdfs:domain gist:UnitOfMeasure ;
@@ -2998,7 +2998,7 @@ Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)
 gist:convertToStandard
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf gist:convertToBase ;
-	rdfs:label "Convert To Standard"^^xsd:string ;
+	skos:prefLabel "Convert To Standard"^^xsd:string ;
 	rdfs:comment "Note this kind of conversion will only work with temperatures if they are in Kelvin or Rankine (with a true 0).  You multiply to get to the base, divide to go from the base. mph to mps is .44704.  The multiple from kph to mps is .277778 .  To convert 60 mph to kph is (60 * .44704 / .277778 or 96.56056 kph"^^xsd:string ;
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:double ;
@@ -3006,7 +3006,7 @@ gist:convertToStandard
 
 gist:decimalValue
 	a owl:DatatypeProperty ;
-	rdfs:label "Decimal Value"^^xsd:string ;
+	skos:prefLabel "Decimal Value"^^xsd:string ;
 	rdfs:comment "The actual value of a magnitude."^^xsd:string ;
 	rdfs:domain gist:Magnitude ;
 	rdfs:range xsd:double ;
@@ -3014,7 +3014,7 @@ gist:decimalValue
 
 gist:denominator
 	a owl:ObjectProperty ;
-	rdfs:label "Denominator"^^xsd:string ;
+	skos:prefLabel "Denominator"^^xsd:string ;
 	rdfs:comment "Relates a RatioUnit such as meters/second to the denominator Unit (e.g. second)."^^xsd:string ;
 	rdfs:domain gist:RatioUnit ;
 	rdfs:range gist:UnitOfMeasure ;
@@ -3022,27 +3022,27 @@ gist:denominator
 
 gist:describedIn
 	a owl:ObjectProperty ;
-	rdfs:label "Described In"^^xsd:string ;
+	skos:prefLabel "Described In"^^xsd:string ;
 	rdfs:comment "Document the subject matter appeared in"^^xsd:string ;
 	.
 
 gist:directPartOf
 	a owl:ObjectProperty ;
-	rdfs:label "Direct Part Of"^^xsd:string ;
+	skos:prefLabel "Direct Part Of"^^xsd:string ;
 	rdfs:comment "The relationship between a  part and a whole where the part has independent existence."^^xsd:string ;
 	owl:inverseOf gist:hasDirectPart ;
 	.
 
 gist:directSubTaskOf
 	a owl:ObjectProperty ;
-	rdfs:label "Direct Sub Task Of"^^xsd:string ;
+	skos:prefLabel "Direct Sub Task Of"^^xsd:string ;
 	rdfs:comment "Immediate parent task"^^xsd:string ;
 	owl:inverseOf gist:hasDirectSubTask ;
 	.
 
 gist:directlyPrecededBy
 	a owl:ObjectProperty ;
-	rdfs:label "Directly Preceded By"^^xsd:string ;
+	skos:prefLabel "Directly Preceded By"^^xsd:string ;
 	rdfs:comment "Inverse of directly precedes"^^xsd:string ;
 	owl:inverseOf gist:directlyPrecedes ;
 	.
@@ -3050,41 +3050,41 @@ gist:directlyPrecededBy
 gist:directlyPrecedes
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:precedes ;
-	rdfs:label "Directly Precedes"^^xsd:string ;
+	skos:prefLabel "Directly Precedes"^^xsd:string ;
 	rdfs:comment "A generic ordering relation indicating that the Subject comes immediately  before the Object."^^xsd:string ;
 	.
 
 gist:directlyRecognizedBy
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:recognizedBy ;
-	rdfs:label "Directly RecognizedBy"^^xsd:string ;
+	skos:prefLabel "Directly RecognizedBy"^^xsd:string ;
 	rdfs:comment "The party doing the recognition"^^xsd:string ;
 	.
 
 gist:directs
 	a owl:ObjectProperty ;
-	rdfs:label "Directs"^^xsd:string ;
+	skos:prefLabel "Directs"^^xsd:string ;
 	rdfs:comment "The set of actuators that a controller can affect"^^xsd:string ;
 	.
 
 gist:encryptedText
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf gist:containedText ;
-	rdfs:label "Encrypted Text"^^xsd:string ;
+	skos:prefLabel "Encrypted Text"^^xsd:string ;
 	rdfs:comment "Links to the string corresponding to EncryptedText"^^xsd:string ;
 	rdfs:range xsd:string ;
 	.
 
 gist:end
 	a owl:ObjectProperty ;
-	rdfs:label "End"^^xsd:string ;
+	skos:prefLabel "End"^^xsd:string ;
 	rdfs:comment "Connects the subject to its end time."^^xsd:string ;
 	rdfs:range gist:TimeInstant ;
 	.
 
 gist:epoch
 	a owl:DatatypeProperty ;
-	rdfs:label "Epoch"^^xsd:string ;
+	skos:prefLabel "Epoch"^^xsd:string ;
 	rdfs:comment "seconds since 1/1/1970 UTC (unix time )"^^xsd:string ;
 	rdfs:domain gist:TimeInstant ;
 	rdfs:range xsd:double ;
@@ -3092,13 +3092,13 @@ gist:epoch
 
 gist:expressedIn
 	a owl:ObjectProperty ;
-	rdfs:label "Expressed In"^^xsd:string ;
+	skos:prefLabel "Expressed In"^^xsd:string ;
 	rdfs:comment "The language something was expressed in"^^xsd:string ;
 	.
 
 gist:fromAgent
 	a owl:ObjectProperty ;
-	rdfs:label "From Agent"^^xsd:string ;
+	skos:prefLabel "From Agent"^^xsd:string ;
 	rdfs:comment "The source of a message or shipment"^^xsd:string ;
 	rdfs:range [
 		a owl:Class ;
@@ -3112,14 +3112,14 @@ gist:fromAgent
 
 gist:fromPlace
 	a owl:ObjectProperty ;
-	rdfs:label "From Place"^^xsd:string ;
+	skos:prefLabel "From Place"^^xsd:string ;
 	rdfs:comment "origin"^^xsd:string ;
 	rdfs:range gist:Place ;
 	.
 
 gist:geoContainedIn
 	a owl:ObjectProperty ;
-	rdfs:label "Geo Contained In"^^xsd:string ;
+	skos:prefLabel "Geo Contained In"^^xsd:string ;
 	rdfs:comment "All the transitive places something is located in"^^xsd:string ;
 	owl:inverseOf gist:geoContains ;
 	.
@@ -3129,7 +3129,7 @@ gist:geoContains
 		owl:ObjectProperty ,
 		owl:TransitiveProperty
 		;
-	rdfs:label "Geo Contains"^^xsd:string ;
+	skos:prefLabel "Geo Contains"^^xsd:string ;
 	rdfs:comment "Transitive version of geoDirectlyContains"^^xsd:string ;
 	rdfs:domain gist:Place ;
 	rdfs:range gist:Place ;
@@ -3137,7 +3137,7 @@ gist:geoContains
 
 gist:geoDirectlyContainedIn
 	a owl:ObjectProperty ;
-	rdfs:label "Geo Directly Contained In"^^xsd:string ;
+	skos:prefLabel "Geo Directly Contained In"^^xsd:string ;
 	rdfs:comment "the neighborhood is in the city"^^xsd:string ;
 	owl:inverseOf gist:geoDirectlyContains ;
 	.
@@ -3145,20 +3145,20 @@ gist:geoDirectlyContainedIn
 gist:geoDirectlyContains
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:geoContains ;
-	rdfs:label "Geo Directly Contains"^^xsd:string ;
+	skos:prefLabel "Geo Directly Contains"^^xsd:string ;
 	rdfs:comment "The subject geospatially contains the object.  E.g. the area of a city contains the area of its neighborhoods"^^xsd:string ;
 	.
 
 gist:geoOccupiedBy
 	a owl:ObjectProperty ;
-	rdfs:label "Geo Occupied By"^^xsd:string ;
+	skos:prefLabel "Geo Occupied By"^^xsd:string ;
 	rdfs:comment "what is in the location"^^xsd:string ;
 	owl:inverseOf gist:geoOccupies ;
 	.
 
 gist:geoOccupies
 	a owl:ObjectProperty ;
-	rdfs:label "Geo Occupies"^^xsd:string ;
+	skos:prefLabel "Geo Occupies"^^xsd:string ;
 	rdfs:comment "A thing occupies are region"^^xsd:string ;
 	rdfs:domain [
 		a owl:Class ;
@@ -3173,7 +3173,7 @@ gist:geoOccupies
 gist:getter
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasParty ;
-	rdfs:label "Getter"^^xsd:string ;
+	skos:prefLabel "Getter"^^xsd:string ;
 	rdfs:comment "The recipient"^^xsd:string ;
 	owl:propertyDisjointWith gist:giver ;
 	.
@@ -3181,20 +3181,20 @@ gist:getter
 gist:giver
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasParty ;
-	rdfs:label "Giver"^^xsd:string ;
+	skos:prefLabel "Giver"^^xsd:string ;
 	rdfs:comment "The active party, the one with the obligation or the one initiating the transfer"^^xsd:string ;
 	.
 
 gist:governedBy
 	a owl:ObjectProperty ;
-	rdfs:label "Governed By"^^xsd:string ;
+	skos:prefLabel "Governed By"^^xsd:string ;
 	rdfs:comment "A reference from the thing being governed to the governor"^^xsd:string ;
 	owl:inverseOf gist:governs ;
 	.
 
 gist:governs
 	a owl:ObjectProperty ;
-	rdfs:label "Governs"^^xsd:string ;
+	skos:prefLabel "Governs"^^xsd:string ;
 	rdfs:comment "The subject controls or inhibits the object in some way"^^xsd:string ;
 	rdfs:domain [
 		a owl:Class ;
@@ -3223,7 +3223,7 @@ gist:governs
 
 gist:hasAltitude
 	a owl:ObjectProperty ;
-	rdfs:label "Has Altitude"^^xsd:string ;
+	skos:prefLabel "Has Altitude"^^xsd:string ;
 	rdfs:comment "Distance above sea level"^^xsd:string ;
 	rdfs:domain gist:GeoPoint ;
 	rdfs:range gist:Extent ;
@@ -3232,7 +3232,7 @@ gist:hasAltitude
 gist:hasBaseUnit
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasStandardUnit ;
-	rdfs:label "Has Base Unit"^^xsd:string ;
+	skos:prefLabel "Has Base Unit"^^xsd:string ;
 	rdfs:comment
 		"EXAMPLE: saying that a furlong hasBaseUnit  meter says it is a DistanceUnit."^^xsd:string ,
 		"Relates a UnitOfMeasure to its BaseUnit.  This indicates what kind Unit something is, e.g. saying that a furlong hasBaseUnit  meter says it is a DistanceUnit."^^xsd:string
@@ -3244,7 +3244,7 @@ gist:hasBaseUnit
 gist:hasBirthDate
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:actualStart ;
-	rdfs:label "Has Birthdate"^^xsd:string ;
+	skos:prefLabel "Has Birthdate"^^xsd:string ;
 	rdfs:comment 'Date a living thing was "born" (or germinated, for plants).'^^xsd:string ;
 	rdfs:domain gist:LivingThing ;
 	rdfs:range gist:TimeInstant ;
@@ -3252,7 +3252,7 @@ gist:hasBirthDate
 
 gist:hasCommunicationAddress
 	a owl:ObjectProperty ;
-	rdfs:label "Has Communication Address"^^xsd:string ;
+	skos:prefLabel "Has Communication Address"^^xsd:string ;
 	rdfs:comment "Points to a general class of places you can send messages including postal addresses, fax numbers, phone numbers, email, web site, etc."^^xsd:string ;
 	rdfs:range gist:Address ;
 	.
@@ -3260,7 +3260,7 @@ gist:hasCommunicationAddress
 gist:hasDeathDate
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:actualEnd ;
-	rdfs:label "Has Death Date"^^xsd:string ;
+	skos:prefLabel "Has Death Date"^^xsd:string ;
 	rdfs:comment "Date a living thing died"^^xsd:string ;
 	rdfs:domain gist:LivingThing ;
 	rdfs:range gist:TimeInstant ;
@@ -3269,7 +3269,7 @@ gist:hasDeathDate
 gist:hasDirectPart
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasPart ;
-	rdfs:label "Has Direct Part"^^xsd:string ;
+	skos:prefLabel "Has Direct Part"^^xsd:string ;
 	rdfs:comment
 		"NOTE: No cascading delete."^^xsd:string ,
 		"NOTE: Use this property to directly associate parts. hasPart is the transitive version."^^xsd:string ,
@@ -3279,7 +3279,7 @@ gist:hasDirectPart
 
 gist:hasDirectSubCategory
 	a owl:ObjectProperty ;
-	rdfs:label "has direct subcategory"^^xsd:string ;
+	skos:prefLabel "has direct subcategory"^^xsd:string ;
 	rdfs:comment
 		"Note: Unlike its superproperty gist:hasSubCategory, this property is not transitive. It is essentially the same as the non-transitive skos:narrower, using gist:Category rather than skos:Concept."^^xsd:string ,
 		"The subject category is a supercategory of the object category. This property defines the direct links in a category hierarchy; no intermediate categories can exist between the direct links."^^xsd:string
@@ -3289,7 +3289,7 @@ gist:hasDirectSubCategory
 gist:hasDirectSubTask
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasSubTask ;
-	rdfs:label "Has Direct Sub Task"^^xsd:string ;
+	skos:prefLabel "Has Direct Sub Task"^^xsd:string ;
 	rdfs:comment "Immediate child task"^^xsd:string ;
 	rdfs:domain gist:Task ;
 	rdfs:range gist:Task ;
@@ -3298,7 +3298,7 @@ gist:hasDirectSubTask
 gist:hasDirectSuperCategory
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasSuperCategory ;
-	rdfs:label "has direct supercategory"^^xsd:string ;
+	skos:prefLabel "has direct supercategory"^^xsd:string ;
 	rdfs:comment
 		"Note: Unlike its superproperty gist:hasSuperCategory, this property is not transitive. It is essentially the same as the non-transitive skos:broader, using gist:Category rather than skos:Concept."^^xsd:string ,
 		"The subject category is a subcategory of the object category. This property defines the direct links in a category hierarchy; no intermediate categories can exist between the direct links."^^xsd:string
@@ -3308,52 +3308,52 @@ gist:hasDirectSuperCategory
 gist:hasFromNode
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:networkConnection ;
-	rdfs:label "Has From Node"^^xsd:string ;
+	skos:prefLabel "Has From Node"^^xsd:string ;
 	rdfs:comment "The connections at the abstract level of a network.  Note this is directed but the parent is the undirected version"^^xsd:string ;
 	.
 
 gist:hasGoal
 	a owl:ObjectProperty ;
-	rdfs:label "Has Goal"^^xsd:string ;
+	skos:prefLabel "Has Goal"^^xsd:string ;
 	rdfs:comment "The reason for doing something"^^xsd:string ;
 	.
 
 gist:hasIncumbent
 	a owl:ObjectProperty ;
-	rdfs:label "Has Incumbent"^^xsd:string ;
+	skos:prefLabel "Has Incumbent"^^xsd:string ;
 	rdfs:comment "What equipment or person is currently in this node.  Note to create a temporal view make a TemporalRelation for this property"^^xsd:string ;
 	.
 
 gist:hasJurisdiction
 	a owl:ObjectProperty ;
-	rdfs:label "Has Jurisdiction"^^xsd:string ;
+	skos:prefLabel "Has Jurisdiction"^^xsd:string ;
 	rdfs:comment "when laws and contracts are meted out"^^xsd:string ;
 	.
 
 gist:hasMagnitude
 	a owl:ObjectProperty ;
-	rdfs:label "Has Magnitude"^^xsd:string ;
+	skos:prefLabel "Has Magnitude"^^xsd:string ;
 	rdfs:comment "To have a comparable numerical value. Each magnitude has a unit."^^xsd:string ;
 	rdfs:range gist:Magnitude ;
 	.
 
 gist:hasMember
 	a owl:ObjectProperty ;
-	rdfs:label "Has Member"^^xsd:string ;
+	skos:prefLabel "Has Member"^^xsd:string ;
 	rdfs:comment "Relates a Collection to its member individuals."^^xsd:string ;
 	owl:inverseOf gist:memberOf ;
 	.
 
 gist:hasNavigationalChild
 	a owl:ObjectProperty ;
-	rdfs:label "Has Navigational Child"^^xsd:string ;
+	skos:prefLabel "Has Navigational Child"^^xsd:string ;
 	rdfs:comment "Used for informal hierarchical taxonomies.  Supports polyhierarchies"^^xsd:string ;
 	owl:inverseOf gist:hasNavigationalParent ;
 	.
 
 gist:hasNavigationalParent
 	a owl:ObjectProperty ;
-	rdfs:label "Has Navigational Parent"^^xsd:string ;
+	skos:prefLabel "Has Navigational Parent"^^xsd:string ;
 	rdfs:comment "Used for informal hierarchical taxonomies.  Supports polyhierarchies"^^xsd:string ;
 	.
 
@@ -3363,7 +3363,7 @@ gist:hasOrderedMember
 		owl:ObjectProperty
 		;
 	rdfs:subPropertyOf gist:hasMember ;
-	rdfs:label "Has Ordered Member"^^xsd:string ;
+	skos:prefLabel "Has Ordered Member"^^xsd:string ;
 	rdfs:comment "An inverse functional version of hasMember to ensure that no OrderedMember can be in more than one OrderedCollection., which can quickly lead to problems."^^xsd:string ;
 	owl:inverseOf gist:orderedMemberOf ;
 	.
@@ -3373,14 +3373,14 @@ gist:hasPart
 		owl:ObjectProperty ,
 		owl:TransitiveProperty
 		;
-	rdfs:label "Has Part"^^xsd:string ;
+	skos:prefLabel "Has Part"^^xsd:string ;
 	rdfs:comment "The transitive version of hasDirectPart"^^xsd:string ;
 	owl:inverseOf gist:partOf ;
 	.
 
 gist:hasParty
 	a owl:ObjectProperty ;
-	rdfs:label "Has Party"^^xsd:string ;
+	skos:prefLabel "Has Party"^^xsd:string ;
 	rdfs:comment "The people or organizations participating in an agreement or obligation"^^xsd:string ;
 	rdfs:range [
 		a owl:Class ;
@@ -3396,14 +3396,14 @@ gist:hasPhysicalLocation
 		owl:ObjectProperty ,
 		owl:TransitiveProperty
 		;
-	rdfs:label "Has Physical Location"^^xsd:string ;
+	skos:prefLabel "Has Physical Location"^^xsd:string ;
 	rdfs:comment "Where something is located"^^xsd:string ;
 	rdfs:range gist:Place ;
 	.
 
 gist:hasPrecision
 	a owl:ObjectProperty ;
-	rdfs:label "Has Precision"^^xsd:string ;
+	skos:prefLabel "Has Precision"^^xsd:string ;
 	rdfs:comment
 		"EXAMPLE:  Temperature precise to tenth of a degree C; TimeInstant precise to 24 hours."^^xsd:string ,
 		"Links a Magnitude to the degree of accuracy of the numeric value.   This allows for fuzzy numbers.  All magnitudes have a precision.  Usually we don't record them.  When we do this, it will be a value whose extent covers 2 standard deviations around the stated magnitude"^^xsd:string ,
@@ -3414,7 +3414,7 @@ gist:hasPrecision
 
 gist:hasStandardUnit
 	a owl:ObjectProperty ;
-	rdfs:label "Has Standard Unit"^^xsd:string ;
+	skos:prefLabel "Has Standard Unit"^^xsd:string ;
 	rdfs:comment "For a complex unit refers to a unit that has all the component parts in SI"^^xsd:string ;
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range gist:CoherentUnit ;
@@ -3422,7 +3422,7 @@ gist:hasStandardUnit
 
 gist:hasStreetAddress
 	a owl:ObjectProperty ;
-	rdfs:label "Has Street Address"^^xsd:string ;
+	skos:prefLabel "Has Street Address"^^xsd:string ;
 	rdfs:comment "A place that can be found on a map, has geo coordinates; you could live or work there."^^xsd:string ;
 	rdfs:range gist:BuildingAddress ;
 	owl:inverseOf gist:streetAddressOf ;
@@ -3430,7 +3430,7 @@ gist:hasStreetAddress
 
 gist:hasSubCategory
 	a owl:ObjectProperty ;
-	rdfs:label "has subcategory"^^xsd:string ;
+	skos:prefLabel "has subcategory"^^xsd:string ;
 	rdfs:comment
 		"Note: This is essentially the same as skos:narrowerTransitive, using gist:Category instead of skos:Concept."^^xsd:string ,
 		"The subject category is inclusive of, or broader than, the object category. Everything categorized by the subcategory can be inferred to be categorized by the supercategory."^^xsd:string
@@ -3443,7 +3443,7 @@ gist:hasSubTask
 		owl:ObjectProperty ,
 		owl:TransitiveProperty
 		;
-	rdfs:label "Has Sub Task"^^xsd:string ;
+	skos:prefLabel "Has Sub Task"^^xsd:string ;
 	rdfs:comment "A task that is part of a larger task. The time frame of the subtasks may overlap but may not extend beyond the time frame of the parent task. A subtask may be part of more than one parent task."^^xsd:string ;
 	rdfs:domain gist:Task ;
 	rdfs:range gist:Task ;
@@ -3455,7 +3455,7 @@ gist:hasSuperCategory
 		owl:ObjectProperty ,
 		owl:TransitiveProperty
 		;
-	rdfs:label "has supercategory"^^xsd:string ;
+	skos:prefLabel "has supercategory"^^xsd:string ;
 	rdfs:comment
 		"Note: This is essentially the same as skos:broaderTransitive, using gist:Category instead of skos:Concept."^^xsd:string ,
 		"The subject category is included by, or narrower than, the object category. Everything categorized by the subcategory can be inferred to be categorized by the supercategory."^^xsd:string
@@ -3464,14 +3464,14 @@ gist:hasSuperCategory
 
 gist:hasTag
 	a owl:DatatypeProperty ;
-	rdfs:label "has Tag"^^xsd:string ;
+	skos:prefLabel "has Tag"^^xsd:string ;
 	rdfs:comment "Used for folksonomy style categories (non controlled vocabulary)"^^xsd:string ;
 	.
 
 gist:hasToNode
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:networkConnection ;
-	rdfs:label "Has To Node"^^xsd:string ;
+	skos:prefLabel "Has To Node"^^xsd:string ;
 	rdfs:comment "The connections at the abstract level of a network. Note this is directed but the parent is the undirected version"^^xsd:string ;
 	.
 
@@ -3481,7 +3481,7 @@ gist:hasUniqueNavigationalParent
 		owl:ObjectProperty
 		;
 	rdfs:subPropertyOf gist:hasNavigationalParent ;
-	rdfs:label "Has Unique Navigational Parent"^^xsd:string ;
+	skos:prefLabel "Has Unique Navigational Parent"^^xsd:string ;
 	rdfs:comment "Used for taxos that must have single parents"^^xsd:string ;
 	.
 
@@ -3491,13 +3491,13 @@ gist:hasUniqueSuperCategory
 		owl:ObjectProperty
 		;
 	rdfs:subPropertyOf gist:hasSuperCategory ;
-	rdfs:label "Has Unique Super Category"^^xsd:string ;
+	skos:prefLabel "Has Unique Super Category"^^xsd:string ;
 	rdfs:comment "Used for taxos that must have single parents"^^xsd:string ;
 	.
 
 gist:hasUoM
 	a owl:ObjectProperty ;
-	rdfs:label "Has Unit of Measure"^^xsd:string ;
+	skos:prefLabel "Has Unit of Measure"^^xsd:string ;
 	rdfs:comment "Which unit of measure you are using. All measures are expressed in some unit of measure, even if we don't know what it is initially."^^xsd:string ;
 	rdfs:domain gist:Magnitude ;
 	rdfs:range gist:UnitOfMeasure ;
@@ -3508,7 +3508,7 @@ gist:identifiedBy
 		owl:InverseFunctionalProperty ,
 		owl:ObjectProperty
 		;
-	rdfs:label "Identified By"^^xsd:string ;
+	skos:prefLabel "Identified By"^^xsd:string ;
 	rdfs:comment "This is like a URI: a thing can have more than one ID, but each of the IDs must refer to a unique thing."^^xsd:string ;
 	rdfs:range gist:ID ;
 	owl:inverseOf gist:identifies ;
@@ -3519,21 +3519,21 @@ gist:identifies
 		owl:InverseFunctionalProperty ,
 		owl:ObjectProperty
 		;
-	rdfs:label "Identifies"^^xsd:string ;
+	skos:prefLabel "Identifies"^^xsd:string ;
 	rdfs:comment "The thing the identifier refers to."^^xsd:string ;
 	.
 
 gist:lastModifiedOn
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:actual ;
-	rdfs:label "Last Modified On"^^xsd:string ;
+	skos:prefLabel "Last Modified On"^^xsd:string ;
 	rdfs:comment "Date that something was modified."^^xsd:string ;
 	rdfs:range gist:TimeInstant ;
 	.
 
 gist:latitude
 	a owl:DatatypeProperty ;
-	rdfs:label "Latitude"^^xsd:string ;
+	skos:prefLabel "Latitude"^^xsd:string ;
 	rdfs:comment "degrees above or below equator"^^xsd:string ;
 	rdfs:domain gist:GeoPoint ;
 	rdfs:range xsd:double ;
@@ -3541,20 +3541,20 @@ gist:latitude
 
 gist:license
 	a owl:AnnotationProperty ;
-	rdfs:label "License"^^xsd:string ;
+	skos:prefLabel "License"^^xsd:string ;
 	rdfs:comment "An annotation for providing the licensing on this or derivative ontologies"^^xsd:string ;
 	.
 
 gist:localDate
 	a owl:DatatypeProperty ;
-	rdfs:label "Local Date"^^xsd:string ;
+	skos:prefLabel "Local Date"^^xsd:string ;
 	rdfs:comment "LD"^^xsd:string ;
 	rdfs:domain gist:TimeInstant ;
 	.
 
 gist:localDateTime
 	a owl:DatatypeProperty ;
-	rdfs:label "Local Date Time"^^xsd:string ;
+	skos:prefLabel "Local Date Time"^^xsd:string ;
 	rdfs:comment "LDT"^^xsd:string ;
 	rdfs:domain gist:TimeInstant ;
 	rdfs:range xsd:dateTime ;
@@ -3562,14 +3562,14 @@ gist:localDateTime
 
 gist:localTime
 	a owl:DatatypeProperty ;
-	rdfs:label "Local Time"^^xsd:string ;
+	skos:prefLabel "Local Time"^^xsd:string ;
 	rdfs:comment "LT"^^xsd:string ;
 	rdfs:domain gist:TimeInstant ;
 	.
 
 gist:longitude
 	a owl:DatatypeProperty ;
-	rdfs:label "Longitude"^^xsd:string ;
+	skos:prefLabel "Longitude"^^xsd:string ;
 	rdfs:comment "degrees from GM"^^xsd:string ;
 	rdfs:domain gist:GeoPoint ;
 	rdfs:range xsd:double ;
@@ -3577,20 +3577,20 @@ gist:longitude
 
 gist:madeUpOf
 	a owl:ObjectProperty ;
-	rdfs:label "Made Up Of"^^xsd:string ;
+	skos:prefLabel "Made Up Of"^^xsd:string ;
 	rdfs:comment "as in the vase is made up of clay"^^xsd:string ;
 	rdfs:range gist:PhysicalSubstance ;
 	.
 
 gist:memberOf
 	a owl:ObjectProperty ;
-	rdfs:label "Member Of"^^xsd:string ;
+	skos:prefLabel "Member Of"^^xsd:string ;
 	rdfs:comment "What group the member is in"^^xsd:string ;
 	.
 
 gist:multiplicand
 	a owl:ObjectProperty ;
-	rdfs:label "Multiplicand"^^xsd:string ;
+	skos:prefLabel "Multiplicand"^^xsd:string ;
 	rdfs:comment "Relates a ProductUnit such as square mile to the second of two units multiplied together (e.g. mile)."^^xsd:string ;
 	rdfs:domain gist:ProductUnit ;
 	rdfs:range gist:UnitOfMeasure ;
@@ -3598,7 +3598,7 @@ gist:multiplicand
 
 gist:multiplier
 	a owl:ObjectProperty ;
-	rdfs:label "Multiplier"^^xsd:string ;
+	skos:prefLabel "Multiplier"^^xsd:string ;
 	rdfs:comment "Relates a ProductUnit such as square mile to the first of two units multiplied together (e.g. mile)"^^xsd:string ;
 	rdfs:domain gist:ProductUnit ;
 	rdfs:range gist:UnitOfMeasure ;
@@ -3606,20 +3606,20 @@ gist:multiplier
 
 gist:name
 	a owl:DatatypeProperty ;
-	rdfs:label "Name"^^xsd:string ;
+	skos:prefLabel "Name"^^xsd:string ;
 	rdfs:comment "Relates an individual to a casual name.  NOTE: For more formal use, consider using a sub property of the object property, identifiedBy."^^xsd:string ;
 	rdfs:range xsd:string ;
 	.
 
 gist:networkConnection
 	a owl:ObjectProperty ;
-	rdfs:label "Network Connection"^^xsd:string ;
+	skos:prefLabel "Network Connection"^^xsd:string ;
 	rdfs:comment "abstract connection for when connections are undirected"^^xsd:string ;
 	.
 
 gist:numerator
 	a owl:ObjectProperty ;
-	rdfs:label "Numerator"^^xsd:string ;
+	skos:prefLabel "Numerator"^^xsd:string ;
 	rdfs:comment "Relates a RatioUnit such as meter(s)/second to the numerator Unit (e.g. meter)."^^xsd:string ;
 	rdfs:domain gist:RatioUnit ;
 	rdfs:range gist:UnitOfMeasure ;
@@ -3627,13 +3627,13 @@ gist:numerator
 
 gist:occursAt
 	a owl:ObjectProperty ;
-	rdfs:label "OccurAt"^^xsd:string ;
+	skos:prefLabel "OccurAt"^^xsd:string ;
 	rdfs:comment "The geospatial place where something happened or will happen"^^xsd:string ;
 	.
 
 gist:offsetToUniversal
 	a owl:ObjectProperty ;
-	rdfs:label "Offset To Universal"^^xsd:string ;
+	skos:prefLabel "Offset To Universal"^^xsd:string ;
 	rdfs:comment "How many hours the time zone is off GMT"^^xsd:string ;
 	rdfs:domain gist:TimeZone ;
 	rdfs:range gist:Duration ;
@@ -3641,7 +3641,7 @@ gist:offsetToUniversal
 
 gist:offspringOf
 	a owl:ObjectProperty ;
-	rdfs:label "Offspring Of"^^xsd:string ;
+	skos:prefLabel "Offspring Of"^^xsd:string ;
 	rdfs:comment "Biological offspring"^^xsd:string ;
 	rdfs:domain gist:LivingThing ;
 	rdfs:range gist:LivingThing ;
@@ -3652,13 +3652,13 @@ gist:orderedMemberOf
 		owl:FunctionalProperty ,
 		owl:ObjectProperty
 		;
-	rdfs:label "Ordered Member Of"^^xsd:string ;
+	skos:prefLabel "Ordered Member Of"^^xsd:string ;
 	rdfs:comment "An inverse of hasOrderedMember"^^xsd:string ;
 	.
 
 gist:owns
 	a owl:ObjectProperty ;
-	rdfs:label "Owns"^^xsd:string ;
+	skos:prefLabel "Owns"^^xsd:string ;
 	rdfs:comment "Possessing and controlling.  Ultimate form of ownership is the right to destroy.  Long list of potential Range classes"^^xsd:string ;
 	rdfs:domain [
 		a owl:Class ;
@@ -3671,7 +3671,7 @@ gist:owns
 
 gist:parentOf
 	a owl:ObjectProperty ;
-	rdfs:label "Parent Of"^^xsd:string ;
+	skos:prefLabel "Parent Of"^^xsd:string ;
 	rdfs:comment "Biological Parent"^^xsd:string ;
 	.
 
@@ -3680,13 +3680,13 @@ gist:partOf
 		owl:ObjectProperty ,
 		owl:TransitiveProperty
 		;
-	rdfs:label "Part Of"^^xsd:string ;
+	skos:prefLabel "Part Of"^^xsd:string ;
 	rdfs:comment "The transitive version of directPartOf"^^xsd:string ;
 	.
 
 gist:permanentGeoOccupiedBy
 	a owl:ObjectProperty ;
-	rdfs:label "Permanent Geo Occupied By"^^xsd:string ;
+	skos:prefLabel "Permanent Geo Occupied By"^^xsd:string ;
 	rdfs:comment "What is in the fixed location"^^xsd:string ;
 	owl:inverseOf gist:permanentGeoOccupies ;
 	.
@@ -3694,13 +3694,13 @@ gist:permanentGeoOccupiedBy
 gist:permanentGeoOccupies
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:geoOccupies ;
-	rdfs:label "Permanent Geo Occupies"^^xsd:string ;
+	skos:prefLabel "Permanent Geo Occupies"^^xsd:string ;
 	rdfs:comment "To be in a fixed position on the earth"^^xsd:string ;
 	.
 
 gist:planned
 	a owl:ObjectProperty ;
-	rdfs:label "Planned"^^xsd:string ;
+	skos:prefLabel "Planned"^^xsd:string ;
 	rdfs:comment "Dates that were in the future at the time they were made."^^xsd:string ;
 	rdfs:range gist:TimeInstant ;
 	.
@@ -3711,7 +3711,7 @@ gist:plannedEnd
 		gist:end ,
 		gist:planned
 		;
-	rdfs:label "Planned End"^^xsd:string ;
+	skos:prefLabel "Planned End"^^xsd:string ;
 	rdfs:comment
 		"A date/time that was at least at some point in time in the future. It may be in the past now, but when we planned it, it was in the future."^^xsd:string ,
 		"NOTE:  Most frequently apples to Event(s) and Offer(s). E.g. a conference or sale offer."^^xsd:string
@@ -3725,7 +3725,7 @@ gist:plannedStart
 		gist:planned ,
 		gist:start
 		;
-	rdfs:label "Planned Start"^^xsd:string ;
+	skos:prefLabel "Planned Start"^^xsd:string ;
 	rdfs:comment "A date/time that was at least at some point in time in the future. It may be in the past now, but when we planned it, it was in the future."^^xsd:string ;
 	rdfs:range gist:TimeInstant ;
 	.
@@ -3735,13 +3735,13 @@ gist:precedes
 		owl:ObjectProperty ,
 		owl:TransitiveProperty
 		;
-	rdfs:label "Precedes"^^xsd:string ;
+	skos:prefLabel "Precedes"^^xsd:string ;
 	rdfs:comment "A generic ordering relation indicating that the Subject has the same order as or comes before the Object. The 'greater than or equal to' symbol is often used for this relation."^^xsd:string ;
 	.
 
 gist:prevents
 	a owl:ObjectProperty ;
-	rdfs:label "Prevents"^^xsd:string ;
+	skos:prefLabel "Prevents"^^xsd:string ;
 	rdfs:comment "The intention (say a law) is intended to prevent this kind of behavior (say jay-walking)"^^xsd:string ;
 	rdfs:domain gist:Intention ;
 	rdfs:range gist:Behavior ;
@@ -3749,7 +3749,7 @@ gist:prevents
 
 gist:produces
 	a owl:ObjectProperty ;
-	rdfs:label "Produces"^^xsd:string ;
+	skos:prefLabel "Produces"^^xsd:string ;
 	rdfs:comment
 		"EXAMPLE: a task produces a deliverable."^^xsd:string ,
 		"The subject creates the object."^^xsd:string
@@ -3758,7 +3758,7 @@ gist:produces
 
 gist:recognizedBy
 	a owl:ObjectProperty ;
-	rdfs:label "Recognized By"^^xsd:string ;
+	skos:prefLabel "Recognized By"^^xsd:string ;
 	rdfs:comment "The entity that formally acknowledges the existence of, as the State recognizes the existence of a particular company"^^xsd:string ;
 	rdfs:range [
 		a owl:Class ;
@@ -3772,27 +3772,27 @@ gist:recognizedBy
 
 gist:recognizes
 	a owl:ObjectProperty ;
-	rdfs:label "Recognizes"^^xsd:string ;
+	skos:prefLabel "Recognizes"^^xsd:string ;
 	rdfs:comment "Recognizes"^^xsd:string ;
 	.
 
 gist:recordedOn
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:actual ;
-	rdfs:label "Recorded On"^^xsd:string ;
+	skos:prefLabel "Recorded On"^^xsd:string ;
 	rdfs:comment "Date that something was posted, not necessarily the date it occurred. Must be after the occurred date, but could be before or after the planned date. (Unusual, but I could record today that I expected to be paid last week.)"^^xsd:string ;
 	rdfs:range gist:TimeInstant ;
 	.
 
 gist:renderedOn
 	a owl:ObjectProperty ;
-	rdfs:label "Rendered On"^^xsd:string ;
+	skos:prefLabel "Rendered On"^^xsd:string ;
 	rdfs:comment "What media something was rendered On"^^xsd:string ;
 	.
 
 gist:requires
 	a owl:ObjectProperty ;
-	rdfs:label "Requires"^^xsd:string ;
+	skos:prefLabel "Requires"^^xsd:string ;
 	rdfs:comment "An intention that sets out a state of satisfaction (you are required to drive on right side of the road)"^^xsd:string ;
 	rdfs:domain gist:Intention ;
 	rdfs:range gist:Behavior ;
@@ -3800,13 +3800,13 @@ gist:requires
 
 gist:respondsTo
 	a owl:ObjectProperty ;
-	rdfs:label "Responds to"^^xsd:string ;
+	skos:prefLabel "Responds to"^^xsd:string ;
 	rdfs:comment "The set of sensors that a controller is attached to"^^xsd:string ;
 	.
 
 gist:sameTimeAs
 	a owl:ObjectProperty ;
-	rdfs:label "Same Time As"^^xsd:string ;
+	skos:prefLabel "Same Time As"^^xsd:string ;
 	rdfs:comment "We can have two local time instants refer to the same time, the same universal time."^^xsd:string ;
 	rdfs:domain gist:TimeInstant ;
 	rdfs:range gist:TimeInstant ;
@@ -3814,21 +3814,21 @@ gist:sameTimeAs
 
 gist:sequence
 	a owl:DatatypeProperty ;
-	rdfs:label "Sequence"^^xsd:string ;
+	skos:prefLabel "Sequence"^^xsd:string ;
 	rdfs:comment "For ordering ordered lists."^^xsd:string ;
 	rdfs:range xsd:integer ;
 	.
 
 gist:start
 	a owl:ObjectProperty ;
-	rdfs:label "Start"^^xsd:string ;
+	skos:prefLabel "Start"^^xsd:string ;
 	rdfs:comment "Connects the subject to its start time."^^xsd:string ;
 	rdfs:range gist:TimeInstant ;
 	.
 
 gist:streetAddressOf
 	a owl:ObjectProperty ;
-	rdfs:label "Street Address Of"^^xsd:string ;
+	skos:prefLabel "Street Address Of"^^xsd:string ;
 	rdfs:comment "Whose street address is this"^^xsd:string ;
 	.
 
@@ -3837,13 +3837,13 @@ gist:subTaskOf
 		owl:ObjectProperty ,
 		owl:TransitiveProperty
 		;
-	rdfs:label "Sub Task Of"^^xsd:string ;
+	skos:prefLabel "Sub Task Of"^^xsd:string ;
 	rdfs:comment "All the upper tasks this task belongs to"^^xsd:string ;
 	.
 
 gist:timeZoneStandardUsed
 	a owl:ObjectProperty ;
-	rdfs:label "Time Zone Standard Used"^^xsd:string ;
+	skos:prefLabel "Time Zone Standard Used"^^xsd:string ;
 	rdfs:comment 'the "time zone" with Daylight Savings adjust'^^xsd:string ;
 	rdfs:domain gist:TimeInstant ;
 	rdfs:range gist:TimeZoneStandard ;
@@ -3851,7 +3851,7 @@ gist:timeZoneStandardUsed
 
 gist:toAgent
 	a owl:ObjectProperty ;
-	rdfs:label "To Agent"^^xsd:string ;
+	skos:prefLabel "To Agent"^^xsd:string ;
 	rdfs:comment 'Comment: this is not the inverse of fromAgent. A message can be from someone. If we made it the inverse the person would be "to" the message'^^xsd:string ;
 	rdfs:range [
 		a owl:Class ;
@@ -3865,14 +3865,14 @@ gist:toAgent
 
 gist:toPlace
 	a owl:ObjectProperty ;
-	rdfs:label "To Place"^^xsd:string ;
+	skos:prefLabel "To Place"^^xsd:string ;
 	rdfs:comment "Destination"^^xsd:string ;
 	rdfs:range gist:Place ;
 	.
 
 gist:triggeredBy
 	a owl:ObjectProperty ;
-	rdfs:label "Triggered By"^^xsd:string ;
+	skos:prefLabel "Triggered By"^^xsd:string ;
 	rdfs:comment "general causal relation.  For obligations a property that describes what would happen to trigger the contingent obligation.  In most cases, before the Contingent becomes an Obligation, the triggered by event is a planned event (that is it hasn't happened yet -- if it had happened the contingency would no longer be contingent.  In most cases it will be  a ContingentEvent .  Other uses include controls, processes etc"^^xsd:string ;
 	.
 
@@ -3881,14 +3881,14 @@ gist:uniqueText
 		owl:DatatypeProperty ,
 		owl:FunctionalProperty
 		;
-	rdfs:label "Unique Text"^^xsd:string ;
+	skos:prefLabel "Unique Text"^^xsd:string ;
 	rdfs:comment "This is used for the actual value of a key or ID where you don't want the possibility of having more than one."^^xsd:string ;
 	rdfs:range xsd:string ;
 	.
 
 gist:unitSymbol
 	a owl:DatatypeProperty ;
-	rdfs:label "Unit Symbol"^^xsd:string ;
+	skos:prefLabel "Unit Symbol"^^xsd:string ;
 	rdfs:comment "The standard symbol for the unit NOT using any special characters.  E.g. square meter would be m^2 rather than m?."^^xsd:string ;
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:string ;
@@ -3896,7 +3896,7 @@ gist:unitSymbol
 
 gist:unitSymbolHTML
 	a owl:DatatypeProperty ;
-	rdfs:label "Unit Symbol HTML"^^xsd:string ;
+	skos:prefLabel "Unit Symbol HTML"^^xsd:string ;
 	rdfs:comment 'The standard symbol for the unit in HTML format for  pretty printing, may use special characters.  E.g. to show square meter as  m? rather than m^2, the value of this property would be "m&sup2;" This is for when Unicode not supported and the display will be HTML format.'^^xsd:string ;
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:string ;
@@ -3904,7 +3904,7 @@ gist:unitSymbolHTML
 
 gist:unitSymbolUnicode
 	a owl:DatatypeProperty ;
-	rdfs:label "Unit Symbol Unicode"^^xsd:string ;
+	skos:prefLabel "Unit Symbol Unicode"^^xsd:string ;
 	rdfs:comment "The standard symbol for the unit preferred for pretty printing, may use special characters.  E.g. square meter would be  m? rather than m^2."^^xsd:string ;
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:string ;
@@ -3912,14 +3912,14 @@ gist:unitSymbolUnicode
 
 gist:universalDate
 	a owl:DatatypeProperty ;
-	rdfs:label "Universal Date"^^xsd:string ;
+	skos:prefLabel "Universal Date"^^xsd:string ;
 	rdfs:comment "UD"^^xsd:string ;
 	rdfs:domain gist:TimeInstant ;
 	.
 
 gist:universalDateTime
 	a owl:DatatypeProperty ;
-	rdfs:label "Universal Date Time"^^xsd:string ;
+	skos:prefLabel "Universal Date Time"^^xsd:string ;
 	rdfs:comment "UDT"^^xsd:string ;
 	rdfs:domain gist:TimeInstant ;
 	rdfs:range xsd:dateTime ;
@@ -3927,14 +3927,14 @@ gist:universalDateTime
 
 gist:universalTime
 	a owl:DatatypeProperty ;
-	rdfs:label "Universal Time"^^xsd:string ;
+	skos:prefLabel "Universal Time"^^xsd:string ;
 	rdfs:comment "UT"^^xsd:string ;
 	rdfs:domain gist:TimeInstant ;
 	.
 
 gist:viableRange
 	a owl:ObjectProperty ;
-	rdfs:label "Viable Range"^^xsd:string ;
+	skos:prefLabel "Viable Range"^^xsd:string ;
 	rdfs:comment "The area over which the sensor can sense (might be a small geospatial area or a specific wire in a circuit)"^^xsd:string ;
 	.
 
