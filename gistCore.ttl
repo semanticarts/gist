@@ -4,19 +4,20 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 <https://ontologies.semanticarts.com/o/gistCore>
 	a owl:Ontology ;
-	rdfs:label "gistCore"^^xsd:string ;
-	rdfs:comment "Gist is a minimalist upper ontology created by Semantic Arts"^^xsd:string ;
+	skos:prefLabel "gistCore"^^xsd:string ;
+	skos:definition "Gist is a minimalist upper ontology created by Semantic Arts"^^xsd:string ;
 	owl:versionIRI <https://ontologies.semanticarts.com/o/gistCoreX.x.x> ;
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
 	.
 
 gist:Account
 	a owl:Class ;
-	rdfs:label "Account"^^xsd:string ;
-	rdfs:comment "An agreement having a balance, as in a bank account, or credit card account, or Accounts Receivable account."^^xsd:string ;
+	skos:prefLabel "Account"^^xsd:string ;
+	skos:definition "An agreement having a balance, as in a bank account, or credit card account, or Accounts Receivable account."^^xsd:string ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
