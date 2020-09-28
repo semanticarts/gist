@@ -1907,7 +1907,7 @@ gist:PhysicalIdentifiableItem
 	skos:definition "You could, at least in principle, put an RFID tag on members of this class. Physical things are made of something.  E.g., statues are made of bronze."^^xsd:string ;
 	skos:example
 		"Negative example: A discontinuous thing like a manufacturing line cannot reasonably have an RFID attached to it, even though its parts are not the same kind of thing as the whole."^^xsd:string ,
-		"a computer, a book."^^xsd:string
+		"A computer, a book."^^xsd:string
 		;
 	skos:prefLabel "Physical Identifiable Item"^^xsd:string ;
 	skos:scopeNote "In practice, this always means that the parts are not the same kind of thing as the whole."^^xsd:string ;
@@ -3894,4 +3894,3 @@ gist:viableRange
 		gist:_second
 	) ;
 	.
-
