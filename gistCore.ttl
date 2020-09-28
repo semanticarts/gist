@@ -605,6 +605,7 @@ gist:Controller
 gist:ControllerType
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
+	skos:definition "A kind of controller."^^xsd:string ;
 	skos:prefLabel "Controller type"^^xsd:string ;
 	.
 
@@ -1906,8 +1907,8 @@ gist:PhysicalIdentifiableItem
 		;
 	skos:definition "You could, at least in principle, put an RFID tag on members of this class. Physical things are made of something.  E.g., statues are made of bronze."^^xsd:string ;
 	skos:example
-		"Negative example: A discontinuous thing like a manufacturing line cannot reasonably have an RFID attached to it, even though its parts are not the same kind of thing as the whole."^^xsd:string ,
-		"A computer, a book."^^xsd:string
+		"A computer, a book."^^xsd:string ,
+		"Negative example: A discontinuous thing like a manufacturing line cannot reasonably have an RFID attached to it, even though its parts are not the same kind of thing as the whole."^^xsd:string
 		;
 	skos:prefLabel "Physical Identifiable Item"^^xsd:string ;
 	skos:scopeNote "In practice, this always means that the parts are not the same kind of thing as the whole."^^xsd:string ;
@@ -3493,6 +3494,7 @@ gist:localDate
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:TimeInstant ;
 	skos:altLabel "LD"^^xsd:string ;
+	skos:definition "Relates a TimeInstant to a string indicating what the local date is."^^xsd:string ;
 	skos:prefLabel "Local Date"^^xsd:string ;
 	.
 
@@ -3501,12 +3503,14 @@ gist:localDateTime
 	rdfs:domain gist:TimeInstant ;
 	rdfs:range xsd:dateTime ;
 	skos:altLabel "LDT"^^xsd:string ;
+	skos:definition "Relates a TimeInstant to an xsd:dateTime literal representing the local date and time."^^xsd:string ;
 	skos:prefLabel "Local Date Time"^^xsd:string ;
 	.
 
 gist:localTime
 	a owl:DatatypeProperty ;
 	skos:altLabel "LT"^^xsd:string ;
+	skos:definition "Relates a TimeInstant to a string indicating what the local time is."^^xsd:string ;
 	skos:prefLabel "Local Time"^^xsd:string ;
 	.
 
@@ -3855,6 +3859,7 @@ gist:universalDate
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:TimeInstant ;
 	skos:altLabel "UD"^^xsd:string ;
+	skos:definition "Relates a TimeInstant to a string indicating what the universal date is."^^xsd:string ;
 	skos:prefLabel "Universal Date"^^xsd:string ;
 	.
 
@@ -3863,6 +3868,7 @@ gist:universalDateTime
 	rdfs:domain gist:TimeInstant ;
 	rdfs:range xsd:dateTime ;
 	skos:altLabel "UDT"^^xsd:string ;
+	skos:definition "Relates a TimeInstant to an xsd:dateTime literal representing the universal time."^^xsd:string ;
 	skos:prefLabel "Universal Date Time"^^xsd:string ;
 	.
 
@@ -3870,6 +3876,7 @@ gist:universalTime
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:TimeInstant ;
 	skos:altLabel "UT"^^xsd:string ;
+	skos:definition "Relates a TimeInstant to a string indicating what the universal time is."^^xsd:string ;
 	skos:prefLabel "Universal Time"^^xsd:string ;
 	.
 
@@ -3894,3 +3901,4 @@ gist:viableRange
 		gist:_second
 	) ;
 	.
+
