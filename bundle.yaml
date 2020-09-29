@@ -97,6 +97,32 @@ actions:
     to: "\\g<1>.jsonld"
   includes:
     - "*.ttl"
+- action: "sparql"
+  source: "{output}"
+  target: "{output}/legacyAnnotations.ttl"
+  format: "turtle"
+  includes:
+    - "*.ttl"
+  query: >
+    prefix gist: <https://ontologies.semanticarts.com/gist/>
+    prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    prefix skos: <http://www.w3.org/2004/02/skos/core#>
+    CONSTRUCT {{
+      ?entity rdfs:label ?label ;
+              rdfs:comment ?comment .
+    }}
+    WHERE {{
+      {{ ?entity skos:prefLabel ?label }}
+      UNION
+      {{ ?entity skos:altLabel|
+                 skos:definition|
+                 skos:example|
+                 skos:scopeNote ?comment }}
+    }}
+- action: "transform"
+  tool: "serializer"
+  source: "{output}/legacyAnnotations.ttl"
+  target: "{output}/legacyAnnotations.ttl"
 - action: "copy"
   source: "{input}/LICENSE.txt"
   target: "{output}"
