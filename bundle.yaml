@@ -99,7 +99,7 @@ actions:
     - "*.ttl"
 - action: "sparql"
   source: "{output}"
-  target: "{output}/legacyAnnotations.ttl"
+  target: "{output}/rdfsAnnotations.ttl"
   format: "turtle"
   includes:
     - "*.ttl"
@@ -114,15 +114,21 @@ actions:
     WHERE {{
       {{ ?entity skos:prefLabel ?label }}
       UNION
-      {{ ?entity skos:altLabel|
-                 skos:definition|
-                 skos:example|
-                 skos:scopeNote ?comment }}
+      {{
+        VALUES (?prop ?prefix ) {{
+          ( skos:altLabel "ALT: " )
+          ( skos:definition "DEFINITION: " )
+          ( skos:example "EXAMPLE: " )
+          ( skos:scopeNote "NOTE: " )
+        }}
+        ?entity ?prop ?text .
+        BIND(CONCAT(?prefix, ?text) as ?comment)
+      }}
     }}
 - action: "transform"
   tool: "serializer"
-  source: "{output}/legacyAnnotations.ttl"
-  target: "{output}/legacyAnnotations.ttl"
+  source: "{output}/rdfsAnnotations.ttl"
+  target: "{output}/rdfsAnnotations.ttl"
 - action: "copy"
   source: "{input}/LICENSE.txt"
   target: "{output}"
