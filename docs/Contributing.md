@@ -56,42 +56,40 @@ Submitting an Issue
 Implementation
 -----
 
-### Development Branch
+Note: The following instructions reference two git branches: the working branch, which is the one you create for your development work, and the main development branch, which is the branch that your working branch is cut from and will be merged back into. In the majority of cases the latter is the default "develop" branch, but there are instances, described below, where it is not, so the term "main development branch" is used instead.
 
-- The first step is to create a new branch from the develop branch for your work: e.g., `feature/document_submission_guidelines`. This branch will not be preserved after the work is merged into develop, so the name of the branch does not have to be particularly specific or detailed.
-- For a large project implemented by more than one person, all developers would work on this same branch. This applies whether the contributions of different developers are concurrent or sequential.
+### Working Branch
+
+- The first step is to create a new working branch from the main development branch for your work: e.g., `feature/document_submission_guidelines` or `bugfix/fix_typo_in_Address_definition`. This branch will not be preserved after the work is merged into the main branch, so tits name does not have to be particularly specific or detailed.
+- For a large project implemented by more than one person, a main development branch is cut from develop, and each developer then cuts a working branch off of this main branch. This is the case where merges will be between the working branches and the main development branch, rather than directly to "develop". Once all sub-branches have been merged into this main development branch, a PR will be created to merge the main branch back to develop.
+  - Another scenario is that all developers work from a single working branch cut from develop. This is not the preferred approach because it makes coordination and tracking more difficult.
 
 ### Style Guide
 
 - Ontologists should consult the emerging [_gist Style Guide_](gistStyleGuide.md) during implementation.
 - The serializer tool must be run before each commit in order to standardize formatting and eliminate noise in git diffs. See [_gist Style Guide_](gistStyleGuide.md) for details.
 
-### Commits
+### Commits, Pushes, and Merges
 
-- If you are working on a project that will require more than one commit, you should commit to your branch regularly to create logical checkpoints that can be restored if necessary.
+- If you are working on a project that will require more than one commit, you should commit to your branch regularly to create logical checkpoints that can be restored if necessary. Each commit should be atomic for ease of rollback or reversion. Ideally, you finish working on one sub-task and commit it before taking up another.
 - However, it is possible to go overboard and commit every little change independently. This creates clutter in the repository history.
-- This is especially important if working on a project with others, to reduce the likelihood of conflicts.
-- However, each commit should be atomic for ease of rollback or reversion. Finish working on one sub-task and commit it before taking up another.
-- As you work, it is _essential_ that you merge regularly from develop back into your branch. This ensures that, when it comes time to merge your work into develop, you will have resolved any merge conflicts with a minimum of difficulty.
+- As you work, it is _essential_ that you merge regularly from the main development branch back into your working branch. This ensures that, when it comes time to merge your work into the main branch, you will have resolved any merge conflicts with a minimum of difficulty. Note that your PR cannot be merged to the main branch until all merge conflicts are resolved.
+- If you are working with other developers on the same working branch, you should, along the same lines, push your changes to that branch and pull theirs regularly to reduce the likelihood of conflicts. (However, the more likely scenario is that each developer will have his/her own sub-branch, as described above in [Working Branch](#working-branch).)
 - The commit message should be clear enough so that someone can get a basic understanding of the commit without looking at the actual changes in the files.
   - Examples:
     - YES: "Fix typo in definition of gist:Address."
     - NO: "Fix typo."
-
-### Pushes
-
-- If you are working on a large project with other developers, you must publish your branch and keep it up-to-date with regular commits and pushes to the remote.
-- Even for solitary projects, publishing your branch and pushing regularly are useful for safeguarding your work on the remote server in case of local failure.
 
 Pull Requests
 -----
 
 ### Creating the Pull Request (PR)
 
-- Once your work is ready to be merged into the develop branch, you will create a pull request (PR).
-- Before submitting the PR, you should ensure that you have run the serializer and pulled from develop into your working branch, as above for implementation.
-- Submit the PR to develop (the default branch) and assign it to the release project.
-- Assign one or more reviewers, as specified below.
+- Once your work is ready to be merged into the main development branch, you will create a pull request (PR).
+- Before submitting the PR, you should ensure that you have run the serializer and merged from the main development branch into your working branch, as above [during implementation](#commits-pushes-and-merges).
+- Submit the PR to the main development branch.
+- If the issue addressed by the PR is slated for a particular release, assign the PR to the same release project, using the Project labels on the right sidebar, in order to facilitate release management.
+- Assign one or more reviewers, as specified [below](#assigning-reviewers).
 - You should _not_ delete your working branch, either locally or on the remote, at this point. If reviewers request changes to the PR, these should be made on the same branch for automatic updating of the PR.
 
 ### Contents of the PR
@@ -99,7 +97,7 @@ Pull Requests
 - Each PR should be atomic, addressing a single issue. This allows it to be accepted or rejected as a whole.
   - Exception: If there are several very small issues such as typo corrections or definition fixes, these can be submitted in a single PR.
 - The PR should address the entirety of an issue. If it does not, either the PR should be modified or the issue should be broken up into parts.
-- The description of the PR should contain the keywords "fixes #nnn" (or another of the [GitHub keywords](https://docs.github.com/en/enterprise/2.21/user/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)) where nnn is the issue number. This automatically closes the issue when the PR is merged.
+- The title or description of the PR should contain the keywords "fixes #nnn" (or another of the [GitHub keywords](https://docs.github.com/en/enterprise/2.21/user/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)) where nnn is the issue number. This automatically closes the issue when the PR is merged.
   - Example: "Correct cardinality restriction on class gist:Room. Fixes #98."
   - Note that if the PR fixes multiple issues, each issue number must be prefixed by the keyword. E.g., "Fixes #98, fixes #102", rather than "Fixes #98, #102" or "Fixes #98 and #102".
 - The PR should include an update to the release notes, except in the rare cases where there is no user-facing change.
@@ -129,25 +127,26 @@ Release notes gist 9.4.0
   - Major: three reviewers
   - Minor: two reviewers
   - Patch: one reviewer
-- You should assign exactly this number, or at most one more. If too many reviewers are assigned, there is a tendency for (i) each reviewer to ignore the request, expecting other reviewers to step in, and (ii) too many cooks spoiling the broth and spreading confusion.
-  - In the case of some issues, it may be that you need input from more than one type of expertise. That is the time to use the "at most one more" prerogative.
+- You should assign exactly this number, or at most one more. If too many reviewers are assigned the result can be confusion.
+- Many issues are general enough to be reviewed by any Semantic Arts ontologist; some may require specific expertise. Use your judgement. This might be the time to use the "at most one more" prerogative.
 - Reviewers must be internal to Semantic Arts.
-- Also assign the PR (but not the issue) to the reviewers. This makes the assignee visible on the project board so it is clear who is currently responsible for moving the PR forward.
-- External contributors should not assign themselves as reviewers.
-- Many issues are general enough to be reviewed by any Semantic Arts ontologist; some may require specific expertise. Use your judgement.
+- As well as designating reviewers, you should assign the PR &mdash; but not the issue &mdash; to the reviewers. This makes the assignee visible on the project board so it is clear who is currently responsible for moving the PR forward.
 
 ### Review Process
 
 - Reviewers are charged with rejecting the PR or requesting changes, with appropriate comments, if:
   - The criteria of atomicity and completeness are not met.
   - The implementation deviates from that agreed upon during the internal review.
-- If changes are requested, reassign the issue to the original implementer so it is clear who is responsible for the next action.
+  - The release notes have been updated.
+- A reviewer should assign the PR to the same release project as the issue it addresses if that has not been done when the PR was submitted.
+- If changes are requested, reassign the PR to the original implementer so it is clear who is responsible for the next action.
 - When you correct your PR based on reviewer comments, and commit these changes, they automaticallly get added to the existing PR, so you should not create another PR.
 - If a reviewer does not deem him/herself qualified to review the issue, he/she should reassign it to another reviewer.
 
 ### Merging the PR
 
-- There are three repository admins with permission to merge to develop. If your reviewer is not one of these, he/she will re-assign the PR to one of them after approving it for merge.
-- Squash merges will not be used; however, the admin may choose to perform a rebase on the branch being merged into develop in order to clean up the commit history.
-- The project board is configured to automatically move a merged PR and its associated issue to the Done column.
+- Some ontologists are repository admins with permission to merge to the "develop" branch. If your reviewer is not one of these, he/she will re-assign the PR to one of them after approving it for merge.
+  - If you are merging from a working sub-branch into a main development branch other than develop, others may be able to perform the merge, depending on how the  branch rules are configured.
+- Squash merges will not be used; however, the admin may choose to perform a rebase on the branch being merged in order to clean up the commit history.
+- The GitHub project board is configured to automatically move a merged PR and its associated issue to the Done column.
 - The repository is configured to automatically delete the implementation branch from the remote; those with local copies of this branch should delete them locally.
