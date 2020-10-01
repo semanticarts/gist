@@ -1,8 +1,14 @@
 gist Release Notes
 =====
 
-Release 9.4.1
+Release X.x.x
 -----
+### Minor Updates
+*Converted rdfs annotations to skos annotations*
+
+- `rdfs:label` was replaced with `skos:prefLabel`
+- `rdfs:comment` was replaced with one of `skos:definition`, `skos:example`, `skos:scopeNote` or `skos:altLabel`
+- Backward compatibility is retained because we also publish an auto-generated version of the skos annotations in the file: rdfsAnnotations.ttl.  The diffferent skos annotations are distinguished by a suitable prefix to the `rdfs:comment`. One of: 'ALT: ' 'DEFINITION: ' , 'EXAMPLE: ', 'NOTE: '
 
 ### Patch Updates
 
