@@ -1,7 +1,7 @@
 gist Release Notes
 =====
 
-Release 9.4.1
+Release X.x.x [ Release manager: update version number here and below in import URL]
 -----
 
 ### Patch Updates
@@ -10,7 +10,15 @@ Release 9.4.1
 
 - Description: JSON-LD files were erroneously created with `.json` extension.
 - Rationale: The correct extension for the `application/ld+json` MIME type is `.jsonld`.
-- Issues: [#365](https://github.com/semanticarts/gist/issues/365).
+- Issue: [#365](https://github.com/semanticarts/gist/issues/365).
+
+*Updated documentation on contributing to gist*
+
+- Description: Miscellaneous updates to `Contributing.md`.
+- Rationale: Add clarifications and corrections.
+- Issue: [#382](https://github.com/semanticarts/gist/issues/382).
+
+Import URL: <https://ontologies.semanticarts.com/o/gistCoreX.x.x>.
 
 Release 9.4.0
 -----
