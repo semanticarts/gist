@@ -6,7 +6,7 @@ gist Change and Release Management
 
 - The Semantic Arts workflow for gist development requires that an issue be submitted, triaged, and approved for implementation before work proceeds and a pull request is submitted. We will not review or approve pull requests that are not based on issues approved for implementation.
 - All bug reports and feature requests should be submitted via issues in this repository rather than through email, the website contact form, or other communication channels, and all discussion will be tracked through comments on the issue. These practices ensure that requests are addressed transparently and systematically, and that all discussion is recorded and preserved in a single, public location.
-- gist Council presentations will have an associated issue created so that the proposals will be reviewed and acted on.
+- gist Council presentations may have an associated issue created so that the proposals will be formally reviewed.
 
 Submitting an Issue
 -----
@@ -88,7 +88,7 @@ Pull Requests
 - Once your work is ready to be merged into the main development branch, you will create a pull request (PR).
 - Before submitting the PR, you should ensure that you have run the serializer and merged from the main development branch into your working branch, as above [during implementation](#commits-pushes-and-merges).
 - Submit the PR to the main development branch.
-- If the issue addressed by the PR is slated for a particular release, assign the PR to the same release project, using the Project labels on the right sidebar, in order to facilitate release management.
+- If the issue(s) addressed by the PR is(are) slated for a particular release, assign the PR to the same release project, using the Project labels on the right sidebar, in order to facilitate release management.
 - Assign one or more reviewers, as specified [below](#assigning-reviewers).
 - You should _not_ delete your working branch, either locally or on the remote, at this point. If reviewers request changes to the PR, these should be made on the same branch for automatic updating of the PR.
 
@@ -97,7 +97,7 @@ Pull Requests
 - Each PR should be atomic, addressing a single issue. This allows it to be accepted or rejected as a whole.
   - Exception: If there are several very small issues such as typo corrections or definition fixes, these can be submitted in a single PR.
 - The PR should address the entirety of an issue. If it does not, either the PR should be modified or the issue should be broken up into parts.
-- The title or description of the PR should contain the keywords "fixes #nnn" (or another of the [GitHub keywords](https://docs.github.com/en/enterprise/2.21/user/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)) where nnn is the issue number. This automatically closes the issue when the PR is merged.
+- The title or description of the PR should contain the keywords "fixes #nnn" (or another of the [GitHub keywords](https://docs.github.com/en/enterprise/2.21/user/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)) where nnn is the issue number. This automatically closes the related issue(s) when the PR is merged.
   - Example: "Correct cardinality restriction on class gist:Room. Fixes #98."
   - Note that if the PR fixes multiple issues, each issue number must be prefixed by the keyword. E.g., "Fixes #98, fixes #102", rather than "Fixes #98, #102" or "Fixes #98 and #102".
 - The PR should include an update to the release notes, except in the rare cases where there is no user-facing change.
@@ -128,7 +128,7 @@ Release notes gist 9.4.0
   - Minor: two reviewers
   - Patch: one reviewer
 - You should assign exactly this number, or at most one more. If too many reviewers are assigned the result can be confusion.
-- Many issues are general enough to be reviewed by any Semantic Arts ontologist; some may require specific expertise. Use your judgement. This might be the time to use the "at most one more" prerogative.
+- Many issues are general enough to be reviewed by any ontologist; some may require specific expertise. Use your judgement. This might be the time to use the "at most one more" prerogative.
 - Reviewers must be internal to Semantic Arts.
 - As well as designating reviewers, you should assign the PR &mdash; but not the issue &mdash; to the reviewers. This makes the assignee visible on the project board so it is clear who is currently responsible for moving the PR forward.
 
@@ -138,15 +138,15 @@ Release notes gist 9.4.0
   - The criteria of atomicity and completeness are not met.
   - The implementation deviates from that agreed upon during the internal review.
   - The release notes have been updated.
-- A reviewer should assign the PR to the same release project as the issue it addresses if that has not been done when the PR was submitted.
+- A reviewer should assign the PR to the same release project as the issue(s) it addresses if that has not been done when the PR was submitted.
 - If changes are requested, reassign the PR to the original implementer so it is clear who is responsible for the next action.
 - When you correct your PR based on reviewer comments, and commit these changes, they automaticallly get added to the existing PR, so you should not create another PR.
-- If a reviewer does not deem him/herself qualified to review the issue, he/she should reassign it to another reviewer.
+- If a reviewer does not deem him/herself qualified to review the PR, he/she should reassign it to another reviewer.
 
 ### Merging the PR
 
 - Some ontologists are repository admins with permission to merge to the "develop" branch. If your reviewer is not one of these, he/she will re-assign the PR to one of them after approving it for merge.
   - If you are merging from a working sub-branch into a main development branch other than develop, others may be able to perform the merge, depending on how the  branch rules are configured.
 - Squash merges will not be used; however, the admin may choose to perform a rebase on the branch being merged in order to clean up the commit history.
-- The GitHub project board is configured to automatically move a merged PR and its associated issue to the Done column.
+- The GitHub project board is configured to automatically move a merged PR and its associated issue(s) to the Done column.
 - The repository is configured to automatically delete the implementation branch from the remote; those with local copies of this branch should delete them locally.
