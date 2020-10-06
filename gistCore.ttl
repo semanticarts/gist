@@ -3805,7 +3805,8 @@ gist:toAgent
 			gist:Person
 		) ;
 	] ;
-	skos:definition 'Comment: this is not the inverse of fromAgent. A message can be from someone. If we made it the inverse the person would be "to" the message'^^xsd:string ;
+	skos:definition "Indicates to whom (e.g. a message or shipment) is destined for."^^xsd:string ; 
+	skos:scopeNote 'This is not the inverse of fromAgent. A message can be from someone. If we made it the inverse the person would be "to" the message'^^xsd:string ;
 	skos:prefLabel "To Agent"^^xsd:string ;
 	.
 
