@@ -8,7 +8,7 @@ Release X.x.x
 
 - `rdfs:label` was replaced with `skos:prefLabel`
 - `rdfs:comment` was replaced with one of `skos:definition`, `skos:example`, `skos:scopeNote` or `skos:altLabel`
-- Backward compatibility is retained because we also publish an auto-generated version of the skos annotations in the file: rdfsAnnotations.ttl.  The diffferent skos annotations are distinguished by a suitable prefix to the `rdfs:comment`. One of: 'ALT: ' 'DEFINITION: ' , 'EXAMPLE: ', 'NOTE: '
+- Backward compatibility is retained because we also publish an auto-generated version of the skos annotations in the file: rdfsAnnotations.ttl.  The diffferent skos annotations are distinguished by a suitable prefix to the `rdfs:comment`. One of: 'ALT: ', 'DEFINITION: ', 'EXAMPLE: ', 'NOTE: '
 
 ### Patch Updates
 

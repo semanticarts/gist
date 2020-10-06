@@ -335,13 +335,13 @@ gist:CoherentUnit
 	] ;
 	skos:definition "A unit that is expressed in units that have no conversions.  It may be a simple unit.  It may also be a product or ratio unit that bottoms out in simple units."^^xsd:string ;
 	skos:example
-		"a simple unit: kilogram"^^xsd:string ,
-		"the standard unit for acceleration is meters per square second (feet per square second  requires a conversion)"^^xsd:string
+		"A simple unit: kilogram"^^xsd:string ,
+		"The standard unit for acceleration is meters per square second (feet per square second  requires a conversion)"^^xsd:string
 		;
 	skos:prefLabel "Coherent Unit"^^xsd:string ;
 	skos:scopeNote
-		"coherent unit is the physics term for this, informally you might think of it as the standard unit for a given dimension."^^xsd:string ,
-		"in principle, the CoherentUnit for a ProductUnit or RatioUnit can be inferred by recursively decomposing the products and ratios into their respective CoherentUnits, bottoming out in SimpleUnits"^^xsd:string
+		"Coherent unit is the physics term for this, informally you might think of it as the standard unit for a given dimension."^^xsd:string ,
+		"In principle, the CoherentUnit for a ProductUnit or RatioUnit can be inferred by recursively decomposing the products and ratios into their respective CoherentUnits, bottoming out in SimpleUnits"^^xsd:string
 		;
 	.
 
@@ -536,7 +536,7 @@ gist:Contract
 			]
 		) ;
 	] ;
-	skos:definition "an Agreement which can be enforced by law"^^xsd:string ;
+	skos:definition "An Agreement which can be enforced by law"^^xsd:string ;
 	skos:prefLabel "Contract"^^xsd:string ;
 	.
 
@@ -783,8 +783,9 @@ gist:Duration
 		) ;
 	] ;
 	skos:definition "Time, but not on a timeline."^^xsd:string ;
-	skos:example "One week (or seven days), but not Jan 1, 2008 to Jan 7, 2008 (which is an interval). Intervals have durations, but are not themselves durations."^^xsd:string ;
+	skos:example "One week (or seven days), but not Jan 1, 2008 to Jan 7, 2008 (which is an interval)."^^xsd:string ;
 	skos:prefLabel "Duration"^^xsd:string ;
+	skos:scopeNote "Intervals have durations, but are not themselves durations."^^xsd:string ; 
 	.
 
 gist:DurationUnit
@@ -961,7 +962,7 @@ gist:GeneralMediaType
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
 	skos:definition "The real-world media type for content."^^xsd:string ;
-	skos:example "audio, still image, video, textual, physical (e.g., a statue), or performance (i.e. a play).  Or it could be oil or pastel for a painting."^^xsd:string ;
+	skos:example "Audio, still image, video, textual, physical (e.g., a statue), or performance (i.e. a play).  Or it could be oil or pastel for a painting."^^xsd:string ;
 	skos:prefLabel "General Media Type"^^xsd:string ;
 	.
 
@@ -1640,13 +1641,13 @@ gist:Network
 
 gist:NetworkLink
 	a owl:Class ;
-	skos:definition "a link in a network.  This is the abstraction of the network.  The physical instantiation couple be pipes, or wire  but may also be non physical such as wireless networks or organization structures"^^xsd:string ;
+	skos:definition "A link in a network.  This is the abstraction of the network.  The physical instantiation couple be pipes, or wire  but may also be non physical such as wireless networks or organization structures"^^xsd:string ;
 	skos:prefLabel "Network Link"^^xsd:string ;
 	.
 
 gist:NetworkNode
 	a owl:Class ;
-	skos:definition "a node in a network.  Note the network is the abstract representation of the network.  It is physically instantiated with equipment, or in some cases People."^^xsd:string ;
+	skos:definition "A node in a network.  Note the network is the abstract representation of the network.  It is physically instantiated with equipment, or in some cases People."^^xsd:string ;
 	skos:prefLabel "Network Node"^^xsd:string ;
 	.
 
@@ -1975,7 +1976,7 @@ gist:PostalAddress
 	a owl:Class ;
 	rdfs:subClassOf gist:Address ;
 	skos:definition "A set of codes the postal authorities can use to deliver physical mail."^^xsd:string ;
-	skos:example "a street address, a PO Box, an FPO code, or the route codes."^^xsd:string ;
+	skos:example "A street address, a PO Box, an FPO code, or the route codes."^^xsd:string ;
 	skos:prefLabel "Postal Address"^^xsd:string ;
 	.
 
@@ -2843,7 +2844,7 @@ gist:affectedBy
 
 gist:affects
 	a owl:ObjectProperty ;
-	skos:definition "the subject has or had or will have an effect on the object"^^xsd:string ;
+	skos:definition "The subject has or had or will have an effect on the object"^^xsd:string ;
 	skos:prefLabel "Affects"^^xsd:string ;
 	.
 
@@ -2878,7 +2879,7 @@ gist:aspectOf
 gist:basedOn
 	a owl:ObjectProperty ;
 	owl:inverseOf gist:basisFor ;
-	skos:definition "pointer to the thing something was derived from"^^xsd:string ;
+	skos:definition "Pointer to the thing something was derived from"^^xsd:string ;
 	skos:prefLabel "Based On"^^xsd:string ;
 	.
 
@@ -3043,7 +3044,7 @@ gist:epoch
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:TimeInstant ;
 	rdfs:range xsd:double ;
-	skos:definition "seconds since 1/1/1970 UTC (unix time )"^^xsd:string ;
+	skos:definition "Seconds since 1/1/1970 UTC (unix time )"^^xsd:string ;
 	skos:prefLabel "Epoch"^^xsd:string ;
 	.
 
@@ -3070,7 +3071,7 @@ gist:fromAgent
 gist:fromPlace
 	a owl:ObjectProperty ;
 	rdfs:range gist:Place ;
-	skos:definition "origin"^^xsd:string ;
+	skos:definition "Origin"^^xsd:string ;
 	skos:prefLabel "From Place"^^xsd:string ;
 	.
 
@@ -3095,7 +3096,7 @@ gist:geoContains
 gist:geoDirectlyContainedIn
 	a owl:ObjectProperty ;
 	owl:inverseOf gist:geoDirectlyContains ;
-	skos:definition "the neighborhood is in the city"^^xsd:string ;
+	skos:definition "The neighborhood is in the city"^^xsd:string ;
 	skos:prefLabel "Geo Directly Contained In"^^xsd:string ;
 	.
 
@@ -3109,7 +3110,7 @@ gist:geoDirectlyContains
 gist:geoOccupiedBy
 	a owl:ObjectProperty ;
 	owl:inverseOf gist:geoOccupies ;
-	skos:definition "what is in the location"^^xsd:string ;
+	skos:definition "What is in the location"^^xsd:string ;
 	skos:prefLabel "Geo Occupied By"^^xsd:string ;
 	.
 
@@ -3192,7 +3193,7 @@ gist:hasBaseUnit
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range gist:BaseUnit ;
 	skos:definition "Relates a UnitOfMeasure to its BaseUnit.  This indicates what kind of Unit something is."^^xsd:string ;
-	skos:example "saying that a furlong hasBaseUnit  meter says it is a DistanceUnit."^^xsd:string ;
+	skos:example "Saying that a furlong hasBaseUnit  meter says it is a DistanceUnit."^^xsd:string ;
 	skos:prefLabel "Has Base Unit"^^xsd:string ;
 	.
 
@@ -3277,7 +3278,7 @@ gist:hasIncumbent
 
 gist:hasJurisdiction
 	a owl:ObjectProperty ;
-	skos:definition "when laws and contracts are meted out"^^xsd:string ;
+	skos:definition "When laws and contracts are meted out"^^xsd:string ;
 	skos:prefLabel "Has Jurisdiction"^^xsd:string ;
 	.
 
@@ -3480,7 +3481,7 @@ gist:latitude
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:GeoPoint ;
 	rdfs:range xsd:double ;
-	skos:definition "degrees above or below equator"^^xsd:string ;
+	skos:definition "Degrees above or below equator"^^xsd:string ;
 	skos:prefLabel "Latitude"^^xsd:string ;
 	.
 
@@ -3518,7 +3519,7 @@ gist:longitude
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:GeoPoint ;
 	rdfs:range xsd:double ;
-	skos:definition "degrees from GM"^^xsd:string ;
+	skos:definition "Degrees from GM"^^xsd:string ;
 	skos:prefLabel "Longitude"^^xsd:string ;
 	.
 
@@ -3526,7 +3527,7 @@ gist:madeUpOf
 	a owl:ObjectProperty ;
 	rdfs:range gist:PhysicalSubstance ;
 	skos:definition "Relates something to the the substance that it is made up of."^^xsd:string ;
-	skos:example "the vase is made up of clay"^^xsd:string ;
+	skos:example "The vase is made up of clay"^^xsd:string ;
 	skos:prefLabel "Made Up Of"^^xsd:string ;
 	.
 
@@ -3562,7 +3563,7 @@ gist:name
 
 gist:networkConnection
 	a owl:ObjectProperty ;
-	skos:definition "abstract connection for when connections are undirected"^^xsd:string ;
+	skos:definition "Abstract connection for when connections are undirected"^^xsd:string ;
 	skos:prefLabel "Network Connection"^^xsd:string ;
 	.
 
@@ -3697,7 +3698,7 @@ gist:prevents
 gist:produces
 	a owl:ObjectProperty ;
 	skos:definition "The subject creates the object."^^xsd:string ;
-	skos:example "a task produces a deliverable."^^xsd:string ;
+	skos:example "A task produces a deliverable."^^xsd:string ;
 	skos:prefLabel "Produces"^^xsd:string ;
 	.
 
@@ -3817,7 +3818,7 @@ gist:toPlace
 
 gist:triggeredBy
 	a owl:ObjectProperty ;
-	skos:definition "general causal relation.  For obligations a property that describes what would happen to trigger the contingent obligation.  In most cases, before the Contingent becomes an Obligation, the triggered by event is a planned event (that is it hasn't happened yet -- if it had happened the contingency would no longer be contingent.  In most cases it will be  a ContingentEvent .  Other uses include controls, processes etc"^^xsd:string ;
+	skos:definition "General causal relation.  For obligations a property that describes what would happen to trigger the contingent obligation.  In most cases, before the Contingent becomes an Obligation, the triggered by event is a planned event (that is it hasn't happened yet -- if it had happened the contingency would no longer be contingent.  In most cases it will be  a ContingentEvent .  Other uses include controls, processes etc"^^xsd:string ;
 	skos:prefLabel "Triggered By"^^xsd:string ;
 	.
 
