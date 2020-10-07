@@ -56,12 +56,12 @@ Submitting an Issue
 Implementation
 -----
 
-Note: The following instructions reference two git branches: the working branch, which is the one you create for your development work, and the main development branch, which is the branch that your working branch is cut from and will be merged back into. In the majority of cases the latter is the default "develop" branch, but there are instances, described below, where it is not, so the term "main development branch" is used instead.
+Note: The following instructions describe direct interactions between two git branches: the working (child) branch, which is the one you create for your work, and the development (parent) branch, which is the branch that your working branch is cut from and will eventually be merged back into. In the default case, the parent branch is the branch conventionally named "develop", but there are scenarios, described below, where it is not, so the neutral terms "parent" and "child" will be used instead. The branch where an individual does his/her work is also referred to as the "working" branch, which might be a child or a grandchild of develop.
 
 ### Working Branch
 
-- The first step is to create a new working branch from the main development branch for your work: e.g., `feature/document_submission_guidelines` or `bugfix/fix_typo_in_Address_definition`. This branch will not be preserved after the work is merged into the main branch, so tits name does not have to be particularly specific or detailed.
-- For a large project implemented by more than one person, a main development branch is cut from develop, and each developer then cuts a working branch off of this main branch. This is the case where merges will be between the working branches and the main development branch, rather than directly to "develop". Once all sub-branches have been merged into this main development branch, a PR will be created to merge the main branch back to develop.
+- The first step is to create a child branch from the parent branch for your work: e.g., `feature/document_submission_guidelines` or `bugfix/fix_typo_in_Address_definition`. This branch will not be preserved after the work is merged into the parent, so its name does not have to be particularly specific, accurate, or detailed. Some developers like to add the issue number to the new branch.
+- For a large project implemented by more than one person, a child is cut from develop, and each developer then cuts their own working branch off of this child (thus the grandchild of develop). This is the case where merges will first take place between the grandchild working branches into the child branch, rather than directly to "develop". Once all individual working branches have been merged into the child branch, a PR will be created to merge this child back to the parent (develop).
   - Another scenario is that all developers work from a single working branch cut from develop. This is not the preferred approach because it makes coordination and tracking more difficult.
 
 ### Style Guide
@@ -73,8 +73,8 @@ Note: The following instructions reference two git branches: the working branch,
 
 - If you are working on a project that will require more than one commit, you should commit to your branch regularly to create logical checkpoints that can be restored if necessary. Each commit should be atomic for ease of rollback or reversion. Ideally, you finish working on one sub-task and commit it before taking up another.
 - However, it is possible to go overboard and commit every little change independently. This creates clutter in the repository history.
-- As you work, it is _essential_ that you merge regularly from the main development branch back into your working branch. This ensures that, when it comes time to merge your work into the main branch, you will have resolved any merge conflicts with a minimum of difficulty. Note that your PR cannot be merged to the main branch until all merge conflicts are resolved.
-- If you are working with other developers on the same working branch, you should, along the same lines, push your changes to that branch and pull theirs regularly to reduce the likelihood of conflicts. (However, the more likely scenario is that each developer will have his/her own sub-branch, as described above in [Working Branch](#working-branch).)
+- As you work, it is _essential_ that you merge regularly from the parent branch back into your child branch. This ensures that, when it comes time to merge your work into the parent branch, you will have resolved any merge conflicts with a minimum of difficulty. Note that your PR cannot be merged to the parent until all merge conflicts are resolved.
+- If you are working with other developers on the same child branch, you should, along the same lines, push your changes to that branch and pull theirs regularly to reduce the likelihood of conflicts. (However, the preferred scenario is that each developer will have his/her own sub-branch, as described above in [Working Branch](#working-branch).)
 - The commit message should be clear enough so that someone can get a basic understanding of the commit without looking at the actual changes in the files.
   - Examples:
     - YES: "Fix typo in definition of gist:Address."
@@ -85,12 +85,12 @@ Pull Requests
 
 ### Creating the Pull Request (PR)
 
-- Once your work is ready to be merged into the main development branch, you will create a pull request (PR).
-- Before submitting the PR, you should ensure that you have run the serializer and merged from the main development branch into your working branch, as above [during implementation](#commits-pushes-and-merges).
-- Submit the PR to the main development branch.
+- Once your work is ready to be merged into the parent branch, you will create a pull request (PR).
+- Before submitting the PR, you should ensure that you have (a) run the serializer and (b) merged the parent branch into your child branch, as above [during implementation](#commits-pushes-and-merges).
+- Submit the PR to the parent branch.
 - If the issue(s) addressed by the PR is(are) slated for a particular release, assign the PR to the same release project, using the Project labels on the right sidebar, in order to facilitate release management.
 - Assign one or more reviewers, as specified [below](#assigning-reviewers).
-- You should _not_ delete your working branch, either locally or on the remote, at this point. If reviewers request changes to the PR, these should be made on the same branch for automatic updating of the PR.
+- You should _not_ delete your child branch, either locally or on the remote, at this point. If reviewers request changes to the PR, these should be made on the same branch for automatic updating of the PR.
 
 ### Contents of the PR
 
@@ -127,9 +127,9 @@ Release notes gist 9.4.0
   - Major: three reviewers
   - Minor: two reviewers
   - Patch: one reviewer
-- You should assign exactly this number, or at most one more. If too many reviewers are assigned the result can be confusion.
-- Many issues are general enough to be reviewed by any ontologist; some may require specific expertise. Use your judgement. This might be the time to use the "at most one more" prerogative.
+- You should assign exactly this number, or at most one more. Assigning too many reviewers can cause confusion.
 - Reviewers must be internal to Semantic Arts.
+- Many issues are general enough to be reviewed by any ontologist; some may require specific expertise. Use your judgement. This might be the time to use the "at most one more" prerogative.
 - As well as designating reviewers, you should assign the PR &mdash; but not the issue &mdash; to the reviewers. This makes the assignee visible on the project board so it is clear who is currently responsible for moving the PR forward.
 
 ### Review Process
@@ -146,7 +146,7 @@ Release notes gist 9.4.0
 ### Merging the PR
 
 - Some ontologists are repository admins with permission to merge to the "develop" branch. If your reviewer is not one of these, he/she will re-assign the PR to one of them after approving it for merge.
-  - If you are merging from a working sub-branch into a main development branch other than develop, others may be able to perform the merge, depending on how the  branch rules are configured.
+  - If you are merging from a child branch into a parent branch other than develop, others may be able to perform the merge, depending on how the  branch rules are configured.
 - Squash merges will not be used; however, the admin may choose to perform a rebase on the branch being merged in order to clean up the commit history.
 - The GitHub project board is configured to automatically move a merged PR and its associated issue(s) to the Done column.
 - The repository is configured to automatically delete the implementation branch from the remote; those with local copies of this branch should delete them locally.
