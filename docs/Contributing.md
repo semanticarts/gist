@@ -63,13 +63,13 @@ Implementation
 ### Style Guide
 
 - Ontologists should consult the emerging [_gist Style Guide_](gistStyleGuide.md) during implementation.
-- The serializer tool should be run before each commit in order to standardize formatting and eliminate noise in git diffs. See [_gist Style Guide_](gistStyleGuide.md) for details. 
+- The serializer tool should be run before each commit in order to standardize formatting and eliminate noise in git diffs. See [_gist Style Guide_](gistStyleGuide.md) for details.
 
 ### Commits, Pushes, and Merges
 
 - If you are working on a project that will require more than one commit, you should commit to your working branch regularly to create logical checkpoints that can be restored if necessary. Each commit should be atomic for ease of rollback or reversion. Ideally, you finish working on one sub-task and commit it before taking up another.
 - However, it is possible to go overboard and commit every little change independently. This creates clutter in the repository history.
-- As you work, it is _essential_ that you merge regularly from develop back into your working branch. This ensures that, when it comes time to merge your work into develop, you will have resolved any merge conflicts with a minimum of difficulty. Note that your PR cannot be merged to develop until all merge conflicts are resolved.
+- As you work, it is _essential_ that you merge regularly - e.g., daily - from develop back into your working branch. This ensures that, when it comes time to merge your work into develop, you will have resolved any merge conflicts with a minimum of difficulty. Note that your PR cannot be merged to develop until all merge conflicts are resolved.
 - The commit message should be clear enough so that someone can get a basic understanding of the commit without looking at the actual changes in the files.
   - Examples:
     - YES: "Fix typo in definition of gist:Address."
@@ -81,7 +81,7 @@ Pull Requests
 ### Creating the Pull Request (PR)
 
 - Once your work is ready to be merged into develop, you will create a pull request (PR).
-- Before submitting the PR, you should ensure that you have (a) run the serializer and (b) merged develop into your working branch, as above [during implementation](#commits-pushes-and-merges).
+- Before submitting the PR, you should ensure that you have (a) merged develop into your working branch, as above [during implementation](#commits-pushes-and-merges), and (b) run the serializer. The latter _should_ be unnecessary, since the serializer should have been run before every commit, but running it again protects against having forgotten at some point.
 - Submit the PR to develop.
 - If the issue(s) addressed by the PR is(are) slated for a particular release, assign the PR to the same release project, using the Project labels on the right sidebar, in order to facilitate release management.
 - Assign one or more reviewers, as specified [below](#assigning-reviewers).
