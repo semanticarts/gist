@@ -19,8 +19,9 @@ Serialization
 
 - gist OWL files are serialized in RDF Turtle
 - The [EDM Council's RDF serialization tool, rdf-toolkit.jar,](https://github.com/edmcouncil/rdf-toolkit) should be run before every commit in order to standardize formatting and eliminate noise in git diffs.
-- It is recommended to run this as a [pre-commit hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) in your git repository to ensure that it is done every time. You can use the [pre-commit hook provided by the EDM Council] (<https://github.com/edmcouncil/rdf-toolkit/blob/master/etc/git-hook/pre-commit).>
-  - Forthcoming: Information on an alternative pre-commit hook
+- It is recommended to run this as a [pre-commit hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) in your git repository to ensure that it is done every time.
+  In order to use the standard settings, copy the provided `pre-commit` script from the `tools/` directory in the repository to `.git/hooks/` after the repository is cloned.
+  This script will only format RDF files, ignoring all others.
 
 Naming
 -----
