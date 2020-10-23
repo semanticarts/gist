@@ -69,10 +69,10 @@ function findJava() {
   local java_major=$1
   local java_minor=$2
 
-  if [ $java_major -eq 1 -a $java_minor -gt 7 ] ; then
+  if [ \( $java_major -eq 1 -a $java_minor -gt 7 \) -o $java_major -gt 7 ] ; then
   	:
   else
-    log_error "You are using Java $java_major.$java_minor whereas the Sesame serializer requires Java 1.7 or higher"
+    log_error "You are using Java $java_major.$java_minor whereas the Sesame serializer requires Java 7 or higher"
     return 2
   fi
 
