@@ -6,6 +6,12 @@ Release X.x.x [ Release manager: update version number here and below in import 
 
 ### Patch Updates
 
+*Deprecate gist:geoDirectlyContains and gist:geoDirectlyContainedIn*
+
+- Description: Deprecated gist:geoDirectlyContains and gist:geoDirectlyContainedIn object properties
+- Rationale: "Direct containment" in the geographic realm is problematic.  You can always define/insert an intermediate Geo Region between two existing Geo Regions where one contains the other.  When we fully remove these, it will be a major change. 
+- Issue(s): https://github.com/semanticarts/gist/issues/328
+
 *Modified build to create JSON-LD ontology files with `.jsonld` extension.*
 
 - Description: JSON-LD files were erroneously created with `.json` extension.
