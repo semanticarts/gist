@@ -18,6 +18,12 @@ Release X.x.x [ Release manager: update version number here and below in import 
 - Rationale: Add clarifications and corrections.
 - Issue: [#382](https://github.com/semanticarts/gist/issues/382).
 
+*Added standard pre-commit hook*
+
+- Description: Added a standard `pre-commit` hook which applies uniform formatting to RDF files using `tools/rdf-toolkit.jar`.
+- Rationale: Minimizes formatting noise on diffs.
+- Issue: [#228](https://github.com/semanticarts/gist/issues/228).
+
 Import URL: <https://ontologies.semanticarts.com/o/gistCoreX.x.x>.
 
 Release 9.4.0
