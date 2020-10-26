@@ -1,7 +1,8 @@
 gist Release Notes
 =====
 
-Release X.x.x
+Release X.x.x [ Release manager: update version number here and below in import URL]
+
 -----
 ### Minor Updates
 *Converted rdfs annotations to skos annotations*
@@ -16,7 +17,21 @@ Release X.x.x
 
 - Description: JSON-LD files were erroneously created with `.json` extension.
 - Rationale: The correct extension for the `application/ld+json` MIME type is `.jsonld`.
-- Issues: [#365](https://github.com/semanticarts/gist/issues/365).
+- Issue: [#365](https://github.com/semanticarts/gist/issues/365).
+
+*Updated documentation on contributing to gist*
+
+- Description: Miscellaneous updates to `Contributing.md`.
+- Rationale: Add clarifications and corrections.
+- Issue: [#382](https://github.com/semanticarts/gist/issues/382).
+
+*Added standard pre-commit hook*
+
+- Description: Added a standard `pre-commit` hook which applies uniform formatting to RDF files using `tools/rdf-toolkit.jar`.
+- Rationale: Minimizes formatting noise on diffs.
+- Issue: [#228](https://github.com/semanticarts/gist/issues/228).
+
+Import URL: <https://ontologies.semanticarts.com/o/gistCoreX.x.x>.
 
 Release 9.4.0
 -----
