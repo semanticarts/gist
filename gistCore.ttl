@@ -1364,7 +1364,7 @@ gist:LivingThing
 	skos:definition "Something that is now, or at some point in time was, alive and growing."^^xsd:string ;
 	skos:example
 		"A cat, a mushroom, a tree."^^xsd:string ,
-		"Negative examples:fictional life forms such as Unicorns or Mickey Mouse."^^xsd:string
+		"Negative examples: fictional life forms such as Unicorns or Mickey Mouse."^^xsd:string
 		;
 	skos:prefLabel "Living Thing"^^xsd:string ;
 	skos:scopeNote "In the open world, you must assume that it might have since died."^^xsd:string ;
@@ -2532,7 +2532,7 @@ gist:TimeInstant
 		]
 		;
 	owl:disjointWith gist:UnitOfMeasure ;
-	skos:definition "In gistTop all time instants are Greenwich and the local equal universal.  In gistTime we introduce local time zones"^^xsd:string ;
+	skos:definition "All time instants are Greenwich and the local equal universal."^^xsd:string ;
 	skos:example "A literal instant (as in 12:01.0001 January 1, 2008), or a broader but still single point in time (January 1, 2008). In the latter case, we are declaring a time instant to be an interval with no duration (or really a duration only equal to its precision)."^^xsd:string ;
 	skos:prefLabel "Time Instant"^^xsd:string ;
 	skos:scopeNote "Our identity criteria require that something refers to each Time Instant instance."^^xsd:string ;
