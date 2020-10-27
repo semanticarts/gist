@@ -6,6 +6,13 @@ Release X.x.x [ Release manager: update version number here and below in import 
 
 ### Patch Updates
 
+*Removed `gist:Address` from range of `gist:toAgent` and `gist:fromAgent`
+
+- Description: Removed `gist:Address` from range of `gist:toAgent` and `gist:fromAgent` and from the union `owl:someValuesFrom` restrictions in `gist:Message`.
+- Rationale: Bug fix; it makes no sense to consider a `gist:Address`, which is a type of `gist:Content`, as an agent.
+- Impact: Changes inferences based on previous ranges of these properties (i.e., an object of the property may no longer be a `gist:Address`, as in previous versions), but considered a bug fix and therefore a patch change.
+- Issue: - Issue: [#391](https://github.com/semanticarts/gist/issues/391).
+
 *Modified build to create JSON-LD ontology files with `.jsonld` extension.*
 
 - Description: JSON-LD files were erroneously created with `.json` extension.
