@@ -1546,12 +1546,12 @@ gist:Message
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:fromAgent ;
-				owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom owl:Thing ;
 			]
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:toAgent ;
-				owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom owl:Thing ;
 			]
 		) ;
 	] ;
