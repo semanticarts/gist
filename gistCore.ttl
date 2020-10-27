@@ -1546,12 +1546,24 @@ gist:Message
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:fromAgent ;
-				owl:someValuesFrom owl:Thing ;
+				owl:someValuesFrom [
+					a owl:Class ;
+					owl:unionOf (
+						gist:Person
+						gist:Organization
+					) ;
+				] ;
 			]
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:toAgent ;
-				owl:someValuesFrom owl:Thing ;
+				owl:someValuesFrom [
+					a owl:Class ;
+					owl:unionOf (
+						gist:Person
+						gist:Organization
+					) ;
+				] ;
 			]
 		) ;
 	] ;
