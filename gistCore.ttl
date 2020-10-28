@@ -1549,9 +1549,8 @@ gist:Message
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
-						gist:Address
-						gist:Organization
 						gist:Person
+						gist:Organization
 					) ;
 				] ;
 			]
@@ -1561,9 +1560,8 @@ gist:Message
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
-						gist:Address
-						gist:Organization
 						gist:Person
+						gist:Organization
 					) ;
 				] ;
 			]
@@ -3102,7 +3100,6 @@ gist:fromAgent
 	rdfs:range [
 		a owl:Class ;
 		owl:unionOf (
-			gist:Address
 			gist:Organization
 			gist:Person
 		) ;
@@ -3855,7 +3852,6 @@ gist:toAgent
 	rdfs:range [
 		a owl:Class ;
 		owl:unionOf (
-			gist:Address
 			gist:Organization
 			gist:Person
 		) ;
