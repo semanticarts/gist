@@ -12,6 +12,13 @@ Release X.x.x [ Release manager: update version number here and below in import 
 - Rationale: "Direct containment" in the geographic realm is problematic.  You can always define/insert an intermediate Geo Region between two existing Geo Regions where one contains the other.  When we fully remove these, it will be a major change. 
 - Issue(s): https://github.com/semanticarts/gist/issues/328
 
+*Removed `gist:Address` from range of `gist:toAgent` and `gist:fromAgent`
+
+- Description: Removed `gist:Address` from range of `gist:toAgent` and `gist:fromAgent` and from the union `owl:someValuesFrom` restrictions in `gist:Message`.
+- Rationale: Bug fix; it makes no sense to consider a `gist:Address`, which is a type of `gist:Content`, as an agent.
+- Impact: Changes inferences based on previous ranges of these properties (i.e., an object of the property may no longer be a `gist:Address`, as in previous versions), but considered a bug fix and therefore a patch change.
+- Issue: - Issue: [#391](https://github.com/semanticarts/gist/issues/391).
+
 *Modified build to create JSON-LD ontology files with `.jsonld` extension.*
 
 - Description: JSON-LD files were erroneously created with `.json` extension.
@@ -23,6 +30,12 @@ Release X.x.x [ Release manager: update version number here and below in import 
 - Description: Miscellaneous updates to `Contributing.md`.
 - Rationale: Add clarifications and corrections.
 - Issue: [#382](https://github.com/semanticarts/gist/issues/382).
+
+*Added standard pre-commit hook*
+
+- Description: Added a standard `pre-commit` hook which applies uniform formatting to RDF files using `tools/rdf-toolkit.jar`.
+- Rationale: Minimizes formatting noise on diffs.
+- Issue: [#228](https://github.com/semanticarts/gist/issues/228).
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCoreX.x.x>.
 
