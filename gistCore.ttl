@@ -3131,22 +3131,6 @@ gist:geoContains
 	rdfs:range gist:Place ;
 	.
 
-gist:geoDirectlyContainedIn
-	a owl:ObjectProperty ;
-	rdfs:label "Geo Directly Contained In"^^xsd:string ;
-	rdfs:comment "the neighborhood is in the city"^^xsd:string ;
-	owl:deprecated "true"^^xsd:boolean ;
-	owl:inverseOf gist:geoDirectlyContains ;
-	.
-
-gist:geoDirectlyContains
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:geoContains ;
-	rdfs:label "Geo Directly Contains"^^xsd:string ;
-	rdfs:comment "The subject geospatially contains the object.  E.g. the area of a city contains the area of its neighborhoods"^^xsd:string ;
-	owl:deprecated "true"^^xsd:boolean ;
-	.
-
 gist:geoOccupiedBy
 	a owl:ObjectProperty ;
 	rdfs:label "Geo Occupied By"^^xsd:string ;
