@@ -1125,7 +1125,7 @@ gist:GeoVolume
 		owl:intersectionOf (
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:geoDirectlyContains ;
+				owl:onProperty gist:geoContains ;
 				owl:someValuesFrom gist:GeoPoint ;
 			]
 			[
@@ -3129,20 +3129,6 @@ gist:geoContains
 	rdfs:comment "Transitive version of geoDirectlyContains"^^xsd:string ;
 	rdfs:domain gist:Place ;
 	rdfs:range gist:Place ;
-	.
-
-gist:geoDirectlyContainedIn
-	a owl:ObjectProperty ;
-	rdfs:label "Geo Directly Contained In"^^xsd:string ;
-	rdfs:comment "the neighborhood is in the city"^^xsd:string ;
-	owl:inverseOf gist:geoDirectlyContains ;
-	.
-
-gist:geoDirectlyContains
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:geoContains ;
-	rdfs:label "Geo Directly Contains"^^xsd:string ;
-	rdfs:comment "The subject geospatially contains the object.  E.g. the area of a city contains the area of its neighborhoods"^^xsd:string ;
 	.
 
 gist:geoOccupiedBy

@@ -6,6 +6,12 @@ Release X.x.x [ Release manager: update version number here and below in import 
 
 ### Patch Updates
 
+*Deprecate gist:geoDirectlyContains and gist:geoDirectlyContainedIn*
+
+- Description: Deprecated gist:geoDirectlyContains and gist:geoDirectlyContainedIn object properties
+- Rationale: "Direct containment" in the geographic realm is problematic.  You can always define/insert an intermediate Geo Region between two existing Geo Regions where one contains the other.  When we fully remove these, it will be a major change. 
+- Issue(s): https://github.com/semanticarts/gist/issues/328
+
 *Removed `gist:Address` from range of `gist:toAgent` and `gist:fromAgent`
 
 - Description: Removed `gist:Address` from range of `gist:toAgent` and `gist:fromAgent` and from the union `owl:someValuesFrom` restrictions in `gist:Message`.
