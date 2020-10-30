@@ -1125,7 +1125,7 @@ gist:GeoVolume
 		owl:intersectionOf (
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:geoDirectlyContains ;
+				owl:onProperty gist:geoContains ;
 				owl:someValuesFrom gist:GeoPoint ;
 			]
 			[
