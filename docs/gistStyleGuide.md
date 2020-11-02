@@ -81,7 +81,7 @@ gist uses SKOS annotations rather than rdfs:label and rdfs:comment. The accepted
 *Use only rarely:*
 
 | Annotation | Comment |
-| ---------- |:-------------------:|:-------------------------:|
+| ---------- |:-------------------:|
 | `skos:changeNote` | Normally change notes are provided by the git history or version comparison. |
 | `skos:historyNote` | Normally change notes are provided by the git history or version comparison. |
 | `skos:note` | A more specific annotation is preferred. |
