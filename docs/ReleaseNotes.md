@@ -11,23 +11,24 @@ Release X.x.x [ Release manager: update version number here and below in import 
 - Description:
   - `rdfs:label` was replaced with `skos:prefLabel`.
   - `rdfs:comment` was replaced with one of `skos:definition`, `skos:example`, `skos:scopeNote` or `skos:altLabel`.
-  - The [gist Style Guide](gistStyleGuide) was updated accordingly.
 - Rationale: to align with emerging common practice, e.g. FIBO and Semantic Arts client work.
 - Impact: Backward compatibility is retained because we also publish an auto-generated version of the skos annotations in the file: rdfsAnnotations.ttl.  The diffferent skos annotations are distinguished by a suitable prefix to the `rdfs:comment`; one of: 'ALT: ', 'DEFINITION: ', 'EXAMPLE: ', 'NOTE: '.
-- Issue: [#351](https://github.com/semanticarts/gist/issues/351).
+- Issues: [#351](https://github.com/semanticarts/gist/issues/351), [#377](https://github.com/semanticarts/gist/issues/377).
 
-*Deprecate gist:geoDirectlyContains and gist:geoDirectlyContainedIn*
+*Deprecated `gist:geoDirectlyContains` and `gist:geoDirectlyContainedIn`*
 
-- Description: Deprecated gist:geoDirectlyContains and gist:geoDirectlyContainedIn object properties
+- Description: Deprecated `gist:geoDirectlyContains` and `gist:geoDirectlyContainedIn` object properties
 - Rationale: "Direct containment" in the geographic realm is problematic.  You can always define/insert an intermediate Geo Region between two existing Geo Regions where one contains the other.  When we fully remove these, it will be a major change.
-- Issue(s): <https://github.com/semanticarts/gist/issues/328>
+- Issue: [#328](https://github.com/semanticarts/gist/issues/328).
 
-*Removed `gist:Address` from range of `gist:toAgent` and `gist:fromAgent`
+*Removed `gist:Address` from range of `gist:toAgent` and `gist:fromAgent`*
 
 - Description: Removed `gist:Address` from range of `gist:toAgent` and `gist:fromAgent` and from the union `owl:someValuesFrom` restrictions in `gist:Message`.
 - Rationale: Bug fix; it makes no sense to consider a `gist:Address`, which is a type of `gist:Content`, as an agent.
 - Impact: Changes inferences based on previous ranges of these properties (i.e., an object of the property may no longer be a `gist:Address`, as in previous versions), but considered a bug fix and therefore a patch change.
-- Issue: - Issue: [#391](https://github.com/semanticarts/gist/issues/391).
+- Issue: [#391](https://github.com/semanticarts/gist/issues/391).
+
+### Patch Updates
 
 *Modified build to create JSON-LD ontology files with `.jsonld` extension.*
 
