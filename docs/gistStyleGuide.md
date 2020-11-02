@@ -90,7 +90,7 @@ gist uses SKOS annotations rather than rdfs:label and rdfs:comment. The accepted
 | Annotation | Replaced by |
 |------------:|:-----------:|
 | `rdfs:label` | `skos:prefLabel` |
-| `rdfs:comment` | All other annotations |
+| `rdfs:comment` | All other annotations, especially `skos:scopeNote` and `skos:example` |
 
 #### Rationale
 
