@@ -11,6 +11,7 @@ Release X.x.x [ Release manager: update version number here and below in import 
 - Description:
   - `rdfs:label` was replaced with `skos:prefLabel`.
   - `rdfs:comment` was replaced with one of `skos:definition`, `skos:example`, `skos:scopeNote` or `skos:altLabel`.
+  - The [gist Style Guide](gistStyleGuide) was updated accordingly.
 - Rationale: to align with emerging common practice, e.g. FIBO and Semantic Arts client work.
 - Impact: Backward compatibility is retained because we also publish an auto-generated version of the skos annotations in the file: rdfsAnnotations.ttl.  The diffferent skos annotations are distinguished by a suitable prefix to the `rdfs:comment`; one of: 'ALT: ', 'DEFINITION: ', 'EXAMPLE: ', 'NOTE: '.
 - Issue: [#351](https://github.com/semanticarts/gist/issues/351).
