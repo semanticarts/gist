@@ -1,6 +1,3 @@
-# baseURI: https://ontologies.semanticarts.com/o/gistCore
-
-@base <https://ontologies.semanticarts.com/o/gistCore> .
 @prefix gist: <https://ontologies.semanticarts.com/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -785,7 +782,7 @@ gist:Duration
 	skos:definition "Time, but not on a timeline."^^xsd:string ;
 	skos:example "One week (or seven days), but not Jan 1, 2008 to Jan 7, 2008 (which is an interval)."^^xsd:string ;
 	skos:prefLabel "Duration"^^xsd:string ;
-	skos:scopeNote "Intervals have durations, but are not themselves durations."^^xsd:string ; 
+	skos:scopeNote "Intervals have durations, but are not themselves durations."^^xsd:string ;
 	.
 
 gist:DurationUnit
@@ -2785,8 +2782,7 @@ gist:_second
 	a
 		owl:NamedIndividual ,
 		owl:Thing ,
-		gist:BaseUnit ,
-		gist:DurationUnit
+		gist:BaseUnit
 		;
 	gist:convertToBase "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
@@ -3787,9 +3783,9 @@ gist:toAgent
 			gist:Person
 		) ;
 	] ;
-	skos:definition "Indicates to whom (e.g. a message or shipment) is destined for."^^xsd:string ; 
-	skos:scopeNote 'This is not the inverse of fromAgent. A message can be from someone. If we made it the inverse the person would be "to" the message'^^xsd:string ;
+	skos:definition "Indicates to whom (e.g. a message or shipment) is destined for."^^xsd:string ;
 	skos:prefLabel "To Agent"^^xsd:string ;
+	skos:scopeNote 'This is not the inverse of fromAgent. A message can be from someone. If we made it the inverse the person would be "to" the message'^^xsd:string ;
 	.
 
 gist:toPlace
