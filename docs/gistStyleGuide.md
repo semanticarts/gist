@@ -63,6 +63,39 @@ Naming
 
 We adopt sentence over title case because the latter, while technically well-defined, has more complex rules and can introduce inconsistencies when implemented by different users.
 
+### Annotations
+
+gist uses SKOS annotations rather than rdfs:label and rdfs:comment. The accepted annotations, intended use, and previous usage replaced are shown in the following table. Refer to the [SKOS ontology](http://www.w3.org/2004/02/skos/core) for formal definitions.
+
+*Preferred:*
+
+| Annotation | Use | Replaces (if applicable ) |
+| ---------- |:-------------------:|:-------------------------:|
+| `skos:prefLabel` | Primary label | `rdfs:label` |
+| `skos:altLabel`  | Alternative label, where relevant |
+| `skos:definition` | Definition | `rdfs:comment` |
+| `skos:scopeNote` | Additional clarifying comments about the meaning or usage of a term. | `rdfs:comment` |
+| `skos:example`   | One or more examples  | `rdfs:comment` |
+| `skos:editorialNote` | Notes for future editors | `rdfs:comment` |
+
+*Use only rarely:*
+
+| Annotation | Comment |
+| ---------- |:-------------------:|:-------------------------:|
+| `skos:changeNote` | Normally change notes are provided by the git history or version comparison. |
+| `skos:historyNote` | Normally change notes are provided by the git history or version comparison. |
+| `skos:note` | A more specific annotation is preferred. |
+
+*Do not use:*
+| Annotation | Replaced by |
+|------------:|:-----------:|
+| `rdfs:label` | `skos:prefLabel` |
+| `rdfs:comment` | All other annotations |
+
+#### Rationale
+
+SKOS annotations allow a more fine-grained approach to human-readable documentation. This change also aligns with emerging common practice.
+
 Documentation
 -----
 
