@@ -4,13 +4,22 @@ gist Release Notes
 Release X.x.x [ Release manager: update version number here and below in import URL]
 -----
 
-### Patch Updates
+### Minor Updates
+
+*Converted rdfs annotations to skos annotations*
+
+- Description:
+  - `rdfs:label` was replaced with `skos:prefLabel`.
+  - `rdfs:comment` was replaced with one of `skos:definition`, `skos:example`, `skos:scopeNote` or `skos:altLabel`.
+- Rationale: to align with emerging common practice, e.g. FIBO and Semantic Arts client work.
+- Impact: Backward compatibility is retained because we also publish an auto-generated version of the skos annotations in the file: rdfsAnnotations.ttl.  The diffferent skos annotations are distinguished by a suitable prefix to the `rdfs:comment`; one of: 'ALT: ', 'DEFINITION: ', 'EXAMPLE: ', 'NOTE: '.
+- Issue: [#351](https://github.com/semanticarts/gist/issues/351).
 
 *Deprecate gist:geoDirectlyContains and gist:geoDirectlyContainedIn*
 
 - Description: Deprecated gist:geoDirectlyContains and gist:geoDirectlyContainedIn object properties
-- Rationale: "Direct containment" in the geographic realm is problematic.  You can always define/insert an intermediate Geo Region between two existing Geo Regions where one contains the other.  When we fully remove these, it will be a major change. 
-- Issue(s): https://github.com/semanticarts/gist/issues/328
+- Rationale: "Direct containment" in the geographic realm is problematic.  You can always define/insert an intermediate Geo Region between two existing Geo Regions where one contains the other.  When we fully remove these, it will be a major change.
+- Issue(s): <https://github.com/semanticarts/gist/issues/328>
 
 *Removed `gist:Address` from range of `gist:toAgent` and `gist:fromAgent`
 
@@ -22,7 +31,7 @@ Release X.x.x [ Release manager: update version number here and below in import 
 *Modified build to create JSON-LD ontology files with `.jsonld` extension.*
 
 - Description: JSON-LD files were erroneously created with `.json` extension.
-- Rationale: The correct extension for the `application/ld+json` MIME type is `.jsonld`.
+- Rationale: The correct extension for the `/ld+json` MIME type is `.jsonld`.
 - Issue: [#365](https://github.com/semanticarts/gist/issues/365).
 
 *Updated documentation on contributing to gist*
@@ -324,8 +333,8 @@ Release Notes gist 7.0
 gist 7.0 is a major upgrade from our last released version (6.7.1). The main differences are:
 
 - gist 7.0 is extremely modular. There are 18 modules that can be used collectively or in subsets if you don't need all the concepts in gist.
-- gist 7.0 is more elegant than its predecessors. We have reduced the number of top level concepts that everything else derives from to 12. And these 12 concepts are not philosophical abstractions like endurants and perdurants, or qualia, there are normal terms whose definitions   are quite close to what you already believe.
-- gist 7.0 has more extensive and more-fine grained disjointness at the highest level. It turns out that in order for an upper ontology to help you avoid making logical errors in your derived enterprise or application ontology, it needs to make use of disjointness. Without  disjointness, the reasoner does not find logic errors.
+- gist 7.0 is more elegant than its predecessors. We have reduced the number of top level concepts that everything else derives from to 12. And these 12 concepts are not philosophical abstractions like endurants and perdurants, or qualia, there are normal terms whose definitions are quite close to what you already believe.
+- gist 7.0 has more extensive and more-fine grained disjointness at the highest level. It turns out that in order for an upper ontology to help you avoid making logical errors in your derived enterprise or ontology, it needs to make use of disjointness. Without  disjointness, the reasoner does not find logic errors.
 
 For documentation and OWL files regarding terms that were deprecated when moving from version 6.7.1 to 7.0, please see the sub-folder called "Deprecated terms from gist6.7.1".
 
