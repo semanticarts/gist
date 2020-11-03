@@ -15,18 +15,20 @@ Release X.x.x [ Release manager: update version number here and below in import 
 - Impact: Backward compatibility is retained because we also publish an auto-generated version of the skos annotations in the file: rdfsAnnotations.ttl.  The diffferent skos annotations are distinguished by a suitable prefix to the `rdfs:comment`; one of: 'ALT: ', 'DEFINITION: ', 'EXAMPLE: ', 'NOTE: '.
 - Issue: [#351](https://github.com/semanticarts/gist/issues/351).
 
-*Deprecate gist:geoDirectlyContains and gist:geoDirectlyContainedIn*
+*Deprecate `gist:geoDirectlyContains` and `gist:geoDirectlyContainedIn`*
 
-- Description: Deprecated gist:geoDirectlyContains and gist:geoDirectlyContainedIn object properties
+- Description: Deprecated `gist:geoDirectlyContains` and `gist:geoDirectlyContainedIn` object properties
 - Rationale: "Direct containment" in the geographic realm is problematic.  You can always define/insert an intermediate Geo Region between two existing Geo Regions where one contains the other.  When we fully remove these, it will be a major change.
 - Issue(s): <https://github.com/semanticarts/gist/issues/328>
 
-*Removed `gist:Address` from range of `gist:toAgent` and `gist:fromAgent`
+*Removed `gist:Address` from range of `gist:toAgent` and `gist:fromAgent`*
 
 - Description: Removed `gist:Address` from range of `gist:toAgent` and `gist:fromAgent` and from the union `owl:someValuesFrom` restrictions in `gist:Message`.
 - Rationale: Bug fix; it makes no sense to consider a `gist:Address`, which is a type of `gist:Content`, as an agent.
 - Impact: Changes inferences based on previous ranges of these properties (i.e., an object of the property may no longer be a `gist:Address`, as in previous versions), but considered a bug fix and therefore a patch change.
-- Issue: - Issue: [#391](https://github.com/semanticarts/gist/issues/391).
+- Issue: [#391](https://github.com/semanticarts/gist/issues/391).
+
+### Patch Updates
 
 *Modified build to create JSON-LD ontology files with `.jsonld` extension.*
 
@@ -45,6 +47,15 @@ Release X.x.x [ Release manager: update version number here and below in import 
 - Description: Added a standard `pre-commit` hook which applies uniform formatting to RDF files using `tools/rdf-toolkit.jar`.
 - Rationale: Minimizes formatting noise on diffs.
 - Issue: [#228](https://github.com/semanticarts/gist/issues/228).
+
+*Conform definition of `gist:_second` to other `gist:BaseUnit` individuals*
+
+- Description: `gist:_second` was explicitly typed as `gist:DurationUnit` as well as `gist:BasenUnit`, in contrast to all other `gist:BaseUnit` individuals, which are not typed with their specific subtypes. This assertion has now been removed.
+- Rationale:
+  - The specific unit type can be inferred from other axioms.
+  - Consistency with other gist individuals, which are not explicitly typed with their unit subtype.
+- Impact: Since the unit subtype is entailed by other axioms, there is no change in inferencing.
+- Issue: - Issue: [#92](https://github.com/semanticarts/gist/issues/92).
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCoreX.x.x>.
 
