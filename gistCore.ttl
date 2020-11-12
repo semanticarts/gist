@@ -3557,7 +3557,7 @@ gist:numerator
 gist:occursAt
 	a owl:ObjectProperty ;
 	skos:definition "The geospatial place where something happened or will happen"^^xsd:string ;
-	skos:prefLabel "OccurAt"^^xsd:string ;
+	skos:prefLabel "Occurs at"^^xsd:string ;
 	.
 
 gist:offsetToUniversal
