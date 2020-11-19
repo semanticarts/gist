@@ -2250,7 +2250,8 @@ gist:SimpleUnitOfMeasure
 gist:Specification
 	a owl:Class ;
 	rdfs:subClassOf gist:Requirement ;
-	skos:definition "A set of requirements to be satisfied by a material, design, product, or service."^^xsd:string ;
+	skos:definition "A characterization of either  1) *what* something is meant to be (e.g. acceptance criteria) or 2) how something will, should or must be done to achieve some outcome (e.g. a plan, recipe or method)"^^xsd:string ;
+	skos:example "Catalog item for a product or service. Program specification. Recipe or process for manufacturing shampoo. Method for assessing prices."^^xsd:string ;
 	skos:prefLabel "Specification"^^xsd:string ;
 	.
 
