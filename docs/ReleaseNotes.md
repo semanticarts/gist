@@ -6,6 +6,8 @@ Release X.x.x [ Release manager: update version number here and below in import 
 
 ### Minor Updates
 
+*Broadened text definition for `Specification` to include specifications of how to do things (e.g. method, plan)*
+
 *Converted rdfs annotations to skos annotations*
 
 - Description:
