@@ -53,7 +53,7 @@ gist:Agreement
 			gist:Commitment
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasParty ;
+				owl:onProperty gist:hasParticipant ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -373,7 +373,7 @@ gist:Commitment
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:giver ;
+				owl:onProperty gist:fromAgent ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -499,7 +499,7 @@ gist:ContingentObligation
 			gist:Commitment
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:giver ;
+				owl:onProperty gist:fromAgent ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -517,7 +517,7 @@ gist:ContingentObligation
 	] ;
 	skos:definition "An obligation that is not yet firm.  There is some contingent event, the occurrence of which will cause the obligation to become firm."^^xsd:string ;
 	skos:prefLabel "Contingent Obligation"^^xsd:string ;
-	skos:scopeNote "A contingent obligation might have a getter counterparty (as in the case of insurance); but it might not (as in the case of an offer)."^^xsd:string ;
+	skos:scopeNote "A contingent obligation might have a receiving counterparty (as in the case of insurance); but it might not (as in the case of an offer)."^^xsd:string ;
 	.
 
 gist:Contract
@@ -1654,7 +1654,7 @@ gist:Obligation
 			gist:Commitment
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:getter ;
+				owl:onProperty gist:toAgent ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -1665,7 +1665,7 @@ gist:Obligation
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:giver ;
+				owl:onProperty gist:fromAgent ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -1689,7 +1689,7 @@ gist:Offer
 			gist:ContingentObligation
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:giver ;
+				owl:onProperty gist:fromAgent ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -3050,6 +3050,7 @@ gist:expressedIn
 
 gist:fromAgent
 	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasParticipant ;
 	rdfs:range [
 		a owl:Class ;
 		owl:unionOf (
@@ -3105,21 +3106,6 @@ gist:geoOccupies
 	rdfs:range gist:Place ;
 	skos:definition "A thing occupies are region"^^xsd:string ;
 	skos:prefLabel "Geo Occupies"^^xsd:string ;
-	.
-
-gist:getter
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:hasParty ;
-	owl:propertyDisjointWith gist:giver ;
-	skos:definition "The recipient"^^xsd:string ;
-	skos:prefLabel "Getter"^^xsd:string ;
-	.
-
-gist:giver
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:hasParty ;
-	skos:definition "The active party, the one with the obligation or the one initiating the transfer"^^xsd:string ;
-	skos:prefLabel "Giver"^^xsd:string ;
 	.
 
 gist:governedBy
@@ -3309,7 +3295,7 @@ gist:hasPart
 	skos:prefLabel "Has Part"^^xsd:string ;
 	.
 
-gist:hasParty
+gist:hasParticipant
 	a owl:ObjectProperty ;
 	rdfs:range [
 		a owl:Class ;
@@ -3318,8 +3304,13 @@ gist:hasParty
 			gist:Person
 		) ;
 	] ;
-	skos:definition "The people or organizations participating in an agreement or obligation"^^xsd:string ;
-	skos:prefLabel "Has Party"^^xsd:string ;
+	skos:definition "Relates something (e.g. an agreement) to a participating person or organization."^^xsd:string ;
+	skos:example "For loan agreements, one might create hasLender and hasBorrower as subproperties of hasParticipant."^^xsd:string ;
+	skos:prefLabel "Has Participant"^^xsd:string ;
+	skos:scopeNote
+		"The thing with participants will almost always be an agreement, event or obligation."^^xsd:string ,
+		"This is intended as an abstract property. Only its subproperties will be used in practice."^^xsd:string
+		;
 	.
 
 gist:hasPhysicalLocation
@@ -3776,6 +3767,7 @@ gist:timeZoneStandardUsed
 
 gist:toAgent
 	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasParticipant ;
 	rdfs:range [
 		a owl:Class ;
 		owl:unionOf (

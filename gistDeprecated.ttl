@@ -156,6 +156,23 @@ gist:geoDirectlyContains
 	owl:deprecated "true"^^xsd:boolean ;
 	.
 
+gist:getter
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasParty ;
+	owl:deprecated "true"^^xsd:boolean ;
+	owl:propertyDisjointWith gist:giver ;
+	<http://www.w3.org/2004/02/skos/core#definition> "The recipient"^^xsd:string ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Getter"^^xsd:string ;
+	.
+
+gist:giver
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasParty ;
+	owl:deprecated "true"^^xsd:boolean ;
+	<http://www.w3.org/2004/02/skos/core#definition> "The active party, the one with the obligation or the one initiating the transfer"^^xsd:string ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Giver"^^xsd:string ;
+	.
+
 gist:hasA
 	a
 		owl:InverseFunctionalProperty ,
@@ -168,6 +185,20 @@ gist:hasA
 		;
 	owl:deprecated "true"^^xsd:boolean ;
 	owl:inverseOf gist:of ;
+	.
+
+gist:hasParty
+	a owl:ObjectProperty ;
+	rdfs:range [
+		a owl:Class ;
+		owl:unionOf (
+			gist:Organization
+			gist:Person
+		) ;
+	] ;
+	owl:deprecated "true"^^xsd:boolean ;
+	<http://www.w3.org/2004/02/skos/core#definition> "The people or organizations participating in an agreement or obligation"^^xsd:string ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Has Party"^^xsd:string ;
 	.
 
 gist:localDate
