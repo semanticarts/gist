@@ -7,7 +7,7 @@ Release X.x.x [ Release manager: update version number here and below in import 
 ### Minor Updates
 
 **Refactored `hasParty`, `giver` and `getter`**
-- New property: `hasParticipant` to replace `hasParty`
+- New property: `hasParticipant` replaces `hasParty`
   - Range: `Person` or `Organization`.
   - Domain: includes `Event`, `Agreement`, `Obligation`.
   - Has subproperties: `toAgent` and `fromAgent`
