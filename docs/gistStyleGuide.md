@@ -69,14 +69,14 @@ gist uses SKOS annotations rather than `rdfs:label` and `rdfs:comment`. The acce
 
 *Preferred SKOS annotations*
 
-| Annotation | Use | Replaces |
+| Annotation | Use | Instead Of |
 | ---------: | --- |:---------|
-| `skos:prefLabel` | Primary label | `rdfs:label` |
+| `skos:prefLabel` | Preferred label | `rdfs:label` |
 | `skos:altLabel`  | Alternative label, where relevant | n/a |
 | `skos:definition` | Definition | `rdfs:comment` |
 | `skos:scopeNote` | Additional clarifying comments about the meaning or usage of a term | `rdfs:comment` |
 | `skos:example`   | One or more examples  | `rdfs:comment` |
-| `skos:editorialNote` | Notes for future editors | `rdfs:comment` |
+| `skos:editorialNote` | Notes for editors | `rdfs:comment` |
 
 *RDFS annotations*
 
@@ -96,7 +96,7 @@ Certain RDFS annotations are recommended where there is no SKOS equivalent.
 | `skos:note` | A more specific annotation is preferred. |
 
 *Do not use*
-| Annotation | Replaced by |
+| Annotation | Instead Use |
 | ---------: | ----------- |
 | `rdfs:label` | `skos:prefLabel` |
 | `rdfs:comment` | All other annotations, especially `skos:scopeNote` and `skos:example` |
