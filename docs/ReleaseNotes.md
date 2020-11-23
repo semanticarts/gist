@@ -48,6 +48,15 @@ Release X.x.x [ Release manager: update version number here and below in import 
 - Rationale: Minimizes formatting noise on diffs.
 - Issue: [#228](https://github.com/semanticarts/gist/issues/228).
 
+*Conform definition of `gist:_second` to other `gist:BaseUnit` individuals*
+
+- Description: `gist:_second` was explicitly typed as `gist:DurationUnit` as well as `gist:BasenUnit`, in contrast to all other `gist:BaseUnit` individuals, which are not typed with their specific subtypes. This assertion has now been removed.
+- Rationale:
+  - The specific unit type can be inferred from other axioms.
+  - Consistency with other gist individuals, which are not explicitly typed with their unit subtype.
+- Impact: Since the unit subtype is entailed by other axioms, there is no change in inferencing.
+- Issue: - Issue: [#92](https://github.com/semanticarts/gist/issues/92).
+
 Import URL: <https://ontologies.semanticarts.com/o/gistCoreX.x.x>.
 
 Release 9.4.0
