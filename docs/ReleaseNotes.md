@@ -57,6 +57,8 @@ Release X.x.x [ Release manager: update version number here and below in import 
 - Impact: Since the unit subtype is entailed by other axioms, there is no change in inferencing.
 - Issue: - Issue: [#92](https://github.com/semanticarts/gist/issues/92).
 
+- Fixed label of TaskTemplate. Issue [#407](https://github.com/semanticarts/gist/issues/407).
+
 Import URL: <https://ontologies.semanticarts.com/o/gistCoreX.x.x>.
 
 Release 9.4.0
