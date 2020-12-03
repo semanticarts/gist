@@ -5,7 +5,7 @@ gist Change and Release Management
 -----
 
 - All bug reports and feature requests should be submitted via issues in this repository rather than through email, the website contact form, or other communication channels, and all discussion will be tracked through comments on the issue. These practices ensure that requests are addressed transparently and systematically, and that all discussion is recorded and preserved in a single, public location.
-- External contributors may submit a PR accompanied by a mandatory issue. They will be reviewed as part of our regular triage process, and will either be accepted and merged to develop, accepted with requested modifications, or rejected and closed. External contributions should conform to the requirements for issues and PRs outlined in the following sections.
+- External contributors may submit a PR accompanied by a mandatory issue. They will be reviewed as part of our regular triage process, and will either be accepted and merged to develop, accepted with requested modifications, or rejected and closed. Submit only an issue if you have a request without a solution; submit a PR with the issue if you have a proposed solution. External contributions should conform to the requirements for issues and PRs outlined in the following sections.
 - gist Council presentations may have an associated issue created so that the proposals will be formally reviewed.
 
 Submitting an Issue
