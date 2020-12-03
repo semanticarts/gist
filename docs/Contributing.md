@@ -145,7 +145,7 @@ Pull Requests
 - The release notes will be divided into three sections, for major, minor, and patch changes, as relevant.
 - Each release note should follow the following formatting conventions:
   - Descriptions begin with a past tense verb.
-  - Surround ontology or other code terms with backticks; e.g., `gist:Weight`.
+  - Ontology and other code terms are enclosed in backticks; e.g., `gist:Weight`.
   - Each note ends in a period.
   - Refer to the most recent release notes for examples.
   - Please follow the heading conventions shown, as the [markdown configuration file](markdownlint.json) dictates the mixed heading style.

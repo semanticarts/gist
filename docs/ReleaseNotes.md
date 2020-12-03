@@ -6,7 +6,7 @@ Release X.x.x [ Release manager: update version number here and below in import 
 
 ### Minor Updates
 
-- Converted `RDFS` annotations to `SKOS` annotations. See [gist style guide](gistStyleGuide.md) for usage details. Issues [#351](https://github.com/semanticarts/gist/issues/351), [#377](https://github.com/semanticarts/gist/issues/377).
+- Converted RDFS annotations to SKOS annotations. See [gist style guide](gistStyleGuide.md) for usage details. Issues [#351](https://github.com/semanticarts/gist/issues/351), [#377](https://github.com/semanticarts/gist/issues/377).
 - Deprecated `gist:geoDirectlyContains` and `gist:geoDirectlyContainedIn`. Issue [#328](https://github.com/semanticarts/gist/issues/328).
 - Removed `gist:Address` from range of `gist:toAgent` and `gist:fromAgent`. Issue: [#391](https://github.com/semanticarts/gist/issues/391).
 
@@ -14,8 +14,8 @@ Release X.x.x [ Release manager: update version number here and below in import 
 
 - Modified build to create JSON-LD ontology files with `.jsonld` extension. Issue [#365](https://github.com/semanticarts/gist/issues/365).
 - Documentation:
-  - Documented policy change on submission of PRs by external contributors and made minor wording changes to [Contributing.md](Contributing.md).Issue: [#382](https://github.com/semanticarts/gist/issues/382).
-  - Documented modified release notes format. Issue [#401](https://github.com/semanticarts/gist/issues/401).
+  - Documented policy change on submission of PRs by external contributors and made minor wording changes to [Contributing.md](Contributing.md). Issue: [#382](https://github.com/semanticarts/gist/issues/382).
+  - Documented new, condensed release notes format. Issue [#401](https://github.com/semanticarts/gist/issues/401).
 - Added a standard `pre-commit` hook which applies uniform formatting to RDF files using `tools/rdf-toolkit.jar`. Issue [#228](https://github.com/semanticarts/gist/issues/228).
 - Conformed definition of `gist:_second` to other `gist:BaseUnit` individuals. Issue: [#92](https://github.com/semanticarts/gist/issues/92).
 - Fixed label of TaskTemplate. Issue [#407](https://github.com/semanticarts/gist/issues/407).
