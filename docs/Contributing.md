@@ -95,26 +95,7 @@ Pull Requests
 - The title or description of the PR should contain the keywords "fixes #nnn" (or another of the [GitHub keywords](https://docs.github.com/en/enterprise/2.21/user/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)) where nnn is the issue number. This automatically closes the related issue(s) when the PR is merged.
   - Example: "Correct cardinality restriction on class gist:Room. Fixes #98."
   - Note that if the PR fixes multiple issues, each issue number must be prefixed by the keyword. E.g., "Fixes #98, fixes #102", rather than "Fixes #98, #102" or "Fixes #98 and #102".
-- The PR should include an update to the release notes, except in the rare cases where there is no user-facing change.
-  - Follow the [release notes template](ReleaseNotesTemplate.md).
-  - Reviewers will reject a PR that does not include an update to the release notes.
-  - Please follow the heading conventions shown, as the [markdown configuration file](markdownlint.json) dictates the mixed heading style.
-  - The Rationale line for patch changes may be as simple as "Bug fix."
-  - Example of a new release note section with one note:
-  
-```markdown
-Release notes gist 9.4.0
------
-
-### Minor Updates
-
-*Changes to category predicates*
-
-- Description: Added intransitive properties `hasDirectSubCategory` and `hasDirectSuperCategory` as subproperties of `hasSubCategory` and `hasSuperCategory`, respectively. The latter are defined as transitive.
-- Rationale: The direct sub/supercategory properties provide a mechanism for defining gapless taxonomy trees. The existing properties are logically transitive.
-- Impact: No changes required to existing implementations. The changes enhance the definition of taxonomy trees.
-- Issues: [#104](https://github.com/semanticarts/gist/issues/104), [#107](https://github.com/semanticarts/gist/issues/107).
-```
+- The PR should include an update to the release notes. See [Release Notes](#release-notes).
 
 ### Assigning Reviewers
 
@@ -149,3 +130,46 @@ Release notes gist 9.4.0
 
 - Some large projects are implemented by more than one person. In this case, a shared development branch is first cut from develop, and then each developer cuts his/her own branch off of this one. Merges will first take place from these individual working branches into the shared development branch, and finally the shared branch is merged into develop.
 - The process of branching, submitting PRs, and merging is otherwise the same. Each developer should ensure that the shared branch is merged regularly into his/her working branch to avoid merge conflicts, and the same steps should be followed when submitting a PR to the shared branch and later from the shared branch to develop.
+
+### Release Notes
+
+#### General
+
+- All PRs must include an update to the release notes, except in the rare cases where there are no user-facing changes. Small fixes of a similar nature, such as correcting several typos in annotations, may be gathered into a single release note, even if they were submitted for separate issues or as separate PRs.
+- Reviewers will reject a PR without well-formed release notes.
+- The release manager will review the release notes for content and formatting before release.
+- On release, the release manager will replace the version placeholder X.x.x with the correct version number, both in the release note heading and in the import URL.
+
+#### Formatting
+
+- The release notes will be divided into three sections, for major, minor, and patch changes, as relevant.
+- Each release note should follow the following formatting conventions:
+  - Descriptions begin with a past tense verb.
+  - Surround ontology or other code terms with backticks; e.g., `gist:Weight`.
+  - Each note ends in a period.
+  - Refer to the most recent release notes for examples.
+  - Please follow the heading conventions shown, as the [markdown configuration file](markdownlint.json) dictates the mixed heading style.
+  - Example of release notes with only minor and patch updates:
+  
+#### Example
+
+```markdown
+Release notes gist 9.4.0
+-----
+
+### Major Updates
+
+- Changed the `gist` namespace from `http:` to `https:`.
+
+### Minor Updates
+
+- Changes to category predicates: added intransitive properties `hasDirectSubCategory` and `hasDirectSuperCategory` as subproperties of `hasSubCategory` and `hasSuperCategory`, respectively. The latter are defined as transitive. Issues [#104](https://github.com/semanticarts/gist/issues/104), [#107](https://github.com/semanticarts/gist/issues/107).
+
+### Patch Updates
+
+- Deprecated `gist:_unitedNations`. Issue [#207](https://github.com/semanticarts/gist/issues/207).
+- Made `gist:hasPhysicalLocation` transitive. Issue [#109](https://github.com/semanticarts/gist/issues/109).
+
+Import URL: <https://ontologies.semanticarts.com/o/gistCore9.4.0>.
+
+```
