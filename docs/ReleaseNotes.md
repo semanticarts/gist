@@ -8,14 +8,14 @@ Release 9.5.0
 
 - Converted RDFS annotations to SKOS annotations. See [gist style guide](gistStyleGuide.md) for usage details. A file containing legacy RDFS annotations is included in the release package for those who wish to continue using them for existing terms. Issues [#351](https://github.com/semanticarts/gist/issues/351), [#379](https://github.com/semanticarts/gist/issues/379).
 - Deprecated `gist:geoDirectlyContains` and `gist:geoDirectlyContainedIn`. Issue [#328](https://github.com/semanticarts/gist/issues/328).
-- Removed `gist:Address` from range of `gist:toAgent` and `gist:fromAgent`. Issue: [#391](https://github.com/semanticarts/gist/issues/391).
+- Removed `gist:Address` from range of `gist:toAgent` and `gist:fromAgent`. Issue [#391](https://github.com/semanticarts/gist/issues/391).
 
 ### Patch Updates
 
 - Modified build to create JSON-LD ontology files with `.jsonld` extension. Issue [#365](https://github.com/semanticarts/gist/issues/365).
 - Documentation:
-  - Documented policy change on submission of PRs by external contributors (PRs from external contributors are now accepted for review if submitted with an issue) and made minor wording changes to [Contributing.md](Contributing.md). Issue: [#382](https://github.com/semanticarts/gist/issues/382).
-  - Documented new, condensed release notes format (reverted release note changes introduced in 9.4.0). Issue [#401](https://github.com/semanticarts/gist/issues/401).
+  - Documented policy change on submission of PRs by external contributors (PRs from external contributors are now accepted for review if submitted with an issue). Issue [#382](https://github.com/semanticarts/gist/issues/382).
+  - Documented new, condensed release notes format (reverted release note format introduced in 9.4.0). Issue [#401](https://github.com/semanticarts/gist/issues/401).
 - Added a standard `pre-commit` hook which applies uniform formatting to RDF files using `tools/rdf-toolkit.jar`. Issue [#228](https://github.com/semanticarts/gist/issues/228).
 - Conformed definition of `gist:_second` to other `gist:BaseUnit` individuals. Issue [#92](https://github.com/semanticarts/gist/issues/92).
 - Fixed label of TaskTemplate. Issue [#407](https://github.com/semanticarts/gist/issues/407).
