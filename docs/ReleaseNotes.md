@@ -1,12 +1,12 @@
 gist Release Notes
 =====
 
-Release X.x.x [ Release manager: update version number here and below in import URL]
+Release 9.5.0
 -----
 
 ### Minor Updates
 
-- Converted RDFS annotations to SKOS annotations. See [gist style guide](gistStyleGuide.md) for usage details. Issues [#351](https://github.com/semanticarts/gist/issues/351), [#377](https://github.com/semanticarts/gist/issues/377).
+- Converted RDFS annotations to SKOS annotations. See [gist style guide](gistStyleGuide.md) for usage details. A file containing legacy RDFS annotations is included in the release package for those who wish to continue using them for existing terms. Issues [#351](https://github.com/semanticarts/gist/issues/351), [#379](https://github.com/semanticarts/gist/issues/379).
 - Deprecated `gist:geoDirectlyContains` and `gist:geoDirectlyContainedIn`. Issue [#328](https://github.com/semanticarts/gist/issues/328).
 - Removed `gist:Address` from range of `gist:toAgent` and `gist:fromAgent`. Issue: [#391](https://github.com/semanticarts/gist/issues/391).
 
@@ -14,13 +14,13 @@ Release X.x.x [ Release manager: update version number here and below in import 
 
 - Modified build to create JSON-LD ontology files with `.jsonld` extension. Issue [#365](https://github.com/semanticarts/gist/issues/365).
 - Documentation:
-  - Documented policy change on submission of PRs by external contributors and made minor wording changes to [Contributing.md](Contributing.md). Issue: [#382](https://github.com/semanticarts/gist/issues/382).
-  - Documented new, condensed release notes format. Issue [#401](https://github.com/semanticarts/gist/issues/401).
+  - Documented policy change on submission of PRs by external contributors (PRs are now accepted from external contributors if submitted with an issue) and made minor wording changes to [Contributing.md](Contributing.md). Issue: [#382](https://github.com/semanticarts/gist/issues/382).
+  - Documented new, condensed release notes format (reverted release note changes introduced in 9.4.0). Issue [#401](https://github.com/semanticarts/gist/issues/401).
 - Added a standard `pre-commit` hook which applies uniform formatting to RDF files using `tools/rdf-toolkit.jar`. Issue [#228](https://github.com/semanticarts/gist/issues/228).
 - Conformed definition of `gist:_second` to other `gist:BaseUnit` individuals. Issue: [#92](https://github.com/semanticarts/gist/issues/92).
 - Fixed label of TaskTemplate. Issue [#407](https://github.com/semanticarts/gist/issues/407).
 
-Import URL: <https://ontologies.semanticarts.com/o/gistCoreX.x.x>.
+Import URL: <https://ontologies.semanticarts.com/o/gistCore9.5.0>.
 
 Release 9.4.0
 -----
