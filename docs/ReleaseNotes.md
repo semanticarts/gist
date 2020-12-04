@@ -17,7 +17,7 @@ Release 9.5.0
   - Documented policy change on submission of PRs by external contributors (PRs are now accepted from external contributors if submitted with an issue) and made minor wording changes to [Contributing.md](Contributing.md). Issue: [#382](https://github.com/semanticarts/gist/issues/382).
   - Documented new, condensed release notes format (reverted release note changes introduced in 9.4.0). Issue [#401](https://github.com/semanticarts/gist/issues/401).
 - Added a standard `pre-commit` hook which applies uniform formatting to RDF files using `tools/rdf-toolkit.jar`. Issue [#228](https://github.com/semanticarts/gist/issues/228).
-- Conformed definition of `gist:_second` to other `gist:BaseUnit` individuals. Issue: [#92](https://github.com/semanticarts/gist/issues/92).
+- Conformed definition of `gist:_second` to other `gist:BaseUnit` individuals. Issue [#92](https://github.com/semanticarts/gist/issues/92).
 - Fixed label of TaskTemplate. Issue [#407](https://github.com/semanticarts/gist/issues/407).
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore9.5.0>.
