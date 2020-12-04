@@ -149,7 +149,7 @@ Pull Requests
   - Each note ends in a period.
   - Refer to the most recent release notes for examples.
   - Please follow the heading conventions shown, as the [markdown configuration file](markdownlint.json) dictates the mixed heading style.
-  - Example of release notes with only minor and patch updates:
+  - Release notes example:
   
 #### Example
 
