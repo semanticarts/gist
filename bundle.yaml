@@ -94,9 +94,41 @@ actions:
   target: "{output}"
   rename:
     from: "(.*)\\.ttl"
-    to: "\\g<1>.json"
+    to: "\\g<1>.jsonld"
   includes:
     - "*.ttl"
+- action: "sparql"
+  source: "{output}"
+  target: "{output}/rdfsAnnotations.ttl"
+  format: "turtle"
+  includes:
+    - "*.ttl"
+  query: >
+    prefix gist: <https://ontologies.semanticarts.com/gist/>
+    prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    prefix skos: <http://www.w3.org/2004/02/skos/core#>
+    CONSTRUCT {{
+      ?entity rdfs:label ?label ;
+              rdfs:comment ?comment .
+    }}
+    WHERE {{
+      {{ ?entity skos:prefLabel ?label }}
+      UNION
+      {{
+        VALUES (?prop ?prefix ) {{
+          ( skos:altLabel "ALT: " )
+          ( skos:definition "DEFINITION: " )
+          ( skos:example "EXAMPLE: " )
+          ( skos:scopeNote "NOTE: " )
+        }}
+        ?entity ?prop ?text .
+        BIND(CONCAT(?prefix, ?text) as ?comment)
+      }}
+    }}
+- action: "transform"
+  tool: "serializer"
+  source: "{output}/rdfsAnnotations.ttl"
+  target: "{output}/rdfsAnnotations.ttl"
 - action: "copy"
   source: "{input}/LICENSE.txt"
   target: "{output}"
@@ -114,4 +146,4 @@ actions:
   includes:
     - "*Deprecated*.ttl"
     - "*Deprecated*.rdf"
-    - "*Deprecated*.json"
+    - "*Deprecated*.jsonld"
