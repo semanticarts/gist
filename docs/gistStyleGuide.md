@@ -63,6 +63,48 @@ Naming
 
 We adopt sentence over title case because the latter, while technically well-defined, has more complex rules and can introduce inconsistencies when implemented by different users.
 
+### Annotations
+
+gist uses SKOS annotations rather than `rdfs:label` and `rdfs:comment`. The accepted annotations, intended use, and previous usage are shown in the following tables. Refer to the [SKOS ontology](http://www.w3.org/2004/02/skos/core) for formal definitions.
+
+*Preferred SKOS annotations*
+
+| Annotation | Use | Instead Of |
+| ---------: | --- |:---------|
+| `skos:prefLabel` | Preferred label | `rdfs:label` |
+| `skos:altLabel`  | Alternative label, where relevant | n/a |
+| `skos:definition` | Definition | `rdfs:comment` |
+| `skos:scopeNote` | Additional clarifying comments about the meaning or usage of a term | `rdfs:comment` |
+| `skos:example`   | One or more examples  | `rdfs:comment` |
+| `skos:editorialNote` | Notes for editors | `rdfs:comment` |
+
+*RDFS annotations*
+
+Certain RDFS annotations are recommended where there is no SKOS equivalent.
+
+| Annotation | Use |
+| ---------: | --- |
+| `rdfs:seeAlso` | Indicates a resource that may provide additional information about the subject. Preferably points to a web page or RDF resource rather than text. |
+| `rdfs:isDefinedBy` | Identifies the ontology module the term is defined in. Added automatically during gist release bundling and does not needed to be added by hand. |
+
+*Use only rarely*
+
+| Annotation | Comment |
+| ---------: | ------- |
+| `skos:changeNote` | Normally change notes are provided by the git history or version comparison. |
+| `skos:historyNote` | Normally change notes are provided by the git history or version comparison. |
+| `skos:note` | A more specific annotation is preferred. |
+
+*Do not use*
+| Annotation | Instead Use |
+| ---------: | ----------- |
+| `rdfs:label` | `skos:prefLabel` |
+| `rdfs:comment` | All other annotations, especially `skos:scopeNote` and `skos:example` |
+
+#### Rationale
+
+SKOS annotations allow a more fine-grained approach to human-readable documentation. This change also aligns with emerging common practice.
+
 Documentation
 -----
 

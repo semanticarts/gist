@@ -1,7 +1,7 @@
 gist Release Notes
 =====
 
-Release X.x.x [ Release manager: update version number here and below in import URL]
+Release X.x.x
 -----
 
 ### Minor Updates
@@ -17,118 +17,45 @@ Release X.x.x [ Release manager: update version number here and below in import 
   - Replace `giver` with `fromAgent` 
 - Deprecate: `getter` & `giver`.
 
-*Converted rdfs annotations to skos annotations*
 
-- Description:
-  - `rdfs:label` was replaced with `skos:prefLabel`.
-  - `rdfs:comment` was replaced with one of `skos:definition`, `skos:example`, `skos:scopeNote` or `skos:altLabel`.
-- Rationale: to align with emerging common practice, e.g. FIBO and Semantic Arts client work.
-- Impact: Backward compatibility is retained because we also publish an auto-generated version of the skos annotations in the file: rdfsAnnotations.ttl.  The diffferent skos annotations are distinguished by a suitable prefix to the `rdfs:comment`; one of: 'ALT: ', 'DEFINITION: ', 'EXAMPLE: ', 'NOTE: '.
-- Issue: [#351](https://github.com/semanticarts/gist/issues/351).
+Release 9.5.0
+-----
 
-*Deprecate `gist:geoDirectlyContains` and `gist:geoDirectlyContainedIn`*
+### Minor Updates
 
-- Description: Deprecated `gist:geoDirectlyContains` and `gist:geoDirectlyContainedIn` object properties
-- Rationale: "Direct containment" in the geographic realm is problematic.  You can always define/insert an intermediate Geo Region between two existing Geo Regions where one contains the other.  When we fully remove these, it will be a major change.
-- Issue(s): <https://github.com/semanticarts/gist/issues/328>
-
-*Removed `gist:Address` from range of `gist:toAgent` and `gist:fromAgent`*
-
-- Description: Removed `gist:Address` from range of `gist:toAgent` and `gist:fromAgent` and from the union `owl:someValuesFrom` restrictions in `gist:Message`.
-- Rationale: Bug fix; it makes no sense to consider a `gist:Address`, which is a type of `gist:Content`, as an agent.
-- Impact: Changes inferences based on previous ranges of these properties (i.e., an object of the property may no longer be a `gist:Address`, as in previous versions), but considered a bug fix and therefore a patch change.
-- Issue: [#391](https://github.com/semanticarts/gist/issues/391).
+- Converted RDFS annotations to SKOS annotations. See [gist style guide](https://github.com/semanticarts/gist/blob/v9.5.0/docs/gistStyleGuide.md) for usage details. A file containing legacy RDFS annotations is included in the release package for those who wish to continue using them for existing terms. Issues [#351](https://github.com/semanticarts/gist/issues/351), [#379](https://github.com/semanticarts/gist/issues/379).
+- Deprecated `gist:geoDirectlyContains` and `gist:geoDirectlyContainedIn`. Issue [#328](https://github.com/semanticarts/gist/issues/328).
+- Removed `gist:Address` from range of `gist:toAgent` and `gist:fromAgent`. Issue [#391](https://github.com/semanticarts/gist/issues/391).
+>>>>>>> develop
 
 ### Patch Updates
 
-*Modified build to create JSON-LD ontology files with `.jsonld` extension.*
+- Modified build to create JSON-LD ontology files with `.jsonld` extension. Issue [#365](https://github.com/semanticarts/gist/issues/365).
+- Documentation:
+  - Documented policy change on submission of PRs by external contributors (PRs from external contributors are now accepted for review if submitted with an issue). Issue [#382](https://github.com/semanticarts/gist/issues/382).
+  - Documented new, condensed release notes format (reverted release note format introduced in 9.4.0). Issue [#401](https://github.com/semanticarts/gist/issues/401).
+- Added a standard `pre-commit` hook which applies uniform formatting to RDF files using `tools/rdf-toolkit.jar`. Issue [#228](https://github.com/semanticarts/gist/issues/228).
+- Conformed definition of `gist:_second` to other `gist:BaseUnit` individuals. Issue [#92](https://github.com/semanticarts/gist/issues/92).
+- Fixed label of TaskTemplate. Issue [#407](https://github.com/semanticarts/gist/issues/407).
 
-- Description: JSON-LD files were erroneously created with `.json` extension.
-- Rationale: The correct extension for the `/ld+json` MIME type is `.jsonld`.
-- Issue: [#365](https://github.com/semanticarts/gist/issues/365).
-
-*Updated documentation on contributing to gist*
-
-- Description: Miscellaneous updates to `Contributing.md`.
-- Rationale: Add clarifications and corrections.
-- Issue: [#382](https://github.com/semanticarts/gist/issues/382).
-
-*Added standard pre-commit hook*
-
-- Description: Added a standard `pre-commit` hook which applies uniform formatting to RDF files using `tools/rdf-toolkit.jar`.
-- Rationale: Minimizes formatting noise on diffs.
-- Issue: [#228](https://github.com/semanticarts/gist/issues/228).
-
-*Conform definition of `gist:_second` to other `gist:BaseUnit` individuals*
-
-- Description: `gist:_second` was explicitly typed as `gist:DurationUnit` as well as `gist:BasenUnit`, in contrast to all other `gist:BaseUnit` individuals, which are not typed with their specific subtypes. This assertion has now been removed.
-- Rationale:
-  - The specific unit type can be inferred from other axioms.
-  - Consistency with other gist individuals, which are not explicitly typed with their unit subtype.
-- Impact: Since the unit subtype is entailed by other axioms, there is no change in inferencing.
-- Issue: - Issue: [#92](https://github.com/semanticarts/gist/issues/92).
-
-Import URL: <https://ontologies.semanticarts.com/o/gistCoreX.x.x>.
+Import URL: <https://ontologies.semanticarts.com/o/gistCore9.5.0>.
 
 Release 9.4.0
 -----
 
 ### Minor Updates
 
-*Removed equivalences to union classes from the definitions of `gist:Artifact` and `gist:Place`*
-
-- Description: Replaced the union class equivalence assertions from `gist:Artifact` and `gist:Place` with `rdfs:subClassOf` assertions from each of the union class members to `gist:Artifact` or `gist:Place`, as appropriate.
-- Rationale: Stating equivalence of a class to a union class prevents adding a new subclass which is not also a subclass of one of the union class members, thus reducing extensibility of the ontology.
-- Impact: Removes the inference that an instance of `gist:Artifact` or `gist:Place` is also an instance of one of the members of the union class. Presumably low impact since this is a weak inference.
-- Issues: [#110](https://github.com/semanticarts/gist/issues/110), [#343](https://github.com/semanticarts/gist/issues/343).
-
-*Changes to Category predicates*
-
-- Description: Added intransitive properties `gist:hasDirectSubCategory` and `gist:hasDirectSuperCategory` as subproperties of `gist:hasSubCategory` and `gist:hasSuperCategory`, respectively. The latter are now defined as transitive.
-- Rationale: The direct sub/supercategory properties provide a mechanism for defining gapless taxonomy trees. The existing properties are logically transitive.
-- Impact: No changes required to existing implementations. The changes enhance the definition of taxonomy trees.
-- Issues: [#104](https://github.com/semanticarts/gist/issues/104), [#107](https://github.com/semanticarts/gist/issues/107).
-
-*Replaced `gist:Weight` with `gist:Mass` in all contexts*
-
-- Description: Deprecated `gist:Weight`; `gist:Mass` should be used instead. All axiomatic references to `gist:Weight` have been changed to `gist:Mass`.
-- Rationale: Standardize to `gist:Mass` rather than mixing `gist:Mass` and `gist:Weight`.
-- Impact: Users can continue to use the `gist:Weight` class by importing `gistDeprecated`, but it will be removed in a future major release. New implementations should use `gist:Mass`.
-- Issue: [#105](https://github.com/semanticarts/gist/issues/105).
+- Replaced the union class equivalences in the definitions of `gist:Artifact` and `gist:Place` with subclass assertions from each of the union class members. Issues [#110](https://github.com/semanticarts/gist/issues/110), [#343](https://github.com/semanticarts/gist/issues/343).
+- Made changes to `Category` predicates: added intransitive properties `gist:hasDirectSubCategory` and `gist:hasDirectSuperCategory` as subproperties of `gist:hasSubCategory` and `gist:hasSuperCategory`, respectively, and made the latter transitive. Issues [#104](https://github.com/semanticarts/gist/issues/104), [#107](https://github.com/semanticarts/gist/issues/107).
+- Replaced `gist:Weight` with `gist:Mass` in all contexts. Issue [#105](https://github.com/semanticarts/gist/issues/105).
 
 ### Patch Updates
 
-*Made `gist:hasPhysicalLocation` transitive*
-
-- Description: `gist:hasPhysicalLocation` was erroneously not defined as transitive.
-- Rationale: Logically, physical location is a transitive (containment) relationship.
-- Issues: [#109](https://github.com/semanticarts/gist/issues/109).
-
-*Deprecated `gist:_unitedNations`*
-
-- Description: Deprecated `gist:_unitedNations` and moved from `gistCore` to `gistDeprecated`.  A `gist:CountryGovernment` must be recognized by some organization, but not specifically the United Nations.
-- Rationale: The only function of this individual was in the definition of `gist:CountryGovernment`, but the recognizing institution of a country government is implementation-dependent and thus does not belong in gist. Those wishing to refer to the United Nations should use an existing URI issued by an authoritative source.
-- Impact: `gist:_unitedNations` is still available for use in `gistDeprecated`. The definition of `gist:CountryGovernment` has been relaxed with the removal of an incorrect requirement; client ontologies can subclass with their desired recognizing body.
-- Issue: [#207](https://github.com/semanticarts/gist/issues/207).
-
-*Trivial corrections to axioms in the definition of some geo terms*
-
-- Description: Trivial corrections to axioms in the definitions of `gist:GeoRoute`, `gist:geoContains`, and `gist:GeoRoute`.
-- Rationale: Bug fixes.
-- Impact: None.
-- Issues: [#64](https://github.com/semanticarts/gist/issues/64), [#334](https://github.com/semanticarts/gist/issues/334), [#361](https://github.com/semanticarts/gist/issues/361).
-
-*Changed ontology edit format from RDF/XML (.owl) to Turtle (.ttl)*
-
-- Description: OWL files are now stored in the repository as Turtle rather than RDF/XML. The release package will include RDF/XML, Turtle, and JSON-LD files.
-- Rationale: Turtle is an easier format to read and edit. Users may want to use any one of these three common serializations.
-- Issues: [#223](https://github.com/semanticarts/gist/issues/223), [#319](https://github.com/semanticarts/gist/issues/319).
-
-*Added release notes template*
-
-- Description: Added release notes template to be followed by contributors submitting a PR.
-- Rationale: Standardize release note format for readability.
-- Issue: [#338](https://github.com/semanticarts/gist/issues/338).
+- Made `gist:hasPhysicalLocation` transitive. Issue [#109](https://github.com/semanticarts/gist/issues/109).
+- Deprecated `gist:_unitedNations`. Issue [#207](https://github.com/semanticarts/gist/issues/207).
+- Made trivial corrections to axioms in the definition of some geo terms. Issues [#64](https://github.com/semanticarts/gist/issues/64), [#334](https://github.com/semanticarts/gist/issues/334), [#361](https://github.com/semanticarts/gist/issues/361).
+- Changed ontology edit format from RDF/XML (.owl) to Turtle (.ttl). Issues [#223](https://github.com/semanticarts/gist/issues/223), [#319](https://github.com/semanticarts/gist/issues/319).
+- Added release notes template. Issue [#338](https://github.com/semanticarts/gist/issues/338).
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore9.4.0>.
 
@@ -151,7 +78,7 @@ Release 9.2.0
 - Replaced all "xs" namespace prefixes for XML Schema with "xsd". Corrects issue [#158](https://github.com/semanticarts/gist/issues/158).
 - Corrected gist:convertToBase value for gist:_minute from 1.0 to 60.0. Fixes issue [#82](https://github.com/semanticarts/gist/issues/82).
 - Added initial draft of in-progress gist style guide. Fixes issue [#163](https://github.com/semanticarts/gist/issues/163).
-- Added documentation of change and release management process. Fixes issue [#233](https://github.com/semanticarts/gist/issues/233).
+- Added documentation of change and release management process. Fixes issue [#233](<https://github.com/semanticarts/gist/issues/233>.
 - Added guidelines for submission of GitHub issues and pull requests. Fixes issue [#190](https://github.com/semanticarts/gist/issues/190).
 - Remove defunct tools and documentation. Fixes issue [#193](https://github.com/semanticarts/gist/issues/193).
 - Include direct imports of all gist modules in gistCore. Fixes issue [#80](https://github.com/semanticarts/gist/issues/80).
