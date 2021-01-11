@@ -7,15 +7,15 @@ Release X.x.x [ Release manager: update version number here and below in import 
 ### Minor Updates
 
 **Refactored `hasParty`, `giver` and `getter`**
-- New property: `hasParticipant` replaces `hasParty`
-  - Range: `Person` or `Organization`.
+- New property: `hasParticipant`
   - Domain: includes `Event`, `Agreement`, `Obligation`.
-  - Has subproperties: `toAgent` and `fromAgent`
-
-- Use `hasParticipant` wherever `hasParty` was used
-- Use `toAgent` wherever `getter` was used
-- Use `fromAgent` wherever `giver` was used
-- Deprecate: `hasParty`, `getter` & `giver`.
+  - Range: none.
+  - Has subproperty: `hasParty`
+- New usage: `toAgent` and `fromAgent` 
+  - Both are now subproperties of `hasParty`
+  - Replace `getter` with `toAgent` 
+  - Replace `giver` with `fromAgent` 
+- Deprecate: `getter` & `giver`.
 
 *Converted rdfs annotations to skos annotations*
 

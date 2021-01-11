@@ -187,20 +187,6 @@ gist:hasA
 	owl:inverseOf gist:of ;
 	.
 
-gist:hasParty
-	a owl:ObjectProperty ;
-	rdfs:range [
-		a owl:Class ;
-		owl:unionOf (
-			gist:Organization
-			gist:Person
-		) ;
-	] ;
-	owl:deprecated "true"^^xsd:boolean ;
-	<http://www.w3.org/2004/02/skos/core#definition> "The people or organizations participating in an agreement or obligation"^^xsd:string ;
-	<http://www.w3.org/2004/02/skos/core#prefLabel> "Has Party"^^xsd:string ;
-	.
-
 gist:localDate
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf gist:date ;

@@ -53,7 +53,7 @@ gist:Agreement
 			gist:Commitment
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasParticipant ;
+				owl:onProperty gist:hasParty ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -3050,7 +3050,7 @@ gist:expressedIn
 
 gist:fromAgent
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:hasParticipant ;
+	rdfs:subPropertyOf gist:hasParty ;
 	rdfs:range [
 		a owl:Class ;
 		owl:unionOf (
@@ -3058,6 +3058,7 @@ gist:fromAgent
 			gist:Person
 		) ;
 	] ;
+	skos:altLabel "Giver"^^xsd:string ;
 	skos:definition "The source of a message or shipment"^^xsd:string ;
 	skos:prefLabel "From Agent"^^xsd:string ;
 	.
@@ -3308,9 +3309,23 @@ gist:hasParticipant
 	skos:example "For loan agreements, one might create hasLender and hasBorrower as subproperties of hasParticipant."^^xsd:string ;
 	skos:prefLabel "Has Participant"^^xsd:string ;
 	skos:scopeNote
-		"The thing with participants will almost always be an agreement, event or obligation."^^xsd:string ,
+		"The thing with participants will often be an agreement, event or obligation."^^xsd:string ,
 		"This is intended as an abstract property. Only its subproperties will be used in practice."^^xsd:string
 		;
+	.
+
+gist:hasParty
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasParticipant ;
+	rdfs:range [
+		a owl:Class ;
+		owl:unionOf (
+			gist:Organization
+			gist:Person
+		) ;
+	] ;
+	skos:definition "The people or organizations participating in an agreement or obligation"^^xsd:string ;
+	skos:prefLabel "Has Party"^^xsd:string ;
 	.
 
 gist:hasPhysicalLocation
@@ -3767,7 +3782,7 @@ gist:timeZoneStandardUsed
 
 gist:toAgent
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:hasParticipant ;
+	rdfs:subPropertyOf gist:hasParty ;
 	rdfs:range [
 		a owl:Class ;
 		owl:unionOf (
@@ -3775,6 +3790,7 @@ gist:toAgent
 			gist:Person
 		) ;
 	] ;
+	skos:altLabel "Getter"^^xsd:string ;
 	skos:definition "Indicates to whom (e.g. a message or shipment) is destined for."^^xsd:string ;
 	skos:prefLabel "To Agent"^^xsd:string ;
 	skos:scopeNote 'This is not the inverse of fromAgent. A message can be from someone. If we made it the inverse the person would be "to" the message'^^xsd:string ;
