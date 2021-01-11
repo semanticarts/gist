@@ -3305,13 +3305,10 @@ gist:hasParticipant
 			gist:Person
 		) ;
 	] ;
-	skos:definition "Relates something (e.g. an agreement) to a participating person or organization."^^xsd:string ;
-	skos:example "For loan agreements, one might create hasLender and hasBorrower as subproperties of hasParticipant."^^xsd:string ;
+	skos:definition "Relates something (e.g. an agreement) to things that play a role, or take part or are otherwise involved in some way."^^xsd:string ;
+	skos:example "An event of transferring money has a participating account that receives the money."^^xsd:string ;
 	skos:prefLabel "Has Participant"^^xsd:string ;
-	skos:scopeNote
-		"The thing with participants will often be an agreement, event or obligation."^^xsd:string ,
-		"This is intended as an abstract property. Only its subproperties will be used in practice."^^xsd:string
-		;
+	skos:scopeNote "The thing with participants will often be an agreement, event or obligation."^^xsd:string ;
 	.
 
 gist:hasParty
@@ -3324,7 +3321,8 @@ gist:hasParty
 			gist:Person
 		) ;
 	] ;
-	skos:definition "The people or organizations participating in an agreement or obligation"^^xsd:string ;
+	skos:definition "The people or organizations participating in an event, agreement or obligation"^^xsd:string ;
+	skos:example "For loan agreements, one might create hasLender and hasBorrower as subproperties of hasParty."^^xsd:string ;
 	skos:prefLabel "Has Party"^^xsd:string ;
 	.
 
