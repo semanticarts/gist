@@ -3313,19 +3313,12 @@ gist:hasPart
 
 gist:hasParticipant
 	a owl:ObjectProperty ;
-	rdfs:range [
-		a owl:Class ;
-		owl:unionOf (
-			gist:Organization
-			gist:Person
-		) ;
-	] ;
 	skos:definition "Relates something (e.g. an agreement) to things that play a role, or take part or are otherwise involved in some way."^^xsd:string ;
 	skos:example "An event of transferring money has a participating account that receives the money."^^xsd:string ;
 	skos:prefLabel "Has Participant"^^xsd:string ;
 	skos:scopeNote
 		"The thing with participants will often be an agreement, event or obligation."^^xsd:string ,
-		"This is intended as an abstract property. Only its subproperties will be used in practice."^^xsd:string
+		"This is intended as an abstract property. Only its subproperties will be directly used."^^xsd:string
 		;
 	.
 
