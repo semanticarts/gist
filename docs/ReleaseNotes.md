@@ -8,8 +8,8 @@ Release X.x.x
 
 **Refactored `hasParty`, `giver` and `getter`**
 - 'giver' and 'getter'
-  - Rename `giver` and `getter` to `hasGiver` and `hasGetter`
-  - Deprecate `giver` and `getter`
+  - Rename to `hasGiver` and `hasGetter`
+  - Deprecate
   - No longer subproperties of `hasParty`
 - New property: `hasParticipant`
   - No domain or range
