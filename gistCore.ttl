@@ -373,7 +373,7 @@ gist:Commitment
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:fromAgent ;
+				owl:onProperty gist:giver ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -499,7 +499,7 @@ gist:ContingentObligation
 			gist:Commitment
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:fromAgent ;
+				owl:onProperty gist:giver ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -517,7 +517,7 @@ gist:ContingentObligation
 	] ;
 	skos:definition "An obligation that is not yet firm.  There is some contingent event, the occurrence of which will cause the obligation to become firm."^^xsd:string ;
 	skos:prefLabel "Contingent Obligation"^^xsd:string ;
-	skos:scopeNote "A contingent obligation might have a receiving counterparty (as in the case of insurance); but it might not (as in the case of an offer)."^^xsd:string ;
+	skos:scopeNote "A contingent obligation might have a getter counterparty (as in the case of insurance); but it might not (as in the case of an offer)."^^xsd:string ;
 	.
 
 gist:Contract
@@ -1654,7 +1654,7 @@ gist:Obligation
 			gist:Commitment
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:toAgent ;
+				owl:onProperty gist:getter ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -1665,7 +1665,7 @@ gist:Obligation
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:fromAgent ;
+				owl:onProperty gist:giver ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -1689,7 +1689,7 @@ gist:Offer
 			gist:ContingentObligation
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:fromAgent ;
+				owl:onProperty gist:giver ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -3050,7 +3050,7 @@ gist:expressedIn
 
 gist:fromAgent
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:hasParty ;
+	rdfs:subPropertyOf gist:hasParticipant ;
 	rdfs:range [
 		a owl:Class ;
 		owl:unionOf (
@@ -3058,9 +3058,9 @@ gist:fromAgent
 			gist:Person
 		) ;
 	] ;
-	skos:altLabel "Giver"^^xsd:string ;
 	skos:definition "The source of a message or shipment"^^xsd:string ;
 	skos:prefLabel "From Agent"^^xsd:string ;
+	skos:scopeNote 'This is not the inverse of toAgent. A message can be to someone. If we made it the inverse the person would be "from" the message'^^xsd:string ;
 	.
 
 gist:fromPlace
@@ -3107,6 +3107,21 @@ gist:geoOccupies
 	rdfs:range gist:Place ;
 	skos:definition "A thing occupies are region"^^xsd:string ;
 	skos:prefLabel "Geo Occupies"^^xsd:string ;
+	.
+
+gist:getter
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasParticipant ;
+	owl:propertyDisjointWith gist:giver ;
+	skos:definition "The recipient"^^xsd:string ;
+	skos:prefLabel "Getter"^^xsd:string ;
+	.
+
+gist:giver
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasParticipant ;
+	skos:definition "The active party, the one with the obligation or the one initiating the transfer"^^xsd:string ;
+	skos:prefLabel "Giver"^^xsd:string ;
 	.
 
 gist:governedBy
@@ -3783,7 +3798,7 @@ gist:timeZoneStandardUsed
 
 gist:toAgent
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:hasParty ;
+	rdfs:subPropertyOf gist:hasParticipant ;
 	rdfs:range [
 		a owl:Class ;
 		owl:unionOf (
@@ -3791,7 +3806,6 @@ gist:toAgent
 			gist:Person
 		) ;
 	] ;
-	skos:altLabel "Getter"^^xsd:string ;
 	skos:definition "Indicates to whom (e.g. a message or shipment) is destined for."^^xsd:string ;
 	skos:prefLabel "To Agent"^^xsd:string ;
 	skos:scopeNote 'This is not the inverse of fromAgent. A message can be from someone. If we made it the inverse the person would be "to" the message'^^xsd:string ;
