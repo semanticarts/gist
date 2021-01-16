@@ -373,7 +373,7 @@ gist:Commitment
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:giver ;
+				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -499,7 +499,7 @@ gist:ContingentObligation
 			gist:Commitment
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:giver ;
+				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -1654,7 +1654,7 @@ gist:Obligation
 			gist:Commitment
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:getter ;
+				owl:onProperty gist:hasGetter ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -1665,7 +1665,7 @@ gist:Obligation
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:giver ;
+				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -1689,7 +1689,7 @@ gist:Offer
 			gist:ContingentObligation
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:giver ;
+				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -3109,21 +3109,6 @@ gist:geoOccupies
 	skos:prefLabel "Geo Occupies"^^xsd:string ;
 	.
 
-gist:getter
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:hasParticipant ;
-	owl:propertyDisjointWith gist:giver ;
-	skos:definition "The recipient"^^xsd:string ;
-	skos:prefLabel "Getter"^^xsd:string ;
-	.
-
-gist:giver
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:hasParticipant ;
-	skos:definition "The active party, the one with the obligation or the one initiating the transfer"^^xsd:string ;
-	skos:prefLabel "Giver"^^xsd:string ;
-	.
-
 gist:governedBy
 	a owl:ObjectProperty ;
 	owl:inverseOf gist:governs ;
@@ -3243,6 +3228,21 @@ gist:hasFromNode
 	rdfs:subPropertyOf gist:networkConnection ;
 	skos:definition "The connections at the abstract level of a network.  Note this is directed but the parent is the undirected version"^^xsd:string ;
 	skos:prefLabel "Has From Node"^^xsd:string ;
+	.
+
+gist:hasGetter
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasParticipant ;
+	owl:propertyDisjointWith gist:hasGiver ;
+	skos:definition "The recipient"^^xsd:string ;
+	skos:prefLabel "Has Getter"^^xsd:string ;
+	.
+
+gist:hasGiver
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasParticipant ;
+	skos:definition "The active party, the one with the obligation or the one initiating the transfer"^^xsd:string ;
+	skos:prefLabel "Has Giver"^^xsd:string ;
 	.
 
 gist:hasGoal

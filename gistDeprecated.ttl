@@ -156,6 +156,23 @@ gist:geoDirectlyContains
 	owl:deprecated "true"^^xsd:boolean ;
 	.
 
+gist:getter
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasParticipant ;
+	owl:deprecated "true"^^xsd:boolean ;
+	owl:propertyDisjointWith gist:giver ;
+	<http://www.w3.org/2004/02/skos/core#definition> "The recipient"^^xsd:string ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Getter"^^xsd:string ;
+	.
+
+gist:giver
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasParticipant ;
+	owl:deprecated "true"^^xsd:boolean ;
+	<http://www.w3.org/2004/02/skos/core#definition> "The active party, the one with the obligation or the one initiating the transfer"^^xsd:string ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Giver"^^xsd:string ;
+	.
+
 gist:hasA
 	a
 		owl:InverseFunctionalProperty ,

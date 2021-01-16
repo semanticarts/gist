@@ -7,16 +7,14 @@ Release X.x.x
 ### Minor Updates
 
 **Refactored `hasParty`, `giver` and `getter`**
+- 'giver' and 'getter'
+  - Rename `giver` and `getter` to `hasGiver` and `hasGetter`
+  - Deprecate `giver` and `getter`
+  - No longer subproperties of `hasParty`
 - New property: `hasParticipant`
-  - Domain: includes `Event`, `Agreement`, `Obligation`.
-  - Range: none.
-  - Has subproperty: `hasParty`
-- New usage: `toAgent` and `fromAgent` 
-  - Both are now subproperties of `hasParty`
-  - Replace `getter` with `toAgent` 
-  - Replace `giver` with `fromAgent` 
-- Deprecate: `getter` & `giver`.
-
+  - No domain or range
+  - Has subproperties: `hasGiver`, `hasGetter`, `hasParty`, `fromAgent` and `toAgent`
+- Added annotations on `fromAgent` and `hasParty`
 
 Release 9.5.0
 -----
