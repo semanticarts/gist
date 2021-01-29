@@ -5,6 +5,7 @@ variables:
   input: "."
   rdf-toolkit: "{input}/tools/rdf-toolkit.jar"
   output: "{name}{version}_webDownload"
+  validation: "validation"
 tools:
 - name: "serializer"
   type: "Java"
@@ -55,6 +56,19 @@ tools:
     - "-t"
     - "{outputFile}"
 actions:
+# Create validation directory
+- action: "mkdir"
+  directory: "{validation}"
+# Validate ontology
+- action: "verify"
+  type: "shacl"
+  inference: "none"
+  target: "{validation}/ontologyValidationReport.ttl"
+  source: "{input}"
+  includes:
+    - gistCore.ttl
+  shapes:
+    source: "{input}/ontologyShapes.ttl"
 - action: "mkdir"
   directory: "{output}"
 - action: "copy"
