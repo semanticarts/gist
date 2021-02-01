@@ -74,6 +74,16 @@ gshapes:PropertyShape
 		;
 	.
 
+gshapes:SentenceCase
+	a sh:PropertyShape ;
+	skos:definition "Enforces Sentence Case, allowing for all-caps words for acronyms."^^xsd:string ;
+	sh:maxCount "1"^^xsd:integer ;
+	sh:minCount "1"^^xsd:integer ;
+	sh:name "Sentence Case Label"^^xsd:string ;
+	sh:path skos:prefLabel ;
+	sh:pattern "^[A-Z]([a-z]+|[A-Z]+)( \\(?([a-z]+|[A-Z][A-Z]+|[0-9]+)\\)?)*$"^^xsd:string ;
+	.
+
 gshapes:TitleCase
 	a sh:PropertyShape ;
 	skos:definition "Enforces Title Case, allowing for all-caps words for acronyms and lower case conjunctions and prepositions."^^xsd:string ;
