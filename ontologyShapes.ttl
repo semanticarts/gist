@@ -48,7 +48,7 @@ gshapes:LowerCase
 	sh:minCount "1"^^xsd:integer ;
 	sh:name "Lower Case Label"^^xsd:string ;
 	sh:path skos:prefLabel ;
-	sh:pattern "^([a-z]+|[A-Z][A-Z]+)( \\(?([a-z]+|[A-Z][A-Z]+|[0-9]+)\\)?)*$"^^xsd:string ;
+	sh:pattern "^([a-z]+|[A-Z][A-Z]+)([- ]([a-z]+|[A-Z][A-Z]+|[0-9]+))*$"^^xsd:string ;
 	.
 
 gshapes:MandatoryDefinition
@@ -81,7 +81,7 @@ gshapes:SentenceCase
 	sh:minCount "1"^^xsd:integer ;
 	sh:name "Sentence Case Label"^^xsd:string ;
 	sh:path skos:prefLabel ;
-	sh:pattern "^[A-Z]([a-z]+|[A-Z]+)( \\(?([a-z]+|[A-Z][A-Z]+|[0-9]+)\\)?)*$"^^xsd:string ;
+	sh:pattern "^[A-Z]([a-z]+|[A-Z]+)([- ](?([a-z]+|[A-Z][A-Z]+|[0-9]+))?)*$"^^xsd:string ;
 	.
 
 gshapes:TitleCase
@@ -91,6 +91,6 @@ gshapes:TitleCase
 	sh:minCount "1"^^xsd:integer ;
 	sh:name "Title Case Label"^^xsd:string ;
 	sh:path skos:prefLabel ;
-	sh:pattern "^[A-Z]([a-z]+|[A-Z]+)( [A-Z]([a-z]+|[A-Z]+)| of| in| the| a| and?)*$"^^xsd:string ;
+	sh:pattern "^([A-Z]([a-z]+|[A-Z]+)|[A-Z]([a-z]+|[A-Z]+)([- ]([A-Z]([a-z]+|[A-Z]+)|[0-9]+)| a[nst]?| the| and| but| i[fn]| [fn]?or| so| yet| by| cum| ere| o(ff?|n|ut)| p(re|er|ro)| qua| re| sub| to| up| via)*[ -]([A-Z]([a-z]+|[A-Z]+)|[0-9]+))$"^^xsd:string ;
 	.
 
