@@ -67,6 +67,7 @@ actions:
   source: "{input}"
   includes:
     - gistCore.ttl
+    - gistValidationAnnotations.ttl
   shapes:
     source: "{input}/ontologyShapes.ttl"
 - action: "mkdir"
