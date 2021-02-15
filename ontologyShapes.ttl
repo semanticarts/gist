@@ -44,7 +44,8 @@ gshapes:ClassShape
 
 gshapes:LowerCase
 	a sh:PropertyShape ;
-	skos:definition "Enforces Lower Case, allowing for all-caps words for acronyms."^^xsd:string ;
+	skos:definition "Enforces Lower Case, allowing for all-caps words for acronyms, as well as numbers."^^xsd:string ;
+	skos:editorialNote "Entities which require a prefLabel that does not conform to this rule should be annotated with gist:nonConformingLabel to pass validation."^^xsd:string ;
 	sh:maxCount "1"^^xsd:integer ;
 	sh:minCount "1"^^xsd:integer ;
 	sh:name "Lower Case Label"^^xsd:string ;
@@ -87,6 +88,7 @@ gshapes:PropertyShape
 gshapes:SentenceCase
 	a sh:PropertyShape ;
 	skos:definition "Enforces Sentence Case, allowing for all-caps words for acronyms."^^xsd:string ;
+	skos:editorialNote "Entities which require a prefLabel that does not conform to this rule should be annotated with gist:nonConformingLabel to pass validation."^^xsd:string ;
 	sh:maxCount "1"^^xsd:integer ;
 	sh:minCount "1"^^xsd:integer ;
 	sh:name "Sentence Case Label"^^xsd:string ;
@@ -96,7 +98,8 @@ gshapes:SentenceCase
 
 gshapes:TitleCase
 	a sh:PropertyShape ;
-	skos:definition "Enforces Title Case, allowing for all-caps words for acronyms and lower case conjunctions and prepositions."^^xsd:string ;
+	skos:definition "Enforces Title Case, allowing for numbers, all-caps words for acronyms and lower case conjunctions and prepositions."^^xsd:string ;
+	skos:editorialNote "Entities which require a prefLabel that does not conform to this rule should be annotated with gist:nonConformingLabel to pass validation."^^xsd:string ;
 	sh:maxCount "1"^^xsd:integer ;
 	sh:minCount "1"^^xsd:integer ;
 	sh:name "Title Case Label"^^xsd:string ;
