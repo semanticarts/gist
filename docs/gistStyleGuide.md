@@ -48,7 +48,7 @@ Naming
 
 ### Labels
 
-The following conventions apply to both `skos:prefLabel` and `skos:altLabel`.
+The following conventions apply to `skos:prefLabel`. Application to `skos:altLabel` TBD.
 
 #### Classes
 
