@@ -48,20 +48,36 @@ Naming
 
 ### Labels
 
+The following conventions apply to both `skos:prefLabel` and `skos:altLabel`.
+
 #### Classes
 
-- Sentence case
+- Title case (see definition of title case below)
 - Normalized to natural language standards. E.g., hyphens inserted, acronyms in all caps, etc.
-  - Examples: _AMA guideline_, _ISBN-10_
+  - Examples: _AMA Guideline_, _ISBN-10_
   
 #### Properties
 
-- Same as classes, but initial lowercase
-- Examples: _has unit of measure_, _has SSN_.
+- Lower case
+- Normalized to natural language standards. E.g., hyphens inserted, acronyms in all caps, proper nouns capitalized, etc.
+- Examples: _has unit of measure_, _has SSN_, _unit symbol Unicode_
 
-#### Rationale
+#### gist Definition of Title Case
 
-We adopt sentence over title case because the latter, while technically well-defined, has more complex rules and can introduce inconsistencies when implemented by different users.
+The rules of title case are not universally standardized; standardization is only at the level of house styles and individual style guides. Most English style guides agree that the first and last words should always be capitalized, while articles, short prepositions, and some conjunctions should not be. Other rules about the capitalization vary.
+
+gist style guide for title case:
+
+- Capitalize:
+  - First and last words
+  - Words of four or more letters (e.g., _Between_, _With_)
+  - Second part of hyphenated word (e.g., _Data-Centric_ not _Data-centric_)
+- Lowercase:
+  - Articles: *a*, *an*, *the*
+  - Conjunctions: *and*, *but*, *if*, *for*, *or*, *nor*, *so*, *yet*
+  - Prepositions: *as*, *at*, *by*, *cum*, *ere*, *for*, *in*, *of*, *off*, *on*, *out*, *per*, *pre*, *pro*, *qua*, *re*, *sub*, *to*, *up*, *via*
+- Acronyms in all caps (e.g., _SSN_, _ISBN_)
+- Capitalize everything else
 
 ### Annotations
 
