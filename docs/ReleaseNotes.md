@@ -1,6 +1,15 @@
 gist Release Notes
 =====
 
+Release X.x.x [ADD APPROPRIATE VERSION NUMBER FOR RELEASE]
+-----
+
+### Minor Updates
+
+- Added datatype property `gist:description` for describing instance data. Issue [#425](https://github.com/semanticarts/gist/issues/425).
+
+Import URL: <https://ontologies.semanticarts.com/o/gistCoreX.x.x>. [ADD APPROPRIATE VERSION NUMBER FOR RELEASE]
+
 Release 9.5.0
 -----
 
