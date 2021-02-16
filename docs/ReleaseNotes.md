@@ -7,15 +7,18 @@ Release X.x.x
 ### Minor Updates
 
 **Refactored `hasParty`, `giver` and `getter`**
+Issue [#133](https://github.com/semanticarts/gist/issues/133)
 
 - `giver` and `getter`
-  - Rename to `hasGiver` and `hasGetter`
-  - Deprecate
-- `hasGiver` and `hasGetter` are not subproperties of `hasParty` (as were `giver` and `getter`)
+  - Renamed to `hasGiver` and `hasGetter`
+  - The newly named versions are no longer subproperties of `hasParty`
+  - Deprecated
 - New property: `hasParticipant`
   - No domain or range
   - Has subproperties: `hasGiver`, `hasGetter`, `hasParty`, `fromAgent` and `toAgent`
-- Added annotations on `fromAgent` and `hasParty`
+- Added the word 'event' to the `skos:definition` of `fromAgent`
+- Added a `skos:scopeNote` to `fromAgent` 
+- Added a `skos:example` to `hasParty`
 
 Release 9.5.0
 -----
