@@ -20,10 +20,9 @@ Issue [#133](https://github.com/semanticarts/gist/issues/133)
 - New property: `hasParticipant`
   - No domain or range
   - Has subproperties: `hasGiver`, `hasGetter`, `hasParty`, `fromAgent` and `toAgent`
-- Added the word 'event' to the `skos:definition` of `fromAgent`
 - Added a `skos:scopeNote` to `fromAgent` 
 - Added a `skos:example` to `hasParty`
-- updated `skos:definition`s for `toAgent` and `fromAgent`
+- Updated `skos:definition`s for `toAgent` and `fromAgent`
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCoreX.x.x>. [UPDATE AT RELEASE TIME]
 
