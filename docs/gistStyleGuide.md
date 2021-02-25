@@ -109,7 +109,7 @@ Certain RDFS annotations are recommended where there is no SKOS equivalent.
 | ---------: | ------- |
 | `skos:changeNote` | Normally change notes are provided by the git history or version comparison. |
 | `skos:historyNote` | Normally change notes are provided by the git history or version comparison. |
-| `skos:note` | A more specific annotation is preferred. |
+| `skos:note` | Use a more specific annotation whenever possible. |
 
 *Do not use*
 | Annotation | Instead Use |
