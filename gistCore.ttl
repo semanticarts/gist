@@ -3058,7 +3058,7 @@ gist:fromAgent
 			gist:Person
 		) ;
 	] ;
-	skos:definition "the party that is the source of something (e.g. a message, shipment, etc.)"^^xsd:string ;
+	skos:definition "The party that is the source of something (e.g. a message, shipment, etc.)"^^xsd:string ;
 	skos:prefLabel "from agent"^^xsd:string ;
 	skos:scopeNote 'This is not the inverse of toAgent. A message can be to someone. If we made it the inverse the person would be "from" the message'^^xsd:string ;
     .
@@ -3799,7 +3799,7 @@ gist:toAgent
 			gist:Person
 		) ;
 	] ;
-	skos:definition "the party that is the recipient of something (e.g. a message, shipment, etc.)"^^xsd:string ;
+	skos:definition "The party that is the recipient of something (e.g. a message, shipment, etc.)"^^xsd:string ;
 	skos:prefLabel "to agent"^^xsd:string ;
 	skos:scopeNote 'This is not the inverse of fromAgent. A message can be from someone. If we made it the inverse the person would be "to" the message'^^xsd:string ;
 	.
