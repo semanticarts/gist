@@ -1,6 +1,15 @@
 gist Release Notes
 =====
 
+Release X.x.x [UPDATE AT RELEASE TIME]
+-----
+
+### Patch updates
+
+- Updated gist style guide for newly-defined conventions. Issue [#421](https://github.com/semanticarts/gist/issues/421).
+
+Import URL: <https://ontologies.semanticarts.com/o/gistCoreX.x.x>. [UPDATE AT RELEASE TIME]
+
 Release 9.5.0
 -----
 
