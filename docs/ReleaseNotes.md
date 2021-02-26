@@ -4,6 +4,22 @@ gist Release Notes
 Release X.x.x [UPDATE AT RELEASE TIME]
 -----
 
+### Minor Updates
+
+**Refactored `hasParty`, `giver` and `getter`**
+Issue [#133](https://github.com/semanticarts/gist/issues/133)
+
+- `giver` and `getter`
+  - Renamed to `hasGiver` and `hasGetter`
+  - The newly named versions are no longer subproperties of `hasParty`
+  - Deprecated
+- New property: `hasParticipant`
+  - No domain or range
+  - Has subproperties: `hasGiver`, `hasGetter`, `hasParty`, `fromAgent` and `toAgent`
+- Added a `skos:scopeNote` to `fromAgent` 
+- Added a `skos:example` to `hasParty`
+- Updated `skos:definition`s for `toAgent` and `fromAgent`
+
 ### Patch updates
 
 - Updated gist style guide for newly-defined conventions. Issue [#421](https://github.com/semanticarts/gist/issues/421).

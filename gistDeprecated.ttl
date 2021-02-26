@@ -5,6 +5,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -154,6 +155,23 @@ gist:geoDirectlyContains
 	rdfs:label "Geo Directly Contains"^^xsd:string ;
 	rdfs:comment "The subject geospatially contains the object.  E.g. the area of a city contains the area of its neighborhoods"^^xsd:string ;
 	owl:deprecated "true"^^xsd:boolean ;
+	.
+
+gist:getter
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasParticipant ;
+	owl:deprecated "true"^^xsd:boolean ;
+	owl:propertyDisjointWith gist:giver ;
+	<http://www.w3.org/2004/02/skos/core#definition> "The recipient"^^xsd:string ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Getter"^^xsd:string ;
+	.
+
+gist:giver
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasParticipant ;
+	owl:deprecated "true"^^xsd:boolean ;
+	<http://www.w3.org/2004/02/skos/core#definition> "The active party, the one with the obligation or the one initiating the transfer"^^xsd:string ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "Giver"^^xsd:string ;
 	.
 
 gist:hasA
