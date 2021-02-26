@@ -1,5 +1,4 @@
 *.~vsd*
 *_webDownload/
 .DS_Store
-gistCore.ttl.orig
-docs/ReleaseNotes.md.orig
+*.orig
