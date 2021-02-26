@@ -4,10 +4,6 @@ gist Release Notes
 Release X.x.x [UPDATE AT RELEASE TIME]
 -----
 
-### Patch updates
-
-- Updated gist style guide for newly-defined conventions. Issue [#421](https://github.com/semanticarts/gist/issues/421).
-
 ### Minor Updates
 
 **Refactored `hasParty`, `giver` and `getter`**
@@ -23,6 +19,10 @@ Issue [#133](https://github.com/semanticarts/gist/issues/133)
 - Added a `skos:scopeNote` to `fromAgent` 
 - Added a `skos:example` to `hasParty`
 - Updated `skos:definition`s for `toAgent` and `fromAgent`
+
+### Patch updates
+
+- Updated gist style guide for newly-defined conventions. Issue [#421](https://github.com/semanticarts/gist/issues/421).
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCoreX.x.x>. [UPDATE AT RELEASE TIME]
 
