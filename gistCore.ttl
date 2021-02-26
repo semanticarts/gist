@@ -373,7 +373,7 @@ gist:Commitment
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:giver ;
+				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -499,7 +499,7 @@ gist:ContingentObligation
 			gist:Commitment
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:giver ;
+				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -1654,7 +1654,7 @@ gist:Obligation
 			gist:Commitment
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:getter ;
+				owl:onProperty gist:hasGetter ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -1665,7 +1665,7 @@ gist:Obligation
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:giver ;
+				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -1689,7 +1689,7 @@ gist:Offer
 			gist:ContingentObligation
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:giver ;
+				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -3058,6 +3058,7 @@ gist:expressedIn
 
 gist:fromAgent
 	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasParticipant ;
 	rdfs:range [
 		a owl:Class ;
 		owl:unionOf (
@@ -3065,8 +3066,9 @@ gist:fromAgent
 			gist:Person
 		) ;
 	] ;
-	skos:definition "The source of a message or shipment"^^xsd:string ;
+	skos:definition "The party that is the source of something (e.g. a message, shipment, etc.)"^^xsd:string ;
 	skos:prefLabel "from agent"^^xsd:string ;
+	skos:scopeNote 'This is not the inverse of toAgent. A message can be to someone. If we made it the inverse the person would be "from" the message'^^xsd:string ;
 	.
 
 gist:fromPlace
@@ -3113,21 +3115,6 @@ gist:geoOccupies
 	rdfs:range gist:Place ;
 	skos:definition "A thing occupies are region"^^xsd:string ;
 	skos:prefLabel "geo occupies"^^xsd:string ;
-	.
-
-gist:getter
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:hasParty ;
-	owl:propertyDisjointWith gist:giver ;
-	skos:definition "The recipient"^^xsd:string ;
-	skos:prefLabel "getter"^^xsd:string ;
-	.
-
-gist:giver
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:hasParty ;
-	skos:definition "The active party, the one with the obligation or the one initiating the transfer"^^xsd:string ;
-	skos:prefLabel "giver"^^xsd:string ;
 	.
 
 gist:governedBy
@@ -3251,6 +3238,21 @@ gist:hasFromNode
 	skos:prefLabel "has from node"^^xsd:string ;
 	.
 
+gist:hasGetter
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasParticipant ;
+	owl:propertyDisjointWith gist:hasGiver ;
+	skos:definition "The recipient"^^xsd:string ;
+	skos:prefLabel "Has Getter"^^xsd:string ;
+	.
+
+gist:hasGiver
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasParticipant ;
+	skos:definition "The active party, the one with the obligation or the one initiating the transfer"^^xsd:string ;
+	skos:prefLabel "Has Giver"^^xsd:string ;
+	.
+
 gist:hasGoal
 	a owl:ObjectProperty ;
 	skos:definition "The reason for doing something"^^xsd:string ;
@@ -3317,8 +3319,20 @@ gist:hasPart
 	skos:prefLabel "has part"^^xsd:string ;
 	.
 
+gist:hasParticipant
+	a owl:ObjectProperty ;
+	skos:definition "Relates something (e.g. an agreement) to things that play a role, or take part or are otherwise involved in some way."^^xsd:string ;
+	skos:example "An event of transferring money has a participating account that receives the money."^^xsd:string ;
+	skos:prefLabel "Has Participant"^^xsd:string ;
+	skos:scopeNote
+		"The thing with participants will often be an agreement, event or obligation."^^xsd:string ,
+		"This is intended as an abstract property. Only its subproperties will be directly used."^^xsd:string
+		;
+	.
+
 gist:hasParty
 	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasParticipant ;
 	rdfs:range [
 		a owl:Class ;
 		owl:unionOf (
@@ -3326,7 +3340,8 @@ gist:hasParty
 			gist:Person
 		) ;
 	] ;
-	skos:definition "The people or organizations participating in an agreement or obligation"^^xsd:string ;
+	skos:definition "The people or organizations participating in an event, agreement or obligation"^^xsd:string ;
+	skos:example "For loan agreements, one might create hasLender and hasBorrower as subproperties of hasParty."^^xsd:string ;
 	skos:prefLabel "has party"^^xsd:string ;
 	.
 
@@ -3784,6 +3799,7 @@ gist:timeZoneStandardUsed
 
 gist:toAgent
 	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasParticipant ;
 	rdfs:range [
 		a owl:Class ;
 		owl:unionOf (
@@ -3791,7 +3807,7 @@ gist:toAgent
 			gist:Person
 		) ;
 	] ;
-	skos:definition "Indicates to whom (e.g. a message or shipment) is destined for."^^xsd:string ;
+	skos:definition "The party that is the recipient of something (e.g. a message, shipment, etc.)"^^xsd:string ;
 	skos:prefLabel "to agent"^^xsd:string ;
 	skos:scopeNote 'This is not the inverse of fromAgent. A message can be from someone. If we made it the inverse the person would be "to" the message'^^xsd:string ;
 	.
