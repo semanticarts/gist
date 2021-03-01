@@ -61,6 +61,7 @@ actions:
   directory: "{validation}"
 # Validate ontology
 - action: "verify"
+  message: "Validating ontology via SHACL."
   type: "shacl"
   inference: "none"
   target: "{validation}/ontologyValidationReport.ttl"
@@ -73,6 +74,7 @@ actions:
 - action: "mkdir"
   directory: "{output}"
 - action: "copy"
+  message: "Substituting version numbers."
   source: "{input}"
   target: "{output}"
   replace:
@@ -84,17 +86,20 @@ actions:
   includes:
     - "*.ttl"
 - action: "definedBy"
+  message: "Adding rdfs:definedBy."
   source: "{output}"
   target: "{output}"
   includes:
     - "*.ttl"
 - action: "transform"
+  message: "Turtle serialization."
   tool: "serializer"
   source: "{output}"
   target: "{output}"
   includes:
     - "*.ttl"
 - action: "transform"
+  message: "RDF/XML serialization."
   tool: "xml-serializer"
   source: "{output}"
   target: "{output}"
@@ -104,6 +109,7 @@ actions:
   includes:
     - "*.ttl"
 - action: "transform"
+  message: "JSON/LD serialization."
   tool: "json-serializer"
   source: "{output}"
   target: "{output}"
@@ -113,6 +119,7 @@ actions:
   includes:
     - "*.ttl"
 - action: "sparql"
+  message: "Generating rdfs:label for backward compatibility."
   source: "{output}"
   target: "{output}/rdfsAnnotations.ttl"
   format: "turtle"
@@ -145,6 +152,7 @@ actions:
   source: "{output}/rdfsAnnotations.ttl"
   target: "{output}/rdfsAnnotations.ttl"
 - action: "copy"
+  message: "Copying license text."
   source: "{input}/LICENSE.txt"
   target: "{output}"
 - action: "copy"
@@ -153,9 +161,11 @@ actions:
   includes:
     - "ReleaseNotes.md"
 - action: "markdown"
+  message: "Formatting release notes."
   source: "{input}/docs/ReleaseNotes.md"
   target: "{output}/Documentation/ReleaseNotes.html"
 - action: "move"
+  message: "Creating Deprecated folder."
   source: "{output}"
   target: "{output}/Deprecated"
   includes:
