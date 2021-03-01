@@ -3243,14 +3243,14 @@ gist:hasGetter
 	rdfs:subPropertyOf gist:hasParticipant ;
 	owl:propertyDisjointWith gist:hasGiver ;
 	skos:definition "The recipient"^^xsd:string ;
-	skos:prefLabel "Has Getter"^^xsd:string ;
+	skos:prefLabel "has getter"^^xsd:string ;
 	.
 
 gist:hasGiver
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasParticipant ;
 	skos:definition "The active party, the one with the obligation or the one initiating the transfer"^^xsd:string ;
-	skos:prefLabel "Has Giver"^^xsd:string ;
+	skos:prefLabel "has giver"^^xsd:string ;
 	.
 
 gist:hasGoal
@@ -3323,7 +3323,7 @@ gist:hasParticipant
 	a owl:ObjectProperty ;
 	skos:definition "Relates something (e.g. an agreement) to things that play a role, or take part or are otherwise involved in some way."^^xsd:string ;
 	skos:example "An event of transferring money has a participating account that receives the money."^^xsd:string ;
-	skos:prefLabel "Has Participant"^^xsd:string ;
+	skos:prefLabel "has participant"^^xsd:string ;
 	skos:scopeNote
 		"The thing with participants will often be an agreement, event or obligation."^^xsd:string ,
 		"This is intended as an abstract property. Only its subproperties will be directly used."^^xsd:string
