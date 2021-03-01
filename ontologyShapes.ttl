@@ -1,0 +1,109 @@
+# imports: http://datashapes.org/dash
+# imports: http://topbraid.org/tosh
+# imports: http://www.w3.org/ns/shacl#
+
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix gist: <https://ontologies.semanticarts.com/gist/> .
+@prefix gshapes: <https://shapes.semanticarts.com/gist/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix teamwork: <http://topbraid.org/teamwork#> .
+@prefix tosh: <http://topbraid.org/tosh#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://shapes.semanticarts.com/s/ontologyShapes>
+	a owl:Ontology ;
+	owl:imports
+		<http://datashapes.org/dash> ,
+		<http://topbraid.org/tosh> ,
+		<http://www.w3.org/ns/shacl#>
+		;
+	skos:definition "Shapes to enforce ontology style."^^xsd:string ;
+	skos:prefLabel "ontologyShapes"^^xsd:string ;
+	.
+
+gshapes:ClassShape
+	a sh:NodeShape ;
+	rdfs:label "Class"^^xsd:string ;
+	skos:prefLabel "Class"^^xsd:string ;
+	sh:or (
+		gshapes:TitleCase
+		gshapes:NonConformingLabel
+	) ;
+	sh:property gshapes:MandatoryDefinition ;
+	sh:target [
+		a sh:SPARQLTarget ;
+		skos:definition "Target only non-blank node classes to avoid noise from OWL constructs."^^xsd:string ;
+		sh:prefixes <http://www.w3.org/2002/07/owl#> ;
+		sh:select "SELECT $this WHERE { $this a owl:Class . filter(!isblank($this)) }"^^xsd:string ;
+	] ;
+	.
+
+gshapes:LowerCase
+	a sh:PropertyShape ;
+	skos:definition "Enforces Lower Case, allowing for all-caps words for acronyms, as well as numbers."^^xsd:string ;
+	skos:editorialNote "Entities which require a prefLabel that does not conform to this rule should be annotated with gist:nonConformingLabel to pass validation."^^xsd:string ;
+	sh:maxCount "1"^^xsd:integer ;
+	sh:minCount "1"^^xsd:integer ;
+	sh:name "Lower Case Label"^^xsd:string ;
+	sh:path skos:prefLabel ;
+	sh:pattern "^([a-z]+|[A-Z][A-Z]+)([- ]([a-z]+|[A-Z][A-Z]+|[0-9]+))*$"^^xsd:string ;
+	.
+
+gshapes:MandatoryDefinition
+	a sh:PropertyShape ;
+	skos:definition "Enforces the presence of one or more definitions."^^xsd:string ;
+	sh:minCount "1"^^xsd:integer ;
+	sh:name "Mandatory Definition"^^xsd:string ;
+	sh:path skos:definition ;
+	.
+
+gshapes:NonConformingLabel
+	a sh:PropertyShape ;
+	skos:definition "Excluded from label validation."^^xsd:string ;
+	sh:hasValue "true"^^xsd:boolean ;
+	sh:name "Non-Conforming Label"^^xsd:string ;
+	sh:path gist:nonConformingLabel ;
+	.
+
+gshapes:PropertyShape
+	a sh:NodeShape ;
+	rdfs:label "Property"^^xsd:string ;
+	skos:prefLabel "Property"^^xsd:string ;
+	sh:or (
+		gshapes:LowerCase
+		gshapes:NonConformingLabel
+	) ;
+	sh:property gshapes:MandatoryDefinition ;
+	sh:targetClass
+		owl:AnnotationProperty ,
+		owl:DatatypeProperty ,
+		owl:ObjectProperty
+		;
+	.
+
+gshapes:SentenceCase
+	a sh:PropertyShape ;
+	skos:definition "Enforces Sentence Case, allowing for all-caps words for acronyms."^^xsd:string ;
+	skos:editorialNote "Entities which require a prefLabel that does not conform to this rule should be annotated with gist:nonConformingLabel to pass validation."^^xsd:string ;
+	sh:maxCount "1"^^xsd:integer ;
+	sh:minCount "1"^^xsd:integer ;
+	sh:name "Sentence Case Label"^^xsd:string ;
+	sh:path skos:prefLabel ;
+	sh:pattern "^[A-Z]([a-z]+|[A-Z]+)([- ](?([a-z]+|[A-Z][A-Z]+|[0-9]+))?)*$"^^xsd:string ;
+	.
+
+gshapes:TitleCase
+	a sh:PropertyShape ;
+	skos:definition "Enforces Title Case, allowing for numbers, all-caps words for acronyms and lower case conjunctions and prepositions."^^xsd:string ;
+	skos:editorialNote "Entities which require a prefLabel that does not conform to this rule should be annotated with gist:nonConformingLabel to pass validation."^^xsd:string ;
+	sh:maxCount "1"^^xsd:integer ;
+	sh:minCount "1"^^xsd:integer ;
+	sh:name "Title Case Label"^^xsd:string ;
+	sh:path skos:prefLabel ;
+	sh:pattern "^([A-Z]([a-z]+|[A-Z]+)|[A-Z]([a-z]+|[A-Z]+)([- ]([A-Z]([a-z]+|[A-Z]+)|[0-9]+)| a[nst]?| the| and| but| i[fn]| [fn]?or| so| yet| by| cum| ere| o(ff?|n|ut)| p(re|er|ro)| qua| re| sub| to| up| via)*[ -]([A-Z]([a-z]+|[A-Z]+)|[0-9]+))$"^^xsd:string ;
+	.
+
