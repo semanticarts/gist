@@ -25,7 +25,7 @@ Release 9.6.0
         - Renamed to `hasGiver` and `hasGetter`
         - The newly named versions are no longer subproperties of `hasParty`
         - Deprecated `giver` and `getter`
-        - New property: `hasParticipant`
+    - New property: `hasParticipant`
         - No domain or range
         - Has subproperties: `hasGiver`, `hasGetter`, `hasParty`, `fromAgent` and `toAgent`
     - Added a `skos:scopeNote` to `fromAgent`
