@@ -6,7 +6,7 @@ Release 10.0.0
 
 ### Major Updates
 
-- Removed `gist:Room`. Issue [#102] (<https://github.com/semanticarts/gist/issues/102>).
+- Removed `gist:Room`. Issue [#102](<https://github.com/semanticarts/gist/issues/102>).
 
 ### Minor Updates
 
