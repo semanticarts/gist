@@ -32,6 +32,29 @@ gist:PhysicalThing
 	] ;
 	.
 
+gist:Room
+	a owl:Class ;
+	rdfs:subClassOf gist:Place ;
+	owl:deprecated "true"^^xsd:boolean ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:directPartOf ;
+				owl:someValuesFrom gist:Building ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:identifiedBy ;
+				owl:someValuesFrom gist:ID ;
+			]
+		) ;
+	] ;
+	skos:definition "An enclosed area within a building."^^xsd:string ;
+	skos:prefLabel "Room"^^xsd:string ;
+	.
+
 gist:SocialBeing
 	a owl:Class ;
 	rdfs:label "Social Being"^^xsd:string ;

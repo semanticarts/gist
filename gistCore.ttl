@@ -2158,28 +2158,6 @@ gist:Restriction
 	skos:prefLabel "Restriction"^^xsd:string ;
 	.
 
-gist:Room
-	a owl:Class ;
-	rdfs:subClassOf gist:Place ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:directPartOf ;
-				owl:someValuesFrom gist:Building ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:identifiedBy ;
-				owl:someValuesFrom gist:ID ;
-			]
-		) ;
-	] ;
-	skos:definition "An enclosed area within a building."^^xsd:string ;
-	skos:prefLabel "Room"^^xsd:string ;
-	.
-
 gist:ScheduledTask
 	a owl:Class ;
 	owl:equivalentClass [

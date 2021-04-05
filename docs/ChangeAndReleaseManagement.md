@@ -33,7 +33,7 @@ Version numbers are of the form X.x.x (major.minor.patch). We follow [Semantic V
 - **Major:** Non-backward-compatible (i.e., reasoning produces different results).
   - Examples: adding a restriction, domain, range.
 
-- **Minor:** New, backward-compatible functionality. May constitute a large change to the ontology, such as addition to new module.
+- **Minor:** New, backward-compatible functionality. May constitute a large change to the ontology, such as addition of a new module.
   - Examples: adding a class or property; removing a restriction.
 
 - **Patch:** No new functionality except for bug fixes.
@@ -43,7 +43,7 @@ Additional notes:
 
 - Correction of an error, even if not backward-compatible, does not require a major release. The expectation is that users will not have implemented against an obvious error. This would be a patch.
 - When a local name is altered, the original term is deprecated to make it a minor rather than major change. The deprecated term receives an `owl:equivalentClass` or `owl:equivalentProperty` assertion to the new term. Deprecated terms may be removed in a future major release. Deprecated terms reside in the `gistDeprecated.ttl` file. If a user wants to use a deprecated term, he/she should import this file into his/her ontology, which in turn imports `gistCore.ttl` and thus all of gist.
-- Major changes should have a significant impact aside from technically modifying inferencing if this is low-impact. E.g.,changing an equivalent class axiom to a union class to a subclass axiom in order to allow new subclasses to be defined. 
+- Major changes should have a significant impact aside from technically modifying inferencing if this is low-impact. E.g.,when an equivalent class axiom to a union class is changed to a subclass axiom in order to allow new subclasses to be defined.
 
 Releases
 -----
