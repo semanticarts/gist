@@ -22,12 +22,12 @@ Release 9.6.0
 - Added datatype property `gist:description` for describing instance data. Issue [#425](https://github.com/semanticarts/gist/issues/425).
 - Refactored `hasParty`, `giver` and `getter`. Issue [#133](https://github.com/semanticarts/gist/issues/133).
     - `giver` and `getter`
-      - Renamed to `hasGiver` and `hasGetter`
-      - The newly named versions are no longer subproperties of `hasParty`
-      - Deprecated `giver` and `getter`
+        - Renamed to `hasGiver` and `hasGetter`
+        - The newly named versions are no longer subproperties of `hasParty`
+        - Deprecated `giver` and `getter`
     - New property: `hasParticipant`
-      - No domain or range
-      - Has subproperties: `hasGiver`, `hasGetter`, `hasParty`, `fromAgent` and `toAgent`
+        - No domain or range
+        - Has subproperties: `hasGiver`, `hasGetter`, `hasParty`, `fromAgent` and `toAgent`
     - Added a `skos:scopeNote` to `fromAgent`
     - Added a `skos:example` to `hasParty`
     - Updated `skos:definition`s for `toAgent` and `fromAgent`
