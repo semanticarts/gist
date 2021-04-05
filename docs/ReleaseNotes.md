@@ -1,6 +1,22 @@
 gist Release Notes
 =====
 
+Release 10.0.0
+-----
+
+### Major Updates
+
+- Changes to and affecting `gist:Person`:
+  - Removed `owl:someValuesFrom gist:name` restriction from `gist:Person`.
+  - Made `gist:hasBirthDate` a subproperty of `gist:start` rather than `gist:actualStart`.
+Issue [#136](https://github.com/semanticarts/gist/issues/136).
+
+### Minor Updates
+
+### Patch Updates
+
+Import URL: <https://ontologies.semanticarts.com/o/gistCore10.0.0>.
+
 Release 9.6.0
 -----
 
@@ -8,16 +24,16 @@ Release 9.6.0
 
 - Added datatype property `gist:description` for describing instance data. Issue [#425](https://github.com/semanticarts/gist/issues/425).
 - Refactored `hasParty`, `giver` and `getter`. Issue [#133](https://github.com/semanticarts/gist/issues/133).
-    - `giver` and `getter`
-        - Renamed to `hasGiver` and `hasGetter`
-        - The newly named versions are no longer subproperties of `hasParty`
-        - Deprecated `giver` and `getter`
-    - New property: `hasParticipant`
-        - No domain or range
-        - Has subproperties: `hasGiver`, `hasGetter`, `hasParty`, `fromAgent` and `toAgent`
-    - Added a `skos:scopeNote` to `fromAgent`
-    - Added a `skos:example` to `hasParty`
-    - Updated `skos:definition`s for `toAgent` and `fromAgent`
+  - `giver` and `getter`
+    - Renamed to `hasGiver` and `hasGetter`
+    - The newly named versions are no longer subproperties of `hasParty`
+    - Deprecated `giver` and `getter`
+  - New property: `hasParticipant`
+    - No domain or range
+    - Has subproperties: `hasGiver`, `hasGetter`, `hasParty`, `fromAgent` and `toAgent`
+  - Added a `skos:scopeNote` to `fromAgent`
+  - Added a `skos:example` to `hasParty`
+  - Updated `skos:definition`s for `toAgent` and `fromAgent`
 
 ### Patch Updates
 
