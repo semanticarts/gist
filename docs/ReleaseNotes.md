@@ -1,6 +1,19 @@
 gist Release Notes
 =====
 
+Release 10.0.0
+-----
+
+### Major Updates
+
+- Removed `gist:Room`. Issue [#102] (<https://github.com/semanticarts/gist/issues/102>).
+
+### Minor Updates
+
+### Patch Updates
+
+Import URL: <https://ontologies.semanticarts.com/o/gistCore10.0.0>.
+
 Release 9.6.0
 -----
 
