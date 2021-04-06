@@ -6,11 +6,13 @@ Release 10.0.0
 
 ### Major Updates
 
-- Removed `gist:Room`. Issue [#102] (<https://github.com/semanticarts/gist/issues/102>).
+- Removed `gist:Room`. Issue [#102](<https://github.com/semanticarts/gist/issues/102>).
 
 ### Minor Updates
 
 ### Patch Updates
+
+- Declare `gist:identifies` as `owl:FunctionalProperty` rather than `owl:InverseFunctionalProperty` (bug fix). Issue [#180](https://github.com/semanticarts/gist/issues/180).
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore10.0.0>.
 

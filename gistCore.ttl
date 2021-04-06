@@ -3442,7 +3442,7 @@ gist:identifiedBy
 
 gist:identifies
 	a
-		owl:InverseFunctionalProperty ,
+		owl:FunctionalProperty ,
 		owl:ObjectProperty
 		;
 	skos:definition "The thing the identifier refers to."^^xsd:string ;
