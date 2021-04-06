@@ -7,6 +7,7 @@ Release 10.0.0
 ### Major Updates
 
 - Changes to and affecting `gist:Person`:
+
   - Removed `owl:someValuesFrom gist:name` restriction from `gist:Person`.
   - Made `gist:hasBirthDate` a subproperty of `gist:start` rather than `gist:actualStart`.
 Issue [#136](https://github.com/semanticarts/gist/issues/136).
@@ -16,6 +17,8 @@ Issue [#136](https://github.com/semanticarts/gist/issues/136).
 ### Minor Updates
 
 ### Patch Updates
+
+- Declare `gist:identifies` as `owl:FunctionalProperty` rather than `owl:InverseFunctionalProperty` (bug fix). Issue [#180](https://github.com/semanticarts/gist/issues/180).
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore10.0.0>.
 
