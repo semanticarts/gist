@@ -215,13 +215,13 @@ Added to the list of deprecated things:
     - `gist:party` (use `hasParty` instead)
 2. Removed
     - `gist:SocialBeing`  - use `(Person or Organization)` instead
-    -  `gist:of` (a vestige of the past)
-    -  `gist:sameOrderAs` (was adding unnecessary mathematical precision)
-    -  `gist:TimeInterval` (the idea of a time interval is captured by assigning it a start and end time, e.g. an event)
-    -  `gist:dateTime`
+    - `gist:of` (a vestige of the past)
+    - `gist:sameOrderAs` (was adding unnecessary mathematical precision)
+    - `gist:TimeInterval` (the idea of a time interval is captured by assigning it a start and end time, e.g. an event)
+    - `gist:dateTime`
 3. Replaced by a variation
-    -  `gist:strictlyPrecededBy` (using `directlyPrecededBy` instead)
-    -  `gist:strictlyPrecedes` (using `directlyPrecedes` instead)
+    - `gist:strictlyPrecededBy` (using `directlyPrecededBy` instead)
+    - `gist:strictlyPrecedes` (using `directlyPrecedes` instead)
 
 Release 8.0
 -----
