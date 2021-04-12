@@ -57,7 +57,9 @@ Releases
 
 ## Creating a release build
 
-1. To generate a folder suitable for ZIP-ing up and releasing Gist, checkout the `develop` branch, and run 
+1. Checkout the `develop` branch.
+1. Verify that the header of `docs/ReleaseNotes.md` matches the release version number.
+1. To run validation and generate a release build folder, execute
 
     `onto_tool bundle -v version <release-version> bundle.yaml`
 
