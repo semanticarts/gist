@@ -49,3 +49,24 @@ Releases
 -----
 
 - Releases occur monthly, approximately on the last working day of the month, unless it is determined during a review meeting that there are not a significant number of substantive changes to warrant a release.
+
+## Tools required to build a release
+
+1. You must have `java` installed for the serializer to work.  See JRE Installation instructions [here](https://jdk.java.net/).
+1. You must also install the [ontology toolkit](https://github.com/semanticarts/ontology-toolkit), which also requires [Python](https://www.python.org/downloads/) 3.6 or greater.
+
+## Creating a release build
+
+1. To generate a folder suitable for ZIP-ing up and releasing Gist, checkout the `develop` branch, and run 
+
+    `onto_tool bundle -v version <release-version> bundle.yaml`
+
+   where `<release-version>` is a [semantic version](https://semver.org/), e.g. `9.2.0`.  It will
+serialize the OWL, and create a ZIP-able folder containing everything needed for a web 
+download.  The folder will have a name like `gist<release-version>_webDownload`. You can override
+this by adding `-v output <path-to-output-folder>` to the command.
+
+1. ZIP up the resulting folder so it can be attached as a build artifact.
+1. Create a pull request from `develop` to `master` for the release version, assign one of maintainers ([Boris](https://github.com/sa-bpelakh), [Mark](https://github.com/marksem) or [Rebecca](https://github.com/rjyounes)).
+1. Once the PR is merged, create a new release on the `master` branch using [GitHub](https://github.com/semanticarts/gist/releases/new). The release tag should be `v<release-version>`, and the release title should be `<release-version> - <Month> <YYYY>`. A link to the release notes should be included in the release description.
+1. Attach the build ZIP to the release as a binary artifact.

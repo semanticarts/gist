@@ -1,22 +1,10 @@
+![gist logo](gist.png)
 
-# gist upper enterprise ontology
+# gist
+gist is Semantic Arts' minimalist upper ontology for the enterprise. It is designed to have the maximum coverage of typical business ontology concepts with the fewest number of primitives and the least amount of ambiguity. 
 
-This repository has the raw files that we use to build the release files. If you just want the release files then you can download them from our [website](https://www.semanticarts.com/gist).
+We have an active governance and best practices community around gist called the gist Council, with a teleconference on the first Thursday of every month, where practitioners and users of gist come together to discuss how to use gist and make suggestions on its evolution.  Please send email to GistCouncil@semanticarts.com if you would like to become involved.
 
-## Prerequisites to build the output files
+You can also contribute to gist by adding your comments to [issue discussion threads](https://github.com/semanticarts/gist/issues) and submitting new issues and pull requests. You can view [minutes](https://github.com/semanticarts/gist/wiki/gist-Issue-Review-Meetings) from our biweekly issue review sessions to find out what we've been reviewing and get a preview of upcoming changes to gist.
 
-1. You must have `java` installed for the serializer to work.  See JRE Installation instructions [here](https://jdk.java.net/).
-1. You must also install the [ontology toolkit](https://github.com/semanticarts/ontology-toolkit), which also requires [Python](https://www.python.org/downloads/) 3.6 or greater.
-
-## To release
-
-1. To generate a folder suitable for ZIP-ing up and releasing Gist, run 
-
-    `onto_tool bundle -v version <release-version> bundle.yaml`
-
-   where `<release-version>` is a [semantic version](https://semver.org/), e.g. `9.2.0`.  It will
-serialize the OWL, and create a ZIP-able folder containing everything needed for a web 
-download.  The folder will have a name like `gist<release-version>_webDownload`. You can override
-this by adding `-v output <path-to-output-folder>` to the command.
-
-1. ZIP up the resulting folder and put it where we host our downloads. 
+gist is free and open to the public under the [Creative Commons 3.0](http://creativecommons.org/licenses/by-sa/3.0/) attribution share-alike license. For more information on gist or to download previously released versions of gist, see our [website](https://www.semanticarts.com/gist).
