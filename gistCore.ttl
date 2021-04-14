@@ -3151,10 +3151,7 @@ gist:hasBirthDate
 	rdfs:range gist:TimeInstant ;
 	skos:definition "Date a living thing is or will be born."^^xsd:string ;
 	skos:prefLabel "has birthdate"^^xsd:string ;
-	skos:scopeNote
-		"This property is a subproperty of gist:start, rather than gist:actualStart (as formerly), to acknowledge the fact that the birth may not yet have occurred. In this case, the birthdate is expected although not known."^^xsd:string ,
-		"While most mammals are born when they emerge live from the uterus, birth is defined in other ways for other types of organisms. For example, a bird or reptile is born when it hatches;  a plant is 'born' when it sprouts; a cell is 'born' when the parent cell divides."^^xsd:string
-		;
+	skos:scopeNote "This property is a subproperty of gist:start, rather than gist:actualStart (as formerly), to acknowledge the fact that the birth may not yet have occurred. In this case, the birthdate is expected although not known."^^xsd:string ;
 	.
 
 gist:hasCommunicationAddress
