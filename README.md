@@ -1,6 +1,7 @@
 ![gist logo](gist.png)
 
 # gist
+
 gist is Semantic Arts' minimalist upper ontology for the enterprise. It is designed to have the maximum coverage of typical business ontology concepts with the fewest number of primitives and the least amount of ambiguity. 
 
 We have an active governance and best practices community around gist called the gist Council, with a teleconference on the first Thursday of every month, where practitioners and users of gist come together to discuss how to use gist and make suggestions on its evolution.  Please send email to GistCouncil@semanticarts.com if you would like to become involved.
