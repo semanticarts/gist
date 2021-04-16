@@ -1522,8 +1522,8 @@ gist:Message
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
-						gist:Person
 						gist:Organization
+						gist:Person
 					) ;
 				] ;
 			]
@@ -1533,8 +1533,8 @@ gist:Message
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
-						gist:Person
 						gist:Organization
+						gist:Person
 					) ;
 				] ;
 			]
@@ -1689,6 +1689,11 @@ gist:Offer
 			gist:ContingentObligation
 			[
 				a owl:Restriction ;
+				owl:onProperty gist:hasDirectPart ;
+				owl:someValuesFrom gist:CatalogItem ;
+			]
+			[
+				a owl:Restriction ;
 				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
@@ -1697,11 +1702,6 @@ gist:Offer
 						gist:Person
 					) ;
 				] ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasDirectPart ;
-				owl:someValuesFrom gist:CatalogItem ;
 			]
 			[
 				a owl:Restriction ;
@@ -1908,6 +1908,7 @@ gist:PhysicalIdentifiableItem
 gist:PhysicalSubstance
 	a owl:Class ;
 	rdfs:subClassOf [
+		a owl:Class ;
 		owl:intersectionOf (
 			[
 				a owl:Restriction ;
@@ -3046,7 +3047,13 @@ gist:fromAgent
 
 gist:fromPlace
 	a owl:ObjectProperty ;
-	rdfs:range gist:Place ;
+	rdfs:range [
+		a owl:Class ;
+		owl:unionOf (
+			gist:Address
+			gist:Place
+		) ;
+	] ;
 	skos:definition "Origin"^^xsd:string ;
 	skos:prefLabel "from place"^^xsd:string ;
 	.
@@ -3788,7 +3795,13 @@ gist:toAgent
 
 gist:toPlace
 	a owl:ObjectProperty ;
-	rdfs:range gist:Place ;
+	rdfs:range [
+		a owl:Class ;
+		owl:unionOf (
+			gist:Address
+			gist:Place
+		) ;
+	] ;
 	skos:definition "Destination"^^xsd:string ;
 	skos:prefLabel "to place"^^xsd:string ;
 	.

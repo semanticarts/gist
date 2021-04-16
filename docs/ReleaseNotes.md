@@ -14,6 +14,9 @@ Issue [#136](https://github.com/semanticarts/gist/issues/136).
 
 - Removed `gist:Room`. Issue [#102](<https://github.com/semanticarts/gist/issues/102>).
 
+- Add `gist:Address` to the range of `gist:fromPlace` and `gist:toPlace`. Range is now `(gist:Address or
+  gist:Place)`.  Issue [#392](https://github.com/semanticarts/gist/issues/392).
+
 ### Minor Updates
 
 ### Patch Updates
