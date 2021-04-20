@@ -1,7 +1,7 @@
 gist Release Notes
 =====
 
-Release 10.0.0
+Release 9.7.0
 -----
 
 ### Major Updates
@@ -12,15 +12,15 @@ Release 10.0.0
   - Made `gist:hasBirthDate` a subproperty of `gist:start` rather than `gist:actualStart`.
 Issue [#136](https://github.com/semanticarts/gist/issues/136).
 
-- Removed `gist:Room`. Issue [#102](<https://github.com/semanticarts/gist/issues/102>).
-
 ### Minor Updates
+
+- Deprecated `gist:Room`. Issue [#102](<https://github.com/semanticarts/gist/issues/102>).
 
 ### Patch Updates
 
 - Declare `gist:identifies` as `owl:FunctionalProperty` rather than `owl:InverseFunctionalProperty` (bug fix). Issue [#180](https://github.com/semanticarts/gist/issues/180).
 
-Import URL: <https://ontologies.semanticarts.com/o/gistCore10.0.0>.
+Import URL: <https://ontologies.semanticarts.com/o/gistCore9.7.0>.
 
 Release 9.6.0
 -----
