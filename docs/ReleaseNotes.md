@@ -4,14 +4,6 @@ gist Release Notes
 Release 9.7.0
 -----
 
-### Major Updates
-
-- Changes to and affecting `gist:Person`:
-
-  - Removed `owl:someValuesFrom gist:name` restriction from `gist:Person`.
-  - Made `gist:hasBirthDate` a subproperty of `gist:start` rather than `gist:actualStart`.
-Issue [#136](https://github.com/semanticarts/gist/issues/136).
-
 ### Minor Updates
 
 - Deprecated `gist:Room`. Issue [#102](<https://github.com/semanticarts/gist/issues/102>).
