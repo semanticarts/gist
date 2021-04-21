@@ -1825,6 +1825,11 @@ gist:Person
 				owl:onProperty gist:offspringOf ;
 				owl:someValuesFrom gist:Person ;
 			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:name ;
+				owl:someValuesFrom xsd:string ;
+			]
 		) ;
 	] ;
 	skos:definition "A human being that may or may not still be alive."^^xsd:string ;
@@ -3146,12 +3151,12 @@ gist:hasBaseUnit
 
 gist:hasBirthDate
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:start ;
+	rdfs:subPropertyOf gist:actualStart ;
 	rdfs:domain gist:LivingThing ;
 	rdfs:range gist:TimeInstant ;
 	skos:definition "Date a living thing is or will be born."^^xsd:string ;
+	skos:editorialNote "For 10.0.0 release: This property will be a subproperty of gist:start, rather than gist:actualStart (as currently), to acknowledge the fact that the birth may not yet have occurred. In this case, the birthdate is expected although not known. [Change this note to a skos:scopeNote.]"^^xsd:string ;
 	skos:prefLabel "has birthdate"^^xsd:string ;
-	skos:scopeNote "This property is a subproperty of gist:start, rather than gist:actualStart (as formerly), to acknowledge the fact that the birth may not yet have occurred. In this case, the birthdate is expected although not known."^^xsd:string ;
 	.
 
 gist:hasCommunicationAddress
