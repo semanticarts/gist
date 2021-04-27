@@ -2969,6 +2969,7 @@ gist:directPartOf
 	owl:inverseOf gist:hasDirectPart ;
 	skos:definition "The relationship between a  part and a whole where the part has independent existence."^^xsd:string ;
 	skos:prefLabel "direct part of"^^xsd:string ;
+	skos:scopeNote "It is safest to use this property when there is semantic directness inherent in the relationship, rather than say for choosing appropriate granularity. For example, a spark plug is a direct part of an engine block; there cannot be any intermediate parts.  Beware of making a direct part of assertion and then inserting an intermediate part. Why? You will end up making an asserted triple false even though there was no change in the world."^^xsd:string ;
 	.
 
 gist:directSubTaskOf
@@ -3181,6 +3182,7 @@ gist:hasDirectPart
 	skos:definition "The relationship between a whole and a part where the part has independent existence."^^xsd:string ;
 	skos:prefLabel "has direct part"^^xsd:string ;
 	skos:scopeNote
+		"It is safest to use this property when there is semantic directness inherent in the relationship, rather than say for choosing appropriate granularity. For example, a spark plug is a direct part of an engine block; there cannot be any intermediate parts.  Beware of making a direct part of assertion and then inserting an intermediate part. Why? You will end up making an asserted triple false even though there was no change in the world."^^xsd:string ,
 		"No cascading delete."^^xsd:string ,
 		"Use this property to directly associate parts. hasPart is the transitive version."^^xsd:string
 		;
