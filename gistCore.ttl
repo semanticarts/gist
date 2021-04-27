@@ -2984,6 +2984,7 @@ gist:directlyPrecededBy
 	owl:inverseOf gist:directlyPrecedes ;
 	skos:definition "Inverse of directly precedes"^^xsd:string ;
 	skos:prefLabel "directly preceded by"^^xsd:string ;
+	skos:scopeNote "It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ;
 	.
 
 gist:directlyPrecedes
@@ -2991,6 +2992,7 @@ gist:directlyPrecedes
 	rdfs:subPropertyOf gist:precedes ;
 	skos:definition "A generic ordering relation indicating that the Subject comes immediately  before the Object."^^xsd:string ;
 	skos:prefLabel "directly precedes"^^xsd:string ;
+	skos:scopeNote "It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ;
 	.
 
 gist:directlyRecognizedBy
@@ -3060,7 +3062,7 @@ gist:fromPlace
 gist:geoContainedIn
 	a owl:ObjectProperty ;
 	owl:inverseOf gist:geoContains ;
-	skos:definition "All the transitive places something is located in"^^xsd:string ;
+	skos:definition "Relates one place to another place that contains the first."^^xsd:string ;
 	skos:prefLabel "geo contained in"^^xsd:string ;
 	.
 
@@ -3071,7 +3073,7 @@ gist:geoContains
 		;
 	rdfs:domain gist:Place ;
 	rdfs:range gist:Place ;
-	skos:definition "Transitive version of geoDirectlyContains"^^xsd:string ;
+	skos:definition "Relate one place to another place that is contained within the first."^^xsd:string ;
 	skos:prefLabel "geo contains"^^xsd:string ;
 	.
 

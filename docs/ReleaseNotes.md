@@ -6,6 +6,10 @@ Release 9.7.0
 
 ### Minor Updates
 
+- Updated annotations for the following properties regarding the hasDirectX/hasX pattern. Issue [#115](https://github.com/semanticarts/gist/issues/115)
+  - `geoContains`, `geoContainedIn` 
+  - `directPartOf`,`hasDirectPart`
+  - `directlyPrecededBy`, `directlyPrecedes`
 - Deprecated `gist:Room`. Issue [#102](<https://github.com/semanticarts/gist/issues/102>).
 
 ### Patch Updates
