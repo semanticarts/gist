@@ -2969,7 +2969,14 @@ gist:directPartOf
 	owl:inverseOf gist:hasDirectPart ;
 	skos:definition "The relationship between a  part and a whole where the part has independent existence."^^xsd:string ;
 	skos:prefLabel "direct part of"^^xsd:string ;
-	skos:scopeNote "It is safest to use this property when there is semantic directness inherent in the relationship, rather than say for choosing appropriate granularity. For example, a spark plug is a direct part of an engine block; there cannot be any intermediate parts.  Beware of making a direct part of assertion and then inserting an intermediate part. Why? You will end up making an asserted triple false even though there was no change in the world."^^xsd:string ;
+	skos:scopeNote """It is safest to use this property when there is semantic 
+	directness inherent in the relationship, rather than, 
+	choosing appropriate granularity. For example, a 
+	spark plug is a direct part of an engine block; there 
+	cannot be any intermediate parts.  Beware of making a 
+	direct part of assertion and then inserting an intermediate 
+	part. Why? It will result in making an asserted triple false 
+	even though there was no change in the world."""^^xsd:string ;
 	.
 
 gist:directSubTaskOf
@@ -2984,7 +2991,10 @@ gist:directlyPrecededBy
 	owl:inverseOf gist:directlyPrecedes ;
 	skos:definition "Inverse of directly precedes"^^xsd:string ;
 	skos:prefLabel "directly preceded by"^^xsd:string ;
-	skos:scopeNote "It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ;
+	skos:scopeNote """It is safest to use this property only when the directness 
+	has a semantic correspondence with the world. Only break 
+	a direct link by inserting an intermediate item when 
+	that change corresponds to a change in the world."""^^xsd:string ;
 	.
 
 gist:directlyPrecedes
@@ -2992,7 +3002,10 @@ gist:directlyPrecedes
 	rdfs:subPropertyOf gist:precedes ;
 	skos:definition "A generic ordering relation indicating that the Subject comes immediately  before the Object."^^xsd:string ;
 	skos:prefLabel "directly precedes"^^xsd:string ;
-	skos:scopeNote "It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ;
+	skos:scopeNote """It is safest to use this property only when the directness 
+	has a semantic correspondence with the world. Only break 
+	a direct link by inserting an intermediate item when 
+	that change corresponds to a change in the world."""^^xsd:string ;
 	.
 
 gist:directlyRecognizedBy
@@ -3184,7 +3197,14 @@ gist:hasDirectPart
 	skos:definition "The relationship between a whole and a part where the part has independent existence."^^xsd:string ;
 	skos:prefLabel "has direct part"^^xsd:string ;
 	skos:scopeNote
-		"It is safest to use this property when there is semantic directness inherent in the relationship, rather than say for choosing appropriate granularity. For example, a spark plug is a direct part of an engine block; there cannot be any intermediate parts.  Beware of making a direct part of assertion and then inserting an intermediate part. Why? You will end up making an asserted triple false even though there was no change in the world."^^xsd:string ,
+		"""It is safest to use this property when there is semantic 
+	directness inherent in the relationship, rather than, 
+	choosing appropriate granularity. For example, a 
+	spark plug is a direct part of an engine block; there 
+	cannot be any intermediate parts.  Beware of making a 
+	direct part of assertion and then inserting an intermediate 
+	part. Why? It will result in making an asserted triple false 
+	even though there was no change in the world."""^^xsd:string ,
 		"No cascading delete."^^xsd:string ,
 		"Use this property to directly associate parts. hasPart is the transitive version."^^xsd:string
 		;
