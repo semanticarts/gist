@@ -2920,8 +2920,7 @@ gist:convertToBase
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:double ;
-	skos:definition """The conversion factor used to get to the base unit.  E.g., multiplying by 0.0254 gets you from inches to meters. Divide by this number to go the other way. Used in conjunction with conversionOffset to convert from one unit to another.
-Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)) * (5/9).  To go the other way: F = (K * 9/5) -469.67.  Try it on Google."""^^xsd:string ;
+	skos:definition "The conversion factor used to get to the base unit.  E.g., multiplying by 0.0254 gets you from inches to meters. Divide by this number to go the other way. Used in conjunction with conversionOffset to convert from one unit to another. Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)) * (5/9.  To go the other way: F = (K * 9/5) -469.67.  Try it on Google."^^xsd:string ;
 	skos:prefLabel "convert to base"^^xsd:string ;
 	.
 
@@ -2967,15 +2966,19 @@ gist:description
 gist:directPartOf
 	a owl:ObjectProperty ;
 	owl:inverseOf gist:hasDirectPart ;
-	skos:definition "The relationship between a  part and a whole where the part has independent existence."^^xsd:string ;
+	skos:definition "The relationship between a part and a whole where the part has independent existence."^^xsd:string ;
 	skos:prefLabel "direct part of"^^xsd:string ;
+	skos:scopeNote
+		"It is safest to use this property when there is semantic directness inherent in the relationship, rather than choosing appropriate granularity. For example, a spark plug is a direct part of an engine block; there cannot be any intermediate parts.  Beware of making a directPartOf assertion and then inserting an intermediate part; this will result in making an asserted triple false even though there was no change in the world."^^xsd:string ,
+		"Use this property to directly associate a part with the whole. partOf is the transitive version."^^xsd:string
+		;
 	.
 
 gist:directSubTaskOf
 	a owl:ObjectProperty ;
 	owl:inverseOf gist:hasDirectSubTask ;
 	skos:definition "Immediate parent task"^^xsd:string ;
-	skos:prefLabel "direct sub task of"^^xsd:string ;
+	skos:prefLabel "direct subtask of"^^xsd:string ;
 	.
 
 gist:directlyPrecededBy
@@ -2983,13 +2986,15 @@ gist:directlyPrecededBy
 	owl:inverseOf gist:directlyPrecedes ;
 	skos:definition "Inverse of directly precedes"^^xsd:string ;
 	skos:prefLabel "directly preceded by"^^xsd:string ;
+	skos:scopeNote "It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ;
 	.
 
 gist:directlyPrecedes
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:precedes ;
-	skos:definition "A generic ordering relation indicating that the Subject comes immediately  before the Object."^^xsd:string ;
+	skos:definition "A generic ordering relation indicating that the Subject comes immediately before the Object."^^xsd:string ;
 	skos:prefLabel "directly precedes"^^xsd:string ;
+	skos:scopeNote "It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ;
 	.
 
 gist:directlyRecognizedBy
@@ -3059,7 +3064,7 @@ gist:fromPlace
 gist:geoContainedIn
 	a owl:ObjectProperty ;
 	owl:inverseOf gist:geoContains ;
-	skos:definition "All the transitive places something is located in"^^xsd:string ;
+	skos:definition "Relates one place to another place that contains the first."^^xsd:string ;
 	skos:prefLabel "geo contained in"^^xsd:string ;
 	.
 
@@ -3070,7 +3075,7 @@ gist:geoContains
 		;
 	rdfs:domain gist:Place ;
 	rdfs:range gist:Place ;
-	skos:definition "Transitive version of geoDirectlyContains"^^xsd:string ;
+	skos:definition "Relate one place to another place that is contained within the first."^^xsd:string ;
 	skos:prefLabel "geo contains"^^xsd:string ;
 	.
 
@@ -3181,8 +3186,9 @@ gist:hasDirectPart
 	skos:definition "The relationship between a whole and a part where the part has independent existence."^^xsd:string ;
 	skos:prefLabel "has direct part"^^xsd:string ;
 	skos:scopeNote
+		"It is safest to use this property when there is semantic directness inherent in the relationship, rather than choosing appropriate granularity. For example, a spark plug is a direct part of an engine block; there cannot be any intermediate parts.  Beware of making a hasDirectPart assertion and then inserting an intermediate part; this will result in making an asserted triple false even though there was no change in the world."^^xsd:string ,
 		"No cascading delete."^^xsd:string ,
-		"Use this property to directly associate parts. hasPart is the transitive version."^^xsd:string
+		"Use this property to directly associate a part with the whole. hasPart is the transitive version."^^xsd:string
 		;
 	.
 
