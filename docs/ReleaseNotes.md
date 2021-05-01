@@ -11,9 +11,9 @@ Release 9.7.0
 ### Patch Updates
 
 - Updated annotations for the following properties regarding the hasDirectX/hasX pattern. Issue [#115](https://github.com/semanticarts/gist/issues/115)
-  - `geoContains`, `geoContainedIn` 
-  - `directPartOf`,`hasDirectPart`
-  - `directlyPrecededBy`, `directlyPrecedes`
+    - `geoContains`, `geoContainedIn` 
+    - `directPartOf`,`hasDirectPart`
+    - `directlyPrecededBy`, `directlyPrecedes`
 - Declare `gist:identifies` as `owl:FunctionalProperty` rather than `owl:InverseFunctionalProperty` (bug fix). Issue [#180](https://github.com/semanticarts/gist/issues/180).
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore9.7.0>.
