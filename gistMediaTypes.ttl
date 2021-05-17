@@ -1,8 +1,8 @@
 # imports: https://ontologies.semanticarts.com/o/gistCore
 
 @prefix gist: <https://ontologies.semanticarts.com/gist/> .
-@prefix mimeapp: <https://www.iana.org/assignments/media-types/application/> .
-@prefix mimetxt: <https://www.iana.org/assignments/media-types/text/> .
+@prefix media-app: <https://www.iana.org/assignments/media-types/application/> .
+@prefix media-txt: <https://www.iana.org/assignments/media-types/text/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -19,7 +19,7 @@
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
 	.
 
-mimeapp:json
+media-app:json
 	a gist:MimeType ;
 	skos:prefLabel "JSON"^^xsd:string ;
 	gist:uniqueText "application/json"^^xsd:string ;
@@ -31,13 +31,13 @@ mimeapp:json
 	gist:uniqueText "application/ld+json"^^xsd:string ;
 	.
 
-mimeapp:n-quads
+media-app:n-quads
 	a gist:MimeType ;
 	skos:prefLabel "N-Quads"^^xsd:string ;
 	gist:uniqueText "application/n-quads"^^xsd:string ;
 	.
 
-mimeapp:n-triples
+media-app:n-triples
 	a gist:MimeType ;
 	skos:prefLabel "N-Triples"^^xsd:string ;
 	gist:uniqueText "application/n-triples"^^xsd:string ;
@@ -61,31 +61,31 @@ mimeapp:n-triples
 	gist:uniqueText "application/sparql-results+xml"^^xsd:string ;
 	.
 
-mimeapp:trig
+media-app:trig
 	a gist:MimeType ;
 	skos:prefLabel "TriG"^^xsd:string ;
 	gist:uniqueText "application/trig"^^xsd:string ;
 	.
 
-mimetxt:csv
+media-txt:csv
 	a gist:MimeType ;
 	skos:prefLabel "CSV"^^xsd:string ;
 	gist:uniqueText "text/csv"^^xsd:string ;
 	.
 
-mimetxt:html
+media-txt:html
 	a gist:MimeType ;
 	skos:prefLabel "HTML"^^xsd:string ;
 	gist:uniqueText "text/html"^^xsd:string ;
 	.
 
-mimetxt:plain
+media-txt:plain
 	a gist:MimeType ;
 	skos:prefLabel "Plain Text"^^xsd:string ;
 	gist:uniqueText "text/plain"^^xsd:string ;
 	.
 
-mimetxt:turtle
+media-txt:turtle
 	a gist:MimeType ;
 	skos:prefLabel "Turtle"^^xsd:string ;
 	gist:uniqueText "text/turtle"^^xsd:string ;

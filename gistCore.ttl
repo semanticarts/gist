@@ -1506,8 +1506,9 @@ gist:MassUnit
 gist:MediaType
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
+	rdfs:seeAlso <https://www.iana.org/assignments/media-types/media-types.xhtml> ;
 	skos:definition "A digitized type that computer applications can recognize."^^xsd:string ;
-	skos:prefLabel "MIME Type"^^xsd:string ;
+	skos:prefLabel "Media Type"^^xsd:string ;
 	.
 
 gist:Medium
