@@ -42,6 +42,39 @@ gshapes:ClassShape
 	] ;
 	.
 
+gshapes:InstanceShape
+	a sh:NodeShape ;
+	rdfs:label "Instance"^^xsd:string ;
+	skos:prefLabel "Instance"^^xsd:string ;
+	sh:property [
+		sh:message "Instance references undefined class."^^xsd:string ;
+		sh:or (
+			[
+				sh:in (
+					owl:Class
+					owl:AllDifferent
+					owl:InverseFunctionalProperty
+					owl:DatatypeProperty
+					owl:TransitiveProperty
+					owl:FunctionalProperty
+					owl:ObjectProperty
+					owl:Restriction
+					owl:NamedIndividual
+					owl:Thing
+					owl:AnnotationProperty
+					owl:Ontology
+				) ;
+			]
+			[
+				sh:class owl:Class ;
+			]
+		) ;
+		sh:path a ;
+	] ;
+	sh:severity sh:Violation ;
+	sh:targetSubjectsOf a ;
+	.
+
 gshapes:LowerCase
 	a sh:PropertyShape ;
 	skos:definition "Enforces Lower Case, allowing for all-caps words for acronyms, as well as numbers."^^xsd:string ;

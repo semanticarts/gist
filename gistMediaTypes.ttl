@@ -20,73 +20,73 @@
 	.
 
 media-app:json
-	a gist:MimeType ;
+	a gist:MediaType ;
 	skos:prefLabel "JSON"^^xsd:string ;
 	gist:uniqueText "application/json"^^xsd:string ;
 	.
 
 <https://www.iana.org/assignments/media-types/application/ld+json>
-	a gist:MimeType ;
+	a gist:MediaType ;
 	skos:prefLabel "JSON-LD"^^xsd:string ;
 	gist:uniqueText "application/ld+json"^^xsd:string ;
 	.
 
 media-app:n-quads
-	a gist:MimeType ;
+	a gist:MediaType ;
 	skos:prefLabel "N-Quads"^^xsd:string ;
 	gist:uniqueText "application/n-quads"^^xsd:string ;
 	.
 
 media-app:n-triples
-	a gist:MimeType ;
+	a gist:MediaType ;
 	skos:prefLabel "N-Triples"^^xsd:string ;
 	gist:uniqueText "application/n-triples"^^xsd:string ;
 	.
 
 <https://www.iana.org/assignments/media-types/application/rdf+xml>
-	a gist:MimeType ;
+	a gist:MediaType ;
 	skos:prefLabel "RDF/XML"^^xsd:string ;
 	gist:uniqueText "application/rdf+xml"^^xsd:string ;
 	.
 
 <https://www.iana.org/assignments/media-types/application/sparql-results+json>
-	a gist:MimeType ;
+	a gist:MediaType ;
 	skos:prefLabel "SPARQL 1.1 Query Results JSON"^^xsd:string ;
 	gist:uniqueText "application/sparql-results+json"^^xsd:string ;
 	.
 
 <https://www.iana.org/assignments/media-types/application/sparql-results+xml>
-	a gist:MimeType ;
+	a gist:MediaType ;
 	skos:prefLabel "SPARQL 1.1 Query Results XML"^^xsd:string ;
 	gist:uniqueText "application/sparql-results+xml"^^xsd:string ;
 	.
 
 media-app:trig
-	a gist:MimeType ;
+	a gist:MediaType ;
 	skos:prefLabel "TriG"^^xsd:string ;
 	gist:uniqueText "application/trig"^^xsd:string ;
 	.
 
 media-txt:csv
-	a gist:MimeType ;
+	a gist:MediaType ;
 	skos:prefLabel "CSV"^^xsd:string ;
 	gist:uniqueText "text/csv"^^xsd:string ;
 	.
 
 media-txt:html
-	a gist:MimeType ;
+	a gist:MediaType ;
 	skos:prefLabel "HTML"^^xsd:string ;
 	gist:uniqueText "text/html"^^xsd:string ;
 	.
 
 media-txt:plain
-	a gist:MimeType ;
+	a gist:MediaType ;
 	skos:prefLabel "Plain Text"^^xsd:string ;
 	gist:uniqueText "text/plain"^^xsd:string ;
 	.
 
 media-txt:turtle
-	a gist:MimeType ;
+	a gist:MediaType ;
 	skos:prefLabel "Turtle"^^xsd:string ;
 	gist:uniqueText "text/turtle"^^xsd:string ;
 	.
