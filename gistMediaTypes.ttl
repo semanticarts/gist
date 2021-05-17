@@ -1,0 +1,93 @@
+# imports: https://ontologies.semanticarts.com/o/gistCore
+
+@prefix gist: <https://ontologies.semanticarts.com/gist/> .
+@prefix mimeapp: <https://www.iana.org/assignments/media-types/application/> .
+@prefix mimetxt: <https://www.iana.org/assignments/media-types/text/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://ontologies.semanticarts.com/o/gistMediaTypes>
+	a owl:Ontology ;
+	owl:imports <https://ontologies.semanticarts.com/o/gistCore> ;
+	owl:versionIRI <https://ontologies.semanticarts.com/o/gistMediaTypesX.x.x> ;
+	skos:definition "Definitions of IANA Media Types."^^xsd:string ;
+	skos:prefLabel "gistMediaTypes"^^xsd:string ;
+	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
+	.
+
+mimeapp:json
+	a gist:MimeType ;
+	skos:prefLabel "JSON"^^xsd:string ;
+	gist:uniqueText "application/json"^^xsd:string ;
+	.
+
+<https://www.iana.org/assignments/media-types/application/ld+json>
+	a gist:MimeType ;
+	skos:prefLabel "JSON-LD"^^xsd:string ;
+	gist:uniqueText "application/ld+json"^^xsd:string ;
+	.
+
+mimeapp:n-quads
+	a gist:MimeType ;
+	skos:prefLabel "N-Quads"^^xsd:string ;
+	gist:uniqueText "application/n-quads"^^xsd:string ;
+	.
+
+mimeapp:n-triples
+	a gist:MimeType ;
+	skos:prefLabel "N-Triples"^^xsd:string ;
+	gist:uniqueText "application/n-triples"^^xsd:string ;
+	.
+
+<https://www.iana.org/assignments/media-types/application/rdf+xml>
+	a gist:MimeType ;
+	skos:prefLabel "RDF/XML"^^xsd:string ;
+	gist:uniqueText "application/rdf+xml"^^xsd:string ;
+	.
+
+<https://www.iana.org/assignments/media-types/application/sparql-results+json>
+	a gist:MimeType ;
+	skos:prefLabel "SPARQL 1.1 Query Results JSON"^^xsd:string ;
+	gist:uniqueText "application/sparql-results+json"^^xsd:string ;
+	.
+
+<https://www.iana.org/assignments/media-types/application/sparql-results+xml>
+	a gist:MimeType ;
+	skos:prefLabel "SPARQL 1.1 Query Results XML"^^xsd:string ;
+	gist:uniqueText "application/sparql-results+xml"^^xsd:string ;
+	.
+
+mimeapp:trig
+	a gist:MimeType ;
+	skos:prefLabel "TriG"^^xsd:string ;
+	gist:uniqueText "application/trig"^^xsd:string ;
+	.
+
+mimetxt:csv
+	a gist:MimeType ;
+	skos:prefLabel "CSV"^^xsd:string ;
+	gist:uniqueText "text/csv"^^xsd:string ;
+	.
+
+mimetxt:html
+	a gist:MimeType ;
+	skos:prefLabel "HTML"^^xsd:string ;
+	gist:uniqueText "text/html"^^xsd:string ;
+	.
+
+mimetxt:plain
+	a gist:MimeType ;
+	skos:prefLabel "Plain Text"^^xsd:string ;
+	gist:uniqueText "text/plain"^^xsd:string ;
+	.
+
+mimetxt:turtle
+	a gist:MimeType ;
+	skos:prefLabel "Turtle"^^xsd:string ;
+	gist:uniqueText "text/turtle"^^xsd:string ;
+	.
+

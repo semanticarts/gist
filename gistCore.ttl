@@ -940,7 +940,7 @@ gist:FormattedContent
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:expressedIn ;
-				owl:someValuesFrom gist:MimeType ;
+				owl:someValuesFrom gist:MediaType ;
 			]
 		) ;
 	] ;
@@ -1503,6 +1503,13 @@ gist:MassUnit
 	skos:prefLabel "Mass Unit"^^xsd:string ;
 	.
 
+gist:MediaType
+	a owl:Class ;
+	rdfs:subClassOf gist:Category ;
+	skos:definition "A digitized type that computer applications can recognize."^^xsd:string ;
+	skos:prefLabel "MIME Type"^^xsd:string ;
+	.
+
 gist:Medium
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
@@ -1550,13 +1557,6 @@ gist:MessageDefinition
 	rdfs:subClassOf gist:SchemaMetaData ;
 	skos:definition "Each pulse from a Sensor is reflected in a message, as well as each instruction to an Actuator"^^xsd:string ;
 	skos:prefLabel "Message Definition"^^xsd:string ;
-	.
-
-gist:MimeType
-	a owl:Class ;
-	rdfs:subClassOf gist:Category ;
-	skos:definition "A digitized type that computer applications can recognize."^^xsd:string ;
-	skos:prefLabel "MIME Type"^^xsd:string ;
 	.
 
 gist:MolarQuantity
@@ -2121,7 +2121,7 @@ gist:RenderedContent
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:expressedIn ;
-				owl:someValuesFrom gist:MimeType ;
+				owl:someValuesFrom gist:MediaType ;
 			]
 			[
 				a owl:Restriction ;

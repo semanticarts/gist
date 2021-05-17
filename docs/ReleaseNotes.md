@@ -1,6 +1,23 @@
 gist Release Notes
 =====
 
+Release 10.0.0
+-----
+
+### Major Updates
+
+- Renamed `MimeType` to `MediaType` to be consistent with [IANA guidelines](https://www.iana.org/assignments/media-types/media-types.xhtml)
+  and [RFC6838](https://tools.ietf.org/html/rfc6838). Issue [#434](<https://github.com/semanticarts/gist/issues/434>).
+
+### Minor Updates
+
+- Created a `gistMediaTypes` ontology to declare `MediaType` instances relevant to semantic applications.
+  Issue [#463](<https://github.com/semanticarts/gist/issues/463>).
+
+### Patch Updates
+
+Import URL: <https://ontologies.semanticarts.com/o/gistCore10.0.0>.
+
 Release 9.7.0
 -----
 
