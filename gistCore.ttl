@@ -2853,6 +2853,10 @@ gist:basedOn
 	owl:inverseOf gist:basisFor ;
 	skos:definition "Pointer to the thing something was derived from"^^xsd:string ;
 	skos:prefLabel "based on"^^xsd:string ;
+	gist:rangeIncludes
+		gist:Specification ,
+		gist:Template
+		;
 	.
 
 gist:basisFor
@@ -2865,6 +2869,7 @@ gist:categorizedBy
 	a owl:ObjectProperty ;
 	skos:definition "Points to a taxonomy item or other less formally defined class."^^xsd:string ;
 	skos:prefLabel "categorized by"^^xsd:string ;
+	gist:rangeIncludes gist:Category ;
 	.
 
 gist:characterizedAs
@@ -3014,7 +3019,7 @@ gist:domainIncludes
 	a owl:AnnotationProperty ;
 	rdfs:subPropertyOf skos:scopeNote ;
 	skos:definition "Relates a property to a class that is (one of) the type(s) the property is expected to be used on."^^xsd:string ;
-	skos:example "The domain for the property, gist:allocatedBy includes gist:Person."^^xsd:string ;
+	skos:example "The domain for the property, gist:basedOn includes gist:Template."^^xsd:string ;
 	skos:prefLabel "domain includes"^^xsd:string ;
 	skos:scopeNote "This property means the same thing as the schema.org version which is not compliant with OWL-DL"^^xsd:string ;
 	.
