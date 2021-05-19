@@ -1,6 +1,15 @@
 gist Release Notes
 =====
 
+Release X.x.x
+-----
+
+### Minor Updates
+- Added two annotation properties: Issue [#389](https://github.com/semanticarts/gist/issues/389)
+  - domainIncludes
+  - rangeIncludes
+
+
 Release 9.7.0
 -----
 
