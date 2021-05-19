@@ -3010,6 +3010,15 @@ gist:directs
 	skos:prefLabel "directs"^^xsd:string ;
 	.
 
+gist:domainIncludes
+	a owl:AnnotationProperty ;
+	rdfs:subPropertyOf skos:scopeNote ;
+	skos:definition "Relates a property to a class that is (one of) the type(s) the property is expected to be used on."^^xsd:string ;
+	skos:example "The domain for the property, gist:allocatedBy includes gist:Person."^^xsd:string ;
+	skos:prefLabel "domain includes"^^xsd:string ;
+	skos:scopeNote "This property means the same thing as the schema.org version which is not compliant with OWL-DL"^^xsd:string ;
+	.
+
 gist:encryptedText
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf gist:containedText ;
@@ -3687,6 +3696,15 @@ gist:produces
 	skos:definition "The subject creates the object."^^xsd:string ;
 	skos:example "A task produces a deliverable."^^xsd:string ;
 	skos:prefLabel "produces"^^xsd:string ;
+	.
+
+gist:rangeIncludes
+	a owl:AnnotationProperty ;
+	rdfs:subPropertyOf skos:scopeNote ;
+	skos:definition "Relates a property to a class that constitutes (one of) the expected type(s) for values of the property."^^xsd:string ;
+	skos:example "The range for the property, gist:categorizedBy includes gist:Category."^^xsd:string ;
+	skos:prefLabel "range includes"^^xsd:string ;
+	skos:scopeNote "This property means the same thing as the schema.org version which is not compliant with OWL-DL"^^xsd:string ;
 	.
 
 gist:recognizedBy
