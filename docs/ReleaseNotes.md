@@ -5,7 +5,7 @@ Release X.x.x
 -----
 
 ### Minor Updates
-- Added two annotation properties and uses: Issue [#389](https://github.com/semanticarts/gist/issues/389)
+- Added annotation properties which provide usage guidance for properties without the constraints imposed by `rdfs:range` and `rdfs:domain`: Issue [#389](https://github.com/semanticarts/gist/issues/389)
   - domainIncludes
   - rangeIncludes
 
