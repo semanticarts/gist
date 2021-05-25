@@ -2854,6 +2854,10 @@ gist:basedOn
 	skos:definition "The Object is a foundation for, a starting point for, gave rise to or justifies the Subject"^^xsd:string ;
 	skos:example "A document is based on a document template. A metric computing the average income of a population is based on the metric for individual income. A judicial decision is based on a statute."^^xsd:string ;
 	skos:prefLabel "based on"^^xsd:string ;
+	gist:rangeIncludes
+		gist:Specification ,
+		gist:Template
+		;
 	.
 
 gist:basisFor
@@ -2866,6 +2870,7 @@ gist:categorizedBy
 	a owl:ObjectProperty ;
 	skos:definition "Points to a taxonomy item or other less formally defined class."^^xsd:string ;
 	skos:prefLabel "categorized by"^^xsd:string ;
+	gist:rangeIncludes gist:Category ;
 	.
 
 gist:characterizedAs
@@ -3009,6 +3014,15 @@ gist:directs
 	a owl:ObjectProperty ;
 	skos:definition "The set of actuators that a controller can affect"^^xsd:string ;
 	skos:prefLabel "directs"^^xsd:string ;
+	.
+
+gist:domainIncludes
+	a owl:AnnotationProperty ;
+	rdfs:subPropertyOf skos:scopeNote ;
+	skos:definition "Relates a property to a class that is (one of) the type(s) the property is expected to be used on."^^xsd:string ;
+	skos:example "The domain for the property, gist:basedOn includes gist:Template."^^xsd:string ;
+	skos:prefLabel "domain includes"^^xsd:string ;
+	skos:scopeNote "This property means the same thing as the schema.org version which is not compliant with OWL-DL"^^xsd:string ;
 	.
 
 gist:encryptedText
@@ -3688,6 +3702,15 @@ gist:produces
 	skos:definition "The subject creates the object."^^xsd:string ;
 	skos:example "A task produces a deliverable."^^xsd:string ;
 	skos:prefLabel "produces"^^xsd:string ;
+	.
+
+gist:rangeIncludes
+	a owl:AnnotationProperty ;
+	rdfs:subPropertyOf skos:scopeNote ;
+	skos:definition "Relates a property to a class that constitutes (one of) the expected type(s) for values of the property."^^xsd:string ;
+	skos:example "The range for the property, gist:categorizedBy includes gist:Category."^^xsd:string ;
+	skos:prefLabel "range includes"^^xsd:string ;
+	skos:scopeNote "This property means the same thing as the schema.org version which is not compliant with OWL-DL"^^xsd:string ;
 	.
 
 gist:recognizedBy
