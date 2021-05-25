@@ -2851,13 +2851,14 @@ gist:aspectOf
 gist:basedOn
 	a owl:ObjectProperty ;
 	owl:inverseOf gist:basisFor ;
-	skos:definition "Pointer to the thing something was derived from"^^xsd:string ;
+	skos:definition "The Object is a foundation for, a starting point for, gave rise to or justifies the Subject"^^xsd:string ;
+	skos:example "A document is based on a document template. A metric computing the average income of a population is based on the metric for individual income. A judicial decision is based on a statute."^^xsd:string ;
 	skos:prefLabel "based on"^^xsd:string ;
 	.
 
 gist:basisFor
 	a owl:ObjectProperty ;
-	skos:definition "Reason for an event"^^xsd:string ;
+	skos:definition "The Subject is a foundation for, a starting point for, gave rise to or justifies the Object"^^xsd:string ;
 	skos:prefLabel "basis for"^^xsd:string ;
 	.
 
