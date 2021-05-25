@@ -5,6 +5,7 @@ Release X.x.x
 -----
 
 ### Minor Updates
+- Updated annotations for `basedOn` and `basisFor` properties.
 - Added annotation properties which provide usage guidance for properties without the constraints imposed by `rdfs:range` and `rdfs:domain`: Issue [#389](https://github.com/semanticarts/gist/issues/389)
   - domainIncludes
   - rangeIncludes
