@@ -2853,10 +2853,6 @@ gist:basedOn
 	owl:inverseOf gist:basisFor ;
 	skos:definition "Pointer to the thing something was derived from"^^xsd:string ;
 	skos:prefLabel "based on"^^xsd:string ;
-	gist:rangeIncludes
-		gist:Specification ,
-		gist:Template
-		;
 	.
 
 gist:basisFor
@@ -3019,9 +3015,12 @@ gist:domainIncludes
 	a owl:AnnotationProperty ;
 	rdfs:subPropertyOf skos:scopeNote ;
 	skos:definition "Relates a property to a class that is (one of) the type(s) the property is expected to be used on."^^xsd:string ;
-	skos:example "The domain for the property, gist:basedOn includes gist:Template."^^xsd:string ;
+	skos:example "The domain for the property gist:hasMember includes gist:Collection."^^xsd:string ;
 	skos:prefLabel "domain includes"^^xsd:string ;
-	skos:scopeNote "This property means the same thing as the schema.org version which is not compliant with OWL-DL"^^xsd:string ;
+	skos:scopeNote
+		"This property is used to guide the ontology user, like all annotation properties, it do not play a role in inference."^^xsd:string ,
+		"This property means the same thing as the schema.org version which is not compliant with OWL-DL"^^xsd:string
+		;
 	.
 
 gist:encryptedText
@@ -3282,6 +3281,7 @@ gist:hasMember
 	owl:inverseOf gist:memberOf ;
 	skos:definition "Relates a Collection to its member individuals."^^xsd:string ;
 	skos:prefLabel "has member"^^xsd:string ;
+	gist:domainIncludes gist:Collection ;
 	.
 
 gist:hasNavigationalChild
@@ -3624,6 +3624,7 @@ gist:parentOf
 	a owl:ObjectProperty ;
 	skos:definition "Biological Parent"^^xsd:string ;
 	skos:prefLabel "parent of"^^xsd:string ;
+	gist:rangeIncludes gist:Person ;
 	.
 
 gist:partOf
@@ -3707,9 +3708,12 @@ gist:rangeIncludes
 	a owl:AnnotationProperty ;
 	rdfs:subPropertyOf skos:scopeNote ;
 	skos:definition "Relates a property to a class that constitutes (one of) the expected type(s) for values of the property."^^xsd:string ;
-	skos:example "The range for the property, gist:categorizedBy includes gist:Category."^^xsd:string ;
+	skos:example "The range for the property gist:categorizedBy includes gist:Category."^^xsd:string ;
 	skos:prefLabel "range includes"^^xsd:string ;
-	skos:scopeNote "This property means the same thing as the schema.org version which is not compliant with OWL-DL"^^xsd:string ;
+	skos:scopeNote
+		"This property is used to guide the ontology user, like all annotation properties, it do not play a role in inference."^^xsd:string ,
+		"This property means the same thing as the schema.org version, which is an rdf:Property and not compliant with OWL-DL."^^xsd:string
+		;
 	.
 
 gist:recognizedBy

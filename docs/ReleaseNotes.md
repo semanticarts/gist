@@ -4,10 +4,12 @@ gist Release Notes
 Release X.x.x
 -----
 
-### Minor Updates
+#### Patch Updates
 - Added annotation properties which provide usage guidance for properties without the constraints imposed by `rdfs:range` and `rdfs:domain`: Issue [#389](https://github.com/semanticarts/gist/issues/389)
   - domainIncludes
   - rangeIncludes
+
+### Minor Updates
 
 Release 9.7.0
 -----
