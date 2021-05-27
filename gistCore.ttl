@@ -9,8 +9,8 @@
 <https://ontologies.semanticarts.com/o/gistCore>
 	a owl:Ontology ;
 	owl:versionIRI <https://ontologies.semanticarts.com/o/gistCoreX.x.x> ;
-	skos:definition "Gist is a minimalist upper ontology created by Semantic Arts"^^xsd:string ;
-	skos:prefLabel "gistCore"^^xsd:string ;
+	skos:definition "gist is a minimalist upper ontology created by Semantic Arts"^^xsd:string ;
+	skos:prefLabel "gist Core"^^xsd:string ;
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
 	.
 

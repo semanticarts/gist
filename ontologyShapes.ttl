@@ -22,13 +22,12 @@
 		<http://www.w3.org/ns/shacl#>
 		;
 	skos:definition "Shapes to enforce ontology style."^^xsd:string ;
-	skos:prefLabel "ontologyShapes"^^xsd:string ;
+	skos:prefLabel "Ontology Shapes"^^xsd:string ;
 	.
 
 gshapes:ClassShape
 	a sh:NodeShape ;
-	rdfs:label "Class"^^xsd:string ;
-	skos:prefLabel "Class"^^xsd:string ;
+	skos:prefLabel "Class Shape"^^xsd:string ;
 	sh:or (
 		gshapes:TitleCase
 		gshapes:NonConformingLabel
@@ -44,8 +43,7 @@ gshapes:ClassShape
 
 gshapes:InstanceShape
 	a sh:NodeShape ;
-	rdfs:label "Instance"^^xsd:string ;
-	skos:prefLabel "Instance"^^xsd:string ;
+	skos:prefLabel "Instance Shape"^^xsd:string ;
 	sh:property [
 		sh:message "Instance references undefined class."^^xsd:string ;
 		sh:or (
@@ -77,7 +75,7 @@ gshapes:InstanceShape
 
 gshapes:LowerCase
 	a sh:PropertyShape ;
-	skos:definition "Enforces Lower Case, allowing for all-caps words for acronyms, as well as numbers."^^xsd:string ;
+	skos:definition "Enforces lower case, allowing for all-caps words for acronyms, as well as numbers."^^xsd:string ;
 	skos:editorialNote "Entities which require a prefLabel that does not conform to this rule should be annotated with gist:nonConformingLabel to pass validation."^^xsd:string ;
 	sh:maxCount "1"^^xsd:integer ;
 	sh:minCount "1"^^xsd:integer ;
@@ -104,8 +102,7 @@ gshapes:NonConformingLabel
 
 gshapes:PropertyShape
 	a sh:NodeShape ;
-	rdfs:label "Property"^^xsd:string ;
-	skos:prefLabel "Property"^^xsd:string ;
+	skos:prefLabel "Property Shape"^^xsd:string ;
 	sh:or (
 		gshapes:LowerCase
 		gshapes:NonConformingLabel
@@ -131,7 +128,7 @@ gshapes:SentenceCase
 
 gshapes:TitleCase
 	a sh:PropertyShape ;
-	skos:definition "Enforces Title Case, allowing for numbers, all-caps words for acronyms and lower case conjunctions and prepositions."^^xsd:string ;
+	skos:definition "Enforces title case, allowing for numbers, all-caps words for acronyms and lower case conjunctions and prepositions."^^xsd:string ;
 	skos:editorialNote "Entities which require a prefLabel that does not conform to this rule should be annotated with gist:nonConformingLabel to pass validation."^^xsd:string ;
 	sh:maxCount "1"^^xsd:integer ;
 	sh:minCount "1"^^xsd:integer ;

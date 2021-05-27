@@ -15,7 +15,7 @@
 	owl:imports <https://ontologies.semanticarts.com/o/gistCore> ;
 	owl:versionIRI <https://ontologies.semanticarts.com/o/gistMediaTypesX.x.x> ;
 	skos:definition "Definitions of IANA Media Types."^^xsd:string ;
-	skos:prefLabel "gistMediaTypes"^^xsd:string ;
+	skos:prefLabel "gist Media Types"^^xsd:string ;
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
 	.
 
