@@ -3018,7 +3018,7 @@ gist:domainIncludes
 	skos:example "The domain for the property gist:hasMember includes gist:Collection."^^xsd:string ;
 	skos:prefLabel "domain includes"^^xsd:string ;
 	skos:scopeNote
-		"This property is used to guide the ontology user, like all annotation properties, it do not play a role in inference."^^xsd:string ,
+		"This property is used to guide the ontology user; like all annotation properties, it does not play a role in inference."^^xsd:string ,
 		"This property means the same thing as the schema.org version which is not compliant with OWL-DL"^^xsd:string
 		;
 	.
@@ -3711,7 +3711,7 @@ gist:rangeIncludes
 	skos:example "The range for the property gist:categorizedBy includes gist:Category."^^xsd:string ;
 	skos:prefLabel "range includes"^^xsd:string ;
 	skos:scopeNote
-		"This property is used to guide the ontology user, like all annotation properties, it do not play a role in inference."^^xsd:string ,
+		"This property is used to guide the ontology user; like all annotation properties, it does not play a role in inference."^^xsd:string ,
 		"This property means the same thing as the schema.org version, which is an rdf:Property and not compliant with OWL-DL."^^xsd:string
 		;
 	.
