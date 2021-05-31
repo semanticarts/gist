@@ -2866,6 +2866,7 @@ gist:categorizedBy
 	a owl:ObjectProperty ;
 	skos:definition "Points to a taxonomy item or other less formally defined class."^^xsd:string ;
 	skos:prefLabel "categorized by"^^xsd:string ;
+	gist:rangeIncludes gist:Category ;
 	.
 
 gist:characterizedAs
@@ -3009,6 +3010,18 @@ gist:directs
 	a owl:ObjectProperty ;
 	skos:definition "The set of actuators that a controller can affect"^^xsd:string ;
 	skos:prefLabel "directs"^^xsd:string ;
+	.
+
+gist:domainIncludes
+	a owl:AnnotationProperty ;
+	rdfs:subPropertyOf skos:scopeNote ;
+	skos:definition "Relates a property to a class that is (one of) the type(s) the property is expected to be used on."^^xsd:string ;
+	skos:example "The domain for the property gist:hasMember includes gist:Collection."^^xsd:string ;
+	skos:prefLabel "domain includes"^^xsd:string ;
+	skos:scopeNote
+		"This property is used to guide the ontology user; like all annotation properties, it does not play a role in inference."^^xsd:string ,
+		"This property means the same thing as the Schema.org version, which is an rdf:Property and not compliant with OWL-DL."^^xsd:string
+		;
 	.
 
 gist:encryptedText
@@ -3269,6 +3282,7 @@ gist:hasMember
 	owl:inverseOf gist:memberOf ;
 	skos:definition "Relates a Collection to its member individuals."^^xsd:string ;
 	skos:prefLabel "has member"^^xsd:string ;
+	gist:domainIncludes gist:Collection ;
 	.
 
 gist:hasNavigationalChild
@@ -3611,6 +3625,7 @@ gist:parentOf
 	a owl:ObjectProperty ;
 	skos:definition "Biological Parent"^^xsd:string ;
 	skos:prefLabel "parent of"^^xsd:string ;
+	gist:rangeIncludes gist:Person ;
 	.
 
 gist:partOf
@@ -3688,6 +3703,18 @@ gist:produces
 	skos:definition "The subject creates the object."^^xsd:string ;
 	skos:example "A task produces a deliverable."^^xsd:string ;
 	skos:prefLabel "produces"^^xsd:string ;
+	.
+
+gist:rangeIncludes
+	a owl:AnnotationProperty ;
+	rdfs:subPropertyOf skos:scopeNote ;
+	skos:definition "Relates a property to a class that constitutes (one of) the expected type(s) for values of the property."^^xsd:string ;
+	skos:example "The range for the property gist:categorizedBy includes gist:Category."^^xsd:string ;
+	skos:prefLabel "range includes"^^xsd:string ;
+	skos:scopeNote
+		"This property is used to guide the ontology user; like all annotation properties, it does not play a role in inference."^^xsd:string ,
+		"This property means the same thing as the Schema.org version, which is an rdf:Property and not compliant with OWL-DL."^^xsd:string
+		;
 	.
 
 gist:recognizedBy

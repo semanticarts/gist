@@ -11,12 +11,16 @@ Release 10.0.0
 
 ### Minor Updates
 
+- Added annotation properties which provide usage guidance for properties without the constraints imposed by `rdfs:range` and `rdfs:domain`: Issue [#389](https://github.com/semanticarts/gist/issues/389)
+    - domainIncludes
+    - rangeIncludes
 - Created a `gistMediaTypes` ontology to declare `MediaType` instances relevant to semantic applications.
   Issue [#463](<https://github.com/semanticarts/gist/issues/463>).
 
 ### Patch Updates
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore10.0.0>.
+
 
 Release 9.7.0
 -----
