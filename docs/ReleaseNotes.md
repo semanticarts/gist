@@ -11,6 +11,10 @@ Release X.x.x
   - rangeIncludes
 
 
+### Patch Updates
+- Updated annotations for `basedOn` and `basisFor` properties. Issue [#139](https://github.com/semanticarts/gist/issues/139)
+
+
 Release 9.7.0
 -----
 
