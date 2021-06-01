@@ -63,6 +63,7 @@ actions:
   source: "{input}"
   includes:
     - gistCore.ttl
+    - gistMediaTypes.ttl
     - gistValidationAnnotations.ttl
   shapes:
     source: "{input}/ontologyShapes.ttl"
@@ -80,6 +81,7 @@ actions:
     to: "\\g<1>{version}.ttl"
   includes:
     - gistCore.ttl
+    - gistMediaTypes.ttl
     - gistDeprecated.ttl
 - action: "definedBy"
   message: "Adding rdfs:definedBy."
