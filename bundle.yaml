@@ -5,7 +5,6 @@ variables:
   input: "."
   rdf-toolkit: "{input}/tools/rdf-toolkit.jar"
   output: "{name}{version}_webDownload"
-  validation: "validation"
 tools:
 - name: "serializer"
   type: "Java"
@@ -56,15 +55,11 @@ tools:
     - "-t"
     - "{outputFile}"
 actions:
-# Create validation directory
-- action: "mkdir"
-  directory: "{validation}"
 # Validate ontology
 - action: "verify"
   message: "Validating ontology via SHACL."
   type: "shacl"
   inference: "none"
-  target: "{validation}/ontologyValidationReport.ttl"
   source: "{input}"
   includes:
     - gistCore.ttl
@@ -84,38 +79,12 @@ actions:
     from: "(.*)\\.ttl"
     to: "\\g<1>{version}.ttl"
   includes:
-    - "*.ttl"
+    - gistCore.ttl
+    - gistDeprecated.ttl
 - action: "definedBy"
   message: "Adding rdfs:definedBy."
   source: "{output}"
   target: "{output}"
-  includes:
-    - "*.ttl"
-- action: "transform"
-  message: "Turtle serialization."
-  tool: "serializer"
-  source: "{output}"
-  target: "{output}"
-  includes:
-    - "*.ttl"
-- action: "transform"
-  message: "RDF/XML serialization."
-  tool: "xml-serializer"
-  source: "{output}"
-  target: "{output}"
-  rename:
-    from: "(.*)\\.ttl"
-    to: "\\g<1>.rdf"
-  includes:
-    - "*.ttl"
-- action: "transform"
-  message: "JSON/LD serialization."
-  tool: "json-serializer"
-  source: "{output}"
-  target: "{output}"
-  rename:
-    from: "(.*)\\.ttl"
-    to: "\\g<1>.jsonld"
   includes:
     - "*.ttl"
 - action: "sparql"
@@ -148,9 +117,32 @@ actions:
       }}
     }}
 - action: "transform"
+  message: "Turtle serialization."
   tool: "serializer"
-  source: "{output}/rdfsAnnotations.ttl"
-  target: "{output}/rdfsAnnotations.ttl"
+  source: "{output}"
+  target: "{output}"
+  includes:
+    - "*.ttl"
+- action: "transform"
+  message: "RDF/XML serialization."
+  tool: "xml-serializer"
+  source: "{output}"
+  target: "{output}"
+  rename:
+    from: "(.*)\\.ttl"
+    to: "\\g<1>.rdf"
+  includes:
+    - "*.ttl"
+- action: "transform"
+  message: "JSON/LD serialization."
+  tool: "json-serializer"
+  source: "{output}"
+  target: "{output}"
+  rename:
+    from: "(.*)\\.ttl"
+    to: "\\g<1>.jsonld"
+  includes:
+    - "*.ttl"
 - action: "copy"
   message: "Copying license text."
   source: "{input}/LICENSE.txt"

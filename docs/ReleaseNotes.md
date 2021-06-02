@@ -1,6 +1,23 @@
 gist Release Notes
 =====
 
+Release 9.7.0
+-----
+
+### Minor Updates
+
+- Deprecated `gist:Room`. Issue [#102](<https://github.com/semanticarts/gist/issues/102>).
+
+### Patch Updates
+
+- Updated annotations for the following properties regarding the hasDirectX/hasX pattern. Issue [#115](https://github.com/semanticarts/gist/issues/115)
+    - `geoContains`, `geoContainedIn` 
+    - `directPartOf`,`hasDirectPart`
+    - `directlyPrecededBy`, `directlyPrecedes`
+- Declare `gist:identifies` as `owl:FunctionalProperty` rather than `owl:InverseFunctionalProperty` (bug fix). Issue [#180](https://github.com/semanticarts/gist/issues/180).
+
+Import URL: <https://ontologies.semanticarts.com/o/gistCore9.7.0>.
+
 Release 9.6.0
 -----
 
@@ -43,8 +60,8 @@ Release 9.5.0
 
 - Modified build to create JSON-LD ontology files with `.jsonld` extension. Issue [#365](https://github.com/semanticarts/gist/issues/365).
 - Documentation:
-  - Documented policy change on submission of PRs by external contributors (PRs from external contributors are now accepted for review if submitted with an issue). Issue [#382](https://github.com/semanticarts/gist/issues/382).
-  - Documented new, condensed release notes format (reverted release note format introduced in 9.4.0). Issue [#401](https://github.com/semanticarts/gist/issues/401).
+    - Documented policy change on submission of PRs by external contributors (PRs from external contributors are now accepted for review if submitted with an issue). Issue [#382](https://github.com/semanticarts/gist/issues/382).
+    - Documented new, condensed release notes format (reverted release note format introduced in 9.4.0). Issue [#401](https://github.com/semanticarts/gist/issues/401).
 - Added a standard `pre-commit` hook which applies uniform formatting to RDF files using `tools/rdf-toolkit.jar`. Issue [#228](https://github.com/semanticarts/gist/issues/228).
 - Conformed definition of `gist:_second` to other `gist:BaseUnit` individuals. Issue [#92](https://github.com/semanticarts/gist/issues/92).
 - Fixed label of TaskTemplate. Issue [#407](https://github.com/semanticarts/gist/issues/407).
@@ -198,17 +215,17 @@ Entirely new ontology for modeling Internet of Things concepts.
 Added to the list of deprecated things:
 
 1. Renamed
-a. `gist:TemplateTask` (renamed to `TaskTemplate`)
-b. `gist:party` (use `hasParty` instead)
+    - `gist:TemplateTask` (renamed to `TaskTemplate`)
+    - `gist:party` (use `hasParty` instead)
 2. Removed
-a. `gist:SocialBeing`  - use `(Person or Organization)` instead
-b.  `gist:of` (a vestige of the past)
-c.  `gist:sameOrderAs` (was adding unnecessary mathematical precision)
-d.  `gist:TimeInterval` (the idea of a time interval is captured by assigning it a start and end time, e.g. an event)
-e.  `gist:dateTime`
+    - `gist:SocialBeing`  - use `(Person or Organization)` instead
+    - `gist:of` (a vestige of the past)
+    - `gist:sameOrderAs` (was adding unnecessary mathematical precision)
+    - `gist:TimeInterval` (the idea of a time interval is captured by assigning it a start and end time, e.g. an event)
+    - `gist:dateTime`
 3. Replaced by a variation
-a.  `gist:strictlyPrecededBy` (using `directlyPrecededBy` instead)
-b.  `gist:strictlyPrecedes` (using `directlyPrecedes` instead)
+    - `gist:strictlyPrecededBy` (using `directlyPrecededBy` instead)
+    - `gist:strictlyPrecedes` (using `directlyPrecedes` instead)
 
 Release 8.0
 -----
