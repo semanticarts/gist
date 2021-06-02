@@ -18,12 +18,11 @@ Release 10.0.0
   Issue [#463](<https://github.com/semanticarts/gist/issues/463>).
 
 ### Patch Updates
+- Updated annotations for `basedOn` and `basisFor` properties. Issue [#139](https://github.com/semanticarts/gist/issues/139)
+
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore10.0.0>.
 
-
-### Patch Updates
-- Updated annotations for `basedOn` and `basisFor` properties. Issue [#139](https://github.com/semanticarts/gist/issues/139)
 
 
 Release 9.7.0
