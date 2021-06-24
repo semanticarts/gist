@@ -1728,51 +1728,39 @@ gist:Offer
 gist:OrderedCollection
 	a owl:Class ;
 	rdfs:subClassOf gist:Collection ;
+	owl:equivalentClass [
+		a owl:Restriction ;
+		owl:onProperty gist:hasOrderedMember ;
+		owl:someValuesFrom gist:OrderedMember ;
+	] ;
 	skos:definition "A collection where the members are in a fixed sequence."^^xsd:string ;
 	skos:prefLabel "Ordered Collection"^^xsd:string ;
 	.
 
-gist:OrdinalCollection
+gist:OrderedMember
 	a owl:Class ;
-	rdfs:subClassOf
-		gist:OrderedCollection ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:hasOrderedMember ;
-			owl:allValuesFrom gist:OrdinalMember ;
-		]
-		;
-	skos:definition "An Ordered Collection where no item can be of the same rank as any other item.  In mathematical terms, this is a ?strict total order?."^^xsd:string ;
-	skos:prefLabel "Ordinal Collection"^^xsd:string ;
-	.
-
-gist:OrdinalMember
-	a owl:Class ;
-	rdfs:subClassOf
-		gist:Category ,
-		[
-			a owl:Class ;
-			owl:unionOf (
-				[
-					a owl:Restriction ;
-					owl:onProperty gist:directlyPrecededBy ;
-					owl:someValuesFrom gist:OrdinalMember ;
-				]
-				[
-					a owl:Restriction ;
-					owl:onProperty gist:directlyPrecedes ;
-					owl:someValuesFrom gist:OrdinalMember ;
-				]
-			) ;
-		]
-		;
-	owl:equivalentClass [
-		a owl:Restriction ;
-		owl:onProperty gist:orderedMemberOf ;
-		owl:someValuesFrom gist:OrdinalCollection ;
+	rdfs:subClassOf [
+		a owl:Class ;
+		owl:unionOf (
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:directlyPrecededBy ;
+				owl:someValuesFrom gist:OrderedMember ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:directlyPrecedes ;
+				owl:someValuesFrom gist:OrderedMember ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:sequence ;
+				owl:someValuesFrom xsd:integer ;
+			]
+		) ;
 	] ;
-	skos:definition "A member of an Ordinal Collection.  It necessarily precedes or is preceded by another Ordinal Member in the same collection. (This last condition cannot be formally stated in OWL)."^^xsd:string ;
-	skos:prefLabel "Ordinal Member"^^xsd:string ;
+	skos:definition "A member of an Ordered Collection. It either precedes or is preceded by another Ordered Member in the same collection, or it has a stated integer position in the collection."^^xsd:string ;
+	skos:prefLabel "Ordered Member"^^xsd:string ;
 	.
 
 gist:Organization
@@ -3307,7 +3295,7 @@ gist:hasOrderedMember
 		;
 	rdfs:subPropertyOf gist:hasMember ;
 	owl:inverseOf gist:orderedMemberOf ;
-	skos:definition "An inverse functional version of hasMember to ensure that no OrderedMember can be in more than one OrderedCollection., which can quickly lead to problems."^^xsd:string ;
+	skos:definition "An inverse functional version of hasMember to ensure that no OrderedMember can be in more than one OrderedCollection."^^xsd:string ;
 	skos:prefLabel "has ordered member"^^xsd:string ;
 	.
 
@@ -3471,6 +3459,15 @@ gist:identifies
 		;
 	skos:definition "The thing the identifier refers to."^^xsd:string ;
 	skos:prefLabel "identifies"^^xsd:string ;
+	.
+
+gist:isProxyFor
+	a
+		owl:FunctionalProperty ,
+		owl:ObjectProperty
+		;
+	skos:definition "The subject is used as a proxy, or substitute, for the object."^^xsd:string ;
+	skos:prefLabel "is proxy for"^^xsd:string ;
 	.
 
 gist:lastModifiedOn
