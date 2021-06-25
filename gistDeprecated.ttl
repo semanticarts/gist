@@ -29,6 +29,7 @@ gist:OrdinalCollection
 			owl:allValuesFrom gist:OrdinalMember ;
 		]
 		;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "An Ordered Collection where no item can be of the same rank as any other item.  In mathematical terms, this is a ?strict total order?."^^xsd:string ;
 	skos:prefLabel "Ordinal Collection"^^xsd:string ;
 	.
@@ -53,6 +54,7 @@ gist:OrdinalMember
 			) ;
 		]
 		;
+	owl:deprecated "true"^^xsd:boolean ;
 	owl:equivalentClass [
 		a owl:Restriction ;
 		owl:onProperty gist:orderedMemberOf ;

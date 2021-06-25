@@ -3468,6 +3468,7 @@ gist:isProxyFor
 		;
 	skos:definition "The subject is used as a proxy, or substitute, for the object."^^xsd:string ;
 	skos:prefLabel "is proxy for"^^xsd:string ;
+	skos:scopeNote "Used to link members of ordered collections to the main item that can appeear in different places in different ordered collections."^^xsd:string ;
 	.
 
 gist:lastModifiedOn
