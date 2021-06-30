@@ -3072,7 +3072,13 @@ gist:fromAgent
 
 gist:fromPlace
 	a owl:ObjectProperty ;
-	rdfs:range gist:Place ;
+	rdfs:range [
+		a owl:Class ;
+		owl:unionOf (
+			gist:Place
+			gist:Address
+		) ;
+	] ;
 	skos:definition "Origin"^^xsd:string ;
 	skos:prefLabel "from place"^^xsd:string ;
 	.
@@ -3830,7 +3836,13 @@ gist:toAgent
 
 gist:toPlace
 	a owl:ObjectProperty ;
-	rdfs:range gist:Place ;
+	rdfs:range [
+		a owl:Class ;
+		owl:unionOf (
+			gist:Place
+			gist:Address
+		) ;
+	] ;
 	skos:definition "Destination"^^xsd:string ;
 	skos:prefLabel "to place"^^xsd:string ;
 	.
