@@ -19,6 +19,7 @@ Release 10.0.0
 
 ### Patch Updates
 - Updated annotations for `basedOn` and `basisFor` properties. Issue [#139](https://github.com/semanticarts/gist/issues/139)
+- `hasDirectSubCategory` is now a sub-property of `hasSubCategory`, as it was always supposed to be.  Issue [#481](https://github.com/semanticarts/gist/issues/481)
 
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore10.0.0>.
