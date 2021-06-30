@@ -8,7 +8,8 @@ Release 10.0.0
 
 - Renamed `MimeType` to `MediaType` to be consistent with [IANA guidelines](https://www.iana.org/assignments/media-types/media-types.xhtml)
   and [RFC6838](https://tools.ietf.org/html/rfc6838). Issue [#434](<https://github.com/semanticarts/gist/issues/434>).
-- Relaxed the range of `fromPlace`/`toPlace` to use an `gist:Address` in addition to `gist:Place`.
+- Extended the range of `fromPlace`/`toPlace` to include `gist:Address` in addition to `gist:Place`.
+  Issue [#392](<https://github.com/semanticarts/gist/issues/392>).
 
 ### Minor Updates
 
