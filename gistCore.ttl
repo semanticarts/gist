@@ -1740,7 +1740,7 @@ gist:OrderedCollection
 	] ;
 	skos:definition "A collection where the members are in a fixed sequence."^^xsd:string ;
 	skos:prefLabel "Ordered Collection"^^xsd:string ;
-	skos:scopeNote "Empty collections are not supported at the time."^^xsd:string ;
+	skos:scopeNote "Empty collections are not supported at this time."^^xsd:string ;
 	.
 
 gist:OrderedMember
