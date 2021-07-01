@@ -1734,7 +1734,7 @@ gist:OrderedCollection
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasOrderedMember ;
-				owl:someValuesFrom gist:OrderedMember ;
+				owl:minCardinality "1"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
