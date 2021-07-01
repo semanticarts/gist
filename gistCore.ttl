@@ -1729,12 +1729,18 @@ gist:OrderedCollection
 	a owl:Class ;
 	rdfs:subClassOf gist:Collection ;
 	owl:equivalentClass [
-		a owl:Restriction ;
-		owl:onProperty gist:hasOrderedMember ;
-		owl:someValuesFrom gist:OrderedMember ;
+		owl:intersectionOf (
+			gist:Collection
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasOrderedMember ;
+				owl:someValuesFrom gist:OrderedMember ;
+			]
+		) ;
 	] ;
 	skos:definition "A collection where the members are in a fixed sequence."^^xsd:string ;
 	skos:prefLabel "Ordered Collection"^^xsd:string ;
+	skos:scopeNote "Empty collections are not supported at the time."^^xsd:string ;
 	.
 
 gist:OrderedMember
@@ -3294,7 +3300,7 @@ gist:hasOrderedMember
 		owl:ObjectProperty
 		;
 	rdfs:subPropertyOf gist:hasMember ;
-	owl:inverseOf gist:isOrderedMemberOf ;
+	rdfs:range gist:OrderedMember ;
 	skos:definition "Relates an ordered collection to an ordered member that belongs to it."^^xsd:string ;
 	skos:prefLabel "has ordered member"^^xsd:string ;
 	skos:scopeNote "This property is inverse functional because no ordered member can be in more than one ordered collection."^^xsd:string ;
@@ -3460,25 +3466,6 @@ gist:identifies
 		;
 	skos:definition "The thing the identifier refers to."^^xsd:string ;
 	skos:prefLabel "identifies"^^xsd:string ;
-	.
-
-gist:isOrderedMemberOf
-	a
-		owl:FunctionalProperty ,
-		owl:ObjectProperty
-		;
-	skos:definition "An inverse of hasOrderedMember"^^xsd:string ;
-	skos:prefLabel "is ordered member of"^^xsd:string ;
-	.
-
-gist:isProxyFor
-	a
-		owl:FunctionalProperty ,
-		owl:ObjectProperty
-		;
-	skos:definition "The subject is used as a proxy, or substitute, for the object."^^xsd:string ;
-	skos:prefLabel "is proxy for"^^xsd:string ;
-	skos:scopeNote "Used to link an ordered member of an ordered collection to the real-world item it represents in that collection."^^xsd:string ;
 	.
 
 gist:lastModifiedOn
@@ -3704,6 +3691,16 @@ gist:produces
 	skos:definition "The subject creates the object."^^xsd:string ;
 	skos:example "A task produces a deliverable."^^xsd:string ;
 	skos:prefLabel "produces"^^xsd:string ;
+	.
+
+gist:providesOrderFor
+	a
+		owl:FunctionalProperty ,
+		owl:ObjectProperty
+		;
+	rdfs:domain gist:OrderedMember ;
+	skos:definition "Links a member of an ordered collection to the real-world item it represents in that collection."^^xsd:string ;
+	skos:prefLabel "provides order for"^^xsd:string ;
 	.
 
 gist:rangeIncludes
