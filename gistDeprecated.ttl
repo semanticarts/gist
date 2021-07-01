@@ -19,51 +19,6 @@
 	owl:versionIRI <https://ontologies.semanticarts.com/o/gistDeprecatedX.x.x> ;
 	.
 
-gist:OrdinalCollection
-	a owl:Class ;
-	rdfs:subClassOf
-		gist:OrderedCollection ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:hasOrderedMember ;
-			owl:allValuesFrom gist:OrdinalMember ;
-		]
-		;
-	owl:deprecated "true"^^xsd:boolean ;
-	skos:definition "An Ordered Collection where no item can be of the same rank as any other item.  In mathematical terms, this is a ?strict total order?."^^xsd:string ;
-	skos:prefLabel "Ordinal Collection"^^xsd:string ;
-	.
-
-gist:OrdinalMember
-	a owl:Class ;
-	rdfs:subClassOf
-		gist:Category ,
-		[
-			a owl:Class ;
-			owl:unionOf (
-				[
-					a owl:Restriction ;
-					owl:onProperty gist:directlyPrecededBy ;
-					owl:someValuesFrom gist:OrdinalMember ;
-				]
-				[
-					a owl:Restriction ;
-					owl:onProperty gist:directlyPrecedes ;
-					owl:someValuesFrom gist:OrdinalMember ;
-				]
-			) ;
-		]
-		;
-	owl:deprecated "true"^^xsd:boolean ;
-	owl:equivalentClass [
-		a owl:Restriction ;
-		owl:onProperty gist:orderedMemberOf ;
-		owl:someValuesFrom gist:OrdinalCollection ;
-	] ;
-	skos:definition "A member of an Ordinal Collection.  It necessarily precedes or is preceded by another Ordinal Member in the same collection. (This last condition cannot be formally stated in OWL)."^^xsd:string ;
-	skos:prefLabel "Ordinal Member"^^xsd:string ;
-	.
-
 gist:PhysicalThing
 	a owl:Class ;
 	rdfs:label "Physical Thing"^^xsd:string ;
