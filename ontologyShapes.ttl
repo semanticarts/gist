@@ -67,10 +67,10 @@ gshapes:InstanceShape
 				sh:class owl:Class ;
 			]
 		) ;
-		sh:path a ;
+		sh:path rdf:type ;
 	] ;
 	sh:severity sh:Violation ;
-	sh:targetSubjectsOf a ;
+	sh:targetSubjectsOf rdf:type ;
 	.
 
 gshapes:LowerCase
