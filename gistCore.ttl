@@ -1759,7 +1759,7 @@ gist:OrderedMember
 			]
 		) ;
 	] ;
-	skos:definition "A member of an Ordered Collection. It either precedes or is preceded by another Ordered Member in the same collection, or it has a stated integer position in the collection."^^xsd:string ;
+	skos:definition "A member of an ordered collection. This resource serves as a proxy linking a real-world item in the collection to that collection, allowing the expression of positional and other information that applies to the item only in the context of the collection."^^xsd:string ;
 	skos:prefLabel "Ordered Member"^^xsd:string ;
 	.
 
@@ -3294,9 +3294,10 @@ gist:hasOrderedMember
 		owl:ObjectProperty
 		;
 	rdfs:subPropertyOf gist:hasMember ;
-	owl:inverseOf gist:orderedMemberOf ;
-	skos:definition "An inverse functional version of hasMember to ensure that no OrderedMember can be in more than one OrderedCollection."^^xsd:string ;
+	owl:inverseOf gist:isOrderedMemberOf ;
+	skos:definition "Relates an ordered collection to an ordered member that belongs to it."^^xsd:string ;
 	skos:prefLabel "has ordered member"^^xsd:string ;
+	skos:scopeNote "This property is inverse functional because no ordered member can be in more than one ordered collection."^^xsd:string ;
 	.
 
 gist:hasPart
@@ -3461,6 +3462,15 @@ gist:identifies
 	skos:prefLabel "identifies"^^xsd:string ;
 	.
 
+gist:isOrderedMemberOf
+	a
+		owl:FunctionalProperty ,
+		owl:ObjectProperty
+		;
+	skos:definition "An inverse of hasOrderedMember"^^xsd:string ;
+	skos:prefLabel "is ordered member of"^^xsd:string ;
+	.
+
 gist:isProxyFor
 	a
 		owl:FunctionalProperty ,
@@ -3468,7 +3478,7 @@ gist:isProxyFor
 		;
 	skos:definition "The subject is used as a proxy, or substitute, for the object."^^xsd:string ;
 	skos:prefLabel "is proxy for"^^xsd:string ;
-	skos:scopeNote "Used to link members of ordered collections to the main item that can appeear in different places in different ordered collections."^^xsd:string ;
+	skos:scopeNote "Used to link an ordered member of an ordered collection to the real-world item it represents in that collection."^^xsd:string ;
 	.
 
 gist:lastModifiedOn
@@ -3597,15 +3607,6 @@ gist:offspringOf
 	rdfs:range gist:LivingThing ;
 	skos:definition "Biological offspring"^^xsd:string ;
 	skos:prefLabel "offspring of"^^xsd:string ;
-	.
-
-gist:orderedMemberOf
-	a
-		owl:FunctionalProperty ,
-		owl:ObjectProperty
-		;
-	skos:definition "An inverse of hasOrderedMember"^^xsd:string ;
-	skos:prefLabel "ordered member of"^^xsd:string ;
 	.
 
 gist:owns
