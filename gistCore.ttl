@@ -426,7 +426,6 @@ gist:ContemporaneousEvent
 	] ;
 	skos:definition "An event that actually started before the present time. When we record an end time it ceases to be contemporaneous."^^xsd:string ;
 	skos:prefLabel "Contemporaneous Event"^^xsd:string ;
-	skos:scopeNote "All contemporaneous events eventually end and, due to the nature of the open world, we can never be sure that a contemporaneous event hasn't ended. As a result, this is really a contemporaneous and historical event."^^xsd:string ;
 	.
 
 gist:Content
@@ -1631,7 +1630,8 @@ gist:Network
 			]
 		) ;
 	] ;
-	skos:definition "A network is a connected set of links and nodes"^^xsd:string ;
+	skos:definition "A network is a set of nodes connected by links"^^xsd:string ;
+	skos:example "A physical network could include connected computers or routers, whereas a social network would consist of related Person or Organization instances."^^xsd:string ;
 	skos:prefLabel "Network"^^xsd:string ;
 	.
 
@@ -1648,13 +1648,20 @@ gist:NetworkLink
 			]
 			[
 				a owl:Restriction ;
+				owl:onProperty gist:links ;
+				owl:allValuesFrom gist:NetworkNode ;
+			]
+			[
+				a owl:Restriction ;
 				owl:onProperty gist:memberOf ;
 				owl:someValuesFrom gist:Network ;
 			]
 		) ;
 	] ;
-	skos:definition "A link in a network.  This is the abstraction of the network.  The physical instantiation couple be pipes, or wire  but may also be non physical such as wireless networks or organization structures"^^xsd:string ;
+	skos:definition "An abstract representation of the connection between two or more nodes in a network."^^xsd:string ;
+	skos:example "A network link may be physical, such as pipes, wired or wireless networks, but may also be a link in a non-physical network, such as organizational structures or social networks."^^xsd:string ;
 	skos:prefLabel "Network Link"^^xsd:string ;
+	skos:scopeNote "Each NetworkLink is connected to a NetworkNode via the property 'gist:links' or one of its subproperties."^^xsd:string ;
 	.
 
 gist:NetworkNode
@@ -1664,7 +1671,8 @@ gist:NetworkNode
 		owl:onProperty gist:memberOf ;
 		owl:someValuesFrom gist:Network ;
 	] ;
-	skos:definition "A node in a network.  Note the network is the abstract representation of the network.  It is physically instantiated with equipment, or in some cases People."^^xsd:string ;
+	skos:definition "A node in a network."^^xsd:string ;
+	skos:example "A person is a node in a social network; a valve is a node in a network of pipes."^^xsd:string ;
 	skos:prefLabel "Network Node"^^xsd:string ;
 	.
 
@@ -3492,21 +3500,21 @@ gist:license
 
 gist:links
 	a owl:ObjectProperty ;
-	skos:definition "Abstract connection for when connections are undirected"^^xsd:string ;
+	skos:definition "Relates a NetworkLink to a NetworkNode that it connects to another node. Used when the connections are undirected, or the direction is not known."^^xsd:string ;
 	skos:prefLabel "links"^^xsd:string ;
 	.
 
 gist:linksFrom
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:links ;
-	skos:definition "The connections at the abstract level of a network.  Note this is directed but the parent is the undirected version"^^xsd:string ;
+	skos:definition "Relates a NetworkLink to its origin NetworkNode. Unlike the superproperty, this represents a directed connection."^^xsd:string ;
 	skos:prefLabel "links from"^^xsd:string ;
 	.
 
 gist:linksTo
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:links ;
-	skos:definition "The connections at the abstract level of a network. Note this is directed but the parent is the undirected version"^^xsd:string ;
+	skos:definition "Relates a NetworkLink to its destination NetworkNode. Unlike the superproperty, this represents a directed connection."^^xsd:string ;
 	skos:prefLabel "links to"^^xsd:string ;
 	.
 
@@ -3593,24 +3601,24 @@ gist:numericValue
 	rdfs:domain gist:Magnitude ;
 	rdfs:range [
 		owl:unionOf (
+			owl:rational
+			owl:real
+			xsd:byte
+			xsd:decimal
 			xsd:double
 			xsd:float
-			owl:real
-			owl:rational
-			xsd:decimal
+			xsd:int
 			xsd:integer
+			xsd:long
+			xsd:negativeInteger
 			xsd:nonNegativeInteger
 			xsd:nonPositiveInteger
 			xsd:positiveInteger
-			xsd:negativeInteger
-			xsd:long
-			xsd:int
 			xsd:short
-			xsd:byte
-			xsd:unsignedLong
-			xsd:unsignedInt
-			xsd:unsignedShort
 			xsd:unsignedByte
+			xsd:unsignedInt
+			xsd:unsignedLong
+			xsd:unsignedShort
 		) ;
 	] ;
 	skos:definition "The actual value of a magnitude."^^xsd:string ;

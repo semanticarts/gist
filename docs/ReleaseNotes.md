@@ -10,10 +10,10 @@ Release 10.0.0
   and [RFC6838](https://tools.ietf.org/html/rfc6838). Issue [#434](<https://github.com/semanticarts/gist/issues/434>).
 - Renamed `gist:decimalValue` to `gist:numericValue` and expanded property range to include all numeric data types
   supported by OWL.  Issue [#171](<https://github.com/semanticarts/gist/issues/171>)
-- Changes to and affecting `gist:Person` ([#136](https://github.com/semanticarts/gist/issues/136)):
+- Changes to and affecting `gist:Person`, as per issue [#136](https://github.com/semanticarts/gist/issues/136):
     - Removed `owl:someValuesFrom gist:name` restriction from `gist:Person`.
     - Made `gist:hasBirthDate` a sub-property of `gist:start` rather than `gist:actualStart`.
-- Refactored the way network connections are modeled per Issue [#126](<https://github.com/semanticarts/gist/issues/126>):
+- Refactored the way network connections are modeled per issue [#126](<https://github.com/semanticarts/gist/issues/126>):
     - `networkConnection`, `hasFromNode` and `hasToNode` have been renamed to `links`, `linksFrom` and `linksTo`, respectively.
     - Added a restriction on `NetworkLink` that it must have exactly 2 links.
     - Added restrictions on `NetworkLink` and `NetworkNode` that they must be `memberOf` a `Network`.
