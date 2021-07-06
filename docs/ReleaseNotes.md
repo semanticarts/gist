@@ -8,6 +8,13 @@ Release 10.0.0
 
 - Renamed `MimeType` to `MediaType` to be consistent with [IANA guidelines](https://www.iana.org/assignments/media-types/media-types.xhtml)
   and [RFC6838](https://tools.ietf.org/html/rfc6838). Issue [#434](<https://github.com/semanticarts/gist/issues/434>).
+- Modified classes and properties related to street addresses as per issue [#483](<https://github.com/semanticarts/gist/issues/483>):
+    - Removed `BuildingAddress`
+    - Add `StreetAddress` as subclass of `PostalAddress`
+    - Defined super-property `hasAddress` (and inverse `isAddressOf`)
+    - Replaced `hasStreetAddress` with `hasPhysicalAddress` (what a building, park, parking lot have), and
+      `streetAddressOf` with `isPhysicalAddressOf`.
+    - Clarified definition of `hasCommunicationAddress`, added domain (`Person U Organization`).
 
 ### Minor Updates
 
