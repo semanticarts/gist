@@ -28,22 +28,30 @@ Workflow: Implementation, Pull Requests, and Merges
 Versions and Version Numbering
 -----
 
-Version numbers are of the form X.x.x (major.minor.patch). We follow [Semantic Versioning 2.0.0](https://semver.org/): as a guideline, but adjust as needed.
+Version numbers are of the form `X.x.x` (major.minor.patch). We follow [Semantic Versioning 2.0.0](https://semver.org/): as a guideline, but adjust as needed.
 
 - **Major:** Non-backward-compatible (i.e., reasoning produces different results).
   - Examples: adding a restriction, domain, range.
+  - Major changes should have a significant impact aside from technically modifying inferencing, if the latter is low-impact. For example, changing an equivalent class assertion pointing to a union class to a subclass axiom in order to allow new subclasses to be defined is not a major change.
 
-- **Minor:** New, backward-compatible functionality. May constitute a large change to the ontology, such as addition of a new module.
-  - Examples: adding a class or property; removing a restriction.
+- **Minor:** New, backward-compatible functionality. Includes _any_ addition to the ontology, even annotation properties. May constitute a large change to the ontology, such as addition of a new module.
+  - Examples: adding a class or property; removing a restriction; adding annotation property `domainIncludes`; deprecation of a term (see following section Deprecation and Deletion Policy).
 
-- **Patch:** No new functionality except for bug fixes.
-  - Examples: Fixing a typo in an annotation, changing a property that was incorrectly defined as inverse functional rather than functional.
+- **Patch:** No new functionality other than bug fixes.
+  - Correction of an error, even if not backward-compatible, does not require a major release. The expectation is that users will not have implemented against an obvious error. This would be a patch.
+  - Examples: Fixing a typo in an annotation; changing a property that was incorrectly defined as inverse functional rather than functional.
+  
+Deprecation and Deletion Policy
+-----
 
-Additional notes:
-
-- Correction of an error, even if not backward-compatible, does not require a major release. The expectation is that users will not have implemented against an obvious error. This would be a patch.
-- When a local name is altered, the original term is deprecated to make it a minor rather than major change. The deprecated term receives an `owl:equivalentClass` or `owl:equivalentProperty` assertion to the new term. Deprecated terms may be removed in a future major release. Deprecated terms reside in the `gistDeprecated.ttl` file. If a user wants to use a deprecated term, he/she should import this file into his/her ontology, which in turn imports `gistCore.ttl` and thus all of gist.
-- Major changes should have a significant impact aside from technically modifying inferencing if this is low-impact. E.g., when an equivalent class axiom to a union class is changed to a subclass axiom in order to allow new subclasses to be defined.
+- Terms to be removed, including changing a local name (which constitutes a removal plus an addition), enter a deprecation-deletion cycle.
+- Deletion is a major change. If the next release is not a major release, terms must be deprecated rather than deleted.
+- Deprecation is a minor change, since the deprecated term is still available for use. A patch release may not contain deprecations.
+- Existing use of deprecated terms can be maintained, but users should not create new references to these terms. Rather, they should future-proof by using the new term, if there is one.
+- Exception to deprecation: if the original term is referenced by other term definitions, as in a domain or range axiom, such that a change to that reference constitutes a major change, the term cannot be deprecated in a minor release. The change or removal must wait until the next major release, when the references to it can also be modified or removed.
+- A deprecated term receives an `owl:deprecated` true assertion, and an `owl:equivalentClass` or `owl:equivalentProperty` assertion pointing to the new term.
+- Deprecated terms are moved to the `gistDeprecated.ttl` file. To use a deprecated term, this file should be imported into the ontology. The deprecation file imports the rest of gist.
+- A major release contains no deprecations. That is, all currently deprecated terms are deleted, and any other terms will be directly deleted rather than deprecated first.
 
 Releases
 -----
