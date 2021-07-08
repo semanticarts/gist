@@ -1734,7 +1734,7 @@ gist:OrderedCollection
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasOrderedMember ;
-				owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom owl:Thing ;
 			]
 		) ;
 	] ;
@@ -1765,8 +1765,10 @@ gist:OrderedMember
 			]
 		) ;
 	] ;
-	skos:definition "A member of an ordered collection. This resource serves as a proxy linking a real-world item in the collection to that collection, allowing the expression of positional and other information that applies to the item only in the context of the collection."^^xsd:string ;
+	skos:definition "A member of an ordered collection that serves as a proxy for a real world item, which can appear in different orders in different collections. The ordered member appears in exactly one ordered collection."^^xsd:string ;
+	skos:example "A person may rank 12th in the Boston Marathon but 29th in the New York City Marathon."^^xsd:string ;
 	skos:prefLabel "Ordered Member"^^xsd:string ;
+	skos:scopeNote "An ordered member points to the real world item via the providesOrderFor property. Ordering information is represented either as a number in a sequence, or by preceding or following another ordered member. The ordered collection is linked to the ordered member via the property hasOrderedMember."^^xsd:string ;
 	.
 
 gist:Organization
@@ -3297,8 +3299,8 @@ gist:hasNavigationalParent
 
 gist:hasOrderedMember
 	a
-		owl:InverseFunctionalProperty ,
-		owl:ObjectProperty
+		owl:ObjectProperty ,
+		owl:InverseFunctionalProperty
 		;
 	rdfs:subPropertyOf gist:hasMember ;
 	rdfs:range gist:OrderedMember ;
@@ -3423,8 +3425,8 @@ gist:hasToNode
 
 gist:hasUniqueNavigationalParent
 	a
-		owl:FunctionalProperty ,
-		owl:ObjectProperty
+		owl:ObjectProperty ,
+		owl:FunctionalProperty
 		;
 	rdfs:subPropertyOf gist:hasNavigationalParent ;
 	skos:definition "Used for taxos that must have single parents"^^xsd:string ;
@@ -3433,8 +3435,8 @@ gist:hasUniqueNavigationalParent
 
 gist:hasUniqueSuperCategory
 	a
-		owl:FunctionalProperty ,
-		owl:ObjectProperty
+		owl:ObjectProperty ,
+		owl:FunctionalProperty
 		;
 	rdfs:subPropertyOf gist:hasSuperCategory ;
 	skos:definition "Used for taxos that must have single parents"^^xsd:string ;
@@ -3451,8 +3453,8 @@ gist:hasUoM
 
 gist:identifiedBy
 	a
-		owl:InverseFunctionalProperty ,
-		owl:ObjectProperty
+		owl:ObjectProperty ,
+		owl:InverseFunctionalProperty
 		;
 	rdfs:range gist:ID ;
 	owl:inverseOf gist:identifies ;
@@ -3462,8 +3464,8 @@ gist:identifiedBy
 
 gist:identifies
 	a
-		owl:FunctionalProperty ,
-		owl:ObjectProperty
+		owl:ObjectProperty ,
+		owl:FunctionalProperty
 		;
 	skos:definition "The thing the identifier refers to."^^xsd:string ;
 	skos:prefLabel "identifies"^^xsd:string ;
@@ -3696,8 +3698,8 @@ gist:produces
 
 gist:providesOrderFor
 	a
-		owl:FunctionalProperty ,
-		owl:ObjectProperty
+		owl:ObjectProperty ,
+		owl:FunctionalProperty
 		;
 	rdfs:domain gist:OrderedMember ;
 	skos:definition "Links a member of an ordered collection to the real-world item it represents in that collection."^^xsd:string ;
