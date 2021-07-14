@@ -8,6 +8,20 @@ Release 10.0.0
 
 - Renamed `MimeType` to `MediaType` to be consistent with [IANA guidelines](https://www.iana.org/assignments/media-types/media-types.xhtml)
   and [RFC6838](https://tools.ietf.org/html/rfc6838). Issue [#434](<https://github.com/semanticarts/gist/issues/434>).
+- Renamed `gist:decimalValue` to `gist:numericValue` and expanded property range to include all numeric data types
+  supported by OWL.  Issue [#171](<https://github.com/semanticarts/gist/issues/171>)
+- Refactored ordered collection model. Issue [#112](<https://github.com/semanticarts/gist/issues/112>)
+    - Added predicate `gist:providesOrderFor`
+    - Deleted classes `gist:OrdinalCollection` and `gist:OrdinalMember`
+- Changes to and affecting `gist:Person`, as per issue [#136](https://github.com/semanticarts/gist/issues/136):
+    - Removed `owl:someValuesFrom gist:name` restriction from `gist:Person`.
+    - Made `gist:hasBirthDate` a sub-property of `gist:start` rather than `gist:actualStart`.
+- Refactored the way network connections are modeled per issue [#126](<https://github.com/semanticarts/gist/issues/126>):
+    - `networkConnection`, `hasFromNode` and `hasToNode` have been renamed to `links`, `linksFrom` and `linksTo`, respectively.
+    - Added a restriction on `NetworkLink` that it must have exactly 2 links.
+    - Added restrictions on `NetworkLink` and `NetworkNode` that they must be `memberOf` a `Network`.
+- Extended the range of `fromPlace`/`toPlace` to include `gist:Address` in addition to `gist:Place`.
+  Issue [#392](<https://github.com/semanticarts/gist/issues/392>).
 - Modified classes and properties related to street addresses as per issue [#483](<https://github.com/semanticarts/gist/issues/483>):
     - Removed `BuildingAddress`
     - Add `StreetAddress` as subclass of `PostalAddress`
@@ -27,6 +41,7 @@ Release 10.0.0
 ### Patch Updates
 - Updated annotations for `basedOn` and `basisFor` properties. Issue [#139](https://github.com/semanticarts/gist/issues/139)
 - `hasDirectSubCategory` is now a sub-property of `hasSubCategory`, as it was always supposed to be.  Issue [#481](https://github.com/semanticarts/gist/issues/481)
+- Clarified the definition of `ContemporaneousEvent`. Issue [#174](<https://github.com/semanticarts/gist/issues/174>).
 
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore10.0.0>.
@@ -59,11 +74,11 @@ Release 9.6.0
 - Refactored `hasParty`, `giver` and `getter`. Issue [#133](https://github.com/semanticarts/gist/issues/133).
     - `giver` and `getter`
         - Renamed to `hasGiver` and `hasGetter`
-        - The newly named versions are no longer subproperties of `hasParty`
+        - The newly named versions are no longer sub-properties of `hasParty`
         - Deprecated `giver` and `getter`
     - New property: `hasParticipant`
         - No domain or range
-        - Has subproperties: `hasGiver`, `hasGetter`, `hasParty`, `fromAgent` and `toAgent`
+        - Has sub-properties: `hasGiver`, `hasGetter`, `hasParty`, `fromAgent` and `toAgent`
     - Added a `skos:scopeNote` to `fromAgent`
     - Added a `skos:example` to `hasParty`
     - Updated `skos:definition`s for `toAgent` and `fromAgent`
@@ -107,7 +122,7 @@ Release 9.4.0
 ### Minor Updates
 
 - Replaced the union class equivalences in the definitions of `gist:Artifact` and `gist:Place` with subclass assertions from each of the union class members. Issues [#110](https://github.com/semanticarts/gist/issues/110), [#343](https://github.com/semanticarts/gist/issues/343).
-- Made changes to `Category` predicates: added intransitive properties `gist:hasDirectSubCategory` and `gist:hasDirectSuperCategory` as subproperties of `gist:hasSubCategory` and `gist:hasSuperCategory`, respectively, and made the latter transitive. Issues [#104](https://github.com/semanticarts/gist/issues/104), [#107](https://github.com/semanticarts/gist/issues/107).
+- Made changes to `Category` predicates: added intransitive properties `gist:hasDirectSubCategory` and `gist:hasDirectSuperCategory` as sub-properties of `gist:hasSubCategory` and `gist:hasSuperCategory`, respectively, and made the latter transitive. Issues [#104](https://github.com/semanticarts/gist/issues/104), [#107](https://github.com/semanticarts/gist/issues/107).
 - Replaced `gist:Weight` with `gist:Mass` in all contexts. Issue [#105](https://github.com/semanticarts/gist/issues/105).
 
 ### Patch Updates
@@ -166,7 +181,7 @@ Release 9.0
 
 ### Miscellaneous
 
-- The `gist` namespace has been modfied from `http:` to `https:`.
+- The `gist` namespace has been modified from `http:` to `https:`.
 - Added comments to ontologies.
 - Added labels and comments to many properties and classes.
 - `SocialBeing` has been removed.
@@ -289,7 +304,7 @@ Release 7.3
 - removal of redundant imports and redundant classes already defined in another ontology
 - relaxed the domain on gist:start and gist:end
 - expanded the range of gist:fromAgent and gist:toAgent
-- added to the Units of Measure ontology and corrected an erronoeously named class
+- added to the Units of Measure ontology and corrected an erroneously named class
 
 See ChangeLog in pdf file for full details of changes.
 

@@ -410,9 +410,9 @@ gist:ContemporaneousEvent
 			]
 		) ;
 	] ;
-	skos:definition "An event that actually started after the present time.  When we record an end time it ceases to be contemporaneous"^^xsd:string ;
+	skos:definition "An event that has already started but has not yet ended."^^xsd:string ;
 	skos:prefLabel "Contemporaneous Event"^^xsd:string ;
-	skos:scopeNote "All contemporaneous events eventually end and, due to the nature of the open world, we can never be sure that a contemporaneous event hasn't ended. As a result, this is really a contemporaneous and historical event."^^xsd:string ;
+	skos:scopeNote "When the event actually ends, it will cease being contemporaneous."^^xsd:string ;
 	.
 
 gist:Content
@@ -1438,7 +1438,7 @@ gist:Magnitude
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:decimalValue ;
+				owl:onProperty gist:numericValue ;
 				owl:someValuesFrom xsd:double ;
 			]
 		) ;
@@ -1617,19 +1617,49 @@ gist:Network
 			]
 		) ;
 	] ;
-	skos:definition "A network is a connected set of links and nodes"^^xsd:string ;
+	skos:definition "A network is a set of nodes connected by links."^^xsd:string ;
+	skos:example "A physical network could include connected computers or routers, whereas a social network would consist of related Person or Organization instances."^^xsd:string ;
 	skos:prefLabel "Network"^^xsd:string ;
 	.
 
 gist:NetworkLink
 	a owl:Class ;
-	skos:definition "A link in a network.  This is the abstraction of the network.  The physical instantiation couple be pipes, or wire  but may also be non physical such as wireless networks or organization structures"^^xsd:string ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:links ;
+				owl:onClass gist:NetworkNode ;
+				owl:qualifiedCardinality "2"^^xsd:integer ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:links ;
+				owl:allValuesFrom gist:NetworkNode ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:memberOf ;
+				owl:someValuesFrom gist:Network ;
+			]
+		) ;
+	] ;
+	skos:definition "An abstract representation of the connection between two or more nodes in a network."^^xsd:string ;
+	skos:example "A network link may be physical, such as pipes, wired or wireless networks, but may also be a link in a non-physical network, such as organizational structures or social networks."^^xsd:string ;
 	skos:prefLabel "Network Link"^^xsd:string ;
+	skos:scopeNote "Each NetworkLink is connected to a NetworkNode via the property 'gist:links' or one of its subproperties."^^xsd:string ;
 	.
 
 gist:NetworkNode
 	a owl:Class ;
-	skos:definition "A node in a network.  Note the network is the abstract representation of the network.  It is physically instantiated with equipment, or in some cases People."^^xsd:string ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty gist:memberOf ;
+		owl:someValuesFrom gist:Network ;
+	] ;
+	skos:definition "A node in a network."^^xsd:string ;
+	skos:example "A person is a node in a social network; a valve is a node in a network of pipes."^^xsd:string ;
 	skos:prefLabel "Network Node"^^xsd:string ;
 	.
 
@@ -1714,51 +1744,47 @@ gist:Offer
 gist:OrderedCollection
 	a owl:Class ;
 	rdfs:subClassOf gist:Collection ;
+	owl:equivalentClass [
+		owl:intersectionOf (
+			gist:Collection
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasOrderedMember ;
+				owl:someValuesFrom owl:Thing ;
+			]
+		) ;
+	] ;
 	skos:definition "A collection where the members are in a fixed sequence."^^xsd:string ;
 	skos:prefLabel "Ordered Collection"^^xsd:string ;
+	skos:scopeNote "Empty collections are not supported at this time."^^xsd:string ;
 	.
 
-gist:OrdinalCollection
+gist:OrderedMember
 	a owl:Class ;
-	rdfs:subClassOf
-		gist:OrderedCollection ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:hasOrderedMember ;
-			owl:allValuesFrom gist:OrdinalMember ;
-		]
-		;
-	skos:definition "An Ordered Collection where no item can be of the same rank as any other item.  In mathematical terms, this is a ?strict total order?."^^xsd:string ;
-	skos:prefLabel "Ordinal Collection"^^xsd:string ;
-	.
-
-gist:OrdinalMember
-	a owl:Class ;
-	rdfs:subClassOf
-		gist:Category ,
-		[
-			a owl:Class ;
-			owl:unionOf (
-				[
-					a owl:Restriction ;
-					owl:onProperty gist:directlyPrecededBy ;
-					owl:someValuesFrom gist:OrdinalMember ;
-				]
-				[
-					a owl:Restriction ;
-					owl:onProperty gist:directlyPrecedes ;
-					owl:someValuesFrom gist:OrdinalMember ;
-				]
-			) ;
-		]
-		;
-	owl:equivalentClass [
-		a owl:Restriction ;
-		owl:onProperty gist:orderedMemberOf ;
-		owl:someValuesFrom gist:OrdinalCollection ;
+	rdfs:subClassOf [
+		a owl:Class ;
+		owl:unionOf (
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:directlyPrecededBy ;
+				owl:someValuesFrom gist:OrderedMember ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:directlyPrecedes ;
+				owl:someValuesFrom gist:OrderedMember ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:sequence ;
+				owl:someValuesFrom xsd:integer ;
+			]
+		) ;
 	] ;
-	skos:definition "A member of an Ordinal Collection.  It necessarily precedes or is preceded by another Ordinal Member in the same collection. (This last condition cannot be formally stated in OWL)."^^xsd:string ;
-	skos:prefLabel "Ordinal Member"^^xsd:string ;
+	skos:definition "A member of an ordered collection that serves as a proxy for a real world item, which can appear in different orders in different collections. The ordered member appears in exactly one ordered collection."^^xsd:string ;
+	skos:example "A person may rank 12th in the Boston Marathon but 29th in the New York City Marathon."^^xsd:string ;
+	skos:prefLabel "Ordered Member"^^xsd:string ;
+	skos:scopeNote "An ordered member points to the real world item via the providesOrderFor property. Ordering information is represented either as a number in a sequence, or by preceding or following another ordered member. The ordered collection is linked to the ordered member via the property hasOrderedMember."^^xsd:string ;
 	.
 
 gist:Organization
@@ -1811,11 +1837,6 @@ gist:Person
 				a owl:Restriction ;
 				owl:onProperty gist:offspringOf ;
 				owl:someValuesFrom gist:Person ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:name ;
-				owl:someValuesFrom xsd:string ;
 			]
 		) ;
 	] ;
@@ -2728,8 +2749,8 @@ gist:_one_day
 		owl:Thing ,
 		gist:Duration
 		;
-	gist:decimalValue "1.0"^^xsd:double ;
 	gist:hasUoM gist:_day ;
+	gist:numericValue "1.0"^^xsd:double ;
 	.
 
 gist:_one_millisecond
@@ -2738,8 +2759,8 @@ gist:_one_millisecond
 		owl:Thing ,
 		gist:Duration
 		;
-	gist:decimalValue "1.0"^^xsd:double ;
 	gist:hasUoM gist:_millisecond ;
+	gist:numericValue "1.0"^^xsd:double ;
 	.
 
 gist:_one_minute
@@ -2748,8 +2769,8 @@ gist:_one_minute
 		owl:Thing ,
 		gist:Duration
 		;
-	gist:decimalValue "1.0"^^xsd:double ;
 	gist:hasUoM gist:_minute ;
+	gist:numericValue "1.0"^^xsd:double ;
 	.
 
 gist:_second
@@ -2925,14 +2946,6 @@ gist:convertToStandard
 	skos:prefLabel "convert to standard"^^xsd:string ;
 	.
 
-gist:decimalValue
-	a owl:DatatypeProperty ;
-	rdfs:domain gist:Magnitude ;
-	rdfs:range xsd:double ;
-	skos:definition "The actual value of a magnitude."^^xsd:string ;
-	skos:prefLabel "decimal value"^^xsd:string ;
-	.
-
 gist:denominator
 	a owl:ObjectProperty ;
 	rdfs:domain gist:RatioUnit ;
@@ -3060,7 +3073,13 @@ gist:fromAgent
 
 gist:fromPlace
 	a owl:ObjectProperty ;
-	rdfs:range gist:Place ;
+	rdfs:range [
+		a owl:Class ;
+		owl:unionOf (
+			gist:Place
+			gist:Address
+		) ;
+	] ;
 	skos:definition "Origin"^^xsd:string ;
 	skos:prefLabel "from place"^^xsd:string ;
 	.
@@ -3167,12 +3186,12 @@ gist:hasBaseUnit
 
 gist:hasBirthDate
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:actualStart ;
+	rdfs:subPropertyOf gist:start ;
 	rdfs:domain gist:LivingThing ;
 	rdfs:range gist:TimeInstant ;
 	skos:definition "Date a living thing is or will be born."^^xsd:string ;
-	skos:editorialNote "For 10.0.0 release: This property will be a subproperty of gist:start, rather than gist:actualStart (as currently), to acknowledge the fact that the birth may not yet have occurred. In this case, the birthdate is expected although not known. [Change this note to a skos:scopeNote.]"^^xsd:string ;
 	skos:prefLabel "has birthdate"^^xsd:string ;
+	skos:scopeNote "This property is a subproperty of gist:start, rather than gist:actualStart (as formerly), to acknowledge the fact that the birth may not yet have occurred. In this case, the birthdate is expected although not known."^^xsd:string ;
 	.
 
 gist:hasCommunicationAddress
@@ -3234,13 +3253,6 @@ gist:hasDirectSuperCategory
 	skos:definition "The subject category is a subcategory of the object category. This property defines the direct links in a category hierarchy; no intermediate categories can exist between the direct links."^^xsd:string ;
 	skos:prefLabel "has direct supercategory"^^xsd:string ;
 	skos:scopeNote "Unlike its superproperty gist:hasSuperCategory, this property is not transitive. It is essentially the same as the non-transitive skos:broader, using gist:Category rather than skos:Concept."^^xsd:string ;
-	.
-
-gist:hasFromNode
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:networkConnection ;
-	skos:definition "The connections at the abstract level of a network.  Note this is directed but the parent is the undirected version"^^xsd:string ;
-	skos:prefLabel "has from node"^^xsd:string ;
 	.
 
 gist:hasGetter
@@ -3306,13 +3318,14 @@ gist:hasNavigationalParent
 
 gist:hasOrderedMember
 	a
-		owl:InverseFunctionalProperty ,
-		owl:ObjectProperty
+		owl:ObjectProperty ,
+		owl:InverseFunctionalProperty
 		;
 	rdfs:subPropertyOf gist:hasMember ;
-	owl:inverseOf gist:orderedMemberOf ;
-	skos:definition "An inverse functional version of hasMember to ensure that no OrderedMember can be in more than one OrderedCollection., which can quickly lead to problems."^^xsd:string ;
+	rdfs:range gist:OrderedMember ;
+	skos:definition "Relates an ordered collection to an ordered member that belongs to it."^^xsd:string ;
 	skos:prefLabel "has ordered member"^^xsd:string ;
+	skos:scopeNote "This property is inverse functional because no ordered member can be in more than one ordered collection."^^xsd:string ;
 	.
 
 gist:hasPart
@@ -3422,17 +3435,10 @@ gist:hasTag
 	skos:prefLabel "has tag"^^xsd:string ;
 	.
 
-gist:hasToNode
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:networkConnection ;
-	skos:definition "The connections at the abstract level of a network. Note this is directed but the parent is the undirected version"^^xsd:string ;
-	skos:prefLabel "has to node"^^xsd:string ;
-	.
-
 gist:hasUniqueNavigationalParent
 	a
-		owl:FunctionalProperty ,
-		owl:ObjectProperty
+		owl:ObjectProperty ,
+		owl:FunctionalProperty
 		;
 	rdfs:subPropertyOf gist:hasNavigationalParent ;
 	skos:definition "Used for taxos that must have single parents"^^xsd:string ;
@@ -3441,8 +3447,8 @@ gist:hasUniqueNavigationalParent
 
 gist:hasUniqueSuperCategory
 	a
-		owl:FunctionalProperty ,
-		owl:ObjectProperty
+		owl:ObjectProperty ,
+		owl:FunctionalProperty
 		;
 	rdfs:subPropertyOf gist:hasSuperCategory ;
 	skos:definition "Used for taxos that must have single parents"^^xsd:string ;
@@ -3459,8 +3465,8 @@ gist:hasUoM
 
 gist:identifiedBy
 	a
-		owl:InverseFunctionalProperty ,
-		owl:ObjectProperty
+		owl:ObjectProperty ,
+		owl:InverseFunctionalProperty
 		;
 	rdfs:range gist:ID ;
 	owl:inverseOf gist:identifies ;
@@ -3470,8 +3476,8 @@ gist:identifiedBy
 
 gist:identifies
 	a
-		owl:FunctionalProperty ,
-		owl:ObjectProperty
+		owl:ObjectProperty ,
+		owl:FunctionalProperty
 		;
 	skos:definition "The thing the identifier refers to."^^xsd:string ;
 	skos:prefLabel "identifies"^^xsd:string ;
@@ -3520,6 +3526,26 @@ gist:license
 	a owl:AnnotationProperty ;
 	skos:definition "An annotation for providing the licensing on this or derivative ontologies"^^xsd:string ;
 	skos:prefLabel "license"^^xsd:string ;
+	.
+
+gist:links
+	a owl:ObjectProperty ;
+	skos:definition "Relates a NetworkLink to a NetworkNode that it connects to another node. Used when the connections are undirected, or the direction is not known."^^xsd:string ;
+	skos:prefLabel "links"^^xsd:string ;
+	.
+
+gist:linksFrom
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:links ;
+	skos:definition "Relates a NetworkLink to its origin NetworkNode. Unlike the superproperty, this represents a directed connection."^^xsd:string ;
+	skos:prefLabel "links from"^^xsd:string ;
+	.
+
+gist:linksTo
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:links ;
+	skos:definition "Relates a NetworkLink to its destination NetworkNode. Unlike the superproperty, this represents a directed connection."^^xsd:string ;
+	skos:prefLabel "links to"^^xsd:string ;
 	.
 
 gist:localDate
@@ -3592,18 +3618,41 @@ gist:name
 	skos:scopeNote "For more formal use, consider using a sub property of the object property, identifiedBy."^^xsd:string ;
 	.
 
-gist:networkConnection
-	a owl:ObjectProperty ;
-	skos:definition "Abstract connection for when connections are undirected"^^xsd:string ;
-	skos:prefLabel "network connection"^^xsd:string ;
-	.
-
 gist:numerator
 	a owl:ObjectProperty ;
 	rdfs:domain gist:RatioUnit ;
 	rdfs:range gist:UnitOfMeasure ;
 	skos:definition "Relates a RatioUnit such as meter(s)/second to the numerator Unit (e.g. meter)."^^xsd:string ;
 	skos:prefLabel "numerator"^^xsd:string ;
+	.
+
+gist:numericValue
+	a owl:DatatypeProperty ;
+	rdfs:domain gist:Magnitude ;
+	rdfs:range [
+		owl:unionOf (
+			owl:rational
+			owl:real
+			xsd:byte
+			xsd:decimal
+			xsd:double
+			xsd:float
+			xsd:int
+			xsd:integer
+			xsd:long
+			xsd:negativeInteger
+			xsd:nonNegativeInteger
+			xsd:nonPositiveInteger
+			xsd:positiveInteger
+			xsd:short
+			xsd:unsignedByte
+			xsd:unsignedInt
+			xsd:unsignedLong
+			xsd:unsignedShort
+		) ;
+	] ;
+	skos:definition "The actual value of a magnitude."^^xsd:string ;
+	skos:prefLabel "numeric value"^^xsd:string ;
 	.
 
 gist:occursAt
@@ -3626,15 +3675,6 @@ gist:offspringOf
 	rdfs:range gist:LivingThing ;
 	skos:definition "Biological offspring"^^xsd:string ;
 	skos:prefLabel "offspring of"^^xsd:string ;
-	.
-
-gist:orderedMemberOf
-	a
-		owl:FunctionalProperty ,
-		owl:ObjectProperty
-		;
-	skos:definition "An inverse of hasOrderedMember"^^xsd:string ;
-	skos:prefLabel "ordered member of"^^xsd:string ;
 	.
 
 gist:owns
@@ -3732,6 +3772,16 @@ gist:produces
 	skos:definition "The subject creates the object."^^xsd:string ;
 	skos:example "A task produces a deliverable."^^xsd:string ;
 	skos:prefLabel "produces"^^xsd:string ;
+	.
+
+gist:providesOrderFor
+	a
+		owl:ObjectProperty ,
+		owl:FunctionalProperty
+		;
+	rdfs:domain gist:OrderedMember ;
+	skos:definition "Links a member of an ordered collection to the real-world item it represents in that collection."^^xsd:string ;
+	skos:prefLabel "provides order for"^^xsd:string ;
 	.
 
 gist:rangeIncludes
@@ -3850,7 +3900,13 @@ gist:toAgent
 
 gist:toPlace
 	a owl:ObjectProperty ;
-	rdfs:range gist:Place ;
+	rdfs:range [
+		a owl:Class ;
+		owl:unionOf (
+			gist:Place
+			gist:Address
+		) ;
+	] ;
 	skos:definition "Destination"^^xsd:string ;
 	skos:prefLabel "to place"^^xsd:string ;
 	.
