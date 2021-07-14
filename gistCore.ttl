@@ -424,8 +424,9 @@ gist:ContemporaneousEvent
 			]
 		) ;
 	] ;
-	skos:definition "An event that actually started before the present time. When we record an end time it ceases to be contemporaneous."^^xsd:string ;
+	skos:definition "An event that has already started but has not yet ended."^^xsd:string ;
 	skos:prefLabel "Contemporaneous Event"^^xsd:string ;
+	skos:scopeNote "When the event actually ends, it will cease being contemporaneous."^^xsd:string ;
 	.
 
 gist:Content
@@ -1630,7 +1631,7 @@ gist:Network
 			]
 		) ;
 	] ;
-	skos:definition "A network is a set of nodes connected by links"^^xsd:string ;
+	skos:definition "A network is a set of nodes connected by links."^^xsd:string ;
 	skos:example "A physical network could include connected computers or routers, whereas a social network would consist of related Person or Organization instances."^^xsd:string ;
 	skos:prefLabel "Network"^^xsd:string ;
 	.
