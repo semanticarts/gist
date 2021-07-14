@@ -8,6 +8,9 @@ Release 10.0.0
 
 - Renamed `MimeType` to `MediaType` to be consistent with [IANA guidelines](https://www.iana.org/assignments/media-types/media-types.xhtml)
   and [RFC6838](https://tools.ietf.org/html/rfc6838). Issue [#434](<https://github.com/semanticarts/gist/issues/434>).
+- Refactored ordered collection model. Issue [#112](<https://github.com/semanticarts/gist/issues/112>)
+  - Added predicate `gist:providesOrderFor`
+  - Deleted classes `gist:OrdinalCollection` and `gist:OrdinalMember`
 
 ### Minor Updates
 
