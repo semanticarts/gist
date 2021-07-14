@@ -1,18 +1,38 @@
-gist Style Guide [ IN PROGRESS ]
+gist Style Guide <!-- omit in toc -->
 =====
 
-Purpose of this document
+- [Purpose of this style guide](#purpose-of-this-style-guide)
+- [OWL Version](#owl-version)
+- [Serialization](#serialization)
+- [Naming: Local Names](#naming-local-names)
+  - [Classes](#classes)
+  - [Properties](#properties)
+  - [All](#all)
+- [Naming: Labels](#naming-labels)
+  - [Classes](#classes-1)
+  - [Properties](#properties-1)
+  - [gist Definition of Title Case](#gist-definition-of-title-case)
+- [Annotations](#annotations)
+  - [Conventions](#conventions)
+  - [Rationale](#rationale)
+- [Documentation](#documentation)
+
+Purpose of this style guide
 -----
 
-The purpose of this document is two-fold:
+The purpose of this evolving document is two-fold:
 
 - Define and implement conventions in order to standardize gist.
 - Articulate what we consider best or "better" practices for ontology design and implementation.
+
+-----
 
 OWL Version
 -----
 
 gist uses OWL 2 DL.
+
+-----
 
 Serialization
 -----
@@ -23,12 +43,12 @@ Serialization
   In order to use the standard settings, copy the provided `pre-commit` script from the `tools/` directory in the repository to `.git/hooks/` after the repository is cloned,
   and ensure that `JAVA_HOME` is set in your environment. This script will only format RDF files, ignoring all others.
 
-Naming
 -----
 
-### Local names
+Naming: Local Names
+-----
 
-#### Classes
+### Classes
 
 - Camelcase with initial uppercase
 - Acronyms are also camelcased so that word boundaries are unambiguous.
@@ -37,36 +57,37 @@ Naming
 - Alphanumeric characters only.
   - Example: `Isbn10`, not `Isbn-10` or `ISBN-10`.
   
-#### Properties
+### Properties
 
 - Camelcase with initial lowercase
 - Acronyms as above
 
-#### All
+### All
 
 - No non-standard abbreviations. E.g., `hasUoM` should be `hasUnitOfMeasure`.
 
-### Labels
+Naming: Labels
+-----
 
 The following conventions apply to `skos:prefLabel` but not `skos:altLabel`.
 
-#### Classes
+### Classes
 
 - Title case (see definition of title case below)
 - Normalized to natural language standards. E.g., hyphens inserted, acronyms in all caps, etc.
   - Examples: _AMA Guideline_, _ISBN-10_
   
-#### Properties
+### Properties
 
 - Lower case
 - Normalized to natural language standards. E.g., hyphens inserted, acronyms in all caps, proper nouns capitalized, etc.
 - Examples: _has unit of measure_, _has SSN_, _unit symbol Unicode_
 
-#### gist Definition of Title Case
+### gist Definition of Title Case
 
 The rules of title case are not universally standardized; standardization is only at the level of house styles and individual style guides. Most English style guides agree that the first and last words should always be capitalized, while articles, short prepositions, and some conjunctions should not be. Other rules about the capitalization vary.
 
-gist style guide for title case:
+This style guide defines the rules for title case as follows:
 
 - Capitalize:
   - First and last words
@@ -79,7 +100,12 @@ gist style guide for title case:
 - Acronyms in all caps (e.g., _SSN_, _ISBN_)
 - Capitalize everything else
 
-### Annotations
+-----
+
+Annotations
+-----
+
+### Conventions
 
 gist uses SKOS annotations rather than `rdfs:label` and `rdfs:comment`. The accepted annotations, intended use, and previous usage are shown in the following tables. Refer to the [SKOS ontology](http://www.w3.org/2004/02/skos/core) for formal definitions.
 
@@ -117,9 +143,11 @@ Certain RDFS annotations are recommended where there is no SKOS equivalent.
 | `rdfs:label` | `skos:prefLabel` |
 | `rdfs:comment` | All other annotations, especially `skos:scopeNote` and `skos:example` |
 
-#### Rationale
+### Rationale
 
 SKOS annotations allow a more fine-grained approach to human-readable documentation. This change also aligns with emerging common practice.
+
+-----
 
 Documentation
 -----
