@@ -424,9 +424,9 @@ gist:ContemporaneousEvent
 			]
 		) ;
 	] ;
-	skos:definition "An event that actually started after the present time.  When we record an end time it ceases to be contemporaneous"^^xsd:string ;
+	skos:definition "An event that has already started but has not yet ended."^^xsd:string ;
 	skos:prefLabel "Contemporaneous Event"^^xsd:string ;
-	skos:scopeNote "All contemporaneous events eventually end and, due to the nature of the open world, we can never be sure that a contemporaneous event hasn't ended. As a result, this is really a contemporaneous and historical event."^^xsd:string ;
+	skos:scopeNote "When the event actually ends, it will cease being contemporaneous."^^xsd:string ;
 	.
 
 gist:Content
@@ -1452,7 +1452,7 @@ gist:Magnitude
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:decimalValue ;
+				owl:onProperty gist:numericValue ;
 				owl:someValuesFrom xsd:double ;
 			]
 		) ;
@@ -1631,19 +1631,49 @@ gist:Network
 			]
 		) ;
 	] ;
-	skos:definition "A network is a connected set of links and nodes"^^xsd:string ;
+	skos:definition "A network is a set of nodes connected by links."^^xsd:string ;
+	skos:example "A physical network could include connected computers or routers, whereas a social network would consist of related Person or Organization instances."^^xsd:string ;
 	skos:prefLabel "Network"^^xsd:string ;
 	.
 
 gist:NetworkLink
 	a owl:Class ;
-	skos:definition "A link in a network.  This is the abstraction of the network.  The physical instantiation couple be pipes, or wire  but may also be non physical such as wireless networks or organization structures"^^xsd:string ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:links ;
+				owl:onClass gist:NetworkNode ;
+				owl:qualifiedCardinality "2"^^xsd:integer ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:links ;
+				owl:allValuesFrom gist:NetworkNode ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:memberOf ;
+				owl:someValuesFrom gist:Network ;
+			]
+		) ;
+	] ;
+	skos:definition "An abstract representation of the connection between two or more nodes in a network."^^xsd:string ;
+	skos:example "A network link may be physical, such as pipes, wired or wireless networks, but may also be a link in a non-physical network, such as organizational structures or social networks."^^xsd:string ;
 	skos:prefLabel "Network Link"^^xsd:string ;
+	skos:scopeNote "Each NetworkLink is connected to a NetworkNode via the property 'gist:links' or one of its subproperties."^^xsd:string ;
 	.
 
 gist:NetworkNode
 	a owl:Class ;
-	skos:definition "A node in a network.  Note the network is the abstract representation of the network.  It is physically instantiated with equipment, or in some cases People."^^xsd:string ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty gist:memberOf ;
+		owl:someValuesFrom gist:Network ;
+	] ;
+	skos:definition "A node in a network."^^xsd:string ;
+	skos:example "A person is a node in a social network; a valve is a node in a network of pipes."^^xsd:string ;
 	skos:prefLabel "Network Node"^^xsd:string ;
 	.
 
@@ -1821,11 +1851,6 @@ gist:Person
 				a owl:Restriction ;
 				owl:onProperty gist:offspringOf ;
 				owl:someValuesFrom gist:Person ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:name ;
-				owl:someValuesFrom xsd:string ;
 			]
 		) ;
 	] ;
@@ -2729,8 +2754,8 @@ gist:_one_day
 		owl:Thing ,
 		gist:Duration
 		;
-	gist:decimalValue "1.0"^^xsd:double ;
 	gist:hasUoM gist:_day ;
+	gist:numericValue "1.0"^^xsd:double ;
 	.
 
 gist:_one_millisecond
@@ -2739,8 +2764,8 @@ gist:_one_millisecond
 		owl:Thing ,
 		gist:Duration
 		;
-	gist:decimalValue "1.0"^^xsd:double ;
 	gist:hasUoM gist:_millisecond ;
+	gist:numericValue "1.0"^^xsd:double ;
 	.
 
 gist:_one_minute
@@ -2749,8 +2774,8 @@ gist:_one_minute
 		owl:Thing ,
 		gist:Duration
 		;
-	gist:decimalValue "1.0"^^xsd:double ;
 	gist:hasUoM gist:_minute ;
+	gist:numericValue "1.0"^^xsd:double ;
 	.
 
 gist:_second
@@ -2931,14 +2956,6 @@ gist:convertToStandard
 	rdfs:range xsd:double ;
 	skos:definition "Note this kind of conversion will only work with temperatures if they are in Kelvin or Rankine (with a true 0).  You multiply to get to the base, divide to go from the base. mph to mps is .44704.  The multiple from kph to mps is .277778 .  To convert 60 mph to kph is (60 * .44704 / .277778 or 96.56056 kph"^^xsd:string ;
 	skos:prefLabel "convert to standard"^^xsd:string ;
-	.
-
-gist:decimalValue
-	a owl:DatatypeProperty ;
-	rdfs:domain gist:Magnitude ;
-	rdfs:range xsd:double ;
-	skos:definition "The actual value of a magnitude."^^xsd:string ;
-	skos:prefLabel "decimal value"^^xsd:string ;
 	.
 
 gist:denominator
@@ -3168,12 +3185,12 @@ gist:hasBaseUnit
 
 gist:hasBirthDate
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:actualStart ;
+	rdfs:subPropertyOf gist:start ;
 	rdfs:domain gist:LivingThing ;
 	rdfs:range gist:TimeInstant ;
 	skos:definition "Date a living thing is or will be born."^^xsd:string ;
-	skos:editorialNote "For 10.0.0 release: This property will be a subproperty of gist:start, rather than gist:actualStart (as currently), to acknowledge the fact that the birth may not yet have occurred. In this case, the birthdate is expected although not known. [Change this note to a skos:scopeNote.]"^^xsd:string ;
 	skos:prefLabel "has birthdate"^^xsd:string ;
+	skos:scopeNote "This property is a subproperty of gist:start, rather than gist:actualStart (as formerly), to acknowledge the fact that the birth may not yet have occurred. In this case, the birthdate is expected although not known."^^xsd:string ;
 	.
 
 gist:hasCommunicationAddress
@@ -3227,13 +3244,6 @@ gist:hasDirectSuperCategory
 	skos:definition "The subject category is a subcategory of the object category. This property defines the direct links in a category hierarchy; no intermediate categories can exist between the direct links."^^xsd:string ;
 	skos:prefLabel "has direct supercategory"^^xsd:string ;
 	skos:scopeNote "Unlike its superproperty gist:hasSuperCategory, this property is not transitive. It is essentially the same as the non-transitive skos:broader, using gist:Category rather than skos:Concept."^^xsd:string ;
-	.
-
-gist:hasFromNode
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:networkConnection ;
-	skos:definition "The connections at the abstract level of a network.  Note this is directed but the parent is the undirected version"^^xsd:string ;
-	skos:prefLabel "has from node"^^xsd:string ;
 	.
 
 gist:hasGetter
@@ -3416,13 +3426,6 @@ gist:hasTag
 	skos:prefLabel "has tag"^^xsd:string ;
 	.
 
-gist:hasToNode
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:networkConnection ;
-	skos:definition "The connections at the abstract level of a network. Note this is directed but the parent is the undirected version"^^xsd:string ;
-	skos:prefLabel "has to node"^^xsd:string ;
-	.
-
 gist:hasUniqueNavigationalParent
 	a
 		owl:ObjectProperty ,
@@ -3491,6 +3494,26 @@ gist:license
 	a owl:AnnotationProperty ;
 	skos:definition "An annotation for providing the licensing on this or derivative ontologies"^^xsd:string ;
 	skos:prefLabel "license"^^xsd:string ;
+	.
+
+gist:links
+	a owl:ObjectProperty ;
+	skos:definition "Relates a NetworkLink to a NetworkNode that it connects to another node. Used when the connections are undirected, or the direction is not known."^^xsd:string ;
+	skos:prefLabel "links"^^xsd:string ;
+	.
+
+gist:linksFrom
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:links ;
+	skos:definition "Relates a NetworkLink to its origin NetworkNode. Unlike the superproperty, this represents a directed connection."^^xsd:string ;
+	skos:prefLabel "links from"^^xsd:string ;
+	.
+
+gist:linksTo
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:links ;
+	skos:definition "Relates a NetworkLink to its destination NetworkNode. Unlike the superproperty, this represents a directed connection."^^xsd:string ;
+	skos:prefLabel "links to"^^xsd:string ;
 	.
 
 gist:localDate
@@ -3563,18 +3586,41 @@ gist:name
 	skos:scopeNote "For more formal use, consider using a sub property of the object property, identifiedBy."^^xsd:string ;
 	.
 
-gist:networkConnection
-	a owl:ObjectProperty ;
-	skos:definition "Abstract connection for when connections are undirected"^^xsd:string ;
-	skos:prefLabel "network connection"^^xsd:string ;
-	.
-
 gist:numerator
 	a owl:ObjectProperty ;
 	rdfs:domain gist:RatioUnit ;
 	rdfs:range gist:UnitOfMeasure ;
 	skos:definition "Relates a RatioUnit such as meter(s)/second to the numerator Unit (e.g. meter)."^^xsd:string ;
 	skos:prefLabel "numerator"^^xsd:string ;
+	.
+
+gist:numericValue
+	a owl:DatatypeProperty ;
+	rdfs:domain gist:Magnitude ;
+	rdfs:range [
+		owl:unionOf (
+			owl:rational
+			owl:real
+			xsd:byte
+			xsd:decimal
+			xsd:double
+			xsd:float
+			xsd:int
+			xsd:integer
+			xsd:long
+			xsd:negativeInteger
+			xsd:nonNegativeInteger
+			xsd:nonPositiveInteger
+			xsd:positiveInteger
+			xsd:short
+			xsd:unsignedByte
+			xsd:unsignedInt
+			xsd:unsignedLong
+			xsd:unsignedShort
+		) ;
+	] ;
+	skos:definition "The actual value of a magnitude."^^xsd:string ;
+	skos:prefLabel "numeric value"^^xsd:string ;
 	.
 
 gist:occursAt

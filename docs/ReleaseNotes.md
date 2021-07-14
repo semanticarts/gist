@@ -8,9 +8,18 @@ Release 10.0.0
 
 - Renamed `MimeType` to `MediaType` to be consistent with [IANA guidelines](https://www.iana.org/assignments/media-types/media-types.xhtml)
   and [RFC6838](https://tools.ietf.org/html/rfc6838). Issue [#434](<https://github.com/semanticarts/gist/issues/434>).
+- Renamed `gist:decimalValue` to `gist:numericValue` and expanded property range to include all numeric data types
+  supported by OWL.  Issue [#171](<https://github.com/semanticarts/gist/issues/171>)
 - Refactored ordered collection model. Issue [#112](<https://github.com/semanticarts/gist/issues/112>)
-  - Added predicate `gist:providesOrderFor`
-  - Deleted classes `gist:OrdinalCollection` and `gist:OrdinalMember`
+    - Added predicate `gist:providesOrderFor`
+    - Deleted classes `gist:OrdinalCollection` and `gist:OrdinalMember`
+- Changes to and affecting `gist:Person`, as per issue [#136](https://github.com/semanticarts/gist/issues/136):
+    - Removed `owl:someValuesFrom gist:name` restriction from `gist:Person`.
+    - Made `gist:hasBirthDate` a sub-property of `gist:start` rather than `gist:actualStart`.
+- Refactored the way network connections are modeled per issue [#126](<https://github.com/semanticarts/gist/issues/126>):
+    - `networkConnection`, `hasFromNode` and `hasToNode` have been renamed to `links`, `linksFrom` and `linksTo`, respectively.
+    - Added a restriction on `NetworkLink` that it must have exactly 2 links.
+    - Added restrictions on `NetworkLink` and `NetworkNode` that they must be `memberOf` a `Network`.
 
 ### Minor Updates
 
@@ -23,6 +32,7 @@ Release 10.0.0
 ### Patch Updates
 - Updated annotations for `basedOn` and `basisFor` properties. Issue [#139](https://github.com/semanticarts/gist/issues/139)
 - `hasDirectSubCategory` is now a sub-property of `hasSubCategory`, as it was always supposed to be.  Issue [#481](https://github.com/semanticarts/gist/issues/481)
+- Clarified the definition of `ContemporaneousEvent`. Issue [#174](<https://github.com/semanticarts/gist/issues/174>).
 
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore10.0.0>.
