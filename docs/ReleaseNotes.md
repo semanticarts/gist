@@ -20,6 +20,8 @@ Release 10.0.0
     - `networkConnection`, `hasFromNode` and `hasToNode` have been renamed to `links`, `linksFrom` and `linksTo`, respectively.
     - Added a restriction on `NetworkLink` that it must have exactly 2 links.
     - Added restrictions on `NetworkLink` and `NetworkNode` that they must be `memberOf` a `Network`.
+- Extended the range of `fromPlace`/`toPlace` to include `gist:Address` in addition to `gist:Place`.
+  Issue [#392](<https://github.com/semanticarts/gist/issues/392>).
 
 ### Minor Updates
 
