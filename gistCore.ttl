@@ -1758,51 +1758,47 @@ gist:Offer
 gist:OrderedCollection
 	a owl:Class ;
 	rdfs:subClassOf gist:Collection ;
+	owl:equivalentClass [
+		owl:intersectionOf (
+			gist:Collection
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasOrderedMember ;
+				owl:someValuesFrom owl:Thing ;
+			]
+		) ;
+	] ;
 	skos:definition "A collection where the members are in a fixed sequence."^^xsd:string ;
 	skos:prefLabel "Ordered Collection"^^xsd:string ;
+	skos:scopeNote "Empty collections are not supported at this time."^^xsd:string ;
 	.
 
-gist:OrdinalCollection
+gist:OrderedMember
 	a owl:Class ;
-	rdfs:subClassOf
-		gist:OrderedCollection ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:hasOrderedMember ;
-			owl:allValuesFrom gist:OrdinalMember ;
-		]
-		;
-	skos:definition "An Ordered Collection where no item can be of the same rank as any other item.  In mathematical terms, this is a ?strict total order?."^^xsd:string ;
-	skos:prefLabel "Ordinal Collection"^^xsd:string ;
-	.
-
-gist:OrdinalMember
-	a owl:Class ;
-	rdfs:subClassOf
-		gist:Category ,
-		[
-			a owl:Class ;
-			owl:unionOf (
-				[
-					a owl:Restriction ;
-					owl:onProperty gist:directlyPrecededBy ;
-					owl:someValuesFrom gist:OrdinalMember ;
-				]
-				[
-					a owl:Restriction ;
-					owl:onProperty gist:directlyPrecedes ;
-					owl:someValuesFrom gist:OrdinalMember ;
-				]
-			) ;
-		]
-		;
-	owl:equivalentClass [
-		a owl:Restriction ;
-		owl:onProperty gist:orderedMemberOf ;
-		owl:someValuesFrom gist:OrdinalCollection ;
+	rdfs:subClassOf [
+		a owl:Class ;
+		owl:unionOf (
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:directlyPrecededBy ;
+				owl:someValuesFrom gist:OrderedMember ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:directlyPrecedes ;
+				owl:someValuesFrom gist:OrderedMember ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:sequence ;
+				owl:someValuesFrom xsd:integer ;
+			]
+		) ;
 	] ;
-	skos:definition "A member of an Ordinal Collection.  It necessarily precedes or is preceded by another Ordinal Member in the same collection. (This last condition cannot be formally stated in OWL)."^^xsd:string ;
-	skos:prefLabel "Ordinal Member"^^xsd:string ;
+	skos:definition "A member of an ordered collection that serves as a proxy for a real world item, which can appear in different orders in different collections. The ordered member appears in exactly one ordered collection."^^xsd:string ;
+	skos:example "A person may rank 12th in the Boston Marathon but 29th in the New York City Marathon."^^xsd:string ;
+	skos:prefLabel "Ordered Member"^^xsd:string ;
+	skos:scopeNote "An ordered member points to the real world item via the providesOrderFor property. Ordering information is represented either as a number in a sequence, or by preceding or following another ordered member. The ordered collection is linked to the ordered member via the property hasOrderedMember."^^xsd:string ;
 	.
 
 gist:Organization
@@ -3313,13 +3309,14 @@ gist:hasNavigationalParent
 
 gist:hasOrderedMember
 	a
-		owl:InverseFunctionalProperty ,
-		owl:ObjectProperty
+		owl:ObjectProperty ,
+		owl:InverseFunctionalProperty
 		;
 	rdfs:subPropertyOf gist:hasMember ;
-	owl:inverseOf gist:orderedMemberOf ;
-	skos:definition "An inverse functional version of hasMember to ensure that no OrderedMember can be in more than one OrderedCollection., which can quickly lead to problems."^^xsd:string ;
+	rdfs:range gist:OrderedMember ;
+	skos:definition "Relates an ordered collection to an ordered member that belongs to it."^^xsd:string ;
 	skos:prefLabel "has ordered member"^^xsd:string ;
+	skos:scopeNote "This property is inverse functional because no ordered member can be in more than one ordered collection."^^xsd:string ;
 	.
 
 gist:hasPart
@@ -3431,8 +3428,8 @@ gist:hasTag
 
 gist:hasUniqueNavigationalParent
 	a
-		owl:FunctionalProperty ,
-		owl:ObjectProperty
+		owl:ObjectProperty ,
+		owl:FunctionalProperty
 		;
 	rdfs:subPropertyOf gist:hasNavigationalParent ;
 	skos:definition "Used for taxos that must have single parents"^^xsd:string ;
@@ -3441,8 +3438,8 @@ gist:hasUniqueNavigationalParent
 
 gist:hasUniqueSuperCategory
 	a
-		owl:FunctionalProperty ,
-		owl:ObjectProperty
+		owl:ObjectProperty ,
+		owl:FunctionalProperty
 		;
 	rdfs:subPropertyOf gist:hasSuperCategory ;
 	skos:definition "Used for taxos that must have single parents"^^xsd:string ;
@@ -3459,8 +3456,8 @@ gist:hasUoM
 
 gist:identifiedBy
 	a
-		owl:InverseFunctionalProperty ,
-		owl:ObjectProperty
+		owl:ObjectProperty ,
+		owl:InverseFunctionalProperty
 		;
 	rdfs:range gist:ID ;
 	owl:inverseOf gist:identifies ;
@@ -3470,8 +3467,8 @@ gist:identifiedBy
 
 gist:identifies
 	a
-		owl:FunctionalProperty ,
-		owl:ObjectProperty
+		owl:ObjectProperty ,
+		owl:FunctionalProperty
 		;
 	skos:definition "The thing the identifier refers to."^^xsd:string ;
 	skos:prefLabel "identifies"^^xsd:string ;
@@ -3648,15 +3645,6 @@ gist:offspringOf
 	skos:prefLabel "offspring of"^^xsd:string ;
 	.
 
-gist:orderedMemberOf
-	a
-		owl:FunctionalProperty ,
-		owl:ObjectProperty
-		;
-	skos:definition "An inverse of hasOrderedMember"^^xsd:string ;
-	skos:prefLabel "ordered member of"^^xsd:string ;
-	.
-
 gist:owns
 	a owl:ObjectProperty ;
 	rdfs:domain [
@@ -3752,6 +3740,16 @@ gist:produces
 	skos:definition "The subject creates the object."^^xsd:string ;
 	skos:example "A task produces a deliverable."^^xsd:string ;
 	skos:prefLabel "produces"^^xsd:string ;
+	.
+
+gist:providesOrderFor
+	a
+		owl:ObjectProperty ,
+		owl:FunctionalProperty
+		;
+	rdfs:domain gist:OrderedMember ;
+	skos:definition "Links a member of an ordered collection to the real-world item it represents in that collection."^^xsd:string ;
+	skos:prefLabel "provides order for"^^xsd:string ;
 	.
 
 gist:rangeIncludes
