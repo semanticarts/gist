@@ -67,6 +67,18 @@ actions:
     - gistValidationAnnotations.ttl
   shapes:
     source: "{input}/ontologyShapes.ttl"
+- action: "verify"
+  message: "Verify ontology via queries."
+  type: "construct"
+  inference: "none"
+  source: "{input}"
+  includes:
+    - gistCore.ttl
+  stopOnFail: false
+  queries:
+    source: '{input}/validation_queries'
+    includes:
+      - '*_construct.rq'
 - action: "mkdir"
   directory: "{output}"
 - action: "copy"

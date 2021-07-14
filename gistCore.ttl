@@ -3186,7 +3186,7 @@ gist:hasCommunicationAddress
 		) ;
 	] ;
 	rdfs:range gist:Address ;
-	skos:definition "A location where a person or organiztion can receive messages including postal addresses, fax numbers, phone numbers, email, web site, etc."^^xsd:string ;
+	skos:definition "A location where a person or organization can receive messages including postal addresses, fax numbers, phone numbers, email, web site, etc."^^xsd:string ;
 	skos:prefLabel "has communication address"^^xsd:string ;
 	.
 
@@ -3355,7 +3355,6 @@ gist:hasPhysicalAddress
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasAddress ;
 	rdfs:range gist:StreetAddress ;
-	owl:inverseOf gist:isPhysicalAddressOf ;
 	skos:definition "A place that can be found on a map, has geo coordinates; you could live or work there."^^xsd:string ;
 	skos:prefLabel "has physical address"^^xsd:string ;
 	.
@@ -3480,6 +3479,7 @@ gist:identifies
 
 gist:isAddressOf
 	a owl:ObjectProperty ;
+	owl:inverseOf gist:hasAddress ;
 	skos:definition "Whose address is this"^^xsd:string ;
 	skos:prefLabel "is address of"^^xsd:string ;
 	.
@@ -3495,6 +3495,7 @@ gist:isCommunicationAddressOf
 gist:isPhysicalAddressOf
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:isAddressOf ;
+	owl:inverseOf gist:hasPhysicalAddress ;
 	skos:definition "Whose physical address is this"^^xsd:string ;
 	skos:prefLabel "is physical address of"^^xsd:string ;
 	.
