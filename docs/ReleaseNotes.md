@@ -23,12 +23,11 @@ Release 10.0.0
 - Extended the range of `fromPlace`/`toPlace` to include `gist:Address` in addition to `gist:Place`.
   Issue [#392](<https://github.com/semanticarts/gist/issues/392>).
 - Modified classes and properties related to street addresses as per issue [#483](<https://github.com/semanticarts/gist/issues/483>):
-    - Removed `BuildingAddress`
-    - Add `StreetAddress` as subclass of `PostalAddress`
-    - Defined super-property `hasAddress` (and inverse `isAddressOf`)
-    - Replaced `hasStreetAddress` with `hasPhysicalAddress` (what a building, park, parking lot have), and
-      `streetAddressOf` with `isPhysicalAddressOf`.
-    - Clarified definition of `hasCommunicationAddress`, added domain (`Person U Organization`).
+    - Removed `BuildingAddress`.
+    - Added `StreetAddress` as subclass of `PostalAddress`.
+    - Replaced `hasStreetAddress` with the more general `hasAddress`. Removed `streetAddressOf`. 
+    - Clarified the definition of `hasCommunicationAddress` (which is now a sub-property of `hasAddress`,
+      added domain (`Person U Organization`).
 
 ### Minor Updates
 

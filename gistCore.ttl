@@ -2243,10 +2243,10 @@ gist:Specification
 gist:StreetAddress
 	a owl:Class ;
 	rdfs:subClassOf gist:PostalAddress ;
-	skos:definition "An address which you can find in the physical world."^^xsd:string ;
-	skos:example "The street address of a building, a park or an empty lot."^^xsd:string ;
+	skos:definition "An address which references a fixed location in the physical world."^^xsd:string ;
+	skos:example "The street address of a building, a park, campground, or an empty lot."^^xsd:string ;
 	skos:prefLabel "Street Address"^^xsd:string ;
-	skos:scopeNote "Unlike the superclass, this does not include pseudo-addresses such as PO Box or FPO code."^^xsd:string ;
+	skos:scopeNote "This excludes addresses not associated with a fixed location, such as a PO box or FPO code."^^xsd:string ;
 	.
 
 gist:System
@@ -3163,6 +3163,7 @@ gist:hasAddress
 	a owl:ObjectProperty ;
 	rdfs:range gist:Address ;
 	skos:definition "Relates the subject to its physical or virtual address."^^xsd:string ;
+	skos:example "The street address of a building; the email address of a person."^^xsd:string ;
 	skos:prefLabel "has address"^^xsd:string ;
 	.
 
@@ -3205,7 +3206,7 @@ gist:hasCommunicationAddress
 		) ;
 	] ;
 	rdfs:range gist:Address ;
-	skos:definition "A location where a person or organization can receive messages including postal addresses, fax numbers, phone numbers, email, web site, etc."^^xsd:string ;
+	skos:definition "Relates a Person or Organization to where they can receive messages, including postal addresses, fax numbers, phone numbers, email, web site, etc."^^xsd:string ;
 	skos:prefLabel "has communication address"^^xsd:string ;
 	.
 
@@ -3364,14 +3365,6 @@ gist:hasParty
 	skos:prefLabel "has party"^^xsd:string ;
 	.
 
-gist:hasPhysicalAddress
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:hasAddress ;
-	rdfs:range gist:StreetAddress ;
-	skos:definition "A place that can be found on a map, has geo coordinates; you could live or work there."^^xsd:string ;
-	skos:prefLabel "has physical address"^^xsd:string ;
-	.
-
 gist:hasPhysicalLocation
 	a
 		owl:ObjectProperty ,
@@ -3481,29 +3474,6 @@ gist:identifies
 		;
 	skos:definition "The thing the identifier refers to."^^xsd:string ;
 	skos:prefLabel "identifies"^^xsd:string ;
-	.
-
-gist:isAddressOf
-	a owl:ObjectProperty ;
-	owl:inverseOf gist:hasAddress ;
-	skos:definition "Whose address is this"^^xsd:string ;
-	skos:prefLabel "is address of"^^xsd:string ;
-	.
-
-gist:isCommunicationAddressOf
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:isAddressOf ;
-	owl:inverseOf gist:hasCommunicationAddress ;
-	skos:definition "Whose communication address is this"^^xsd:string ;
-	skos:prefLabel "communication address of"^^xsd:string ;
-	.
-
-gist:isPhysicalAddressOf
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:isAddressOf ;
-	owl:inverseOf gist:hasPhysicalAddress ;
-	skos:definition "Whose physical address is this"^^xsd:string ;
-	skos:prefLabel "is physical address of"^^xsd:string ;
 	.
 
 gist:lastModifiedOn
