@@ -15,7 +15,7 @@ Release 10.0.0
     - Deleted classes `gist:OrdinalCollection` and `gist:OrdinalMember`
 - Changes to and affecting `gist:Person`, as per issue [#136](https://github.com/semanticarts/gist/issues/136):
     - Removed `owl:someValuesFrom gist:name` restriction from `gist:Person`.
-    - Made `gist:hasBirthDate` a sub-property of `gist:start` rather than `gist:actualStart`.
+    - Made `gist:hasBirthDate` a subproperty of `gist:start` rather than `gist:actualStart`.
 - Refactored the way network connections are modeled per issue [#126](<https://github.com/semanticarts/gist/issues/126>):
     - `networkConnection`, `hasFromNode` and `hasToNode` have been renamed to `links`, `linksFrom` and `linksTo`, respectively.
     - Added a restriction on `NetworkLink` that it must have exactly 2 links.
@@ -25,8 +25,9 @@ Release 10.0.0
 - Modified classes and properties related to street addresses as per issue [#483](<https://github.com/semanticarts/gist/issues/483>):
     - Removed `BuildingAddress`.
     - Added `StreetAddress` as subclass of `PostalAddress`.
-    - Replaced `hasStreetAddress` with the more general `hasAddress`. Removed `streetAddressOf`. 
-    - Clarified the definition of `hasCommunicationAddress` (which is now a sub-property of `hasAddress`,
+    - Replaced `hasStreetAddress` with the more general `hasAddress`. Removed `streetAddressOf`.
+    - Removed `communicationAddressOf` in a general effort to trim unused inverse properties.
+    - Clarified the definition of `hasCommunicationAddress` (which is now a subproperty of `hasAddress`),
       added domain (`Person U Organization`).
 
 ### Minor Updates
@@ -39,7 +40,7 @@ Release 10.0.0
 
 ### Patch Updates
 - Updated annotations for `basedOn` and `basisFor` properties. Issue [#139](https://github.com/semanticarts/gist/issues/139)
-- `hasDirectSubCategory` is now a sub-property of `hasSubCategory`, as it was always supposed to be.  Issue [#481](https://github.com/semanticarts/gist/issues/481)
+- `hasDirectSubCategory` is now a subproperty of `hasSubCategory`, as it was always supposed to be.  Issue [#481](https://github.com/semanticarts/gist/issues/481)
 - Clarified the definition of `ContemporaneousEvent`. Issue [#174](<https://github.com/semanticarts/gist/issues/174>).
 
 
@@ -337,7 +338,7 @@ Primarily fixes minor errors like typos in our gist 7.0 release.
 
 Below is a brief summary of the changes that have semantic import from an inference perspective (axiom added, removed, changed, etc.) or that are backward incompatible.
 
-- Made `gist:uniqueText` a sub-property of `gist:containedText`.
+- Made `gist:uniqueText` a subproperty of `gist:containedText`.
 - Added `gist:Agreement` to range of `gist:governs`.
 - Changed `gist:prevent`, `gist:allow` and `gist:require` to `gist:prevents`, `gist:allows`, and `gist:requires`.
 - Changed restriction on `gist:Offer` to use `gist:hasDirectPart some gist:CatalogItem`.
