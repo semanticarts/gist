@@ -1,0 +1,26 @@
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix sh: <http://www.w3.org/ns/shacl#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+prefix gist: <https://ontologies.semanticarts.com/gist/>
+
+CONSTRUCT {
+    ?report a sh:ValidationReport ;
+        sh:conforms false ;
+        sh:result [ a sh:ValidationResult ;
+                sh:focusNode ?focus ;
+                sh:resultMessage ?error ;
+                sh:resultPath ?ref_prop ;
+                sh:resultSeverity sh:Violation ;
+                sh:value ?ref_type ] .
+}
+WHERE {
+  VALUES ?focus_type { owl:ObjectProperty owl:DatatypeProperty owl:AnnotationProperty}
+  VALUES (?ref_prop ?message) { (rdfs:subPropertyOf "Super-property") (owl:inverseOf "Inverse property") }
+  ?focus a ?focus_type; ?ref_prop ?ref .
+  ?ref a ?ref_type .
+  FILTER (?ref_type in (owl:ObjectProperty, owl:DatatypeProperty, owl:AnnotationProperty))
+  FILTER (?focus_type != ?ref_type)
+  bind(<urn:property-vaidation-report> as ?report)
+  bind(CONCAT(?message, " ", REPLACE(STR(?ref), '^.*[/#]', ''), " must be the same type.") as ?error)
+}

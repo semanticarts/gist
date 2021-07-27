@@ -189,20 +189,6 @@ gist:Building
 	skos:prefLabel "Building"^^xsd:string ;
 	.
 
-gist:BuildingAddress
-	a owl:Class ;
-	rdfs:subClassOf
-		gist:Address ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:streetAddressOf ;
-			owl:someValuesFrom gist:Building ;
-		]
-		;
-	skos:definition "An address to which you can send mail, or that you could find in the physical world."^^xsd:string ;
-	skos:prefLabel "Building Address"^^xsd:string ;
-	.
-
 gist:BundledCatalogItem
 	a owl:Class ;
 	owl:equivalentClass [
@@ -2254,6 +2240,15 @@ gist:Specification
 	skos:prefLabel "Specification"^^xsd:string ;
 	.
 
+gist:StreetAddress
+	a owl:Class ;
+	rdfs:subClassOf gist:PostalAddress ;
+	skos:definition "An address which references a fixed location in the physical world."^^xsd:string ;
+	skos:example "The street address of a building, a park, campground, or an empty lot."^^xsd:string ;
+	skos:prefLabel "Street Address"^^xsd:string ;
+	skos:scopeNote "This excludes addresses not associated with a fixed location, such as a PO box or FPO code."^^xsd:string ;
+	.
+
 gist:System
 	a owl:Class ;
 	owl:equivalentClass [
@@ -2900,13 +2895,6 @@ gist:characterizedAs
 	skos:prefLabel "characterized as"^^xsd:string ;
 	.
 
-gist:communicationAddressOf
-	a owl:ObjectProperty ;
-	owl:inverseOf gist:hasCommunicationAddress ;
-	skos:definition "Whose address is this"^^xsd:string ;
-	skos:prefLabel "communication address of"^^xsd:string ;
-	.
-
 gist:conformsTo
 	a owl:ObjectProperty ;
 	rdfs:range gist:Intention ;
@@ -3171,6 +3159,14 @@ gist:governs
 	skos:prefLabel "governs"^^xsd:string ;
 	.
 
+gist:hasAddress
+	a owl:ObjectProperty ;
+	rdfs:range gist:Address ;
+	skos:definition "Relates the subject to its physical or virtual address."^^xsd:string ;
+	skos:example "The street address of a building; the email address of a person."^^xsd:string ;
+	skos:prefLabel "has address"^^xsd:string ;
+	.
+
 gist:hasAltitude
 	a owl:ObjectProperty ;
 	rdfs:domain gist:GeoPoint ;
@@ -3201,8 +3197,16 @@ gist:hasBirthDate
 
 gist:hasCommunicationAddress
 	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasAddress ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf (
+			gist:Person
+			gist:Organization
+		) ;
+	] ;
 	rdfs:range gist:Address ;
-	skos:definition "Points to a general class of places you can send messages including postal addresses, fax numbers, phone numbers, email, web site, etc."^^xsd:string ;
+	skos:definition "Relates a Person or Organization to where they can receive messages, including postal addresses, fax numbers, phone numbers, email, web site, etc."^^xsd:string ;
 	skos:prefLabel "has communication address"^^xsd:string ;
 	.
 
@@ -3386,14 +3390,6 @@ gist:hasStandardUnit
 	rdfs:range gist:CoherentUnit ;
 	skos:definition "For a complex unit refers to a unit that has all the component parts in SI"^^xsd:string ;
 	skos:prefLabel "has standard unit"^^xsd:string ;
-	.
-
-gist:hasStreetAddress
-	a owl:ObjectProperty ;
-	rdfs:range gist:BuildingAddress ;
-	owl:inverseOf gist:streetAddressOf ;
-	skos:definition "A place that can be found on a map, has geo coordinates; you could live or work there."^^xsd:string ;
-	skos:prefLabel "has street address"^^xsd:string ;
 	.
 
 gist:hasSubCategory
@@ -3838,12 +3834,6 @@ gist:start
 	rdfs:range gist:TimeInstant ;
 	skos:definition "Connects the subject to its start time."^^xsd:string ;
 	skos:prefLabel "start"^^xsd:string ;
-	.
-
-gist:streetAddressOf
-	a owl:ObjectProperty ;
-	skos:definition "Whose street address is this"^^xsd:string ;
-	skos:prefLabel "street address of"^^xsd:string ;
 	.
 
 gist:subTaskOf
