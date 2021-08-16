@@ -3519,6 +3519,13 @@ gist:isGeographicallyOccupiedBy
 	skos:prefLabel "is geographically occupied by"^^xsd:string ;
 	.
 
+gist:isGeographicallyPermanentlyOccupiedBy
+	a owl:ObjectProperty ;
+	owl:inverseOf gist:occupiesGeographicallyPermanently ;
+	skos:definition "What is in the fixed location"^^xsd:string ;
+	skos:prefLabel "is geographically permanently occupied by"^^xsd:string ;
+	.
+
 gist:isGovernedBy
 	a owl:ObjectProperty ;
 	owl:inverseOf gist:governs ;
@@ -3550,13 +3557,6 @@ gist:isPartOf
 		;
 	skos:definition "The transitive version of gist:isDirectPartOf"^^xsd:string ;
 	skos:prefLabel "is part of"^^xsd:string ;
-	.
-
-gist:isPermanentlyGeographicallyOccupiedBy
-	a owl:ObjectProperty ;
-	owl:inverseOf gist:occupiesGeographicallyPermanently ;
-	skos:definition "What is in the fixed location"^^xsd:string ;
-	skos:prefLabel "is permanently geographically occupied by"^^xsd:string ;
 	.
 
 gist:isRecognizedBy
@@ -3944,12 +3944,12 @@ gist:usesTimeZoneStandard
 	skos:prefLabel "uses time zone standard"^^xsd:string ;
 	.
 
-gist:wasLastModifiedOn
+gist:wasLastModifiedAt
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasActual ;
 	rdfs:range gist:TimeInstant ;
-	skos:definition "Date that something was modified."^^xsd:string ;
-	skos:prefLabel "was last modified on"^^xsd:string ;
+	skos:definition "Date that something was last modified."^^xsd:string ;
+	skos:prefLabel "was last modified at"^^xsd:string ;
 	.
 
 []
