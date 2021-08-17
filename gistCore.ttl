@@ -1339,7 +1339,7 @@ gist:LivingThing
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isBiologicalOffspringOf ;
+				owl:onProperty gist:hasBiologicalParent ;
 				owl:someValuesFrom gist:LivingThing ;
 			]
 		) ;
@@ -1835,7 +1835,7 @@ gist:Person
 			gist:LivingThing
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isBiologicalOffspringOf ;
+				owl:onProperty gist:hasBiologicalParent ;
 				owl:someValuesFrom gist:Person ;
 			]
 		) ;
@@ -3046,6 +3046,21 @@ gist:hasBaseUnit
 	skos:prefLabel "has base unit"^^xsd:string ;
 	.
 
+gist:hasBiologicalOffspring
+	a owl:ObjectProperty ;
+	rdfs:domain gist:LivingThing ;
+	rdfs:range gist:LivingThing ;
+	skos:definition "Relates a parent to its biological offspring."^^xsd:string ;
+	skos:prefLabel "has biological offspring"^^xsd:string ;
+	.
+
+gist:hasBiologicalParent
+	a owl:ObjectProperty ;
+	skos:definition "Relates a living thing to its biological parent."^^xsd:string ;
+	skos:prefLabel "has biological parent"^^xsd:string ;
+	gist:rangeIncludes gist:Person ;
+	.
+
 gist:hasBirthDate
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasStart ;
@@ -3450,21 +3465,6 @@ gist:isBasisFor
 	skos:definition "The Subject is a foundation for, a starting point for, gave rise to or justifies the Object"^^xsd:string ;
 	skos:example "The reason, law, rule, etc. behind an action or decision. The desire to create a community around the data-centric revolution/movement was the basis for initiating the Data-Centric Architecture Summit in 2018. The unabridged dictionary was the basis for the abridged dictionary."^^xsd:string ;
 	skos:prefLabel "is basis for"^^xsd:string ;
-	.
-
-gist:isBiologicalOffspringOf
-	a owl:ObjectProperty ;
-	rdfs:domain gist:LivingThing ;
-	rdfs:range gist:LivingThing ;
-	skos:definition "Biological offspring"^^xsd:string ;
-	skos:prefLabel "is biological offspring of"^^xsd:string ;
-	.
-
-gist:isBiologicalParentOf
-	a owl:ObjectProperty ;
-	skos:definition "biological parent"^^xsd:string ;
-	skos:prefLabel "is biological parent of"^^xsd:string ;
-	gist:rangeIncludes gist:Person ;
 	.
 
 gist:isCategorizedBy
