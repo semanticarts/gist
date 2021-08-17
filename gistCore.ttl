@@ -1900,7 +1900,7 @@ gist:PhysicalIdentifiableItem
 		] ,
 		[
 			a owl:Restriction ;
-			owl:onProperty gist:madeUpOf ;
+			owl:onProperty gist:isMadeUpOf ;
 			owl:someValuesFrom gist:PhysicalSubstance ;
 		]
 		;
