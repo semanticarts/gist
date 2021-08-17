@@ -2823,7 +2823,7 @@ gist:comesFromAgent
 	] ;
 	skos:definition "The party that is the source of something (e.g. a message, shipment, etc.)"^^xsd:string ;
 	skos:prefLabel "comes from agent"^^xsd:string ;
-	skos:scopeNote 'This is not the inverse of toAgent. A message can be to someone. If we made it the inverse the person would be "from" the message'^^xsd:string ;
+	skos:scopeNote 'This is not the inverse of gist:goesToAgent. A message can be to someone. If we made it the inverse the person would be "from" the message'^^xsd:string ;
 	.
 
 gist:comesFromPlace
@@ -2931,7 +2931,7 @@ gist:epoch
 gist:followsDirectly
 	a owl:ObjectProperty ;
 	owl:inverseOf gist:precedesDirectly ;
-	skos:definition "Inverse of precedesDirectly"^^xsd:string ;
+	skos:definition "Inverse of gist:precedesDirectly"^^xsd:string ;
 	skos:prefLabel "follows directly"^^xsd:string ;
 	skos:scopeNote "It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ;
 	.
@@ -2948,7 +2948,7 @@ gist:goesToAgent
 	] ;
 	skos:definition "The party that is the recipient of something (e.g. a message, shipment, etc.)"^^xsd:string ;
 	skos:prefLabel "goes to agent"^^xsd:string ;
-	skos:scopeNote 'This is not the inverse of fromAgent. A message can be from someone. If we made it the inverse the person would be "to" the message'^^xsd:string ;
+	skos:scopeNote 'This is not the inverse of gist:comesFromAgent. A message can be from someone. If we made it the inverse the person would be "to" the message'^^xsd:string ;
 	.
 
 gist:goesToPlace
@@ -3053,7 +3053,7 @@ gist:hasBirthDate
 	rdfs:range gist:TimeInstant ;
 	skos:definition "Date a living thing is or will be born."^^xsd:string ;
 	skos:prefLabel "has birthdate"^^xsd:string ;
-	skos:scopeNote "This property is a subproperty of gist:hasStart, rather than gist:hasActualStart (as formerly), to acknowledge the fact that the birth may not yet have occurred. In this case, the birthdate is expected although not known."^^xsd:string ;
+	skos:scopeNote "This property is a subproperty of gist:hasStart, rather than gist:hasActualStart, to acknowledge the fact that the birth may not yet have occurred. In this case, the birthdate is expected although not known."^^xsd:string ;
 	.
 
 gist:hasCommunicationAddress
@@ -3096,7 +3096,7 @@ gist:hasDirectPart
 	skos:scopeNote
 		"It is safest to use this property when there is semantic directness inherent in the relationship, rather than choosing appropriate granularity. For example, a spark plug is a direct part of an engine block; there cannot be any intermediate parts.  Beware of making a hasDirectPart assertion and then inserting an intermediate part; this will result in making an asserted triple false even though there was no change in the world."^^xsd:string ,
 		"No cascading delete."^^xsd:string ,
-		"Use this property to directly associate a part with the whole. hasPart is the transitive version."^^xsd:string
+		"Use this property to directly associate a part with the whole. gist:hasPart is the transitive version."^^xsd:string
 		;
 	.
 
@@ -3227,7 +3227,7 @@ gist:hasPart
 		owl:TransitiveProperty
 		;
 	owl:inverseOf gist:isPartOf ;
-	skos:definition "The transitive version of hasDirectPart"^^xsd:string ;
+	skos:definition "The transitive version of gist:hasDirectPart"^^xsd:string ;
 	skos:prefLabel "has part"^^xsd:string ;
 	.
 
