@@ -2042,7 +2042,7 @@ gist:ProductUnit
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:convertToBase ;
+				owl:onProperty gist:baseConversionRatio ;
 				owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
 				owl:onDataRange xsd:double ;
 			]
@@ -2224,7 +2224,7 @@ gist:SimpleUnitOfMeasure
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:convertToBase ;
+				owl:onProperty gist:baseConversionRatio ;
 				owl:someValuesFrom xsd:double ;
 			]
 		) ;
@@ -2291,7 +2291,7 @@ gist:Tag
 			gist:Category
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasTag ;
+				owl:onProperty gist:tagText ;
 				owl:someValuesFrom xsd:string ;
 			]
 		) ;
@@ -2622,7 +2622,7 @@ gist:_USDollar
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	gist:convertToBase "1.0"^^xsd:double ;
+	gist:baseConversionRatio "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_USDollar ;
 	.
 
@@ -2632,7 +2632,7 @@ gist:_ampere
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	gist:convertToBase "1.0"^^xsd:double ;
+	gist:baseConversionRatio "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_ampere ;
 	.
 
@@ -2643,7 +2643,7 @@ gist:_bit
 		gist:BaseUnit
 		;
 	skos:definition "A bit (short for binary digit) is the smallest unit of data in a computer. A bit has a single binary value, either 0 or 1."^^xsd:string ;
-	gist:convertToBase "1.0"^^xsd:double ;
+	gist:baseConversionRatio "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_bit ;
 	.
 
@@ -2653,7 +2653,7 @@ gist:_candela
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	gist:convertToBase "1.0"^^xsd:double ;
+	gist:baseConversionRatio "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_candela ;
 	.
 
@@ -2662,7 +2662,7 @@ gist:_day
 		owl:NamedIndividual ,
 		gist:DurationUnit
 		;
-	gist:convertToBase "86400.0"^^xsd:double ;
+	gist:baseConversionRatio "86400.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
 	.
 
@@ -2672,7 +2672,7 @@ gist:_each
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	gist:convertToBase "1.0"^^xsd:double ;
+	gist:baseConversionRatio "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_each ;
 	.
 
@@ -2690,8 +2690,8 @@ gist:_kelvin
 		owl:Thing ,
 		gist:BaseUnit
 		;
+	gist:baseConversionRatio "1.0"^^xsd:double ;
 	gist:conversionOffset "0.0"^^xsd:double ;
-	gist:convertToBase "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_kelvin ;
 	.
 
@@ -2701,7 +2701,7 @@ gist:_kilogram
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	gist:convertToBase "1.0"^^xsd:double ;
+	gist:baseConversionRatio "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_kilogram ;
 	.
 
@@ -2711,7 +2711,7 @@ gist:_meter
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	gist:convertToBase "1.0"^^xsd:double ;
+	gist:baseConversionRatio "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_meter ;
 	.
 
@@ -2720,7 +2720,7 @@ gist:_millisecond
 		owl:NamedIndividual ,
 		gist:DurationUnit
 		;
-	gist:convertToBase "0.001"^^xsd:double ;
+	gist:baseConversionRatio "0.001"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
 	.
 
@@ -2729,7 +2729,7 @@ gist:_minute
 		owl:NamedIndividual ,
 		gist:DurationUnit
 		;
-	gist:convertToBase "60.0"^^xsd:double ;
+	gist:baseConversionRatio "60.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
 	.
 
@@ -2739,7 +2739,7 @@ gist:_mole
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	gist:convertToBase "1.0"^^xsd:double ;
+	gist:baseConversionRatio "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_mole ;
 	.
 
@@ -2779,7 +2779,7 @@ gist:_second
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	gist:convertToBase "1.0"^^xsd:double ;
+	gist:baseConversionRatio "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
 	.
 
@@ -2801,6 +2801,14 @@ gist:allows
 	rdfs:range gist:Behavior ;
 	skos:definition "The intention (say a grant) allows a particular kind of activity (for instance egress)"^^xsd:string ;
 	skos:prefLabel "allows"^^xsd:string ;
+	.
+
+gist:baseConversionRatio
+	a owl:DatatypeProperty ;
+	rdfs:domain gist:UnitOfMeasure ;
+	rdfs:range xsd:double ;
+	skos:definition "The conversion factor used to get to the base unit.  E.g., multiplying by 0.0254 gets you from inches to meters. Divide by this number to go the other way. Used in conjunction with conversionOffset to convert from one unit to another. Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)) * (5/9.  To go the other way: F = (K * 9/5) -469.67.  Try it on Google."^^xsd:string ;
+	skos:prefLabel "base conversion ratio"^^xsd:string ;
 	.
 
 gist:conformsTo
@@ -2840,23 +2848,6 @@ gist:conversionOffset
 	rdfs:range xsd:double ;
 	skos:definition "Add this number to get to the zero point.  On the Celsius scale, the conversionOffset is -273.15 degrees C. On the Fahrenheit scale it is -459.67 degrees.  Is equal to 0 when the unit has the same zero point as the base unit. e.g. inch, meter."^^xsd:string ;
 	skos:prefLabel "conversion offset"^^xsd:string ;
-	.
-
-gist:convertToBase
-	a owl:DatatypeProperty ;
-	rdfs:domain gist:UnitOfMeasure ;
-	rdfs:range xsd:double ;
-	skos:definition "The conversion factor used to get to the base unit.  E.g., multiplying by 0.0254 gets you from inches to meters. Divide by this number to go the other way. Used in conjunction with conversionOffset to convert from one unit to another. Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)) * (5/9.  To go the other way: F = (K * 9/5) -469.67.  Try it on Google."^^xsd:string ;
-	skos:prefLabel "convert to base"^^xsd:string ;
-	.
-
-gist:convertToStandard
-	a owl:DatatypeProperty ;
-	rdfs:subPropertyOf gist:convertToBase ;
-	rdfs:domain gist:UnitOfMeasure ;
-	rdfs:range xsd:double ;
-	skos:definition "Note this kind of conversion will only work with temperatures if they are in Kelvin or Rankine (with a true 0).  You multiply to get to the base, divide to go from the base. mph to mps is .44704.  The multiple from kph to mps is .277778 .  To convert 60 mph to kph is (60 * .44704 / .277778 or 96.56056 kph"^^xsd:string ;
-	skos:prefLabel "convert to standard"^^xsd:string ;
 	.
 
 gist:description
@@ -3310,12 +3301,6 @@ gist:hasSuperCategory
 	skos:definition "The subject category is included by, or narrower than, the object category. Everything categorized by the subcategory can be inferred to be categorized by the supercategory."^^xsd:string ;
 	skos:prefLabel "has supercategory"^^xsd:string ;
 	skos:scopeNote "This is essentially the same as skos:broaderTransitive, using gist:Category instead of skos:Concept."^^xsd:string ;
-	.
-
-gist:hasTag
-	a owl:DatatypeProperty ;
-	skos:definition "Used for folksonomy style categories (non controlled vocabulary)"^^xsd:string ;
-	skos:prefLabel "has tag"^^xsd:string ;
 	.
 
 gist:hasUniqueNavigationalParent
@@ -3877,6 +3862,21 @@ gist:sequence
 	skos:prefLabel "sequence"^^xsd:string ;
 	.
 
+gist:standardConversionRatio
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:baseConversionRatio ;
+	rdfs:domain gist:UnitOfMeasure ;
+	rdfs:range xsd:double ;
+	skos:definition "Note this kind of conversion will only work with temperatures if they are in Kelvin or Rankine (with a true 0).  You multiply to get to the base, divide to go from the base. mph to mps is .44704.  The multiple from kph to mps is .277778 .  To convert 60 mph to kph is (60 * .44704 / .277778 or 96.56056 kph"^^xsd:string ;
+	skos:prefLabel "standard conversion ratio"^^xsd:string ;
+	.
+
+gist:tagText
+	a owl:DatatypeProperty ;
+	skos:definition "Used for folksonomy style categories (non controlled vocabulary)"^^xsd:string ;
+	skos:prefLabel "tag text"^^xsd:string ;
+	.
+
 gist:uniqueText
 	a
 		owl:DatatypeProperty ,
@@ -3895,7 +3895,7 @@ gist:unitSymbol
 	skos:prefLabel "unit symbol"^^xsd:string ;
 	.
 
-gist:unitSymbolHTML
+gist:unitSymbolHtml
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:string ;
