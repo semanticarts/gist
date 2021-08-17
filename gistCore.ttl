@@ -3557,6 +3557,14 @@ gist:isIdentifiedBy
 	skos:prefLabel "is identified by"^^xsd:string ;
 	.
 
+gist:isMadeUpOf
+	a owl:ObjectProperty ;
+	rdfs:range gist:PhysicalSubstance ;
+	skos:definition "Relates something to a substance that it is made up of."^^xsd:string ;
+	skos:example "The vase is made up of clay. Water is made up of hydrogen and oxygen."^^xsd:string ;
+	skos:prefLabel "is made up of"^^xsd:string ;
+	.
+
 gist:isMemberOf
 	a owl:ObjectProperty ;
 	skos:definition "What group the member is in"^^xsd:string ;
@@ -3694,14 +3702,6 @@ gist:longitude
 	rdfs:range xsd:double ;
 	skos:definition "Degrees from GM"^^xsd:string ;
 	skos:prefLabel "longitude"^^xsd:string ;
-	.
-
-gist:madeOf
-	a owl:ObjectProperty ;
-	rdfs:range gist:PhysicalSubstance ;
-	skos:definition "Relates something to the the substance that it is made of."^^xsd:string ;
-	skos:example "The vase is made of clay"^^xsd:string ;
-	skos:prefLabel "is made of"^^xsd:string ;
 	.
 
 gist:name
