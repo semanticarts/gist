@@ -1070,13 +1070,13 @@ gist:GeoSegment
 		owl:intersectionOf (
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isFromPlace ;
+				owl:onProperty gist:comesFromPlace ;
 				owl:onClass gist:GeoPoint ;
 				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isToPlace ;
+				owl:onProperty gist:goesToPlace ;
 				owl:onClass gist:GeoPoint ;
 				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 			]
@@ -1512,7 +1512,7 @@ gist:Message
 			gist:ContentExpression
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isFromAgent ;
+				owl:onProperty gist:comesFromAgent ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -1523,7 +1523,7 @@ gist:Message
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isToAgent ;
+				owl:onProperty gist:goesToAgent ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -2811,6 +2811,34 @@ gist:baseConversionRatio
 	skos:prefLabel "base conversion ratio"^^xsd:string ;
 	.
 
+gist:comesFromAgent
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasParticipant ;
+	rdfs:range [
+		a owl:Class ;
+		owl:unionOf (
+			gist:Organization
+			gist:Person
+		) ;
+	] ;
+	skos:definition "The party that is the source of something (e.g. a message, shipment, etc.)"^^xsd:string ;
+	skos:prefLabel "comes from agent"^^xsd:string ;
+	skos:scopeNote 'This is not the inverse of toAgent. A message can be to someone. If we made it the inverse the person would be "from" the message'^^xsd:string ;
+	.
+
+gist:comesFromPlace
+	a owl:ObjectProperty ;
+	rdfs:range [
+		a owl:Class ;
+		owl:unionOf (
+			gist:Place
+			gist:Address
+		) ;
+	] ;
+	skos:definition "Origin"^^xsd:string ;
+	skos:prefLabel "comes from place"^^xsd:string ;
+	.
+
 gist:conformsTo
 	a owl:ObjectProperty ;
 	rdfs:range gist:Intention ;
@@ -2906,6 +2934,34 @@ gist:followsDirectly
 	skos:definition "Inverse of precedesDirectly"^^xsd:string ;
 	skos:prefLabel "follows directly"^^xsd:string ;
 	skos:scopeNote "It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ;
+	.
+
+gist:goesToAgent
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasParticipant ;
+	rdfs:range [
+		a owl:Class ;
+		owl:unionOf (
+			gist:Organization
+			gist:Person
+		) ;
+	] ;
+	skos:definition "The party that is the recipient of something (e.g. a message, shipment, etc.)"^^xsd:string ;
+	skos:prefLabel "goes to agent"^^xsd:string ;
+	skos:scopeNote 'This is not the inverse of fromAgent. A message can be from someone. If we made it the inverse the person would be "to" the message'^^xsd:string ;
+	.
+
+gist:goesToPlace
+	a owl:ObjectProperty ;
+	rdfs:range [
+		a owl:Class ;
+		owl:unionOf (
+			gist:Place
+			gist:Address
+		) ;
+	] ;
+	skos:definition "Destination"^^xsd:string ;
+	skos:prefLabel "goes to place"^^xsd:string ;
 	.
 
 gist:governs
@@ -3462,34 +3518,6 @@ gist:isExpressedIn
 	skos:prefLabel "is expressed in"^^xsd:string ;
 	.
 
-gist:isFromAgent
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:hasParticipant ;
-	rdfs:range [
-		a owl:Class ;
-		owl:unionOf (
-			gist:Organization
-			gist:Person
-		) ;
-	] ;
-	skos:definition "The party that is the source of something (e.g. a message, shipment, etc.)"^^xsd:string ;
-	skos:prefLabel "is from agent"^^xsd:string ;
-	skos:scopeNote 'This is not the inverse of toAgent. A message can be to someone. If we made it the inverse the person would be "from" the message'^^xsd:string ;
-	.
-
-gist:isFromPlace
-	a owl:ObjectProperty ;
-	rdfs:range [
-		a owl:Class ;
-		owl:unionOf (
-			gist:Place
-			gist:Address
-		) ;
-	] ;
-	skos:definition "Origin"^^xsd:string ;
-	skos:prefLabel "is from place"^^xsd:string ;
-	.
-
 gist:isGeographicallyContainedIn
 	a owl:ObjectProperty ;
 	owl:inverseOf gist:containsGeographically ;
@@ -3594,34 +3622,6 @@ gist:isSubTaskOf
 		;
 	skos:definition "All the upper tasks this task belongs to"^^xsd:string ;
 	skos:prefLabel "is subtask of"^^xsd:string ;
-	.
-
-gist:isToAgent
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:hasParticipant ;
-	rdfs:range [
-		a owl:Class ;
-		owl:unionOf (
-			gist:Organization
-			gist:Person
-		) ;
-	] ;
-	skos:definition "The party that is the recipient of something (e.g. a message, shipment, etc.)"^^xsd:string ;
-	skos:prefLabel "is to agent"^^xsd:string ;
-	skos:scopeNote 'This is not the inverse of fromAgent. A message can be from someone. If we made it the inverse the person would be "to" the message'^^xsd:string ;
-	.
-
-gist:isToPlace
-	a owl:ObjectProperty ;
-	rdfs:range [
-		a owl:Class ;
-		owl:unionOf (
-			gist:Place
-			gist:Address
-		) ;
-	] ;
-	skos:definition "Destination"^^xsd:string ;
-	skos:prefLabel "is to place"^^xsd:string ;
 	.
 
 gist:isTriggeredBy
