@@ -3175,7 +3175,7 @@ gist:hasJurisdictionOver
 gist:hasMagnitude
 	a owl:ObjectProperty ;
 	rdfs:range gist:Magnitude ;
-	skos:definition "To have a comparable numerical value. Each magnitude has a unit."^^xsd:string ;
+	skos:definition "To have a comparable numeric value. Each magnitude has a unit."^^xsd:string ;
 	skos:prefLabel "has magnitude"^^xsd:string ;
 	.
 

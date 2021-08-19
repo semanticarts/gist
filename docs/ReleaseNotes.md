@@ -4,15 +4,14 @@ gist Release Notes
 Release 10.0.0
 -----
 
-### Major Updates
-
+- Renamed approximately sixty object and datatype properties to reflect newly-established conventions. (These conventions to be delineated in the [gist style guide](https://github.com/semanticarts/gist/blob/master/docs/gistStyleGuide.md) in the next release.) Issue [188](https://github.com/semanticarts/gist/issues/188).
 - Renamed `MimeType` to `MediaType` to be consistent with [IANA guidelines](https://www.iana.org/assignments/media-types/media-types.xhtml)
   and [RFC6838](https://tools.ietf.org/html/rfc6838). Issue [#434](<https://github.com/semanticarts/gist/issues/434>).
 - Renamed `gist:decimalValue` to `gist:numericValue` and expanded property range to include all numeric data types
-  supported by OWL.  Issue [#171](<https://github.com/semanticarts/gist/issues/171>)
-- Refactored ordered collection model. Issue [#112](<https://github.com/semanticarts/gist/issues/112>)
-    - Added predicate `gist:providesOrderFor`
-    - Deleted classes `gist:OrdinalCollection` and `gist:OrdinalMember`
+  supported by OWL.  Issue [#171](<https://github.com/semanticarts/gist/issues/171>).
+- Refactored ordered collection model. Issue [#112](<https://github.com/semanticarts/gist/issues/112>).
+    - Added predicate `gist:providesOrderFor`.
+    - Deleted classes `gist:OrdinalCollection` and `gist:OrdinalMember`.
 - Changes to and affecting `gist:Person`, as per issue [#136](https://github.com/semanticarts/gist/issues/136):
     - Removed `owl:someValuesFrom gist:name` restriction from `gist:Person`.
     - Made `gist:hasBirthDate` a subproperty of `gist:start` rather than `gist:actualStart`.
@@ -27,26 +26,24 @@ Release 10.0.0
     - Added `StreetAddress` as subclass of `PostalAddress`.
     - Replaced `hasStreetAddress` with the more general `hasAddress`. Removed `streetAddressOf`.
     - Removed `communicationAddressOf` in a general effort to trim unused inverse properties.
-    - Clarified the definition of `hasCommunicationAddress` (which is now a subproperty of `hasAddress`),
+    - Clarified the definition of `hasCommunicationAddress` (now a subproperty of `hasAddress`),
       added domain (`Person U Organization`).
 
 ### Minor Updates
 
-- Added annotation properties which provide usage guidance for properties without the constraints imposed by `rdfs:range` and `rdfs:domain`: Issue [#389](https://github.com/semanticarts/gist/issues/389)
-    - domainIncludes
-    - rangeIncludes
+- Added annotation properties which provide usage guidance for properties without the constraints imposed by `rdfs:range` and `rdfs:domain`: Issue [#389](https://github.com/semanticarts/gist/issues/389).
+    - `domainIncludes`
+    - `rangeIncludes`
 - Created a `gistMediaTypes` ontology to declare `MediaType` instances relevant to semantic applications.
   Issue [#463](<https://github.com/semanticarts/gist/issues/463>).
 
 ### Patch Updates
+
 - Updated annotations for `basedOn` and `basisFor` properties. Issue [#139](https://github.com/semanticarts/gist/issues/139)
-- `hasDirectSubCategory` is now a subproperty of `hasSubCategory`, as it was always supposed to be.  Issue [#481](https://github.com/semanticarts/gist/issues/481)
+- `hasDirectSubCategory` is now a subproperty of `hasSubCategory`, as it was always supposed to be.  Issue [#481](https://github.com/semanticarts/gist/issues/481).
 - Clarified the definition of `ContemporaneousEvent`. Issue [#174](<https://github.com/semanticarts/gist/issues/174>).
 
-
 Import URL: <https://ontologies.semanticarts.com/o/gistCore10.0.0>.
-
-
 
 Release 9.7.0
 -----
@@ -58,7 +55,7 @@ Release 9.7.0
 ### Patch Updates
 
 - Updated annotations for the following properties regarding the hasDirectX/hasX pattern. Issue [#115](https://github.com/semanticarts/gist/issues/115)
-    - `geoContains`, `geoContainedIn` 
+    - `geoContains`, `geoContainedIn`
     - `directPartOf`,`hasDirectPart`
     - `directlyPrecededBy`, `directlyPrecedes`
 - Declare `gist:identifies` as `owl:FunctionalProperty` rather than `owl:InverseFunctionalProperty` (bug fix). Issue [#180](https://github.com/semanticarts/gist/issues/180).
