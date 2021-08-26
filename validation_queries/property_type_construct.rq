@@ -12,6 +12,7 @@ CONSTRUCT {
                 sh:resultMessage ?error ;
                 sh:resultPath ?ref_prop ;
                 sh:resultSeverity sh:Violation ;
+                sh:sourceConstraintComponent <urn:constraint:property-reference> ;
                 sh:value ?ref_type ] .
 }
 WHERE {
