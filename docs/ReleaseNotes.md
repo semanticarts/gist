@@ -9,8 +9,8 @@ Release 10.0.0
 - Renamed `MimeType` to `MediaType` to be consistent with [IANA guidelines](https://www.iana.org/assignments/media-types/media-types.xhtml)
   and [RFC6838](https://tools.ietf.org/html/rfc6838). Issue [#434](<https://github.com/semanticarts/gist/issues/434>).
 - Renamed `gist:decimalValue` to `gist:numericValue` and expanded property range to include all numeric data types
-  supported by OWL.  Issue [#171](<https://github.com/semanticarts/gist/issues/171>)
-- Refactored ordered collection model. Issue [#112](<https://github.com/semanticarts/gist/issues/112>)
+  supported by OWL.  Issue [#171](<https://github.com/semanticarts/gist/issues/171>).
+- Refactored ordered collection model. Issues [#112](<https://github.com/semanticarts/gist/issues/112>), [#540](<https://github.com/semanticarts/gist/issues/540>).
     - Added predicate `gist:providesOrderFor`
     - Deleted classes `gist:OrdinalCollection` and `gist:OrdinalMember`
 - Changes to and affecting `gist:Person`, as per issue [#136](https://github.com/semanticarts/gist/issues/136):
@@ -39,14 +39,12 @@ Release 10.0.0
   Issue [#463](<https://github.com/semanticarts/gist/issues/463>).
 
 ### Patch Updates
+
 - Updated annotations for `basedOn` and `basisFor` properties. Issue [#139](https://github.com/semanticarts/gist/issues/139)
 - `hasDirectSubCategory` is now a subproperty of `hasSubCategory`, as it was always supposed to be.  Issue [#481](https://github.com/semanticarts/gist/issues/481)
 - Clarified the definition of `ContemporaneousEvent`. Issue [#174](<https://github.com/semanticarts/gist/issues/174>).
 
-
 Import URL: <https://ontologies.semanticarts.com/o/gistCore10.0.0>.
-
-
 
 Release 9.7.0
 -----
@@ -58,7 +56,7 @@ Release 9.7.0
 ### Patch Updates
 
 - Updated annotations for the following properties regarding the hasDirectX/hasX pattern. Issue [#115](https://github.com/semanticarts/gist/issues/115)
-    - `geoContains`, `geoContainedIn` 
+    - `geoContains`, `geoContainedIn`
     - `directPartOf`,`hasDirectPart`
     - `directlyPrecededBy`, `directlyPrecedes`
 - Declare `gist:identifies` as `owl:FunctionalProperty` rather than `owl:InverseFunctionalProperty` (bug fix). Issue [#180](https://github.com/semanticarts/gist/issues/180).
