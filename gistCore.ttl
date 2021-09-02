@@ -1743,7 +1743,6 @@ gist:Offer
 
 gist:OrderedCollection
 	a owl:Class ;
-	rdfs:subClassOf gist:Collection ;
 	owl:equivalentClass [
 		owl:intersectionOf (
 			gist:Collection
