@@ -1743,27 +1743,30 @@ gist:Offer
 
 gist:OrderedCollection
 	a owl:Class ;
-	rdfs:subClassOf gist:Collection ;
 	owl:equivalentClass [
 		owl:intersectionOf (
 			gist:Collection
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasOrderedMember ;
-				owl:someValuesFrom owl:Thing ;
+				owl:onProperty gist:hasMember ;
+				owl:allValuesFrom gist:OrderedMember ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasMember ;
+				owl:minCardinality "1"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
-	skos:definition "A collection where the members are in a fixed sequence."^^xsd:string ;
+	skos:definition "A collection in which the members are sequentially ordered. All members of an OrderedCollection are OrderedMembers."^^xsd:string ;
 	skos:prefLabel "Ordered Collection"^^xsd:string ;
-	skos:scopeNote "Empty collections are not supported at this time."^^xsd:string ;
+	skos:scopeNote "Includes collections in which members occupy the same position in a 'tie,' but not empty collections."^^xsd:string ;
 	.
 
 gist:OrderedMember
 	a owl:Class ;
-	rdfs:subClassOf [
-		a owl:Class ;
-		owl:unionOf (
+	owl:equivalentClass [
+		owl:intersectionOf (
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:followsDirectly ;
@@ -1775,16 +1778,30 @@ gist:OrderedMember
 				owl:someValuesFrom gist:OrderedMember ;
 			]
 			[
-				a owl:Restriction ;
-				owl:onProperty gist:sequence ;
-				owl:someValuesFrom xsd:integer ;
+				owl:unionOf (
+					[
+						a owl:Restriction ;
+						owl:onProperty gist:precedesDirectly ;
+						owl:someValuesFrom owl:Thing ;
+					]
+					[
+						a owl:Restriction ;
+						owl:onProperty gist:followsDirectly ;
+						owl:someValuesFrom owl:Thing ;
+					]
+					[
+						a owl:Restriction ;
+						owl:onProperty gist:sequence ;
+						owl:someValuesFrom xsd:integer ;
+					]
+				) ;
 			]
 		) ;
 	] ;
-	skos:definition "A member of an ordered collection that serves as a proxy for a real world item, which can appear in different orders in different collections. The ordered member appears in exactly one ordered collection."^^xsd:string ;
+	skos:definition "A member of an ordered collection serving as a proxy for a real world item, which can appear in different orders in different collections. The ordered member appears in exactly one ordered collection."^^xsd:string ;
 	skos:example "A person may rank 12th in the Boston Marathon but 29th in the New York City Marathon."^^xsd:string ;
 	skos:prefLabel "Ordered Member"^^xsd:string ;
-	skos:scopeNote "An ordered member points to the real world item via the providesOrderFor property. Ordering information is represented either as a number in a sequence, or by preceding or following another ordered member. The ordered collection is linked to the ordered member via the property hasOrderedMember."^^xsd:string ;
+	skos:scopeNote "An ordered member points to the real world item via the providesOrderFor property. Ordering information is represented either as a number in a sequence, or by preceding or following another ordered member."^^xsd:string ;
 	.
 
 gist:Organization

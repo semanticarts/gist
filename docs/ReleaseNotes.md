@@ -4,12 +4,12 @@ gist Release Notes
 Release 10.0.0
 -----
 
-- Renamed approximately sixty object and datatype properties to reflect newly-established conventions. (These conventions to be delineated in the [gist style guide](https://github.com/semanticarts/gist/blob/master/docs/gistStyleGuide.md) in the next release.) Issue [188](https://github.com/semanticarts/gist/issues/188).
-- Renamed `MimeType` to `MediaType` to be consistent with [IANA guidelines](https://www.iana.org/assignments/media-types/media-types.xhtml)
+- Renamed 62 object and datatype properties to reflect newly-established conventions. (Conventions delineated in the [gist style guide](https://github.com/semanticarts/gist/blob/master/docs/gistStyleGuide.md).) Issue [188](https://github.com/semanticarts/gist/issues/188).
+- Renamed `MimeType` to `MediaType` to be consistent with [IANA guidelines](https://www.iana.org/assignments/media-types/media-types.xhtml).
   and [RFC6838](https://tools.ietf.org/html/rfc6838). Issue [#434](<https://github.com/semanticarts/gist/issues/434>).
-- Renamed `gist:decimalValue` to `gist:numericValue` and expanded property range to include all numeric data types
+- Renamed `gist:decimalValue` to `gist:numericValue` and expanded property range to include all numeric data types.
   supported by OWL.  Issue [#171](<https://github.com/semanticarts/gist/issues/171>).
-- Refactored ordered collection model. Issue [#112](<https://github.com/semanticarts/gist/issues/112>).
+- Refactored ordered collection model. Issues [#112](<https://github.com/semanticarts/gist/issues/112>), [#540](<https://github.com/semanticarts/gist/issues/540>).
     - Added predicate `gist:providesOrderFor`.
     - Deleted classes `gist:OrdinalCollection` and `gist:OrdinalMember`.
 - Changes to and affecting `gist:Person`, as per issue [#136](https://github.com/semanticarts/gist/issues/136):
