@@ -1771,7 +1771,7 @@ gist:OrderedMember
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:directlyPrecedes ;
+				owl:onProperty gist:precedesDirectly ;
 				owl:someValuesFrom gist:OrderedMember ;
 			]
 			[
@@ -2884,14 +2884,6 @@ gist:description
 	skos:example "The Empire State Building is a 102-story Art Deco skyscraper in Midtown Manhattan in New York City, United States. It was designed by Shreve, Lamb & Harmon and built from 1930 to 1931."^^xsd:string ;
 	skos:prefLabel "description"^^xsd:string ;
 	skos:scopeNote "This property is used to provide a description of an instance entity in greater detail than a label."^^xsd:string ;
-	.
-
-gist:directlyPrecedes
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:precedes ;
-	skos:definition "A generic ordering relation indicating that the Subject comes immediately before the Object."^^xsd:string ;
-	skos:prefLabel "directly precedes"^^xsd:string ;
-	skos:scopeNote "It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ;
 	.
 
 gist:directs
