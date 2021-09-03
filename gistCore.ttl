@@ -2536,7 +2536,7 @@ gist:TimeZone
 			gist:GeoRegion
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:offsetToUniversal ;
+				owl:onProperty gist:hasOffsetToUniversal ;
 				owl:someValuesFrom gist:Duration ;
 			]
 		) ;
@@ -2931,7 +2931,7 @@ gist:epoch
 gist:followsDirectly
 	a owl:ObjectProperty ;
 	owl:inverseOf gist:precedesDirectly ;
-	skos:definition "Inverse of gist:precedesDirectly"^^xsd:string ;
+	skos:definition "A generic ordering relation indicating that the subject comes immediately after the object."^^xsd:string ;
 	skos:prefLabel "follows directly"^^xsd:string ;
 	skos:scopeNote "It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ;
 	.
@@ -3222,6 +3222,14 @@ gist:hasNumerator
 	rdfs:range gist:UnitOfMeasure ;
 	skos:definition "Relates a RatioUnit such as meter(s)/second to the numerator Unit (e.g. meter)."^^xsd:string ;
 	skos:prefLabel "has numerator"^^xsd:string ;
+	.
+
+gist:hasOffsetToUniversal
+	a owl:ObjectProperty ;
+	rdfs:domain gist:TimeZone ;
+	rdfs:range gist:Duration ;
+	skos:definition "How many hours the time zone is off GMT"^^xsd:string ;
+	skos:prefLabel "has offset to universal"^^xsd:string ;
 	.
 
 gist:hasOrderedMember
@@ -3768,14 +3776,6 @@ gist:occursIn
 	skos:prefLabel "occurs in"^^xsd:string ;
 	.
 
-gist:offsetToUniversal
-	a owl:ObjectProperty ;
-	rdfs:domain gist:TimeZone ;
-	rdfs:range gist:Duration ;
-	skos:definition "How many hours the time zone is off GMT"^^xsd:string ;
-	skos:prefLabel "offset to universal"^^xsd:string ;
-	.
-
 gist:owns
 	a owl:ObjectProperty ;
 	rdfs:domain [
@@ -3794,8 +3794,16 @@ gist:precedes
 		owl:ObjectProperty ,
 		owl:TransitiveProperty
 		;
-	skos:definition "A generic ordering relation indicating that the Subject has the same order as or comes before the Object. The 'greater than or equal to' symbol is often used for this relation."^^xsd:string ;
+	skos:definition "A generic ordering relation indicating that the subject has the same order as or comes before the object. The 'greater than or equal to' symbol is often used for this relation."^^xsd:string ;
 	skos:prefLabel "precedes"^^xsd:string ;
+	.
+
+gist:precedesDirectly
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:precedes ;
+	skos:definition "A generic ordering relation indicating that the subject comes immediately before the object."^^xsd:string ;
+	skos:prefLabel "precedes directly"^^xsd:string ;
+	skos:scopeNote "It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ;
 	.
 
 gist:prevents
