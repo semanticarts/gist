@@ -3605,6 +3605,7 @@ gist:numericValue
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:Magnitude ;
 	rdfs:range [
+		rdf:type rdfs:Datatype ;
 		owl:unionOf (
 			owl:rational
 			owl:real
