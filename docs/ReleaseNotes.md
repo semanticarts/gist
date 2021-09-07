@@ -4,7 +4,7 @@ gist Release Notes
 Release 10.0.0
 -----
 
-- Renamed 62 object and datatype properties to reflect newly-established conventions. (Conventions delineated in the [gist style guide](https://github.com/semanticarts/gist/blob/master/docs/gistStyleGuide.md).) Issue [188](https://github.com/semanticarts/gist/issues/188).
+- Renamed 62 object and datatype properties to reflect newly-established conventions. Includes corresponding updates to the [gist style guide](https://github.com/semanticarts/gist/blob/master/docs/gistStyleGuide.md). Issues [188](https://github.com/semanticarts/gist/issues/188), [507](https://github.com/semanticarts/gist/issues/507).
 - Renamed `MimeType` to `MediaType` to be consistent with [IANA guidelines](https://www.iana.org/assignments/media-types/media-types.xhtml).
   and [RFC6838](https://tools.ietf.org/html/rfc6838). Issue [#434](<https://github.com/semanticarts/gist/issues/434>).
 - Renamed `gist:decimalValue` to `gist:numericValue` and expanded property range to include all numeric data types.
