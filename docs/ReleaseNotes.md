@@ -14,12 +14,12 @@ Release 10.0.0
     - Deleted classes `gist:OrdinalCollection` and `gist:OrdinalMember`.
 - Changes to and affecting `gist:Person`, as per issue [#136](https://github.com/semanticarts/gist/issues/136):
     - Removed `owl:someValuesFrom gist:name` restriction from `gist:Person`.
-    - Made `gist:hasBirthDate` a subproperty of `gist:start` rather than `gist:actualStart`.
+    - Made `gist:hasBirthDate` a subproperty of `gist:hasStart` rather than `gist:hasActualStart`.
 - Refactored the way network connections are modeled per issue [#126](<https://github.com/semanticarts/gist/issues/126>):
     - `networkConnection`, `hasFromNode` and `hasToNode` have been renamed to `links`, `linksFrom` and `linksTo`, respectively.
     - Added a restriction on `NetworkLink` that it must have exactly 2 links.
-    - Added restrictions on `NetworkLink` and `NetworkNode` that they must be `memberOf` a `Network`.
-- Extended the range of `fromPlace`/`toPlace` to include `gist:Address` in addition to `gist:Place`.
+    - Added restrictions on `NetworkLink` and `NetworkNode` that they must be `isMemberOf` a `Network`.
+- Extended the range of `comesFromPlace`/`goesToPlace` to include `gist:Address` in addition to `gist:Place`.
   Issue [#392](<https://github.com/semanticarts/gist/issues/392>).
 - Modified classes and properties related to street addresses as per issue [#483](<https://github.com/semanticarts/gist/issues/483>):
     - Removed `BuildingAddress`.
@@ -39,7 +39,7 @@ Release 10.0.0
 
 ### Patch Updates
 
-- Updated annotations for `basedOn` and `basisFor` properties. Issue [#139](https://github.com/semanticarts/gist/issues/139)
+- Updated annotations for `isBasedOn` and `isBasisFor` properties. Issue [#139](https://github.com/semanticarts/gist/issues/139)
 - `hasDirectSubCategory` is now a subproperty of `hasSubCategory`, as it was always supposed to be.  Issue [#481](https://github.com/semanticarts/gist/issues/481).
 - Clarified the definition of `ContemporaneousEvent`. Issue [#174](<https://github.com/semanticarts/gist/issues/174>).
 
