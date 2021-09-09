@@ -82,7 +82,7 @@ gist:Area
 			gist:Magnitude
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasUoM ;
+				owl:onProperty gist:hasUnitOfMeasure ;
 				owl:someValuesFrom gist:AreaUnit ;
 			]
 		) ;
@@ -99,13 +99,13 @@ gist:AreaUnit
 			gist:ProductUnit
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:multiplicand ;
+				owl:onProperty gist:hasMultiplicand ;
 				owl:onClass gist:DistanceUnit ;
 				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:multiplier ;
+				owl:onProperty gist:hasMultiplier ;
 				owl:onClass gist:DistanceUnit ;
 				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 			]
@@ -141,7 +141,7 @@ gist:Balance
 			gist:Magnitude
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:affectedBy ;
+				owl:onProperty gist:isAffectedBy ;
 				owl:someValuesFrom gist:Transaction ;
 			]
 		) ;
@@ -218,7 +218,7 @@ gist:Category
 	a owl:Class ;
 	rdfs:subClassOf [
 		a owl:Restriction ;
-		owl:onProperty gist:allocatedBy ;
+		owl:onProperty gist:isAllocatedBy ;
 		owl:someValuesFrom [
 			a owl:Class ;
 			owl:unionOf (
@@ -242,7 +242,7 @@ gist:CoherentProductUnit
 			gist:ProductUnit
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:multiplicand ;
+				owl:onProperty gist:hasMultiplicand ;
 				owl:allValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -254,7 +254,7 @@ gist:CoherentProductUnit
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:multiplier ;
+				owl:onProperty gist:hasMultiplier ;
 				owl:allValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -278,7 +278,7 @@ gist:CoherentRatioUnit
 			gist:RatioUnit
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:denominator ;
+				owl:onProperty gist:hasDenominator ;
 				owl:allValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -290,7 +290,7 @@ gist:CoherentRatioUnit
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:numerator ;
+				owl:onProperty gist:hasNumerator ;
 				owl:allValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -354,7 +354,7 @@ gist:Commitment
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:categorizedBy ;
+				owl:onProperty gist:isCategorizedBy ;
 				owl:someValuesFrom gist:DegreeOfCommitment ;
 			]
 			[
@@ -399,12 +399,12 @@ gist:ContemporaneousEvent
 			gist:Event
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:actualStart ;
+				owl:onProperty gist:hasActualStart ;
 				owl:someValuesFrom gist:TimeInstant ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:actualEnd ;
+				owl:onProperty gist:hasActualEnd ;
 				owl:onClass gist:TimeInstant ;
 				owl:maxQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
 			]
@@ -437,12 +437,12 @@ gist:ContentExpression
 		gist:Content ,
 		[
 			a owl:Restriction ;
-			owl:onProperty gist:categorizedBy ;
+			owl:onProperty gist:isCategorizedBy ;
 			owl:someValuesFrom gist:GeneralMediaType ;
 		] ,
 		[
 			a owl:Restriction ;
-			owl:onProperty gist:expressedIn ;
+			owl:onProperty gist:isExpressedIn ;
 			owl:someValuesFrom gist:Language ;
 		]
 		;
@@ -463,12 +463,12 @@ gist:ContingentEvent
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:plannedEnd ;
+				owl:onProperty gist:hasPlannedEnd ;
 				owl:someValuesFrom gist:TimeInstant ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:plannedStart ;
+				owl:onProperty gist:hasPlannedStart ;
 				owl:someValuesFrom gist:TimeInstant ;
 			]
 		) ;
@@ -496,7 +496,7 @@ gist:ContingentObligation
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:triggeredBy ;
+				owl:onProperty gist:isTriggeredBy ;
 				owl:someValuesFrom gist:Event ;
 			]
 		) ;
@@ -514,7 +514,7 @@ gist:Contract
 			gist:Agreement
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasJurisdiction ;
+				owl:onProperty gist:hasJurisdictionOver ;
 				owl:someValuesFrom gist:GovernmentOrganization ;
 			]
 		) ;
@@ -538,7 +538,7 @@ gist:ControlledVocabulary
 			gist:Collection
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:governedBy ;
+				owl:onProperty gist:isGovernedBy ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -566,7 +566,7 @@ gist:Controller
 			gist:Equipment
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:categorizedBy ;
+				owl:onProperty gist:isCategorizedBy ;
 				owl:someValuesFrom gist:ControllerType ;
 			]
 			[
@@ -600,7 +600,7 @@ gist:Count
 			gist:Magnitude
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasUoM ;
+				owl:onProperty gist:hasUnitOfMeasure ;
 				owl:someValuesFrom gist:CountingUnit ;
 			]
 		) ;
@@ -640,7 +640,7 @@ gist:CountryGovernment
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:recognizedBy ;
+				owl:onProperty gist:isRecognizedBy ;
 				owl:someValuesFrom gist:Organization ;
 			]
 		) ;
@@ -760,7 +760,7 @@ gist:Duration
 			gist:Magnitude
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasUoM ;
+				owl:onProperty gist:hasUnitOfMeasure ;
 				owl:someValuesFrom gist:DurationUnit ;
 			]
 		) ;
@@ -803,7 +803,7 @@ gist:ElectricCurrent
 			gist:Magnitude
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasUoM ;
+				owl:onProperty gist:hasUnitOfMeasure ;
 				owl:someValuesFrom gist:ElectricalCurrentUnit ;
 			]
 		) ;
@@ -858,7 +858,7 @@ gist:Equipment
 			gist:PhysicalIdentifiableItem
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:categorizedBy ;
+				owl:onProperty gist:isCategorizedBy ;
 				owl:someValuesFrom gist:EquipmentType ;
 			]
 		) ;
@@ -881,17 +881,17 @@ gist:Event
 		owl:intersectionOf (
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:characterizedAs ;
+				owl:onProperty gist:isCharacterizedAs ;
 				owl:someValuesFrom gist:Behavior ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:end ;
+				owl:onProperty gist:hasEnd ;
 				owl:someValuesFrom gist:TimeInstant ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:start ;
+				owl:onProperty gist:hasStart ;
 				owl:someValuesFrom gist:TimeInstant ;
 			]
 		) ;
@@ -908,7 +908,7 @@ gist:Extent
 			gist:Magnitude
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasUoM ;
+				owl:onProperty gist:hasUnitOfMeasure ;
 				owl:someValuesFrom gist:DistanceUnit ;
 			]
 		) ;
@@ -925,7 +925,7 @@ gist:FormattedContent
 			gist:ContentExpression
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:expressedIn ;
+				owl:onProperty gist:isExpressedIn ;
 				owl:someValuesFrom gist:MediaType ;
 			]
 		) ;
@@ -996,7 +996,7 @@ gist:GeoPoliticalRegion
 			gist:Collection
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:governedBy ;
+				owl:onProperty gist:isGovernedBy ;
 				owl:someValuesFrom gist:GovernmentOrganization ;
 			]
 			[
@@ -1070,13 +1070,13 @@ gist:GeoSegment
 		owl:intersectionOf (
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:fromPlace ;
+				owl:onProperty gist:comesFromPlace ;
 				owl:onClass gist:GeoPoint ;
 				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:toPlace ;
+				owl:onProperty gist:goesToPlace ;
 				owl:onClass gist:GeoPoint ;
 				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 			]
@@ -1094,7 +1094,7 @@ gist:GeoVolume
 		owl:intersectionOf (
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:geoContains ;
+				owl:onProperty gist:containsGeographically ;
 				owl:someValuesFrom gist:GeoPoint ;
 			]
 			[
@@ -1123,7 +1123,7 @@ gist:GovernmentOrganization
 			gist:Organization
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:recognizedBy ;
+				owl:onProperty gist:isRecognizedBy ;
 				owl:someValuesFrom gist:CountryGovernment ;
 			]
 		) ;
@@ -1142,7 +1142,7 @@ gist:GreenwichInstant
 			gist:TimeInstant
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:timeZoneStandardUsed ;
+				owl:onProperty gist:usesTimeZoneStandard ;
 				owl:hasValue gist:_greenwichTimeZone ;
 			]
 		) ;
@@ -1176,12 +1176,12 @@ gist:HistoricalEvent
 			gist:Event
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:actualEnd ;
+				owl:onProperty gist:hasActualEnd ;
 				owl:someValuesFrom gist:TimeInstant ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:actualStart ;
+				owl:onProperty gist:hasActualStart ;
 				owl:someValuesFrom gist:TimeInstant ;
 			]
 		) ;
@@ -1215,7 +1215,7 @@ gist:ID
 			gist:Content
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:allocatedBy ;
+				owl:onProperty gist:isAllocatedBy ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -1235,7 +1235,7 @@ gist:ID
 	skos:definition "Content that is used to uniquely identify something or someone."^^xsd:string ;
 	skos:example "SSN for a person; serial number for a product; employee ID."^^xsd:string ;
 	skos:prefLabel "ID"^^xsd:string ;
-	skos:scopeNote "This is used in conjunction with gist:identifiedBy"^^xsd:string ;
+	skos:scopeNote "This is used in conjunction with gist:isIdentifiedBy"^^xsd:string ;
 	.
 
 gist:InformationQuantity
@@ -1246,7 +1246,7 @@ gist:InformationQuantity
 			gist:Magnitude
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasUoM ;
+				owl:onProperty gist:hasUnitOfMeasure ;
 				owl:someValuesFrom gist:DataSizeUnit ;
 			]
 		) ;
@@ -1296,7 +1296,7 @@ gist:Landmark
 			gist:PhysicalIdentifiableItem
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:permanentGeoOccupies ;
+				owl:onProperty gist:occupiesGeographicallyPermanently ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -1339,7 +1339,7 @@ gist:LivingThing
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:offspringOf ;
+				owl:onProperty gist:hasBiologicalParent ;
 				owl:someValuesFrom gist:LivingThing ;
 			]
 		) ;
@@ -1361,12 +1361,12 @@ gist:LocalInstant
 			gist:TimeInstant
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:sameTimeAs ;
+				owl:onProperty gist:isSameTimeAs ;
 				owl:someValuesFrom gist:TimeInstant ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:timeZoneStandardUsed ;
+				owl:onProperty gist:usesTimeZoneStandard ;
 				owl:someValuesFrom gist:TimeZoneStandard ;
 			]
 		) ;
@@ -1383,7 +1383,7 @@ gist:LuminousIntensity
 			gist:Magnitude
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasUoM ;
+				owl:onProperty gist:hasUnitOfMeasure ;
 				owl:someValuesFrom gist:LuminousIntensityUnit ;
 			]
 		) ;
@@ -1433,7 +1433,7 @@ gist:Magnitude
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasUoM ;
+				owl:onProperty gist:hasUnitOfMeasure ;
 				owl:someValuesFrom gist:UnitOfMeasure ;
 			]
 			[
@@ -1459,7 +1459,7 @@ gist:Mass
 			gist:Magnitude
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasUoM ;
+				owl:onProperty gist:hasUnitOfMeasure ;
 				owl:someValuesFrom gist:MassUnit ;
 			]
 		) ;
@@ -1512,7 +1512,7 @@ gist:Message
 			gist:ContentExpression
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:fromAgent ;
+				owl:onProperty gist:comesFromAgent ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -1523,7 +1523,7 @@ gist:Message
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:toAgent ;
+				owl:onProperty gist:goesToAgent ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -1554,7 +1554,7 @@ gist:MolarQuantity
 			gist:Magnitude
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasUoM ;
+				owl:onProperty gist:hasUnitOfMeasure ;
 				owl:someValuesFrom gist:MoleUnit ;
 			]
 		) ;
@@ -1589,7 +1589,7 @@ gist:Monetary
 			gist:Magnitude
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasUoM ;
+				owl:onProperty gist:hasUnitOfMeasure ;
 				owl:someValuesFrom gist:CurrencyUnit ;
 			]
 		) ;
@@ -1640,7 +1640,7 @@ gist:NetworkLink
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:memberOf ;
+				owl:onProperty gist:isMemberOf ;
 				owl:someValuesFrom gist:Network ;
 			]
 		) ;
@@ -1655,7 +1655,7 @@ gist:NetworkNode
 	a owl:Class ;
 	rdfs:subClassOf [
 		a owl:Restriction ;
-		owl:onProperty gist:memberOf ;
+		owl:onProperty gist:isMemberOf ;
 		owl:someValuesFrom gist:Network ;
 	] ;
 	skos:definition "A node in a network."^^xsd:string ;
@@ -1671,7 +1671,7 @@ gist:Obligation
 			gist:Commitment
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasGetter ;
+				owl:onProperty gist:hasRecipient ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -1727,12 +1727,12 @@ gist:Offer
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:plannedEnd ;
+				owl:onProperty gist:hasPlannedEnd ;
 				owl:someValuesFrom gist:TimeInstant ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:start ;
+				owl:onProperty gist:hasStart ;
 				owl:someValuesFrom gist:TimeInstant ;
 			]
 		) ;
@@ -1769,24 +1769,24 @@ gist:OrderedMember
 		owl:intersectionOf (
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:memberOf ;
-				owl:allValuesFrom gist:OrderedCollection ;
+				owl:onProperty gist:followsDirectly ;
+				owl:someValuesFrom gist:OrderedMember ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:memberOf ;
-				owl:cardinality "1"^^xsd:nonNegativeInteger ;
+				owl:onProperty gist:precedesDirectly ;
+				owl:someValuesFrom gist:OrderedMember ;
 			]
 			[
 				owl:unionOf (
 					[
 						a owl:Restriction ;
-						owl:onProperty gist:directlyPrecedes ;
+						owl:onProperty gist:precedesDirectly ;
 						owl:someValuesFrom owl:Thing ;
 					]
 					[
 						a owl:Restriction ;
-						owl:onProperty gist:directlyPrecededBy ;
+						owl:onProperty gist:followsDirectly ;
 						owl:someValuesFrom owl:Thing ;
 					]
 					[
@@ -1852,7 +1852,7 @@ gist:Person
 			gist:LivingThing
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:offspringOf ;
+				owl:onProperty gist:hasBiologicalParent ;
 				owl:someValuesFrom gist:Person ;
 			]
 		) ;
@@ -1884,7 +1884,7 @@ gist:PhysicalEvent
 			gist:Event
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:occursAt ;
+				owl:onProperty gist:occursIn ;
 				owl:someValuesFrom gist:Place ;
 			]
 		) ;
@@ -1912,12 +1912,12 @@ gist:PhysicalIdentifiableItem
 		] ,
 		[
 			a owl:Restriction ;
-			owl:onProperty gist:identifiedBy ;
+			owl:onProperty gist:isIdentifiedBy ;
 			owl:someValuesFrom gist:ID ;
 		] ,
 		[
 			a owl:Restriction ;
-			owl:onProperty gist:madeUpOf ;
+			owl:onProperty gist:isMadeUpOf ;
 			owl:someValuesFrom gist:PhysicalSubstance ;
 		]
 		;
@@ -1978,12 +1978,12 @@ gist:PlannedEvent
 			gist:Event
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:plannedEnd ;
+				owl:onProperty gist:hasPlannedEnd ;
 				owl:someValuesFrom gist:TimeInstant ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:plannedStart ;
+				owl:onProperty gist:hasPlannedStart ;
 				owl:someValuesFrom gist:TimeInstant ;
 			]
 		) ;
@@ -2015,7 +2015,7 @@ gist:ProductMagnitude
 			gist:Magnitude
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasUoM ;
+				owl:onProperty gist:hasUnitOfMeasure ;
 				owl:someValuesFrom gist:ProductUnit ;
 			]
 		) ;
@@ -2032,7 +2032,7 @@ gist:ProductSpecification
 			gist:CatalogItem
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:categorizedBy ;
+				owl:onProperty gist:isCategorizedBy ;
 				owl:someValuesFrom gist:ProductCategory ;
 			]
 		) ;
@@ -2049,17 +2049,17 @@ gist:ProductUnit
 			gist:UnitOfMeasure
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:multiplicand ;
+				owl:onProperty gist:hasMultiplicand ;
 				owl:someValuesFrom gist:UnitOfMeasure ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:multiplier ;
+				owl:onProperty gist:hasMultiplier ;
 				owl:someValuesFrom gist:UnitOfMeasure ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:convertToBase ;
+				owl:onProperty gist:baseConversionFactor ;
 				owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
 				owl:onDataRange xsd:double ;
 			]
@@ -2095,7 +2095,7 @@ gist:RatioMagnitude
 			gist:Magnitude
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasUoM ;
+				owl:onProperty gist:hasUnitOfMeasure ;
 				owl:someValuesFrom gist:RatioUnit ;
 			]
 		) ;
@@ -2114,12 +2114,12 @@ gist:RatioUnit
 			gist:UnitOfMeasure
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:denominator ;
+				owl:onProperty gist:hasDenominator ;
 				owl:someValuesFrom gist:UnitOfMeasure ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:numerator ;
+				owl:onProperty gist:hasNumerator ;
 				owl:someValuesFrom gist:UnitOfMeasure ;
 			]
 		) ;
@@ -2145,12 +2145,12 @@ gist:RenderedContent
 			gist:ContentExpression
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:expressedIn ;
+				owl:onProperty gist:isExpressedIn ;
 				owl:someValuesFrom gist:MediaType ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:renderedOn ;
+				owl:onProperty gist:isRenderedOn ;
 				owl:someValuesFrom gist:Medium ;
 			]
 		) ;
@@ -2218,7 +2218,7 @@ gist:ServiceSpecification
 			gist:CatalogItem
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:basisFor ;
+				owl:onProperty gist:isBasisFor ;
 				owl:someValuesFrom gist:Event ;
 			]
 		) ;
@@ -2241,7 +2241,7 @@ gist:SimpleUnitOfMeasure
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:convertToBase ;
+				owl:onProperty gist:baseConversionFactor ;
 				owl:someValuesFrom xsd:double ;
 			]
 		) ;
@@ -2308,7 +2308,7 @@ gist:Tag
 			gist:Category
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasTag ;
+				owl:onProperty gist:tagText ;
 				owl:someValuesFrom xsd:string ;
 			]
 		) ;
@@ -2404,7 +2404,7 @@ gist:Temperature
 			gist:Magnitude
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasUoM ;
+				owl:onProperty gist:hasUnitOfMeasure ;
 				owl:someValuesFrom gist:TemperatureUnit ;
 			]
 		) ;
@@ -2444,7 +2444,7 @@ gist:Template
 	skos:definition "Something used to make instances in its own image.  In manufacturing this would be specialized as a die to make stamped parts, cookie cutters are templates for cookies, and forms are templates for data."^^xsd:string ;
 	skos:example "A form. A filled-in form has the structure of the form with data entered into some or all of the fields."^^xsd:string ;
 	skos:prefLabel "Template"^^xsd:string ;
-	skos:scopeNote "Use gist:basedOn to link the instantiation of a template back to its Template."^^xsd:string ;
+	skos:scopeNote "Use gist:isBasedOn to link the instantiation of a template back to its Template."^^xsd:string ;
 	.
 
 gist:TemporalRelation
@@ -2452,24 +2452,24 @@ gist:TemporalRelation
 	rdfs:subClassOf
 		[
 			a owl:Restriction ;
-			owl:onProperty gist:connectedTo ;
+			owl:onProperty gist:isConnectedTo ;
 			owl:minCardinality "2"^^xsd:nonNegativeInteger ;
 		] ,
 		[
 			a owl:Restriction ;
-			owl:onProperty gist:end ;
+			owl:onProperty gist:hasEnd ;
 			owl:someValuesFrom gist:TimeInstant ;
 		] ,
 		[
 			a owl:Restriction ;
-			owl:onProperty gist:start ;
+			owl:onProperty gist:hasStart ;
 			owl:someValuesFrom gist:TimeInstant ;
 		]
 		;
 	skos:definition "A relationship existing for a period of time."^^xsd:string ;
 	skos:example "employs-Employment, hasStreetAddress-EstablishedLocation. One important context for reifying a property."^^xsd:string ;
 	skos:prefLabel "Temporal Relation"^^xsd:string ;
-	skos:scopeNote "A temporal relation must be gist:connectedTo a minimum of two objects. For example, a temporal relation representing a period of employment is connected both to the person and to the role/position they held."^^xsd:string ;
+	skos:scopeNote "A temporal relation must be gist:isConnectedTo a minimum of two objects. For example, a temporal relation representing a period of employment is connected both to the person and to the role/position they held."^^xsd:string ;
 	.
 
 gist:Text
@@ -2480,7 +2480,7 @@ gist:Text
 			gist:Content
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:expressedIn ;
+				owl:onProperty gist:isExpressedIn ;
 				owl:someValuesFrom gist:Language ;
 			]
 			[
@@ -2553,7 +2553,7 @@ gist:TimeZone
 			gist:GeoRegion
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:offsetToUniversal ;
+				owl:onProperty gist:hasOffsetToUniversal ;
 				owl:someValuesFrom gist:Duration ;
 			]
 		) ;
@@ -2570,7 +2570,7 @@ gist:TimeZoneStandard
 			gist:Specification
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:basedOn ;
+				owl:onProperty gist:isBasedOn ;
 				owl:someValuesFrom gist:TimeZone ;
 			]
 		) ;
@@ -2600,7 +2600,7 @@ gist:Volume
 			gist:Magnitude
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasUoM ;
+				owl:onProperty gist:hasUnitOfMeasure ;
 				owl:someValuesFrom gist:VolumeUnit ;
 			]
 		) ;
@@ -2617,13 +2617,13 @@ gist:VolumeUnit
 			gist:ProductUnit
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:multiplicand ;
+				owl:onProperty gist:hasMultiplicand ;
 				owl:onClass gist:AreaUnit ;
 				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:multiplier ;
+				owl:onProperty gist:hasMultiplier ;
 				owl:onClass gist:DistanceUnit ;
 				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 			]
@@ -2639,7 +2639,7 @@ gist:_USDollar
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	gist:convertToBase "1.0"^^xsd:double ;
+	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_USDollar ;
 	.
 
@@ -2649,7 +2649,7 @@ gist:_ampere
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	gist:convertToBase "1.0"^^xsd:double ;
+	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_ampere ;
 	.
 
@@ -2660,7 +2660,7 @@ gist:_bit
 		gist:BaseUnit
 		;
 	skos:definition "A bit (short for binary digit) is the smallest unit of data in a computer. A bit has a single binary value, either 0 or 1."^^xsd:string ;
-	gist:convertToBase "1.0"^^xsd:double ;
+	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_bit ;
 	.
 
@@ -2670,7 +2670,7 @@ gist:_candela
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	gist:convertToBase "1.0"^^xsd:double ;
+	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_candela ;
 	.
 
@@ -2679,7 +2679,7 @@ gist:_day
 		owl:NamedIndividual ,
 		gist:DurationUnit
 		;
-	gist:convertToBase "86400.0"^^xsd:double ;
+	gist:baseConversionFactor "86400.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
 	.
 
@@ -2689,7 +2689,7 @@ gist:_each
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	gist:convertToBase "1.0"^^xsd:double ;
+	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_each ;
 	.
 
@@ -2707,8 +2707,8 @@ gist:_kelvin
 		owl:Thing ,
 		gist:BaseUnit
 		;
+	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:conversionOffset "0.0"^^xsd:double ;
-	gist:convertToBase "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_kelvin ;
 	.
 
@@ -2718,7 +2718,7 @@ gist:_kilogram
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	gist:convertToBase "1.0"^^xsd:double ;
+	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_kilogram ;
 	.
 
@@ -2728,7 +2728,7 @@ gist:_meter
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	gist:convertToBase "1.0"^^xsd:double ;
+	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_meter ;
 	.
 
@@ -2737,7 +2737,7 @@ gist:_millisecond
 		owl:NamedIndividual ,
 		gist:DurationUnit
 		;
-	gist:convertToBase "0.001"^^xsd:double ;
+	gist:baseConversionFactor "0.001"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
 	.
 
@@ -2746,7 +2746,7 @@ gist:_minute
 		owl:NamedIndividual ,
 		gist:DurationUnit
 		;
-	gist:convertToBase "60.0"^^xsd:double ;
+	gist:baseConversionFactor "60.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
 	.
 
@@ -2756,7 +2756,7 @@ gist:_mole
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	gist:convertToBase "1.0"^^xsd:double ;
+	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_mole ;
 	.
 
@@ -2766,7 +2766,7 @@ gist:_one_day
 		owl:Thing ,
 		gist:Duration
 		;
-	gist:hasUoM gist:_day ;
+	gist:hasUnitOfMeasure gist:_day ;
 	gist:numericValue "1.0"^^xsd:double ;
 	.
 
@@ -2776,7 +2776,7 @@ gist:_one_millisecond
 		owl:Thing ,
 		gist:Duration
 		;
-	gist:hasUoM gist:_millisecond ;
+	gist:hasUnitOfMeasure gist:_millisecond ;
 	gist:numericValue "1.0"^^xsd:double ;
 	.
 
@@ -2786,7 +2786,7 @@ gist:_one_minute
 		owl:Thing ,
 		gist:Duration
 		;
-	gist:hasUoM gist:_minute ;
+	gist:hasUnitOfMeasure gist:_minute ;
 	gist:numericValue "1.0"^^xsd:double ;
 	.
 
@@ -2796,16 +2796,8 @@ gist:_second
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	gist:convertToBase "1.0"^^xsd:double ;
+	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
-	.
-
-gist:about
-	a owl:ObjectProperty ;
-	rdfs:domain gist:Content ;
-	owl:inverseOf gist:describedIn ;
-	skos:definition "Subject matter of a document."^^xsd:string ;
-	skos:prefLabel "about"^^xsd:string ;
 	.
 
 gist:accepts
@@ -2814,58 +2806,10 @@ gist:accepts
 	skos:prefLabel "accepts"^^xsd:string ;
 	.
 
-gist:actual
-	a owl:ObjectProperty ;
-	rdfs:range gist:TimeInstant ;
-	skos:definition "When something did occur, therefore noting an historical event."^^xsd:string ;
-	skos:prefLabel "actual"^^xsd:string ;
-	.
-
-gist:actualEnd
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf
-		gist:actual ,
-		gist:end
-		;
-	skos:definition "When something did end, therefore noting an historical event."^^xsd:string ;
-	skos:prefLabel "actual end"^^xsd:string ;
-	.
-
-gist:actualStart
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf
-		gist:actual ,
-		gist:start
-		;
-	skos:definition "When something did start, therefore noting an historical event."^^xsd:string ;
-	skos:prefLabel "actual start"^^xsd:string ;
-	.
-
-gist:affectedBy
-	a owl:ObjectProperty ;
-	owl:inverseOf gist:affects ;
-	skos:definition "Where the effect came from"^^xsd:string ;
-	skos:prefLabel "affected by"^^xsd:string ;
-	.
-
 gist:affects
 	a owl:ObjectProperty ;
 	skos:definition "The subject has or had or will have an effect on the object"^^xsd:string ;
 	skos:prefLabel "affects"^^xsd:string ;
-	.
-
-gist:allocatedBy
-	a owl:ObjectProperty ;
-	rdfs:range [
-		a owl:Class ;
-		owl:unionOf (
-			gist:IntellectualProperty
-			gist:Organization
-			gist:Person
-		) ;
-	] ;
-	skos:definition "Connection between an ID and the thing that minted the ID.  It may be a person or organization, or could be an algorithm (next available or random number generator)"^^xsd:string ;
-	skos:prefLabel "allocated by"^^xsd:string ;
 	.
 
 gist:allows
@@ -2876,40 +2820,40 @@ gist:allows
 	skos:prefLabel "allows"^^xsd:string ;
 	.
 
-gist:aspectOf
-	a owl:ObjectProperty ;
-	skos:definition "What this aspect is referring to"^^xsd:string ;
-	skos:prefLabel "aspect of"^^xsd:string ;
+gist:baseConversionFactor
+	a owl:DatatypeProperty ;
+	rdfs:domain gist:UnitOfMeasure ;
+	rdfs:range xsd:double ;
+	skos:definition "The conversion factor used to get to the base unit.  E.g., multiplying by 0.0254 gets you from inches to meters. Divide by this number to go the other way. Used in conjunction with conversionOffset to convert from one unit to another. Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)) * (5/9.  To go the other way: F = (K * 9/5) -469.67.  Try it on Google."^^xsd:string ;
+	skos:prefLabel "base conversion factor"^^xsd:string ;
 	.
 
-gist:basedOn
+gist:comesFromAgent
 	a owl:ObjectProperty ;
-	owl:inverseOf gist:basisFor ;
-	skos:definition "The Object is a foundation for, a starting point for, gave rise to or justifies the Subject"^^xsd:string ;
-	skos:example "A document is based on a document template. A metric computing the average income of a population is based on the metric for individual income."^^xsd:string ;
-	skos:prefLabel "based on"^^xsd:string ;
+	rdfs:subPropertyOf gist:hasParticipant ;
+	rdfs:range [
+		a owl:Class ;
+		owl:unionOf (
+			gist:Organization
+			gist:Person
+		) ;
+	] ;
+	skos:definition "The party that is the source of something (e.g. a message, shipment, etc.)"^^xsd:string ;
+	skos:prefLabel "comes from agent"^^xsd:string ;
+	skos:scopeNote 'This is not the inverse of gist:goesToAgent. A message can be to someone. If we made it the inverse the person would be "from" the message'^^xsd:string ;
 	.
 
-gist:basisFor
+gist:comesFromPlace
 	a owl:ObjectProperty ;
-	skos:definition "The Subject is a foundation for, a starting point for, gave rise to or justifies the Object"^^xsd:string ;
-	skos:example "The reason, law, rule, etc. behind an action or decision. The desire to create a community around the data-centric revolution/movement was the basis for initiating the Data-Centric Architecture Summit in 2018. The unabridged dictionary was the basis for the abridged dictionary."^^xsd:string ;
-	skos:prefLabel "basis for"^^xsd:string ;
-	.
-
-gist:categorizedBy
-	a owl:ObjectProperty ;
-	skos:definition "Points to a taxonomy item or other less formally defined class."^^xsd:string ;
-	skos:prefLabel "categorized by"^^xsd:string ;
-	gist:rangeIncludes gist:Category ;
-	.
-
-gist:characterizedAs
-	a owl:ObjectProperty ;
-	rdfs:domain gist:Event ;
-	rdfs:range gist:Behavior ;
-	skos:definition "A way to categorize a behavior."^^xsd:string ;
-	skos:prefLabel "characterized as"^^xsd:string ;
+	rdfs:range [
+		a owl:Class ;
+		owl:unionOf (
+			gist:Place
+			gist:Address
+		) ;
+	] ;
+	skos:definition "Origin"^^xsd:string ;
+	skos:prefLabel "comes from place"^^xsd:string ;
 	.
 
 gist:conformsTo
@@ -2919,17 +2863,22 @@ gist:conformsTo
 	skos:prefLabel "conforms to"^^xsd:string ;
 	.
 
-gist:connectedTo
-	a owl:ObjectProperty ;
-	skos:definition "A non-owning, non-causal, non-subordinate (i.e., peer-to-peer) relationship."^^xsd:string ;
-	skos:prefLabel "connected to"^^xsd:string ;
-	.
-
 gist:containedText
 	a owl:DatatypeProperty ;
 	rdfs:range xsd:string ;
 	skos:definition "Links to the string corresponding to Text"^^xsd:string ;
 	skos:prefLabel "contained text"^^xsd:string ;
+	.
+
+gist:containsGeographically
+	a
+		owl:ObjectProperty ,
+		owl:TransitiveProperty
+		;
+	rdfs:domain gist:Place ;
+	rdfs:range gist:Place ;
+	skos:definition "Relate one place to another place that is contained within the first."^^xsd:string ;
+	skos:prefLabel "contains geographically"^^xsd:string ;
 	.
 
 gist:contributesTo
@@ -2946,84 +2895,12 @@ gist:conversionOffset
 	skos:prefLabel "conversion offset"^^xsd:string ;
 	.
 
-gist:convertToBase
-	a owl:DatatypeProperty ;
-	rdfs:domain gist:UnitOfMeasure ;
-	rdfs:range xsd:double ;
-	skos:definition "The conversion factor used to get to the base unit.  E.g., multiplying by 0.0254 gets you from inches to meters. Divide by this number to go the other way. Used in conjunction with conversionOffset to convert from one unit to another. Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)) * (5/9.  To go the other way: F = (K * 9/5) -469.67.  Try it on Google."^^xsd:string ;
-	skos:prefLabel "convert to base"^^xsd:string ;
-	.
-
-gist:convertToStandard
-	a owl:DatatypeProperty ;
-	rdfs:subPropertyOf gist:convertToBase ;
-	rdfs:domain gist:UnitOfMeasure ;
-	rdfs:range xsd:double ;
-	skos:definition "Note this kind of conversion will only work with temperatures if they are in Kelvin or Rankine (with a true 0).  You multiply to get to the base, divide to go from the base. mph to mps is .44704.  The multiple from kph to mps is .277778 .  To convert 60 mph to kph is (60 * .44704 / .277778 or 96.56056 kph"^^xsd:string ;
-	skos:prefLabel "convert to standard"^^xsd:string ;
-	.
-
-gist:denominator
-	a owl:ObjectProperty ;
-	rdfs:domain gist:RatioUnit ;
-	rdfs:range gist:UnitOfMeasure ;
-	skos:definition "Relates a RatioUnit such as meters/second to the denominator Unit (e.g. second)."^^xsd:string ;
-	skos:prefLabel "denominator"^^xsd:string ;
-	.
-
-gist:describedIn
-	a owl:ObjectProperty ;
-	skos:definition "Document the subject matter appeared in"^^xsd:string ;
-	skos:prefLabel "described in"^^xsd:string ;
-	.
-
 gist:description
 	a owl:DatatypeProperty ;
 	skos:definition "A statement about someone or something's attributes or characteristics."^^xsd:string ;
 	skos:example "The Empire State Building is a 102-story Art Deco skyscraper in Midtown Manhattan in New York City, United States. It was designed by Shreve, Lamb & Harmon and built from 1930 to 1931."^^xsd:string ;
 	skos:prefLabel "description"^^xsd:string ;
 	skos:scopeNote "This property is used to provide a description of an instance entity in greater detail than a label."^^xsd:string ;
-	.
-
-gist:directPartOf
-	a owl:ObjectProperty ;
-	owl:inverseOf gist:hasDirectPart ;
-	skos:definition "The relationship between a part and a whole where the part has independent existence."^^xsd:string ;
-	skos:prefLabel "direct part of"^^xsd:string ;
-	skos:scopeNote
-		"It is safest to use this property when there is semantic directness inherent in the relationship, rather than choosing appropriate granularity. For example, a spark plug is a direct part of an engine block; there cannot be any intermediate parts.  Beware of making a directPartOf assertion and then inserting an intermediate part; this will result in making an asserted triple false even though there was no change in the world."^^xsd:string ,
-		"Use this property to directly associate a part with the whole. partOf is the transitive version."^^xsd:string
-		;
-	.
-
-gist:directSubTaskOf
-	a owl:ObjectProperty ;
-	owl:inverseOf gist:hasDirectSubTask ;
-	skos:definition "Immediate parent task"^^xsd:string ;
-	skos:prefLabel "direct subtask of"^^xsd:string ;
-	.
-
-gist:directlyPrecededBy
-	a owl:ObjectProperty ;
-	owl:inverseOf gist:directlyPrecedes ;
-	skos:definition "Inverse of directly precedes"^^xsd:string ;
-	skos:prefLabel "directly preceded by"^^xsd:string ;
-	skos:scopeNote "It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ;
-	.
-
-gist:directlyPrecedes
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:precedes ;
-	skos:definition "A generic ordering relation indicating that the Subject comes immediately before the Object."^^xsd:string ;
-	skos:prefLabel "directly precedes"^^xsd:string ;
-	skos:scopeNote "It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ;
-	.
-
-gist:directlyRecognizedBy
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:recognizedBy ;
-	skos:definition "The party doing the recognition"^^xsd:string ;
-	skos:prefLabel "directly recognized by"^^xsd:string ;
 	.
 
 gist:directs
@@ -3052,13 +2929,6 @@ gist:encryptedText
 	skos:prefLabel "encrypted text"^^xsd:string ;
 	.
 
-gist:end
-	a owl:ObjectProperty ;
-	rdfs:range gist:TimeInstant ;
-	skos:definition "Connects the subject to its end time."^^xsd:string ;
-	skos:prefLabel "end"^^xsd:string ;
-	.
-
 gist:epoch
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:TimeInstant ;
@@ -3067,13 +2937,15 @@ gist:epoch
 	skos:prefLabel "epoch"^^xsd:string ;
 	.
 
-gist:expressedIn
+gist:followsDirectly
 	a owl:ObjectProperty ;
-	skos:definition "The language something was expressed in"^^xsd:string ;
-	skos:prefLabel "expressed in"^^xsd:string ;
+	owl:inverseOf gist:precedesDirectly ;
+	skos:definition "A generic ordering relation indicating that the subject comes immediately after the object."^^xsd:string ;
+	skos:prefLabel "follows directly"^^xsd:string ;
+	skos:scopeNote "It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ;
 	.
 
-gist:fromAgent
+gist:goesToAgent
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasParticipant ;
 	rdfs:range [
@@ -3083,12 +2955,12 @@ gist:fromAgent
 			gist:Person
 		) ;
 	] ;
-	skos:definition "The party that is the source of something (e.g. a message, shipment, etc.)"^^xsd:string ;
-	skos:prefLabel "from agent"^^xsd:string ;
-	skos:scopeNote 'This is not the inverse of toAgent. A message can be to someone. If we made it the inverse the person would be "from" the message'^^xsd:string ;
+	skos:definition "The party that is the recipient of something (e.g. a message, shipment, etc.)"^^xsd:string ;
+	skos:prefLabel "goes to agent"^^xsd:string ;
+	skos:scopeNote 'This is not the inverse of gist:comesFromAgent. A message can be from someone. If we made it the inverse the person would be "to" the message'^^xsd:string ;
 	.
 
-gist:fromPlace
+gist:goesToPlace
 	a owl:ObjectProperty ;
 	rdfs:range [
 		a owl:Class ;
@@ -3097,54 +2969,8 @@ gist:fromPlace
 			gist:Address
 		) ;
 	] ;
-	skos:definition "Origin"^^xsd:string ;
-	skos:prefLabel "from place"^^xsd:string ;
-	.
-
-gist:geoContainedIn
-	a owl:ObjectProperty ;
-	owl:inverseOf gist:geoContains ;
-	skos:definition "Relates one place to another place that contains the first."^^xsd:string ;
-	skos:prefLabel "geo contained in"^^xsd:string ;
-	.
-
-gist:geoContains
-	a
-		owl:ObjectProperty ,
-		owl:TransitiveProperty
-		;
-	rdfs:domain gist:Place ;
-	rdfs:range gist:Place ;
-	skos:definition "Relate one place to another place that is contained within the first."^^xsd:string ;
-	skos:prefLabel "geo contains"^^xsd:string ;
-	.
-
-gist:geoOccupiedBy
-	a owl:ObjectProperty ;
-	owl:inverseOf gist:geoOccupies ;
-	skos:definition "What is in the location"^^xsd:string ;
-	skos:prefLabel "geo occupied by"^^xsd:string ;
-	.
-
-gist:geoOccupies
-	a owl:ObjectProperty ;
-	rdfs:domain [
-		a owl:Class ;
-		owl:unionOf (
-			gist:PhysicalIdentifiableItem
-			gist:PhysicalSubstance
-		) ;
-	] ;
-	rdfs:range gist:Place ;
-	skos:definition "A thing occupies are region"^^xsd:string ;
-	skos:prefLabel "geo occupies"^^xsd:string ;
-	.
-
-gist:governedBy
-	a owl:ObjectProperty ;
-	owl:inverseOf gist:governs ;
-	skos:definition "A reference from the thing being governed to the governor"^^xsd:string ;
-	skos:prefLabel "governed by"^^xsd:string ;
+	skos:definition "Destination"^^xsd:string ;
+	skos:prefLabel "goes to place"^^xsd:string ;
 	.
 
 gist:governs
@@ -3176,6 +3002,33 @@ gist:governs
 	skos:prefLabel "governs"^^xsd:string ;
 	.
 
+gist:hasActual
+	a owl:ObjectProperty ;
+	rdfs:range gist:TimeInstant ;
+	skos:definition "When something did occur, therefore noting an historical event."^^xsd:string ;
+	skos:prefLabel "has actual"^^xsd:string ;
+	.
+
+gist:hasActualEnd
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf
+		gist:hasActual ,
+		gist:hasEnd
+		;
+	skos:definition "When something did end, therefore noting an historical event."^^xsd:string ;
+	skos:prefLabel "has actual end"^^xsd:string ;
+	.
+
+gist:hasActualStart
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf
+		gist:hasActual ,
+		gist:hasStart
+		;
+	skos:definition "When something did start, therefore noting an historical event."^^xsd:string ;
+	skos:prefLabel "has actual start"^^xsd:string ;
+	.
+
 gist:hasAddress
 	a owl:ObjectProperty ;
 	rdfs:range gist:Address ;
@@ -3202,14 +3055,29 @@ gist:hasBaseUnit
 	skos:prefLabel "has base unit"^^xsd:string ;
 	.
 
+gist:hasBiologicalOffspring
+	a owl:ObjectProperty ;
+	rdfs:domain gist:LivingThing ;
+	rdfs:range gist:LivingThing ;
+	skos:definition "Relates a parent to its biological offspring."^^xsd:string ;
+	skos:prefLabel "has biological offspring"^^xsd:string ;
+	.
+
+gist:hasBiologicalParent
+	a owl:ObjectProperty ;
+	skos:definition "Relates a living thing to its biological parent."^^xsd:string ;
+	skos:prefLabel "has biological parent"^^xsd:string ;
+	gist:rangeIncludes gist:Person ;
+	.
+
 gist:hasBirthDate
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:start ;
+	rdfs:subPropertyOf gist:hasStart ;
 	rdfs:domain gist:LivingThing ;
 	rdfs:range gist:TimeInstant ;
 	skos:definition "Date a living thing is or will be born."^^xsd:string ;
 	skos:prefLabel "has birthdate"^^xsd:string ;
-	skos:scopeNote "This property is a subproperty of gist:start, rather than gist:actualStart (as formerly), to acknowledge the fact that the birth may not yet have occurred. In this case, the birthdate is expected although not known."^^xsd:string ;
+	skos:scopeNote "This property is a subproperty of gist:hasStart, rather than gist:hasActualStart, to acknowledge the fact that the birth may not yet have occurred. In this case, the birthdate is expected although not known."^^xsd:string ;
 	.
 
 gist:hasCommunicationAddress
@@ -3229,11 +3097,19 @@ gist:hasCommunicationAddress
 
 gist:hasDeathDate
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:actualEnd ;
+	rdfs:subPropertyOf gist:hasActualEnd ;
 	rdfs:domain gist:LivingThing ;
 	rdfs:range gist:TimeInstant ;
 	skos:definition "Date a living thing died"^^xsd:string ;
 	skos:prefLabel "has death date"^^xsd:string ;
+	.
+
+gist:hasDenominator
+	a owl:ObjectProperty ;
+	rdfs:domain gist:RatioUnit ;
+	rdfs:range gist:UnitOfMeasure ;
+	skos:definition "Relates a RatioUnit such as meters/second to the denominator Unit (e.g. second)."^^xsd:string ;
+	skos:prefLabel "has denominator"^^xsd:string ;
 	.
 
 gist:hasDirectPart
@@ -3244,7 +3120,7 @@ gist:hasDirectPart
 	skos:scopeNote
 		"It is safest to use this property when there is semantic directness inherent in the relationship, rather than choosing appropriate granularity. For example, a spark plug is a direct part of an engine block; there cannot be any intermediate parts.  Beware of making a hasDirectPart assertion and then inserting an intermediate part; this will result in making an asserted triple false even though there was no change in the world."^^xsd:string ,
 		"No cascading delete."^^xsd:string ,
-		"Use this property to directly associate a part with the whole. hasPart is the transitive version."^^xsd:string
+		"Use this property to directly associate a part with the whole. gist:hasPart is the transitive version."^^xsd:string
 		;
 	.
 
@@ -3273,12 +3149,11 @@ gist:hasDirectSuperCategory
 	skos:scopeNote "Unlike its superproperty gist:hasSuperCategory, this property is not transitive. It is essentially the same as the non-transitive skos:broader, using gist:Category rather than skos:Concept."^^xsd:string ;
 	.
 
-gist:hasGetter
+gist:hasEnd
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:hasParticipant ;
-	owl:propertyDisjointWith gist:hasGiver ;
-	skos:definition "The recipient"^^xsd:string ;
-	skos:prefLabel "has getter"^^xsd:string ;
+	rdfs:range gist:TimeInstant ;
+	skos:definition "Connects the subject to its end time."^^xsd:string ;
+	skos:prefLabel "has end"^^xsd:string ;
 	.
 
 gist:hasGiver
@@ -3300,25 +3175,41 @@ gist:hasIncumbent
 	skos:prefLabel "has incumbent"^^xsd:string ;
 	.
 
-gist:hasJurisdiction
+gist:hasJurisdictionOver
 	a owl:ObjectProperty ;
 	skos:definition "When laws and contracts are meted out"^^xsd:string ;
-	skos:prefLabel "has jurisdiction"^^xsd:string ;
+	skos:prefLabel "has jurisdiction over"^^xsd:string ;
 	.
 
 gist:hasMagnitude
 	a owl:ObjectProperty ;
 	rdfs:range gist:Magnitude ;
-	skos:definition "To have a comparable numerical value. Each magnitude has a unit."^^xsd:string ;
+	skos:definition "To have a comparable numeric value. Each magnitude has a unit."^^xsd:string ;
 	skos:prefLabel "has magnitude"^^xsd:string ;
 	.
 
 gist:hasMember
 	a owl:ObjectProperty ;
-	owl:inverseOf gist:memberOf ;
+	owl:inverseOf gist:isMemberOf ;
 	skos:definition "Relates a Collection to its member individuals."^^xsd:string ;
 	skos:prefLabel "has member"^^xsd:string ;
 	gist:domainIncludes gist:Collection ;
+	.
+
+gist:hasMultiplicand
+	a owl:ObjectProperty ;
+	rdfs:domain gist:ProductUnit ;
+	rdfs:range gist:UnitOfMeasure ;
+	skos:definition "Relates a ProductUnit such as square mile to the second of two units multiplied together (e.g. mile)."^^xsd:string ;
+	skos:prefLabel "has multiplicand"^^xsd:string ;
+	.
+
+gist:hasMultiplier
+	a owl:ObjectProperty ;
+	rdfs:domain gist:ProductUnit ;
+	rdfs:range gist:UnitOfMeasure ;
+	skos:definition "Relates a ProductUnit such as square mile to the first of two units multiplied together (e.g. mile)"^^xsd:string ;
+	skos:prefLabel "has multiplier"^^xsd:string ;
 	.
 
 gist:hasNavigationalChild
@@ -3334,13 +3225,41 @@ gist:hasNavigationalParent
 	skos:prefLabel "has navigational parent"^^xsd:string ;
 	.
 
+gist:hasNumerator
+	a owl:ObjectProperty ;
+	rdfs:domain gist:RatioUnit ;
+	rdfs:range gist:UnitOfMeasure ;
+	skos:definition "Relates a RatioUnit such as meter(s)/second to the numerator Unit (e.g. meter)."^^xsd:string ;
+	skos:prefLabel "has numerator"^^xsd:string ;
+	.
+
+gist:hasOffsetToUniversal
+	a owl:ObjectProperty ;
+	rdfs:domain gist:TimeZone ;
+	rdfs:range gist:Duration ;
+	skos:definition "How many hours the time zone is off GMT"^^xsd:string ;
+	skos:prefLabel "has offset to universal"^^xsd:string ;
+	.
+
+gist:hasOrderedMember
+	a
+		owl:ObjectProperty ,
+		owl:InverseFunctionalProperty
+		;
+	rdfs:subPropertyOf gist:hasMember ;
+	rdfs:range gist:OrderedMember ;
+	skos:definition "Relates an ordered collection to an ordered member that belongs to it."^^xsd:string ;
+	skos:prefLabel "has ordered member"^^xsd:string ;
+	skos:scopeNote "This property is inverse functional because no ordered member can be in more than one ordered collection."^^xsd:string ;
+	.
+
 gist:hasPart
 	a
 		owl:ObjectProperty ,
 		owl:TransitiveProperty
 		;
-	owl:inverseOf gist:partOf ;
-	skos:definition "The transitive version of hasDirectPart"^^xsd:string ;
+	owl:inverseOf gist:isPartOf ;
+	skos:definition "The transitive version of gist:hasDirectPart"^^xsd:string ;
 	skos:prefLabel "has part"^^xsd:string ;
 	.
 
@@ -3380,6 +3299,36 @@ gist:hasPhysicalLocation
 	skos:prefLabel "has physical location"^^xsd:string ;
 	.
 
+gist:hasPlanned
+	a owl:ObjectProperty ;
+	rdfs:range gist:TimeInstant ;
+	skos:definition "Dates that were in the future at the time they were made."^^xsd:string ;
+	skos:prefLabel "has planned"^^xsd:string ;
+	.
+
+gist:hasPlannedEnd
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf
+		gist:hasEnd ,
+		gist:hasPlanned
+		;
+	rdfs:range gist:TimeInstant ;
+	skos:definition "A date/time that was at least at some point in time in the future. It may be in the past now, but when we planned it, it was in the future."^^xsd:string ;
+	skos:prefLabel "has planned end"^^xsd:string ;
+	skos:scopeNote "Most frequently apples to Event(s) and Offer(s). E.g. a conference or sale offer."^^xsd:string ;
+	.
+
+gist:hasPlannedStart
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf
+		gist:hasPlanned ,
+		gist:hasStart
+		;
+	rdfs:range gist:TimeInstant ;
+	skos:definition "A date/time that was at least at some point in time in the future. It may be in the past now, but when we planned it, it was in the future."^^xsd:string ;
+	skos:prefLabel "has planned start"^^xsd:string ;
+	.
+
 gist:hasPrecision
 	a owl:ObjectProperty ;
 	rdfs:range gist:Magnitude ;
@@ -3389,12 +3338,27 @@ gist:hasPrecision
 	skos:scopeNote "Most frequently apples to Magnitude(s) and TimeInstant. Could also apply to a measurement."^^xsd:string ;
 	.
 
+gist:hasRecipient
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasParticipant ;
+	owl:propertyDisjointWith gist:hasGiver ;
+	skos:definition "The recipient"^^xsd:string ;
+	skos:prefLabel "has recipient"^^xsd:string ;
+	.
+
 gist:hasStandardUnit
 	a owl:ObjectProperty ;
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range gist:CoherentUnit ;
 	skos:definition "For a complex unit refers to a unit that has all the component parts in SI"^^xsd:string ;
 	skos:prefLabel "has standard unit"^^xsd:string ;
+	.
+
+gist:hasStart
+	a owl:ObjectProperty ;
+	rdfs:range gist:TimeInstant ;
+	skos:definition "Connects the subject to its start time."^^xsd:string ;
+	skos:prefLabel "has start"^^xsd:string ;
 	.
 
 gist:hasSubCategory
@@ -3412,7 +3376,7 @@ gist:hasSubTask
 		;
 	rdfs:domain gist:Task ;
 	rdfs:range gist:Task ;
-	owl:inverseOf gist:subTaskOf ;
+	owl:inverseOf gist:isSubTaskOf ;
 	skos:definition "A task that is part of a larger task. The time frame of the subtasks may overlap but may not extend beyond the time frame of the parent task. A subtask may be part of more than one parent task."^^xsd:string ;
 	skos:prefLabel "has subtask"^^xsd:string ;
 	.
@@ -3425,12 +3389,6 @@ gist:hasSuperCategory
 	skos:definition "The subject category is included by, or narrower than, the object category. Everything categorized by the subcategory can be inferred to be categorized by the supercategory."^^xsd:string ;
 	skos:prefLabel "has supercategory"^^xsd:string ;
 	skos:scopeNote "This is essentially the same as skos:broaderTransitive, using gist:Category instead of skos:Concept."^^xsd:string ;
-	.
-
-gist:hasTag
-	a owl:DatatypeProperty ;
-	skos:definition "Used for folksonomy style categories (non controlled vocabulary)"^^xsd:string ;
-	skos:prefLabel "has tag"^^xsd:string ;
 	.
 
 gist:hasUniqueNavigationalParent
@@ -3453,7 +3411,7 @@ gist:hasUniqueSuperCategory
 	skos:prefLabel "has unique supercategory"^^xsd:string ;
 	.
 
-gist:hasUoM
+gist:hasUnitOfMeasure
 	a owl:ObjectProperty ;
 	rdfs:domain gist:Magnitude ;
 	rdfs:range gist:UnitOfMeasure ;
@@ -3461,15 +3419,10 @@ gist:hasUoM
 	skos:prefLabel "has unit of measure"^^xsd:string ;
 	.
 
-gist:identifiedBy
-	a
-		owl:ObjectProperty ,
-		owl:InverseFunctionalProperty
-		;
-	rdfs:range gist:ID ;
-	owl:inverseOf gist:identifies ;
-	skos:definition "This is like a URI: a thing can have more than one ID, but each of the IDs must refer to a unique thing."^^xsd:string ;
-	skos:prefLabel "identified by"^^xsd:string ;
+gist:hasViableRange
+	a owl:ObjectProperty ;
+	skos:definition "The area over which the sensor can sense (might be a small geospatial area or a specific wire in a circuit)"^^xsd:string ;
+	skos:prefLabel "has viable range"^^xsd:string ;
 	.
 
 gist:identifies
@@ -3481,12 +3434,225 @@ gist:identifies
 	skos:prefLabel "identifies"^^xsd:string ;
 	.
 
-gist:lastModifiedOn
+gist:isAbout
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:actual ;
+	rdfs:domain gist:Content ;
+	owl:inverseOf gist:isDescribedIn ;
+	skos:definition "Subject matter of a document."^^xsd:string ;
+	skos:prefLabel "is about"^^xsd:string ;
+	.
+
+gist:isAffectedBy
+	a owl:ObjectProperty ;
+	owl:inverseOf gist:affects ;
+	skos:definition "Where the effect came from"^^xsd:string ;
+	skos:prefLabel "is affected by"^^xsd:string ;
+	.
+
+gist:isAllocatedBy
+	a owl:ObjectProperty ;
+	rdfs:range [
+		a owl:Class ;
+		owl:unionOf (
+			gist:IntellectualProperty
+			gist:Organization
+			gist:Person
+		) ;
+	] ;
+	skos:definition "Connection between an ID and the thing that minted the ID.  It may be a person or organization, or could be an algorithm (next available or random number generator)"^^xsd:string ;
+	skos:prefLabel "is allocated by"^^xsd:string ;
+	.
+
+gist:isAspectOf
+	a owl:ObjectProperty ;
+	skos:definition "What this aspect is referring to"^^xsd:string ;
+	skos:prefLabel "is aspect of"^^xsd:string ;
+	.
+
+gist:isBasedOn
+	a owl:ObjectProperty ;
+	owl:inverseOf gist:isBasisFor ;
+	skos:definition "The Object is a foundation for, a starting point for, gave rise to or justifies the Subject"^^xsd:string ;
+	skos:example "A document is based on a document template. A metric computing the average income of a population is based on the metric for individual income."^^xsd:string ;
+	skos:prefLabel "is based on"^^xsd:string ;
+	.
+
+gist:isBasisFor
+	a owl:ObjectProperty ;
+	skos:definition "The Subject is a foundation for, a starting point for, gave rise to or justifies the Object"^^xsd:string ;
+	skos:example "The reason, law, rule, etc. behind an action or decision. The desire to create a community around the data-centric revolution/movement was the basis for initiating the Data-Centric Architecture Summit in 2018. The unabridged dictionary was the basis for the abridged dictionary."^^xsd:string ;
+	skos:prefLabel "is basis for"^^xsd:string ;
+	.
+
+gist:isCategorizedBy
+	a owl:ObjectProperty ;
+	skos:definition "Points to a taxonomy item or other less formally defined class."^^xsd:string ;
+	skos:prefLabel "is categorized by"^^xsd:string ;
+	gist:rangeIncludes gist:Category ;
+	.
+
+gist:isCharacterizedAs
+	a owl:ObjectProperty ;
+	rdfs:domain gist:Event ;
+	rdfs:range gist:Behavior ;
+	skos:definition "A way to categorize a behavior."^^xsd:string ;
+	skos:prefLabel "is characterized as"^^xsd:string ;
+	.
+
+gist:isConnectedTo
+	a owl:ObjectProperty ;
+	skos:definition "A non-owning, non-causal, non-subordinate (i.e., peer-to-peer) relationship."^^xsd:string ;
+	skos:prefLabel "is connected to"^^xsd:string ;
+	.
+
+gist:isDescribedIn
+	a owl:ObjectProperty ;
+	skos:definition "Document the subject matter appeared in"^^xsd:string ;
+	skos:prefLabel "is described in"^^xsd:string ;
+	.
+
+gist:isDirectPartOf
+	a owl:ObjectProperty ;
+	owl:inverseOf gist:hasDirectPart ;
+	skos:definition "The relationship between a part and a whole where the part has independent existence."^^xsd:string ;
+	skos:prefLabel "is direct part of"^^xsd:string ;
+	skos:scopeNote
+		"It is safest to use this property when there is semantic directness inherent in the relationship, rather than choosing appropriate granularity. For example, a spark plug is a direct part of an engine block; there cannot be any intermediate parts.  Beware of making a directPartOf assertion and then inserting an intermediate part; this will result in making an asserted triple false even though there was no change in the world."^^xsd:string ,
+		"Use this property to directly associate a part with the whole. partOf is the transitive version."^^xsd:string
+		;
+	.
+
+gist:isDirectSubTaskOf
+	a owl:ObjectProperty ;
+	owl:inverseOf gist:hasDirectSubTask ;
+	skos:definition "Immediate parent task"^^xsd:string ;
+	skos:prefLabel "is direct subtask of"^^xsd:string ;
+	.
+
+gist:isExpressedIn
+	a owl:ObjectProperty ;
+	skos:definition "The language something was expressed in"^^xsd:string ;
+	skos:prefLabel "is expressed in"^^xsd:string ;
+	.
+
+gist:isGeographicallyContainedIn
+	a owl:ObjectProperty ;
+	owl:inverseOf gist:containsGeographically ;
+	skos:definition "Relates one place to another place that contains the first."^^xsd:string ;
+	skos:prefLabel "is geographically contained in"^^xsd:string ;
+	.
+
+gist:isGeographicallyOccupiedBy
+	a owl:ObjectProperty ;
+	owl:inverseOf gist:occupiesGeographically ;
+	skos:definition "What is in the location"^^xsd:string ;
+	skos:prefLabel "is geographically occupied by"^^xsd:string ;
+	.
+
+gist:isGeographicallyPermanentlyOccupiedBy
+	a owl:ObjectProperty ;
+	owl:inverseOf gist:occupiesGeographicallyPermanently ;
+	skos:definition "What is in the fixed location"^^xsd:string ;
+	skos:prefLabel "is geographically permanently occupied by"^^xsd:string ;
+	.
+
+gist:isGovernedBy
+	a owl:ObjectProperty ;
+	owl:inverseOf gist:governs ;
+	skos:definition "A reference from the thing being governed to the governor"^^xsd:string ;
+	skos:prefLabel "is governed by"^^xsd:string ;
+	.
+
+gist:isIdentifiedBy
+	a
+		owl:ObjectProperty ,
+		owl:InverseFunctionalProperty
+		;
+	rdfs:range gist:ID ;
+	owl:inverseOf gist:identifies ;
+	skos:definition "This is like a URI: a thing can have more than one ID, but each of the IDs must refer to a unique thing."^^xsd:string ;
+	skos:prefLabel "is identified by"^^xsd:string ;
+	.
+
+gist:isMadeUpOf
+	a owl:ObjectProperty ;
+	rdfs:range gist:PhysicalSubstance ;
+	skos:definition "Relates something to a substance that it is made up of."^^xsd:string ;
+	skos:example "The vase is made up of clay. Water is made up of hydrogen and oxygen."^^xsd:string ;
+	skos:prefLabel "is made up of"^^xsd:string ;
+	.
+
+gist:isMemberOf
+	a owl:ObjectProperty ;
+	skos:definition "What group the member is in"^^xsd:string ;
+	skos:prefLabel "is member of"^^xsd:string ;
+	.
+
+gist:isPartOf
+	a
+		owl:ObjectProperty ,
+		owl:TransitiveProperty
+		;
+	skos:definition "The transitive version of gist:isDirectPartOf"^^xsd:string ;
+	skos:prefLabel "is part of"^^xsd:string ;
+	.
+
+gist:isRecognizedBy
+	a owl:ObjectProperty ;
+	rdfs:range [
+		a owl:Class ;
+		owl:unionOf (
+			gist:Organization
+			gist:Person
+		) ;
+	] ;
+	owl:inverseOf gist:recognizes ;
+	skos:definition "The entity that formally acknowledges the existence of, as the State recognizes the existence of a particular company"^^xsd:string ;
+	skos:prefLabel "is recognized by"^^xsd:string ;
+	.
+
+gist:isRecognizedDirectlyBy
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:isRecognizedBy ;
+	skos:definition "The party doing the recognition"^^xsd:string ;
+	skos:prefLabel "is recognized directly by"^^xsd:string ;
+	.
+
+gist:isRecordedAt
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasActual ;
 	rdfs:range gist:TimeInstant ;
-	skos:definition "Date that something was modified."^^xsd:string ;
-	skos:prefLabel "last modified on"^^xsd:string ;
+	skos:definition "Date that something was posted, not necessarily the date it occurred. Must be after the occurred date, but could be before or after the planned date. (Unusual, but I could record today that I expected to be paid last week.)"^^xsd:string ;
+	skos:prefLabel "is recorded at"^^xsd:string ;
+	.
+
+gist:isRenderedOn
+	a owl:ObjectProperty ;
+	skos:definition "What media something was rendered On"^^xsd:string ;
+	skos:prefLabel "is rendered on"^^xsd:string ;
+	.
+
+gist:isSameTimeAs
+	a owl:ObjectProperty ;
+	rdfs:domain gist:TimeInstant ;
+	rdfs:range gist:TimeInstant ;
+	skos:definition "We can have two local time instants refer to the same time, the same universal time."^^xsd:string ;
+	skos:prefLabel "is same time as"^^xsd:string ;
+	.
+
+gist:isSubTaskOf
+	a
+		owl:ObjectProperty ,
+		owl:TransitiveProperty
+		;
+	skos:definition "All the upper tasks this task belongs to"^^xsd:string ;
+	skos:prefLabel "is subtask of"^^xsd:string ;
+	.
+
+gist:isTriggeredBy
+	a owl:ObjectProperty ;
+	skos:definition "General causal relation.  For obligations a property that describes what would happen to trigger the contingent obligation.  In most cases, before the Contingent becomes an Obligation, the triggered by event is a planned event (that is it hasn't happened yet -- if it had happened the contingency would no longer be contingent.  In most cases it will be  a ContingentEvent .  Other uses include controls, processes etc"^^xsd:string ;
+	skos:prefLabel "is triggered by"^^xsd:string ;
 	.
 
 gist:latitude
@@ -3555,50 +3721,12 @@ gist:longitude
 	skos:prefLabel "longitude"^^xsd:string ;
 	.
 
-gist:madeUpOf
-	a owl:ObjectProperty ;
-	rdfs:range gist:PhysicalSubstance ;
-	skos:definition "Relates something to the the substance that it is made up of."^^xsd:string ;
-	skos:example "The vase is made up of clay"^^xsd:string ;
-	skos:prefLabel "made up of"^^xsd:string ;
-	.
-
-gist:memberOf
-	a owl:ObjectProperty ;
-	skos:definition "What group the member is in"^^xsd:string ;
-	skos:prefLabel "member of"^^xsd:string ;
-	.
-
-gist:multiplicand
-	a owl:ObjectProperty ;
-	rdfs:domain gist:ProductUnit ;
-	rdfs:range gist:UnitOfMeasure ;
-	skos:definition "Relates a ProductUnit such as square mile to the second of two units multiplied together (e.g. mile)."^^xsd:string ;
-	skos:prefLabel "multiplicand"^^xsd:string ;
-	.
-
-gist:multiplier
-	a owl:ObjectProperty ;
-	rdfs:domain gist:ProductUnit ;
-	rdfs:range gist:UnitOfMeasure ;
-	skos:definition "Relates a ProductUnit such as square mile to the first of two units multiplied together (e.g. mile)"^^xsd:string ;
-	skos:prefLabel "multiplier"^^xsd:string ;
-	.
-
 gist:name
 	a owl:DatatypeProperty ;
 	rdfs:range xsd:string ;
 	skos:definition "Relates an individual to a casual name."^^xsd:string ;
 	skos:prefLabel "name"^^xsd:string ;
 	skos:scopeNote "For more formal use, consider using a sub property of the object property, identifiedBy."^^xsd:string ;
-	.
-
-gist:numerator
-	a owl:ObjectProperty ;
-	rdfs:domain gist:RatioUnit ;
-	rdfs:range gist:UnitOfMeasure ;
-	skos:definition "Relates a RatioUnit such as meter(s)/second to the numerator Unit (e.g. meter)."^^xsd:string ;
-	skos:prefLabel "numerator"^^xsd:string ;
 	.
 
 gist:numericValue
@@ -3631,26 +3759,31 @@ gist:numericValue
 	skos:prefLabel "numeric value"^^xsd:string ;
 	.
 
-gist:occursAt
+gist:occupiesGeographically
+	a owl:ObjectProperty ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf (
+			gist:PhysicalIdentifiableItem
+			gist:PhysicalSubstance
+		) ;
+	] ;
+	rdfs:range gist:Place ;
+	skos:definition "A thing occupies are region"^^xsd:string ;
+	skos:prefLabel "occupies geographically"^^xsd:string ;
+	.
+
+gist:occupiesGeographicallyPermanently
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:occupiesGeographically ;
+	skos:definition "To be in a fixed position on the earth"^^xsd:string ;
+	skos:prefLabel "occupies geographically permanently"^^xsd:string ;
+	.
+
+gist:occursIn
 	a owl:ObjectProperty ;
 	skos:definition "The geospatial place where something happened or will happen"^^xsd:string ;
-	skos:prefLabel "occurs at"^^xsd:string ;
-	.
-
-gist:offsetToUniversal
-	a owl:ObjectProperty ;
-	rdfs:domain gist:TimeZone ;
-	rdfs:range gist:Duration ;
-	skos:definition "How many hours the time zone is off GMT"^^xsd:string ;
-	skos:prefLabel "offset to universal"^^xsd:string ;
-	.
-
-gist:offspringOf
-	a owl:ObjectProperty ;
-	rdfs:domain gist:LivingThing ;
-	rdfs:range gist:LivingThing ;
-	skos:definition "Biological offspring"^^xsd:string ;
-	skos:prefLabel "offspring of"^^xsd:string ;
+	skos:prefLabel "occurs in"^^xsd:string ;
 	.
 
 gist:owns
@@ -3666,73 +3799,21 @@ gist:owns
 	skos:prefLabel "owns"^^xsd:string ;
 	.
 
-gist:parentOf
-	a owl:ObjectProperty ;
-	skos:definition "Biological Parent"^^xsd:string ;
-	skos:prefLabel "parent of"^^xsd:string ;
-	gist:rangeIncludes gist:Person ;
-	.
-
-gist:partOf
-	a
-		owl:ObjectProperty ,
-		owl:TransitiveProperty
-		;
-	skos:definition "The transitive version of directPartOf"^^xsd:string ;
-	skos:prefLabel "part of"^^xsd:string ;
-	.
-
-gist:permanentGeoOccupiedBy
-	a owl:ObjectProperty ;
-	owl:inverseOf gist:permanentGeoOccupies ;
-	skos:definition "What is in the fixed location"^^xsd:string ;
-	skos:prefLabel "permanent geo occupied by"^^xsd:string ;
-	.
-
-gist:permanentGeoOccupies
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:geoOccupies ;
-	skos:definition "To be in a fixed position on the earth"^^xsd:string ;
-	skos:prefLabel "permanent geo occupies"^^xsd:string ;
-	.
-
-gist:planned
-	a owl:ObjectProperty ;
-	rdfs:range gist:TimeInstant ;
-	skos:definition "Dates that were in the future at the time they were made."^^xsd:string ;
-	skos:prefLabel "planned"^^xsd:string ;
-	.
-
-gist:plannedEnd
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf
-		gist:end ,
-		gist:planned
-		;
-	rdfs:range gist:TimeInstant ;
-	skos:definition "A date/time that was at least at some point in time in the future. It may be in the past now, but when we planned it, it was in the future."^^xsd:string ;
-	skos:prefLabel "planned end"^^xsd:string ;
-	skos:scopeNote "Most frequently apples to Event(s) and Offer(s). E.g. a conference or sale offer."^^xsd:string ;
-	.
-
-gist:plannedStart
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf
-		gist:planned ,
-		gist:start
-		;
-	rdfs:range gist:TimeInstant ;
-	skos:definition "A date/time that was at least at some point in time in the future. It may be in the past now, but when we planned it, it was in the future."^^xsd:string ;
-	skos:prefLabel "planned start"^^xsd:string ;
-	.
-
 gist:precedes
 	a
 		owl:ObjectProperty ,
 		owl:TransitiveProperty
 		;
-	skos:definition "A generic ordering relation indicating that the Subject has the same order as or comes before the Object. The 'greater than or equal to' symbol is often used for this relation."^^xsd:string ;
+	skos:definition "A generic ordering relation indicating that the subject has the same order as or comes before the object. The 'greater than or equal to' symbol is often used for this relation."^^xsd:string ;
 	skos:prefLabel "precedes"^^xsd:string ;
+	.
+
+gist:precedesDirectly
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:precedes ;
+	skos:definition "A generic ordering relation indicating that the subject comes immediately before the object."^^xsd:string ;
+	skos:prefLabel "precedes directly"^^xsd:string ;
+	skos:scopeNote "It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ;
 	.
 
 gist:prevents
@@ -3764,7 +3845,7 @@ gist:rangeIncludes
 	a owl:AnnotationProperty ;
 	rdfs:subPropertyOf skos:scopeNote ;
 	skos:definition "Relates a property to a class that constitutes (one of) the expected type(s) for values of the property."^^xsd:string ;
-	skos:example "The range for the property gist:categorizedBy includes gist:Category."^^xsd:string ;
+	skos:example "The range for the property gist:isCategorizedBy includes gist:Category."^^xsd:string ;
 	skos:prefLabel "range includes"^^xsd:string ;
 	skos:scopeNote
 		"This property is used to guide the ontology user; like all annotation properties, it does not play a role in inference."^^xsd:string ,
@@ -3772,38 +3853,10 @@ gist:rangeIncludes
 		;
 	.
 
-gist:recognizedBy
-	a owl:ObjectProperty ;
-	rdfs:range [
-		a owl:Class ;
-		owl:unionOf (
-			gist:Organization
-			gist:Person
-		) ;
-	] ;
-	owl:inverseOf gist:recognizes ;
-	skos:definition "The entity that formally acknowledges the existence of, as the State recognizes the existence of a particular company"^^xsd:string ;
-	skos:prefLabel "recognized by"^^xsd:string ;
-	.
-
 gist:recognizes
 	a owl:ObjectProperty ;
 	skos:definition "Recognizes"^^xsd:string ;
 	skos:prefLabel "recognizes"^^xsd:string ;
-	.
-
-gist:recordedOn
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:actual ;
-	rdfs:range gist:TimeInstant ;
-	skos:definition "Date that something was posted, not necessarily the date it occurred. Must be after the occurred date, but could be before or after the planned date. (Unusual, but I could record today that I expected to be paid last week.)"^^xsd:string ;
-	skos:prefLabel "recorded on"^^xsd:string ;
-	.
-
-gist:renderedOn
-	a owl:ObjectProperty ;
-	skos:definition "What media something was rendered On"^^xsd:string ;
-	skos:prefLabel "rendered on"^^xsd:string ;
 	.
 
 gist:requires
@@ -3820,14 +3873,6 @@ gist:respondsTo
 	skos:prefLabel "responds to"^^xsd:string ;
 	.
 
-gist:sameTimeAs
-	a owl:ObjectProperty ;
-	rdfs:domain gist:TimeInstant ;
-	rdfs:range gist:TimeInstant ;
-	skos:definition "We can have two local time instants refer to the same time, the same universal time."^^xsd:string ;
-	skos:prefLabel "same time as"^^xsd:string ;
-	.
-
 gist:sequence
 	a owl:DatatypeProperty ;
 	rdfs:range xsd:integer ;
@@ -3835,62 +3880,19 @@ gist:sequence
 	skos:prefLabel "sequence"^^xsd:string ;
 	.
 
-gist:start
-	a owl:ObjectProperty ;
-	rdfs:range gist:TimeInstant ;
-	skos:definition "Connects the subject to its start time."^^xsd:string ;
-	skos:prefLabel "start"^^xsd:string ;
+gist:standardConversionFactor
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:baseConversionFactor ;
+	rdfs:domain gist:UnitOfMeasure ;
+	rdfs:range xsd:double ;
+	skos:definition "Note this kind of conversion will only work with temperatures if they are in Kelvin or Rankine (with a true 0).  You multiply to get to the base, divide to go from the base. mph to mps is .44704.  The multiple from kph to mps is .277778 .  To convert 60 mph to kph is (60 * .44704 / .277778 or 96.56056 kph"^^xsd:string ;
+	skos:prefLabel "standard conversion factor"^^xsd:string ;
 	.
 
-gist:subTaskOf
-	a
-		owl:ObjectProperty ,
-		owl:TransitiveProperty
-		;
-	skos:definition "All the upper tasks this task belongs to"^^xsd:string ;
-	skos:prefLabel "subtask of"^^xsd:string ;
-	.
-
-gist:timeZoneStandardUsed
-	a owl:ObjectProperty ;
-	rdfs:domain gist:TimeInstant ;
-	rdfs:range gist:TimeZoneStandard ;
-	skos:definition 'the "time zone" with Daylight Savings adjust'^^xsd:string ;
-	skos:prefLabel "time zone standard used"^^xsd:string ;
-	.
-
-gist:toAgent
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:hasParticipant ;
-	rdfs:range [
-		a owl:Class ;
-		owl:unionOf (
-			gist:Organization
-			gist:Person
-		) ;
-	] ;
-	skos:definition "The party that is the recipient of something (e.g. a message, shipment, etc.)"^^xsd:string ;
-	skos:prefLabel "to agent"^^xsd:string ;
-	skos:scopeNote 'This is not the inverse of fromAgent. A message can be from someone. If we made it the inverse the person would be "to" the message'^^xsd:string ;
-	.
-
-gist:toPlace
-	a owl:ObjectProperty ;
-	rdfs:range [
-		a owl:Class ;
-		owl:unionOf (
-			gist:Place
-			gist:Address
-		) ;
-	] ;
-	skos:definition "Destination"^^xsd:string ;
-	skos:prefLabel "to place"^^xsd:string ;
-	.
-
-gist:triggeredBy
-	a owl:ObjectProperty ;
-	skos:definition "General causal relation.  For obligations a property that describes what would happen to trigger the contingent obligation.  In most cases, before the Contingent becomes an Obligation, the triggered by event is a planned event (that is it hasn't happened yet -- if it had happened the contingency would no longer be contingent.  In most cases it will be  a ContingentEvent .  Other uses include controls, processes etc"^^xsd:string ;
-	skos:prefLabel "triggered by"^^xsd:string ;
+gist:tagText
+	a owl:DatatypeProperty ;
+	skos:definition "Used for folksonomy style categories (non controlled vocabulary)"^^xsd:string ;
+	skos:prefLabel "tag text"^^xsd:string ;
 	.
 
 gist:uniqueText
@@ -3911,7 +3913,7 @@ gist:unitSymbol
 	skos:prefLabel "unit symbol"^^xsd:string ;
 	.
 
-gist:unitSymbolHTML
+gist:unitSymbolHtml
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:string ;
@@ -3952,10 +3954,20 @@ gist:universalTime
 	skos:prefLabel "UTC time"^^xsd:string ;
 	.
 
-gist:viableRange
+gist:usesTimeZoneStandard
 	a owl:ObjectProperty ;
-	skos:definition "The area over which the sensor can sense (might be a small geospatial area or a specific wire in a circuit)"^^xsd:string ;
-	skos:prefLabel "viable range"^^xsd:string ;
+	rdfs:domain gist:TimeInstant ;
+	rdfs:range gist:TimeZoneStandard ;
+	skos:definition 'the "time zone" with Daylight Savings adjust'^^xsd:string ;
+	skos:prefLabel "uses time zone standard"^^xsd:string ;
+	.
+
+gist:wasLastModifiedAt
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasActual ;
+	rdfs:range gist:TimeInstant ;
+	skos:definition "Date that something was last modified."^^xsd:string ;
+	skos:prefLabel "was last modified at"^^xsd:string ;
 	.
 
 []
