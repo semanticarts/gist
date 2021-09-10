@@ -61,6 +61,7 @@ gshapes:InstanceShape
 					owl:Thing
 					owl:AnnotationProperty
 					owl:Ontology
+					rdfs:Datatype
 				) ;
 			]
 			[
