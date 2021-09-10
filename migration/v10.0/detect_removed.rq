@@ -59,7 +59,7 @@ WHERE {
             }
         }
     }
-    bind(<urn:deleted-entity-vaidation-report> as ?report)
+    bind(<urn:deleted-entity-validation-report> as ?report)
     bind(CONCAT("Removed entity gist:",
                 REPLACE(STR(?deleted), '^.*[/#]', ''), " referenced in data.") as ?error)
 }

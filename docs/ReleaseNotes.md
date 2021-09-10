@@ -4,6 +4,10 @@ gist Release Notes
 Release 10.0.0
 -----
 
+This is a major release, which contains several changes which break compatibility with previous versions
+of `gist`. See the [migration guide](./MajorVersionMigration.md) for documentation on updating existing
+`gist`-based ontologies and instance data.
+
 ### Major Updates
 
 - Renamed `MimeType` to `MediaType` to be consistent with [IANA guidelines](https://www.iana.org/assignments/media-types/media-types.xhtml)
