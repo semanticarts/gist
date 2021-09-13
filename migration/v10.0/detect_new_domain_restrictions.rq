@@ -13,27 +13,16 @@ CONSTRUCT {
             [
                 a sh:ValidationResult ;
                 sh:focusNode ?failedEntity ;
-                sh:resultMessage ?error ;
+                sh:resultMessage "Domain restriction on gist:hasCommunicationAddress violated.",
                 sh:resultSeverity sh:Warning ;
-                sh:sourceConstraintComponent <urn:constraint:removed-entity>
+                sh:sourceConstraintComponent <urn:constraint:hasCommunicationAddress-domain>
             ] .
 }
 WHERE {
-    {
-        select (?nonPerson as ?nonPersonOrOrganization) where {
-            {   select (?entity as ?nonPerson) where {
-                    graph ?g1 {
-                        ?entity gist:hasCommunicationAddress ?o .
-                        FILTER NOT EXISTS { ?entity rdf:type gist:Person }
-                    }
-                }
-            }
-            graph ?g3 {
-                FILTER NOT EXISTS { ?nonPerson rdf:type gist:Organization }
-            }
-        }
+    graph ?g1 { ?failedEntity gist:hasCommunicationAddress ?addr . }
+    FILTER NOT EXISTS {
+        { ?failedEntity a gist:Person } UNION { ?failedEntity a gist:Organization }
     }
+
     bind(<urn:new-domain-validation-report> as ?report)
-    bind(CONCAT("Domain restriction on gist:hasCommunicationAddress violated for entity <",
-        REPLACE(STR(?nonPersonOrOrganization), '["]', ''), ">.") as ?error)
 }
