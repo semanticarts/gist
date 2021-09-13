@@ -13,7 +13,7 @@ CONSTRUCT {
             [
                 a sh:ValidationResult ;
                 sh:focusNode ?failedEntity ;
-                sh:resultMessage "Domain restriction on gist:hasCommunicationAddress violated.",
+                sh:resultMessage "Domain restriction on gist:hasCommunicationAddress violated.";
                 sh:resultSeverity sh:Warning ;
                 sh:sourceConstraintComponent <urn:constraint:hasCommunicationAddress-domain>
             ] .
