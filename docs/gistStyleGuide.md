@@ -101,8 +101,10 @@ Some of the examples resulted in changes to gist `10.0.0`, others are hypothetic
 | Alignment with textual definition |  `hasBiologicalParent`, not `hasParent`, where the `skos:definition` precludes non-biological relationships |
 | Loose coupling of ontology term names | `hasStart`, not `hasStartTimeInstant` |
 | Unambiguously indicate directionality | `hasBroader`, not `broader` (as in SKOS) |
-| Direction: go up rather than down a tree if a hierarchy exists | `hasParent`, not `hasChild`|||| `hasSuperCategory`, not `hasSubCategory` |
-| Word boundaries consisent across ontology rather than following natural language (exception to idiomaticity) |  `hasSubTask`,`hasSubCategory`, `hasSuperCategory`, although "subtask" and "subcategory" are words |
+| Direction: go up rather than down a tree if a hierarchy exists | `hasParent`, not `hasChild`|
+|| `hasSuperCategory`, not `hasSubCategory` |
+| Word boundaries consisent across ontology rather than following natural language (exception to idiomaticity) |  `hasSubTask`, `hasSubCategory`, `hasSuperCategory`, although "subtask" and "subcategory" are words |
+||`hasBirthDate` and `hasDeathDate`, although "birthdate" is a word |
 
 ### Instance Local Names
 
