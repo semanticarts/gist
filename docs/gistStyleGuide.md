@@ -78,7 +78,7 @@ These standards involve choice of wording, which are generally more difficult to
 - Alignment with textual definitions. In some cases this requires a re-analysis of the intended meaning, and then perhaps a change in definition rather than local name. However, within the current scope of work, the local name was changed to match the definition, and the re-analysis will be done at a later time.
 - Loose coupling and future-proofing.
 
-Some of the examples results in changes to gist `10.0.0`, others are hypothetical.
+Some of the examples resulted in changes to gist `10.0.0`, others are hypothetical.
 
 | Standard | Examples |
 | ---------: | ------- |
