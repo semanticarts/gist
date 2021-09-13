@@ -21,7 +21,7 @@ gist Style Guide <!-- omit in toc -->
 Purpose of This Style Guide
 -----
 
-The purpose of this evolving document is two-fold:
+The purpose of this evolving document is twofold:
 
 - Define and implement conventions in order to standardize gist.
 - Articulate what we consider best or "better" practices for ontology design and implementation.
@@ -78,7 +78,7 @@ These standards involve choice of wording, which are generally more difficult to
 - Alignment with textual definitions. In some cases this requires a re-analysis of the intended meaning, and then perhaps a change in definition rather than local name. However, within the current scope of work, the local name was changed to match the definition, and the re-analysis will be done at a later time.
 - Loose coupling and future-proofing.
 
-Some of the examples results in changes to gist `10.0.0`, others are hypothetical.
+Some of the examples resulted in changes to gist `10.0.0`, others are hypothetical.
 
 | Standard | Examples |
 | ---------: | ------- |
@@ -92,7 +92,7 @@ Some of the examples results in changes to gist `10.0.0`, others are hypothetica
 || `isCharacterizedBy`, not `characterizedBy` |
 | Prefer an ordinary verb to "hasX" or "isX", even in a pair of inverses | `follows`, not `isPrecededBy`, even when inverse `precedes` exists |
 | "At" rather than "on" for datetimes | `isRecordedAt`, not `isRecordedOn`. |
-| Present tense only with minimal exceptions when the meaning is inherently in the past | `isRenderedOn`, not `wasRenderedOn`|
+| Present tense only with minimal exceptions when the meaning is inherently in the past | `isRenderedOn`, not `wasRenderedOn`, but `wasLastModifiedBy` rather than `isLastModifiedBy` |
 || `precedes`, not `preceded` |
 || but `wasLastModifiedAt`, not `isLastModifiedAt` |
 | General idiomaticity | `hasRecipient`, not `hasGetter`
