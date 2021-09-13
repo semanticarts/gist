@@ -21,7 +21,7 @@ gist Style Guide <!-- omit in toc -->
 Purpose of This Style Guide
 -----
 
-The purpose of this evolving document is two-fold:
+The purpose of this evolving document is twofold:
 
 - Define and implement conventions in order to standardize gist.
 - Articulate what we consider best or "better" practices for ontology design and implementation.
@@ -92,7 +92,7 @@ Some of the examples results in changes to gist `10.0.0`, others are hypothetica
 || `isCharacterizedBy`, not `characterizedBy` |
 | Prefer an ordinary verb to "hasX" or "isX", even in a pair of inverses | `follows`, not `isPrecededBy`, even when inverse `precedes` exists |
 | "At" rather than "on" for datetimes | `isRecordedAt`, not `isRecordedOn`. |
-| Present tense only with minimal exceptions when the meaning is inherently in the past | `isRenderedOn`, not `wasRenderedOn`|
+| Present tense only with minimal exceptions when the meaning is inherently in the past | `isRenderedOn`, not `wasRenderedOn`, but `wasLastModifiedBy` rather than `isLastModifiedBy` |
 || `precedes`, not `preceded` |
 || but `wasLastModifiedAt`, not `isLastModifiedAt` |
 | General idiomaticity | `hasRecipient`, not `hasGetter`
