@@ -1,12 +1,12 @@
 # Major Version Migration
 
 When non-backward compatible changes are introduced into `gist` during major upgrades,
-developers will create queries that attempt to migrate existing ontologies and data to
-conform to the new version of `gist`.
+the release package will include queries to facilitate the migration of existing ontologies
+and data to conform to the new version of `gist`.
 
-If the changes are such that automatic migration is impossible, developers will instead
-provide queries that report the use of removed or modified classes or properties so that
-mitigation measures can be initiated.
+For changes that are not amenable to automatic migration, queries will be provided that
+report the use of deleted or modified classes and properties so that mitigation measures
+can be initiated.
 
 Every major version of `gist` (starting with 10.0.0) will add a sub-directory under the 
 `migration` directory containing the queries and two migration scripts: 
@@ -28,7 +28,8 @@ onto_tool bundle -v input INPUT-DIR
 ```
 where _INPUT-DIR_ is the directory in which your RDF data is located, _OUTPUT-DIR_ is the directory where
 updated RDF should be written, and REPORT-DIR is a directory where reports regarding any issues found
-during migration are stored. The tool will also list the issues during execution.
+during migration are stored. The tool will also list the issues during execution. Output and report
+directories will be created as needed, but any existing files in them will be overwritten.
 
 Note that only `.ttl` (Turtle) and `.owl` (RDF/XML) files in the _INPUT-DIR_ are transformed - no
 subdirectories are traversed, and those would require additional tool invocations.
@@ -46,4 +47,5 @@ onto_tool bundle -v user USER -v password PWD
 where _ENDPOINT-URI_ is the address of your SPARQL endpoint, and _USER_ and _PWD_ are the credentials
 required to access it. Only Basic HTTP authentication is handled at this time. If your triple store has
 a separate endpoint for UPDATE queries (e.g. Stardog), provide it as _UPDATE-URI_. Reports regarding any
-issues found during migration are stored in _REPORT-DIR_.
+issues found during migration are stored in _REPORT-DIR_. Report directory will be created as needed,
+but any existing files in it will be overwritten.
