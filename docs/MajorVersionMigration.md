@@ -9,7 +9,8 @@ report the use of deleted or modified classes and properties so that mitigation 
 can be initiated.
 
 Every major version of `gist` (starting with 10.0.0) will add a sub-directory under the 
-`migration` directory containing the queries and two migration scripts: 
+`migration` directory containing the queries and two migration scripts:
+
 1. `migrate_local.yaml`, intended to apply changes to locally stored RDF data, and
 2. `migrate_endpoint.yaml`, which is used to modify RDF data in a triple store
 
