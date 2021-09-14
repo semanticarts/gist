@@ -1,0 +1,96 @@
+prefix gist: <https://ontologies.semanticarts.com/gist/>
+
+DELETE {
+    ?s ?oldProp ?o .
+    ?ref ?refProp ?oldProp .
+    ?oldProp ?defProp ?defObj .
+}
+INSERT {
+    ?s ?newProp ?o .
+    ?ref ?refProp ?newProp .
+    ?newProp ?defProp ?defObj .
+}
+where {
+    values (?oldProp ?newProp) {
+        # Issue #171
+        (gist:decimalValue gist:numericValue)
+        # Issue #126
+        (gist:networkConnection gist:links)
+        (gist:hasFromNode gist:linksFrom)
+        (gist:hasToNode gist:linksTo)
+        # Issue #483
+        (gist:hasStreetAddress gist:hasAddress)
+        # Issue 188
+        (gist:directlyPrecedes gist:precedesDirectly)
+        (gist:hasUoM gist:hasUnitOfMeasure)
+        (gist:multiplicand gist:hasMultiplicand)
+        (gist:multiplier gist:hasMultiplier)
+        (gist:affectedBy gist:isAffectedBy)
+        (gist:allocatedBy gist:isAllocatedBy)
+        (gist:denominator gist:hasDenominator)
+        (gist:numerator gist:hasNumerator)
+        (gist:categorizedBy gist:isCategorizedBy)
+        (gist:actualStart gist:hasActualStart)
+        (gist:actualEnd gist:hasActualEnd)
+        (gist:expressedIn gist:isExpressedIn)
+        (gist:plannedStart gist:hasPlannedStart)
+        (gist:plannedEnd gist:hasPlannedEnd)
+        (gist:triggeredBy gist:isTriggeredBy)
+        (gist:hasJurisdiction gist:hasJurisdictionOver)
+        (gist:governedBy gist:isGovernedBy)
+        (gist:recognizedBy gist:isRecognizedBy)
+        (gist:characterizedAs gist:isCharacterizedAs)
+        (gist:start gist:hasStart)
+        (gist:end gist:hasEnd)
+        (gist:fromPlace gist:comesFromPlace)
+        (gist:toPlace gist:goesToPlace)
+        (gist:geoContains gist:containsGeographically)
+        (gist:timeZoneStandardUsed gist:usesTimeZoneStandard)
+        (gist:identifiedBy gist:isIdentifiedBy)
+        (gist:permanentGeoOccupies gist:occupiesGeographicallyPermanently)
+        (gist:offspringOf gist:hasBiologicalParent)
+        (gist:fromAgent gist:comesFromAgent)
+        (gist:toAgent gist:goesToAgent)
+        (gist:memberOf gist:isMemberOf)
+        (gist:hasGetter gist:hasRecipient)
+        (gist:directlyPrecededBy gist:followsDirectly)
+        (gist:offspringOf gist:hasBiologicalParent)
+        (gist:occursAt gist:occursIn)
+        (gist:madeUpOf gist:isMadeUpOf)
+        (gist:convertToBase gist:baseConversionFactor)
+        (gist:renderedOn gist:isRenderedOn)
+        (gist:basisFor gist:isBasisFor)
+        (gist:hasTag gist:tagText)
+        (gist:connectedTo gist:isConnectedTo)
+        (gist:about gist:isAbout)
+        (gist:actual gist:hasActual)
+        (gist:aspectOf gist:isAspectOf)
+        (gist:basedOn gist:isBasedOn)
+        (gist:convertToStandard gist:standardConversionFactor)
+        (gist:describedIn gist:isDescribedIn)
+        (gist:directPartOf gist:isDirectPartOf)
+        (gist:directSubTaskOf gist:isDirectSubtaskOf)
+        (gist:directlyRecognizedBy gist:isRecognizedDirectlyBy)
+        (gist:geoContainedIn gist:isGeographicallyContainedIn)
+        (gist:geoOccupiedBy gist:isGeographicallyOccupiedBy)
+        (gist:parentOf gist:hasBiologicalOffspring)
+        (gist:partOf gist:isPartOf)
+        (gist:planned gist:hasPlanned)
+        (gist:subTaskOf gist:isSubTaskOf)
+        (gist:viableRange gist:hasViableRange)
+        (gist:permanentGeoOccupiedBy gist:isGeographicallyPermanentlyOccupiedBy)
+        (gist:recordedOn gist:isRecordedAt)
+        (gist:sameTimeAs gist:isSameTimeAs)
+        (gist:geoOccupies gist:occupiesGeographically)
+        (gist:unitSymbolHTML gist:unitSymbolHtml)
+        (gist:lastModifiedOn gist:wasLastModifiedAt)
+        (gist:offsetToUniversal gist:hasOffsetToUniversal)
+    }
+    {
+        ?s ?oldProp ?o
+    } UNION {
+        ?ref ?refProp ?oldProp
+    } UNION {
+        ?oldProp ?defProp ?defObj
+    }
+}

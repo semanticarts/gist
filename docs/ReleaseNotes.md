@@ -4,6 +4,12 @@ gist Release Notes
 Release 10.0.0
 -----
 
+This is a major release, which includes several changes which break compatibility with previous versions
+of `gist`. See the [migration guide](./MajorVersionMigration.md) for documentation on updating existing
+`gist`-based ontologies and instance data.
+
+### Major Updates
+
 - Renamed 62 object and datatype properties to reflect newly-established conventions. Includes corresponding updates to the [gist style guide](https://github.com/semanticarts/gist/blob/master/docs/gistStyleGuide.md). Issues [188](https://github.com/semanticarts/gist/issues/188), [507](https://github.com/semanticarts/gist/issues/507).
 - Renamed `MimeType` to `MediaType` to be consistent with [IANA guidelines](https://www.iana.org/assignments/media-types/media-types.xhtml).
   and [RFC6838](https://tools.ietf.org/html/rfc6838). Issue [#434](<https://github.com/semanticarts/gist/issues/434>).

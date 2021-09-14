@@ -1,0 +1,56 @@
+bundle: gist-v10.0-migration
+variables:
+  migration: "./migration"
+  endpoint: "<SPARQL_UPDATE_URI>"
+  update_endpoint: "{endpoint}"
+  user: "UPDATE_USER"
+  password: "UPDATE_PASSWORD"
+  report: "./migration-report"
+actions:
+- action: "sparql"
+  message: "Migrate renamed classes in named graphs."
+  query: "{migration}/v10.0/action_rename_classes.rq"
+  endpoint:
+    query_uri: "{endpoint}"
+    update_uri: "{update_endpoint}"
+    user: "{user}"
+    password: "{password}"
+- action: "sparql"
+  message: "Migrate renamed properties in named graphs."
+  query: "{migration}/v10.0/action_rename_properties.rq"
+  endpoint:
+    query_uri: "{endpoint}"
+    update_uri: "{update_endpoint}"
+    user: "{user}"
+    password: "{password}"
+- action: "sparql"
+  message: "Migrate renamed classes in default graph."
+  query: "{migration}/v10.0/action_rename_classes_default.rq"
+  endpoint:
+    query_uri: "{endpoint}"
+    update_uri: "{update_endpoint}"
+    user: "{user}"
+    password: "{password}"
+- action: "sparql"
+  message: "Migrate renamed properties in default graph."
+  query: "{migration}/v10.0/action_rename_properties_default.rq"
+  endpoint:
+    query_uri: "{endpoint}"
+    update_uri: "{update_endpoint}"
+    user: "{user}"
+    password: "{password}"
+- action: "verify"
+  message: "Find remaining problems"
+  type: "construct"
+  inference: "none"
+  stopOnFail: false
+  target: '{report}'
+  endpoint:
+    query_uri: "{endpoint}"
+    user: "{user}"
+    password: "{password}"
+  queries:
+    source: '{migration}/v10.0'
+    includes:
+      - 'detect_removed.rq'
+      - 'detect_new_domain_restrictions.rq'
