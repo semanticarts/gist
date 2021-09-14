@@ -41,4 +41,5 @@ actions:
   queries:
     source: '{migration}/v10.0'
     includes:
-      - 'detect_*.rq'
+      - 'detect_removed.rq'
+      - 'detect_new_domain_restrictions_default.rq'
