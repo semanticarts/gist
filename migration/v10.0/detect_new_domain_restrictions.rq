@@ -1,0 +1,28 @@
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix sh: <http://www.w3.org/ns/shacl#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+prefix gist: <https://ontologies.semanticarts.com/gist/>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+# validate domain (Person U Organization) on hasCommunicationAddress
+CONSTRUCT {
+    ?report a sh:ValidationReport ;
+        sh:conforms false ;
+        sh:result
+            [
+                a sh:ValidationResult ;
+                sh:focusNode ?failedEntity ;
+                sh:resultMessage "Domain restriction on gist:hasCommunicationAddress violated.";
+                sh:resultSeverity sh:Warning ;
+                sh:sourceConstraintComponent <urn:constraint:hasCommunicationAddress-domain>
+            ] .
+}
+WHERE {
+    graph ?g1 { ?failedEntity gist:hasCommunicationAddress ?addr . }
+    FILTER NOT EXISTS {
+        { ?failedEntity a gist:Person } UNION { ?failedEntity a gist:Organization }
+    }
+
+    bind(<urn:new-domain-validation-report> as ?report)
+}
