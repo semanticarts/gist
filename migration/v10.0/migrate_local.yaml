@@ -1,0 +1,45 @@
+bundle: gist-v10.0-migration
+variables:
+  migration: "migration"
+  input: "."
+  output: "./updated"
+  report: "./migration-report"
+tools:
+- name: "rename-classes"
+  type: "sparql"
+  query: "{migration}/v10.0/action_rename_classes_default.rq"
+- name: "rename-properties"
+  type: "sparql"
+  query: "{migration}/v10.0/action_rename_properties_default.rq"
+actions:
+- action: "transform"
+  message: "Migrate renamed classes."
+  tool: "rename-classes"
+  source: "{input}"
+  target: "{output}"
+  includes:
+    - "*.ttl"
+    - "*.owl"
+- action: "transform"
+  message: "Migrate renamed properties."
+  tool: "rename-properties"
+  source: "{output}"
+  target: "{output}"
+  includes:
+    - "*.ttl"
+    - "*.owl"
+- action: "verify"
+  message: "Find remaining problems"
+  type: "construct"
+  inference: "none"
+  source: "{output}"
+  includes:
+    - "*.ttl"
+    - "*.owl"
+  stopOnFail: false
+  target: '{report}'
+  queries:
+    source: '{migration}/v10.0'
+    includes:
+      - 'detect_removed.rq'
+      - 'detect_new_domain_restrictions_default.rq'
