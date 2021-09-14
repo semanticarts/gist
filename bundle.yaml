@@ -63,9 +63,23 @@ actions:
   source: "{input}"
   includes:
     - gistCore.ttl
+    - gistMediaTypes.ttl
     - gistValidationAnnotations.ttl
   shapes:
     source: "{input}/ontologyShapes.ttl"
+- action: "verify"
+  message: "Verify ontology via queries."
+  type: "construct"
+  inference: "none"
+  source: "{input}"
+  includes:
+    - gistCore.ttl
+  stopOnFail: false
+  target: '{input}/validation'
+  queries:
+    source: '{input}/validation_queries'
+    includes:
+      - '*_construct.rq'
 - action: "mkdir"
   directory: "{output}"
 - action: "copy"
@@ -80,6 +94,7 @@ actions:
     to: "\\g<1>{version}.ttl"
   includes:
     - gistCore.ttl
+    - gistMediaTypes.ttl
     - gistDeprecated.ttl
 - action: "definedBy"
   message: "Adding rdfs:definedBy."
@@ -148,14 +163,27 @@ actions:
   source: "{input}/LICENSE.txt"
   target: "{output}"
 - action: "copy"
+  message: "Copying migration queries and scripts."
+  source: "{input}/migration"
+  target: "{output}/migration"
+- action: "copy"
+  message: "Copying documentation and patching local links."
   source: "{input}/docs"
   target: "{output}/Documentation"
+  replace:
+    from: "\\(./(\\w+)\\.md\\)"
+    to: "(./\\g<1>.html)"
   includes:
     - "ReleaseNotes.md"
+    - "MajorVersionMigration.md"
 - action: "markdown"
   message: "Formatting release notes."
-  source: "{input}/docs/ReleaseNotes.md"
+  source: "{output}/Documentation/ReleaseNotes.md"
   target: "{output}/Documentation/ReleaseNotes.html"
+- action: "markdown"
+  message: "Formatting migration instructions."
+  source: "{output}/Documentation/MajorVersionMigration.md"
+  target: "{output}/Documentation/MajorVersionMigration.html"
 - action: "move"
   message: "Creating Deprecated folder."
   source: "{output}"

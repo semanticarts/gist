@@ -1,0 +1,65 @@
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix sh: <http://www.w3.org/ns/shacl#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+prefix gist: <https://ontologies.semanticarts.com/gist/>
+
+CONSTRUCT {
+    ?report a sh:ValidationReport ;
+        sh:conforms false ;
+        sh:result
+            [
+                a sh:ValidationResult ;
+                sh:focusNode ?deleted ;
+                sh:resultMessage ?error ;
+                sh:resultSeverity sh:Warning ;
+                sh:sourceConstraintComponent <urn:constraint:removed-entity>
+            ] .
+}
+WHERE {
+    {
+        select distinct ?deleted where {
+            values ?deleted {
+                gist:PhysicalThing
+                gist:Room
+                gist:SocialBeing
+                gist:TemplateTask
+                gist:TimeInterval
+                gist:Weight
+                gist:_unitedNations
+                gist:date
+                gist:dateTime
+                gist:geoDirectlyContainedIn
+                gist:geoDirectlyContains
+                gist:getter
+                gist:giver
+                gist:hasA
+                gist:localDate
+                gist:localDateTime
+                gist:of
+                gist:party
+                gist:sameOrderAs
+                gist:strictlyPrecededBy
+                gist:strictlyPrecedes
+                gist:time
+                gist:universalDate
+                gist:universalDataTime
+                gist:universalTime
+                gist:streetAddressOf
+                gist:communicationAddressOf
+                gist:OrdinalCollection
+                gist:OrdinalMember
+            }
+            {
+                ?s ?deleted ?o
+            } UNION {
+                ?s ?p ?deleted
+            } UNION {
+                ?deleted ?p ?o
+            }
+        }
+    }
+    bind(<urn:deleted-entity-validation-report> as ?report)
+    bind(CONCAT("Removed entity gist:",
+                REPLACE(STR(?deleted), '^.*[/#]', ''), " referenced in data.") as ?error)
+}

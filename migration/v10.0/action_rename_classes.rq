@@ -1,0 +1,29 @@
+prefix gist: <https://ontologies.semanticarts.com/gist/>
+
+DELETE {
+    graph ?graph {
+        ?ref ?refProp ?oldClass .
+        ?oldClass ?defProp ?defObj .
+    }
+}
+INSERT {
+    graph ?graph {
+        ?ref ?refProp ?newClass .
+        ?newClass ?defProp ?defObj .
+    }
+}
+where {
+    values (?oldClass ?newClass) {
+        # Issue #434
+        (gist:MimeType gist:MediaType)
+        # Issue #483
+        (gist:BuildingAddress gist:StreetAddress)
+    }
+    graph ?graph {
+        {
+            ?ref ?refProp ?oldClass
+        } UNION {
+            ?oldClass ?defProp ?defObj
+        }
+    }
+}
