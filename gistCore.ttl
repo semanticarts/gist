@@ -1751,11 +1751,6 @@ gist:OrderedCollection
 				owl:onProperty gist:hasMember ;
 				owl:allValuesFrom gist:OrderedMember ;
 			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMember ;
-				owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-			]
 		) ;
 	] ;
 	skos:definition "A collection in which the members are sequentially ordered. All members of an OrderedCollection are OrderedMembers."^^xsd:string ;
