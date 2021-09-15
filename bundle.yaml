@@ -138,6 +138,17 @@ actions:
   target: "{output}"
   includes:
     - "*.ttl"
+  rename:
+    from: "(.*)\\.ttl"
+    to: "formatted_\\g<1>.ttl"
+- action: "move"
+  source: "{output}"
+  target: "{output}"
+  includes:
+    - "formatted_*.ttl"
+  rename:
+    from: "formatted_(.*)\\.ttl"
+    to: "\\g<1>.ttl"
 - action: "transform"
   message: "RDF/XML serialization."
   tool: "xml-serializer"
