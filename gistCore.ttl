@@ -1777,12 +1777,12 @@ gist:OrderedMember
 					[
 						a owl:Restriction ;
 						owl:onProperty gist:precedesDirectly ;
-						owl:someValuesFrom owl:Thing ;
+						owl:someValuesFrom gist:OrderedMember ;
 					]
 					[
 						a owl:Restriction ;
 						owl:onProperty gist:followsDirectly ;
-						owl:someValuesFrom owl:Thing ;
+						owl:someValuesFrom gist:OrderedMember ;
 					]
 					[
 						a owl:Restriction ;
