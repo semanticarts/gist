@@ -1,0 +1,182 @@
+@prefix gist: <https://ontologies.semanticarts.com/gist/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://ontologies.semanticarts.com/o/gistCore>
+	a owl:Ontology ;
+	owl:versionIRI <https://ontologies.semanticarts.com/o/gistCoreX.x.x> ;
+	skos:definition "gist is a minimalist upper ontology created by Semantic Arts"^^xsd:string ;
+	skos:prefLabel "gist Core"^^xsd:string ;
+	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
+	.
+
+gist:_USDollar
+	a
+		owl:NamedIndividual ,
+		owl:Thing ,
+		gist:BaseUnit
+		;
+	gist:baseConversionFactor "1.0"^^xsd:double ;
+	gist:hasBaseUnit gist:_USDollar ;
+	.
+
+gist:_ampere
+	a
+		owl:NamedIndividual ,
+		owl:Thing ,
+		gist:BaseUnit
+		;
+	gist:baseConversionFactor "1.0"^^xsd:double ;
+	gist:hasBaseUnit gist:_ampere ;
+	.
+
+gist:_bit
+	a
+		owl:NamedIndividual ,
+		owl:Thing ,
+		gist:BaseUnit
+		;
+	skos:definition "A bit (short for binary digit) is the smallest unit of data in a computer. A bit has a single binary value, either 0 or 1."^^xsd:string ;
+	gist:baseConversionFactor "1.0"^^xsd:double ;
+	gist:hasBaseUnit gist:_bit ;
+	.
+
+gist:_candela
+	a
+		owl:NamedIndividual ,
+		owl:Thing ,
+		gist:BaseUnit
+		;
+	gist:baseConversionFactor "1.0"^^xsd:double ;
+	gist:hasBaseUnit gist:_candela ;
+	.
+
+gist:_day
+	a
+		owl:NamedIndividual ,
+		gist:DurationUnit
+		;
+	gist:baseConversionFactor "86400.0"^^xsd:double ;
+	gist:hasBaseUnit gist:_second ;
+	.
+
+gist:_each
+	a
+		owl:NamedIndividual ,
+		owl:Thing ,
+		gist:BaseUnit
+		;
+	gist:baseConversionFactor "1.0"^^xsd:double ;
+	gist:hasBaseUnit gist:_each ;
+	.
+
+gist:_greenwichTimeZone
+	a
+		owl:NamedIndividual ,
+		owl:Thing ,
+		gist:TimeZoneStandard
+		;
+	.
+
+gist:_kelvin
+	a
+		owl:NamedIndividual ,
+		owl:Thing ,
+		gist:BaseUnit
+		;
+	gist:baseConversionFactor "1.0"^^xsd:double ;
+	gist:conversionOffset "0.0"^^xsd:double ;
+	gist:hasBaseUnit gist:_kelvin ;
+	.
+
+gist:_kilogram
+	a
+		owl:NamedIndividual ,
+		owl:Thing ,
+		gist:BaseUnit
+		;
+	gist:baseConversionFactor "1.0"^^xsd:double ;
+	gist:hasBaseUnit gist:_kilogram ;
+	.
+
+gist:_meter
+	a
+		owl:NamedIndividual ,
+		owl:Thing ,
+		gist:BaseUnit
+		;
+	gist:baseConversionFactor "1.0"^^xsd:double ;
+	gist:hasBaseUnit gist:_meter ;
+	.
+
+gist:_millisecond
+	a
+		owl:NamedIndividual ,
+		gist:DurationUnit
+		;
+	gist:baseConversionFactor "0.001"^^xsd:double ;
+	gist:hasBaseUnit gist:_second ;
+	.
+
+gist:_minute
+	a
+		owl:NamedIndividual ,
+		gist:DurationUnit
+		;
+	gist:baseConversionFactor "60.0"^^xsd:double ;
+	gist:hasBaseUnit gist:_second ;
+	.
+
+gist:_mole
+	a
+		owl:NamedIndividual ,
+		owl:Thing ,
+		gist:BaseUnit
+		;
+	gist:baseConversionFactor "1.0"^^xsd:double ;
+	gist:hasBaseUnit gist:_mole ;
+	.
+
+gist:_one_day
+	a
+		owl:NamedIndividual ,
+		owl:Thing ,
+		gist:Duration
+		;
+	gist:hasUnitOfMeasure gist:_day ;
+	gist:numericValue "1.0"^^xsd:double ;
+	.
+
+gist:_one_millisecond
+	a
+		owl:NamedIndividual ,
+		owl:Thing ,
+		gist:Duration
+		;
+	gist:hasUnitOfMeasure gist:_millisecond ;
+	gist:numericValue "1.0"^^xsd:double ;
+	.
+
+gist:_one_minute
+	a
+		owl:NamedIndividual ,
+		owl:Thing ,
+		gist:Duration
+		;
+	gist:hasUnitOfMeasure gist:_minute ;
+	gist:numericValue "1.0"^^xsd:double ;
+	.
+
+gist:_second
+	a
+		owl:NamedIndividual ,
+		owl:Thing ,
+		gist:BaseUnit
+		;
+	gist:baseConversionFactor "1.0"^^xsd:double ;
+	gist:hasBaseUnit gist:_second ;
+	.
