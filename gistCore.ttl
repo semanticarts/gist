@@ -156,12 +156,12 @@ gist:BaseUnit
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:oneOf (
-			gist:_USDollar
-			gist:_ampere
-			gist:_bit
-			gist:_candela
-			gist:_each
-			gist:_kelvin
+			gist:_BaseUnit_US_Dollar
+			gist:_BaseUnit_ampere
+			gist:_BaseUnit_bit
+			gist:_BaseUnit_candela
+			gist:_BaseUnit_each
+			gist:_BaseUnit__kelvin
 			gist:_kilogram
 			gist:_meter
 			gist:_mole
@@ -619,7 +619,7 @@ gist:CountingUnit
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBaseUnit ;
-				owl:hasValue gist:_each ;
+				owl:hasValue gist:_BaseUnit_each ;
 			]
 		) ;
 	] ;
@@ -668,7 +668,7 @@ gist:CurrencyUnit
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBaseUnit ;
-				owl:hasValue gist:_USDollar ;
+				owl:hasValue gist:_BaseUnit_US_Dollar ;
 			]
 		) ;
 	] ;
@@ -694,7 +694,7 @@ gist:DataSizeUnit
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBaseUnit ;
-				owl:hasValue gist:_bit ;
+				owl:hasValue gist:_BaseUnit_bit ;
 			]
 		) ;
 	] ;
@@ -711,7 +711,7 @@ gist:DateInstant
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasPrecision ;
-				owl:hasValue gist:_one_day ;
+				owl:hasValue gist:_one_DurationUnit_day ;
 			]
 		) ;
 	] ;
@@ -827,7 +827,7 @@ gist:ElectricalCurrentUnit
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBaseUnit ;
-				owl:hasValue gist:_ampere ;
+				owl:hasValue gist:_BaseUnit_ampere ;
 			]
 		) ;
 	] ;
@@ -1143,7 +1143,7 @@ gist:GreenwichInstant
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:usesTimeZoneStandard ;
-				owl:hasValue gist:_greenwichTimeZone ;
+				owl:hasValue gist:_TimeZoneStandard__greenwich_Time_Zone ;
 			]
 		) ;
 	] ;
@@ -1406,7 +1406,7 @@ gist:LuminousIntensityUnit
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBaseUnit ;
-				owl:hasValue gist:_candela ;
+				owl:hasValue gist:_BaseUnit_candela ;
 			]
 		) ;
 	] ;
@@ -2417,7 +2417,7 @@ gist:TemperatureUnit
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBaseUnit ;
-				owl:hasValue gist:_kelvin ;
+				owl:hasValue gist:_BaseUnit__kelvin ;
 			]
 			[
 				a owl:Restriction ;
@@ -2628,27 +2628,27 @@ gist:VolumeUnit
 	skos:prefLabel "Volume Unit"^^xsd:string ;
 	.
 
-gist:_USDollar
+gist:_BaseUnit_US_Dollar
 	a
 		owl:NamedIndividual ,
 		owl:Thing ,
 		gist:BaseUnit
 		;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_USDollar ;
+	gist:hasBaseUnit gist:_BaseUnit_US_Dollar ;
 	.
 
-gist:_ampere
+gist:_BaseUnit_ampere
 	a
 		owl:NamedIndividual ,
 		owl:Thing ,
 		gist:BaseUnit
 		;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_ampere ;
+	gist:hasBaseUnit gist:_BaseUnit_ampere ;
 	.
 
-gist:_bit
+gist:_BaseUnit_bit 
 	a
 		owl:NamedIndividual ,
 		owl:Thing ,
@@ -2656,20 +2656,20 @@ gist:_bit
 		;
 	skos:definition "A bit (short for binary digit) is the smallest unit of data in a computer. A bit has a single binary value, either 0 or 1."^^xsd:string ;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_bit ;
+	gist:hasBaseUnit gist:_BaseUnit_bit ;
 	.
 
-gist:_candela
+gist:_BaseUnit_candela
 	a
 		owl:NamedIndividual ,
 		owl:Thing ,
 		gist:BaseUnit
 		;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_candela ;
+	gist:hasBaseUnit gist:_BaseUnit_candela ;
 	.
 
-gist:_day
+gist:_DurationUnit_day
 	a
 		owl:NamedIndividual ,
 		gist:DurationUnit
@@ -2678,17 +2678,17 @@ gist:_day
 	gist:hasBaseUnit gist:_second ;
 	.
 
-gist:_each
+gist:_BaseUnit_each
 	a
 		owl:NamedIndividual ,
 		owl:Thing ,
 		gist:BaseUnit
 		;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_each ;
+	gist:hasBaseUnit gist:_BaseUnit_each ;
 	.
 
-gist:_greenwichTimeZone
+gist:_TimeZoneStandard__greenwich_Time_Zone
 	a
 		owl:NamedIndividual ,
 		owl:Thing ,
@@ -2696,7 +2696,7 @@ gist:_greenwichTimeZone
 		;
 	.
 
-gist:_kelvin
+gist:_BaseUnit__kelvin
 	a
 		owl:NamedIndividual ,
 		owl:Thing ,
@@ -2704,7 +2704,7 @@ gist:_kelvin
 		;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:conversionOffset "0.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_kelvin ;
+	gist:hasBaseUnit gist:_BaseUnit__kelvin ;
 	.
 
 gist:_kilogram
@@ -2755,13 +2755,13 @@ gist:_mole
 	gist:hasBaseUnit gist:_mole ;
 	.
 
-gist:_one_day
+gist:_one_DurationUnit_day
 	a
 		owl:NamedIndividual ,
 		owl:Thing ,
 		gist:Duration
 		;
-	gist:hasUnitOfMeasure gist:_day ;
+	gist:hasUnitOfMeasure gist:_DurationUnit_day ;
 	gist:numericValue "1.0"^^xsd:double ;
 	.
 
@@ -3968,12 +3968,12 @@ gist:wasLastModifiedAt
 []
 	a owl:AllDifferent ;
 	owl:distinctMembers (
-		gist:_USDollar
-		gist:_ampere
-		gist:_bit
-		gist:_candela
-		gist:_each
-		gist:_kelvin
+		gist:_BaseUnit_US_Dollar
+		gist:_BaseUnit_ampere
+		gist:_BaseUnit_bit
+		gist:_BaseUnit_candela
+		gist:_BaseUnit_each
+		gist:_BaseUnit__kelvin
 		gist:_kilogram
 		gist:_meter
 		gist:_mole
