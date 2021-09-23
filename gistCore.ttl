@@ -162,10 +162,10 @@ gist:BaseUnit
 			gist:_candela
 			gist:_each
 			gist:_kelvin
-			gist:_kilogram
-			gist:_meter
-			gist:_mole
-			gist:_second
+			gist:_BaseUnit_kilogram
+			gist:_BaseUnit_meter
+			gist:_BaseUnit_mole
+			gist:_BaseUnit_second
 		) ;
 	] ;
 	skos:definition "A primitive unit that cannot be decomposed into other units. It can be converted from one measurement system to another.  The base units in gist are the seven primitive units from the System Internationale (SI): (meter, second, kilogram, ampere, kelvin, mole, candela), plus three convenience ones: each. bit and usDollar."^^xsd:string ;
@@ -711,7 +711,7 @@ gist:DateInstant
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasPrecision ;
-				owl:hasValue gist:_one_day ;
+				owl:hasValue gist:_Duration_one_day ;
 			]
 		) ;
 	] ;
@@ -744,7 +744,7 @@ gist:DistanceUnit
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBaseUnit ;
-				owl:hasValue gist:_meter ;
+				owl:hasValue gist:_BaseUnit_meter ;
 			]
 		) ;
 	] ;
@@ -787,7 +787,7 @@ gist:DurationUnit
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBaseUnit ;
-				owl:hasValue gist:_second ;
+				owl:hasValue gist:_BaseUnit_second ;
 			]
 		) ;
 	] ;
@@ -1199,7 +1199,7 @@ gist:HumanInstant
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasPrecision ;
-				owl:hasValue gist:_one_minute ;
+				owl:hasValue gist:_Duration_one_minute ;
 			]
 		) ;
 	] ;
@@ -1481,7 +1481,7 @@ gist:MassUnit
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBaseUnit ;
-				owl:hasValue gist:_kilogram ;
+				owl:hasValue gist:_BaseUnit_kilogram ;
 			]
 		) ;
 	] ;
@@ -1573,7 +1573,7 @@ gist:MoleUnit
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBaseUnit ;
-				owl:hasValue gist:_mole ;
+				owl:hasValue gist:_BaseUnit_mole ;
 			]
 		) ;
 	] ;
@@ -2287,7 +2287,7 @@ gist:SystemInstant
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasPrecision ;
-				owl:hasValue gist:_one_millisecond ;
+				owl:hasValue gist:_Duration_one_millisecond ;
 			]
 		) ;
 	] ;
@@ -2675,7 +2675,7 @@ gist:_day
 		gist:DurationUnit
 		;
 	gist:baseConversionFactor "86400.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_second ;
+	gist:hasBaseUnit gist:_BaseUnit_second ;
 	.
 
 gist:_each
@@ -2707,55 +2707,55 @@ gist:_kelvin
 	gist:hasBaseUnit gist:_kelvin ;
 	.
 
-gist:_kilogram
+gist:_BaseUnit_kilogram
 	a
 		owl:NamedIndividual ,
 		owl:Thing ,
 		gist:BaseUnit
 		;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_kilogram ;
+	gist:hasBaseUnit gist:_BaseUnit_kilogram ;
 	.
 
-gist:_meter
+gist:_BaseUnit_meter
 	a
 		owl:NamedIndividual ,
 		owl:Thing ,
 		gist:BaseUnit
 		;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_meter ;
+	gist:hasBaseUnit gist:_BaseUnit_meter ;
 	.
 
-gist:_millisecond
+gist:_DurationUnit_millisecond
 	a
 		owl:NamedIndividual ,
 		gist:DurationUnit
 		;
 	gist:baseConversionFactor "0.001"^^xsd:double ;
-	gist:hasBaseUnit gist:_second ;
+	gist:hasBaseUnit gist:_BaseUnit_second ;
 	.
 
-gist:_minute
+gist:_DurationUnit_minute
 	a
 		owl:NamedIndividual ,
 		gist:DurationUnit
 		;
 	gist:baseConversionFactor "60.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_second ;
+	gist:hasBaseUnit gist:_BaseUnit_second ;
 	.
 
-gist:_mole
+gist:_BaseUnit_mole
 	a
 		owl:NamedIndividual ,
 		owl:Thing ,
 		gist:BaseUnit
 		;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_mole ;
+	gist:hasBaseUnit gist:_BaseUnit_mole ;
 	.
 
-gist:_one_day
+gist:_Duration_one_day
 	a
 		owl:NamedIndividual ,
 		owl:Thing ,
@@ -2765,34 +2765,34 @@ gist:_one_day
 	gist:numericValue "1.0"^^xsd:double ;
 	.
 
-gist:_one_millisecond
+gist:_Duration_one_millisecond
 	a
 		owl:NamedIndividual ,
 		owl:Thing ,
 		gist:Duration
 		;
-	gist:hasUnitOfMeasure gist:_millisecond ;
+	gist:hasUnitOfMeasure gist:_DurationUnit_millisecond ;
 	gist:numericValue "1.0"^^xsd:double ;
 	.
 
-gist:_one_minute
+gist:_Duration_one_minute
 	a
 		owl:NamedIndividual ,
 		owl:Thing ,
 		gist:Duration
 		;
-	gist:hasUnitOfMeasure gist:_minute ;
+	gist:hasUnitOfMeasure gist:_DurationUnit_minute ;
 	gist:numericValue "1.0"^^xsd:double ;
 	.
 
-gist:_second
+gist:_BaseUnit_second
 	a
 		owl:NamedIndividual ,
 		owl:Thing ,
 		gist:BaseUnit
 		;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_second ;
+	gist:hasBaseUnit gist:_BaseUnit_second ;
 	.
 
 gist:accepts
@@ -3974,10 +3974,10 @@ gist:wasLastModifiedAt
 		gist:_candela
 		gist:_each
 		gist:_kelvin
-		gist:_kilogram
-		gist:_meter
-		gist:_mole
-		gist:_second
+		gist:_BaseUnit_kilogram
+		gist:_BaseUnit_meter
+		gist:_BaseUnit_mole
+		gist:_BaseUnit_second
 	) ;
 	.
 
