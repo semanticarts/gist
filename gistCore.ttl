@@ -3193,16 +3193,12 @@ gist:hasMember
 
 gist:hasMultiplicand
 	a owl:ObjectProperty ;
-	rdfs:domain gist:ProductUnit ;
-	rdfs:range gist:UnitOfMeasure ;
 	skos:definition "Relates a ProductUnit such as square mile to the second of two units multiplied together (e.g. mile)."^^xsd:string ;
 	skos:prefLabel "has multiplicand"^^xsd:string ;
 	.
 
 gist:hasMultiplier
 	a owl:ObjectProperty ;
-	rdfs:domain gist:ProductUnit ;
-	rdfs:range gist:UnitOfMeasure ;
 	skos:definition "Relates a ProductUnit such as square mile to the first of two units multiplied together (e.g. mile)"^^xsd:string ;
 	skos:prefLabel "has multiplier"^^xsd:string ;
 	.
