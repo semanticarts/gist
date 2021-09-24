@@ -3101,8 +3101,6 @@ gist:hasDeathDate
 
 gist:hasDenominator
 	a owl:ObjectProperty ;
-	rdfs:domain gist:RatioUnit ;
-	rdfs:range gist:UnitOfMeasure ;
 	skos:definition "Relates a RatioUnit such as meters/second to the denominator Unit (e.g. second)."^^xsd:string ;
 	skos:prefLabel "has denominator"^^xsd:string ;
 	.
@@ -3222,8 +3220,6 @@ gist:hasNavigationalParent
 
 gist:hasNumerator
 	a owl:ObjectProperty ;
-	rdfs:domain gist:RatioUnit ;
-	rdfs:range gist:UnitOfMeasure ;
 	skos:definition "Relates a RatioUnit such as meter(s)/second to the numerator Unit (e.g. meter)."^^xsd:string ;
 	skos:prefLabel "has numerator"^^xsd:string ;
 	.
