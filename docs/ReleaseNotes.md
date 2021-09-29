@@ -1,6 +1,9 @@
 gist Release Notes
 =====
 
+Release X.x.x
+-----
+
 ### Patch Updates
 
 - Added unit symbols for unit instances instances per issue [#579] (https://github.com/semanticarts/gist/issues/579) 
@@ -9,6 +12,9 @@ gist Release Notes
 
 - Added labels to gist instances, per issue [#370](https://github.com/semanticarts/gist/issues/370)
 - Added definitions for unit of measure instances per issue [#526] (https://github.com/semanticarts/gist/issues/526) 
+- Updated annotations for coherent unit classes, per issue [#146](https://github.com/semanticarts/gist/issues/146).
+
+Import URL: <https://ontologies.semanticarts.com/o/gistCoreX.x.x>.
 
 Release 10.0.0
 -----
