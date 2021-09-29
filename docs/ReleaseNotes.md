@@ -1,9 +1,14 @@
 gist Release Notes
 =====
 
+Release X.x.x
+-----
+
 ### Patch Updates
 
-- update annotations for coherent unit classes, per issue [#146](https://github.com/semanticarts/gist/issues/146)
+- Updated annotations for coherent unit classes, per issue [#146](https://github.com/semanticarts/gist/issues/146).
+
+Import URL: <https://ontologies.semanticarts.com/o/gistCoreX.x.x>.
 
 Release 10.0.0
 -----
