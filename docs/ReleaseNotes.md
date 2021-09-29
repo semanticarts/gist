@@ -3,7 +3,9 @@ gist Release Notes
 
 ### Minor Updates
 
-- update annotations for coherent unit classes, per issue [#146](https://github.com/semanticarts/gist/issues/146)
+- Updated annotations for coherent unit classes, per issue [#146](https://github.com/semanticarts/gist/issues/146)
+- Added definitions for unit of measure instances per issue [#526] https://github.com/semanticarts/gist/issues/526 
+- Added unit symbols for unit instances instances per issue [#579] https://github.com/semanticarts/gist/issues/579 
 
 Release 10.0.0
 -----
