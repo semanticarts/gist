@@ -2641,6 +2641,7 @@ gist:_USDollar
 	skos:prefLabel "US Dollar"^^xsd:string ;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_USDollar ;
+	gist:unitSymbol "USD"^^xsd:string ;
 	.
 
 gist:_ampere
@@ -2653,6 +2654,7 @@ gist:_ampere
 	skos:prefLabel "ampere"^^xsd:string ;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_ampere ;
+	gist:unitSymbol "A"^^xsd:string ;
 	.
 
 gist:_bit
@@ -2678,6 +2680,7 @@ gist:_candela
 	skos:prefLabel "candela"^^xsd:string ;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_candela ;
+	gist:unitSymbol "cd"^^xsd:string ;
 	.
 
 gist:_day
@@ -2724,6 +2727,7 @@ gist:_kelvin
 	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:conversionOffset "0.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_kelvin ;
+	gist:unitSymbol "K"^^xsd:string ;
 	.
 
 gist:_kilogram
@@ -2736,6 +2740,7 @@ gist:_kilogram
 	skos:prefLabel "mass"^^xsd:string ;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_kilogram ;
+	gist:unitSymbol "kg"^^xsd:string ;
 	.
 
 gist:_meter
@@ -2748,6 +2753,7 @@ gist:_meter
 	skos:prefLabel "distance"^^xsd:string ;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_meter ;
+	gist:unitSymbol "m"^^xsd:string ;
 	.
 
 gist:_millisecond
@@ -2759,6 +2765,7 @@ gist:_millisecond
 	skos:prefLabel "millisecond"^^xsd:string ;
 	gist:baseConversionFactor "0.001"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
+	gist:unitSymbol "ms"^^xsd:string ;
 	.
 
 gist:_minute
@@ -2770,6 +2777,7 @@ gist:_minute
 	skos:prefLabel "minute"^^xsd:string ;
 	gist:baseConversionFactor "60.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
+	gist:unitSymbol "min"^^xsd:string ;
 	.
 
 gist:_mole
@@ -2782,6 +2790,7 @@ gist:_mole
 	skos:prefLabel "mole"^^xsd:string ;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_mole ;
+	gist:unitSymbol "mol"^^xsd:string ;
 	.
 
 gist:_one_day
@@ -2833,6 +2842,7 @@ gist:_second
 	skos:prefLabel "second"^^xsd:string ;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
+	gist:unitSymbol "s"^^xsd:string ;
 	.
 
 gist:accepts
