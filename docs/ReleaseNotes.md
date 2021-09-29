@@ -1,6 +1,10 @@
 gist Release Notes
 =====
 
+### Minor Updates
+
+- update annotations for coherent unit classes, per issue [#146](https://github.com/semanticarts/gist/issues/146)
+
 Release 10.0.0
 -----
 
