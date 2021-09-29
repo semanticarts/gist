@@ -2637,6 +2637,8 @@ gist:_USDollar
 		owl:Thing ,
 		gist:BaseUnit
 		;
+	skos:definition "The base unit for currency."^^xsd:string ;
+	skos:prefLabel "US Dollar"^^xsd:string ;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_USDollar ;
 	.
@@ -2647,6 +2649,8 @@ gist:_ampere
 		owl:Thing ,
 		gist:BaseUnit
 		;
+	skos:definition "The base unit for electrical current."^^xsd:string ;
+	skos:prefLabel "ampere"^^xsd:string ;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_ampere ;
 	.
@@ -2657,7 +2661,9 @@ gist:_bit
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	skos:definition "A bit (short for binary digit) is the smallest unit of data in a computer. A bit has a single binary value, either 0 or 1."^^xsd:string ;
+	skos:definition "The base unit for measuring information."^^xsd:string ;
+	skos:prefLabel "bit"^^xsd:string ;
+	skos:scopeNote "A bit (short for binary digit) is the smallest unit of data in a computer. A bit has a single binary value, either 0 or 1."^^xsd:string ;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_bit ;
 	.
@@ -2668,6 +2674,8 @@ gist:_candela
 		owl:Thing ,
 		gist:BaseUnit
 		;
+	skos:definition "The base unit for luminous intensity."^^xsd:string ;
+	skos:prefLabel "candela"^^xsd:string ;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_candela ;
 	.
@@ -2677,6 +2685,8 @@ gist:_day
 		owl:NamedIndividual ,
 		gist:DurationUnit
 		;
+	skos:definition "A duration unit that is 24 hours long."^^xsd:string ;
+	skos:prefLabel "day"^^xsd:string ;
 	gist:baseConversionFactor "86400.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
 	.
@@ -2687,6 +2697,8 @@ gist:_each
 		owl:Thing ,
 		gist:BaseUnit
 		;
+	skos:definition "The base unit for count magnitudes."^^xsd:string ;
+	skos:prefLabel "each"^^xsd:string ;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_each ;
 	.
@@ -2697,6 +2709,8 @@ gist:_greenwichTimeZone
 		owl:Thing ,
 		gist:TimeZoneStandard
 		;
+	skos:definition "The time zone containing the Royal Observatory in Greenwich, England, which is located on the prime meridian."^^xsd:string ;
+	skos:prefLabel "Greenwich Time Zone"^^xsd:string ;
 	.
 
 gist:_kelvin
@@ -2705,6 +2719,8 @@ gist:_kelvin
 		owl:Thing ,
 		gist:BaseUnit
 		;
+	skos:definition "The base unit for measuring temperature."^^xsd:string ;
+	skos:prefLabel "Kelvin"^^xsd:string ;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:conversionOffset "0.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_kelvin ;
@@ -2716,6 +2732,8 @@ gist:_kilogram
 		owl:Thing ,
 		gist:BaseUnit
 		;
+	skos:definition "The base unit for measuring mass."^^xsd:string ;
+	skos:prefLabel "mass"^^xsd:string ;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_kilogram ;
 	.
@@ -2726,6 +2744,8 @@ gist:_meter
 		owl:Thing ,
 		gist:BaseUnit
 		;
+	skos:definition "The base unit for measuring distance."^^xsd:string ;
+	skos:prefLabel "distance"^^xsd:string ;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_meter ;
 	.
@@ -2735,6 +2755,8 @@ gist:_millisecond
 		owl:NamedIndividual ,
 		gist:DurationUnit
 		;
+	skos:definition "A unit equal to a thousandth of a second."^^xsd:string ;
+	skos:prefLabel "millisecond"^^xsd:string ;
 	gist:baseConversionFactor "0.001"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
 	.
@@ -2744,6 +2766,8 @@ gist:_minute
 		owl:NamedIndividual ,
 		gist:DurationUnit
 		;
+	skos:definition "A unit equal to 60 seconds."^^xsd:string ;
+	skos:prefLabel "minute"^^xsd:string ;
 	gist:baseConversionFactor "60.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
 	.
@@ -2754,6 +2778,8 @@ gist:_mole
 		owl:Thing ,
 		gist:BaseUnit
 		;
+	skos:definition "The base unit for measuring molar quantities."^^xsd:string ;
+	skos:prefLabel "mole"^^xsd:string ;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_mole ;
 	.
@@ -2764,6 +2790,9 @@ gist:_one_day
 		owl:Thing ,
 		gist:Duration
 		;
+	skos:definition "A duration equal to 24 hours."^^xsd:string ;
+	skos:prefLabel "one day"^^xsd:string ;
+	skos:scopeNote "This is a gist:Magnutude, not a unit. Semantically it is the same as the unit, day."^^xsd:string ;
 	gist:hasUnitOfMeasure gist:_day ;
 	gist:numericValue "1.0"^^xsd:double ;
 	.
@@ -2774,6 +2803,9 @@ gist:_one_millisecond
 		owl:Thing ,
 		gist:Duration
 		;
+	skos:definition "A duration equal to one millisecond."^^xsd:string ;
+	skos:prefLabel "one millisecond"^^xsd:string ;
+	skos:scopeNote "This is a gist:Magnutude, not a unit. Semantically it is the same as the unit, millisecond."^^xsd:string ;
 	gist:hasUnitOfMeasure gist:_millisecond ;
 	gist:numericValue "1.0"^^xsd:double ;
 	.
@@ -2784,6 +2816,9 @@ gist:_one_minute
 		owl:Thing ,
 		gist:Duration
 		;
+	skos:definition "A duration equal to one minute."^^xsd:string ;
+	skos:prefLabel "one minute"^^xsd:string ;
+	skos:scopeNote "This is a gist:Magnutude, not a unit. Semantically it is the same as the unit, minute."^^xsd:string ;
 	gist:hasUnitOfMeasure gist:_minute ;
 	gist:numericValue "1.0"^^xsd:double ;
 	.
@@ -2794,6 +2829,8 @@ gist:_second
 		owl:Thing ,
 		gist:BaseUnit
 		;
+	skos:definition "The base unit for measuring durations."^^xsd:string ;
+	skos:prefLabel "second"^^xsd:string ;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
 	.
