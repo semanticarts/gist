@@ -310,6 +310,7 @@ gist:CoherentRatioUnit
 
 gist:CoherentUnit
 	a owl:Class ;
+	rdfs:seeAlso <http://www.eim.gr/metrology/measurement-units/si-derived-units/coherent-derived-units/> ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:unionOf (
@@ -326,8 +327,7 @@ gist:CoherentUnit
 	skos:prefLabel "Coherent Unit"^^xsd:string ;
 	skos:scopeNote
 		"Coherent unit is the physics term for this, informally you might think of it as the standard unit for a given dimension."^^xsd:string ,
-		"In principle, the CoherentUnit for a ProductUnit or RatioUnit can be inferred by recursively decomposing the products and ratios into their respective CoherentUnits, bottoming out in SimpleUnits"^^xsd:string ,
-		"See: http://www.eim.gr/metrology/measurement-units/si-derived-units/coherent-derived-units/"^^xsd:string
+		"In principle, the CoherentUnit for a ProductUnit or RatioUnit can be inferred by recursively decomposing the products and ratios into their respective CoherentUnits, bottoming out in SimpleUnits"^^xsd:string
 		;
 	.
 
@@ -2663,7 +2663,7 @@ gist:_bit
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	skos:definition "The base unit for measuring information."^^xsd:string ;
+	skos:definition "The base unit for measuring digital information."^^xsd:string ;
 	skos:prefLabel "bit"^^xsd:string ;
 	skos:scopeNote "A bit (short for binary digit) is the smallest unit of data in a computer. A bit has a single binary value, either 0 or 1."^^xsd:string ;
 	gist:baseConversionFactor "1.0"^^xsd:double ;
@@ -2801,7 +2801,7 @@ gist:_one_day
 		;
 	skos:definition "A duration equal to 24 hours."^^xsd:string ;
 	skos:prefLabel "one day"^^xsd:string ;
-	skos:scopeNote "This is a gist:Magnutude, not a unit. Semantically it is the same as the unit, day."^^xsd:string ;
+	skos:scopeNote "This is a gist:Magnutude, not a unit of measure, it means essentially the same thing as the unit, day."^^xsd:string ;
 	gist:hasUnitOfMeasure gist:_day ;
 	gist:numericValue "1.0"^^xsd:double ;
 	.
@@ -2814,7 +2814,7 @@ gist:_one_millisecond
 		;
 	skos:definition "A duration equal to one millisecond."^^xsd:string ;
 	skos:prefLabel "one millisecond"^^xsd:string ;
-	skos:scopeNote "This is a gist:Magnutude, not a unit. Semantically it is the same as the unit, millisecond."^^xsd:string ;
+	skos:scopeNote "This is a gist:Magnutude, not a unit of measure, it means essentially the same thing as the unit, millisecond."^^xsd:string ;
 	gist:hasUnitOfMeasure gist:_millisecond ;
 	gist:numericValue "1.0"^^xsd:double ;
 	.
@@ -2827,7 +2827,7 @@ gist:_one_minute
 		;
 	skos:definition "A duration equal to one minute."^^xsd:string ;
 	skos:prefLabel "one minute"^^xsd:string ;
-	skos:scopeNote "This is a gist:Magnutude, not a unit. Semantically it is the same as the unit, minute."^^xsd:string ;
+	skos:scopeNote "This is a gist:Magnutude, not a unit of measure, it means essentially the same thing as the unit, minute."^^xsd:string ;
 	gist:hasUnitOfMeasure gist:_minute ;
 	gist:numericValue "1.0"^^xsd:double ;
 	.
