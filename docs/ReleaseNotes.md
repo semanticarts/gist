@@ -1,7 +1,7 @@
 gist Release Notes
 =====
 
-### Minor Updates
+### Patch Updates
 
 - Added unit symbols for unit instances instances per issue [#579] (https://github.com/semanticarts/gist/issues/579) 
 
