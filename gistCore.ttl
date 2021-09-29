@@ -266,7 +266,8 @@ gist:CoherentProductUnit
 			]
 		) ;
 	] ;
-	skos:definition "A ratio unit whose numerator and denominator reduce to 1"^^xsd:string ;
+	skos:definition "A product unit both of whose factors are coherent units. The conversion factor is 1."^^xsd:string ;
+	skos:example "Square meter, an area unit."^^xsd:string ;
 	skos:prefLabel "Coherent Product Unit"^^xsd:string ;
 	.
 
@@ -302,7 +303,8 @@ gist:CoherentRatioUnit
 			]
 		) ;
 	] ;
-	skos:definition "A ratio unit whose numerator and denominator reduce to 1"^^xsd:string ;
+	skos:definition "A ratio unit whose conversion factor is 1."^^xsd:string ;
+	skos:example "Newton, a force unit also expressed as kg-m/s^2"^^xsd:string ;
 	skos:prefLabel "Coherent Ratio Unit"^^xsd:string ;
 	.
 
@@ -324,7 +326,8 @@ gist:CoherentUnit
 	skos:prefLabel "Coherent Unit"^^xsd:string ;
 	skos:scopeNote
 		"Coherent unit is the physics term for this, informally you might think of it as the standard unit for a given dimension."^^xsd:string ,
-		"In principle, the CoherentUnit for a ProductUnit or RatioUnit can be inferred by recursively decomposing the products and ratios into their respective CoherentUnits, bottoming out in SimpleUnits"^^xsd:string
+		"In principle, the CoherentUnit for a ProductUnit or RatioUnit can be inferred by recursively decomposing the products and ratios into their respective CoherentUnits, bottoming out in SimpleUnits"^^xsd:string ,
+		"See: http://www.eim.gr/metrology/measurement-units/si-derived-units/coherent-derived-units/"^^xsd:string
 		;
 	.
 
