@@ -3286,18 +3286,6 @@ gist:hasOffsetToUniversal
 	skos:prefLabel "has offset to universal"^^xsd:string ;
 	.
 
-gist:hasOrderedMember
-	a
-		owl:ObjectProperty ,
-		owl:InverseFunctionalProperty
-		;
-	rdfs:subPropertyOf gist:hasMember ;
-	rdfs:range gist:OrderedMember ;
-	skos:definition "Relates an ordered collection to an ordered member that belongs to it."^^xsd:string ;
-	skos:prefLabel "has ordered member"^^xsd:string ;
-	skos:scopeNote "This property is inverse functional because no ordered member can be in more than one ordered collection."^^xsd:string ;
-	.
-
 gist:hasPart
 	a
 		owl:ObjectProperty ,
