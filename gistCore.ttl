@@ -2328,7 +2328,7 @@ gist:Task
 			]
 		) ;
 	] ;
-	skos:definition "A task which has been defined and either scheduled or accomplished, or both."^^xsd:string ;
+	skos:definition "An event which has been defined and either scheduled or accomplished, or both."^^xsd:string ;
 	skos:prefLabel "Task"^^xsd:string ;
 	.
 
