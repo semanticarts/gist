@@ -2328,7 +2328,7 @@ gist:Task
 			]
 		) ;
 	] ;
-	skos:definition "A task which has been defined and either scheduled or accomplished, or both."^^xsd:string ;
+	skos:definition "A function or piece of work to be done or undertaken, usually within a certain time."^^xsd:string ;
 	skos:prefLabel "Task"^^xsd:string ;
 	.
 
