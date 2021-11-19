@@ -1,3 +1,4 @@
+@prefix : <https://ontologies.semanticarts.com/o/gistCore#> .
 @prefix gist: <https://ontologies.semanticarts.com/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -10,8 +11,27 @@
 	a owl:Ontology ;
 	owl:versionIRI <https://ontologies.semanticarts.com/o/gistCoreX.x.x> ;
 	skos:definition "gist is a minimalist upper ontology created by Semantic Arts"^^xsd:string ;
-	skos:prefLabel "gist Core"^^xsd:string ;
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
+	.
+
+skos:altLabel
+	a owl:AnnotationProperty ;
+	.
+
+skos:definition
+	a owl:AnnotationProperty ;
+	.
+
+skos:example
+	a owl:AnnotationProperty ;
+	.
+
+skos:prefLabel
+	a owl:AnnotationProperty ;
+	.
+
+skos:scopeNote
+	a owl:AnnotationProperty ;
 	.
 
 gist:Account
@@ -357,11 +377,6 @@ gist:Commitment
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isCategorizedBy ;
-				owl:someValuesFrom gist:DegreeOfCommitment ;
-			]
-			[
-				a owl:Restriction ;
 				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
@@ -370,6 +385,11 @@ gist:Commitment
 						gist:Person
 					) ;
 				] ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:isCategorizedBy ;
+				owl:someValuesFrom gist:DegreeOfCommitment ;
 			]
 		) ;
 	] ;
@@ -541,6 +561,11 @@ gist:ControlledVocabulary
 			gist:Collection
 			[
 				a owl:Restriction ;
+				owl:onProperty gist:hasMember ;
+				owl:someValuesFrom gist:Category ;
+			]
+			[
+				a owl:Restriction ;
 				owl:onProperty gist:isGovernedBy ;
 				owl:someValuesFrom [
 					a owl:Class ;
@@ -549,11 +574,6 @@ gist:ControlledVocabulary
 						gist:Person
 					) ;
 				] ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMember ;
-				owl:someValuesFrom gist:Category ;
 			]
 		) ;
 	] ;
@@ -569,13 +589,13 @@ gist:Controller
 			gist:Equipment
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isCategorizedBy ;
-				owl:someValuesFrom gist:ControllerType ;
+				owl:onProperty gist:directs ;
+				owl:someValuesFrom gist:Actuator ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:directs ;
-				owl:someValuesFrom gist:Actuator ;
+				owl:onProperty gist:isCategorizedBy ;
+				owl:someValuesFrom gist:ControllerType ;
 			]
 			[
 				a owl:Restriction ;
@@ -884,11 +904,6 @@ gist:Event
 		owl:intersectionOf (
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isCharacterizedAs ;
-				owl:someValuesFrom gist:Behavior ;
-			]
-			[
-				a owl:Restriction ;
 				owl:onProperty gist:hasEnd ;
 				owl:someValuesFrom gist:TimeInstant ;
 			]
@@ -896,6 +911,11 @@ gist:Event
 				a owl:Restriction ;
 				owl:onProperty gist:hasStart ;
 				owl:someValuesFrom gist:TimeInstant ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:isCharacterizedAs ;
+				owl:someValuesFrom gist:Behavior ;
 			]
 		) ;
 	] ;
@@ -999,13 +1019,13 @@ gist:GeoPoliticalRegion
 			gist:Collection
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isGovernedBy ;
-				owl:someValuesFrom gist:GovernmentOrganization ;
+				owl:onProperty gist:hasMember ;
+				owl:someValuesFrom gist:GeoRegion ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasMember ;
-				owl:someValuesFrom gist:GeoRegion ;
+				owl:onProperty gist:isGovernedBy ;
+				owl:someValuesFrom gist:GovernmentOrganization ;
 			]
 		) ;
 	] ;
@@ -1337,13 +1357,13 @@ gist:LivingThing
 			gist:PhysicalIdentifiableItem
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasBirthDate ;
-				owl:someValuesFrom gist:TimeInstant ;
+				owl:onProperty gist:hasBiologicalParent ;
+				owl:someValuesFrom gist:LivingThing ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasBiologicalParent ;
-				owl:someValuesFrom gist:LivingThing ;
+				owl:onProperty gist:hasBirthDate ;
+				owl:someValuesFrom gist:TimeInstant ;
 			]
 		) ;
 	] ;
@@ -1519,8 +1539,8 @@ gist:Message
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
-						gist:Person
 						gist:Organization
+						gist:Person
 					) ;
 				] ;
 			]
@@ -1530,8 +1550,8 @@ gist:Message
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
-						gist:Person
 						gist:Organization
+						gist:Person
 					) ;
 				] ;
 			]
@@ -1632,9 +1652,8 @@ gist:NetworkLink
 		owl:intersectionOf (
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:links ;
-				owl:onClass gist:NetworkNode ;
-				owl:qualifiedCardinality "2"^^xsd:integer ;
+				owl:onProperty gist:isMemberOf ;
+				owl:someValuesFrom gist:Network ;
 			]
 			[
 				a owl:Restriction ;
@@ -1643,8 +1662,9 @@ gist:NetworkLink
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isMemberOf ;
-				owl:someValuesFrom gist:Network ;
+				owl:onProperty gist:links ;
+				owl:onClass gist:NetworkNode ;
+				owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
@@ -1674,7 +1694,7 @@ gist:Obligation
 			gist:Commitment
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasRecipient ;
+				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -1685,7 +1705,7 @@ gist:Obligation
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasGiver ;
+				owl:onProperty gist:hasRecipient ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -1709,6 +1729,11 @@ gist:Offer
 			gist:ContingentObligation
 			[
 				a owl:Restriction ;
+				owl:onProperty gist:hasDirectPart ;
+				owl:someValuesFrom gist:CatalogItem ;
+			]
+			[
+				a owl:Restriction ;
 				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
@@ -1717,11 +1742,6 @@ gist:Offer
 						gist:Person
 					) ;
 				] ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasDirectPart ;
-				owl:someValuesFrom gist:CatalogItem ;
 			]
 			[
 				a owl:Restriction ;
@@ -1747,6 +1767,7 @@ gist:Offer
 gist:OrderedCollection
 	a owl:Class ;
 	owl:equivalentClass [
+		a owl:Class ;
 		owl:intersectionOf (
 			gist:Collection
 			[
@@ -1764,27 +1785,19 @@ gist:OrderedCollection
 gist:OrderedMember
 	a owl:Class ;
 	owl:equivalentClass [
+		a owl:Class ;
 		owl:intersectionOf (
 			[
-				a owl:Restriction ;
-				owl:onProperty gist:isMemberOf ;
-				owl:cardinality "1"^^xsd:nonNegativeInteger ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isMemberOf ;
-				owl:allValuesFrom gist:OrderedCollection ;
-			]
-			[
+				a owl:Class ;
 				owl:unionOf (
 					[
 						a owl:Restriction ;
-						owl:onProperty gist:precedesDirectly ;
+						owl:onProperty gist:followsDirectly ;
 						owl:someValuesFrom gist:OrderedMember ;
 					]
 					[
 						a owl:Restriction ;
-						owl:onProperty gist:followsDirectly ;
+						owl:onProperty gist:precedesDirectly ;
 						owl:someValuesFrom gist:OrderedMember ;
 					]
 					[
@@ -1793,6 +1806,16 @@ gist:OrderedMember
 						owl:someValuesFrom xsd:integer ;
 					]
 				) ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:isMemberOf ;
+				owl:allValuesFrom gist:OrderedCollection ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:isMemberOf ;
+				owl:cardinality "1"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
@@ -1936,6 +1959,7 @@ gist:PhysicalIdentifiableItem
 gist:PhysicalSubstance
 	a owl:Class ;
 	rdfs:subClassOf [
+		a owl:Class ;
 		owl:intersectionOf (
 			[
 				a owl:Restriction ;
@@ -2853,6 +2877,7 @@ gist:accepts
 
 gist:affects
 	a owl:ObjectProperty ;
+	owl:inverseOf gist:isAffectedBy ;
 	skos:definition "The subject has or had or will have an effect on the object"^^xsd:string ;
 	skos:prefLabel "affects"^^xsd:string ;
 	.
@@ -2893,8 +2918,8 @@ gist:comesFromPlace
 	rdfs:range [
 		a owl:Class ;
 		owl:unionOf (
-			gist:Place
 			gist:Address
+			gist:Place
 		) ;
 	] ;
 	skos:definition "Origin"^^xsd:string ;
@@ -2922,6 +2947,7 @@ gist:containsGeographically
 		;
 	rdfs:domain gist:Place ;
 	rdfs:range gist:Place ;
+	owl:inverseOf gist:isGeographicallyContainedIn ;
 	skos:definition "Relate one place to another place that is contained within the first."^^xsd:string ;
 	skos:prefLabel "contains geographically"^^xsd:string ;
 	.
@@ -3010,8 +3036,8 @@ gist:goesToPlace
 	rdfs:range [
 		a owl:Class ;
 		owl:unionOf (
-			gist:Place
 			gist:Address
+			gist:Place
 		) ;
 	] ;
 	skos:definition "Destination"^^xsd:string ;
@@ -3043,6 +3069,7 @@ gist:governs
 			gist:PhysicalSubstance
 		) ;
 	] ;
+	owl:inverseOf gist:isGovernedBy ;
 	skos:definition "The subject controls or inhibits the object in some way"^^xsd:string ;
 	skos:prefLabel "governs"^^xsd:string ;
 	.
@@ -3131,8 +3158,8 @@ gist:hasCommunicationAddress
 	rdfs:domain [
 		a owl:Class ;
 		owl:unionOf (
-			gist:Person
 			gist:Organization
+			gist:Person
 		) ;
 	] ;
 	rdfs:range gist:Address ;
@@ -3160,6 +3187,7 @@ gist:hasDenominator
 gist:hasDirectPart
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasPart ;
+	owl:inverseOf gist:isDirectPartOf ;
 	skos:definition "The relationship between a whole and a part where the part has independent existence."^^xsd:string ;
 	skos:prefLabel "has direct part"^^xsd:string ;
 	skos:scopeNote
@@ -3182,6 +3210,7 @@ gist:hasDirectSubTask
 	rdfs:subPropertyOf gist:hasSubTask ;
 	rdfs:domain gist:Task ;
 	rdfs:range gist:Task ;
+	owl:inverseOf gist:isDirectSubTaskOf ;
 	skos:definition "Immediate child task"^^xsd:string ;
 	skos:prefLabel "has direct sub task"^^xsd:string ;
 	.
@@ -3204,6 +3233,7 @@ gist:hasEnd
 gist:hasGiver
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasParticipant ;
+	owl:propertyDisjointWith gist:hasRecipient ;
 	skos:definition "The active party, the one with the obligation or the one initiating the transfer"^^xsd:string ;
 	skos:prefLabel "has giver"^^xsd:string ;
 	.
@@ -3374,7 +3404,6 @@ gist:hasPrecision
 gist:hasRecipient
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasParticipant ;
-	owl:propertyDisjointWith gist:hasGiver ;
 	skos:definition "The recipient"^^xsd:string ;
 	skos:prefLabel "has recipient"^^xsd:string ;
 	.
@@ -3463,6 +3492,7 @@ gist:identifies
 		owl:ObjectProperty ,
 		owl:FunctionalProperty
 		;
+	owl:inverseOf gist:isIdentifiedBy ;
 	skos:definition "The thing the identifier refers to."^^xsd:string ;
 	skos:prefLabel "identifies"^^xsd:string ;
 	.
@@ -3477,7 +3507,6 @@ gist:isAbout
 
 gist:isAffectedBy
 	a owl:ObjectProperty ;
-	owl:inverseOf gist:affects ;
 	skos:definition "Where the effect came from"^^xsd:string ;
 	skos:prefLabel "is affected by"^^xsd:string ;
 	.
@@ -3546,7 +3575,6 @@ gist:isDescribedIn
 
 gist:isDirectPartOf
 	a owl:ObjectProperty ;
-	owl:inverseOf gist:hasDirectPart ;
 	skos:definition "The relationship between a part and a whole where the part has independent existence."^^xsd:string ;
 	skos:prefLabel "is direct part of"^^xsd:string ;
 	skos:scopeNote
@@ -3557,7 +3585,6 @@ gist:isDirectPartOf
 
 gist:isDirectSubTaskOf
 	a owl:ObjectProperty ;
-	owl:inverseOf gist:hasDirectSubTask ;
 	skos:definition "Immediate parent task"^^xsd:string ;
 	skos:prefLabel "is direct subtask of"^^xsd:string ;
 	.
@@ -3570,7 +3597,6 @@ gist:isExpressedIn
 
 gist:isGeographicallyContainedIn
 	a owl:ObjectProperty ;
-	owl:inverseOf gist:containsGeographically ;
 	skos:definition "Relates one place to another place that contains the first."^^xsd:string ;
 	skos:prefLabel "is geographically contained in"^^xsd:string ;
 	.
@@ -3591,7 +3617,6 @@ gist:isGeographicallyPermanentlyOccupiedBy
 
 gist:isGovernedBy
 	a owl:ObjectProperty ;
-	owl:inverseOf gist:governs ;
 	skos:definition "A reference from the thing being governed to the governor"^^xsd:string ;
 	skos:prefLabel "is governed by"^^xsd:string ;
 	.
@@ -3602,7 +3627,6 @@ gist:isIdentifiedBy
 		owl:InverseFunctionalProperty
 		;
 	rdfs:range gist:ID ;
-	owl:inverseOf gist:identifies ;
 	skos:definition "This is like a URI: a thing can have more than one ID, but each of the IDs must refer to a unique thing."^^xsd:string ;
 	skos:prefLabel "is identified by"^^xsd:string ;
 	.
@@ -3768,8 +3792,6 @@ gist:numericValue
 	rdfs:range [
 		a rdfs:Datatype ;
 		owl:unionOf (
-			owl:rational
-			owl:real
 			xsd:byte
 			xsd:decimal
 			xsd:double
@@ -3786,6 +3808,8 @@ gist:numericValue
 			xsd:unsignedInt
 			xsd:unsignedLong
 			xsd:unsignedShort
+			owl:rational
+			owl:real
 		) ;
 	] ;
 	skos:definition "The actual value of a magnitude."^^xsd:string ;
@@ -3894,9 +3918,7 @@ gist:recognizes
 
 gist:requires
 	a owl:ObjectProperty ;
-	rdfs:domain gist:Intention ;
-	rdfs:range gist:Behavior ;
-	skos:definition "An intention that sets out a state of satisfaction (you are required to drive on right side of the road)"^^xsd:string ;
+	skos:definition "The object is necessary to the subject."^^xsd:string ;
 	skos:prefLabel "requires"^^xsd:string ;
 	.
 
