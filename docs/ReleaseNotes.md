@@ -6,6 +6,7 @@ Release X.x.x
 
 ### Minor Updates
 
+- Improved definitions for 'navigational' predicates, per issue [#523](https://github.com/semanticarts/gist/issues/523).
 - Modified skos:definition of gist:Message to match formal definitions, per issue [#194](https://github.com/semanticarts/gist/issues/194).
 - Added unit symbols for unit instances instances per issue [#579](https://github.com/semanticarts/gist/issues/579).
 
