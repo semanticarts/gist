@@ -11,7 +11,8 @@ Release X.x.x
 ### Patch Updates
 
 - Added labels to gist instances, per issue [#370](https://github.com/semanticarts/gist/issues/370).
-- Modified skos:definition of gist:Message to match formal definitions, per issue [#194](https://github.com/semanticarts/gist/issues/194).
+- Improved definitions for 'navigational' predicates, per issue [#523](https://github.com/semanticarts/gist/issues/523).
+- Modified `skos:definition` of `gist:Message` to match formal definitions, per issue [#194](https://github.com/semanticarts/gist/issues/194).
 - Added definitions for unit of measure instances per issue [#526](https://github.com/semanticarts/gist/issues/526).
 - Updated annotations for coherent unit classes, per issue [#146](https://github.com/semanticarts/gist/issues/146).
 - Deprecated property `gist:hasOrderedMember`. `gist:hasMember` should be used instead. Issue [#540](https://github.com/semanticarts/gist/issues/540).
