@@ -3260,13 +3260,15 @@ gist:hasMultiplier
 gist:hasNavigationalChild
 	a owl:ObjectProperty ;
 	owl:inverseOf gist:hasNavigationalParent ;
-	skos:definition "Used for informal hierarchical taxonomies.  Supports polyhierarchies"^^xsd:string ;
+	skos:definition "Used in cases where the child category is not necessarily an instance of the parent category but it is useful to represent the relationship hierarchically. Supports polyhierarchies."^^xsd:string ;
+	skos:example "Refrigerator handles are not refrigerators, but it may be useful in some contexts (e.g., within a user interface) them to fall under the refrigerators category."^^xsd:string ;
 	skos:prefLabel "has navigational child"^^xsd:string ;
 	.
 
 gist:hasNavigationalParent
 	a owl:ObjectProperty ;
-	skos:definition "Used for informal hierarchical taxonomies.  Supports polyhierarchies"^^xsd:string ;
+	skos:definition "Used in cases where the child category is not necessarily an instance of the parent category but it is useful to represent the relationship hierarchically. Supports polyhierarchies."^^xsd:string ;
+	skos:example "Refrigerator handles are not refrigerators, but it may be useful in some contexts (e.g., within a user interface) them to fall under the refrigerators category."^^xsd:string ;
 	skos:prefLabel "has navigational parent"^^xsd:string ;
 	.
 
@@ -3430,7 +3432,7 @@ gist:hasUniqueNavigationalParent
 		owl:FunctionalProperty
 		;
 	rdfs:subPropertyOf gist:hasNavigationalParent ;
-	skos:definition "Used for taxos that must have single parents"^^xsd:string ;
+	skos:definition "Used in cases where the child category has a unique parent that it is not necessarily an instance of but it is useful to represent the relationship hierarchically."^^xsd:string ;
 	skos:prefLabel "has unique navigational parent"^^xsd:string ;
 	.
 
