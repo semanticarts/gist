@@ -2328,8 +2328,9 @@ gist:Task
 			]
 		) ;
 	] ;
-	skos:definition "A function or piece of work to be done or undertaken, usually within a certain time."^^xsd:string ;
+	skos:definition "An event characterized by a defined piece of work that is either scheduled, accomplished, or both."^^xsd:string ;
 	skos:prefLabel "Task"^^xsd:string ;
+	skos:scopeNote "Note that this differs from the ordinary sense of 'task,' which is not an event (e.g., 'A piece of work to be done or undertaken.')."^^xsd:string ;
 	.
 
 gist:TaskTemplate
