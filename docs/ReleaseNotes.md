@@ -1,13 +1,19 @@
 gist Release Notes
 =====
 
-Release X.x.x
+Release 11.0.0
 -----
+
+### Major Updates
+
+- Removed property  `gist:hasOrderedMember`. `gist:hasMember` should be used instead. Issue [#540](https://github.com/semanticarts/gist/issues/540).
+- Removed domain and range constraints from `gist:requires`. Issue [#183](https://github.com/semanticarts/gist/issues/183).
+- Removed domain and range constraints from `gist:hasNumerator`, `gist:hasDenominator`, `gist:hasMultiplier`, and `gist:hasMultiplicand`. Issue [#160](https://github.com/semanticarts/gist/issues/160).
 
 ### Minor Updates
 
 - Improved definitions for 'navigational' predicates, per issue [#523](https://github.com/semanticarts/gist/issues/523).
-- Modified skos:definition of gist:Message to match formal definitions, per issue [#194](https://github.com/semanticarts/gist/issues/194).
+- Modified `skos:definition` of `gist:Message` to match formal definitions, per issue [#194](https://github.com/semanticarts/gist/issues/194).
 - Added unit symbols for unit instances instances per issue [#579](https://github.com/semanticarts/gist/issues/579).
 
 ### Patch Updates
@@ -15,9 +21,9 @@ Release X.x.x
 - Updated annotations for coherent unit classes, per issue [#146](https://github.com/semanticarts/gist/issues/146).
 - Added labels to gist instances, per issue [#370](https://github.com/semanticarts/gist/issues/370).
 - Added definitions for unit of measure instances per issue [#526](https://github.com/semanticarts/gist/issues/526).
-- Deprecated property `gist:hasOrderedMember`. `gist:hasMember` should be used instead. Issue [#540](https://github.com/semanticarts/gist/issues/540).
+
   
-Import URL: <https://ontologies.semanticarts.com/o/gistCoreX.x.x>.
+Import URL: <https://ontologies.semanticarts.com/o/gistCore11.0.0>.
 
 Release 10.0.0
 -----
