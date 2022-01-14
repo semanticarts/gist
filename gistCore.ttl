@@ -3889,9 +3889,8 @@ gist:recognizes
 
 gist:requires
 	a owl:ObjectProperty ;
-	rdfs:domain gist:Intention ;
-	rdfs:range gist:Behavior ;
-	skos:definition "An intention that sets out a state of satisfaction (you are required to drive on right side of the road)"^^xsd:string ;
+	skos:definition "The object is necessary to the subject."^^xsd:string ;
+	skos:example "Humans require air; solar power requires sunshine."^^xsd:string ;
 	skos:prefLabel "requires"^^xsd:string ;
 	.
 
