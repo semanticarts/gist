@@ -4,6 +4,10 @@ gist Release Notes
 Release X.x.x
 -----
 
+### Major Updates
+
+- Remodeled times to use datatype properties rather than TimeInstant, per issue [#499](https://github.com/semanticarts/gist/issues/499).
+
 ### Minor Updates
 
 - Improved definitions for 'navigational' predicates, per issue [#523](https://github.com/semanticarts/gist/issues/523).
