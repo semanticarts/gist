@@ -2241,8 +2241,9 @@ gist:Task
 			]
 		) ;
 	] ;
-	skos:definition "A task which has been defined and either scheduled or accomplished, or both."^^xsd:string ;
+	skos:definition "An event characterized by a defined piece of work that is either scheduled, accomplished, or both."^^xsd:string ;
 	skos:prefLabel "Task"^^xsd:string ;
+	skos:scopeNote "Note that this differs from the ordinary sense of 'task,' which is not an event (e.g., 'A piece of work to be done or undertaken.')."^^xsd:string ;
 	.
 
 gist:TaskTemplate
@@ -3118,8 +3119,6 @@ gist:hasCommunicationAddress
 
 gist:hasDenominator
 	a owl:ObjectProperty ;
-	rdfs:domain gist:RatioUnit ;
-	rdfs:range gist:UnitOfMeasure ;
 	skos:definition "Relates a RatioUnit such as meters/second to the denominator Unit (e.g. second)."^^xsd:string ;
 	skos:prefLabel "has denominator"^^xsd:string ;
 	.
@@ -3206,16 +3205,12 @@ gist:hasMember
 
 gist:hasMultiplicand
 	a owl:ObjectProperty ;
-	rdfs:domain gist:ProductUnit ;
-	rdfs:range gist:UnitOfMeasure ;
 	skos:definition "Relates a ProductUnit such as square mile to the second of two units multiplied together (e.g. mile)."^^xsd:string ;
 	skos:prefLabel "has multiplicand"^^xsd:string ;
 	.
 
 gist:hasMultiplier
 	a owl:ObjectProperty ;
-	rdfs:domain gist:ProductUnit ;
-	rdfs:range gist:UnitOfMeasure ;
 	skos:definition "Relates a ProductUnit such as square mile to the first of two units multiplied together (e.g. mile)"^^xsd:string ;
 	skos:prefLabel "has multiplier"^^xsd:string ;
 	.
@@ -3223,20 +3218,20 @@ gist:hasMultiplier
 gist:hasNavigationalChild
 	a owl:ObjectProperty ;
 	owl:inverseOf gist:hasNavigationalParent ;
-	skos:definition "Used for informal hierarchical taxonomies.  Supports polyhierarchies"^^xsd:string ;
+	skos:definition "A property that relates a parent category to a child category in an informal (e.g., faceted) hierarchy."^^xsd:string ;
+	skos:example "Refrigerator handles are not refrigerators, but it may be useful to represent their relationship hierarchically for a faceted UI filter."^^xsd:string ;
 	skos:prefLabel "has navigational child"^^xsd:string ;
 	.
 
 gist:hasNavigationalParent
 	a owl:ObjectProperty ;
-	skos:definition "Used for informal hierarchical taxonomies.  Supports polyhierarchies"^^xsd:string ;
+	skos:definition "A property that relates a child category to a parent category in an informal (e.g., faceted) hierarchy."^^xsd:string ;
+	skos:example "Refrigerator handles are not refrigerators, but it may be useful to represent their relationship hierarchically for a faceted UI filter."^^xsd:string ;
 	skos:prefLabel "has navigational parent"^^xsd:string ;
 	.
 
 gist:hasNumerator
 	a owl:ObjectProperty ;
-	rdfs:domain gist:RatioUnit ;
-	rdfs:range gist:UnitOfMeasure ;
 	skos:definition "Relates a RatioUnit such as meter(s)/second to the numerator Unit (e.g. meter)."^^xsd:string ;
 	skos:prefLabel "has numerator"^^xsd:string ;
 	.
@@ -3355,7 +3350,7 @@ gist:hasUniqueNavigationalParent
 		owl:FunctionalProperty
 		;
 	rdfs:subPropertyOf gist:hasNavigationalParent ;
-	skos:definition "Used for taxos that must have single parents"^^xsd:string ;
+	skos:definition "A property that relates a subject category to a unique parent category in an informal (e.g., faceted) hierarchy."^^xsd:string ;
 	skos:prefLabel "has unique navigational parent"^^xsd:string ;
 	.
 
