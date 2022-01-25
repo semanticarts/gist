@@ -1,3 +1,4 @@
+@prefix : <https://ontologies.semanticarts.com/o/gistCore#> .
 @prefix gist: <https://ontologies.semanticarts.com/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -10,7 +11,6 @@
 	a owl:Ontology ;
 	owl:versionIRI <https://ontologies.semanticarts.com/o/gistCoreX.x.x> ;
 	skos:definition "gist is a minimalist upper ontology created by Semantic Arts"^^xsd:string ;
-	skos:prefLabel "gist Core"^^xsd:string ;
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
 	.
 
@@ -3278,9 +3278,9 @@ gist:hasPrecision
 	a owl:ObjectProperty ;
 	rdfs:range gist:Magnitude ;
 	skos:definition "Links a Magnitude to the degree of accuracy of the numeric value.   This allows for fuzzy numbers.  All magnitudes have a precision.  Usually we don't record them.  When we do this, it will be a value whose extent covers 2 standard deviations around the stated magnitude"^^xsd:string ;
-	skos:example "Temperature precise to tenth of a degree C; TimeInstant precise to 24 hours."^^xsd:string ;
+	skos:example "Temperature precise to tenth of a degree C."^^xsd:string ;
 	skos:prefLabel "has precision"^^xsd:string ;
-	skos:scopeNote "Most frequently apples to Magnitude(s) and TimeInstant. Could also apply to a measurement."^^xsd:string ;
+	skos:scopeNote "Most frequently apples to Magnitude(s). Could also apply to a measurement."^^xsd:string ;
 	.
 
 gist:hasRecipient
@@ -3744,7 +3744,7 @@ AtMinute refers to clock time, so meetings will start at 9:00 with a timezone of
 Recommended usage is to zero out the seconds and microseconds
 
 “2021-06-01T08:32:00-6:00”^^xsd:dateTime"""^^xsd:string ;
-	skos:prefLabel "planned stgart at minute"^^xsd:string ;
+	skos:prefLabel "planned start at minute"^^xsd:string ;
 	.
 
 gist:precedes
@@ -3842,7 +3842,7 @@ gist:startAtDateTime
 	rdfs:subPropertyOf gist:atDateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "This is an abstraction over the various precisions of start time.  Since they all have the same format they can be compared.  We have looked at some extreme edge cases (did this meeting end before of after the trade was posted) and we couldn't find any use case that required special processing."^^xsd:string ;
-	skos:prefLabel "start at daete time"^^xsd:string ;
+	skos:prefLabel "start at date time"^^xsd:string ;
 	.
 
 gist:tagText
