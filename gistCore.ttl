@@ -2713,12 +2713,12 @@ gist:actualEndDate
 	skos:definition "The actual date that something completed, with precision of one day (+/- 12 hours)."^^xsd:string ;
 	skos:example "'2021-06-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "actual end date"^^xsd:string ;
-	skos:scopeNote "Used for things where the precision of a date is sufficient, such as most projects, tasks, and the like.Recommended usage is to put the hours through microseconds to zero to avoid spurious precision."^^xsd:string ;
+	skos:scopeNote "Used for things where the precision of a date is sufficient, such as most projects, tasks, and the like. Recommended usage is to zero out the hours through microseconds to avoid spurious precision."^^xsd:string ;
 	.
 
 gist:actualEndDateTime
 	a owl:DatatypeProperty ;
-	rdfs:subPropertyOf gist:actualEndDateTime ;
+	rdfs:subPropertyOf gist:endDateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "An abstraction over the various precisions of actual end time.  They can be compared since they all have the same format."^^xsd:string ;
 	skos:editorialNote "Dave: this was in your presentation but not your OWL file. Not sure if you still want it."^^xsd:string ;
@@ -2731,14 +2731,8 @@ gist:actualEndMicrosecond
 	rdfs:range xsd:dateTime ;
 	skos:definition "A system time used for timestamps."^^xsd:string ;
 	skos:example "'2021-06-01T08:03:27.12324-6:00'^^xsd:dateTime"^^xsd:string ;
-	skos:prefLabel
-		"actual end microsecond"^^xsd:string ,
-		"actual end microsecond."^^xsd:string
-		;
-	skos:scopeNote
-		"A system time will be as precise as the system can supply, typically at least milliseconds, sometimes microseconds."^^xsd:string ,
-		"The convention for timestamps, such as recording a transaction, is to specify just the end point; the start time is rarely needed."^^xsd:string
-		;
+	skos:prefLabel "actual end microsecond"^^xsd:string ;
+	skos:scopeNote "A system time will be as precise as the system can supply, typically at least milliseconds, sometimes microseconds. The convention for timestamps, such as recording a transaction, is to specify just the end point; the start time is rarely needed."^^xsd:string ;
 	.
 
 gist:actualEndMinute
@@ -2758,7 +2752,7 @@ gist:actualStartDate
 	skos:definition "The actual date that something started, with precision of one day (+/- 12 hours)."^^xsd:string ;
 	skos:example "'2021-06-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "actual start date"^^xsd:string ;
-	skos:scopeNote "Used for things where the precision of a date is sufficient, such as most projects, tasks, and the like. Recommended usage is to put the hours through microseconds to zero to avoid spurious precision."^^xsd:string ;
+	skos:scopeNote "Used for things where the precision of a date is sufficient, such as most projects, tasks, and the like. Recommended usage is to zero out the hours through microseconds to avoid spurious precision."^^xsd:string ;
 	.
 
 gist:actualStartDateTime
@@ -2777,10 +2771,7 @@ gist:actualStartMicrosecond
 	skos:definition "A system time used for timestamps, which records the actual start of something."^^xsd:string ;
 	skos:example "'2021-06-01T08:03:27.12324-6:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "actual start microsecond"^^xsd:string ;
-	skos:scopeNote
-		"A system time will be as precise as the system can supply, typically at least milliseconds, sometimes microseconds."^^xsd:string ,
-		"The convention for timestamps, such as recording a transaction, is to specify just the end point; the start time is rarely needed. This property is defined for the cases when you do need to capture the runtime of a system process, and is then used in conjunction with gist:actualEndMicrosecond"^^xsd:string
-		;
+	skos:scopeNote "A system time will be as precise as the system can supply, typically at least milliseconds, sometimes microseconds. The convention for timestamps, such as recording a transaction, is to specify just the end point; the start time is rarely needed. This property is defined for the cases when you do need to capture the runtime of a system process, and is then used in conjunction with gist:actualEndMicrosecond."^^xsd:string ;
 	.
 
 gist:actualStartMinute
@@ -2813,7 +2804,7 @@ gist:atDateTime
 	rdfs:range xsd:dateTime ;
 	skos:definition """This is the top level property for asserting time.
 
-The sub-properties allow the ontologist to do three things:
+The subproperties allow the ontologist to do three things:
 1) Distinguish start and end times.
 2) Indicate whether a time is planned or actual. This is useful for everything from project management to calendar appointments and the like. It is also useful for date effectivities; i.e., something valid up to a planned date).
 3) Distinguish varying levels of precision; sort of a simple version of the Allen functions.  
@@ -2825,14 +2816,10 @@ Time zone offset, such as -6:00 (of which there are a few dozen) is recognized i
 There will be many historical dates that do not have a time zone offset (e.g., Lincoln's birthday, as well as about 75% of all legacy systems), and in that case the offset can be omitted. 
 
 The conventions for precision that are repeated in each property are as follows:
-
-*DateTime is an abstraction over the various precisions of its sub-properties.
-
-*Date refers to a calendar date (birthdays and invoice dates) and is assumed to be precise +/- 12 hours. Time zone offset is allowed.
-
-*Minute refers to clock time; e.g., a meeting will start at 9:15 with a timezone offset. Precision is assumed to be +/- 1 minute.
-
-*Microsecond refers to system time, and it will be as precise as the system can supply; typically at least milliseconds, sometime microseconds.
+	- *DateTime is an abstraction over the various precisions of its subproperties.
+	- *Date refers to a calendar date (e.g., birthdays and invoice dates) and is assumed to be precise +/- 12 hours. Time zone offset is allowed.
+	- *Minute refers to clock time; e.g., a meeting will start at 9:15 with a timezone offset. Precision is assumed to be +/- 1 minute.
+	- *Microsecond refers to system time, and it will be as precise as the system can supply; typically at least milliseconds, sometime microseconds.
 
 """^^xsd:string ;
 	skos:prefLabel "at date time"^^xsd:string ;
@@ -2848,12 +2835,12 @@ gist:baseConversionFactor
 
 gist:birthDate
 	a owl:DatatypeProperty ;
-	rdfs:subPropertyOf gist:actualStartDate ;
+	rdfs:subPropertyOf gist:startDateTime ;
 	rdfs:range xsd:dateTime ;
-	skos:definition "The date some living thing was born."^^xsd:string ;
+	skos:definition "The date some living thing was or will be born."^^xsd:string ;
 	skos:example "'2021-06-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "birth date"^^xsd:string ;
-	skos:scopeNote "This property refers to a calendar date and is assumed to be precise +/- 12 hours (time zone offset is allowed). It is recommended to put the hours through microseconds to zero, to avoid spurious precision."^^xsd:string ;
+	skos:scopeNote "This is a subproperty of gist:startDateTime rather than gist:actualStartDateTime because some living things have yet to be born. This property refers to a calendar date and is assumed to be precise +/- 12 hours (time zone offset is allowed). It is recommended to zero out the hours through microseconds to avoid spurious precision. Implementations requiring a birthdate to the minute can define a subproperty."^^xsd:string ;
 	.
 
 gist:comesFromAgent
@@ -2926,16 +2913,12 @@ gist:conversionOffset
 
 gist:deathDate
 	a owl:DatatypeProperty ;
-	rdfs:subPropertyOf gist:actualStartDate ;
+	rdfs:subPropertyOf gist:actualEndDate ;
 	rdfs:range xsd:dateTime ;
-	skos:definition """Date of death, typically as established by a coronor.
-
-AtDate refers to a calendar date (birthdays and invoice dates) and is assumed to be precise +/- 12 hours (time zone offset is allowed)
-
-“2021-06-01T00:00:00-6:00”^^xsd:dateTime
-
-Note: recommended us is to put the hours throiugh microseconds to zero, to avoid spurious precision."""^^xsd:string ;
+	skos:definition "Date of death, typically as established by a coronor."^^xsd:string ;
+	skos:example "'2021-06-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "death date"^^xsd:string ;
+	skos:scopeNote "Refers to a calendar date and is assumed to be precise +/- 12 hours (time zone offset is allowed). Recommended usage is to zero out the hours through microseconds to avoid spurious precision. Implementations requiring a birthdate to the minute can define a subproperty."^^xsd:string ;
 	.
 
 gist:description
@@ -3697,12 +3680,20 @@ gist:plannedEndDate
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf gist:plannedEndDateTime ;
 	rdfs:range xsd:dateTime ;
-	skos:definition
-		"The date that something was planned to end, with precision of one day (+/- 12 hours)."^^xsd:string ,
-		"Used for anything with a planned end date, such as when a lease will expire, when an offer is no longer available, etc. Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual. Recommended usage is to put the hours through microseconds to zero to avoid spurious precision."^^xsd:string
-		;
+	skos:definition "The date that something was planned to end, with precision of one day (+/- 12 hours)."^^xsd:string ;
 	skos:example "'2021-06-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "planned end date"^^xsd:string ;
+	skos:scopeNote "Used for anything with a planned end date, such as when a lease will expire, when an offer is no longer available, etc. Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual. Recommended usage is to zero out the hours through microseconds to avoid spurious precision."^^xsd:string ;
+	.
+
+gist:plannedEndDateTime
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:endDateTime ;
+	rdfs:range xsd:dateTime ;
+	skos:definition "An abstraction over the various precisions of planned end time.  They can be compared since they all have the same format."^^xsd:string ;
+	skos:editorialNote "Dave: this was in your presentation but not your OWL file. Not sure if you still want it."^^xsd:string ;
+	skos:prefLabel "planned end date time"^^xsd:string ;
+	skos:scopeNote "This property, unlike gist:actualEndDateTime, does not have a subproperty for microsecond precision, because planned times typically are not expressed at that level of granularity. Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual."^^xsd:string ;
 	.
 
 gist:plannedEndMinute
@@ -3712,22 +3703,17 @@ gist:plannedEndMinute
 	skos:definition "The date that something was planned to end, with precision of +/- 1 minute."^^xsd:string ;
 	skos:example "'2021-06-01T08:32:00-6:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "planned end minute"^^xsd:string ;
-	skos:scopeNote
-		"Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual."^^xsd:string ,
-		"Used for things like meetings and time card entries, where the hour and minute are important. Recommended usage is to zero out the seconds and microseconds to avoid spurious precision."^^xsd:string
-		;
+	skos:scopeNote "Used for things like meetings and time card entries, where the hour and minute are important. Recommended usage is to zero out the seconds and microseconds to avoid spurious precision.Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual."^^xsd:string ;
 	.
 
 gist:plannedStartDate
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf gist:plannedStartDateTime ;
 	rdfs:range xsd:dateTime ;
-	skos:definition
-		"The date that something was planned to start, with precision of one day (+/- 12 hours)."^^xsd:string ,
-		"Used for anything with a planned start date, such as when a lease will start, when a configuration becomes available, etc. Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual. Recommended usage is to put the hours through microseconds to zero to avoid spurious precision."^^xsd:string
-		;
+	skos:definition "The date that something was planned to start, with precision of one day (+/- 12 hours)."^^xsd:string ;
 	skos:example "'2021-06-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "planned start date"^^xsd:string ;
+	skos:scopeNote "Used for anything with a planned start date, such as when a lease will start, when a configuration becomes available, etc. Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual. Recommended usage is to zero out the hours through microseconds to avoid spurious precision."^^xsd:string ;
 	.
 
 gist:plannedStartDateTime
@@ -3737,10 +3723,7 @@ gist:plannedStartDateTime
 	skos:definition "An abstraction over the various precisions of planned start time.  They can be compared since they all have the same format."^^xsd:string ;
 	skos:editorialNote "Dave: this was in your presentation but not your OWL file. Not sure if you still want it."^^xsd:string ;
 	skos:prefLabel "planned start date time"^^xsd:string ;
-	skos:scopeNote
-		"This property, unlike gist:actualStartDateTime, does not have a sub-property for microsecond precision, because planned times typically are not expressed at that level of granularity."^^xsd:string ,
-		"Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual."^^xsd:string
-		;
+	skos:scopeNote "This property, unlike gist:actualStartDateTime, does not have a subproperty for microsecond precision, because planned times typically are not expressed at that level of granularity. Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual."^^xsd:string ;
 	.
 
 gist:plannedStartMinute
