@@ -2822,6 +2822,7 @@ The conventions for precision that are repeated in each property are as follows:
 	- *Microsecond refers to system time, and it will be as precise as the system can supply; typically at least milliseconds, sometime microseconds.
 
 """^^xsd:string ;
+	skos:editorialNote "Dave/Michael/Mark: Could this be simply gist:dateTime? Would that be too easily confused with xsd:datetime? I've left 'at' off the other predicate names to make them less awkward, but that leaves this one as the oddball."^^xsd:string ;
 	skos:prefLabel "at date time"^^xsd:string ;
 	.
 
