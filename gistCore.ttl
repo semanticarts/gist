@@ -2721,7 +2721,6 @@ gist:actualEndDateTime
 	rdfs:subPropertyOf gist:endDateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "An abstraction over the various precisions of actual end time.  They can be compared since they all have the same format."^^xsd:string ;
-	skos:editorialNote "Dave: this was in your presentation but not your OWL file. Not sure if you still want it."^^xsd:string ;
 	skos:prefLabel "actual end date time"^^xsd:string ;
 	.
 
@@ -2760,7 +2759,6 @@ gist:actualStartDateTime
 	rdfs:subPropertyOf gist:startDateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "An abstraction over the various precisions of actual start time.  They can be compared since they all have the same format."^^xsd:string ;
-	skos:editorialNote "Dave: this was in your presentation but not your OWL file. Not sure if you still want it."^^xsd:string ;
 	skos:prefLabel "actual start date time"^^xsd:string ;
 	.
 
@@ -2797,33 +2795,6 @@ gist:allows
 	rdfs:range gist:Behavior ;
 	skos:definition "The intention (say a grant) allows a particular kind of activity (for instance egress)"^^xsd:string ;
 	skos:prefLabel "allows"^^xsd:string ;
-	.
-
-gist:atDateTime
-	a owl:DatatypeProperty ;
-	rdfs:range xsd:dateTime ;
-	skos:definition """This is the top level property for asserting time.
-
-The subproperties allow the ontologist to do three things:
-1) Distinguish start and end times.
-2) Indicate whether a time is planned or actual. This is useful for everything from project management to calendar appointments and the like. It is also useful for date effectivities; i.e., something valid up to a planned date).
-3) Distinguish varying levels of precision; sort of a simple version of the Allen functions.  
-
-All datetimes are of the same format: '2021-06-01T08:03:27.12324-6:00'^^xsd:dateTime. This is compatible with and a subset of ISO 8601.
-
-Time zone offset, such as -6:00 (of which there are a few dozen) is recognized in the date itself, as shown. The actual time zone standard (of which there are 131) may optionally be attached to the event or other object itself; see property gist:usesTimeZoneStandard.
-
-There will be many historical dates that do not have a time zone offset (e.g., Lincoln's birthday, as well as about 75% of all legacy systems), and in that case the offset can be omitted. 
-
-The conventions for precision that are repeated in each property are as follows:
-	- *DateTime is an abstraction over the various precisions of its subproperties.
-	- *Date refers to a calendar date (e.g., birthdays and invoice dates) and is assumed to be precise +/- 12 hours. Time zone offset is allowed.
-	- *Minute refers to clock time; e.g., a meeting will start at 9:15 with a timezone offset. Precision is assumed to be +/- 1 minute.
-	- *Microsecond refers to system time, and it will be as precise as the system can supply; typically at least milliseconds, sometime microseconds.
-
-"""^^xsd:string ;
-	skos:editorialNote "Dave/Michael/Mark: Could this be simply gist:dateTime? Would that be too easily confused with xsd:datetime? I've left 'at' off the other predicate names to make them less awkward, but that leaves this one as the oddball."^^xsd:string ;
-	skos:prefLabel "at date time"^^xsd:string ;
 	.
 
 gist:baseConversionFactor
@@ -2912,6 +2883,33 @@ gist:conversionOffset
 	skos:prefLabel "conversion offset"^^xsd:string ;
 	.
 
+gist:dateTime
+	a owl:DatatypeProperty ;
+	rdfs:range xsd:dateTime ;
+	skos:definition """This is the top level property for asserting time.
+
+The subproperties allow the ontologist to do three things:
+1) Distinguish start and end times.
+2) Indicate whether a time is planned or actual. This is useful for everything from project management to calendar appointments and the like. It is also useful for date effectivities; i.e., something valid up to a planned date).
+3) Distinguish varying levels of precision; sort of a simple version of the Allen functions.  
+
+All datetimes are of the same format: '2021-06-01T08:03:27.12324-6:00'^^xsd:dateTime. This is compatible with and a subset of ISO 8601.
+
+Time zone offset, such as -6:00 (of which there are a few dozen) is recognized in the date itself, as shown. The actual time zone standard (of which there are 131) may optionally be attached to the event or other object itself; see property gist:usesTimeZoneStandard.
+
+There will be many historical dates that do not have a time zone offset (e.g., Lincoln's birthday, as well as about 75% of all legacy systems), and in that case the offset can be omitted. 
+
+The conventions for precision that are repeated in each property are as follows:
+	- *DateTime is an abstraction over the various precisions of its subproperties.
+	- *Date refers to a calendar date (e.g., birthdays and invoice dates) and is assumed to be precise +/- 12 hours. Time zone offset is allowed.
+	- *Minute refers to clock time; e.g., a meeting will start at 9:15 with a timezone offset. Precision is assumed to be +/- 1 minute.
+	- *Microsecond refers to system time, and it will be as precise as the system can supply; typically at least milliseconds, sometime microseconds.
+
+"""^^xsd:string ;
+	skos:editorialNote "Michael/Mark: I've changed this from gist:atDateTime. Would that be too easily confused with xsd:datetime? I've left 'at' off the other predicate names to make them less awkward, but that would leave this one as the oddball. Dave is OK with gist:dateTime."^^xsd:string ;
+	skos:prefLabel "date time"^^xsd:string ;
+	.
+
 gist:deathDate
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf gist:actualEndDate ;
@@ -2958,7 +2956,7 @@ gist:encryptedText
 
 gist:endDateTime
 	a owl:DatatypeProperty ;
-	rdfs:subPropertyOf gist:atDateTime ;
+	rdfs:subPropertyOf gist:dateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "An abstraction over the various precisions of end time.  They can be compared since they all have the same format."^^xsd:string ;
 	skos:prefLabel "end date time"^^xsd:string ;
@@ -3692,7 +3690,6 @@ gist:plannedEndDateTime
 	rdfs:subPropertyOf gist:endDateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "An abstraction over the various precisions of planned end time.  They can be compared since they all have the same format."^^xsd:string ;
-	skos:editorialNote "Dave: this was in your presentation but not your OWL file. Not sure if you still want it."^^xsd:string ;
 	skos:prefLabel "planned end date time"^^xsd:string ;
 	skos:scopeNote "This property, unlike gist:actualEndDateTime, does not have a subproperty for microsecond precision, because planned times typically are not expressed at that level of granularity. Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual."^^xsd:string ;
 	.
@@ -3722,7 +3719,6 @@ gist:plannedStartDateTime
 	rdfs:subPropertyOf gist:startDateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "An abstraction over the various precisions of planned start time.  They can be compared since they all have the same format."^^xsd:string ;
-	skos:editorialNote "Dave: this was in your presentation but not your OWL file. Not sure if you still want it."^^xsd:string ;
 	skos:prefLabel "planned start date time"^^xsd:string ;
 	skos:scopeNote "This property, unlike gist:actualStartDateTime, does not have a subproperty for microsecond precision, because planned times typically are not expressed at that level of granularity. Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual."^^xsd:string ;
 	.
@@ -3829,7 +3825,7 @@ gist:standardConversionFactor
 
 gist:startDateTime
 	a owl:DatatypeProperty ;
-	rdfs:subPropertyOf gist:atDateTime ;
+	rdfs:subPropertyOf gist:dateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "An abstraction over the various precisions of start time.  They can be compared since they all have the same format."^^xsd:string ;
 	skos:prefLabel "start date time"^^xsd:string ;
