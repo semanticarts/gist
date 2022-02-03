@@ -16,7 +16,7 @@ Release X.x.x
 - Added labels to gist instances, per issue [#370](https://github.com/semanticarts/gist/issues/370).
 - Added definitions for unit of measure instances per issue [#526](https://github.com/semanticarts/gist/issues/526).
 - Deprecated property `gist:hasOrderedMember`. `gist:hasMember` should be used instead. Issue [#540](https://github.com/semanticarts/gist/issues/540).
-- Removed min cardinality of zero restriction on ProductUnit and added scopeNote, per issue [#582](https://github.com/semanticarts/gist/issues/582).
+- Removed min cardinality of zero restriction on `ProductUnit`, per issue [#582](https://github.com/semanticarts/gist/issues/582).
   
 Import URL: <https://ontologies.semanticarts.com/o/gistCoreX.x.x>.
 
