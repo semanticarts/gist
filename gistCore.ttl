@@ -2060,7 +2060,7 @@ gist:ProductUnit
 	skos:definition "A unit of measure that is the product of two simpler ones."^^xsd:string ;
 	skos:example "Area and Volume are the classic cases.  But other, more exotic cases exist, such as Newtons."^^xsd:string ;
 	skos:prefLabel "Product Unit"^^xsd:string ;
-	skos:scopeNote "A ProductUnit is intended have a (nonzero) value for baseConversionFactor."^^xsd:string ;
+	skos:scopeNote "A ProductUnit is intended have a value for baseConversionFactor."^^xsd:string ;
 	.
 
 gist:Project
