@@ -1,22 +1,24 @@
 gist Release Notes
 =====
 
-Release X.x.x
+Release 11.0.0
 -----
 
-### Patch Updates
+### Minor Updates
 
-- Improved definitions for 'navigational' predicates, per issue [#523](https://github.com/semanticarts/gist/issues/523).
-- Modified skos:definition of gist:Message to match formal definitions, per issue [#194](https://github.com/semanticarts/gist/issues/194).
 - Added unit symbols for unit instances instances per issue [#579](https://github.com/semanticarts/gist/issues/579).
 
 ### Patch Updates
 
-- Added labels to gist instances, per issue [#370](https://github.com/semanticarts/gist/issues/370)
-- Added definitions for unit of measure instances per issue [#526] (<https://github.com/semanticarts/gist/issues/526>)
-- Updated annotations for coherent unit classes, per issue [#146](https://github.com/semanticarts/gist/issues/146).
-
-Import URL: <https://ontologies.semanticarts.com/o/gistCoreX.x.x>.
+- Added labels to gist instances, per issue [#370](https://github.com/semanticarts/gist/issues/370).
+- Added definitions for unit of measure instances per issue [#526](https://github.com/semanticarts/gist/issues/526).
+- Deprecated property `gist:hasOrderedMember`. `gist:hasMember` should be used instead. Issue [#540](https://github.com/semanticarts/gist/issues/540).
+- Improved definitions of 'navigational' predicates, per issue [#523](https://github.com/semanticarts/gist/issues/523).
+- Modified `skos:definition` of `gist:Message` to match formal definitions, per issue [#194](https://github.com/semanticarts/gist/issues/194).
+- Removed min cardinality of zero restriction on `ProductUnit`, per issue [#582](https://github.com/semanticarts/gist/issues/582).
+- Improved definition of `gist:Task`, per issue [#625](https://github.com/semanticarts/gist/issues/625).
+  
+Import URL: <https://ontologies.semanticarts.com/o/gistCore11.0.0>.
 
 Release 10.0.0
 -----

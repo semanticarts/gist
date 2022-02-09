@@ -3795,10 +3795,16 @@ gist:recognizes
 
 gist:requires
 	a owl:ObjectProperty ;
-	rdfs:domain gist:Intention ;
-	rdfs:range gist:Behavior ;
-	skos:definition "An intention that sets out a state of satisfaction (you are required to drive on right side of the road)"^^xsd:string ;
+	skos:definition "The subject needs the object or makes it necessary, mandatory, or compulsory."^^xsd:string ;
+	skos:example "Humans require air; solar power requires sunshine."^^xsd:string ;
 	skos:prefLabel "requires"^^xsd:string ;
+	skos:scopeNote """This predicate is defined generally enough to encompass a few different meanings of the English word 'requires': 
+		
+		1. To need something or to make something necessary.
+		2. To order or demand something, or to order someone to do something, especially because of a rule or law.
+		3. To make it officially necessary for someone to do something.
+	
+	Implementations requiring a more specific meaning should define subproperties."""^^xsd:string ;
 	.
 
 gist:respondsTo
