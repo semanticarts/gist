@@ -1660,6 +1660,8 @@ gist:CountryGovernment rdf:type owl:Class ;
                                                                 ) ;
                                              rdf:type owl:Class
                                            ] ;
+                       owl:disjointWith gist:IntergovernmentalOrganization ,
+                                        gist:SubCountryGovernment ;
                        skos:definition "A Government Organization which asserts both sovereignty (i.e., it is not governed by some other government organization) and governance over an entity generally recognized as a 'country'."^^xsd:string ;
                        skos:note "While a country government may enter into treaties with other country governments, that does not mean it is 'governed by' the others." ;
                        skos:prefLabel "Country Government"^^xsd:string .
@@ -2204,6 +2206,22 @@ gist:Intention rdf:type owl:Class ;
                                 gist:UnitOfMeasure ;
                skos:definition "Goal, desire, aspiration. This is the \"teleologic\" aspect of the system that indicates things are done with a purpose."^^xsd:string ;
                skos:prefLabel "Intention"^^xsd:string .
+
+
+###  https://ontologies.semanticarts.com/gist/IntergovernmentalOrganization
+gist:IntergovernmentalOrganization rdf:type owl:Class ;
+                                   owl:equivalentClass [ owl:intersectionOf ( gist:Organization
+                                                                              [ rdf:type owl:Restriction ;
+                                                                                owl:onProperty gist:hasMember ;
+                                                                                owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                                                                owl:onClass gist:GovernmentOrganization
+                                                                              ]
+                                                                            ) ;
+                                                         rdf:type owl:Class
+                                                       ] ;
+                                   rdfs:subClassOf gist:Organization ;
+                                   skos:definition "An organization the membership of which is comprised of Government Organizations." ;
+                                   skos:prefLabel "Inter-Governmental Organization" .
 
 
 ###  https://ontologies.semanticarts.com/gist/Landmark
@@ -3291,6 +3309,22 @@ gist:Transaction rdf:type owl:Class ;
                  rdfs:subClassOf gist:Event ;
                  skos:definition "An event which has an effect on at least one accumulator."^^xsd:string ;
                  skos:prefLabel "Transaction"^^xsd:string .
+
+
+###  https://ontologies.semanticarts.com/gist/TreatyOrganization
+gist:TreatyOrganization rdf:type owl:Class ;
+                        owl:equivalentClass [ owl:intersectionOf ( gist:IntergovernmentalOrganization
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty gist:hasMember ;
+                                                                     owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                                                     owl:onClass gist:CountryGovernment
+                                                                   ]
+                                                                 ) ;
+                                              rdf:type owl:Class
+                                            ] ;
+                        rdfs:subClassOf gist:IntergovernmentalOrganization ;
+                        skos:definition "An organization the membership of which is comprised of Country Governments (i.e., sovereign governments)." ;
+                        skos:prefLabel "Treaty Organization" .
 
 
 ###  https://ontologies.semanticarts.com/gist/UnitOfMeasure
