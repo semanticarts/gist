@@ -4,6 +4,16 @@ gist Release Notes
 Release 11.0.0
 -----
 
+### Major Updates
+
+- Implemented new time model based on datatype properties rather than `TimeInstant`. Issue [#499](https://github.com/semanticarts/gist/issues/499).
+    - Deleted class `TimeInstant` and its subclasses. This class was previously used to materialize a point in time with different precisions (day, minute, system time), a time zone, a local and UTC value, and so on. Object properties were used to connect something to an instance of `TimeInstant`, specifying different relationships such as start and end, planned vs actual.
+    - Defined a top-level datatype property `atDateTime`, neutral as to start/end, planned/actual, and precision (day, minute, microsecond). Replaced existing object properties to a hierarchy of subproperties of `atDateTime`, retaining distinctions between start and end, planned vs actual, and precisions.
+    - Renamed `ContemporaneousEvent` to `ContemporaryEvent`.
+- Removed property  `gist:hasOrderedMember`. `gist:hasMember` should be used instead. Issue [#540](https://github.com/semanticarts/gist/issues/540).
+- Removed domain and range constraints from `gist:requires`. Issue [#183](https://github.com/semanticarts/gist/issues/183).
+- Removed domain and range constraints from `gist:hasNumerator`, `gist:hasDenominator`, `gist:hasMultiplier`, and `gist:hasMultiplicand`. Issue [#160](https://github.com/semanticarts/gist/issues/160).
+
 ### Minor Updates
 
 - Added unit symbols for unit instances instances per issue [#579](https://github.com/semanticarts/gist/issues/579).
