@@ -465,12 +465,12 @@ gist:ContingentEvent
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:plannedEndDate ;
+				owl:onProperty gist:plannedEndDateTime ;
 				owl:someValuesFrom xsd:dateTime ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:plannedStartDate ;
+				owl:onProperty gist:plannedStartDateTime ;
 				owl:someValuesFrom xsd:dateTime ;
 			]
 		) ;
@@ -1650,7 +1650,7 @@ gist:Offer
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:plannedEndDateTime ;
-				owl:someValuesFrom xsd:dateTime ;
+				owl:cardinality "1"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
@@ -1850,21 +1850,18 @@ gist:PhysicalIdentifiableItem
 
 gist:PhysicalSubstance
 	a owl:Class ;
-	rdfs:subClassOf [
-		a owl:Class ;
-		owl:intersectionOf (
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMagnitude ;
-				owl:someValuesFrom gist:Mass ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMagnitude ;
-				owl:someValuesFrom gist:Volume ;
-			]
-		) ;
-	] ;
+	rdfs:subClassOf
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:hasMagnitude ;
+			owl:someValuesFrom gist:Mass ;
+		] ,
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:hasMagnitude ;
+			owl:someValuesFrom gist:Volume ;
+		]
+		;
 	owl:disjointWith gist:UnitOfMeasure ;
 	skos:definition "Non-corporeal material, i.e. 'stuff' which can be divided into parts where each part retains its essence."^^xsd:string ;
 	skos:example "An amount of water, of penicillin, of sand, of gold: an actual piece of gold, not the concept of gold."^^xsd:string ;
@@ -2422,17 +2419,14 @@ gist:TimeZoneStandard
 
 gist:Transaction
 	a owl:Class ;
-	rdfs:subClassOf [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Event
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:actualEndMicrosecond ;
-				owl:someValuesFrom xsd:dateTime ;
-			]
-		) ;
-	] ;
+	rdfs:subClassOf
+		gist:Event ,
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:actualEndMicrosecond ;
+			owl:someValuesFrom xsd:dateTime ;
+		]
+		;
 	skos:definition "An event which has an effect on at least one accumulator."^^xsd:string ;
 	skos:prefLabel "Transaction"^^xsd:string ;
 	.
@@ -3265,9 +3259,8 @@ gist:hasPrecision
 	a owl:ObjectProperty ;
 	rdfs:range gist:Magnitude ;
 	skos:definition "Links a Magnitude to the degree of accuracy of the numeric value.   This allows for fuzzy numbers.  All magnitudes have a precision.  Usually we don't record them.  When we do this, it will be a value whose extent covers 2 standard deviations around the stated magnitude"^^xsd:string ;
-	skos:example "Temperature precise to tenth of a degree C."^^xsd:string ;
+	skos:example "Temperature precise to tenth of a degree C; length precise to the nearest centimeter."^^xsd:string ;
 	skos:prefLabel "has precision"^^xsd:string ;
-	skos:scopeNote "Most frequently apples to Magnitudes. Could also apply to a measurement."^^xsd:string ;
 	.
 
 gist:hasRecipient
@@ -3321,7 +3314,7 @@ gist:hasUniqueNavigationalParent
 		owl:FunctionalProperty
 		;
 	rdfs:subPropertyOf gist:hasNavigationalParent ;
-	skos:definition "A property that relates a subject category to a unique parent category in an informal (e.g., faceted) hierarchy."^^xsd:string ;
+	skos:definition "Relates a subject category to a unique parent category in an informal (e.g., faceted) hierarchy."^^xsd:string ;
 	skos:prefLabel "has unique navigational parent"^^xsd:string ;
 	.
 
@@ -3542,7 +3535,7 @@ gist:isRecordedAt
 	rdfs:subPropertyOf gist:actualEndDateTime ;
 	skos:definition "Date that something was posted, not necessarily the date it occurred. Must be after the occurred date, but could be before or after the planned date. (Unusual, but I could record today that I expected to be paid last week.)"^^xsd:string ;
 	skos:prefLabel "is recorded at"^^xsd:string ;
-	skos:scopeNote "Precision is variable according to context."^^xsd:string ;
+	skos:scopeNote "Precision may vary according to context."^^xsd:string ;
 	.
 
 gist:isRenderedOn
