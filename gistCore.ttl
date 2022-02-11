@@ -1965,17 +1965,12 @@ gist:ProductUnit
 				owl:onProperty gist:hasMultiplier ;
 				owl:someValuesFrom gist:UnitOfMeasure ;
 			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:baseConversionFactor ;
-				owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-				owl:onDataRange xsd:double ;
-			]
 		) ;
 	] ;
 	skos:definition "A unit of measure that is the product of two simpler ones."^^xsd:string ;
 	skos:example "Area and Volume are the classic cases.  But other, more exotic cases exist, such as Newtons."^^xsd:string ;
 	skos:prefLabel "Product Unit"^^xsd:string ;
+	skos:scopeNote "A ProductUnit is intended have a value for baseConversionFactor."^^xsd:string ;
 	.
 
 gist:Project
