@@ -34,7 +34,6 @@ WHERE {
                 gist:getter
                 gist:giver
                 gist:hasA
-                gist:hasOrderedMember
                 gist:localDate
                 gist:localDateTime
                 gist:of
