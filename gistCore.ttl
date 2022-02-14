@@ -407,7 +407,7 @@ gist:ContemporaryEvent
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:endDateTime ;
+				owl:onProperty gist:actualEndDateTime ;
 				owl:maxCardinality "0"^^xsd:nonNegativeInteger ;
 			]
 		) ;
