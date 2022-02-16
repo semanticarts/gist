@@ -2781,7 +2781,7 @@ gist:actualStartMinute
 
 gist:actualStartYear
 	a owl:DatatypeProperty ;
-	rdfs:subPropertyOf gist:actualEndDateTime ;
+	rdfs:subPropertyOf gist:actualStartDateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "The actual date that something started, with precision of one year."^^xsd:string ;
 	skos:example
