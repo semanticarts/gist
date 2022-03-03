@@ -45,7 +45,7 @@ function findJava() {
   fi
   if [ "${java_home}" == "" ] ; then
       log_error A-$JAVA_HOME
-    log_error "Please set RDF_TOOLKIT_JAVA_HOME or JAVA_HOME to point to a Java 7 or later installation."
+    log_error "Please set RDF_TOOLKIT_JAVA_HOME or JAVA_HOME to point to a Java 11 or later installation."
     return 1
   fi
   java_home=${java_home/C:\\/\/c\/}
@@ -69,10 +69,10 @@ function findJava() {
   local java_major=$1
   local java_minor=$2
 
-  if [ \( $java_major -eq 1 -a $java_minor -gt 7 \) -o $java_major -gt 7 ] ; then
+  if [ \( $java_major -eq 1 -a $java_minor -gt 11 \) -o $java_major -gt 11 ] ; then
   	:
   else
-    log_error "You are using Java $java_major.$java_minor whereas the Sesame serializer requires Java 7 or higher"
+    log_error "You are using Java $java_major.$java_minor whereas the Sesame serializer requires Java 11 or higher"
     return 2
   fi
 
