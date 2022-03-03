@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# THIS SCRIPT HAS BEEN SUPERCEDED BY onto_tool. See https://github.com/semanticarts/ontology-toolkit.
+
 ## Require $1 (first command line parameter) to be the version of the gist release
 if [ -z "$1" ]
   then
@@ -75,4 +77,3 @@ ln -s ${DIRECTORY}Documentation/ReleaseNotes.md ReleaseNotes.md
 ln -s ${DIRECTORY}LICENSE.txt LICENSE.txt
 
 exit
-
