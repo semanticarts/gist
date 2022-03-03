@@ -6,10 +6,11 @@ Release 11.0.0
 
 ### Major Updates
 
-- Implemented new time model based on datatype properties rather than `TimeInstant`. Issues [#499](https://github.com/semanticarts/gist/issues/499), [#388](https://github.com/semanticarts/gist/issues/388). 
+- Implemented new time model based on datatype properties rather than `TimeInstant`. Issues [#499](https://github.com/semanticarts/gist/issues/499), [#388](https://github.com/semanticarts/gist/issues/388).
     - Deleted class `TimeInstant` and its subclasses. This class was previously used to materialize a point in time with different precisions (day, minute, system time), a time zone, a local and UTC value, and so on. Object properties were used to connect something to an instance of `TimeInstant`, specifying different relationships such as start and end, planned vs actual.
     - Defined a top-level datatype property `atDateTime`, neutral as to start/end, planned/actual, and precision (year, day, minute, microsecond).
-    - Replaced existing object properties with a hierarchy of subproperties of `atDateTime`, retaining distinctions between start and end, planned vs actual, and precisions. Included adding new predicates with year precision alongside the existing day, minute, and milli-/microsecond precisions.
+    - Replaced existing object properties with a hierarchy of subproperties of `atDateTime`, retaining distinctions between start and end, planned vs actual, and precisions.
+    - Added new predicates with year precision alongside the existing day, minute, and milli-/microsecond precisions.
     - Renamed `ContemporaneousEvent` to `ContemporaryEvent`.
 - Removed property  `gist:hasOrderedMember`. `gist:hasMember` should be used instead. Issue [#540](https://github.com/semanticarts/gist/issues/540).
 - Removed domain and range constraints from `gist:requires`. Issue [#183](https://github.com/semanticarts/gist/issues/183).
