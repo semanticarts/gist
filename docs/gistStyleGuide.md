@@ -38,11 +38,10 @@ gist uses OWL 2 DL.
 Serialization
 -----
 
-- gist OWL files are serialized in RDF Turtle
-- The [EDM Council's RDF serialization tool, rdf-toolkit.jar,](https://github.com/edmcouncil/rdf-toolkit) should be run before every commit in order to standardize formatting and eliminate noise in git diffs.
-- It is recommended to run this as a [pre-commit hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) in your git repository to ensure that it is done every time.
-  In order to use the standard settings, copy the provided `pre-commit` script from the `tools/` directory in the repository to `.git/hooks/` after the repository is cloned,
-  and ensure that `JAVA_HOME` is set in your environment. This script will only format RDF files, ignoring all others.
+- gist OWL files are serialized in RDF Turtle.
+- The [EDM Council's RDF serialization tool, `rdf-toolkit.jar`,](https://github.com/edmcouncil/rdf-toolkit) should be run before every commit in order to standardize formatting and eliminate noise in git diffs.
+- It is recommended to run this as a [pre-commit hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) in your git repository to ensure that it is done every time. In order to use the standard settings, copy the provided `pre-commit` script from the `tools/` directory in the repository to `.git/hooks/` after the repository is cloned, and ensure that `JAVA_HOME` is set in your environment. Java 11 or higher is required. This script will format only RDF files, ignoring all others.
+- **Only** the `rdf-toolkit.jar` file found in `tools/` should be used, since mixing versions may result in bogus diffs.
 
 -----
 
@@ -111,7 +110,7 @@ Some of the examples resulted in changes to gist `10.0.0`, others are hypothetic
 These conventions apply to both data and taxonomy terms.
 
 - Leading underscore
-- An infix consisting of the name of the class that is the _most specific rigid_ class the instance belongs to
+- An infix consisting of the name of the class that is the *most specific rigid* class the instance belongs to
 - A single underscore
 - The name of the instance, with spaces and hyphens replaced by underscores (no camelcasing) and only alphanumeric characters and underscores allowed
 - Leave case as it is
@@ -131,13 +130,13 @@ The following conventions apply to `skos:prefLabel` but not `skos:altLabel`.
 
 - Title case (see definition of title case below)
 - Normalized to natural language standards. E.g., hyphens inserted, acronyms in all caps, etc.
-  - Examples: _AMA Guideline_, _ISBN-10_
+  - Examples: *AMA Guideline*, *ISBN-10*
   
 ### Properties
 
 - Lower case
 - Normalized to natural language standards. E.g., hyphens inserted, acronyms in all caps, proper nouns capitalized, etc.
-- Examples: _has unit of measure_, _has SSN_, _unit symbol Unicode_
+- Examples: *has unit of measure*, *has SSN*, *unit symbol Unicode*
 
 ### gist Definition of Title Case
 
@@ -147,13 +146,13 @@ This style guide defines the rules for title case as follows:
 
 - Capitalize:
   - First and last words
-  - Words of four or more letters (e.g., _Between_, _With_, _This_)
-  - Second part of hyphenated word (e.g., _Data-Centric_, not _Data-centric_)
+  - Words of four or more letters (e.g., *Between*, *With*, *This*)
+  - Second part of hyphenated word (e.g., *Data-Centric*, not *Data-centric*)
 - Lowercase:
   - Articles: *a*, *an*, *the*
   - Conjunctions: *and*, *but*, *if*, *for*, *or*, *nor*, *so*, *yet*
   - Prepositions: *as*, *at*, *by*, *cum*, *ere*, *for*, *in*, *of*, *off*, *on*, *out*, *per*, *pre*, *pro*, *qua*, *re*, *sub*, *to*, *up*, *via*
-- Acronyms in all caps (e.g., _SSN_, _ISBN_)
+- Acronyms in all caps (e.g., *SSN*, *ISBN*)
 - Capitalize everything else
 
 -----
