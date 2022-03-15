@@ -1313,7 +1313,7 @@ gist:LivingThing
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBiologicalParent ;
-				owl:someValuesFrom gist:LivingThing ;
+				owl:minCardinality "1"^^xsd:nonNegativeInteger ;
 			]
 			[
 				a owl:Restriction ;
@@ -1328,6 +1328,7 @@ gist:LivingThing
 		"Negative examples: fictional life forms such as unicorns or Mickey Mouse."^^xsd:string
 		;
 	skos:prefLabel "Living Thing"^^xsd:string ;
+	skos:scopeNote "Not all life forms have exactly two parents, so the restriction only specifies a minimum of one."^^xsd:string ;
 	.
 
 gist:LuminousIntensity
@@ -1804,7 +1805,12 @@ gist:Person
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBiologicalParent ;
-				owl:someValuesFrom gist:Person ;
+				owl:allValuesFrom gist:Person ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasBiologicalParent ;
+				owl:cardinality "2"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
@@ -3153,19 +3159,12 @@ gist:hasBaseUnit
 	skos:prefLabel "has base unit"^^xsd:string ;
 	.
 
-gist:hasBiologicalOffspring
+gist:hasBiologicalParent
 	a owl:ObjectProperty ;
 	rdfs:domain gist:LivingThing ;
 	rdfs:range gist:LivingThing ;
-	skos:definition "Relates a parent to its biological offspring."^^xsd:string ;
-	skos:prefLabel "has biological offspring"^^xsd:string ;
-	.
-
-gist:hasBiologicalParent
-	a owl:ObjectProperty ;
 	skos:definition "Relates a living thing to its biological parent."^^xsd:string ;
 	skos:prefLabel "has biological parent"^^xsd:string ;
-	gist:rangeIncludes gist:Person ;
 	.
 
 gist:hasCommunicationAddress
@@ -4041,4 +4040,3 @@ gist:usesTimeZoneStandard
 		gist:_second
 	) ;
 	.
-
