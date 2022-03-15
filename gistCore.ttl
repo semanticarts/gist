@@ -515,7 +515,7 @@ gist:Contract
 			gist:Agreement
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasJurisdictionOver ;
+				owl:onProperty gist:hasJurisdiction ;
 				owl:someValuesFrom gist:GovernmentOrganization ;
 			]
 		) ;
@@ -3137,10 +3137,10 @@ gist:hasIncumbent
 	skos:prefLabel "has incumbent"^^xsd:string ;
 	.
 
-gist:hasJurisdictionOver
+gist:hasJurisdiction
 	a owl:ObjectProperty ;
-	skos:definition "When laws and contracts are meted out"^^xsd:string ;
-	skos:prefLabel "has jurisdiction over"^^xsd:string ;
+	skos:definition "Relates a law, contract, etc., to the system of law or government which has the power, right, or authority to interpret and apply it."^^xsd:string ;
+	skos:prefLabel "has jurisdiction"^^xsd:string ;
 	.
 
 gist:hasMagnitude

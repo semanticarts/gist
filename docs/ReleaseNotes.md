@@ -27,6 +27,7 @@ Release 11.0.0
 - Modified `skos:definition` of `gist:Message` to match formal definitions, per issue [#194](https://github.com/semanticarts/gist/issues/194).
 - Removed min cardinality of zero restriction on `ProductUnit`, per issue [#582](https://github.com/semanticarts/gist/issues/582).
 - Improved definition of `gist:Task`, per issue [#625](https://github.com/semanticarts/gist/issues/625).
+- Change predicate `hasJurisdictionOver` to `hasJurisdiction` (bug fix). Issue [#637](https://github.com/semanticarts/gist/issues/637).
   
 Import URL: <https://ontologies.semanticarts.com/o/gistCore11.0.0>.
 
@@ -77,6 +78,7 @@ of `gist`. See the [migration guide](./MajorVersionMigration.md) for documentati
 - Updated annotations for `isBasedOn` and `isBasisFor` properties. Issue [#139](https://github.com/semanticarts/gist/issues/139)
 - `hasDirectSubCategory` is now a subproperty of `hasSubCategory`, as it was always supposed to be.  Issue [#481](https://github.com/semanticarts/gist/issues/481).
 - Clarified the definition of `ContemporaneousEvent`. Issue [#174](<https://github.com/semanticarts/gist/issues/174>).
+- Change predicate `hasJurisdictionOver` to `hasJurisdiction. Issue [#]
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore10.0.0>.
 
