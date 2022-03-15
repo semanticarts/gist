@@ -654,7 +654,6 @@ gist:CountingUnit
 
 gist:CountryGeoRegion
 	a owl:Class ;
-	rdfs:subClassOf gist:GovernedGeoRegion ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -663,20 +662,18 @@ gist:CountryGeoRegion
 				a owl:Restriction ;
 				owl:onProperty gist:isGovernedBy ;
 				owl:onClass gist:CountryGovernment ;
-				owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
-	skos:definition "A defined geographical area (or areas) governed by only one country government."^^xsd:string ;
-	skos:prefLabel "Country Geo Region"^^xsd:string ;
+	skos:definition "A defined geographical area (or areas) governed by exactly one country government."^^xsd:string ;
+	skos:editorialNote "DAN: changed qualified cardinality restriction from max 1 to exactly 1. Is there a problem with that?"^^xsd:string ;
+	skos:prefLabel "Country Geo-Region"^^xsd:string ;
 	.
 
 gist:CountryGovernment
 	a owl:Class ;
-	owl:disjointWith
-		gist:IntergovernmentalOrganization ,
-		gist:SubCountryGovernment
-		;
+	owl:disjointWith gist:SubCountryGovernment ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -692,11 +689,18 @@ gist:CountryGovernment
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:governs ;
-				owl:someValuesFrom gist:GeoRegion ;
+				owl:someValuesFrom gist:CountryGeoRegion ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:isGovernedBy ;
+				owl:onClass gist:GovernmentOrganization ;
+				owl:maxQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
 	skos:definition "A Government Organization which asserts both sovereignty (i.e., it is not governed by some other government organization) and governance over an entity generally recognized as a 'country'."^^xsd:string ;
+	skos:editorialNote "DAN: Changed the second restriction to CountryGeoRegion, not GeoRegion. I don't understand the first restriction: it states that a country government is the set of all things are are not governed by government organizations, which includes chairs. I think you want a qualified max cardinality of 0 restriction, which I've added above for your review. Is it correct to also say that it governs exactly one GeoRegion, rather than one or more? I.e., a qualified cardinality restriction of 1 on governs CountryGeoRegion."^^xsd:string ;
 	skos:note "While a country government may enter into treaties with other country governments, that does not mean it is 'governed by' the others."^^xsd:string ;
 	skos:prefLabel "Country Government"^^xsd:string ;
 	.
@@ -1046,7 +1050,6 @@ gist:GeoPoliticalRegion
 
 gist:GeoRegion
 	a owl:Class ;
-	rdfs:subClassOf gist:Place ;
 	owl:disjointWith
 		gist:IntellectualProperty ,
 		gist:Intention ,
@@ -1061,6 +1064,7 @@ gist:GeoRegion
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
+			gist:Place
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasMagnitude ;
@@ -1150,7 +1154,6 @@ gist:Goal
 
 gist:GovernedGeoRegion
 	a owl:Class ;
-	rdfs:subClassOf gist:GeoRegion ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -1163,17 +1166,22 @@ gist:GovernedGeoRegion
 			]
 		) ;
 	] ;
-	skos:definition "A defined geographical area (or areas) governed by at least one government organization."^^xsd:string ;
-	skos:prefLabel "Governed Geo Region"^^xsd:string ;
+	skos:definition "A defined geographic area or areas governed by at least one government organization."^^xsd:string ;
+	skos:prefLabel "Governed Geo-Region"^^xsd:string ;
+	skos:scopeNote "Geographic regions do not need not be physically contiguous in order to constitute a governed geo-region; e.g., Alaska and Hawaii."^^xsd:string ;
 	.
 
 gist:GovernmentOrganization
 	a owl:Class ;
 	rdfs:subClassOf gist:Organization ;
-	skos:definition "An Organization which exercises political and/or regulatory authority over a political unit, people, georegion, etc, as well as performs certain functions for this unit or body. Differs from a corporation in that it cannot be owned."^^xsd:string ;
+	owl:disjointWith
+		gist:IntergovernmentalOrganization ,
+		gist:TreatyOrganization
+		;
+	skos:definition "An organization which exercises political and/or regulatory authority over a political unit, people, geo-region, etc., as well as performing certain functions for this unit or body. Differs from a corporation in that it cannot be owned."^^xsd:string ;
 	skos:example "The State of Washington Office of Financial Management; the Food and Drug Administration; the Scottish Parliament."^^xsd:string ;
 	skos:prefLabel "Government Organization"^^xsd:string ;
-	skos:scopeNote "Includes administrative, regulatory, and enforcement organizations created or sanctioned by Country or SubCountry Government Organizations."^^xsd:string ;
+	skos:scopeNote "Includes administrative, regulatory, and enforcement organizations created or sanctioned by Country or SubCountry Governments."^^xsd:string ;
 	.
 
 gist:Group
@@ -1295,7 +1303,6 @@ gist:Intention
 
 gist:IntergovernmentalOrganization
 	a owl:Class ;
-	rdfs:subClassOf gist:Organization ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -1308,7 +1315,8 @@ gist:IntergovernmentalOrganization
 			]
 		) ;
 	] ;
-	skos:definition "An organization the membership of which is comprised of Government Organizations."^^xsd:string ;
+	skos:definition "An organization whose members are government organizations."^^xsd:string ;
+	skos:example "The United Nations, the European Union"^^xsd:string ;
 	skos:prefLabel "Inter-Governmental Organization"^^xsd:string ;
 	.
 
@@ -2255,7 +2263,6 @@ gist:StreetAddress
 
 gist:SubCountryGovernment
 	a owl:Class ;
-	rdfs:subClassOf gist:GovernmentOrganization ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -2272,11 +2279,12 @@ gist:SubCountryGovernment
 			]
 		) ;
 	] ;
-	skos:definition "A territory-governing organization under the direct or indirect control of a country government."^^xsd:string ;
+	skos:definition "A government of a governed geo-region other than a country, which is under the direct or indirect control of a country government."^^xsd:string ;
 	skos:prefLabel "Sub-Country Government"^^xsd:string ;
 	skos:scopeNote
-		"Across the world, there are a broad number of terms used for the sub-sections of a country and the governments thereof.  We should not automatically go with 'state', 'county', and 'city'.  It is more future-proof just to mint the instances using the generic SubCountryGovernment and apply an appropriate category."^^xsd:string ,
-		"Note that this class applies to territory-governing organizations. Regulatory and bureaucratic organizations are members of the more generic GovernmentOrganization class."^^xsd:string
+		"Across the world, there are a variety of types of subsections of a country and the governments thereof (as well as different terms, like 'province' and 'state', which refer to essentially the same type of thing). We should not automatically assume 'state', 'county', and 'city'.  It is more future-proof just to mint the instances using the generic SubCountryGovernment and, where greater specificity is needed, define categories or subclasses."^^xsd:string ,
+		"Note that the predicate 'governs' is used both for the relationship a government has to a governed geo-region, and for the relationship one government has to the governments of its sub-regions."^^xsd:string ,
+		"This class applies only to organizations governing geo-regions. Regulatory and bureaucratic organizations are members of the more generic GovernmentOrganization class."^^xsd:string
 		;
 	.
 
@@ -2532,7 +2540,6 @@ gist:Transaction
 
 gist:TreatyOrganization
 	a owl:Class ;
-	rdfs:subClassOf gist:IntergovernmentalOrganization ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -2545,7 +2552,9 @@ gist:TreatyOrganization
 			]
 		) ;
 	] ;
-	skos:definition "An organization the membership of which is comprised of Country Governments."^^xsd:string ;
+	skos:definition "An organization whose members are country governments."^^xsd:string ;
+	skos:editorialNote "DAN: do we want to say that *only* country governments are members?"^^xsd:string ;
+	skos:example "NATO, the Louisiana Purchase, the Treaty of Versailles"^^xsd:string ;
 	skos:prefLabel "Treaty Organization"^^xsd:string ;
 	.
 
