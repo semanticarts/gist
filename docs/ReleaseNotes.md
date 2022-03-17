@@ -27,7 +27,7 @@ Release 11.0.0
 - Modified `skos:definition` of `gist:Message` to match formal definitions, per issue [#194](https://github.com/semanticarts/gist/issues/194).
 - Removed min cardinality of zero restriction on `ProductUnit`, per issue [#582](https://github.com/semanticarts/gist/issues/582).
 - Improved definition of `gist:Task`, per issue [#625](https://github.com/semanticarts/gist/issues/625).
-- Change predicate `hasJurisdictionOver` to `hasJurisdiction` (bug fix). Issue [#637](https://github.com/semanticarts/gist/issues/637).
+- Change predicate `hasJurisdictionOver` to `isUnderJurisdiction` (bug fix). Issue [#637](https://github.com/semanticarts/gist/issues/637).
   
 Import URL: <https://ontologies.semanticarts.com/o/gistCore11.0.0>.
 
