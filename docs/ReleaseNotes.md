@@ -78,7 +78,7 @@ of `gist`. See the [migration guide](./MajorVersionMigration.md) for documentati
 - Updated annotations for `isBasedOn` and `isBasisFor` properties. Issue [#139](https://github.com/semanticarts/gist/issues/139)
 - `hasDirectSubCategory` is now a subproperty of `hasSubCategory`, as it was always supposed to be.  Issue [#481](https://github.com/semanticarts/gist/issues/481).
 - Clarified the definition of `ContemporaneousEvent`. Issue [#174](<https://github.com/semanticarts/gist/issues/174>).
-- Change predicate `hasJurisdictionOver` to `hasJurisdiction. Issue [#]
+- Change predicate `hasJurisdictionOver` to `hasJurisdiction`. Issue [#]
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore10.0.0>.
 
