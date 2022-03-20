@@ -42,22 +42,22 @@ of `gist`. See the [migration guide](./MajorVersionMigration.md) for documentati
 
 - Renamed 62 object and datatype properties to reflect newly-established conventions. Includes corresponding updates to the [gist style guide](https://github.com/semanticarts/gist/blob/master/docs/gistStyleGuide.md). Issues [188](https://github.com/semanticarts/gist/issues/188), [507](https://github.com/semanticarts/gist/issues/507).
 - Renamed `MimeType` to `MediaType` to be consistent with [IANA guidelines](https://www.iana.org/assignments/media-types/media-types.xhtml).
-  and [RFC6838](https://tools.ietf.org/html/rfc6838). Issue [#434](<https://github.com/semanticarts/gist/issues/434>).
+  and [RFC6838](https://tools.ietf.org/html/rfc6838). Issue [#434](https://github.com/semanticarts/gist/issues/434).
 - Renamed `gist:decimalValue` to `gist:numericValue` and expanded property range to include all numeric data types.
-  supported by OWL.  Issue [#171](<https://github.com/semanticarts/gist/issues/171>).
-- Refactored ordered collection model. Issues [#112](<https://github.com/semanticarts/gist/issues/112>), [#540](<https://github.com/semanticarts/gist/issues/540>).
+  supported by OWL.  Issue [#171](https://github.com/semanticarts/gist/issues/171).
+- Refactored ordered collection model. Issues [#112](https://github.com/semanticarts/gist/issues/112), [#540](https://github.com/semanticarts/gist/issues/540).
     - Added predicate `gist:providesOrderFor`.
     - Deleted classes `gist:OrdinalCollection` and `gist:OrdinalMember`.
 - Changes to and affecting `gist:Person`, as per issue [#136](https://github.com/semanticarts/gist/issues/136):
     - Removed `owl:someValuesFrom gist:name` restriction from `gist:Person`.
     - Made `gist:hasBirthDate` a subproperty of `gist:hasStart` rather than `gist:hasActualStart`.
-- Refactored the way network connections are modeled per issue [#126](<https://github.com/semanticarts/gist/issues/126>):
+- Refactored the way network connections are modeled per issue [#126](https://github.com/semanticarts/gist/issues/126):
     - `networkConnection`, `hasFromNode` and `hasToNode` have been renamed to `links`, `linksFrom` and `linksTo`, respectively.
     - Added a restriction on `NetworkLink` that it must have exactly 2 links.
     - Added restrictions on `NetworkLink` and `NetworkNode` that they must be `isMemberOf` a `Network`.
 - Extended the range of `comesFromPlace`/`goesToPlace` to include `gist:Address` in addition to `gist:Place`.
-  Issue [#392](<https://github.com/semanticarts/gist/issues/392>).
-- Modified classes and properties related to street addresses as per issue [#483](<https://github.com/semanticarts/gist/issues/483>):
+  Issue [#392](https://github.com/semanticarts/gist/issues/392).
+- Modified classes and properties related to street addresses as per issue [#483](https://github.com/semanticarts/gist/issues/483):
     - Removed `BuildingAddress`.
     - Added `StreetAddress` as subclass of `PostalAddress`.
     - Replaced `hasStreetAddress` with the more general `hasAddress`. Removed `streetAddressOf`.
@@ -71,14 +71,13 @@ of `gist`. See the [migration guide](./MajorVersionMigration.md) for documentati
     - `domainIncludes`
     - `rangeIncludes`
 - Created a `gistMediaTypes` ontology to declare `MediaType` instances relevant to semantic applications.
-  Issue [#463](<https://github.com/semanticarts/gist/issues/463>).
+  Issue [#463](https://github.com/semanticarts/gist/issues/463).
 
 ### Patch Updates
 
 - Updated annotations for `isBasedOn` and `isBasisFor` properties. Issue [#139](https://github.com/semanticarts/gist/issues/139)
 - `hasDirectSubCategory` is now a subproperty of `hasSubCategory`, as it was always supposed to be.  Issue [#481](https://github.com/semanticarts/gist/issues/481).
-- Clarified the definition of `ContemporaneousEvent`. Issue [#174](<https://github.com/semanticarts/gist/issues/174>).
-- Change predicate `hasJurisdictionOver` to `hasJurisdiction`. Issue [#]
+- Clarified the definition of `ContemporaneousEvent`. Issue [#174](https://github.com/semanticarts/gist/issues/174).
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore10.0.0>.
 
@@ -87,7 +86,7 @@ Release 9.7.0
 
 ### Minor Updates
 
-- Deprecated `gist:Room`. Issue [#102](<https://github.com/semanticarts/gist/issues/102>).
+- Deprecated `gist:Room`. Issue [#102](https://github.com/semanticarts/gist/issues/102).
 
 ### Patch Updates
 
@@ -188,7 +187,7 @@ Release 9.2.0
 - Replaced all "xs" namespace prefixes for XML Schema with "xsd". Corrects issue [#158](https://github.com/semanticarts/gist/issues/158).
 - Corrected gist:convertToBase value for gist:_minute from 1.0 to 60.0. Fixes issue [#82](https://github.com/semanticarts/gist/issues/82).
 - Added initial draft of in-progress gist style guide. Fixes issue [#163](https://github.com/semanticarts/gist/issues/163).
-- Added documentation of change and release management process. Fixes issue [#233](<https://github.com/semanticarts/gist/issues/233>.
+- Added documentation of change and release management process. Fixes issue [#233](<https://github.com/semanticarts/gist/issues/233>>.
 - Added guidelines for submission of GitHub issues and pull requests. Fixes issue [#190](https://github.com/semanticarts/gist/issues/190).
 - Remove defunct tools and documentation. Fixes issue [#193](https://github.com/semanticarts/gist/issues/193).
 - Include direct imports of all gist modules in gistCore. Fixes issue [#80](https://github.com/semanticarts/gist/issues/80).
