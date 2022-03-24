@@ -10,32 +10,9 @@
 <https://ontologies.semanticarts.com/o/gistCore>
 	a owl:Ontology ;
 	owl:versionIRI <https://ontologies.semanticarts.com/o/gistCoreX.x.x> ;
-	skos:definition "gist is a minimalist upper ontology created by Semantic Arts"^^xsd:string ;
+	skos:definition "gist is a minimalist upper ontology created by Semantic Arts."^^xsd:string ;
+	skos:prefLabel "gist"^^xsd:string ;
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
-	.
-
-skos:altLabel
-	a owl:AnnotationProperty ;
-	.
-
-skos:definition
-	a owl:AnnotationProperty ;
-	.
-
-skos:example
-	a owl:AnnotationProperty ;
-	.
-
-skos:note
-	a owl:AnnotationProperty ;
-	.
-
-skos:prefLabel
-	a owl:AnnotationProperty ;
-	.
-
-skos:scopeNote
-	a owl:AnnotationProperty ;
 	.
 
 gist:Account
@@ -667,7 +644,6 @@ gist:CountryGeoRegion
 		) ;
 	] ;
 	skos:definition "A defined geographical area (or areas) governed by exactly one country government."^^xsd:string ;
-	skos:editorialNote "DAN: changed qualified cardinality restriction from max 1 to exactly 1. Is there a problem with that?"^^xsd:string ;
 	skos:prefLabel "Country Geo-Region"^^xsd:string ;
 	.
 
@@ -679,17 +655,10 @@ gist:CountryGovernment
 		owl:intersectionOf (
 			gist:GovernmentOrganization
 			[
-				a owl:Class ;
-				owl:complementOf [
-					a owl:Restriction ;
-					owl:onProperty gist:isGovernedBy ;
-					owl:someValuesFrom gist:GovernmentOrganization ;
-				] ;
-			]
-			[
 				a owl:Restriction ;
 				owl:onProperty gist:governs ;
-				owl:someValuesFrom gist:CountryGeoRegion ;
+				owl:onClass gist:CountryGeoRegion ;
+				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 			]
 			[
 				a owl:Restriction ;
@@ -700,7 +669,6 @@ gist:CountryGovernment
 		) ;
 	] ;
 	skos:definition "A Government Organization which asserts both sovereignty (i.e., it is not governed by some other government organization) and governance over an entity generally recognized as a 'country'."^^xsd:string ;
-	skos:editorialNote "DAN: Changed the second restriction to CountryGeoRegion, not GeoRegion. I don't understand the first restriction: it states that a country government is the set of all things are are not governed by government organizations, which includes chairs. I think you want a qualified max cardinality of 0 restriction, which I've added above for your review. Is it correct to also say that it governs exactly one GeoRegion, rather than one or more? I.e., a qualified cardinality restriction of 1 on governs CountryGeoRegion."^^xsd:string ;
 	skos:note "While a country government may enter into treaties with other country governments, that does not mean it is 'governed by' the others."^^xsd:string ;
 	skos:prefLabel "Country Government"^^xsd:string ;
 	.
@@ -1368,7 +1336,6 @@ gist:LivingThing
 				a owl:Restriction ;
 				owl:onProperty gist:hasBiologicalParent ;
 				owl:someValuesFrom gist:LivingThing ;
-
 			]
 			[
 				a owl:Restriction ;
@@ -2547,13 +2514,16 @@ gist:TreatyOrganization
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasMember ;
-				owl:onClass gist:CountryGovernment ;
-				owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+				owl:minCardinality "2"^^xsd:nonNegativeInteger ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasMember ;
+				owl:allValuesFrom gist:CountryGovernment ;
 			]
 		) ;
 	] ;
 	skos:definition "An organization whose members are country governments."^^xsd:string ;
-	skos:editorialNote "DAN: do we want to say that *only* country governments are members?"^^xsd:string ;
 	skos:example "NATO, the Louisiana Purchase, the Treaty of Versailles"^^xsd:string ;
 	skos:prefLabel "Treaty Organization"^^xsd:string ;
 	.
@@ -4041,3 +4011,4 @@ gist:usesTimeZoneStandard
 		gist:_second
 	) ;
 	.
+
