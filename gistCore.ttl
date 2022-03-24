@@ -1,3 +1,4 @@
+@prefix : <https://ontologies.semanticarts.com/o/gistCore#> .
 @prefix gist: <https://ontologies.semanticarts.com/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -9,8 +10,8 @@
 <https://ontologies.semanticarts.com/o/gistCore>
 	a owl:Ontology ;
 	owl:versionIRI <https://ontologies.semanticarts.com/o/gistCoreX.x.x> ;
-	skos:definition "gist is a minimalist upper ontology created by Semantic Arts"^^xsd:string ;
-	skos:prefLabel "gist Core"^^xsd:string ;
+	skos:definition "gist is a minimalist upper ontology created by Semantic Arts."^^xsd:string ;
+	skos:prefLabel "gist"^^xsd:string ;
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
 	.
 
@@ -357,11 +358,6 @@ gist:Commitment
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isCategorizedBy ;
-				owl:someValuesFrom gist:DegreeOfCommitment ;
-			]
-			[
-				a owl:Restriction ;
 				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
@@ -370,6 +366,11 @@ gist:Commitment
 						gist:Person
 					) ;
 				] ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:isCategorizedBy ;
+				owl:someValuesFrom gist:DegreeOfCommitment ;
 			]
 		) ;
 	] ;
@@ -539,6 +540,11 @@ gist:ControlledVocabulary
 			gist:Collection
 			[
 				a owl:Restriction ;
+				owl:onProperty gist:hasMember ;
+				owl:someValuesFrom gist:Category ;
+			]
+			[
+				a owl:Restriction ;
 				owl:onProperty gist:isGovernedBy ;
 				owl:someValuesFrom [
 					a owl:Class ;
@@ -547,11 +553,6 @@ gist:ControlledVocabulary
 						gist:Person
 					) ;
 				] ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMember ;
-				owl:someValuesFrom gist:Category ;
 			]
 		) ;
 	] ;
@@ -567,13 +568,13 @@ gist:Controller
 			gist:Equipment
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isCategorizedBy ;
-				owl:someValuesFrom gist:ControllerType ;
+				owl:onProperty gist:directs ;
+				owl:someValuesFrom gist:Actuator ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:directs ;
-				owl:someValuesFrom gist:Actuator ;
+				owl:onProperty gist:isCategorizedBy ;
+				owl:someValuesFrom gist:ControllerType ;
 			]
 			[
 				a owl:Restriction ;
@@ -628,8 +629,27 @@ gist:CountingUnit
 	skos:prefLabel "Counting Unit"^^xsd:string ;
 	.
 
+gist:CountryGeoRegion
+	a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:GovernedGeoRegion
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:isGovernedBy ;
+				owl:onClass gist:CountryGovernment ;
+				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+			]
+		) ;
+	] ;
+	skos:definition "A defined geographical area (or areas) governed by exactly one country government."^^xsd:string ;
+	skos:prefLabel "Country Geo-Region"^^xsd:string ;
+	.
+
 gist:CountryGovernment
 	a owl:Class ;
+	owl:disjointWith gist:SubCountryGovernment ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -637,16 +657,19 @@ gist:CountryGovernment
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:governs ;
-				owl:someValuesFrom gist:GeoRegion ;
+				owl:onClass gist:CountryGeoRegion ;
+				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isRecognizedBy ;
-				owl:someValuesFrom gist:Organization ;
+				owl:onProperty gist:isGovernedBy ;
+				owl:onClass gist:GovernmentOrganization ;
+				owl:maxQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
-	skos:definition "The geopolitical body that governs a geopolitical region recognized as a country."^^xsd:string ;
+	skos:definition "A Government Organization which asserts both sovereignty (i.e., it is not governed by some other government organization) and governance over an entity generally recognized as a 'country'."^^xsd:string ;
+	skos:note "While a country government may enter into treaties with other country governments, that does not mean it is 'governed by' the others."^^xsd:string ;
 	skos:prefLabel "Country Government"^^xsd:string ;
 	.
 
@@ -979,13 +1002,13 @@ gist:GeoPoliticalRegion
 			gist:Collection
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isGovernedBy ;
-				owl:someValuesFrom gist:GovernmentOrganization ;
+				owl:onProperty gist:hasMember ;
+				owl:someValuesFrom gist:GeoRegion ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasMember ;
-				owl:someValuesFrom gist:GeoRegion ;
+				owl:onProperty gist:isGovernedBy ;
+				owl:someValuesFrom gist:GovernmentOrganization ;
 			]
 		) ;
 	] ;
@@ -995,7 +1018,6 @@ gist:GeoPoliticalRegion
 
 gist:GeoRegion
 	a owl:Class ;
-	rdfs:subClassOf gist:Place ;
 	owl:disjointWith
 		gist:IntellectualProperty ,
 		gist:Intention ,
@@ -1010,6 +1032,7 @@ gist:GeoRegion
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
+			gist:Place
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasMagnitude ;
@@ -1097,23 +1120,36 @@ gist:Goal
 	skos:prefLabel "Goal"^^xsd:string ;
 	.
 
-gist:GovernmentOrganization
+gist:GovernedGeoRegion
 	a owl:Class ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:Organization
+			gist:GeoRegion
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isRecognizedBy ;
-				owl:someValuesFrom gist:CountryGovernment ;
+				owl:onProperty gist:isGovernedBy ;
+				owl:onClass gist:GovernmentOrganization ;
+				owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
-	skos:definition "An organization established either by fiat (as a conquering army overtakes a land and declares a government) or by delegation from a fiat government, such as a state or local government or a specific agency. Differs from a corporation in that it cannot be owned."^^xsd:string ;
+	skos:definition "A defined geographic area or areas governed by at least one government organization."^^xsd:string ;
+	skos:prefLabel "Governed Geo-Region"^^xsd:string ;
+	skos:scopeNote "Geographic regions do not need not be physically contiguous in order to constitute a governed geo-region; e.g., Alaska and Hawaii."^^xsd:string ;
+	.
+
+gist:GovernmentOrganization
+	a owl:Class ;
+	rdfs:subClassOf gist:Organization ;
+	owl:disjointWith
+		gist:IntergovernmentalOrganization ,
+		gist:TreatyOrganization
+		;
+	skos:definition "An organization which exercises political and/or regulatory authority over a political unit, people, geo-region, etc., as well as performing certain functions for this unit or body. Differs from a corporation in that it cannot be owned."^^xsd:string ;
 	skos:example "The State of Washington Office of Financial Management; the Food and Drug Administration; the Scottish Parliament."^^xsd:string ;
 	skos:prefLabel "Government Organization"^^xsd:string ;
-	skos:scopeNote "Establishment by a CountryGovernment may be indirect via local, regional, or national GovernmentOrganization(s) that ultimately are recognized by a CountryGovernment."^^xsd:string ;
+	skos:scopeNote "Includes administrative, regulatory, and enforcement organizations created or sanctioned by Country or SubCountry Governments."^^xsd:string ;
 	.
 
 gist:Group
@@ -1233,6 +1269,25 @@ gist:Intention
 	skos:prefLabel "Intention"^^xsd:string ;
 	.
 
+gist:IntergovernmentalOrganization
+	a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:Organization
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasMember ;
+				owl:onClass gist:GovernmentOrganization ;
+				owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+			]
+		) ;
+	] ;
+	skos:definition "An organization whose members are government organizations."^^xsd:string ;
+	skos:example "The United Nations, the European Union"^^xsd:string ;
+	skos:prefLabel "Inter-Governmental Organization"^^xsd:string ;
+	.
+
 gist:Landmark
 	a owl:Class ;
 	rdfs:subClassOf gist:Place ;
@@ -1279,13 +1334,13 @@ gist:LivingThing
 			gist:PhysicalIdentifiableItem
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:birthDate ;
-				owl:cardinality "1"^^xsd:nonNegativeInteger ;
+				owl:onProperty gist:hasBiologicalParent ;
+				owl:someValuesFrom gist:LivingThing ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasBiologicalParent ;
-				owl:someValuesFrom gist:LivingThing ;
+				owl:onProperty gist:birthDate ;
+				owl:cardinality "1"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
@@ -1437,8 +1492,8 @@ gist:Message
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
-						gist:Person
 						gist:Organization
+						gist:Person
 					) ;
 				] ;
 			]
@@ -1448,8 +1503,8 @@ gist:Message
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
-						gist:Person
 						gist:Organization
+						gist:Person
 					) ;
 				] ;
 			]
@@ -1550,9 +1605,8 @@ gist:NetworkLink
 		owl:intersectionOf (
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:links ;
-				owl:onClass gist:NetworkNode ;
-				owl:qualifiedCardinality "2"^^xsd:integer ;
+				owl:onProperty gist:isMemberOf ;
+				owl:someValuesFrom gist:Network ;
 			]
 			[
 				a owl:Restriction ;
@@ -1561,8 +1615,9 @@ gist:NetworkLink
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isMemberOf ;
-				owl:someValuesFrom gist:Network ;
+				owl:onProperty gist:links ;
+				owl:onClass gist:NetworkNode ;
+				owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
@@ -1592,7 +1647,7 @@ gist:Obligation
 			gist:Commitment
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasRecipient ;
+				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -1603,7 +1658,7 @@ gist:Obligation
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasGiver ;
+				owl:onProperty gist:hasRecipient ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -1627,6 +1682,11 @@ gist:Offer
 			gist:ContingentObligation
 			[
 				a owl:Restriction ;
+				owl:onProperty gist:hasDirectPart ;
+				owl:someValuesFrom gist:CatalogItem ;
+			]
+			[
+				a owl:Restriction ;
 				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
@@ -1635,11 +1695,6 @@ gist:Offer
 						gist:Person
 					) ;
 				] ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasDirectPart ;
-				owl:someValuesFrom gist:CatalogItem ;
 			]
 			[
 				a owl:Restriction ;
@@ -1683,27 +1738,19 @@ gist:OrderedCollection
 gist:OrderedMember
 	a owl:Class ;
 	owl:equivalentClass [
+		a owl:Class ;
 		owl:intersectionOf (
 			[
-				a owl:Restriction ;
-				owl:onProperty gist:isMemberOf ;
-				owl:cardinality "1"^^xsd:nonNegativeInteger ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isMemberOf ;
-				owl:allValuesFrom gist:OrderedCollection ;
-			]
-			[
+				a owl:Class ;
 				owl:unionOf (
 					[
 						a owl:Restriction ;
-						owl:onProperty gist:precedesDirectly ;
+						owl:onProperty gist:followsDirectly ;
 						owl:someValuesFrom gist:OrderedMember ;
 					]
 					[
 						a owl:Restriction ;
-						owl:onProperty gist:followsDirectly ;
+						owl:onProperty gist:precedesDirectly ;
 						owl:someValuesFrom gist:OrderedMember ;
 					]
 					[
@@ -1712,6 +1759,16 @@ gist:OrderedMember
 						owl:someValuesFrom xsd:integer ;
 					]
 				) ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:isMemberOf ;
+				owl:allValuesFrom gist:OrderedCollection ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:isMemberOf ;
+				owl:cardinality "1"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
@@ -2171,6 +2228,33 @@ gist:StreetAddress
 	skos:scopeNote "This excludes addresses not associated with a fixed location, such as a PO box or FPO code."^^xsd:string ;
 	.
 
+gist:SubCountryGovernment
+	a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:GovernmentOrganization
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:governs ;
+				owl:someValuesFrom gist:GeoRegion ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:isGovernedBy ;
+				owl:someValuesFrom gist:CountryGovernment ;
+			]
+		) ;
+	] ;
+	skos:definition "A government of a governed geo-region other than a country, which is under the direct or indirect control of a country government."^^xsd:string ;
+	skos:prefLabel "Sub-Country Government"^^xsd:string ;
+	skos:scopeNote
+		"Across the world, there are a variety of types of subsections of a country and the governments thereof (as well as different terms, like 'province' and 'state', which refer to essentially the same type of thing). We should not automatically assume 'state', 'county', and 'city'.  It is more future-proof just to mint the instances using the generic SubCountryGovernment and, where greater specificity is needed, define categories or subclasses."^^xsd:string ,
+		"Note that the predicate 'governs' is used both for the relationship a government has to a governed geo-region, and for the relationship one government has to the governments of its sub-regions."^^xsd:string ,
+		"This class applies only to organizations governing geo-regions. Regulatory and bureaucratic organizations are members of the more generic GovernmentOrganization class."^^xsd:string
+		;
+	.
+
 gist:System
 	a owl:Class ;
 	owl:equivalentClass [
@@ -2419,6 +2503,29 @@ gist:Transaction
 	rdfs:subClassOf gist:Event ;
 	skos:definition "An event which has an effect on at least one accumulator."^^xsd:string ;
 	skos:prefLabel "Transaction"^^xsd:string ;
+	.
+
+gist:TreatyOrganization
+	a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:IntergovernmentalOrganization
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasMember ;
+				owl:minCardinality "2"^^xsd:nonNegativeInteger ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasMember ;
+				owl:allValuesFrom gist:CountryGovernment ;
+			]
+		) ;
+	] ;
+	skos:definition "An organization whose members are country governments."^^xsd:string ;
+	skos:example "NATO, the Louisiana Purchase, the Treaty of Versailles"^^xsd:string ;
+	skos:prefLabel "Treaty Organization"^^xsd:string ;
 	.
 
 gist:UnitOfMeasure
@@ -2846,8 +2953,8 @@ gist:comesFromPlace
 	rdfs:range [
 		a owl:Class ;
 		owl:unionOf (
-			gist:Place
 			gist:Address
+			gist:Place
 		) ;
 	] ;
 	skos:definition "Origin"^^xsd:string ;
@@ -2978,8 +3085,8 @@ gist:goesToPlace
 	rdfs:range [
 		a owl:Class ;
 		owl:unionOf (
-			gist:Place
 			gist:Address
+			gist:Place
 		) ;
 	] ;
 	skos:definition "Destination"^^xsd:string ;
@@ -3063,8 +3170,8 @@ gist:hasCommunicationAddress
 	rdfs:domain [
 		a owl:Class ;
 		owl:unionOf (
-			gist:Person
 			gist:Organization
+			gist:Person
 		) ;
 	] ;
 	rdfs:range gist:Address ;
@@ -3250,7 +3357,6 @@ gist:hasPrecision
 gist:hasRecipient
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasParticipant ;
-	owl:propertyDisjointWith gist:hasGiver ;
 	skos:definition "The recipient"^^xsd:string ;
 	skos:prefLabel "has recipient"^^xsd:string ;
 	.
@@ -3347,7 +3453,6 @@ gist:isAbout
 
 gist:isAffectedBy
 	a owl:ObjectProperty ;
-	owl:inverseOf gist:affects ;
 	skos:definition "Where the effect came from"^^xsd:string ;
 	skos:prefLabel "is affected by"^^xsd:string ;
 	.
@@ -3416,7 +3521,6 @@ gist:isDescribedIn
 
 gist:isDirectPartOf
 	a owl:ObjectProperty ;
-	owl:inverseOf gist:hasDirectPart ;
 	skos:definition "The relationship between a part and a whole where the part has independent existence."^^xsd:string ;
 	skos:prefLabel "is direct part of"^^xsd:string ;
 	skos:scopeNote
@@ -3427,7 +3531,6 @@ gist:isDirectPartOf
 
 gist:isDirectSubTaskOf
 	a owl:ObjectProperty ;
-	owl:inverseOf gist:hasDirectSubTask ;
 	skos:definition "Immediate parent task"^^xsd:string ;
 	skos:prefLabel "is direct subtask of"^^xsd:string ;
 	.
@@ -3440,7 +3543,6 @@ gist:isExpressedIn
 
 gist:isGeographicallyContainedIn
 	a owl:ObjectProperty ;
-	owl:inverseOf gist:containsGeographically ;
 	skos:definition "Relates one place to another place that contains the first."^^xsd:string ;
 	skos:prefLabel "is geographically contained in"^^xsd:string ;
 	.
@@ -3461,7 +3563,6 @@ gist:isGeographicallyPermanentlyOccupiedBy
 
 gist:isGovernedBy
 	a owl:ObjectProperty ;
-	owl:inverseOf gist:governs ;
 	skos:definition "A reference from the thing being governed to the governor"^^xsd:string ;
 	skos:prefLabel "is governed by"^^xsd:string ;
 	.
@@ -3472,7 +3573,6 @@ gist:isIdentifiedBy
 		owl:InverseFunctionalProperty
 		;
 	rdfs:range gist:ID ;
-	owl:inverseOf gist:identifies ;
 	skos:definition "This is like a URI: a thing can have more than one ID, but each of the IDs must refer to a unique thing."^^xsd:string ;
 	skos:prefLabel "is identified by"^^xsd:string ;
 	.
@@ -3612,8 +3712,6 @@ gist:numericValue
 	rdfs:range [
 		a rdfs:Datatype ;
 		owl:unionOf (
-			owl:rational
-			owl:real
 			xsd:byte
 			xsd:decimal
 			xsd:double
@@ -3630,6 +3728,8 @@ gist:numericValue
 			xsd:unsignedInt
 			xsd:unsignedLong
 			xsd:unsignedShort
+			owl:rational
+			owl:real
 		) ;
 	] ;
 	skos:definition "The actual value of a magnitude."^^xsd:string ;

@@ -11,6 +11,10 @@ Release 11.0.0
     - Defined a top-level datatype property `atDateTime`, neutral as to start/end, planned/actual, and precision (day, minute, microsecond). Replaced existing object properties to a hierarchy of subproperties of `atDateTime`, retaining distinctions between start and end, planned vs actual, and precisions.
     - Renamed `ContemporaneousEvent` to `ContemporaryEvent`.
 - Removed property  `gist:hasOrderedMember`. `gist:hasMember` should be used instead. Issue [#540](https://github.com/semanticarts/gist/issues/540).
+- Distinguished governments from governed geo-regions, as per issue [#215](https://github.com/semanticarts/gist/issues/215). Changes include:
+    - Added classes `SubCountryGovernment`, `IntergovernmentalOrganization`, and `TreatyOrganization` as subclasses of `Organization`.
+    - Added classes `GovernedGeoRegion`, `CountryGeoRegion` as subclasses of `GeoRegion`.
+    - Removed restriction on `CountryGovernment` requiring it to be recognized by some other country government, and stipulate its sovereignty. (This is the major change that affects inferencing; the others do not.)
 - Removed domain and range constraints from `gist:requires`. Issue [#183](https://github.com/semanticarts/gist/issues/183).
 - Removed domain and range constraints from `gist:hasNumerator`, `gist:hasDenominator`, `gist:hasMultiplier`, and `gist:hasMultiplicand`. Issue [#160](https://github.com/semanticarts/gist/issues/160).
 
