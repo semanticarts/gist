@@ -994,28 +994,6 @@ gist:GeoPoint
 	skos:scopeNote "Assume coordinate system used by Google (WGS 84 Web Mercator)."^^xsd:string ;
 	.
 
-gist:GeoPoliticalRegion
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Collection
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMember ;
-				owl:someValuesFrom gist:GeoRegion ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isGovernedBy ;
-				owl:someValuesFrom gist:GovernmentOrganization ;
-			]
-		) ;
-	] ;
-	skos:definition "A collection of GeoRegions that are being administered by a Government Organization"^^xsd:string ;
-	skos:prefLabel "Geopolitical Region"^^xsd:string ;
-	.
-
 gist:GeoRegion
 	a owl:Class ;
 	owl:disjointWith
