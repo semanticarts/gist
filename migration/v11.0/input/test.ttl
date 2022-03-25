@@ -1,0 +1,18 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix gist: <https://ontologies.semanticarts.com/gist/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ex: <https://data.ex.com/data/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:_X_1 rdf:type gist:ContemporaneousEvent .
+gist:ContemporaneousEvent ex:somePredicate ex:_X_2 .
+
+ex:_X_3  gist:usesTimeZoneStandard ex:_TZ_X .
+
+ex:_X_4 rdf:type gist:HumanInstant ;
+  gist:hasActualStart "2024-03-22T06:00:00Z"^^xsd:dateTime .
+
+ex:_X_5 gist:hasJurisdictionOver ex:_X_5 .
