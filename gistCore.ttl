@@ -2008,7 +2008,7 @@ gist:ProductUnit
 	skos:definition "A unit of measure that is the product of two simpler ones."^^xsd:string ;
 	skos:example "Area and Volume are the classic cases.  But other, more exotic cases exist, such as Newtons."^^xsd:string ;
 	skos:prefLabel "Product Unit"^^xsd:string ;
-	skos:scopeNote "A ProductUnit is intended have a value for baseConversionFactor."^^xsd:string ;
+	skos:scopeNote "A ProductUnit is intended have a value for conversionFactor."^^xsd:string ;
 	.
 
 gist:Project
@@ -2178,12 +2178,6 @@ gist:SimpleUnitOfMeasure
 				a owl:Restriction ;
 				owl:onProperty gist:hasBaseUnit ;
 				owl:onClass gist:BaseUnit ;
-				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:baseConversionFactor ;
-				owl:someValuesFrom xsd:double ;
 			]
 		) ;
 	] ;
@@ -2509,6 +2503,22 @@ gist:TreatyOrganization
 
 gist:UnitOfMeasure
 	a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasStandardUnit ;
+				owl:cardinality "1"^^xsd:nonNegativeInteger ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:conversionFactor ;
+				owl:cardinality "1"^^xsd:nonNegativeInteger ;
+			]
+		) ;
+	] ;
+
 	skos:definition "Standard unit by which we measure things"^^xsd:string ;
 	skos:prefLabel "Unit of Measure"^^xsd:string ;
 	.
@@ -2562,7 +2572,7 @@ gist:_USDollar
 		;
 	skos:definition "The base unit for currency."^^xsd:string ;
 	skos:prefLabel "US Dollar"^^xsd:string ;
-	gist:baseConversionFactor "1.0"^^xsd:double ;
+	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_USDollar ;
 	gist:unitSymbol "USD"^^xsd:string ;
 	.
@@ -2575,7 +2585,7 @@ gist:_ampere
 		;
 	skos:definition "The base unit for electrical current."^^xsd:string ;
 	skos:prefLabel "ampere"^^xsd:string ;
-	gist:baseConversionFactor "1.0"^^xsd:double ;
+	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_ampere ;
 	gist:unitSymbol "A"^^xsd:string ;
 	.
@@ -2589,7 +2599,7 @@ gist:_bit
 	skos:definition "The base unit for measuring digital information."^^xsd:string ;
 	skos:prefLabel "bit"^^xsd:string ;
 	skos:scopeNote "A bit (short for binary digit) is the smallest unit of data in a computer. A bit has a single binary value, either 0 or 1."^^xsd:string ;
-	gist:baseConversionFactor "1.0"^^xsd:double ;
+	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_bit ;
 	.
 
@@ -2601,7 +2611,7 @@ gist:_candela
 		;
 	skos:definition "The base unit for luminous intensity."^^xsd:string ;
 	skos:prefLabel "candela"^^xsd:string ;
-	gist:baseConversionFactor "1.0"^^xsd:double ;
+	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_candela ;
 	gist:unitSymbol "cd"^^xsd:string ;
 	.
@@ -2613,7 +2623,7 @@ gist:_day
 		;
 	skos:definition "A duration unit that is 24 hours long."^^xsd:string ;
 	skos:prefLabel "day"^^xsd:string ;
-	gist:baseConversionFactor "86400.0"^^xsd:double ;
+	gist:conversionFactor "86400.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
 	.
 
@@ -2625,7 +2635,7 @@ gist:_each
 		;
 	skos:definition "The base unit for count magnitudes."^^xsd:string ;
 	skos:prefLabel "each"^^xsd:string ;
-	gist:baseConversionFactor "1.0"^^xsd:double ;
+	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_each ;
 	.
 
@@ -2647,7 +2657,7 @@ gist:_kelvin
 		;
 	skos:definition "The base unit for measuring temperature."^^xsd:string ;
 	skos:prefLabel "Kelvin"^^xsd:string ;
-	gist:baseConversionFactor "1.0"^^xsd:double ;
+	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:conversionOffset "0.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_kelvin ;
 	gist:unitSymbol "K"^^xsd:string ;
@@ -2661,7 +2671,7 @@ gist:_kilogram
 		;
 	skos:definition "The base unit for measuring mass."^^xsd:string ;
 	skos:prefLabel "mass"^^xsd:string ;
-	gist:baseConversionFactor "1.0"^^xsd:double ;
+	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_kilogram ;
 	gist:unitSymbol "kg"^^xsd:string ;
 	.
@@ -2674,7 +2684,7 @@ gist:_meter
 		;
 	skos:definition "The base unit for measuring distance."^^xsd:string ;
 	skos:prefLabel "distance"^^xsd:string ;
-	gist:baseConversionFactor "1.0"^^xsd:double ;
+	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_meter ;
 	gist:unitSymbol "m"^^xsd:string ;
 	.
@@ -2686,7 +2696,7 @@ gist:_millisecond
 		;
 	skos:definition "A unit equal to a thousandth of a second."^^xsd:string ;
 	skos:prefLabel "millisecond"^^xsd:string ;
-	gist:baseConversionFactor "0.001"^^xsd:double ;
+	gist:conversionFactor "0.001"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
 	gist:unitSymbol "ms"^^xsd:string ;
 	.
@@ -2698,7 +2708,7 @@ gist:_minute
 		;
 	skos:definition "A unit equal to 60 seconds."^^xsd:string ;
 	skos:prefLabel "minute"^^xsd:string ;
-	gist:baseConversionFactor "60.0"^^xsd:double ;
+	gist:conversionFactor "60.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
 	gist:unitSymbol "min"^^xsd:string ;
 	.
@@ -2711,7 +2721,7 @@ gist:_mole
 		;
 	skos:definition "The base unit for measuring molar quantities."^^xsd:string ;
 	skos:prefLabel "mole"^^xsd:string ;
-	gist:baseConversionFactor "1.0"^^xsd:double ;
+	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_mole ;
 	gist:unitSymbol "mol"^^xsd:string ;
 	.
@@ -2763,7 +2773,7 @@ gist:_second
 		;
 	skos:definition "The base unit for measuring durations."^^xsd:string ;
 	skos:prefLabel "second"^^xsd:string ;
-	gist:baseConversionFactor "1.0"^^xsd:double ;
+	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
 	gist:unitSymbol "s"^^xsd:string ;
 	.
@@ -2920,11 +2930,13 @@ The conventions for precision that are repeated in each property name are as fol
 """^^xsd:string ;
 	.
 
-gist:baseConversionFactor
+gist:conversionFactor
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:double ;
-	skos:definition "The conversion factor used to get to the base unit.  E.g., multiplying by 0.0254 gets you from inches to meters. Divide by this number to go the other way. Used in conjunction with conversionOffset to convert from one unit to another. Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)) * (5/9.  To go the other way: F = (K * 9/5) -469.67.  Try it on Google."^^xsd:string ;
+	skos:definition "The conversion factor used to get to the standard unit (SI unit when applicable)."^^xsd:string ;
+	skos:example "Inches should have a conversionFactor of 0.0254 in order to go from inches to meters."^^xsd:string ;
+	skos:scopeNote "Sometimes this property must be used in conjunction with conversionOffset. Kelvin =  (Degrees F - conversionOffset) * conversionFactor. Or K = (F-(-469.67)) * (5/9)."^^xsd:string ;
 	skos:prefLabel "base conversion factor"^^xsd:string ;
 	.
 
@@ -3949,15 +3961,6 @@ gist:sequence
 	rdfs:range xsd:integer ;
 	skos:definition "For ordering ordered lists."^^xsd:string ;
 	skos:prefLabel "sequence"^^xsd:string ;
-	.
-
-gist:standardConversionFactor
-	a owl:DatatypeProperty ;
-	rdfs:subPropertyOf gist:baseConversionFactor ;
-	rdfs:domain gist:UnitOfMeasure ;
-	rdfs:range xsd:double ;
-	skos:definition "Note this kind of conversion will only work with temperatures if they are in Kelvin or Rankine (with a true 0).  You multiply to get to the base, divide to go from the base. mph to mps is .44704.  The multiple from kph to mps is .277778 .  To convert 60 mph to kph is (60 * .44704 / .277778 or 96.56056 kph"^^xsd:string ;
-	skos:prefLabel "standard conversion factor"^^xsd:string ;
 	.
 
 gist:startDateTime
