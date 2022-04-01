@@ -1807,11 +1807,6 @@ gist:Person
 				owl:onProperty gist:hasBiologicalParent ;
 				owl:allValuesFrom gist:Person ;
 			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasBiologicalParent ;
-				owl:cardinality "2"^^xsd:nonNegativeInteger ;
-			]
 		) ;
 	] ;
 	skos:definition "A human being that may or may not still be alive."^^xsd:string ;
