@@ -2178,10 +2178,16 @@ gist:SimpleUnitOfMeasure
 				a owl:Restriction ;
 				owl:onProperty gist:hasBaseUnit ;
 				owl:onClass gist:BaseUnit ;
+				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:conversionFactor ;
+				owl:someValuesFrom xsd:double ;
 			]
 		) ;
 	] ;
-	skos:definition "Each simple unit has a base unit and a conversion factor to the base. The bases are from the System International (SI). The conversion factor is the number which one multiplies a Unit by to get to base, or divides by to get from base.  E.g., the convertToBase for inch is 0.0254 to get to the base unit (meter)."^^xsd:string ;
+	skos:definition "Each simple unit has a base unit and a conversion factor to the base. The bases are from the System International (SI). The conversion factor is the number which one multiplies a Unit by to get to base, or divides by to get from base.  E.g., the conversionFactor for inch is 0.0254 to get to the base unit (meter)."^^xsd:string ;
 	skos:prefLabel "Simple Unit Of Measure"^^xsd:string ;
 	.
 
@@ -2503,22 +2509,6 @@ gist:TreatyOrganization
 
 gist:UnitOfMeasure
 	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasStandardUnit ;
-				owl:cardinality "1"^^xsd:nonNegativeInteger ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:conversionFactor ;
-				owl:cardinality "1"^^xsd:nonNegativeInteger ;
-			]
-		) ;
-	] ;
-
 	skos:definition "Standard unit by which we measure things"^^xsd:string ;
 	skos:prefLabel "Unit of Measure"^^xsd:string ;
 	.
@@ -2930,16 +2920,6 @@ The conventions for precision that are repeated in each property name are as fol
 """^^xsd:string ;
 	.
 
-gist:conversionFactor
-	a owl:DatatypeProperty ;
-	rdfs:domain gist:UnitOfMeasure ;
-	rdfs:range xsd:double ;
-	skos:definition "The conversion factor used to convert a unit to its standard or base unit."^^xsd:string ;
-	skos:example "A value expressed in inches is multiplied by a conversion factor of 0.0254 to express the value in the base unit, meter."^^xsd:string ;
-	skos:scopeNote "Sometimes this property must be used in conjunction with conversionOffset. Kelvin =  (Degrees F - conversionOffset) * conversionFactor. Or K = (F-(-469.67)) * (5/9)."^^xsd:string ;
-	skos:prefLabel "conversion factor"^^xsd:string ;
-	.
-
 gist:birthDate
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf gist:startDateTime ;
@@ -3008,6 +2988,16 @@ gist:contributesTo
 	a owl:ObjectProperty ;
 	skos:definition "The parts of a system contribute to the goal/ function of the whole system"^^xsd:string ;
 	skos:prefLabel "contributes to"^^xsd:string ;
+	.
+
+gist:conversionFactor
+	a owl:DatatypeProperty ;
+	rdfs:domain gist:UnitOfMeasure ;
+	rdfs:range xsd:double ;
+	skos:definition "The conversion factor used to convert a unit to its standard (i.e., coherent) or base unit."^^xsd:string ;
+	skos:example "A value expressed in inches is multiplied by a conversion factor of 0.0254 to express the value in the base unit, meter."^^xsd:string ;
+	skos:scopeNote "Sometimes this property must be used in conjunction with conversionOffset. Kelvin =  (Degrees F - conversionOffset) * conversionFactor. Or K = (F-(-469.67)) * (5/9)."^^xsd:string ;
+	skos:prefLabel "conversion factor"^^xsd:string ;
 	.
 
 gist:conversionOffset
