@@ -1,13 +1,22 @@
 # Migrating to gist v11.0
 
 This file gives a quick overview of using the migration utilities provided
-by the gist team to help migrate from the previous version of gist. These
+by the gist team to help migrate from version v10 of gist. These
 utilities should be reviewed before running them to make sure you approve
 of the actions prior to using them.
 
 These utilities do not handle everything, in some cases we can only warn you
 about changes that were made in gist and you will need to decide how you want
 to handle the changes.
+
+## Migration Queries
+
+All of our migration tools are SPARQL queries.
+
+You will note that some files have very similar names. Here is what the suffixes mean:
+- `_default.rq` : These queries only work on the default graph
+- `_ngraphs.rq` : These queries only work on named graphs
+- `.rq` : These queries work on both the default graph and named graphs
 
 ## Requirements
 
@@ -16,6 +25,9 @@ program. Information about onto_tool and how to install it, is available at
 (github)[https://github.com/semanticarts/ontology-toolkit].
 
 ## Run on local files
+
+NOTE: A known limitation of `onto_tool` is that it does not support named graphs when run against local files.
+It does support named graphs when run against a SPARQL endpoint.
 
 Start in this directory.
 
