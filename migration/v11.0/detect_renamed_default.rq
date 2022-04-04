@@ -39,7 +39,7 @@ WHERE {
     }
     bind(<urn:renamed-entity-validation-report> as ?report)
     bind(CONCAT("WARNING: incorrectly named property gist:",
-        REPLACE(STR(?renamed), '^.*[/#]', ''), " was changed to gist:isUnderJurisdiction. ",
+        REPLACE(STR(?renamed), '^.*[/#]', ''), " was changed to gist:isUnderJurisdictionOf. ",
         "The previous name did not match the defintion. We won't autmatically update it ",
         "because you might have applied it based on the name, not the definition." ) as ?error)
 }
