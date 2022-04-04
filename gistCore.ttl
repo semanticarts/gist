@@ -2995,8 +2995,10 @@ gist:conversionFactor
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:double ;
 	skos:definition "The conversion factor used to convert a unit to its standard (i.e., coherent) unit (which could be a base unit.)"^^xsd:string ;
-	skos:example "A value expressed in inches is multiplied by a conversion factor of 0.0254 to express the value in the base unit, meter."^^xsd:string ;
-	skos:example "An area expressed as 7 square kilometers is multiplied by a conversion factor of one million which results in 7 million square meters."^^xsd:string ;
+	skos:example
+		"A value expressed in inches is multiplied by a conversion factor of 0.0254 to express the value in the base unit, meter."^^xsd:string ,
+		"An area expressed as 7 square kilometers is multiplied by a conversion factor of one million which results in 7 million square meters."^^xsd:string
+		;
 	skos:prefLabel "conversion factor"^^xsd:string ;
 	skos:scopeNote "Sometimes this property must be used in conjunction with conversionOffset. Kelvin =  (Degrees F - conversionOffset) * conversionFactor. Or K = (F-(-469.67)) * (5/9)."^^xsd:string ;
 	.
@@ -4029,3 +4031,4 @@ gist:usesTimeZoneStandard
 		gist:_second
 	) ;
 	.
+
