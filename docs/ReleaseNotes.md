@@ -21,6 +21,7 @@ Release 11.0.0
 - Removed domain and range constraints from `gist:requires`. Issue [#183](https://github.com/semanticarts/gist/issues/183).
 - Removed domain and range constraints from `gist:hasNumerator`, `gist:hasDenominator`, `gist:hasMultiplier`, and `gist:hasMultiplicand`. Issue [#160](https://github.com/semanticarts/gist/issues/160).
 - Removed predicate `hasBiologicalOffspring`, added domain and range to `hasBiologicalParent`, and modified related restrictions on class `LivingThing`. Issue [#638](https://github.com/semanticarts/gist/issues/638).
+- Combined `standardConversionFactor` and `baseConversionFactor` into `conversionFactor`. Issue #624
 
 ### Minor Updates
 
