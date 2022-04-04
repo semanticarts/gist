@@ -10,9 +10,13 @@
 ex:_X_1 rdf:type gist:ContemporaneousEvent .
 gist:ContemporaneousEvent ex:somePredicate ex:_X_2 .
 
-ex:_X_3  gist:usesTimeZoneStandard ex:_TZ_X .
+ex:_X_3 gist:usesTimeZoneStandard ex:_TZ_X .
 
-ex:_X_4 rdf:type gist:HumanInstant ;
-  gist:hasActualStart "2024-03-22T06:00:00Z"^^xsd:dateTime .
+ex:_X_4 gist:hasActualStart ex:_X_5 .
 
-ex:_X_5 gist:hasJurisdictionOver ex:_X_5 .
+ex:_X_6 gist:hasJurisdictionOver ex:_X_7 .
+
+ex:_X_8 gist:hasOrderedMember ex:_X_9 .
+
+ex:_X10 gist:baseConversionFactor ex:_X11 .
+ex:_X12 gist:standardConversionFactor ex:_X13 .
