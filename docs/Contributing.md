@@ -56,6 +56,10 @@ Submitting an Issue
 Implementation
 -----
 
+### Pre-commit Hook
+
+- The `./tools` directory contains a pre-commit hook that you should copy into `./git/hooks`. This ensures that the serializer is run before each commit, converting files into a standard Turtle format in order to prevent noise in the diffs. As the comments in the file indicate, you should use the version of `rdf-toolkit.jar` in this directory, rather than another version that you may have on your local drive.
+
 ### Working Branch
 
 - The first step is to create a working branch from develop for your work: e.g., `feature/document_submission_guidelines` or `bugfix/fix_typo_in_Address_definition`. This branch will not be preserved after the work is merged into develop, so its name does not have to be particularly specific, accurate, or detailed. Some developers like to add the issue number to the new branch.
@@ -69,7 +73,7 @@ Implementation
 
 - If you are working on a project that will require more than one commit, you should commit to your working branch regularly to create logical checkpoints that can be restored if necessary. Each commit should be atomic for ease of rollback or reversion. Ideally, you finish working on one sub-task and commit it before taking up another.
 - However, it is possible to go overboard and commit every little change independently. This creates clutter in the repository history.
-- As you work, it is _essential_ that you merge regularly - e.g., daily - from develop back into your working branch. This ensures that, when it comes time to merge your work into develop, you will have resolved any merge conflicts with a minimum of difficulty. Note that your PR cannot be merged to develop until all merge conflicts are resolved.
+- As you work, it is _essential_ that you merge or rebase regularly - e.g., daily - from develop back into your working branch. This ensures that, when it comes time to merge your work into develop, you will have resolved any merge conflicts with a minimum of difficulty. Note that your PR cannot be merged to develop until all merge conflicts are resolved.
 - The commit message should be clear enough so that someone can get a basic understanding of the commit without looking at the actual changes in the files.
   - Examples:
     - YES: "Fix typo in definition of gist:Address."
@@ -81,7 +85,7 @@ Pull Requests
 ### Creating the Pull Request (PR)
 
 - Once your work is ready to be merged into develop, you will create a pull request (PR).
-- Before submitting the PR, you should ensure that you have (a) merged develop into your working branch, as above [during implementation](#commits-pushes-and-merges), and (b) run the serializer. The latter _should_ be unnecessary, since the serializer should have been run before every commit, but running it again protects against having forgotten at some point.
+- Before submitting the PR, you should ensure that you have (a) merged or rebased develop into your working branch, as above [during implementation](#commits-pushes-and-merges), and (b) run the serializer. The latter _should_ be unnecessary, since the serializer should have been run before every commit, but running it again protects against having forgotten at some point.
 - Submit the PR to develop.
 - If the issue(s) addressed by the PR is(are) slated for a particular release, assign the PR to the same release project, using the Project labels on the right sidebar, in order to facilitate release management.
 - Assign one or more reviewers, as specified [below](#assigning-reviewers).
@@ -97,6 +101,13 @@ Pull Requests
   - Note that if the PR fixes multiple issues, each issue number must be prefixed by the keyword. E.g., "Fixes #98, fixes #102", rather than "Fixes #98, #102" or "Fixes #98 and #102".
 - The PR should include an update to the release notes. See [Release Notes](#release-notes).
 
+### Reviewing Problems with the PR
+
+- At the bottom of the Conversation tab of the PR, you will see notifications about whether various merge criteria are met:
+  - At least one review is required. Only one review is stipulated in GitHub, but as outlined below some types of changes require additional reviewers.
+  - Build checks must have passed. This includes running the serializer and looking for merge conflicts. These problems will be flagged and should be addressed before assigning reviewers to the PR.
+- - If you prefer to put the PR in draft state while you attend to any issues, you will find a link to do so below the list of reviewers. Be sure to put it back into "ready to review" state, which, annoyingly, is not done in the same place, but below in the build checks section.
+
 ### Assigning Reviewers
 
 - Assign reviewer(s) based on the impact of the issue (major, minor, patch). The impact level should be labelled on the issue; if not, refer to the forthcoming Change and Release Management document and [Semantic Versioning](https://semver.org/).
@@ -106,7 +117,6 @@ Pull Requests
 - You should assign exactly this number, or at most one more. Assigning too many reviewers can cause confusion.
 - Reviewers must be internal to Semantic Arts.
 - Many issues are general enough to be reviewed by any ontologist; some may require specific expertise. Use your judgement. This might be the time to use the "at most one more" prerogative.
-- As well as designating reviewers, you should assign the PR &mdash; but not the issue &mdash; to the reviewers. This makes the assignee visible on the project board so it is clear who is currently responsible for moving the PR forward.
 
 ### Review Process
 
