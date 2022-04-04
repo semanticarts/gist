@@ -16,7 +16,7 @@ Release 11.0.0
 - Distinguished governments from governed geo-regions, as per issue [#215](https://github.com/semanticarts/gist/issues/215). Changes include:
     - Added classes `SubCountryGovernment`, `IntergovernmentalOrganization`, and `TreatyOrganization` as subclasses of `Organization`.
     - Added classes `GovernedGeoRegion`, `CountryGeoRegion` as subclasses of `GeoRegion`.
-    - Removed restriction on `CountryGovernment` requiring it to be recognized by some other country government, and stipulate its sovereignty. 
+    - Removed restriction on `CountryGovernment` requiring it to be recognized by some other country government, and stipulate its sovereignty.
     - Removed `GeoPoliticalRegion` (roughly replaced by `GovernedGeoRegion`).
 - Removed domain and range constraints from `gist:requires`. Issue [#183](https://github.com/semanticarts/gist/issues/183).
 - Removed domain and range constraints from `gist:hasNumerator`, `gist:hasDenominator`, `gist:hasMultiplier`, and `gist:hasMultiplicand`. Issue [#160](https://github.com/semanticarts/gist/issues/160).
