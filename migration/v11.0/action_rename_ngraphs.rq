@@ -18,6 +18,8 @@ where {
     values (?oldTerm ?newTerm) {
         (gist:ContemporaneousEvent gist:ContemporaryEvent)
         (gist:hasOrderedMember gist:hasMember)
+        (gist:baseConversionFactor gist:conversionFactor)
+        (gist:standardConversionFactor gist:conversionFactor)
     }
     graph ?graph {
         {

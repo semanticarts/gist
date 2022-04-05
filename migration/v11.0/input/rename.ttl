@@ -7,11 +7,18 @@
 @prefix ex: <https://data.ex.com/data/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-gist:ContemporaneousEvent ex:_predicate ex:_object .
-ex:_subject gist:ContemporaneousEvent ex:_object .
-ex:_subject ex:_predicate gist:ContemporaneousEvent .
+gist:ContemporaneousEvent ex:_predicate_1 ex:_object_1 .
+ex:_subject_1 gist:ContemporaneousEvent ex:_object_1 .
+ex:_subject_1 ex:_predicate_1 gist:ContemporaneousEvent .
 
-gist:hasOrderedMember ex:_predicate ex:_object .
-ex:_subject gist:hasOrderedMember ex:_object .
-ex:_subject ex:_predicate gist:hasOrderedMember .
+gist:hasOrderedMember ex:_predicate_2 ex:_object_2 .
+ex:_subject_2 gist:hasOrderedMember ex:_object_2 .
+ex:_subject_2 ex:_predicate_2 gist:hasOrderedMember .
 
+gist:baseConversionFactor ex:_predicate_3 ex:_object_3 .
+ex:_subject_3 gist:baseConversionFactor ex:_object_3 .
+ex:_subject_3 ex:_predicate_3 gist:baseConversionFactor .
+
+gist:standardConversionFactor ex:_predicate_4 ex:_object_4 .
+ex:_subject_4 gist:standardConversionFactor ex:_object_4 .
+ex:_subject_4 ex:_predicate_4 gist:standardConversionFactor .
