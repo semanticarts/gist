@@ -11,27 +11,7 @@ gist:ContemporaneousEvent ex:_predicate ex:_object .
 ex:_subject gist:ContemporaneousEvent ex:_object .
 ex:_subject ex:_predicate gist:ContemporaneousEvent .
 
-gist:usesTimeZoneStandard ex:_predicate ex:_object .
-ex:_subject gist:usesTimeZoneStandard ex:_object .
-ex:_subject ex:_predicate gist:usesTimeZoneStandard .
-
-gist:hasActualStart ex:_predicate ex:_object .
-ex:_subject gist:hasActualStart ex:_object .
-ex:_subject ex:_predicate gist:hasActualStart .
-
-gist:hasJurisdictionOver ex:_predicate ex:_object .
-ex:_subject gist:hasJurisdictionOver ex:_object .
-ex:_subject ex:_predicate gist:hasJurisdictionOver .
-
 gist:hasOrderedMember ex:_predicate ex:_object .
 ex:_subject gist:hasOrderedMember ex:_object .
 ex:_subject ex:_predicate gist:hasOrderedMember .
-
-gist:baseConversionFactor ex:_predicate ex:_object .
-ex:_subject gist:baseConversionFactor ex:_object .
-ex:_subject ex:_predicate gist:baseConversionFactor .
-
-gist:standardConversionFactor ex:_predicate ex:_object .
-ex:_subject gist:standardConversionFactor ex:_object .
-ex:_subject ex:_predicate gist:standardConversionFactor .
 
