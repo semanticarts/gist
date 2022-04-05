@@ -50,7 +50,7 @@ WHERE {
                 gist:wasLastModifiedAt
 
                 ## Misc
-                gist:hasOrderedMember
+                # gist:hasOrderedMember
                 gist:hasBiologicalOffspring
             }
             {
