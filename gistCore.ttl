@@ -3866,7 +3866,7 @@ gist:plannedStartYear
 		"The automobile manufacturer announced that its full line-up will include only electric cars starting in 2035."^^xsd:string
 		;
 	skos:prefLabel "planned start year"^^xsd:string ;
-	skos:scopeNote "Used for anything with a planned start date where precision of one year is sufficient, such as . Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual. Recommended usage is to zero out the hours through microseconds to avoid spurious precision. Note that it is not valid to zero out months and days, so arbitrary values must be included."^^xsd:string ;
+	skos:scopeNote "Used for anything with a planned start date where precision of one year is sufficient. Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual. Recommended usage is to zero out the hours through microseconds to avoid spurious precision. Note that it is not valid to zero out months and days, so arbitrary values must be included."^^xsd:string ;
 	.
 
 gist:precedes
