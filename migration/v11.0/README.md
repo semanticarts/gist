@@ -1,6 +1,6 @@
 # Migrating to gist v11.0
 
-See also, additional documentation in the top level file `docs/MajorVersionMigration.md`.
+See also, additional documentation in the file `docs/MajorVersionMigration.md`.
 
 This file gives a quick overview of using the migration utilities provided
 by the gist team to help migrate from version v10 of gist. These
