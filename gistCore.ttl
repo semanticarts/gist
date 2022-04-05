@@ -2819,11 +2819,11 @@ gist:actualEndYear
 	rdfs:range xsd:dateTime ;
 	skos:definition "The actual date that something ended, with precision of one year."^^xsd:string ;
 	skos:example
-		"'2021-00-00T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ,
+		"'2021-01-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ,
 		"The tenure of the previous chairman of the board ended in 2021."^^xsd:string
 		;
 	skos:prefLabel "actual end year"^^xsd:string ;
-	skos:scopeNote "Used for things where the precision of a year is sufficient. Recommended usage is to zero out the month through microseconds to avoid spurious precision."^^xsd:string ;
+	skos:scopeNote "Used for things where the precision of a year is sufficient. Recommended usage is to zero out the hours through microseconds to avoid spurious precision. Note that it is not valid to zero out months and days, so arbitrary values must be included."^^xsd:string ;
 	.
 
 gist:actualStartDate
@@ -2871,11 +2871,11 @@ gist:actualStartYear
 	rdfs:range xsd:dateTime ;
 	skos:definition "The actual date that something started, with precision of one year."^^xsd:string ;
 	skos:example
-		"'2021-00-00T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ,
+		"'2021-01-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ,
 		"The tenure of the current chairman of the board began in 2021."^^xsd:string
 		;
 	skos:prefLabel "actual start year"^^xsd:string ;
-	skos:scopeNote "Used for things where the precision of a year is sufficient. Recommended usage is to zero out the month through microseconds to avoid spurious precision."^^xsd:string ;
+	skos:scopeNote "Used for things where the precision of a year is sufficient. Recommended usage is to zero out the hours through microseconds to avoid spurious precision. Note that it is not valid to zero out months and days, so arbitrary values must be included."^^xsd:string ;
 	.
 
 gist:affects
@@ -3817,11 +3817,11 @@ gist:plannedEndYear
 	rdfs:range xsd:dateTime ;
 	skos:definition "The date that something is or was planned to end, with precision of one year."^^xsd:string ;
 	skos:example
-		"'2021-00-00T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ,
+		"'2021-01-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ,
 		"The automobile manufacturer announced that it will stop producing gas-powered vehicles in 2035."^^xsd:string
 		;
 	skos:prefLabel "planned end year"^^xsd:string ;
-	skos:scopeNote "Used for anything with a planned end date where precision of one year is sufficient. Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual. Recommended usage is to zero out the months through microseconds to avoid spurious precision."^^xsd:string ;
+	skos:scopeNote "Used for anything with a planned end date where precision of one year is sufficient. Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual. Recommended usage is to zero out the hours through microseconds to avoid spurious precision. Note that it is not valid to zero out months and days, so arbitrary values must be included."^^xsd:string ;
 	.
 
 gist:plannedStartDate
@@ -3862,11 +3862,11 @@ gist:plannedStartYear
 	rdfs:range xsd:dateTime ;
 	skos:definition "The date that something is or was planned to start, with precision of one year."^^xsd:string ;
 	skos:example
-		"'2021-00-00T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ,
+		"'2021-01-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ,
 		"The automobile manufacturer announced that its full line-up will include only electric cars starting in 2035."^^xsd:string
 		;
 	skos:prefLabel "planned start year"^^xsd:string ;
-	skos:scopeNote "Used for anything with a planned start date where precision of one year is sufficient, such as . Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual. Recommended usage is to zero out the months through microseconds to avoid spurious precision."^^xsd:string ;
+	skos:scopeNote "Used for anything with a planned start date where precision of one year is sufficient, such as . Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual. Recommended usage is to zero out the hours through microseconds to avoid spurious precision. Note that it is not valid to zero out months and days, so arbitrary values must be included."^^xsd:string ;
 	.
 
 gist:precedes
