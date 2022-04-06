@@ -1,10 +1,10 @@
-# Migrating to gist v11.0 from V10.0
+# Migrating to gist v11.0 from v10.0
 
-See also, additional documentation in the file `docs/MajorVersionMigration.md`.
+See also additional documentation in the file `docs/MajorVersionMigration.md`.
 
 This file gives a quick overview of using the migration utilities provided
 by the gist team to help migrate from the previous version of gist. These
-scripts are not cumulative, you must run the migrations for each version
+scripts are not cumulative; you must run the migrations for each version
 in sequence.
 
 These utilities are a starting point. You should review them before running
@@ -19,6 +19,7 @@ to handle the changes.
 All of our migration tools are SPARQL queries.
 
 You will note that some files have very similar names. Here is what the suffixes mean:
+
 - `_default.rq` : These queries only work on the default graph`*`
 - `_ngraphs.rq` : These queries only work on named graphs
 - `.rq` : These queries work on both the default graph and named graphs
@@ -43,6 +44,7 @@ Start in this directory.
 Put source data files in the ./input/ directory. See the onto_tool documentation for which file formats are supported.
 
 Execute:
+
 ```shell
 onto_tool bundle migrate_local.yaml
 ```
