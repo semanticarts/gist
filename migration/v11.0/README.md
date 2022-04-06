@@ -1,11 +1,14 @@
-# Migrating to gist v11.0
+# Migrating to gist v11.0 from V10.0
 
 See also, additional documentation in the file `docs/MajorVersionMigration.md`.
 
 This file gives a quick overview of using the migration utilities provided
-by the gist team to help migrate from version v10 of gist. These
-utilities should be reviewed before running them to make sure you approve
-of the actions prior to using them.
+by the gist team to help migrate from the previous version of gist. These
+scripts are not cumulative, you must run the migrations for each version
+in sequence.
+
+These utilities are a starting point. You should review them before running
+them to make sure you approve of the actions prior to using them.
 
 These utilities do not handle everything, in some cases we can only warn you
 about changes that were made in gist and you will need to decide how you want
