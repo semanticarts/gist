@@ -37,6 +37,7 @@ Release 11.0.0
 - Removed min cardinality of zero restriction on `ProductUnit`, per issue [#582](https://github.com/semanticarts/gist/issues/582).
 - Improved definition of `gist:Task`, per issue [#625](https://github.com/semanticarts/gist/issues/625).
 - Change predicate `hasJurisdictionOver` to `isUnderJurisdictionOf` (bug fix). Issue [#637](https://github.com/semanticarts/gist/issues/637).
+- Clarified restrictions on `gist:OrderedMember`. Issue [#574](https://github.com/semanticarts/gist/issues/574).
   
 Import URL: <https://ontologies.semanticarts.com/o/gistCore11.0.0>.
 
