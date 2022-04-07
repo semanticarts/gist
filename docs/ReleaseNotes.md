@@ -31,11 +31,10 @@ Release 11.0.0
 
 - Added labels to gist instances, per issue [#370](https://github.com/semanticarts/gist/issues/370).
 - Added definitions for unit of measure instances per issue [#526](https://github.com/semanticarts/gist/issues/526).
-- Deprecated property `gist:hasOrderedMember`. `gist:hasMember` should be used instead. Issue [#540](https://github.com/semanticarts/gist/issues/540).
 - Improved definitions of 'navigational' predicates, per issue [#523](https://github.com/semanticarts/gist/issues/523).
 - Modified `skos:definition` of `gist:Message` to match formal definitions, per issue [#194](https://github.com/semanticarts/gist/issues/194).
 - Removed min cardinality of zero restriction on `ProductUnit`, per issue [#582](https://github.com/semanticarts/gist/issues/582).
-- Improved definition of `gist:Task`, per issue [#625](https://github.com/semanticarts/gist/issues/625).
+- Improved textual definition of `gist:Task`, per issue [#625](https://github.com/semanticarts/gist/issues/625).
 - Change predicate `hasJurisdictionOver` to `isUnderJurisdictionOf` (bug fix). Issue [#637](https://github.com/semanticarts/gist/issues/637).
 - Clarified restrictions on `gist:OrderedMember`. Issue [#574](https://github.com/semanticarts/gist/issues/574).
   
