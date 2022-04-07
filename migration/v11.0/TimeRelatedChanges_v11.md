@@ -14,7 +14,7 @@ To accommodate the deletion of the `TimeInstant` class and its associated object
 
 First, they allow you to explicitly call out the precision of the object data: date, year, minute, or microsecond.  The selection of precision is your choice.  But note that all the properties take the same `xsd:dateTime` range.  Any enforcement of your desired data precision will be up to you.
 
-Second, the new sub-properties give you the semantic distinctions between atart and end date-times, and planned vs actual.
+Second, the new sub-properties give you the semantic distinctions between start and end datetimes, and planned vs actual.
 
 When adapting your existing `TimeInstant` data, there are several decisions you will need to make.
 
