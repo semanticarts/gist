@@ -21,6 +21,11 @@ WHERE {
         select distinct ?modified where {
             values ?modified {
                 gist:usesTimeZoneStandard
+                gist:hasDenominator
+                gist:hasNumerator
+                gist:hasMultiplicand
+                gist:hasMultiplier
+                gist:requires
             }
             {
                 ?s ?modified ?o
