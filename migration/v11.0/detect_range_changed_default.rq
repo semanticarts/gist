@@ -1,0 +1,48 @@
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix sh: <http://www.w3.org/ns/shacl#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+prefix gist: <https://ontologies.semanticarts.com/gist/>
+
+CONSTRUCT {
+    ?report a sh:ValidationReport ;
+        sh:conforms false ;
+        sh:result
+            [
+                a sh:ValidationResult ;
+                sh:focusNode ?modified ;
+                sh:resultMessage ?error ;
+                sh:resultSeverity sh:Warning ;
+                sh:sourceConstraintComponent <urn:constraint:range-removed-entity>
+            ] .
+}
+WHERE {
+    {
+        select distinct ?modified where {
+            values ?modified {
+                gist:hasDenominator
+                gist:hasNumerator
+                gist:hasMultiplicand
+                gist:hasMultiplier
+                gist:requires
+            }
+            {
+                ?s ?modified ?o
+            } UNION {
+                ?s ?p ?modified
+            } UNION {
+                ?modified ?p ?o
+#            } UNION {
+#                graph ?g { ?s ?modified ?o }
+#            } UNION {
+#                graph ?g { ?s ?p ?modified }
+#            } UNION {
+#                graph ?g { ?modified ?p ?o }
+            }
+        }
+    }
+    bind(<urn:range-removed-entity-validation-report> as ?report)
+    bind(CONCAT("WARNING: a rdfs:range of property gist:",
+        REPLACE(STR(?modified), '^.*[/#]', ''), " was removed. If you were relying on ",
+        "inference from the removed range you will need to address this change." ) as ?error)
+}
