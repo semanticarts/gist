@@ -37,5 +37,6 @@ actions:
     source: '{file_path}/'
     includes:
       - 'detect_domain_changed.rq'
+      - 'detect_range_changed.rq'
       - 'detect_removed.rq'
       - 'detect_renamed.rq'
