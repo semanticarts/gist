@@ -187,6 +187,7 @@ actions:
   includes:
     - "ReleaseNotes.md"
     - "MajorVersionMigration.md"
+    - "gistDocumentation.md"
 - action: "markdown"
   message: "Formatting release notes."
   source: "{output}/Documentation/ReleaseNotes.md"
@@ -195,6 +196,10 @@ actions:
   message: "Formatting migration instructions."
   source: "{output}/Documentation/MajorVersionMigration.md"
   target: "{output}/Documentation/MajorVersionMigration.html"
+- action: "markdown"
+  message: "Formatting gist documentation."
+  source: "{output}/Documentation/gistDocumentation.md"
+  target: "{output}/Documentation/gistDocumentation.html"
 - action: "move"
   message: "Creating Deprecated folder."
   source: "{output}"
