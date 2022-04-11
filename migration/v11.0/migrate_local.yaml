@@ -1,0 +1,42 @@
+bundle: gist-v11.0-migration
+variables:
+  file_path: "."
+  input: "./input"
+  output: "./output"
+  report: "./reports"
+tools:
+- name: "rename-terms"
+  type: "sparql"
+  query: "{file_path}/action_rename_default.rq"
+actions:
+- action: "transform"
+  message: "Migrate renamed terms."
+  tool: "rename-terms"
+  source: "{input}"
+  target: "{output}"
+  includes:
+    - "*.ttl"
+    - "*.owl"
+#- action: "copy"
+#  message: "Make a copy of source files."
+#  source: "{input}"
+#  target: "{output}"
+#    - "*.ttl"
+#    - "*.owl"
+- action: "verify"
+  message: "Check for issues that should be reviewed."
+  type: "construct"
+  inference: "none"
+  stopOnFail: false
+  source: "{output}"
+  target: "{report}"
+  includes:
+    - "*.ttl"
+    - "*.owl"
+  queries:
+    source: '{file_path}/'
+    includes:
+      - 'detect_domain_changed_default.rq'
+      - 'detect_range_changed_default.rq'
+      - 'detect_removed_default.rq'
+      - 'detect_renamed_default.rq'

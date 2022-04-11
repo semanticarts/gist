@@ -1,0 +1,42 @@
+bundle: gist-v11.0-migration
+variables:
+  file_path: "."
+  endpoint: "<SPARQL_UPDATE_URI>"
+  update_endpoint: "{endpoint}"
+  user: "UPDATE_USER"
+  password: "UPDATE_PASSWORD"
+  report: "./reports"
+actions:
+- action: "sparql"
+  message: "Migrate renamed terms in named graphs."
+  query: "{file_path}/action_rename_ngraphs.rq"
+  endpoint:
+    query_uri: "{endpoint}"
+    update_uri: "{update_endpoint}"
+    user: "{user}"
+    password: "{password}"
+- action: "sparql"
+  message: "Migrate renamed terms in default graph."
+  query: "{file_path}/action_rename_default.rq"
+  endpoint:
+    query_uri: "{endpoint}"
+    update_uri: "{update_endpoint}"
+    user: "{user}"
+    password: "{password}"
+- action: "verify"
+  message: "Check for other items that should be reviewed."
+  type: "construct"
+  inference: "none"
+  stopOnFail: false
+  target: '{report}'
+  endpoint:
+    query_uri: "{endpoint}"
+    user: "{user}"
+    password: "{password}"
+  queries:
+    source: '{file_path}/'
+    includes:
+      - 'detect_domain_changed.rq'
+      - 'detect_range_changed.rq'
+      - 'detect_removed.rq'
+      - 'detect_renamed.rq'

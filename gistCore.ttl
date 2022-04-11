@@ -1,3 +1,4 @@
+@prefix : <https://ontologies.semanticarts.com/o/gistCore#> .
 @prefix gist: <https://ontologies.semanticarts.com/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -9,8 +10,8 @@
 <https://ontologies.semanticarts.com/o/gistCore>
 	a owl:Ontology ;
 	owl:versionIRI <https://ontologies.semanticarts.com/o/gistCoreX.x.x> ;
-	skos:definition "gist is a minimalist upper ontology created by Semantic Arts"^^xsd:string ;
-	skos:prefLabel "gist Core"^^xsd:string ;
+	skos:definition "gist is a minimalist upper ontology created by Semantic Arts."^^xsd:string ;
+	skos:prefLabel "gist"^^xsd:string ;
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
 	.
 
@@ -266,7 +267,8 @@ gist:CoherentProductUnit
 			]
 		) ;
 	] ;
-	skos:definition "A ratio unit whose numerator and denominator reduce to 1"^^xsd:string ;
+	skos:definition "A product unit both of whose factors are coherent units. The conversion factor is 1."^^xsd:string ;
+	skos:example "Square meter, an area unit."^^xsd:string ;
 	skos:prefLabel "Coherent Product Unit"^^xsd:string ;
 	.
 
@@ -302,12 +304,14 @@ gist:CoherentRatioUnit
 			]
 		) ;
 	] ;
-	skos:definition "A ratio unit whose numerator and denominator reduce to 1"^^xsd:string ;
+	skos:definition "A ratio unit whose conversion factor is 1."^^xsd:string ;
+	skos:example "Newton, a force unit also expressed as kg-m/s^2"^^xsd:string ;
 	skos:prefLabel "Coherent Ratio Unit"^^xsd:string ;
 	.
 
 gist:CoherentUnit
 	a owl:Class ;
+	rdfs:seeAlso <http://www.eim.gr/metrology/measurement-units/si-derived-units/coherent-derived-units/> ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:unionOf (
@@ -354,11 +358,6 @@ gist:Commitment
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isCategorizedBy ;
-				owl:someValuesFrom gist:DegreeOfCommitment ;
-			]
-			[
-				a owl:Restriction ;
 				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
@@ -367,6 +366,11 @@ gist:Commitment
 						gist:Person
 					) ;
 				] ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:isCategorizedBy ;
+				owl:someValuesFrom gist:DegreeOfCommitment ;
 			]
 		) ;
 	] ;
@@ -391,7 +395,7 @@ gist:Component
 	skos:prefLabel "Component"^^xsd:string ;
 	.
 
-gist:ContemporaneousEvent
+gist:ContemporaryEvent
 	a owl:Class ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -399,20 +403,19 @@ gist:ContemporaneousEvent
 			gist:Event
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasActualStart ;
-				owl:someValuesFrom gist:TimeInstant ;
+				owl:onProperty gist:startDateTime ;
+				owl:cardinality "1"^^xsd:nonNegativeInteger ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasActualEnd ;
-				owl:onClass gist:TimeInstant ;
-				owl:maxQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+				owl:onProperty gist:actualEndDateTime ;
+				owl:maxCardinality "0"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
-	skos:definition "An event that has already started but has not yet ended."^^xsd:string ;
-	skos:prefLabel "Contemporaneous Event"^^xsd:string ;
-	skos:scopeNote "When the event actually ends, it will cease being contemporaneous."^^xsd:string ;
+	skos:definition "An event that has started but has not yet ended."^^xsd:string ;
+	skos:prefLabel "Contemporary Event"^^xsd:string ;
+	skos:scopeNote "When the event actually ends, it will cease being contemporary."^^xsd:string ;
 	.
 
 gist:Content
@@ -424,7 +427,6 @@ gist:Content
 		gist:Organization ,
 		gist:PhysicalIdentifiableItem ,
 		gist:PhysicalSubstance ,
-		gist:TimeInstant ,
 		gist:UnitOfMeasure
 		;
 	skos:definition "A document, program, image, etc.  (Categories are not content until they are written down.)"^^xsd:string ;
@@ -463,13 +465,13 @@ gist:ContingentEvent
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasPlannedEnd ;
-				owl:someValuesFrom gist:TimeInstant ;
+				owl:onProperty gist:plannedEndDateTime ;
+				owl:someValuesFrom xsd:dateTime ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasPlannedStart ;
-				owl:someValuesFrom gist:TimeInstant ;
+				owl:onProperty gist:plannedStartDateTime ;
+				owl:someValuesFrom xsd:dateTime ;
 			]
 		) ;
 	] ;
@@ -514,7 +516,7 @@ gist:Contract
 			gist:Agreement
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasJurisdictionOver ;
+				owl:onProperty gist:isUnderJurisdictionOf ;
 				owl:someValuesFrom gist:GovernmentOrganization ;
 			]
 		) ;
@@ -538,6 +540,11 @@ gist:ControlledVocabulary
 			gist:Collection
 			[
 				a owl:Restriction ;
+				owl:onProperty gist:hasMember ;
+				owl:someValuesFrom gist:Category ;
+			]
+			[
+				a owl:Restriction ;
 				owl:onProperty gist:isGovernedBy ;
 				owl:someValuesFrom [
 					a owl:Class ;
@@ -546,11 +553,6 @@ gist:ControlledVocabulary
 						gist:Person
 					) ;
 				] ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMember ;
-				owl:someValuesFrom gist:Category ;
 			]
 		) ;
 	] ;
@@ -566,13 +568,13 @@ gist:Controller
 			gist:Equipment
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isCategorizedBy ;
-				owl:someValuesFrom gist:ControllerType ;
+				owl:onProperty gist:directs ;
+				owl:someValuesFrom gist:Actuator ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:directs ;
-				owl:someValuesFrom gist:Actuator ;
+				owl:onProperty gist:isCategorizedBy ;
+				owl:someValuesFrom gist:ControllerType ;
 			]
 			[
 				a owl:Restriction ;
@@ -627,8 +629,27 @@ gist:CountingUnit
 	skos:prefLabel "Counting Unit"^^xsd:string ;
 	.
 
+gist:CountryGeoRegion
+	a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:GovernedGeoRegion
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:isGovernedBy ;
+				owl:onClass gist:CountryGovernment ;
+				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+			]
+		) ;
+	] ;
+	skos:definition "A defined geographical area (or areas) governed by exactly one country government."^^xsd:string ;
+	skos:prefLabel "Country Geo-Region"^^xsd:string ;
+	.
+
 gist:CountryGovernment
 	a owl:Class ;
+	owl:disjointWith gist:SubCountryGovernment ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -636,16 +657,19 @@ gist:CountryGovernment
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:governs ;
-				owl:someValuesFrom gist:GeoRegion ;
+				owl:onClass gist:CountryGeoRegion ;
+				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isRecognizedBy ;
-				owl:someValuesFrom gist:Organization ;
+				owl:onProperty gist:isGovernedBy ;
+				owl:onClass gist:GovernmentOrganization ;
+				owl:maxQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
-	skos:definition "The geopolitical body that governs a geopolitical region recognized as a country."^^xsd:string ;
+	skos:definition "A Government Organization which asserts both sovereignty (i.e., it is not governed by some other government organization) and governance over an entity generally recognized as a 'country'."^^xsd:string ;
+	skos:note "While a country government may enter into treaties with other country governments, that does not mean it is 'governed by' the others."^^xsd:string ;
 	skos:prefLabel "Country Government"^^xsd:string ;
 	.
 
@@ -700,23 +724,6 @@ gist:DataSizeUnit
 	] ;
 	skos:definition "A unit to measure amounts of digital information."^^xsd:string ;
 	skos:prefLabel "Data Size Unit"^^xsd:string ;
-	.
-
-gist:DateInstant
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:TimeInstant
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasPrecision ;
-				owl:hasValue gist:_one_day ;
-			]
-		) ;
-	] ;
-	skos:definition "A point in time known only to the accuracy of one day.  Say the signing of the declaration of independence on 7/4/1776"^^xsd:string ;
-	skos:prefLabel "Date Instant"^^xsd:string ;
 	.
 
 gist:DegreeOfCommitment
@@ -886,17 +893,17 @@ gist:Event
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasEnd ;
-				owl:someValuesFrom gist:TimeInstant ;
+				owl:onProperty gist:endDateTime ;
+				owl:cardinality "1"^^xsd:nonNegativeInteger ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasStart ;
-				owl:someValuesFrom gist:TimeInstant ;
+				owl:onProperty gist:startDateTime ;
+				owl:cardinality "1"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
-	skos:definition "Something happening over some period of time, often characterized as some kind of activity being carried out by some person, organization, or software application."^^xsd:string ;
+	skos:definition "Something that occurs over some period of time, often characterized as an activity being carried out by some person, organization, or software application."^^xsd:string ;
 	skos:prefLabel "Event"^^xsd:string ;
 	.
 
@@ -960,7 +967,6 @@ gist:GeoPoint
 		gist:Organization ,
 		gist:PhysicalIdentifiableItem ,
 		gist:PhysicalSubstance ,
-		gist:TimeInstant ,
 		gist:UnitOfMeasure
 		;
 	owl:equivalentClass [
@@ -988,31 +994,8 @@ gist:GeoPoint
 	skos:scopeNote "Assume coordinate system used by Google (WGS 84 Web Mercator)."^^xsd:string ;
 	.
 
-gist:GeoPoliticalRegion
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Collection
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isGovernedBy ;
-				owl:someValuesFrom gist:GovernmentOrganization ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMember ;
-				owl:someValuesFrom gist:GeoRegion ;
-			]
-		) ;
-	] ;
-	skos:definition "A collection of GeoRegions that are being administered by a Government Organization"^^xsd:string ;
-	skos:prefLabel "Geopolitical Region"^^xsd:string ;
-	.
-
 gist:GeoRegion
 	a owl:Class ;
-	rdfs:subClassOf gist:Place ;
 	owl:disjointWith
 		gist:IntellectualProperty ,
 		gist:Intention ,
@@ -1022,12 +1005,12 @@ gist:GeoRegion
 		gist:PhysicalIdentifiableItem ,
 		gist:PhysicalSubstance ,
 		gist:Template ,
-		gist:TimeInstant ,
 		gist:UnitOfMeasure
 		;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
+			gist:Place
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasMagnitude ;
@@ -1115,40 +1098,36 @@ gist:Goal
 	skos:prefLabel "Goal"^^xsd:string ;
 	.
 
-gist:GovernmentOrganization
+gist:GovernedGeoRegion
 	a owl:Class ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:Organization
+			gist:GeoRegion
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isRecognizedBy ;
-				owl:someValuesFrom gist:CountryGovernment ;
+				owl:onProperty gist:isGovernedBy ;
+				owl:onClass gist:GovernmentOrganization ;
+				owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
-	skos:definition "An organization established either by fiat (as a conquering army overtakes a land and declares a government) or by delegation from a fiat government, such as a state or local government or a specific agency. Differs from a corporation in that it cannot be owned."^^xsd:string ;
-	skos:example "The State of Washington Office of Financial Management; the Food and Drug Administration; the Scottish Parliament."^^xsd:string ;
-	skos:prefLabel "Government Organization"^^xsd:string ;
-	skos:scopeNote "Establishment by a CountryGovernment may be indirect via local, regional, or national GovernmentOrganization(s) that ultimately are recognized by a CountryGovernment."^^xsd:string ;
+	skos:definition "A defined geographic area or areas governed by at least one government organization."^^xsd:string ;
+	skos:prefLabel "Governed Geo-Region"^^xsd:string ;
+	skos:scopeNote "Geographic regions do not need not be physically contiguous in order to constitute a governed geo-region; e.g., Alaska and Hawaii."^^xsd:string ;
 	.
 
-gist:GreenwichInstant
+gist:GovernmentOrganization
 	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:TimeInstant
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:usesTimeZoneStandard ;
-				owl:hasValue gist:_greenwichTimeZone ;
-			]
-		) ;
-	] ;
-	skos:definition "By default time instants are expressed in Greenwich, if you need to be explicit (to calculate offset for instance)"^^xsd:string ;
-	skos:prefLabel "Greenwich Instant"^^xsd:string ;
+	rdfs:subClassOf gist:Organization ;
+	owl:disjointWith
+		gist:IntergovernmentalOrganization ,
+		gist:TreatyOrganization
+		;
+	skos:definition "An organization which exercises political and/or regulatory authority over a political unit, people, geo-region, etc., as well as performing certain functions for this unit or body. Differs from a corporation in that it cannot be owned."^^xsd:string ;
+	skos:example "The State of Washington Office of Financial Management; the Food and Drug Administration; the Scottish Parliament."^^xsd:string ;
+	skos:prefLabel "Government Organization"^^xsd:string ;
+	skos:scopeNote "Includes administrative, regulatory, and enforcement organizations created or sanctioned by Country or SubCountry Governments."^^xsd:string ;
 	.
 
 gist:Group
@@ -1176,35 +1155,18 @@ gist:HistoricalEvent
 			gist:Event
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasActualEnd ;
-				owl:someValuesFrom gist:TimeInstant ;
+				owl:onProperty gist:actualStartDateTime ;
+				owl:cardinality "1"^^xsd:nonNegativeInteger ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasActualStart ;
-				owl:someValuesFrom gist:TimeInstant ;
+				owl:onProperty gist:actualEndDateTime ;
+				owl:cardinality "1"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
 	skos:definition "An event which occurred in time, with an actual end earlier than the present moment."^^xsd:string ;
 	skos:prefLabel "Historical Event"^^xsd:string ;
-	.
-
-gist:HumanInstant
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:TimeInstant
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasPrecision ;
-				owl:hasValue gist:_one_minute ;
-			]
-		) ;
-	] ;
-	skos:definition "A point in time known only to the accuracy of one minute.  For things like calendar appointments and time reporting"^^xsd:string ;
-	skos:prefLabel "Human Instant"^^xsd:string ;
 	.
 
 gist:ID
@@ -1264,7 +1226,6 @@ gist:IntellectualProperty
 		gist:Organization ,
 		gist:PhysicalIdentifiableItem ,
 		gist:PhysicalSubstance ,
-		gist:TimeInstant ,
 		gist:UnitOfMeasure
 		;
 	skos:definition "A work, invention or concept, independent of its being expressed in text, audio, video, image, or live performance.  IP can also be tacit knowledge, know-how, or skill. Also includes Brands."^^xsd:string ;
@@ -1280,11 +1241,29 @@ gist:Intention
 		gist:Organization ,
 		gist:PhysicalIdentifiableItem ,
 		gist:PhysicalSubstance ,
-		gist:TimeInstant ,
 		gist:UnitOfMeasure
 		;
 	skos:definition 'Goal, desire, aspiration. This is the "teleologic" aspect of the system that indicates things are done with a purpose.'^^xsd:string ;
 	skos:prefLabel "Intention"^^xsd:string ;
+	.
+
+gist:IntergovernmentalOrganization
+	a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:Organization
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasMember ;
+				owl:onClass gist:GovernmentOrganization ;
+				owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+			]
+		) ;
+	] ;
+	skos:definition "An organization whose members are government organizations."^^xsd:string ;
+	skos:example "The United Nations, the European Union"^^xsd:string ;
+	skos:prefLabel "Inter-Governmental Organization"^^xsd:string ;
 	.
 
 gist:Landmark
@@ -1318,7 +1297,6 @@ gist:Language
 		gist:Organization ,
 		gist:PhysicalIdentifiableItem ,
 		gist:PhysicalSubstance ,
-		gist:TimeInstant ,
 		gist:UnitOfMeasure
 		;
 	skos:definition "A recognized, organized set of symbols and grammar."^^xsd:string ;
@@ -1334,45 +1312,23 @@ gist:LivingThing
 			gist:PhysicalIdentifiableItem
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasBirthDate ;
-				owl:someValuesFrom gist:TimeInstant ;
+				owl:onProperty gist:hasBiologicalParent ;
+				owl:minCardinality "1"^^xsd:nonNegativeInteger ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasBiologicalParent ;
-				owl:someValuesFrom gist:LivingThing ;
+				owl:onProperty gist:birthDate ;
+				owl:cardinality "1"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
-	skos:definition "Something that is now, or at some point in time was, alive and growing."^^xsd:string ;
+	skos:definition "Something that is currently, or at some point in time was, alive."^^xsd:string ;
 	skos:example
 		"A cat, a mushroom, a tree."^^xsd:string ,
-		"Negative examples: fictional life forms such as Unicorns or Mickey Mouse."^^xsd:string
+		"Negative examples: fictional life forms such as unicorns or Mickey Mouse."^^xsd:string
 		;
 	skos:prefLabel "Living Thing"^^xsd:string ;
-	skos:scopeNote "In the open world, you must assume that it might have since died."^^xsd:string ;
-	.
-
-gist:LocalInstant
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:TimeInstant
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isSameTimeAs ;
-				owl:someValuesFrom gist:TimeInstant ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:usesTimeZoneStandard ;
-				owl:someValuesFrom gist:TimeZoneStandard ;
-			]
-		) ;
-	] ;
-	skos:definition "A point in time expressed relative to a local time zone. Can be converted to Universal Time using the time zone offset. The precision is used to state how precise this instant is.  Typical values would be day, hour, minute or second."^^xsd:string ;
-	skos:prefLabel "Local Instant"^^xsd:string ;
+	skos:scopeNote "Not all life forms have exactly two parents, so the restriction only specifies a minimum of one."^^xsd:string ;
 	.
 
 gist:LuminousIntensity
@@ -1420,7 +1376,6 @@ gist:Magnitude
 		gist:Organization ,
 		gist:PhysicalIdentifiableItem ,
 		gist:PhysicalSubstance ,
-		gist:TimeInstant ,
 		gist:UnitOfMeasure
 		;
 	owl:equivalentClass [
@@ -1516,8 +1471,8 @@ gist:Message
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
-						gist:Person
 						gist:Organization
+						gist:Person
 					) ;
 				] ;
 			]
@@ -1527,14 +1482,14 @@ gist:Message
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
-						gist:Person
 						gist:Organization
+						gist:Person
 					) ;
 				] ;
 			]
 		) ;
 	] ;
-	skos:definition "A specific instance of content sent from an Organization, Person, or Application to at least one other Organization, Person, or Application."^^xsd:string ;
+	skos:definition "A specific instance of content sent from an Organization or Person to at least one other Organization or Person."^^xsd:string ;
 	skos:example "An email message, a phone call, a voice message, or a Web Service message."^^xsd:string ;
 	skos:prefLabel "Message"^^xsd:string ;
 	.
@@ -1629,9 +1584,8 @@ gist:NetworkLink
 		owl:intersectionOf (
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:links ;
-				owl:onClass gist:NetworkNode ;
-				owl:qualifiedCardinality "2"^^xsd:integer ;
+				owl:onProperty gist:isMemberOf ;
+				owl:someValuesFrom gist:Network ;
 			]
 			[
 				a owl:Restriction ;
@@ -1640,8 +1594,9 @@ gist:NetworkLink
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isMemberOf ;
-				owl:someValuesFrom gist:Network ;
+				owl:onProperty gist:links ;
+				owl:onClass gist:NetworkNode ;
+				owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
@@ -1671,7 +1626,7 @@ gist:Obligation
 			gist:Commitment
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasRecipient ;
+				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -1682,7 +1637,7 @@ gist:Obligation
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasGiver ;
+				owl:onProperty gist:hasRecipient ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -1706,6 +1661,11 @@ gist:Offer
 			gist:ContingentObligation
 			[
 				a owl:Restriction ;
+				owl:onProperty gist:hasDirectPart ;
+				owl:someValuesFrom gist:CatalogItem ;
+			]
+			[
+				a owl:Restriction ;
 				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
@@ -1717,23 +1677,18 @@ gist:Offer
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasDirectPart ;
-				owl:someValuesFrom gist:CatalogItem ;
-			]
-			[
-				a owl:Restriction ;
 				owl:onProperty gist:hasMagnitude ;
 				owl:someValuesFrom gist:Monetary ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasPlannedEnd ;
-				owl:someValuesFrom gist:TimeInstant ;
+				owl:onProperty gist:plannedEndDateTime ;
+				owl:cardinality "1"^^xsd:nonNegativeInteger ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasStart ;
-				owl:someValuesFrom gist:TimeInstant ;
+				owl:onProperty gist:plannedStartDateTime ;
+				owl:cardinality "1"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
@@ -1744,6 +1699,7 @@ gist:Offer
 gist:OrderedCollection
 	a owl:Class ;
 	owl:equivalentClass [
+		a owl:Class ;
 		owl:intersectionOf (
 			gist:Collection
 			[
@@ -1761,28 +1717,20 @@ gist:OrderedCollection
 gist:OrderedMember
 	a owl:Class ;
 	owl:equivalentClass [
+		a owl:Class ;
 		owl:intersectionOf (
 			[
-				a owl:Restriction ;
-				owl:onProperty gist:isMemberOf ;
-				owl:cardinality "1"^^xsd:nonNegativeInteger ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isMemberOf ;
-				owl:allValuesFrom gist:OrderedCollection ;
-			]
-			[
+				a owl:Class ;
 				owl:unionOf (
 					[
 						a owl:Restriction ;
-						owl:onProperty gist:precedesDirectly ;
-						owl:someValuesFrom owl:Thing ;
+						owl:onProperty gist:followsDirectly ;
+						owl:someValuesFrom gist:OrderedMember ;
 					]
 					[
 						a owl:Restriction ;
-						owl:onProperty gist:followsDirectly ;
-						owl:someValuesFrom owl:Thing ;
+						owl:onProperty gist:precedesDirectly ;
+						owl:someValuesFrom gist:OrderedMember ;
 					]
 					[
 						a owl:Restriction ;
@@ -1790,6 +1738,16 @@ gist:OrderedMember
 						owl:someValuesFrom xsd:integer ;
 					]
 				) ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:isMemberOf ;
+				owl:allValuesFrom gist:OrderedCollection ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:isMemberOf ;
+				owl:cardinality "1"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
@@ -1805,7 +1763,6 @@ gist:Organization
 		gist:PhysicalIdentifiableItem ,
 		gist:PhysicalSubstance ,
 		gist:SchemaMetaData ,
-		gist:TimeInstant ,
 		gist:UnitOfMeasure
 		;
 	skos:definition "A generic organization that can be formal or informal, legal or non-legal. It can have members, or not."^^xsd:string ;
@@ -1848,7 +1805,7 @@ gist:Person
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBiologicalParent ;
-				owl:someValuesFrom gist:Person ;
+				owl:allValuesFrom gist:Person ;
 			]
 		) ;
 	] ;
@@ -1918,7 +1875,6 @@ gist:PhysicalIdentifiableItem
 		;
 	owl:disjointWith
 		gist:SchemaMetaData ,
-		gist:TimeInstant ,
 		gist:UnitOfMeasure
 		;
 	skos:definition "You could, at least in principle, put an RFID tag on members of this class. Physical things are made of something.  E.g., statues are made of bronze."^^xsd:string ;
@@ -1932,30 +1888,25 @@ gist:PhysicalIdentifiableItem
 
 gist:PhysicalSubstance
 	a owl:Class ;
-	rdfs:subClassOf [
-		owl:intersectionOf (
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMagnitude ;
-				owl:someValuesFrom gist:Mass ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMagnitude ;
-				owl:someValuesFrom gist:Volume ;
-			]
-		) ;
-	] ;
-	owl:disjointWith
-		gist:TimeInstant ,
-		gist:UnitOfMeasure
+	rdfs:subClassOf
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:hasMagnitude ;
+			owl:someValuesFrom gist:Mass ;
+		] ,
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:hasMagnitude ;
+			owl:someValuesFrom gist:Volume ;
+		]
 		;
-	skos:definition "Non corporeal material, i.e. 'stuff' which can be divided into parts where each part retains its essence."^^xsd:string ;
-	skos:example "An amount of water, of penicillin, of sand, of gold. An actual piece of gold, not gold the concept."^^xsd:string ;
+	owl:disjointWith gist:UnitOfMeasure ;
+	skos:definition "Non-corporeal material, i.e. 'stuff' which can be divided into parts where each part retains its essence."^^xsd:string ;
+	skos:example "An amount of water, of penicillin, of sand, of gold: an actual piece of gold, not the concept of gold."^^xsd:string ;
 	skos:prefLabel "Physical Substance"^^xsd:string ;
 	skos:scopeNote
-		"An instance of this class must be a physical thing, and not just a categorical description.  "^^xsd:string ,
-		"Some things are substances at a macro level, but ultimately end up as not being divisible into the same kind of thing.  E.g. sand vs. grains of sand., bacteria vs. an individual bacterium."^^xsd:string
+		"An instance of this class must be a physical thing, and not just a categorical description."^^xsd:string ,
+		"Some things are substances at a macro level, but ultimately end up as not being divisible into the same kind of thing.  E.g., sand vs. grains of sand, bacteria vs. an individual bacterium."^^xsd:string
 		;
 	.
 
@@ -1973,13 +1924,13 @@ gist:PlannedEvent
 			gist:Event
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasPlannedEnd ;
-				owl:someValuesFrom gist:TimeInstant ;
+				owl:onProperty gist:plannedEndDateTime ;
+				owl:cardinality "1"^^xsd:nonNegativeInteger ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasPlannedStart ;
-				owl:someValuesFrom gist:TimeInstant ;
+				owl:onProperty gist:plannedStartDateTime ;
+				owl:cardinality "1"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
@@ -2052,17 +2003,12 @@ gist:ProductUnit
 				owl:onProperty gist:hasMultiplier ;
 				owl:someValuesFrom gist:UnitOfMeasure ;
 			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:baseConversionFactor ;
-				owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-				owl:onDataRange xsd:double ;
-			]
 		) ;
 	] ;
 	skos:definition "A unit of measure that is the product of two simpler ones."^^xsd:string ;
 	skos:example "Area and Volume are the classic cases.  But other, more exotic cases exist, such as Newtons."^^xsd:string ;
 	skos:prefLabel "Product Unit"^^xsd:string ;
+	skos:scopeNote "A ProductUnit is intended have a value for conversionFactor."^^xsd:string ;
 	.
 
 gist:Project
@@ -2236,12 +2182,12 @@ gist:SimpleUnitOfMeasure
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:baseConversionFactor ;
+				owl:onProperty gist:conversionFactor ;
 				owl:someValuesFrom xsd:double ;
 			]
 		) ;
 	] ;
-	skos:definition "Each simple unit has a base unit and a conversion factor to the base. The bases are from the System International (SI). The conversion factor is the number which one multiplies a Unit by to get to base, or divides by to get from base.  E.g., the convertToBase for inch is 0.0254 to get to the base unit (meter)."^^xsd:string ;
+	skos:definition "Each simple unit has a base unit and a conversion factor to the base. The bases are from the System International (SI). The conversion factor is the number which one multiplies a Unit by to get to base, or divides by to get from base.  E.g., the conversionFactor for inch is 0.0254 to get to the base unit (meter)."^^xsd:string ;
 	skos:prefLabel "Simple Unit Of Measure"^^xsd:string ;
 	.
 
@@ -2261,6 +2207,33 @@ gist:StreetAddress
 	skos:scopeNote "This excludes addresses not associated with a fixed location, such as a PO box or FPO code."^^xsd:string ;
 	.
 
+gist:SubCountryGovernment
+	a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:GovernmentOrganization
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:governs ;
+				owl:someValuesFrom gist:GeoRegion ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:isGovernedBy ;
+				owl:someValuesFrom gist:CountryGovernment ;
+			]
+		) ;
+	] ;
+	skos:definition "A government of a governed geo-region other than a country, which is under the direct or indirect control of a country government."^^xsd:string ;
+	skos:prefLabel "Sub-Country Government"^^xsd:string ;
+	skos:scopeNote
+		"Across the world, there are a variety of types of subsections of a country and the governments thereof (as well as different terms, like 'province' and 'state', which refer to essentially the same type of thing). We should not automatically assume 'state', 'county', and 'city'.  It is more future-proof just to mint the instances using the generic SubCountryGovernment and, where greater specificity is needed, define categories or subclasses."^^xsd:string ,
+		"Note that the predicate 'governs' is used both for the relationship a government has to a governed geo-region, and for the relationship one government has to the governments of its sub-regions."^^xsd:string ,
+		"This class applies only to organizations governing geo-regions. Regulatory and bureaucratic organizations are members of the more generic GovernmentOrganization class."^^xsd:string
+		;
+	.
+
 gist:System
 	a owl:Class ;
 	owl:equivalentClass [
@@ -2276,23 +2249,6 @@ gist:System
 	] ;
 	skos:definition "A system is an artifact with component parts where the parts contribute to the goal of the system"^^xsd:string ;
 	skos:prefLabel "System"^^xsd:string ;
-	.
-
-gist:SystemInstant
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:TimeInstant
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasPrecision ;
-				owl:hasValue gist:_one_millisecond ;
-			]
-		) ;
-	] ;
-	skos:definition "A point in time known to the accuracy of a millisecond.  For posting transaction recorded on times"^^xsd:string ;
-	skos:prefLabel "System Instant"^^xsd:string ;
 	.
 
 gist:Tag
@@ -2325,8 +2281,9 @@ gist:Task
 			]
 		) ;
 	] ;
-	skos:definition "A task which has been defined and either scheduled or accomplished, or both."^^xsd:string ;
+	skos:definition "An event characterized by a defined piece of work that is either scheduled, accomplished, or both."^^xsd:string ;
 	skos:prefLabel "Task"^^xsd:string ;
+	skos:scopeNote "Note that this differs from the ordinary sense of 'task,' which is not an event (e.g., 'A piece of work to be done or undertaken.')."^^xsd:string ;
 	.
 
 gist:TaskTemplate
@@ -2432,10 +2389,7 @@ gist:TemperatureUnit
 
 gist:Template
 	a owl:Class ;
-	owl:disjointWith
-		gist:TimeInstant ,
-		gist:UnitOfMeasure
-		;
+	owl:disjointWith gist:UnitOfMeasure ;
 	skos:definition "Something used to make instances in its own image.  In manufacturing this would be specialized as a die to make stamped parts, cookie cutters are templates for cookies, and forms are templates for data."^^xsd:string ;
 	skos:example "A form. A filled-in form has the structure of the form with data entered into some or all of the fields."^^xsd:string ;
 	skos:prefLabel "Template"^^xsd:string ;
@@ -2447,18 +2401,18 @@ gist:TemporalRelation
 	rdfs:subClassOf
 		[
 			a owl:Restriction ;
+			owl:onProperty gist:endDateTime ;
+			owl:cardinality "1"^^xsd:nonNegativeInteger ;
+		] ,
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:startDateTime ;
+			owl:cardinality "1"^^xsd:nonNegativeInteger ;
+		] ,
+		[
+			a owl:Restriction ;
 			owl:onProperty gist:isConnectedTo ;
 			owl:minCardinality "2"^^xsd:nonNegativeInteger ;
-		] ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:hasEnd ;
-			owl:someValuesFrom gist:TimeInstant ;
-		] ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:hasStart ;
-			owl:someValuesFrom gist:TimeInstant ;
 		]
 		;
 	skos:definition "A relationship existing for a period of time."^^xsd:string ;
@@ -2487,57 +2441,6 @@ gist:Text
 	] ;
 	skos:definition "Content expressed as words and numbers (not graphics)."^^xsd:string ;
 	skos:prefLabel "Text"^^xsd:string ;
-	.
-
-gist:TimeInstant
-	a owl:Class ;
-	rdfs:subClassOf
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:epoch ;
-			owl:someValuesFrom xsd:double ;
-		] ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:hasPrecision ;
-			owl:someValuesFrom gist:Duration ;
-		] ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:localDate ;
-			owl:someValuesFrom xsd:string ;
-		] ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:localDateTime ;
-			owl:someValuesFrom xsd:dateTime ;
-		] ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:localTime ;
-			owl:someValuesFrom xsd:string ;
-		] ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:universalDate ;
-			owl:someValuesFrom xsd:string ;
-		] ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:universalDateTime ;
-			owl:someValuesFrom xsd:dateTime ;
-		] ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:universalTime ;
-			owl:someValuesFrom xsd:string ;
-		]
-		;
-	owl:disjointWith gist:UnitOfMeasure ;
-	skos:definition "All time instants are Greenwich and the local equal universal."^^xsd:string ;
-	skos:example "A literal instant (as in 12:01.0001 January 1, 2008), or a broader but still single point in time (January 1, 2008). In the latter case, we are declaring a time instant to be an interval with no duration (or really a duration only equal to its precision)."^^xsd:string ;
-	skos:prefLabel "Time Instant"^^xsd:string ;
-	skos:scopeNote "Our identity criteria require that something refers to each Time Instant instance."^^xsd:string ;
 	.
 
 gist:TimeZone
@@ -2579,6 +2482,29 @@ gist:Transaction
 	rdfs:subClassOf gist:Event ;
 	skos:definition "An event which has an effect on at least one accumulator."^^xsd:string ;
 	skos:prefLabel "Transaction"^^xsd:string ;
+	.
+
+gist:TreatyOrganization
+	a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:IntergovernmentalOrganization
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasMember ;
+				owl:minCardinality "2"^^xsd:nonNegativeInteger ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasMember ;
+				owl:allValuesFrom gist:CountryGovernment ;
+			]
+		) ;
+	] ;
+	skos:definition "An organization whose members are country governments."^^xsd:string ;
+	skos:example "NATO, the Louisiana Purchase, the Treaty of Versailles"^^xsd:string ;
+	skos:prefLabel "Treaty Organization"^^xsd:string ;
 	.
 
 gist:UnitOfMeasure
@@ -2634,8 +2560,11 @@ gist:_USDollar
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	gist:baseConversionFactor "1.0"^^xsd:double ;
+	skos:definition "The base unit for currency."^^xsd:string ;
+	skos:prefLabel "US Dollar"^^xsd:string ;
+	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_USDollar ;
+	gist:unitSymbol "USD"^^xsd:string ;
 	.
 
 gist:_ampere
@@ -2644,8 +2573,11 @@ gist:_ampere
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	gist:baseConversionFactor "1.0"^^xsd:double ;
+	skos:definition "The base unit for electrical current."^^xsd:string ;
+	skos:prefLabel "ampere"^^xsd:string ;
+	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_ampere ;
+	gist:unitSymbol "A"^^xsd:string ;
 	.
 
 gist:_bit
@@ -2654,8 +2586,10 @@ gist:_bit
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	skos:definition "A bit (short for binary digit) is the smallest unit of data in a computer. A bit has a single binary value, either 0 or 1."^^xsd:string ;
-	gist:baseConversionFactor "1.0"^^xsd:double ;
+	skos:definition "The base unit for measuring digital information."^^xsd:string ;
+	skos:prefLabel "bit"^^xsd:string ;
+	skos:scopeNote "A bit (short for binary digit) is the smallest unit of data in a computer. A bit has a single binary value, either 0 or 1."^^xsd:string ;
+	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_bit ;
 	.
 
@@ -2665,8 +2599,11 @@ gist:_candela
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	gist:baseConversionFactor "1.0"^^xsd:double ;
+	skos:definition "The base unit for luminous intensity."^^xsd:string ;
+	skos:prefLabel "candela"^^xsd:string ;
+	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_candela ;
+	gist:unitSymbol "cd"^^xsd:string ;
 	.
 
 gist:_day
@@ -2674,7 +2611,9 @@ gist:_day
 		owl:NamedIndividual ,
 		gist:DurationUnit
 		;
-	gist:baseConversionFactor "86400.0"^^xsd:double ;
+	skos:definition "A duration unit that is 24 hours long."^^xsd:string ;
+	skos:prefLabel "day"^^xsd:string ;
+	gist:conversionFactor "86400.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
 	.
 
@@ -2684,7 +2623,9 @@ gist:_each
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	gist:baseConversionFactor "1.0"^^xsd:double ;
+	skos:definition "The base unit for count magnitudes."^^xsd:string ;
+	skos:prefLabel "each"^^xsd:string ;
+	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_each ;
 	.
 
@@ -2694,6 +2635,8 @@ gist:_greenwichTimeZone
 		owl:Thing ,
 		gist:TimeZoneStandard
 		;
+	skos:definition "The time zone containing the Royal Observatory in Greenwich, England, which is located on the prime meridian."^^xsd:string ;
+	skos:prefLabel "Greenwich Time Zone"^^xsd:string ;
 	.
 
 gist:_kelvin
@@ -2702,9 +2645,12 @@ gist:_kelvin
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	gist:baseConversionFactor "1.0"^^xsd:double ;
+	skos:definition "The base unit for measuring temperature."^^xsd:string ;
+	skos:prefLabel "Kelvin"^^xsd:string ;
+	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:conversionOffset "0.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_kelvin ;
+	gist:unitSymbol "K"^^xsd:string ;
 	.
 
 gist:_kilogram
@@ -2713,8 +2659,11 @@ gist:_kilogram
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	gist:baseConversionFactor "1.0"^^xsd:double ;
+	skos:definition "The base unit for measuring mass."^^xsd:string ;
+	skos:prefLabel "mass"^^xsd:string ;
+	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_kilogram ;
+	gist:unitSymbol "kg"^^xsd:string ;
 	.
 
 gist:_meter
@@ -2723,8 +2672,11 @@ gist:_meter
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	gist:baseConversionFactor "1.0"^^xsd:double ;
+	skos:definition "The base unit for measuring distance."^^xsd:string ;
+	skos:prefLabel "distance"^^xsd:string ;
+	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_meter ;
+	gist:unitSymbol "m"^^xsd:string ;
 	.
 
 gist:_millisecond
@@ -2732,8 +2684,11 @@ gist:_millisecond
 		owl:NamedIndividual ,
 		gist:DurationUnit
 		;
-	gist:baseConversionFactor "0.001"^^xsd:double ;
+	skos:definition "A unit equal to a thousandth of a second."^^xsd:string ;
+	skos:prefLabel "millisecond"^^xsd:string ;
+	gist:conversionFactor "0.001"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
+	gist:unitSymbol "ms"^^xsd:string ;
 	.
 
 gist:_minute
@@ -2741,8 +2696,11 @@ gist:_minute
 		owl:NamedIndividual ,
 		gist:DurationUnit
 		;
-	gist:baseConversionFactor "60.0"^^xsd:double ;
+	skos:definition "A unit equal to 60 seconds."^^xsd:string ;
+	skos:prefLabel "minute"^^xsd:string ;
+	gist:conversionFactor "60.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
+	gist:unitSymbol "min"^^xsd:string ;
 	.
 
 gist:_mole
@@ -2751,8 +2709,11 @@ gist:_mole
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	gist:baseConversionFactor "1.0"^^xsd:double ;
+	skos:definition "The base unit for measuring molar quantities."^^xsd:string ;
+	skos:prefLabel "mole"^^xsd:string ;
+	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_mole ;
+	gist:unitSymbol "mol"^^xsd:string ;
 	.
 
 gist:_one_day
@@ -2761,6 +2722,9 @@ gist:_one_day
 		owl:Thing ,
 		gist:Duration
 		;
+	skos:definition "A duration equal to 24 hours."^^xsd:string ;
+	skos:prefLabel "one day"^^xsd:string ;
+	skos:scopeNote "This is a gist:Magnutude, not a unit of measure, it means essentially the same thing as the unit, day."^^xsd:string ;
 	gist:hasUnitOfMeasure gist:_day ;
 	gist:numericValue "1.0"^^xsd:double ;
 	.
@@ -2771,6 +2735,9 @@ gist:_one_millisecond
 		owl:Thing ,
 		gist:Duration
 		;
+	skos:definition "A duration equal to one millisecond."^^xsd:string ;
+	skos:prefLabel "one millisecond"^^xsd:string ;
+	skos:scopeNote "This is a gist:Magnutude, not a unit of measure, it means essentially the same thing as the unit, millisecond."^^xsd:string ;
 	gist:hasUnitOfMeasure gist:_millisecond ;
 	gist:numericValue "1.0"^^xsd:double ;
 	.
@@ -2781,6 +2748,9 @@ gist:_one_minute
 		owl:Thing ,
 		gist:Duration
 		;
+	skos:definition "A duration equal to one minute."^^xsd:string ;
+	skos:prefLabel "one minute"^^xsd:string ;
+	skos:scopeNote "This is a gist:Magnutude, not a unit of measure, it means essentially the same thing as the unit, minute."^^xsd:string ;
 	gist:hasUnitOfMeasure gist:_minute ;
 	gist:numericValue "1.0"^^xsd:double ;
 	.
@@ -2791,19 +2761,127 @@ gist:_second
 		owl:Thing ,
 		gist:BaseUnit
 		;
-	gist:baseConversionFactor "1.0"^^xsd:double ;
+	skos:definition "The base unit for measuring durations."^^xsd:string ;
+	skos:prefLabel "second"^^xsd:string ;
+	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
+	gist:unitSymbol "s"^^xsd:string ;
 	.
 
 gist:accepts
 	a owl:ObjectProperty ;
-	skos:definition "The types of input messages that will be allowed"^^xsd:string ;
+	skos:definition "The types of input messages that will be allowed."^^xsd:string ;
 	skos:prefLabel "accepts"^^xsd:string ;
+	.
+
+gist:actualEndDate
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:actualEndDateTime ;
+	rdfs:range xsd:dateTime ;
+	skos:definition "The actual date that something ended, with precision of one day."^^xsd:string ;
+	skos:example "'2021-06-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:prefLabel "actual end date"^^xsd:string ;
+	skos:scopeNote "Used for things where the precision of a date is sufficient, such as most projects, tasks, and the like. Recommended usage is to zero out the hours through microseconds to avoid spurious precision."^^xsd:string ;
+	.
+
+gist:actualEndDateTime
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:endDateTime ;
+	rdfs:range xsd:dateTime ;
+	skos:definition "The actual date and time that something ended, with no implied precision."^^xsd:string ;
+	skos:prefLabel "actual end date time"^^xsd:string ;
+	skos:scopeNote "This is an abstraction over the various precisions of actual end time, and is not expected to be asserted directly. Values with different precisions can be compared since they all have the same format."^^xsd:string ;
+	.
+
+gist:actualEndMicrosecond
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:actualEndDateTime ;
+	rdfs:range xsd:dateTime ;
+	skos:definition "The actual time that something ended, expressed as a system time used for timestamps."^^xsd:string ;
+	skos:example "'2021-06-01T08:03:27.12324-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:prefLabel "actual end microsecond"^^xsd:string ;
+	skos:scopeNote "A system time will be as precise as the system can supply, typically at least milliseconds, sometimes microseconds. The convention for timestamps, such as recording a transaction, is to specify just the end point; the start time is rarely needed."^^xsd:string ;
+	.
+
+gist:actualEndMinute
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:actualEndDateTime ;
+	rdfs:range xsd:dateTime ;
+	skos:definition "The actual date and time that something ended, with precision of one minute."^^xsd:string ;
+	skos:example "'2021-06-01T08:32:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:prefLabel "actual end minute"^^xsd:string ;
+	skos:scopeNote "Used for things like meetings and time card entries, where the hour and minute are important. Recommended usage is to zero out the seconds and microseconds to avoid spurious precision."^^xsd:string ;
+	.
+
+gist:actualEndYear
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:actualEndDateTime ;
+	rdfs:range xsd:dateTime ;
+	skos:definition "The actual date that something ended, with precision of one year."^^xsd:string ;
+	skos:example
+		"'2021-01-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ,
+		"The tenure of the previous chairman of the board ended in 2021."^^xsd:string
+		;
+	skos:prefLabel "actual end year"^^xsd:string ;
+	skos:scopeNote "Used for things where the precision of a year is sufficient. Recommended usage is to zero out the hours through microseconds to avoid spurious precision. Note that it is not valid to zero out months and days, so arbitrary values must be included."^^xsd:string ;
+	.
+
+gist:actualStartDate
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:actualStartDateTime ;
+	rdfs:range xsd:dateTime ;
+	skos:definition "The actual date that something started, with precision of one day."^^xsd:string ;
+	skos:example "'2021-06-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:prefLabel "actual start date"^^xsd:string ;
+	skos:scopeNote "Used for things where the precision of a date is sufficient, such as most projects, tasks, and the like. Recommended usage is to zero out the hours through microseconds to avoid spurious precision."^^xsd:string ;
+	.
+
+gist:actualStartDateTime
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:startDateTime ;
+	rdfs:range xsd:dateTime ;
+	skos:definition "The actual date and time that something ended, with no implied precision."^^xsd:string ;
+	skos:prefLabel "actual start date time"^^xsd:string ;
+	skos:scopeNote "This is an abstraction over the various precisions of actual start time, and is not expected to be asserted directly. Values with different precisions can be compared since they all have the same format."^^xsd:string ;
+	.
+
+gist:actualStartMicrosecond
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:actualStartDateTime ;
+	rdfs:range xsd:dateTime ;
+	skos:definition "The actual time that something started, expressed as a system time used for timestamps."^^xsd:string ;
+	skos:example "'2021-06-01T08:03:27.12324-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:prefLabel "actual start microsecond"^^xsd:string ;
+	skos:scopeNote "A system time will be as precise as the system can supply, typically at least milliseconds, sometimes microseconds. The convention for timestamps, such as recording a transaction, is to specify just the end point; the start time is rarely needed. This property is defined for the cases when you do need to capture the runtime of a system process, and is then used in conjunction with gist:actualEndMicrosecond."^^xsd:string ;
+	.
+
+gist:actualStartMinute
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:actualStartDateTime ;
+	rdfs:range xsd:dateTime ;
+	skos:definition "The actual date and time that something started, with precision of one minute."^^xsd:string ;
+	skos:example "'2021-06-01T08:32:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:prefLabel "actual start minute"^^xsd:string ;
+	skos:scopeNote "Used for things like meetings and time card entries, where the hour and minute are important. Recommended usage is to zero out the seconds and microseconds to avoid spurious precision."^^xsd:string ;
+	.
+
+gist:actualStartYear
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:actualStartDateTime ;
+	rdfs:range xsd:dateTime ;
+	skos:definition "The actual date that something started, with precision of one year."^^xsd:string ;
+	skos:example
+		"'2021-01-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ,
+		"The tenure of the current chairman of the board began in 2021."^^xsd:string
+		;
+	skos:prefLabel "actual start year"^^xsd:string ;
+	skos:scopeNote "Used for things where the precision of a year is sufficient. Recommended usage is to zero out the hours through microseconds to avoid spurious precision. Note that it is not valid to zero out months and days, so arbitrary values must be included."^^xsd:string ;
 	.
 
 gist:affects
 	a owl:ObjectProperty ;
-	skos:definition "The subject has or had or will have an effect on the object"^^xsd:string ;
+	owl:inverseOf gist:isAffectedBy ;
+	skos:definition "The subject has, had, or will have an effect on the object."^^xsd:string ;
 	skos:prefLabel "affects"^^xsd:string ;
 	.
 
@@ -2815,12 +2893,41 @@ gist:allows
 	skos:prefLabel "allows"^^xsd:string ;
 	.
 
-gist:baseConversionFactor
+gist:atDateTime
 	a owl:DatatypeProperty ;
-	rdfs:domain gist:UnitOfMeasure ;
-	rdfs:range xsd:double ;
-	skos:definition "The conversion factor used to get to the base unit.  E.g., multiplying by 0.0254 gets you from inches to meters. Divide by this number to go the other way. Used in conjunction with conversionOffset to convert from one unit to another. Degrees K =  (Degrees F - conversionOffset) * convertToBase. Or K = (F-(-469.67)) * (5/9.  To go the other way: F = (K * 9/5) -469.67.  Try it on Google."^^xsd:string ;
-	skos:prefLabel "base conversion factor"^^xsd:string ;
+	rdfs:range xsd:dateTime ;
+	skos:definition "The date and time at which something did or will occur, with variants for precision, start and end, and actual vs. planned."^^xsd:string ;
+	skos:prefLabel "at date time"^^xsd:string ;
+	skos:scopeNote """This is the top level property for asserting time, and is not expected to be asserted directly.
+
+The subproperties allow the ontologist to do three things:
+1) Distinguish start and end times.
+2) Indicate whether a time is planned or actual. This is useful for everything from project management to calendar appointments and the like. It is also useful for date effectivities; i.e., something valid up to a planned date).
+3) Distinguish varying levels of precision; sort of a simple version of the Allen functions.  
+
+All datetimes are of the same format: '2021-06-01T08:03:27.12324-6:00'^^xsd:dateTime. This is compatible with and a subset of ISO 8601.
+
+Time zone offset, such as -6:00 (of which there are a few dozen) is recognized in the date itself, as shown. The actual time zone standard (of which there are 131) may optionally be attached to the event or other object itself; see property gist:usesTimeZoneStandard.
+
+There will be many historical dates that do not have a time zone offset (e.g., Lincoln's birthday, as well as about 75% of all legacy systems), and in that case the offset can be omitted. 
+
+The conventions for precision that are repeated in each property name are as follows:
+	- *DateTime is an abstraction over the various precisions of its subproperties.
+	- *Date refers to a calendar date (e.g., birthdays and invoice dates) and is assumed to have precision of one day. Time zone offset is allowed.
+	- *Minute refers to clock time; e.g., a meeting will start at 9:15 with a timezone offset. Precision is assumed to have precision of one minute.
+	- *Microsecond refers to system time, and it will be as precise as the system can supply; typically at least milliseconds, sometime microseconds.
+
+"""^^xsd:string ;
+	.
+
+gist:birthDate
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:startDateTime ;
+	rdfs:range xsd:dateTime ;
+	skos:definition "The date some living thing was or will be born, with precision of one day."^^xsd:string ;
+	skos:example "'2021-06-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:prefLabel "birth date"^^xsd:string ;
+	skos:scopeNote "This is a subproperty of gist:startDateTime rather than gist:actualStartDate because some living things have yet to be born. This property refers to a calendar date and is assumed to precision of one day (time zone offset is allowed). It is recommended to zero out the hours through microseconds to avoid spurious precision. Implementations requiring a birthdate to the minute can define a subproperty."^^xsd:string ;
 	.
 
 gist:comesFromAgent
@@ -2843,8 +2950,8 @@ gist:comesFromPlace
 	rdfs:range [
 		a owl:Class ;
 		owl:unionOf (
-			gist:Place
 			gist:Address
+			gist:Place
 		) ;
 	] ;
 	skos:definition "Origin"^^xsd:string ;
@@ -2872,6 +2979,7 @@ gist:containsGeographically
 		;
 	rdfs:domain gist:Place ;
 	rdfs:range gist:Place ;
+	owl:inverseOf gist:isGeographicallyContainedIn ;
 	skos:definition "Relate one place to another place that is contained within the first."^^xsd:string ;
 	skos:prefLabel "contains geographically"^^xsd:string ;
 	.
@@ -2882,12 +2990,35 @@ gist:contributesTo
 	skos:prefLabel "contributes to"^^xsd:string ;
 	.
 
+gist:conversionFactor
+	a owl:DatatypeProperty ;
+	rdfs:domain gist:UnitOfMeasure ;
+	rdfs:range xsd:double ;
+	skos:definition "The conversion factor used to convert a unit to its standard (i.e., coherent) unit (which could be a base unit.)"^^xsd:string ;
+	skos:example
+		"A value expressed in inches is multiplied by a conversion factor of 0.0254 to express the value in the base unit, meter."^^xsd:string ,
+		"An area expressed as 7 square kilometers is multiplied by a conversion factor of one million which results in 7 million square meters."^^xsd:string
+		;
+	skos:prefLabel "conversion factor"^^xsd:string ;
+	skos:scopeNote "Sometimes this property must be used in conjunction with conversionOffset. Kelvin =  (Degrees F - conversionOffset) * conversionFactor. Or K = (F-(-469.67)) * (5/9)."^^xsd:string ;
+	.
+
 gist:conversionOffset
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:double ;
 	skos:definition "Add this number to get to the zero point.  On the Celsius scale, the conversionOffset is -273.15 degrees C. On the Fahrenheit scale it is -459.67 degrees.  Is equal to 0 when the unit has the same zero point as the base unit. e.g. inch, meter."^^xsd:string ;
 	skos:prefLabel "conversion offset"^^xsd:string ;
+	.
+
+gist:deathDate
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:actualEndDate ;
+	rdfs:range xsd:dateTime ;
+	skos:definition "The date some living thing died."^^xsd:string ;
+	skos:example "'2021-06-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:prefLabel "death date"^^xsd:string ;
+	skos:scopeNote "Refers to a calendar date and is assumed to have precision of one day (time zone offset is allowed). Recommended usage is to zero out the hours through microseconds to avoid spurious precision. Implementations requiring a death date to the minute can define a subproperty."^^xsd:string ;
 	.
 
 gist:description
@@ -2924,12 +3055,16 @@ gist:encryptedText
 	skos:prefLabel "encrypted text"^^xsd:string ;
 	.
 
-gist:epoch
+gist:endDateTime
 	a owl:DatatypeProperty ;
-	rdfs:domain gist:TimeInstant ;
-	rdfs:range xsd:double ;
-	skos:definition "Seconds since 1/1/1970 UTC (unix time )"^^xsd:string ;
-	skos:prefLabel "epoch"^^xsd:string ;
+	rdfs:subPropertyOf gist:atDateTime ;
+	rdfs:range xsd:dateTime ;
+	skos:definition "The date and time that something ended."^^xsd:string ;
+	skos:prefLabel "end date time"^^xsd:string ;
+	skos:scopeNote
+		"This is an abstraction over the various precisions of end time, and is not expected to be asserted directly. Values with different precisions can be compared since they all have the same format."^^xsd:string ,
+		"We have looked at some extreme edge cases (e.g., did this meeting end before or after the trade was posted?) and we couldn't find any use case that required special processing. Those who have such use cases can implement them (and feel free to let us know)."^^xsd:string
+		;
 	.
 
 gist:followsDirectly
@@ -2960,8 +3095,8 @@ gist:goesToPlace
 	rdfs:range [
 		a owl:Class ;
 		owl:unionOf (
-			gist:Place
 			gist:Address
+			gist:Place
 		) ;
 	] ;
 	skos:definition "Destination"^^xsd:string ;
@@ -2993,35 +3128,9 @@ gist:governs
 			gist:PhysicalSubstance
 		) ;
 	] ;
+	owl:inverseOf gist:isGovernedBy ;
 	skos:definition "The subject controls or inhibits the object in some way"^^xsd:string ;
 	skos:prefLabel "governs"^^xsd:string ;
-	.
-
-gist:hasActual
-	a owl:ObjectProperty ;
-	rdfs:range gist:TimeInstant ;
-	skos:definition "When something did occur, therefore noting an historical event."^^xsd:string ;
-	skos:prefLabel "has actual"^^xsd:string ;
-	.
-
-gist:hasActualEnd
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf
-		gist:hasActual ,
-		gist:hasEnd
-		;
-	skos:definition "When something did end, therefore noting an historical event."^^xsd:string ;
-	skos:prefLabel "has actual end"^^xsd:string ;
-	.
-
-gist:hasActualStart
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf
-		gist:hasActual ,
-		gist:hasStart
-		;
-	skos:definition "When something did start, therefore noting an historical event."^^xsd:string ;
-	skos:prefLabel "has actual start"^^xsd:string ;
 	.
 
 gist:hasAddress
@@ -3050,29 +3159,12 @@ gist:hasBaseUnit
 	skos:prefLabel "has base unit"^^xsd:string ;
 	.
 
-gist:hasBiologicalOffspring
+gist:hasBiologicalParent
 	a owl:ObjectProperty ;
 	rdfs:domain gist:LivingThing ;
 	rdfs:range gist:LivingThing ;
-	skos:definition "Relates a parent to its biological offspring."^^xsd:string ;
-	skos:prefLabel "has biological offspring"^^xsd:string ;
-	.
-
-gist:hasBiologicalParent
-	a owl:ObjectProperty ;
 	skos:definition "Relates a living thing to its biological parent."^^xsd:string ;
 	skos:prefLabel "has biological parent"^^xsd:string ;
-	gist:rangeIncludes gist:Person ;
-	.
-
-gist:hasBirthDate
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:hasStart ;
-	rdfs:domain gist:LivingThing ;
-	rdfs:range gist:TimeInstant ;
-	skos:definition "Date a living thing is or will be born."^^xsd:string ;
-	skos:prefLabel "has birthdate"^^xsd:string ;
-	skos:scopeNote "This property is a subproperty of gist:hasStart, rather than gist:hasActualStart, to acknowledge the fact that the birth may not yet have occurred. In this case, the birthdate is expected although not known."^^xsd:string ;
 	.
 
 gist:hasCommunicationAddress
@@ -3081,8 +3173,8 @@ gist:hasCommunicationAddress
 	rdfs:domain [
 		a owl:Class ;
 		owl:unionOf (
-			gist:Person
 			gist:Organization
+			gist:Person
 		) ;
 	] ;
 	rdfs:range gist:Address ;
@@ -3090,19 +3182,8 @@ gist:hasCommunicationAddress
 	skos:prefLabel "has communication address"^^xsd:string ;
 	.
 
-gist:hasDeathDate
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:hasActualEnd ;
-	rdfs:domain gist:LivingThing ;
-	rdfs:range gist:TimeInstant ;
-	skos:definition "Date a living thing died"^^xsd:string ;
-	skos:prefLabel "has death date"^^xsd:string ;
-	.
-
 gist:hasDenominator
 	a owl:ObjectProperty ;
-	rdfs:domain gist:RatioUnit ;
-	rdfs:range gist:UnitOfMeasure ;
 	skos:definition "Relates a RatioUnit such as meters/second to the denominator Unit (e.g. second)."^^xsd:string ;
 	skos:prefLabel "has denominator"^^xsd:string ;
 	.
@@ -3110,6 +3191,7 @@ gist:hasDenominator
 gist:hasDirectPart
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasPart ;
+	owl:inverseOf gist:isDirectPartOf ;
 	skos:definition "The relationship between a whole and a part where the part has independent existence."^^xsd:string ;
 	skos:prefLabel "has direct part"^^xsd:string ;
 	skos:scopeNote
@@ -3132,6 +3214,7 @@ gist:hasDirectSubTask
 	rdfs:subPropertyOf gist:hasSubTask ;
 	rdfs:domain gist:Task ;
 	rdfs:range gist:Task ;
+	owl:inverseOf gist:isDirectSubTaskOf ;
 	skos:definition "Immediate child task"^^xsd:string ;
 	skos:prefLabel "has direct sub task"^^xsd:string ;
 	.
@@ -3144,16 +3227,10 @@ gist:hasDirectSuperCategory
 	skos:scopeNote "Unlike its superproperty gist:hasSuperCategory, this property is not transitive. It is essentially the same as the non-transitive skos:broader, using gist:Category rather than skos:Concept."^^xsd:string ;
 	.
 
-gist:hasEnd
-	a owl:ObjectProperty ;
-	rdfs:range gist:TimeInstant ;
-	skos:definition "Connects the subject to its end time."^^xsd:string ;
-	skos:prefLabel "has end"^^xsd:string ;
-	.
-
 gist:hasGiver
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasParticipant ;
+	owl:propertyDisjointWith gist:hasRecipient ;
 	skos:definition "The active party, the one with the obligation or the one initiating the transfer"^^xsd:string ;
 	skos:prefLabel "has giver"^^xsd:string ;
 	.
@@ -3168,12 +3245,6 @@ gist:hasIncumbent
 	a owl:ObjectProperty ;
 	skos:definition "What equipment or person is currently in this node.  Note to create a temporal view make a TemporalRelation for this property"^^xsd:string ;
 	skos:prefLabel "has incumbent"^^xsd:string ;
-	.
-
-gist:hasJurisdictionOver
-	a owl:ObjectProperty ;
-	skos:definition "When laws and contracts are meted out"^^xsd:string ;
-	skos:prefLabel "has jurisdiction over"^^xsd:string ;
 	.
 
 gist:hasMagnitude
@@ -3193,16 +3264,12 @@ gist:hasMember
 
 gist:hasMultiplicand
 	a owl:ObjectProperty ;
-	rdfs:domain gist:ProductUnit ;
-	rdfs:range gist:UnitOfMeasure ;
 	skos:definition "Relates a ProductUnit such as square mile to the second of two units multiplied together (e.g. mile)."^^xsd:string ;
 	skos:prefLabel "has multiplicand"^^xsd:string ;
 	.
 
 gist:hasMultiplier
 	a owl:ObjectProperty ;
-	rdfs:domain gist:ProductUnit ;
-	rdfs:range gist:UnitOfMeasure ;
 	skos:definition "Relates a ProductUnit such as square mile to the first of two units multiplied together (e.g. mile)"^^xsd:string ;
 	skos:prefLabel "has multiplier"^^xsd:string ;
 	.
@@ -3210,20 +3277,20 @@ gist:hasMultiplier
 gist:hasNavigationalChild
 	a owl:ObjectProperty ;
 	owl:inverseOf gist:hasNavigationalParent ;
-	skos:definition "Used for informal hierarchical taxonomies.  Supports polyhierarchies"^^xsd:string ;
+	skos:definition "Relates a parent category to a child category in an informal (e.g., faceted) hierarchy."^^xsd:string ;
+	skos:example "Refrigerator handles are not refrigerators, but it may be useful to represent their relationship hierarchically for a faceted UI filter."^^xsd:string ;
 	skos:prefLabel "has navigational child"^^xsd:string ;
 	.
 
 gist:hasNavigationalParent
 	a owl:ObjectProperty ;
-	skos:definition "Used for informal hierarchical taxonomies.  Supports polyhierarchies"^^xsd:string ;
+	skos:definition "Relates a child category to a parent category in an informal (e.g., faceted) hierarchy."^^xsd:string ;
+	skos:example "Refrigerator handles are not refrigerators, but it may be useful to represent their relationship hierarchically for a faceted UI filter."^^xsd:string ;
 	skos:prefLabel "has navigational parent"^^xsd:string ;
 	.
 
 gist:hasNumerator
 	a owl:ObjectProperty ;
-	rdfs:domain gist:RatioUnit ;
-	rdfs:range gist:UnitOfMeasure ;
 	skos:definition "Relates a RatioUnit such as meter(s)/second to the numerator Unit (e.g. meter)."^^xsd:string ;
 	skos:prefLabel "has numerator"^^xsd:string ;
 	.
@@ -3234,18 +3301,6 @@ gist:hasOffsetToUniversal
 	rdfs:range gist:Duration ;
 	skos:definition "How many hours the time zone is off GMT"^^xsd:string ;
 	skos:prefLabel "has offset to universal"^^xsd:string ;
-	.
-
-gist:hasOrderedMember
-	a
-		owl:ObjectProperty ,
-		owl:InverseFunctionalProperty
-		;
-	rdfs:subPropertyOf gist:hasMember ;
-	rdfs:range gist:OrderedMember ;
-	skos:definition "Relates an ordered collection to an ordered member that belongs to it."^^xsd:string ;
-	skos:prefLabel "has ordered member"^^xsd:string ;
-	skos:scopeNote "This property is inverse functional because no ordered member can be in more than one ordered collection."^^xsd:string ;
 	.
 
 gist:hasPart
@@ -3294,49 +3349,17 @@ gist:hasPhysicalLocation
 	skos:prefLabel "has physical location"^^xsd:string ;
 	.
 
-gist:hasPlanned
-	a owl:ObjectProperty ;
-	rdfs:range gist:TimeInstant ;
-	skos:definition "Dates that were in the future at the time they were made."^^xsd:string ;
-	skos:prefLabel "has planned"^^xsd:string ;
-	.
-
-gist:hasPlannedEnd
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf
-		gist:hasEnd ,
-		gist:hasPlanned
-		;
-	rdfs:range gist:TimeInstant ;
-	skos:definition "A date/time that was at least at some point in time in the future. It may be in the past now, but when we planned it, it was in the future."^^xsd:string ;
-	skos:prefLabel "has planned end"^^xsd:string ;
-	skos:scopeNote "Most frequently apples to Event(s) and Offer(s). E.g. a conference or sale offer."^^xsd:string ;
-	.
-
-gist:hasPlannedStart
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf
-		gist:hasPlanned ,
-		gist:hasStart
-		;
-	rdfs:range gist:TimeInstant ;
-	skos:definition "A date/time that was at least at some point in time in the future. It may be in the past now, but when we planned it, it was in the future."^^xsd:string ;
-	skos:prefLabel "has planned start"^^xsd:string ;
-	.
-
 gist:hasPrecision
 	a owl:ObjectProperty ;
 	rdfs:range gist:Magnitude ;
 	skos:definition "Links a Magnitude to the degree of accuracy of the numeric value.   This allows for fuzzy numbers.  All magnitudes have a precision.  Usually we don't record them.  When we do this, it will be a value whose extent covers 2 standard deviations around the stated magnitude"^^xsd:string ;
-	skos:example "Temperature precise to tenth of a degree C; TimeInstant precise to 24 hours."^^xsd:string ;
+	skos:example "Temperature precise to tenth of a degree C; length precise to the nearest centimeter."^^xsd:string ;
 	skos:prefLabel "has precision"^^xsd:string ;
-	skos:scopeNote "Most frequently apples to Magnitude(s) and TimeInstant. Could also apply to a measurement."^^xsd:string ;
 	.
 
 gist:hasRecipient
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasParticipant ;
-	owl:propertyDisjointWith gist:hasGiver ;
 	skos:definition "The recipient"^^xsd:string ;
 	skos:prefLabel "has recipient"^^xsd:string ;
 	.
@@ -3347,13 +3370,6 @@ gist:hasStandardUnit
 	rdfs:range gist:CoherentUnit ;
 	skos:definition "For a complex unit refers to a unit that has all the component parts in SI"^^xsd:string ;
 	skos:prefLabel "has standard unit"^^xsd:string ;
-	.
-
-gist:hasStart
-	a owl:ObjectProperty ;
-	rdfs:range gist:TimeInstant ;
-	skos:definition "Connects the subject to its start time."^^xsd:string ;
-	skos:prefLabel "has start"^^xsd:string ;
 	.
 
 gist:hasSubCategory
@@ -3392,7 +3408,7 @@ gist:hasUniqueNavigationalParent
 		owl:FunctionalProperty
 		;
 	rdfs:subPropertyOf gist:hasNavigationalParent ;
-	skos:definition "Used for taxos that must have single parents"^^xsd:string ;
+	skos:definition "Relates a subject category to a unique parent category in an informal (e.g., faceted) hierarchy."^^xsd:string ;
 	skos:prefLabel "has unique navigational parent"^^xsd:string ;
 	.
 
@@ -3425,6 +3441,7 @@ gist:identifies
 		owl:ObjectProperty ,
 		owl:FunctionalProperty
 		;
+	owl:inverseOf gist:isIdentifiedBy ;
 	skos:definition "The thing the identifier refers to."^^xsd:string ;
 	skos:prefLabel "identifies"^^xsd:string ;
 	.
@@ -3439,7 +3456,6 @@ gist:isAbout
 
 gist:isAffectedBy
 	a owl:ObjectProperty ;
-	owl:inverseOf gist:affects ;
 	skos:definition "Where the effect came from"^^xsd:string ;
 	skos:prefLabel "is affected by"^^xsd:string ;
 	.
@@ -3508,7 +3524,6 @@ gist:isDescribedIn
 
 gist:isDirectPartOf
 	a owl:ObjectProperty ;
-	owl:inverseOf gist:hasDirectPart ;
 	skos:definition "The relationship between a part and a whole where the part has independent existence."^^xsd:string ;
 	skos:prefLabel "is direct part of"^^xsd:string ;
 	skos:scopeNote
@@ -3519,7 +3534,6 @@ gist:isDirectPartOf
 
 gist:isDirectSubTaskOf
 	a owl:ObjectProperty ;
-	owl:inverseOf gist:hasDirectSubTask ;
 	skos:definition "Immediate parent task"^^xsd:string ;
 	skos:prefLabel "is direct subtask of"^^xsd:string ;
 	.
@@ -3532,7 +3546,6 @@ gist:isExpressedIn
 
 gist:isGeographicallyContainedIn
 	a owl:ObjectProperty ;
-	owl:inverseOf gist:containsGeographically ;
 	skos:definition "Relates one place to another place that contains the first."^^xsd:string ;
 	skos:prefLabel "is geographically contained in"^^xsd:string ;
 	.
@@ -3553,7 +3566,6 @@ gist:isGeographicallyPermanentlyOccupiedBy
 
 gist:isGovernedBy
 	a owl:ObjectProperty ;
-	owl:inverseOf gist:governs ;
 	skos:definition "A reference from the thing being governed to the governor"^^xsd:string ;
 	skos:prefLabel "is governed by"^^xsd:string ;
 	.
@@ -3564,7 +3576,6 @@ gist:isIdentifiedBy
 		owl:InverseFunctionalProperty
 		;
 	rdfs:range gist:ID ;
-	owl:inverseOf gist:identifies ;
 	skos:definition "This is like a URI: a thing can have more than one ID, but each of the IDs must refer to a unique thing."^^xsd:string ;
 	skos:prefLabel "is identified by"^^xsd:string ;
 	.
@@ -3614,25 +3625,17 @@ gist:isRecognizedDirectlyBy
 	.
 
 gist:isRecordedAt
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:hasActual ;
-	rdfs:range gist:TimeInstant ;
-	skos:definition "Date that something was posted, not necessarily the date it occurred. Must be after the occurred date, but could be before or after the planned date. (Unusual, but I could record today that I expected to be paid last week.)"^^xsd:string ;
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:actualEndDateTime ;
+	skos:definition "Date that something was posted, not necessarily the date it occurred. Must be after the date of occurrence, but could be before or after the planned date. (Unusual, but I could record today that I expected to be paid last week.)"^^xsd:string ;
 	skos:prefLabel "is recorded at"^^xsd:string ;
+	skos:scopeNote "Precision may vary according to context."^^xsd:string ;
 	.
 
 gist:isRenderedOn
 	a owl:ObjectProperty ;
 	skos:definition "What media something was rendered On"^^xsd:string ;
 	skos:prefLabel "is rendered on"^^xsd:string ;
-	.
-
-gist:isSameTimeAs
-	a owl:ObjectProperty ;
-	rdfs:domain gist:TimeInstant ;
-	rdfs:range gist:TimeInstant ;
-	skos:definition "We can have two local time instants refer to the same time, the same universal time."^^xsd:string ;
-	skos:prefLabel "is same time as"^^xsd:string ;
 	.
 
 gist:isSubTaskOf
@@ -3648,6 +3651,12 @@ gist:isTriggeredBy
 	a owl:ObjectProperty ;
 	skos:definition "General causal relation.  For obligations a property that describes what would happen to trigger the contingent obligation.  In most cases, before the Contingent becomes an Obligation, the triggered by event is a planned event (that is it hasn't happened yet -- if it had happened the contingency would no longer be contingent.  In most cases it will be  a ContingentEvent .  Other uses include controls, processes etc"^^xsd:string ;
 	skos:prefLabel "is triggered by"^^xsd:string ;
+	.
+
+gist:isUnderJurisdictionOf
+	a owl:ObjectProperty ;
+	skos:definition "Relates a law, contract, etc., to the system of law or government which has the power, right, or authority to interpret and apply it."^^xsd:string ;
+	skos:prefLabel "is under jurisdiction of"^^xsd:string ;
 	.
 
 gist:latitude
@@ -3684,30 +3693,6 @@ gist:linksTo
 	skos:prefLabel "links to"^^xsd:string ;
 	.
 
-gist:localDate
-	a owl:DatatypeProperty ;
-	rdfs:domain gist:TimeInstant ;
-	skos:altLabel "LD"^^xsd:string ;
-	skos:definition "Relates a TimeInstant to a string indicating what the local date is."^^xsd:string ;
-	skos:prefLabel "local date"^^xsd:string ;
-	.
-
-gist:localDateTime
-	a owl:DatatypeProperty ;
-	rdfs:domain gist:TimeInstant ;
-	rdfs:range xsd:dateTime ;
-	skos:altLabel "LDT"^^xsd:string ;
-	skos:definition "Relates a TimeInstant to an xsd:dateTime literal representing the local date and time."^^xsd:string ;
-	skos:prefLabel "local date time"^^xsd:string ;
-	.
-
-gist:localTime
-	a owl:DatatypeProperty ;
-	skos:altLabel "LT"^^xsd:string ;
-	skos:definition "Relates a TimeInstant to a string indicating what the local time is."^^xsd:string ;
-	skos:prefLabel "local time"^^xsd:string ;
-	.
-
 gist:longitude
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:GeoPoint ;
@@ -3730,8 +3715,6 @@ gist:numericValue
 	rdfs:range [
 		a rdfs:Datatype ;
 		owl:unionOf (
-			owl:rational
-			owl:real
 			xsd:byte
 			xsd:decimal
 			xsd:double
@@ -3748,6 +3731,8 @@ gist:numericValue
 			xsd:unsignedInt
 			xsd:unsignedLong
 			xsd:unsignedShort
+			owl:rational
+			owl:real
 		) ;
 	] ;
 	skos:definition "The actual value of a magnitude."^^xsd:string ;
@@ -3792,6 +3777,96 @@ gist:owns
 	] ;
 	skos:definition "Possessing and controlling.  Ultimate form of ownership is the right to destroy.  Long list of potential Range classes"^^xsd:string ;
 	skos:prefLabel "owns"^^xsd:string ;
+	.
+
+gist:plannedEndDate
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:plannedEndDateTime ;
+	rdfs:range xsd:dateTime ;
+	skos:definition "The date that something is or was planned to end, with precision of one day."^^xsd:string ;
+	skos:example "'2021-06-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:prefLabel "planned end date"^^xsd:string ;
+	skos:scopeNote "Used for anything with a planned end date, such as when a lease will expire, when an offer is no longer available, etc. Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual. Recommended usage is to zero out the hours through microseconds to avoid spurious precision."^^xsd:string ;
+	.
+
+gist:plannedEndDateTime
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:endDateTime ;
+	rdfs:range xsd:dateTime ;
+	skos:definition "The date that something is or was planned to end, with no implied precision."^^xsd:string ;
+	skos:prefLabel "planned end date time"^^xsd:string ;
+	skos:scopeNote
+		"This is an abstraction over the various precisions of planned end time, and is not expected to be asserted directly.  Values with different precisions can be compared since they all have the same format."^^xsd:string ,
+		"This property, unlike gist:actualEndDateTime, does not have a subproperty for microsecond precision, because planned times typically are not expressed at that level of granularity. Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual."^^xsd:string
+		;
+	.
+
+gist:plannedEndMinute
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:plannedEndDateTime ;
+	rdfs:range xsd:dateTime ;
+	skos:definition "The date and time that something is or was planned to end, with precision of one minute."^^xsd:string ;
+	skos:example "'2021-06-01T08:32:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:prefLabel "planned end minute"^^xsd:string ;
+	skos:scopeNote "Used for things like meetings and time card entries, where the hour and minute are important. Recommended usage is to zero out the seconds and microseconds to avoid spurious precision.Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual."^^xsd:string ;
+	.
+
+gist:plannedEndYear
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:plannedEndDateTime ;
+	rdfs:range xsd:dateTime ;
+	skos:definition "The date that something is or was planned to end, with precision of one year."^^xsd:string ;
+	skos:example
+		"'2021-01-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ,
+		"The automobile manufacturer announced that it will stop producing gas-powered vehicles in 2035."^^xsd:string
+		;
+	skos:prefLabel "planned end year"^^xsd:string ;
+	skos:scopeNote "Used for anything with a planned end date where precision of one year is sufficient. Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual. Recommended usage is to zero out the hours through microseconds to avoid spurious precision. Note that it is not valid to zero out months and days, so arbitrary values must be included."^^xsd:string ;
+	.
+
+gist:plannedStartDate
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:plannedStartDateTime ;
+	rdfs:range xsd:dateTime ;
+	skos:definition "The date that something is or was planned to start, with precision of one day."^^xsd:string ;
+	skos:example "'2021-06-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:prefLabel "planned start date"^^xsd:string ;
+	skos:scopeNote "Used for anything with a planned start date, such as when a lease will start, when a configuration becomes available, etc. Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual. Recommended usage is to zero out the hours through microseconds to avoid spurious precision."^^xsd:string ;
+	.
+
+gist:plannedStartDateTime
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:startDateTime ;
+	rdfs:range xsd:dateTime ;
+	skos:definition "The date and time that something is or was planned to start, with no implied precision."^^xsd:string ;
+	skos:prefLabel "planned start date time"^^xsd:string ;
+	skos:scopeNote
+		"This is an abstraction over the various precisions of planned start time, and is not expected to be asserted directly. Values with different precisions can be compared since they all have the same format."^^xsd:string ,
+		"This property, unlike gist:actualStartDateTime, does not have a subproperty for microsecond precision, because planned times typically are not expressed at that level of granularity. Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual."^^xsd:string
+		;
+	.
+
+gist:plannedStartMinute
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:plannedStartDateTime ;
+	rdfs:range xsd:dateTime ;
+	skos:definition "The date and time that something is or was planned to start, with precision of one minute."^^xsd:string ;
+	skos:example "'2021-06-01T08:32:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:prefLabel "planned start minute"^^xsd:string ;
+	skos:scopeNote "Used for things like meetings and time card entries, where the hour and minute are important. Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual. Recommended usage is to zero out the seconds and microseconds to avoid spurious precision."^^xsd:string ;
+	.
+
+gist:plannedStartYear
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:plannedStartDateTime ;
+	rdfs:range xsd:dateTime ;
+	skos:definition "The date that something is or was planned to start, with precision of one year."^^xsd:string ;
+	skos:example
+		"'2021-01-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ,
+		"The automobile manufacturer announced that its full line-up will include only electric cars starting in 2035."^^xsd:string
+		;
+	skos:prefLabel "planned start year"^^xsd:string ;
+	skos:scopeNote "Used for anything with a planned start date where precision of one year is sufficient. Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual. Recommended usage is to zero out the hours through microseconds to avoid spurious precision. Note that it is not valid to zero out months and days, so arbitrary values must be included."^^xsd:string ;
 	.
 
 gist:precedes
@@ -3856,10 +3931,16 @@ gist:recognizes
 
 gist:requires
 	a owl:ObjectProperty ;
-	rdfs:domain gist:Intention ;
-	rdfs:range gist:Behavior ;
-	skos:definition "An intention that sets out a state of satisfaction (you are required to drive on right side of the road)"^^xsd:string ;
+	skos:definition "The subject needs the object or makes it necessary, mandatory, or compulsory."^^xsd:string ;
+	skos:example "Humans require air; solar power requires sunshine."^^xsd:string ;
 	skos:prefLabel "requires"^^xsd:string ;
+	skos:scopeNote """This predicate is defined generally enough to encompass a few different meanings of the English word 'requires': 
+		
+		1. To need something or to make something necessary.
+		2. To order or demand something, or to order someone to do something, especially because of a rule or law.
+		3. To make it officially necessary for someone to do something.
+	
+	Implementations requiring a more specific meaning should define subproperties."""^^xsd:string ;
 	.
 
 gist:respondsTo
@@ -3875,13 +3956,16 @@ gist:sequence
 	skos:prefLabel "sequence"^^xsd:string ;
 	.
 
-gist:standardConversionFactor
+gist:startDateTime
 	a owl:DatatypeProperty ;
-	rdfs:subPropertyOf gist:baseConversionFactor ;
-	rdfs:domain gist:UnitOfMeasure ;
-	rdfs:range xsd:double ;
-	skos:definition "Note this kind of conversion will only work with temperatures if they are in Kelvin or Rankine (with a true 0).  You multiply to get to the base, divide to go from the base. mph to mps is .44704.  The multiple from kph to mps is .277778 .  To convert 60 mph to kph is (60 * .44704 / .277778 or 96.56056 kph"^^xsd:string ;
-	skos:prefLabel "standard conversion factor"^^xsd:string ;
+	rdfs:subPropertyOf gist:atDateTime ;
+	rdfs:range xsd:dateTime ;
+	skos:definition "The date and time that something started."^^xsd:string ;
+	skos:prefLabel "start date time"^^xsd:string ;
+	skos:scopeNote
+		"This is an abstraction over the various precisions of start time, and is not expected to be asserted directly. Values with different precisions can be compared since they all have the same format."^^xsd:string ,
+		"We have looked at some extreme edge cases (e.g., did this meeting end before or after the trade was posted?) and we couldn't find any use case that required special processing. Those who have such use cases can implement them (and feel free to let us know)."^^xsd:string
+		;
 	.
 
 gist:tagText
@@ -3924,45 +4008,12 @@ gist:unitSymbolUnicode
 	skos:prefLabel "unit symbol Unicode"^^xsd:string ;
 	.
 
-gist:universalDate
-	a owl:DatatypeProperty ;
-	rdfs:domain gist:TimeInstant ;
-	skos:altLabel "UD"^^xsd:string ;
-	skos:definition "Relates a TimeInstant to a string indicating what the universal date is."^^xsd:string ;
-	skos:prefLabel "UTC date"^^xsd:string ;
-	.
-
-gist:universalDateTime
-	a owl:DatatypeProperty ;
-	rdfs:domain gist:TimeInstant ;
-	rdfs:range xsd:dateTime ;
-	skos:altLabel "UDT"^^xsd:string ;
-	skos:definition "Relates a TimeInstant to an xsd:dateTime literal representing the universal time."^^xsd:string ;
-	skos:prefLabel "UTC date time"^^xsd:string ;
-	.
-
-gist:universalTime
-	a owl:DatatypeProperty ;
-	rdfs:domain gist:TimeInstant ;
-	skos:altLabel "UT"^^xsd:string ;
-	skos:definition "Relates a TimeInstant to a string indicating what the universal time is."^^xsd:string ;
-	skos:prefLabel "UTC time"^^xsd:string ;
-	.
-
 gist:usesTimeZoneStandard
 	a owl:ObjectProperty ;
-	rdfs:domain gist:TimeInstant ;
 	rdfs:range gist:TimeZoneStandard ;
-	skos:definition 'the "time zone" with Daylight Savings adjust'^^xsd:string ;
+	skos:definition "The time zone, including daylight savings time adjustment, of an event or other object that can have a date and time."^^xsd:string ;
+	skos:example "EST (Eastern Standard Time), PST (Pacific Daylight Time)."^^xsd:string ;
 	skos:prefLabel "uses time zone standard"^^xsd:string ;
-	.
-
-gist:wasLastModifiedAt
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:hasActual ;
-	rdfs:range gist:TimeInstant ;
-	skos:definition "Date that something was last modified."^^xsd:string ;
-	skos:prefLabel "was last modified at"^^xsd:string ;
 	.
 
 []

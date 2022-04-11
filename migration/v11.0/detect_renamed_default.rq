@@ -1,0 +1,45 @@
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix sh: <http://www.w3.org/ns/shacl#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+prefix gist: <https://ontologies.semanticarts.com/gist/>
+
+CONSTRUCT {
+    ?report a sh:ValidationReport ;
+        sh:conforms false ;
+        sh:result
+            [
+                a sh:ValidationResult ;
+                sh:focusNode ?renamed ;
+                sh:resultMessage ?error ;
+                sh:resultSeverity sh:Warning ;
+                sh:sourceConstraintComponent <urn:constraint:renamed-entity>
+            ] .
+}
+WHERE {
+    {
+        select distinct ?renamed where {
+            values ?renamed {
+                gist:hasJurisdictionOver
+            }
+            {
+                ?s ?renamed ?o
+            } UNION {
+                ?s ?p ?renamed
+            } UNION {
+                ?renamed ?p ?o
+#            } UNION {
+#                graph ?g { ?s ?renamed ?o }
+#            } UNION {
+#                graph ?g { ?s ?p ?renamed }
+#            } UNION {
+#                graph ?g { ?renamed ?p ?o }
+            }
+        }
+    }
+    bind(<urn:renamed-entity-validation-report> as ?report)
+    bind(CONCAT("WARNING: incorrectly named property gist:",
+        REPLACE(STR(?renamed), '^.*[/#]', ''), " was changed to gist:isUnderJurisdictionOf. ",
+        "The previous name did not match the defintion. We won't automatically update it ",
+        "because you might have applied it based on the name, not the definition." ) as ?error)
+}

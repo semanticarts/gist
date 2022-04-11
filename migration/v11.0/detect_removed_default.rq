@@ -1,0 +1,76 @@
+prefix skos: <http://www.w3.org/2004/02/skos/core#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+prefix sh: <http://www.w3.org/ns/shacl#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+prefix gist: <https://ontologies.semanticarts.com/gist/>
+
+CONSTRUCT {
+    ?report a sh:ValidationReport ;
+        sh:conforms false ;
+        sh:result
+            [
+                a sh:ValidationResult ;
+                sh:focusNode ?deleted ;
+                sh:resultMessage ?error ;
+                sh:resultSeverity sh:Warning ;
+                sh:sourceConstraintComponent <urn:constraint:removed-entity>
+            ] .
+}
+WHERE {
+    {
+        select distinct ?deleted where {
+            values ?deleted {
+                ## Time Model Classes
+                gist:TimeInstant
+                gist:DateInstant
+                gist:GreenwichInstant
+                gist:HumanInstant
+                gist:LocalInstant
+                gist:SystemInstant
+
+                ## Time Model Properties
+                gist:hasEnd
+                gist:hasActual
+                gist:hasActualEnd
+                gist:hasPlannedEnd
+                gist:hasDeathDate
+                gist:hasStart
+                gist:hasActualStart
+                gist:hasPlanned
+                gist:hasBirthDate
+                gist:hasPlannedStart
+                gist:epoch
+                gist:localDate
+                gist:localDateTime
+                gist:localTime
+                gist:universalDate
+                gist:universalDateTime
+                gist:universalTime
+                gist:isSameTimeAs
+                gist:wasLastModifiedAt
+
+                ## Misc
+                # gist:hasOrderedMember
+                gist:hasBiologicalOffspring
+                gist:GeoPoliticalRegion
+            }
+            {
+                ?s ?deleted ?o
+            } UNION {
+                ?s ?p ?deleted
+            } UNION {
+                ?deleted ?p ?o
+#            } UNION {
+#                graph ?g { ?s ?deleted ?o }
+#            } UNION {
+#                graph ?g { ?s ?p ?deleted }
+#            } UNION {
+#                graph ?g { ?deleted ?p ?o }
+            }
+        }
+    }
+    bind(<urn:deleted-entity-validation-report> as ?report)
+    bind(CONCAT("Removed entity gist:",
+        REPLACE(STR(?deleted), '^.*[/#]', ''), " referenced in data. ",
+        "Review release notes for information about the changes.") as ?error)
+}

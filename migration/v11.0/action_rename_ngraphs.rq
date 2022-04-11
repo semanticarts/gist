@@ -1,0 +1,33 @@
+prefix gist: <https://ontologies.semanticarts.com/gist/>
+
+DELETE {
+    graph ?graph {
+        ?oldTerm ?sp ?so .
+        ?ps ?oldTerm ?po .
+        ?os ?op ?oldTerm .
+    }
+}
+INSERT {
+    graph ?graph {
+        ?newTerm ?sp ?so .
+        ?ps ?newTerm ?po .
+        ?os ?op ?newTerm .
+    }
+}
+where {
+    values (?oldTerm ?newTerm) {
+        (gist:ContemporaneousEvent gist:ContemporaryEvent)
+        (gist:hasOrderedMember gist:hasMember)
+        (gist:baseConversionFactor gist:conversionFactor)
+        (gist:standardConversionFactor gist:conversionFactor)
+    }
+    graph ?graph {
+        {
+            ?oldTerm ?sp ?so
+        } UNION {
+            ?ps ?oldTerm ?po
+        } UNION {
+            ?os ?op ?oldTerm
+        }
+    }
+}
