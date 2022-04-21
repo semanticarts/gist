@@ -3706,7 +3706,7 @@ gist:name
 	rdfs:range xsd:string ;
 	skos:definition "Relates an individual to a casual name."^^xsd:string ;
 	skos:prefLabel "name"^^xsd:string ;
-	skos:scopeNote "For more formal use, consider using a sub property of the object property, identifiedBy."^^xsd:string ;
+	skos:scopeNote "For more formal use, consider using a sub property of the object property, isIdentifiedBy."^^xsd:string ;
 	.
 
 gist:numericValue
