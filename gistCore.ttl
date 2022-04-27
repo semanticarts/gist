@@ -3704,9 +3704,8 @@ gist:longitude
 gist:name
 	a owl:DatatypeProperty ;
 	rdfs:range xsd:string ;
-	skos:definition "Relates an individual to a casual name."^^xsd:string ;
+	skos:definition "Relates an individual to (one of) its name(s)."^^xsd:string ;
 	skos:prefLabel "name"^^xsd:string ;
-	skos:scopeNote "For more formal use, consider using a sub property of the object property, identifiedBy."^^xsd:string ;
 	.
 
 gist:numericValue
