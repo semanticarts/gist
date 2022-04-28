@@ -3224,6 +3224,15 @@ gist:hasDirectSuperCategory
 	skos:scopeNote "Unlike its superproperty gist:hasSuperCategory, this property is not transitive. It is essentially the same as the non-transitive skos:broader, using gist:Category rather than skos:Concept."^^xsd:string ;
 	.
 
+gist:hasFirstMember
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasMember ;
+	rdfs:domain gist:OrderedCollection ;
+	rdfs:range gist:OrderedMember ;
+	skos:definition "Relates an ordered collection to its first member."^^xsd:string ;
+	skos:scopeNote "Given the open-world assumption, the absence of a predecessor does not entail that an ordered member is the first member of an ordered collection. This property is used to make explicit the first member of an ordered collection."^^xsd:string ;
+	.
+
 gist:hasGiver
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasParticipant ;
