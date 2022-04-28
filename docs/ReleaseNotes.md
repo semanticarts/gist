@@ -6,6 +6,8 @@ Release 11.1.0
 
 ### Minor Updates
 
+- Added new property `hasFirstMember`. Issue [#549](https://github.com/semanticarts/gist/issues/549).
+
 ### Patch Updates
 
 - Improved the clarity and accuracy of annotations on serveral terms, including definitions, examples, and scope notes:
