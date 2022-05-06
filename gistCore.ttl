@@ -669,8 +669,8 @@ gist:CountryGovernment
 		) ;
 	] ;
 	skos:definition "A Government Organization which asserts both sovereignty (i.e., it is not governed by some other government organization) and governance over an entity generally recognized as a 'country'."^^xsd:string ;
-	skos:note "While a country government may enter into treaties with other country governments, that does not mean it is 'governed by' the others."^^xsd:string ;
 	skos:prefLabel "Country Government"^^xsd:string ;
+	skos:scopeNote "While a country government may enter into treaties with other country governments, there are no governing relationships among the treaty members."^^xsd:string ;
 	.
 
 gist:CurrencyUnit
