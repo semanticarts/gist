@@ -1869,11 +1869,6 @@ gist:PhysicalIdentifiableItem
 		] ,
 		[
 			a owl:Restriction ;
-			owl:onProperty gist:isIdentifiedBy ;
-			owl:someValuesFrom gist:ID ;
-		] ,
-		[
-			a owl:Restriction ;
 			owl:onProperty gist:isMadeUpOf ;
 			owl:someValuesFrom gist:PhysicalSubstance ;
 		]
@@ -1882,13 +1877,21 @@ gist:PhysicalIdentifiableItem
 		gist:SchemaMetaData ,
 		gist:UnitOfMeasure
 		;
-	skos:definition "You could, at least in principle, put an RFID tag on members of this class. Physical things are made of something.  E.g., statues are made of bronze."^^xsd:string ;
+	skos:definition
+		"A discrete physical object which, if subdivided, will result in parts that are distinguishable in nature from the whole and in general also distinguishable from the other parts."^^xsd:string ,
+		"You could, at least in principle, put an RFID tag on members of this class. Physical things are made of something.  E.g., statues are made of bronze."^^xsd:string
+		;
 	skos:example
 		"A computer, a book."^^xsd:string ,
+		"A computer, book, car."^^xsd:string ,
 		"Negative example: A discontinuous thing like a manufacturing line cannot reasonably have an RFID attached to it, even though its parts are not the same kind of thing as the whole."^^xsd:string
 		;
 	skos:prefLabel "Physical Identifiable Item"^^xsd:string ;
-	skos:scopeNote "In practice, this always means that the parts are not the same kind of thing as the whole."^^xsd:string ;
+	skos:scopeNote
+		"Generally, if you can put an RFID on something, then it is a member of this class."^^xsd:string ,
+		"In practice, this always means that the parts are not the same kind of thing as the whole."^^xsd:string ,
+		"This concept generally corresponds to count nouns in English, as opposed to mass nouns, which are PhysicalSubstances, such as an amount of water, flour, or sand. PhysicalIdentifiableItems are made up of PhysicalSubstances; e.g., a cake is made up of butter, flour, and sugar; a statue is made of bronze. If you divide a PhysicalSubstance such as an amount of water into parts, you have two amounts of water; if you divide a PhysicalIdentifiableItem such as a computer into parts, each part is different from the whole."^^xsd:string
+		;
 	.
 
 gist:PhysicalSubstance
@@ -1906,12 +1909,12 @@ gist:PhysicalSubstance
 		]
 		;
 	owl:disjointWith gist:UnitOfMeasure ;
-	skos:definition "Non-corporeal material, i.e. 'stuff' which can be divided into parts where each part retains its essence."^^xsd:string ;
+	skos:definition "An undifferentiated amount of physical material which, when subdivided, results in each part being indistinguishable in nature from the whole and from every other part."^^xsd:string ;
 	skos:example "An amount of water, of penicillin, of sand, of gold: an actual piece of gold, not the concept of gold."^^xsd:string ;
 	skos:prefLabel "Physical Substance"^^xsd:string ;
 	skos:scopeNote
-		"An instance of this class must be a physical thing, and not just a categorical description."^^xsd:string ,
-		"Some things are substances at a macro level, but ultimately end up as not being divisible into the same kind of thing.  E.g., sand vs. grains of sand, bacteria vs. an individual bacterium."^^xsd:string
+		"An instance of this class has weight and takes up space. We mean the physical gold in a ring, not the concept of gold that shows up in the periodic table."^^xsd:string ,
+		"This concept generally corresponds to mass nouns in English. By contrast, instances of PhysicalIdentifiableItem, such as a computer, book, or car, are count nouns. PhysicalIdentifiableItems are made up of PhysicalSubstances; e.g., a cake is made up of butter, flour, and sugar; a ring is made of gold. If you divide a PhysicalSubstance such as an amount of water into parts, you have different amounts of identical water; if you divide a PhysicalIdentifiableItem such as a computer into parts, each part will be distinguishable from the original whole."^^xsd:string
 		;
 	.
 
