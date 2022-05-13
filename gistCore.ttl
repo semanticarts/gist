@@ -186,7 +186,11 @@ gist:Building
 		gist:Artifact ,
 		gist:Landmark
 		;
-	skos:definition "A man-made structure for dwelling or working."^^xsd:string ;
+	skos:definition "A relatively permanent man-made structure situated on a plot of land, having a roof and walls, commonly used for dwelling, entertaining, or working."^^xsd:string ;
+	skos:example
+		"A house, school, store, factory."^^xsd:string ,
+		"Negative examples: a houseboat (not built on land), cave (not man-made), a food truck (not permanently situated)."^^xsd:string
+		;
 	skos:prefLabel "Building"^^xsd:string ;
 	.
 
