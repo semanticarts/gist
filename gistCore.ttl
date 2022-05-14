@@ -186,8 +186,13 @@ gist:Building
 		gist:Artifact ,
 		gist:Landmark
 		;
-	skos:definition "A man-made structure for dwelling or working."^^xsd:string ;
+	skos:definition "A relatively permanent man-made structure situated on a plot of land, having a roof and walls, commonly used for dwelling, entertaining, or working."^^xsd:string ;
+	skos:example
+		"A house, school, store, factory, chicken coop."^^xsd:string ,
+		"Negative examples: houseboats (not built on land), caves (not man-made), food trucks and RVs (not permanently situated)."^^xsd:string
+		;
 	skos:prefLabel "Building"^^xsd:string ;
+	skos:scopeNote "User discretion can be applied to edge cases: e.g., is a traditional yurt 'relatively permanently situated' although it is portable and tent-like?"^^xsd:string ;
 	.
 
 gist:BundledCatalogItem
