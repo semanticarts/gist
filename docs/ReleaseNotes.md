@@ -8,7 +8,7 @@ Releases 11.1.0
 
 ### Patch Updates
 
-- Updated annotations, including definitions, examples, and scope notes, on several terms for improved clarity and accuracy.
+- Improved the clarity and accuracy of annotations, including definitions, examples, and scope notes, on several terms.
 
   - `gist:PhysicalSubstance` and `gist:PhysicalIdentifiableItem`: Issue [#644](https://github.com/semanticarts/gist/issues/644).
 
