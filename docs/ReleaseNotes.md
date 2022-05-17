@@ -1,7 +1,7 @@
 gist Release Notes
 =====
 
-Releases 11.1.0
+Release 11.1.0
 -----
 
 ### Minor Updates
@@ -14,7 +14,7 @@ Releases 11.1.0
   - `gist:PhysicalSubstance` and `gist:PhysicalIdentifiableItem`: Issue [#644](https://github.com/semanticarts/gist/issues/644).
   - `gist:uniqueText`: Issue[#577](https://github.com/semanticarts/gist/issues/577).
 
-Import URL: <https://ontologies.semanticarts.com/o/gistCore11.0.0>.
+Import URL: <https://ontologies.semanticarts.com/o/gistCore11.1.0>.
 
 Release 11.0.0
 -----
