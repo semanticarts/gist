@@ -3225,7 +3225,10 @@ gist:hasDirectSuperCategory
 	.
 
 gist:hasFirstMember
-	a owl:ObjectProperty ;
+	a
+		owl:ObjectProperty ,
+		owl:InverseFunctionalProperty
+		;
 	rdfs:subPropertyOf gist:hasMember ;
 	rdfs:domain gist:OrderedCollection ;
 	rdfs:range gist:OrderedMember ;
