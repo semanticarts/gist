@@ -3984,8 +3984,10 @@ gist:uniqueText
 		owl:FunctionalProperty
 		;
 	rdfs:range xsd:string ;
-	skos:definition "This is used for the actual value of a key or ID where you don't want the possibility of having more than one."^^xsd:string ;
+	skos:definition "The unique string value of some content object; i.e., there is no possibility of having more than one value."^^xsd:string ;
+	skos:example "The unique string for a vehicle identification number."^^xsd:string ;
 	skos:prefLabel "unique text"^^xsd:string ;
+	gist:domainIncludes gist:ID ;
 	.
 
 gist:unitSymbol
