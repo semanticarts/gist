@@ -8,11 +8,12 @@ Release 11.1.0
 
 ### Patch Updates
 
-- Improved the clarity and accuracy of annotations, including definitions, examples, and scope notes, on several terms.
+- Improved the clarity and accuracy of annotations, including definitions, examples, and scope notes, on several terms:
 
   - `gist:Building`: Issue [#482](https://github.com/semanticarts/gist/issues/482).
+  - `gist:uniqueText`: Issue[#577](https://github.com/semanticarts/gist/issues/577)
   
-Import URL: <https://ontologies.semanticarts.com/o/gistCore11.1.0>.
+Import URL: <https://ontologies.semanticarts.com/o/gistCore11.1.0>
 
 Release 11.0.0
 -----
