@@ -1,19 +1,20 @@
 gist Release Notes
 =====
 
-Release 11.1.0
+Releases 11.1.0
 -----
 
 ### Minor Updates
 
 ### Patch Updates
 
-- Improved the clarity and accuracy of annotations on serveral terms, including definitions, examples, and scope notes:
+- Updated annotations, including definitions, examples, and scope notes, on several terms for improved clarity and accuracy.
 
   - `gist:Building`: Issue [#482](https://github.com/semanticarts/gist/issues/482).
-  - `gist:uniqueText`: Issue[#577](https://github.com/semanticarts/gist/issues/577).
-  
-Import URL: <https://ontologies.semanticarts.com/o/gistCore11.1.0>
+  - `gist:uniqueText`: Issue [#577](https://github.com/semanticarts/gist/issues/577).
+  - `gist:PhysicalSubstance` and `gist:PhysicalIdentifiableItem`: Issue [#644](https://github.com/semanticarts/gist/issues/644).
+
+Import URL: <https://ontologies.semanticarts.com/o/gistCore11.0.0>.
 
 Release 11.0.0
 -----
