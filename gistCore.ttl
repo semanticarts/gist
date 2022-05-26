@@ -3248,7 +3248,7 @@ gist:hasFirstMember
 	rdfs:range gist:OrderedMember ;
 	skos:definition "Relates an ordered collection to its first member."^^xsd:string ;
 	skos:prefLabel "has first member"^^xsd:string ;
-	skos:scopeNote "Given the Open World Assumption, the absence of a predecessor does not entail that an ordered member is the first member of an ordered collection. This property is used to explicitly indicate the first member."^^xsd:string ;
+	skos:scopeNote "Given the Open World Assumption, the absence of a predecessor does not entail that an ordered member is the first member of an ordered collection. This property is used to explicitly indicate the first member. Since ordered collections may not be strictly ordered, there can be more than one first member."^^xsd:string ;
 	.
 
 gist:hasGiver
