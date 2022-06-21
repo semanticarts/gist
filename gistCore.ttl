@@ -2851,7 +2851,7 @@ gist:actualStartDateTime
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf gist:startDateTime ;
 	rdfs:range xsd:dateTime ;
-	skos:definition "The actual date and time that something ended, with no implied precision."^^xsd:string ;
+	skos:definition "The actual date and time that something started, with no implied precision."^^xsd:string ;
 	skos:prefLabel "actual start date time"^^xsd:string ;
 	skos:scopeNote "This is an abstraction over the various precisions of actual start time, and is not expected to be asserted directly. Values with different precisions can be compared since they all have the same format."^^xsd:string ;
 	.
