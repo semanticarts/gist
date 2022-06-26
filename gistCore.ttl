@@ -2281,7 +2281,7 @@ gist:Task
 	skos:altLabel "Task Execution"^^xsd:string ;
 	skos:definition "An event characterized by a defined piece of work that is either scheduled, accomplished, or both."^^xsd:string ;
 	skos:prefLabel "Task"^^xsd:string ;
-	skos:scopeNote "Note that this differs from the ordinary sense of 'Task,' as 'something to to'. Here, Task refers to the doing event."^^xsd:string ;
+	skos:scopeNote "Note that this differs from the ordinary sense of 'Task,' as 'something to to'. Here task refers to the event of doing the work."^^xsd:string ;
 	.
 
 gist:TaskTemplate
