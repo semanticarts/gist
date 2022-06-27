@@ -3986,7 +3986,10 @@ gist:uniqueText
 	skos:definition "The unique string value of some content object; i.e., there is no possibility of having more than one value."^^xsd:string ;
 	skos:example "The unique string for a vehicle identification number."^^xsd:string ;
 	skos:prefLabel "unique text"^^xsd:string ;
-	gist:domainIncludes gist:ID ;
+	gist:domainIncludes
+		gist:ID ,
+		gist:Text
+		;
 	.
 
 gist:unitSymbol
