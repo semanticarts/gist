@@ -2020,7 +2020,7 @@ gist:Project
 	skos:altLabel "Project Execution"^^xsd:string ;
 	skos:definition "A project is a task (usually a longer duration task) made up of other tasks."^^xsd:string ;
 	skos:prefLabel "Project"^^xsd:string ;
-	skos:scopeNote "Note that this definition differs from the ordinary sense of a project which is something to do. Project here, means the event of doing the work."^^xsd:string ;
+	skos:scopeNote "Note that this definition differs from the ordinary sense of a project which is something to do. Here, project means the event of doing the work."^^xsd:string ;
 	.
 
 gist:RatioMagnitude
@@ -2129,7 +2129,7 @@ gist:ScheduledTask
 		) ;
 	] ;
 	skos:altLabel "Scheduled Task Execution"^^xsd:string ;
-	skos:definition "The event of a task that has already been planned to occur at a given time. When it was scheduled, it would have been in the future, but now might be in the past."^^xsd:string ;
+	skos:definition "A task that has already been planned to occur at a given time. When it was scheduled, it would have been in the future, but now might be in the past."^^xsd:string ;
 	skos:prefLabel "Scheduled Task"^^xsd:string ;
 	skos:scopeNote "Note that this differs from the ordinary sense of 'task' which is something to do. Here task refers to the event of doing the work."^^xsd:string ;
 	.
@@ -2281,7 +2281,7 @@ gist:Task
 	skos:altLabel "Task Execution"^^xsd:string ;
 	skos:definition "An event characterized by a defined piece of work that is either scheduled, accomplished, or both."^^xsd:string ;
 	skos:prefLabel "Task"^^xsd:string ;
-	skos:scopeNote "Note that this differs from the ordinary sense of 'Task,' as 'something to to'. Here task refers to the event of doing the work."^^xsd:string ;
+	skos:scopeNote "Note that, task refers to the event of doing the work which differs from the ordinary sense of 'Task,' as 'something to to'.  For the latter, consider using the class: TaskTemplate."^^xsd:string ;
 	.
 
 gist:TaskTemplate
@@ -2299,6 +2299,7 @@ gist:TaskTemplate
 	] ;
 	skos:definition "An outline of a task of a particular type, that will, when instantiated, generate an actual (unscheduled) task."^^xsd:string ;
 	skos:prefLabel "Task Template"^^xsd:string ;
+	skos:scopeNote "The event of executing a TaskTemplate is modeled using the class, Task."^^xsd:string ;
 	.
 
 gist:Taxonomy
