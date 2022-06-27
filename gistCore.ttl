@@ -2297,7 +2297,7 @@ gist:TaskTemplate
 			]
 		) ;
 	] ;
-	skos:definition "An outline of a task of a particular type, that will, when instantiated, generate an actual (unscheduled) task."^^xsd:string ;
+	skos:definition "An outline of a task of a particular type, that will, when instantiated, generate an actual task."^^xsd:string ;
 	skos:prefLabel "Task Template"^^xsd:string ;
 	skos:scopeNote "The event of executing a TaskTemplate is modeled using the class, Task."^^xsd:string ;
 	.
