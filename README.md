@@ -1,4 +1,4 @@
-![gist logo](gist.png)
+<img width="288" alt="gist_color_144" src="https://user-images.githubusercontent.com/1693668/186741740-7c24c02b-df4e-4141-b926-27c36752bf10.png">
 
 # gist
 
@@ -9,3 +9,4 @@ We have an active governance and best practices community around gist called the
 You can also contribute to gist by adding your comments to [issue discussion threads](https://github.com/semanticarts/gist/issues) and submitting new issues and pull requests. You can view [minutes](https://github.com/semanticarts/gist/wiki/gist-Issue-Review-Meetings) from our biweekly issue review sessions to find out what we've been reviewing and get a preview of upcoming changes to gist.
 
 gist is free and open to the public under the [Creative Commons 3.0](http://creativecommons.org/licenses/by-sa/3.0/) attribution share-alike license. For more information on gist or to download previously released versions of gist, see our [website](https://www.semanticarts.com/gist).
+
