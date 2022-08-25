@@ -2004,7 +2004,7 @@ gist:ProductUnit
 	skos:scopeNote "A ProductUnit is intended have a value for conversionFactor."^^xsd:string ;
 	.
 
-gist:Project
+gist:ProjectExecution
 	a owl:Class ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2017,10 +2017,9 @@ gist:Project
 			]
 		) ;
 	] ;
-	skos:altLabel "Project Execution"^^xsd:string ;
-	skos:definition "A project is a task (usually a longer duration task) made up of other tasks."^^xsd:string ;
-	skos:prefLabel "Project"^^xsd:string ;
-	skos:scopeNote "Note that this definition differs from the ordinary sense of a project which is something to do. Here, project means the event of doing the work."^^xsd:string ;
+	skos:definition "A project execution is a task execution (usually a longer duration task) made up of other task execuitins."^^xsd:string ;
+	skos:prefLabel "Project Execution"^^xsd:string ;
+	skos:scopeNote "Note that this definition differs from the ordinary sense of a project which is something to do. Here, project execution means the event of doing the work."^^xsd:string ;
 	.
 
 gist:RatioMagnitude
@@ -2296,7 +2295,7 @@ gist:TaskTemplate
 			]
 		) ;
 	] ;
-	skos:definition "An outline of a task of a particular type, on which particular TaskExecutions are based."^^xsd:string ;
+	skos:definition "An outline of a task of a particular type, that the execution of a task is based on."^^xsd:string ;
 	skos:prefLabel "Task Template"^^xsd:string ;
 	.
 
