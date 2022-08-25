@@ -2009,11 +2009,11 @@ gist:Project
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:Task
+			gist:TaskExecution
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasSubTask ;
-				owl:someValuesFrom gist:Task ;
+				owl:someValuesFrom gist:TaskExecution ;
 			]
 		) ;
 	] ;
@@ -2125,7 +2125,7 @@ gist:ScheduledTask
 		a owl:Class ;
 		owl:intersectionOf (
 			gist:PlannedEvent
-			gist:Task
+			gist:TaskExecution
 		) ;
 	] ;
 	skos:altLabel "Scheduled Task Execution"^^xsd:string ;
@@ -2265,7 +2265,7 @@ gist:Tag
 	skos:prefLabel "Tag"^^xsd:string ;
 	.
 
-gist:Task
+gist:TaskExecution
 	a owl:Class ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2278,10 +2278,9 @@ gist:Task
 			]
 		) ;
 	] ;
-	skos:altLabel "Task Execution"^^xsd:string ;
 	skos:definition "An event characterized by a defined piece of work that is either scheduled, accomplished, or both."^^xsd:string ;
-	skos:prefLabel "Task"^^xsd:string ;
-	skos:scopeNote "Note that, task refers to the event of doing the work which differs from the ordinary sense of 'Task,' as 'something to to'.  For the latter, consider using the class: TaskTemplate."^^xsd:string ;
+	skos:prefLabel "Task Execution"^^xsd:string ;
+	skos:scopeNote "Note that, task execution refers to the event of doing the work which differs from the ordinary sense of 'Task,' as 'something to to'.  For the latter, consider using the class: TaskTemplate."^^xsd:string ;
 	.
 
 gist:TaskTemplate
@@ -2297,9 +2296,8 @@ gist:TaskTemplate
 			]
 		) ;
 	] ;
-	skos:definition "An outline of a task of a particular type, that will, when instantiated, generate an actual task."^^xsd:string ;
+	skos:definition "An outline of a task of a particular type, on which particular TaskExecutions are based."^^xsd:string ;
 	skos:prefLabel "Task Template"^^xsd:string ;
-	skos:scopeNote "The event of executing a TaskTemplate is modeled using the class, Task."^^xsd:string ;
 	.
 
 gist:Taxonomy
@@ -2389,10 +2387,15 @@ gist:TemperatureUnit
 gist:Template
 	a owl:Class ;
 	owl:disjointWith gist:UnitOfMeasure ;
-	skos:definition "Something used to make instances in its own image.  In manufacturing this would be specialized as a die to make stamped parts, cookie cutters are templates for cookies, and forms are templates for data."^^xsd:string ;
-	skos:example "A form. A filled-in form has the structure of the form with data entered into some or all of the fields."^^xsd:string ;
+	skos:definition "Something used to make objects in its own image."^^xsd:string ;
+	skos:example
+		"A die in manufacturing that is used to make stamped parts. "^^xsd:string ,
+		"A form. A filled-in form has the structure of the form with data entered into some or all of the fields."^^xsd:string ,
+		"Cookie cutters are templates for cookies."^^xsd:string ,
+		"God"^^xsd:string
+		;
 	skos:prefLabel "Template"^^xsd:string ;
-	skos:scopeNote "Use gist:isBasedOn to link the instantiation of a template back to its Template."^^xsd:string ;
+	skos:scopeNote "Use gist:isBasedOn to link the object made from the template back to the template."^^xsd:string ;
 	.
 
 gist:TemporalRelation
@@ -3191,8 +3194,8 @@ gist:hasDirectSubCategory
 gist:hasDirectSubTask
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasSubTask ;
-	rdfs:domain gist:Task ;
-	rdfs:range gist:Task ;
+	rdfs:domain gist:TaskExecution ;
+	rdfs:range gist:TaskExecution ;
 	owl:inverseOf gist:isDirectSubTaskOf ;
 	skos:definition "Immediate child task"^^xsd:string ;
 	skos:prefLabel "has direct sub task"^^xsd:string ;
@@ -3377,8 +3380,8 @@ gist:hasSubTask
 		owl:ObjectProperty ,
 		owl:TransitiveProperty
 		;
-	rdfs:domain gist:Task ;
-	rdfs:range gist:Task ;
+	rdfs:domain gist:TaskExecution ;
+	rdfs:range gist:TaskExecution ;
 	owl:inverseOf gist:isSubTaskOf ;
 	skos:definition "A task that is part of a larger task. The time frame of the subtasks may overlap but may not extend beyond the time frame of the parent task. A subtask may be part of more than one parent task."^^xsd:string ;
 	skos:prefLabel "has subtask"^^xsd:string ;
