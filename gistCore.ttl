@@ -3535,7 +3535,10 @@ gist:isCharacterizedAs
 	.
 
 gist:isConnectedTo
-	a owl:ObjectProperty ;
+	a
+		owl:ObjectProperty ,
+		owl:SymmetricProperty
+		;
 	skos:definition "A non-owning, non-causal, non-subordinate (i.e., peer-to-peer) relationship."^^xsd:string ;
 	skos:prefLabel "is connected to"^^xsd:string ;
 	.
