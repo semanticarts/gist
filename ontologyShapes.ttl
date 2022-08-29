@@ -55,6 +55,7 @@ gshapes:InstanceShape
 					owl:DatatypeProperty
 					owl:TransitiveProperty
 					owl:FunctionalProperty
+					owl:SymmetricProperty
 					owl:ObjectProperty
 					owl:Restriction
 					owl:NamedIndividual
