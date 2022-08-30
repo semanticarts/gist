@@ -7,6 +7,7 @@ Release 11.1.0
 ### Minor Updates
 
 - Added new property `hasFirstMember`. Issue [#549](https://github.com/semanticarts/gist/issues/549).
+- Made `gist:isConnectedTo` symmetric. Issue [#699](https://github.com/semanticarts/gist/issues/699).
 
 ### Patch Updates
 
