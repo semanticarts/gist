@@ -72,8 +72,6 @@ actions:
   source: "{input}"
   includes:
     - gistCore.ttl
-    - gistMediaTypes.ttl
-    - gistValidationAnnotations.ttl
   stopOnFail: false
   target: '{input}/validation/queries'
   queries:
