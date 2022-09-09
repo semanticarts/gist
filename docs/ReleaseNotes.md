@@ -11,6 +11,8 @@ Release 11.1.0
 
 ### Patch Updates
 
+- Changed `startDateTime` to `actualStartDateTime` in formal definition of `gist:ContemporaryEvent`. Issue [#696](https://github.com/semanticarts/gist/issues/696).
+
 - Improved the clarity and accuracy of annotations on serveral terms, including definitions, examples, and scope notes:
 
   - `gist:Building`: Issue [#482](https://github.com/semanticarts/gist/issues/482).
