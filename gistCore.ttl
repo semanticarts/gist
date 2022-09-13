@@ -2971,9 +2971,9 @@ gist:comesFromPlace
 
 gist:conformsTo
 	a owl:ObjectProperty ;
-	rdfs:range gist:Intention ;
 	skos:definition "The subject conforms to the Object, e.g. meet an obligation, meet terms of an offer, adhere to a specification"^^xsd:string ;
 	skos:prefLabel "conforms to"^^xsd:string ;
+	gist:rangeIncludes gist:Intention ;
 	.
 
 gist:containedText
