@@ -8,6 +8,7 @@ Release 11.1.0
 
 - Added new property `hasFirstMember`. Issue [#549](https://github.com/semanticarts/gist/issues/549).
 - Made `gist:isConnectedTo` symmetric. Issue [#699](https://github.com/semanticarts/gist/issues/699).
+- Replaced `rdfs:range` on `gist:conformsTo` with `gist:rangeIncludes`. Issue [#700](https://github.com/semanticarts/gist/issues/700).
 
 ### Patch Updates
 
