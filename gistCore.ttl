@@ -1160,12 +1160,12 @@ gist:HistoricalEvent
 			gist:Event
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:actualStartDateTime ;
+				owl:onProperty gist:actualEndDateTime ;
 				owl:cardinality "1"^^xsd:nonNegativeInteger ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:actualEndDateTime ;
+				owl:onProperty gist:actualStartDateTime ;
 				owl:cardinality "1"^^xsd:nonNegativeInteger ;
 			]
 		) ;
@@ -1708,23 +1708,24 @@ gist:OrderedCollection
 		owl:intersectionOf (
 			gist:Collection
 			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMember ;
-				owl:allValuesFrom gist:OrderedMember ;
-			]
-			[
+				a owl:Class ;
 				owl:unionOf (
-					[
-						a owl:Restriction ;
-						owl:onProperty gist:hasMember ;
-						owl:cardinality "0"^^xsd:nonNegativeInteger ;
-					]
 					[
 						a owl:Restriction ;
 						owl:onProperty gist:hasFirstMember ;
 						owl:someValuesFrom owl:Thing ;
 					]
+					[
+						a owl:Restriction ;
+						owl:onProperty gist:hasMember ;
+						owl:cardinality "0"^^xsd:nonNegativeInteger ;
+					]
 				) ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasMember ;
+				owl:allValuesFrom gist:OrderedMember ;
 			]
 		) ;
 	] ;
@@ -2507,12 +2508,12 @@ gist:TreatyOrganization
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasMember ;
-				owl:minCardinality "2"^^xsd:nonNegativeInteger ;
+				owl:allValuesFrom gist:CountryGovernment ;
 			]
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasMember ;
-				owl:allValuesFrom gist:CountryGovernment ;
+				owl:minCardinality "2"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
