@@ -1,0 +1,68 @@
+# imports: https://ontologies.semanticarts.com/o/gistCoreX.x.x
+
+@prefix gist: <https://ontologies.semanticarts.com/gist/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://ontologies.semanticarts.com/o/gistDeprecated>
+	a owl:Ontology ;
+	owl:imports <https://ontologies.semanticarts.com/o/gistCoreX.x.x> ;
+	owl:versionIRI <https://ontologies.semanticarts.com/o/gistDeprecatedX.x.x> ;
+	skos:definition "Concepts that have been deprecated since the last major release (in this case, 10.0.0)."^^xsd:string ;
+	skos:prefLabel "gistDeprecated"^^xsd:string ;
+	skos:scopeNote "This file will be removed on the next major release."^^xsd:string ;
+	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
+	.
+
+gist:_greenwichTimeZone
+	a
+		owl:NamedIndividual ,
+		owl:Thing ,
+		gist:TimeZoneStandard
+		;
+	skos:definition "The time zone containing the Royal Observatory in Greenwich, England, which is located on the prime meridian."^^xsd:string ;
+	skos:prefLabel "Greenwich Time Zone"^^xsd:string ;
+	.
+
+gist:_one_day
+	a
+		owl:NamedIndividual ,
+		owl:Thing ,
+		gist:Duration
+		;
+	skos:definition "A duration equal to 24 hours."^^xsd:string ;
+	skos:prefLabel "one day"^^xsd:string ;
+	skos:scopeNote "This is a gist:Magnutude, not a unit of measure, it means essentially the same thing as the unit, day."^^xsd:string ;
+	gist:hasUnitOfMeasure gist:_day ;
+	gist:numericValue "1.0"^^xsd:double ;
+	.
+
+gist:_one_millisecond
+	a
+		owl:NamedIndividual ,
+		owl:Thing ,
+		gist:Duration
+		;
+	skos:definition "A duration equal to one millisecond."^^xsd:string ;
+	skos:prefLabel "one millisecond"^^xsd:string ;
+	skos:scopeNote "This is a gist:Magnutude, not a unit of measure, it means essentially the same thing as the unit, millisecond."^^xsd:string ;
+	gist:hasUnitOfMeasure gist:_millisecond ;
+	gist:numericValue "1.0"^^xsd:double ;
+	.
+
+gist:_one_minute
+	a
+		owl:NamedIndividual ,
+		owl:Thing ,
+		gist:Duration
+		;
+	skos:definition "A duration equal to one minute."^^xsd:string ;
+	skos:prefLabel "one minute"^^xsd:string ;
+	skos:scopeNote "This is a gist:Magnutude, not a unit of measure, it means essentially the same thing as the unit, minute."^^xsd:string ;
+	gist:hasUnitOfMeasure gist:_minute ;
+	gist:numericValue "1.0"^^xsd:double ;
+	.
+
