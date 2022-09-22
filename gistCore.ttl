@@ -3653,7 +3653,7 @@ gist:isRecognizedDirectlyBy
 
 gist:isRecordedAt
 	a owl:DatatypeProperty ;
-	rdfs:subPropertyOf gist:actualEndDateTime ;
+	rdfs:subPropertyOf gist:atDateTime ;
 	skos:definition "Date that something was posted, not necessarily the date it occurred. Must be after the date of occurrence, but could be before or after the planned date. (Unusual, but I could record today that I expected to be paid last week.)"^^xsd:string ;
 	skos:prefLabel "is recorded at"^^xsd:string ;
 	skos:scopeNote "Precision may vary according to context."^^xsd:string ;
