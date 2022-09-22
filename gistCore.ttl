@@ -2640,16 +2640,6 @@ gist:_each
 	gist:hasBaseUnit gist:_each ;
 	.
 
-gist:_greenwichTimeZone
-	a
-		owl:NamedIndividual ,
-		owl:Thing ,
-		gist:TimeZoneStandard
-		;
-	skos:definition "The time zone containing the Royal Observatory in Greenwich, England, which is located on the prime meridian."^^xsd:string ;
-	skos:prefLabel "Greenwich Time Zone"^^xsd:string ;
-	.
-
 gist:_kelvin
 	a
 		owl:NamedIndividual ,
@@ -2725,45 +2715,6 @@ gist:_mole
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_mole ;
 	gist:unitSymbol "mol"^^xsd:string ;
-	.
-
-gist:_one_day
-	a
-		owl:NamedIndividual ,
-		owl:Thing ,
-		gist:Duration
-		;
-	skos:definition "A duration equal to 24 hours."^^xsd:string ;
-	skos:prefLabel "one day"^^xsd:string ;
-	skos:scopeNote "This is a gist:Magnutude, not a unit of measure, it means essentially the same thing as the unit, day."^^xsd:string ;
-	gist:hasUnitOfMeasure gist:_day ;
-	gist:numericValue "1.0"^^xsd:double ;
-	.
-
-gist:_one_millisecond
-	a
-		owl:NamedIndividual ,
-		owl:Thing ,
-		gist:Duration
-		;
-	skos:definition "A duration equal to one millisecond."^^xsd:string ;
-	skos:prefLabel "one millisecond"^^xsd:string ;
-	skos:scopeNote "This is a gist:Magnutude, not a unit of measure, it means essentially the same thing as the unit, millisecond."^^xsd:string ;
-	gist:hasUnitOfMeasure gist:_millisecond ;
-	gist:numericValue "1.0"^^xsd:double ;
-	.
-
-gist:_one_minute
-	a
-		owl:NamedIndividual ,
-		owl:Thing ,
-		gist:Duration
-		;
-	skos:definition "A duration equal to one minute."^^xsd:string ;
-	skos:prefLabel "one minute"^^xsd:string ;
-	skos:scopeNote "This is a gist:Magnutude, not a unit of measure, it means essentially the same thing as the unit, minute."^^xsd:string ;
-	gist:hasUnitOfMeasure gist:_minute ;
-	gist:numericValue "1.0"^^xsd:double ;
 	.
 
 gist:_second

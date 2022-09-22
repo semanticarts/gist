@@ -6,6 +6,7 @@ Release 11.1.0
 
 ### Minor Updates
 
+- removed and deprecated `gist:_greenwichTimeZone`, `gist:_one_day`, `gist:_one_millisecond`, and `gist:_one_minute`. Issue [#692](https://github.com/semanticarts/gist/issues/692).
 - Added new property `hasFirstMember`. Issue [#549](https://github.com/semanticarts/gist/issues/549).
 - Made `gist:isConnectedTo` symmetric. Issue [#699](https://github.com/semanticarts/gist/issues/699).
 - Replaced `rdfs:range` on `gist:conformsTo` with `gist:rangeIncludes`. Issue [#700](https://github.com/semanticarts/gist/issues/700).
