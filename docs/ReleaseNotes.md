@@ -6,7 +6,8 @@ Release 11.1.0
 
 ### Minor Updates
 
-- removed and deprecated `gist:_greenwichTimeZone`, `gist:_one_day`, `gist:_one_millisecond`, and `gist:_one_minute`. Issue [#692](https://github.com/semanticarts/gist/issues/692).
+- Deprecated `gist:_greenwichTimeZone`, `gist:_one_day`, `gist:_one_millisecond`, and `gist:_one_minute`. Issue [#692](https://github.com/semanticarts/gist/issues/692).
+- Bug fix: `isRecordedAt` is now a subproperty of `gist:atDateTime` instead of `gist:actualEndDateTime`. Issue [#726](https://github.com/semanticarts/gist/issues/726).
 - Added new property `hasFirstMember`. Issue [#549](https://github.com/semanticarts/gist/issues/549).
 - Made `gist:isConnectedTo` symmetric. Issue [#699](https://github.com/semanticarts/gist/issues/699).
 - Replaced `rdfs:range` on `gist:conformsTo` with `gist:rangeIncludes`. Issue [#700](https://github.com/semanticarts/gist/issues/700).
@@ -14,7 +15,6 @@ Release 11.1.0
 ### Patch Updates
 
 - Changed `startDateTime` to `actualStartDateTime` in formal definition of `gist:ContemporaryEvent`. Issue [#696](https://github.com/semanticarts/gist/issues/696).
-
 - Improved the clarity and accuracy of annotations on serveral terms, including definitions, examples, and scope notes:
 
   - `gist:Building`: Issue [#482](https://github.com/semanticarts/gist/issues/482).
