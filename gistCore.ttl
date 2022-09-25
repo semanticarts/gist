@@ -2422,14 +2422,17 @@ gist:TemporalRelation
 		] ,
 		[
 			a owl:Restriction ;
-			owl:onProperty gist:isConnectedTo ;
+			owl:onProperty gist:hasParticipant ;
 			owl:minCardinality "2"^^xsd:nonNegativeInteger ;
 		]
 		;
 	skos:definition "A relationship existing for a period of time."^^xsd:string ;
 	skos:example "employs-Employment, hasStreetAddress-EstablishedLocation. One important context for reifying a property."^^xsd:string ;
 	skos:prefLabel "Temporal Relation"^^xsd:string ;
-	skos:scopeNote "A temporal relation must be gist:isConnectedTo a minimum of two objects. For example, a temporal relation representing a period of employment is connected both to the person and to the role/position they held."^^xsd:string ;
+	skos:scopeNote
+		"A temporal relation must have a minimum of two participants. For example, both the employer and the employee are participants in a temporal relation representing a period of employment."^^xsd:string ,
+		"Note that 'participant' does not imply agency; a non-sentient being can be participate in a temporal relation. For example, both a person and a house could be participants in a hypothetical relation 'lives at.'"^^xsd:string
+		;
 	.
 
 gist:Text
