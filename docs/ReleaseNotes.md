@@ -9,7 +9,9 @@ Release 11.1.0
 - Deprecated `gist:_greenwichTimeZone`, `gist:_one_day`, `gist:_one_millisecond`, and `gist:_one_minute`. Issue [#692](https://github.com/semanticarts/gist/issues/692).
 - Bug fix: `isRecordedAt` is now a subproperty of `gist:atDateTime` instead of `gist:actualEndDateTime`. Issue [#726](https://github.com/semanticarts/gist/issues/726).
 - Added new property `hasFirstMember`. Issue [#549](https://github.com/semanticarts/gist/issues/549).
-- Made `gist:isConnectedTo` symmetric. Issue [#699](https://github.com/semanticarts/gist/issues/699).
+- Updates related to `gist:isConnectedTo`:
+  - Made the property symmetric. Issue [#699](https://github.com/semanticarts/gist/issues/699).
+  - Replaced it in the restriction on `TemporalRelation` with `hasParticipant`. Issue [#706](https://github.com/semanticarts/gist/issues/706).
 - Replaced `rdfs:range` on `gist:conformsTo` with `gist:rangeIncludes`. Issue [#700](https://github.com/semanticarts/gist/issues/700).
 
 ### Patch Updates
