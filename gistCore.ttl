@@ -3038,7 +3038,10 @@ gist:followsDirectly
 	owl:inverseOf gist:precedesDirectly ;
 	skos:definition "A generic ordering relation indicating that the subject comes immediately after the object."^^xsd:string ;
 	skos:prefLabel "follows directly"^^xsd:string ;
-	skos:scopeNote "It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ;
+	skos:scopeNote
+		"If two items in an ordered collection share the same position, they both directly follow the preceding element."^^xsd:string ,
+		"It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string
+		;
 	.
 
 gist:goesToAgent
@@ -3853,18 +3856,28 @@ gist:plannedStartYear
 gist:precedes
 	a
 		owl:ObjectProperty ,
+		owl:AsymmetricProperty ,
+		owl:IrreflexiveProperty ,
 		owl:TransitiveProperty
 		;
-	skos:definition "A generic ordering relation indicating that the subject has the same order as or comes before the object. The 'greater than or equal to' symbol is often used for this relation."^^xsd:string ;
+	skos:definition "A generic ordering relation indicating that the subject comes before the object. The less-than symbol is often used for this relation."^^xsd:string ;
 	skos:prefLabel "precedes"^^xsd:string ;
+	skos:scopeNote "This is the transitive version of gist:precedesDirectly."^^xsd:string ;
 	.
 
 gist:precedesDirectly
-	a owl:ObjectProperty ;
+	a
+		owl:ObjectProperty ,
+		owl:AsymmetricProperty ,
+		owl:IrreflexiveProperty
+		;
 	rdfs:subPropertyOf gist:precedes ;
 	skos:definition "A generic ordering relation indicating that the subject comes immediately before the object."^^xsd:string ;
 	skos:prefLabel "precedes directly"^^xsd:string ;
-	skos:scopeNote "It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ;
+	skos:scopeNote
+		"If two items in an ordered collection share the same position, they both directly precede the following element."^^xsd:string ,
+		"It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string
+		;
 	.
 
 gist:prevents
