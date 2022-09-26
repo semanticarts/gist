@@ -53,9 +53,12 @@ gshapes:InstanceShape
 					owl:AllDifferent
 					owl:InverseFunctionalProperty
 					owl:DatatypeProperty
+					owl:ReflexiveProperty
+					owl:IrreflexiveProperty
 					owl:TransitiveProperty
 					owl:FunctionalProperty
 					owl:SymmetricProperty
+					owl:AsymmetricProperty
 					owl:ObjectProperty
 					owl:Restriction
 					owl:NamedIndividual
