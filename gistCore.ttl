@@ -3033,8 +3033,25 @@ gist:endDateTime
 		;
 	.
 
+gist:follows
+	a
+		owl:ObjectProperty ,
+		owl:AsymmetricProperty ,
+		owl:IrreflexiveProperty ,
+		owl:TransitiveProperty
+		;
+	skos:definition "A generic ordering relation indicating that the subject comes after the object. The greater-than symbol is often used for this relation."^^xsd:string ;
+	skos:prefLabel "follows"^^xsd:string ;
+	skos:scopeNote "This is the transitive version of gist:followsDirectly."^^xsd:string ;
+	.
+
 gist:followsDirectly
-	a owl:ObjectProperty ;
+	a
+		owl:ObjectProperty ,
+		owl:AsymmetricProperty ,
+		owl:IrreflexiveProperty
+		;
+	rdfs:subPropertyOf gist:follows ;
 	owl:inverseOf gist:precedesDirectly ;
 	skos:definition "A generic ordering relation indicating that the subject comes immediately after the object."^^xsd:string ;
 	skos:prefLabel "follows directly"^^xsd:string ;
