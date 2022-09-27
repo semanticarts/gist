@@ -3040,9 +3040,12 @@ gist:follows
 		owl:IrreflexiveProperty ,
 		owl:TransitiveProperty
 		;
-	skos:definition "A generic ordering relation indicating that the subject comes after the object. The greater-than symbol is often used for this relation."^^xsd:string ;
+	skos:definition "A generic ordering relation indicating that the subject comes after the object."^^xsd:string ;
 	skos:prefLabel "follows"^^xsd:string ;
-	skos:scopeNote "This is the transitive version of gist:followsDirectly."^^xsd:string ;
+	skos:scopeNote
+		"The greater-than symbol is often used to represent this relation."^^xsd:string ,
+		"This is the transitive version of gist:followsDirectly."^^xsd:string
+		;
 	.
 
 gist:followsDirectly
@@ -3877,9 +3880,12 @@ gist:precedes
 		owl:IrreflexiveProperty ,
 		owl:TransitiveProperty
 		;
-	skos:definition "A generic ordering relation indicating that the subject comes before the object. The less-than symbol is often used for this relation."^^xsd:string ;
+	skos:definition "A generic ordering relation indicating that the subject comes before the object."^^xsd:string ;
 	skos:prefLabel "precedes"^^xsd:string ;
-	skos:scopeNote "This is the transitive version of gist:precedesDirectly."^^xsd:string ;
+	skos:scopeNote
+		"The less-than symbol is often used to represent this relation."^^xsd:string ,
+		"This is the transitive version of gist:precedesDirectly."^^xsd:string
+		;
 	.
 
 gist:precedesDirectly
