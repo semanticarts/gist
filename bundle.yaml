@@ -63,7 +63,9 @@ actions:
   source: "{input}"
   includes:
     - gistCore.ttl
+    - gistDeprecated.ttl
     - gistMediaTypes.ttl
+    - gistPrefixDeclarations.ttl
     - gistValidationAnnotations.ttl
   shapes:
     source: "{input}/ontologyShapes.ttl"
