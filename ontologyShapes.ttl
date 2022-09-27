@@ -66,6 +66,7 @@ gshapes:InstanceShape
 					owl:AnnotationProperty
 					owl:Ontology
 					rdfs:Datatype
+					sh:PrefixDeclaration
 				) ;
 			]
 			[
