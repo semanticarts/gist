@@ -2019,7 +2019,6 @@ gist:ProjectExecution
 	] ;
 	skos:definition "A project execution is a task execution (usually a longer duration task) made up of other task executions."^^xsd:string ;
 	skos:prefLabel "Project Execution"^^xsd:string ;
-	skos:scopeNote "Note that this definition differs from the ordinary sense of 'project', which is something to do. Here, project execution means the event of doing the work."^^xsd:string ;
 	.
 
 gist:RatioMagnitude
@@ -2127,9 +2126,8 @@ gist:ScheduledTaskExecution
 			gist:TaskExecution
 		) ;
 	] ;
-	skos:definition "A task execution that has already been planned to occur at a given time. When it was scheduled, it would have been in the future, but now might be in the past."^^xsd:string ;
+	skos:definition "The execution of a task that has already been planned to occur at a given time. When it was scheduled, it would have been in the future, but now might be in the past."^^xsd:string ;
 	skos:prefLabel "Scheduled Task Execution"^^xsd:string ;
-	skos:scopeNote "Note that this differs from the ordinary sense of 'task' which is something to do. Here task refers to the event of doing the work."^^xsd:string ;
 	.
 
 gist:SchemaMetaData
@@ -2278,7 +2276,6 @@ gist:TaskExecution
 	] ;
 	skos:definition "An event characterized by a defined piece of work that is either scheduled, accomplished, or both."^^xsd:string ;
 	skos:prefLabel "Task Execution"^^xsd:string ;
-	skos:scopeNote "Note that, task execution refers to the event of doing the work which differs from the ordinary sense of 'Task,' as 'something to to'.  For the latter, consider using the class: TaskTemplate."^^xsd:string ;
 	.
 
 gist:TaskTemplate
@@ -2390,8 +2387,7 @@ gist:Template
 	skos:example
 		"A die in manufacturing that is used to make stamped parts. "^^xsd:string ,
 		"A form. A filled-in form has the structure of the form with data entered into some or all of the fields."^^xsd:string ,
-		"Cookie cutters are templates for cookies."^^xsd:string ,
-		"God"^^xsd:string
+		"Cookie cutters are templates for cookies."^^xsd:string
 		;
 	skos:prefLabel "Template"^^xsd:string ;
 	skos:scopeNote "Use gist:isBasedOn to link the object made from the template back to the template."^^xsd:string ;
