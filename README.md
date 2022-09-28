@@ -14,8 +14,10 @@ gist is free and open to the public under the [Creative Commons 3.0](http://crea
 
 There are a number of resources for learning more about gist.
 - We use skos annotations throughout gist
-  - Every term will have a skos:definition
-  - Many terms will have skos:scopenotes and/or skos:examples
-- You can view the __[Widoco page](https://gist-doc.semanticarts.com/gist-11.0/widoco-documentation/index-en.html)__ generated from the gist ontology.
-- __Videos:__ We have monthly gist council meetings that often discuss how to use gist. You can find the recordings of these meetings [on Youtube.com here.](https://www.youtube.com/playlist?list=PLk2kJrehubb4dc3e5Db5Lvv9WMaOhV3V7)
--
+  - Every term has a `skos:definition`
+  - Many terms will have `skos:scopenotes` and/or `skos:examples`
+- The [__gist-docs__ github repository](https://github.com/semanticarts/gist-doc) has the following:
+  - A Widoco page generated from the gist ontology.
+  - An eBook with descriptive information (in epub & mobi formats)
+  - Constellation diagrams of the gist ontology as png images
+- __Videos:__ We have monthly gist council meetings that discuss gist and how to use it. You can find the recordings of these meetings [on Youtube.com here.](https://www.youtube.com/playlist?list=PLk2kJrehubb4dc3e5Db5Lvv9WMaOhV3V7)
