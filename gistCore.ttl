@@ -339,14 +339,10 @@ gist:CoherentUnit
 
 gist:Collection
 	a owl:Class ;
-	rdfs:subClassOf [
-		a owl:Restriction ;
-		owl:onProperty gist:hasMember ;
-		owl:someValuesFrom owl:Thing ;
-	] ;
-	skos:definition "Any identifiable grouping of instances.  For instance, a jury is a collection of people."^^xsd:string ;
-	skos:example "A jury is a group of people,   a financial ledger is a collection of transaction entries; a route is an (ordered) collection of segments."^^xsd:string ;
+	skos:definition "A grouping of things."^^xsd:string ;
+	skos:example "A jury is a group of people, a financial ledger is a collection of transaction entries; a route is an (ordered) collection of segments. A deck of playing cards."^^xsd:string ;
 	skos:prefLabel "Collection"^^xsd:string ;
+	skos:scopeNote "Individuals are placed in the collection using the gist:hasMember property. Collections typically are created because the members are functionally connected in some way. This definition allows a collection to have zero members."^^xsd:string ;
 	.
 
 gist:Commitment
@@ -1730,7 +1726,7 @@ gist:OrderedCollection
 	] ;
 	skos:definition "A collection in which the members are sequentially ordered. All members of an OrderedCollection are OrderedMembers."^^xsd:string ;
 	skos:prefLabel "Ordered Collection"^^xsd:string ;
-	skos:scopeNote "Includes collections in which members occupy the same position in a 'tie,' but not empty collections."^^xsd:string ;
+	skos:scopeNote "Includes collections in which members occupy the same position in a 'tie.'"^^xsd:string ;
 	.
 
 gist:OrderedMember
