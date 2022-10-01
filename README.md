@@ -1,5 +1,7 @@
 <img width="288" alt="gist_color_144" src="https://user-images.githubusercontent.com/1693668/186741740-7c24c02b-df4e-4141-b926-27c36752bf10.png">
 
+<br/><br/>
+
 # About gist
 
 gist is Semantic Arts' minimalist upper ontology for the enterprise. It is designed to have the maximum coverage of typical business ontology concepts with the fewest number of primitives and the least amount of ambiguity.
