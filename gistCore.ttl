@@ -2291,9 +2291,9 @@ gist:TaskTemplate
 			]
 		) ;
 	] ;
-	skos:definition "An outline of a task of a particular type which is the basis for executing such tasks."^^xsd:string ;
+	skos:definition "An outline of a task of a particular type, which is the basis for executing such tasks."^^xsd:string ;
 	skos:prefLabel "Task Template"^^xsd:string ;
-	skos:scopeNote "The class, TaskExecution is used to represent the execution of the task. Use the property isBasedOn to link the TaskExecution back to the TaskTemplate."^^xsd:string ;
+	skos:scopeNote "The class TaskExecution is used to represent the execution of the task. Use the property isBasedOn to link the TaskExecution back to the TaskTemplate."^^xsd:string ;
 	.
 
 gist:Taxonomy
