@@ -14,11 +14,10 @@ For more information on gist and to download previously released versions of gis
 
 ## Documentation
 
-There are a number of resources for learning more about gist:
+We provide a number of resources for learning more about gist:
 
 - The [__gist-docs__ github repository](https://github.com/semanticarts/gist-doc) contains the following:
   - A Widoco page generated from the gist ontology.
   - An eBook with descriptive information (in epub & mobi formats).
   - Constellation diagrams of the gist ontology as png images.
-- __Videos:__ We maintain a library of videos containing gist tutorials and recordings of our monthly gist Council meetings. You can find links to these videos [on our website](https://www.semanticarts.com/gist/videos/), or directly access the entire catalog on [our YouTube channel](https://www.youtube.com/playlist?list=PLk2kJrehubb4dc3e5Db5Lvv9WMaOhV3V7).
--
+- __Videos:__ We maintain a library of videos containing gist tutorials and recordings of our monthly gist Council meetings. You can find links to these videos on [our website](https://www.semanticarts.com/gist/videos/), or directly access the entire catalog on [our YouTube channel](https://www.youtube.com/playlist?list=PLk2kJrehubb4dc3e5Db5Lvv9WMaOhV3V7).
