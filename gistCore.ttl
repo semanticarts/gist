@@ -1131,24 +1131,6 @@ gist:GovernmentOrganization
 	skos:scopeNote "Includes administrative, regulatory, and enforcement organizations created or sanctioned by Country or SubCountry Governments."^^xsd:string ;
 	.
 
-gist:Group
-	a owl:Class ;
-	owl:deprecated "true"^^xsd:boolean ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Collection
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMember ;
-				owl:someValuesFrom gist:Person ;
-			]
-		) ;
-	] ;
-	skos:definition "A collection of People. The group may or may not be an Organization.  Many organizations consist of groups of people, but that is not a defining characteristic."^^xsd:string ;
-	skos:prefLabel "Group"^^xsd:string ;
-	.
-
 gist:HistoricalEvent
 	a owl:Class ;
 	owl:equivalentClass [
