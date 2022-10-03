@@ -3036,31 +3036,27 @@ gist:endDateTime
 gist:follows
 	a
 		owl:ObjectProperty ,
-		owl:AsymmetricProperty ,
-		owl:IrreflexiveProperty ,
 		owl:TransitiveProperty
 		;
 	skos:definition "A generic ordering relation indicating that the subject comes after the object."^^xsd:string ;
 	skos:prefLabel "follows"^^xsd:string ;
 	skos:scopeNote
 		"The greater-than symbol is often used to represent this relation."^^xsd:string ,
-		"This is the transitive version of gist:followsDirectly."^^xsd:string
+		"This is the transitive version of gist:followsDirectly."^^xsd:string ,
+		"Typically this predicate would be used asymmetricallly and irreflexively, but the ontology does not formalize this."^^xsd:string
 		;
 	.
 
 gist:followsDirectly
-	a
-		owl:ObjectProperty ,
-		owl:AsymmetricProperty ,
-		owl:IrreflexiveProperty
-		;
+	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:follows ;
 	owl:inverseOf gist:precedesDirectly ;
 	skos:definition "A generic ordering relation indicating that the subject comes immediately after the object."^^xsd:string ;
 	skos:prefLabel "follows directly"^^xsd:string ;
 	skos:scopeNote
 		"If two items in an ordered collection share the same position, they both directly follow the preceding element."^^xsd:string ,
-		"It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string
+		"It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ,
+		"Typically this predicate would be used asymmetricallly and irreflexively, but the ontology does not formalize this."^^xsd:string
 		;
 	.
 
@@ -3876,30 +3872,26 @@ gist:plannedStartYear
 gist:precedes
 	a
 		owl:ObjectProperty ,
-		owl:AsymmetricProperty ,
-		owl:IrreflexiveProperty ,
 		owl:TransitiveProperty
 		;
 	skos:definition "A generic ordering relation indicating that the subject comes before the object."^^xsd:string ;
 	skos:prefLabel "precedes"^^xsd:string ;
 	skos:scopeNote
 		"The less-than symbol is often used to represent this relation."^^xsd:string ,
-		"This is the transitive version of gist:precedesDirectly."^^xsd:string
+		"This is the transitive version of gist:precedesDirectly."^^xsd:string ,
+		"Typically this predicate would be used asymmetricallly and irreflexively, but the ontology does not formalize this."^^xsd:string
 		;
 	.
 
 gist:precedesDirectly
-	a
-		owl:ObjectProperty ,
-		owl:AsymmetricProperty ,
-		owl:IrreflexiveProperty
-		;
+	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:precedes ;
 	skos:definition "A generic ordering relation indicating that the subject comes immediately before the object."^^xsd:string ;
 	skos:prefLabel "precedes directly"^^xsd:string ;
 	skos:scopeNote
 		"If two items in an ordered collection share the same position, they both directly precede the following element."^^xsd:string ,
-		"It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string
+		"It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ,
+		"Typically this predicate would be used asymmetricallly and irreflexively, but the ontology does not formalize this."^^xsd:string
 		;
 	.
 
