@@ -19,6 +19,7 @@
 
 gist:Group
 	a owl:Class ;
+	owl:deprecated "true"^^xsd:boolean ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
