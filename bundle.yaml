@@ -185,11 +185,11 @@ actions:
     from: "\\(./(\\w+)\\.md\\)"
     to: "(./\\g<1>.html)"
   includes:
+    - "Contributing.md"
+    - "gistStyleGuide.md"
     - "ReleaseNotes.md"
     - "MajorVersionMigration.md"
     - "gistDocumentation.md"
-    - "README.md"
-    - "TimeRelatedChanges_v11.md"
 - action: "markdown"
   message: "Formatting release notes."
   source: "{output}/Documentation/ReleaseNotes.md"
