@@ -229,12 +229,22 @@ function serialize_all() {
   return 0
 }
 
+function remove_skos_decls () {
+  for fileToBeCommitted in $(git diff --cached --name-only) ; do
+    sed -e '/^skos/,+3d' "$fileToBeCommitted" > tmp$$
+    mv tmp$$ "$fileToBeCommitted"
+  done
+
+  return 0
+}
+
 function main() {
 
 	findJava || return 1
 	findSerializerJar || return 2
 #	findBaseDir || return 3
   serialize_all
+  remove_skos_decls
 }
 
 main $*

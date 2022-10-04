@@ -1156,12 +1156,12 @@ gist:HistoricalEvent
 			gist:Event
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:actualStartDateTime ;
+				owl:onProperty gist:actualEndDateTime ;
 				owl:cardinality "1"^^xsd:nonNegativeInteger ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:actualEndDateTime ;
+				owl:onProperty gist:actualStartDateTime ;
 				owl:cardinality "1"^^xsd:nonNegativeInteger ;
 			]
 		) ;
@@ -1704,23 +1704,24 @@ gist:OrderedCollection
 		owl:intersectionOf (
 			gist:Collection
 			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMember ;
-				owl:allValuesFrom gist:OrderedMember ;
-			]
-			[
+				a owl:Class ;
 				owl:unionOf (
-					[
-						a owl:Restriction ;
-						owl:onProperty gist:hasMember ;
-						owl:cardinality "0"^^xsd:nonNegativeInteger ;
-					]
 					[
 						a owl:Restriction ;
 						owl:onProperty gist:hasFirstMember ;
 						owl:someValuesFrom owl:Thing ;
 					]
+					[
+						a owl:Restriction ;
+						owl:onProperty gist:hasMember ;
+						owl:cardinality "0"^^xsd:nonNegativeInteger ;
+					]
 				) ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasMember ;
+				owl:allValuesFrom gist:OrderedMember ;
 			]
 		) ;
 	] ;
@@ -2503,12 +2504,12 @@ gist:TreatyOrganization
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasMember ;
-				owl:minCardinality "2"^^xsd:nonNegativeInteger ;
+				owl:allValuesFrom gist:CountryGovernment ;
 			]
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasMember ;
-				owl:allValuesFrom gist:CountryGovernment ;
+				owl:minCardinality "2"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
@@ -3028,12 +3029,32 @@ gist:endDateTime
 		;
 	.
 
+gist:follows
+	a
+		owl:ObjectProperty ,
+		owl:TransitiveProperty
+		;
+	owl:inverseOf gist:precedes ;
+	skos:definition "A generic ordering relation indicating that the subject comes after the object."^^xsd:string ;
+	skos:prefLabel "follows"^^xsd:string ;
+	skos:scopeNote
+		"The greater-than symbol is often used to represent this relation."^^xsd:string ,
+		"This is the transitive version of gist:followsDirectly."^^xsd:string ,
+		"Typically this predicate would be used asymmetricallly and irreflexively, but the ontology does not formalize this."^^xsd:string
+		;
+	.
+
 gist:followsDirectly
 	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:follows ;
 	owl:inverseOf gist:precedesDirectly ;
 	skos:definition "A generic ordering relation indicating that the subject comes immediately after the object."^^xsd:string ;
 	skos:prefLabel "follows directly"^^xsd:string ;
-	skos:scopeNote "It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ;
+	skos:scopeNote
+		"If two items in an ordered collection share the same position, they both directly follow the preceding element."^^xsd:string ,
+		"It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ,
+		"Typically this predicate would be used asymmetricallly and irreflexively, but the ontology does not formalize this."^^xsd:string
+		;
 	.
 
 gist:goesToAgent
@@ -3850,8 +3871,13 @@ gist:precedes
 		owl:ObjectProperty ,
 		owl:TransitiveProperty
 		;
-	skos:definition "A generic ordering relation indicating that the subject has the same order as or comes before the object. The 'greater than or equal to' symbol is often used for this relation."^^xsd:string ;
+	skos:definition "A generic ordering relation indicating that the subject comes before the object."^^xsd:string ;
 	skos:prefLabel "precedes"^^xsd:string ;
+	skos:scopeNote
+		"The less-than symbol is often used to represent this relation."^^xsd:string ,
+		"This is the transitive version of gist:precedesDirectly."^^xsd:string ,
+		"Typically this predicate would be used asymmetricallly and irreflexively, but the ontology does not formalize this."^^xsd:string
+		;
 	.
 
 gist:precedesDirectly
@@ -3859,7 +3885,11 @@ gist:precedesDirectly
 	rdfs:subPropertyOf gist:precedes ;
 	skos:definition "A generic ordering relation indicating that the subject comes immediately before the object."^^xsd:string ;
 	skos:prefLabel "precedes directly"^^xsd:string ;
-	skos:scopeNote "It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ;
+	skos:scopeNote
+		"If two items in an ordered collection share the same position, they both directly precede the following element."^^xsd:string ,
+		"It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ,
+		"Typically this predicate would be used asymmetricallly and irreflexively, but the ontology does not formalize this."^^xsd:string
+		;
 	.
 
 gist:prevents
