@@ -3038,6 +3038,7 @@ gist:follows
 		owl:ObjectProperty ,
 		owl:TransitiveProperty
 		;
+	owl:inverseOf gist:precedes ;
 	skos:definition "A generic ordering relation indicating that the subject comes after the object."^^xsd:string ;
 	skos:prefLabel "follows"^^xsd:string ;
 	skos:scopeNote
