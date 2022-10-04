@@ -5,7 +5,7 @@ Release 11.1.0
 -----
 
 ### Minor Updates
-
+- Updated class `gist:Collection` to allow for empty collections. Issue [#570](https://github.com/semanticarts/gist/issues/570).
 - Deprecated `gist:_greenwichTimeZone`, `gist:_one_day`, `gist:_one_millisecond`, and `gist:_one_minute`. Issue [#692](https://github.com/semanticarts/gist/issues/692).
 - Bug fix: `isRecordedAt` is now a subproperty of `gist:atDateTime` instead of `gist:actualEndDateTime`. Issue [#726](https://github.com/semanticarts/gist/issues/726).
 - Added new property `hasFirstMember`. Issue [#549](https://github.com/semanticarts/gist/issues/549).
