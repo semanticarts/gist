@@ -12,7 +12,7 @@
 	owl:imports <https://ontologies.semanticarts.com/o/gistCoreX.x.x> ;
 	owl:versionIRI <https://ontologies.semanticarts.com/o/gistDeprecatedX.x.x> ;
 	skos:definition "Concepts that have been deprecated since the last major release."^^xsd:string ;
-	skos:prefLabel "gist deprecated"^^xsd:string ;
+	skos:prefLabel "gist Deprecated"^^xsd:string ;
 	skos:scopeNote "Deprecated terms will be removed in the next major release."^^xsd:string ;
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
 	.
