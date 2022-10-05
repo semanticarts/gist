@@ -1,4 +1,4 @@
-![](gist.png)
+![gist logo](gist.png)
 
 About gist
 =====
