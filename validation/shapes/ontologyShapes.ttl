@@ -49,22 +49,22 @@ gshapes:InstanceShape
 		sh:or (
 			[
 				sh:in (
-					owl:Class
 					owl:AllDifferent
-					owl:InverseFunctionalProperty
-					owl:DatatypeProperty
-					owl:ReflexiveProperty
-					owl:IrreflexiveProperty
-					owl:TransitiveProperty
-					owl:FunctionalProperty
-					owl:SymmetricProperty
-					owl:AsymmetricProperty
-					owl:ObjectProperty
-					owl:Restriction
-					owl:NamedIndividual
-					owl:Thing
 					owl:AnnotationProperty
+					owl:AsymmetricProperty
+					owl:Class
+					owl:DatatypeProperty
+					owl:FunctionalProperty
+					owl:InverseFunctionalProperty
+					owl:IrreflexiveProperty
+					owl:NamedIndividual
+					owl:ObjectProperty
 					owl:Ontology
+					owl:ReflexiveProperty
+					owl:Restriction
+					owl:SymmetricProperty
+					owl:Thing
+					owl:TransitiveProperty
 					rdfs:Datatype
 					sh:PrefixDeclaration
 				) ;
