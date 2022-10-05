@@ -13,8 +13,26 @@
 	owl:versionIRI <https://ontologies.semanticarts.com/o/gistDeprecatedX.x.x> ;
 	skos:definition "Concepts that have been deprecated since the last major release."^^xsd:string ;
 	skos:prefLabel "gist Deprecated"^^xsd:string ;
-	skos:scopeNote "Deprecated terms will be removed in the next major release."^^xsd:string ;
+	skos:scopeNote "Deprecated terms will be removed from the ontology in the next major release."^^xsd:string ;
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
+	.
+
+gist:Group
+	a owl:Class ;
+	owl:deprecated "true"^^xsd:boolean ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:Collection
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasMember ;
+				owl:someValuesFrom gist:Person ;
+			]
+		) ;
+	] ;
+	skos:definition "A collection of People. The group may or may not be an Organization.  Many organizations consist of groups of people, but that is not a defining characteristic."^^xsd:string ;
+	skos:prefLabel "Group"^^xsd:string ;
 	.
 
 gist:_greenwichTimeZone
