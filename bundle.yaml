@@ -184,9 +184,12 @@ actions:
     - "ReleaseNotes.md"
     - "MajorVersionMigration.md"
 - action: "copy"
-  message: "Copying readme to Documentation directory."
+  message: "Copying readme to Documentation directory and patching local links."
   source: "README.md"
   target: "{output}/Documentation/README.md"
+  replace:
+    from: "\\(./(\\w+)\\.md\\)"
+    to: "(./\\g<1>.html)"
 - action: "copy"
   message: "Copying gist.png to Documentation directory."
   source: "gist.png"
