@@ -64,7 +64,7 @@ actions:
   includes:
     - "gist*.ttl"
   shapes:
-    source: "{input}/ontologyShapes.ttl"
+    source: "{input}/validation/shapes/ontologyShapes.ttl"
 - action: "verify"
   message: "Verify ontology via queries."
   type: "construct"
@@ -72,10 +72,12 @@ actions:
   source: "{input}"
   includes:
     - gistCore.ttl
+    - gistMediaTypes.ttl
+    - gistValidationAnnotations.ttl
   stopOnFail: false
-  target: '{input}/validation'
+  target: '{input}/validation/queries'
   queries:
-    source: '{input}/validation_queries'
+    source: '{input}/validation/queries'
     includes:
       - '*_construct.rq'
 - action: "mkdir"
