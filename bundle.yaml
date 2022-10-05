@@ -73,7 +73,7 @@ actions:
   includes:
     - gistCore.ttl
   stopOnFail: false
-  target: '{input}/validation/queries/reports'
+  target: '{input}/validation/reports'
   queries:
     source: '{input}/validation/queries'
     includes:
