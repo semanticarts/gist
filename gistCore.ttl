@@ -2126,7 +2126,7 @@ gist:ScheduledTaskExecution
 			gist:TaskExecution
 		) ;
 	] ;
-	skos:definition "The execution of a task that has already been planned to occur at a given time. When it was scheduled, it would have been in the future, but now might be in the past."^^xsd:string ;
+	skos:definition "The execution of a task that was planned to occur at a given time. When it was scheduled, it would have been in the future, but now might be in the past."^^xsd:string ;
 	skos:prefLabel "Scheduled Task Execution"^^xsd:string ;
 	.
 
