@@ -31,6 +31,12 @@ gist:_PrefixDeclaration_rdfs
 	sh:prefix "rdfs"^^xsd:string ;
 	.
 
+gist:_PrefixDeclaration_sh
+	a sh:PrefixDeclaration ;
+	sh:namespace "http://www.w3.org/ns/shacl#"^^xsd:anyURI ;
+	sh:prefix "sh"^^xsd:string ;
+	.
+
 gist:_PrefixDeclaration_skos
 	a sh:PrefixDeclaration ;
 	sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
