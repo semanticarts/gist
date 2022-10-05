@@ -1,4 +1,4 @@
-![](gist.png)
+<img width="288" alt="gist" src="gist.png" />
 
 About gist
 =====
