@@ -29,6 +29,7 @@ Release 11.1.0
   - `gist:PhysicalSubstance` and `gist:PhysicalIdentifiableItem`: Issue [#644](https://github.com/semanticarts/gist/issues/644).
   - `gist:uniqueText`: Issue[#577](https://github.com/semanticarts/gist/issues/577).
   - `gist:precedes`, `gist:precedesDirectly`, and `gist:followsDirectly`. Issue [#300](https://github.com/semanticarts/gist/issues/300).
+- Added SHACL `PrefixDeclaration`s for prefixes used in the gist ontology. The declaration for `gist:` is in the gist core ontology, and additional prefixes are included in a separate ontology file. Issue [#684](https://github.com/semanticarts/gist/issues/684).
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore11.1.0>.
 
