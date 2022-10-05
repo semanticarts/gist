@@ -35,6 +35,57 @@ gist:Group
 	skos:prefLabel "Group"^^xsd:string ;
 	.
 
+gist:Project
+	a owl:Class ;
+	owl:deprecated "true"^^xsd:boolean ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:Task
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasSubTask ;
+				owl:someValuesFrom gist:Task ;
+			]
+		) ;
+	] ;
+	skos:definition "A project is a task (usually a longer duration task) made up of other tasks."^^xsd:string ;
+	skos:prefLabel "Project"^^xsd:string ;
+	.
+
+gist:ScheduledTask
+	a owl:Class ;
+	owl:deprecated "true"^^xsd:boolean ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:PlannedEvent
+			gist:Task
+		) ;
+	] ;
+	skos:definition "A task planned to occur.  When it was scheduled, it would have been in the future, but now might be in the past."^^xsd:string ;
+	skos:prefLabel "Scheduled Task"^^xsd:string ;
+	.
+
+gist:Task
+	a owl:Class ;
+	owl:deprecated "true"^^xsd:boolean ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:Event
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasGoal ;
+				owl:someValuesFrom gist:Intention ;
+			]
+		) ;
+	] ;
+	skos:definition "An event characterized by a defined piece of work that is either scheduled, accomplished, or both."^^xsd:string ;
+	skos:prefLabel "Task"^^xsd:string ;
+	skos:scopeNote "Note that this differs from the ordinary sense of 'task,' which is not an event (e.g., 'A piece of work to be done or undertaken.')."^^xsd:string ;
+	.
+
 gist:_greenwichTimeZone
 	a
 		owl:NamedIndividual ,
