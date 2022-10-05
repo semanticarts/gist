@@ -12,7 +12,7 @@
 	a owl:Ontology ;
 	owl:imports <https://ontologies.semanticarts.com/o/gistCore> ;
 	skos:definition "Annotations to assist gist ontology validation."^^xsd:string ;
-	skos:prefLabel "gistValidationAnnotations"^^xsd:string ;
+	skos:prefLabel "gist Validation Annotations"^^xsd:string ;
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
 	.
 
