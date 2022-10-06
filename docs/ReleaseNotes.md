@@ -1,4 +1,4 @@
-gist Release Notes
+Gist Release Notes
 =====
 
 Release 11.1.0
@@ -6,25 +6,23 @@ Release 11.1.0
 
 ### Minor Updates
 
-- Changes to Tasks: Renamed `Task`, `ScheduledTask` and `Project` to `TaskExecution`, `ScheduledTaskExecution` and `ProjectExecution`, respectively. Issue [#590](https://github.com/semanticarts/gist/issues/590).
+- Renamed `gist:Task`, `gist:ScheduledTask` and `gist:Project` to `gist:TaskExecution`, `gist:ScheduledTaskExecution` and  `gist:ProjectExecution`, respectively. Issue [#590](https://github.com/semanticarts/gist/issues/590).
 - Updated class `gist:Collection` to allow for empty collections. Issue [#570](https://github.com/semanticarts/gist/issues/570).
 - Deprecated `gist:Group`. Issue [#663](https://github.com/semanticarts/gist/issues/663).
 - Deprecated `gist:_greenwichTimeZone`, `gist:_one_day`, `gist:_one_millisecond`, and `gist:_one_minute`. Issue [#692](https://github.com/semanticarts/gist/issues/692).
-- Bug fix: `isRecordedAt` is now a subproperty of `gist:atDateTime` instead of `gist:actualEndDateTime`. Issue [#726](https://github.com/semanticarts/gist/issues/726).
-- Added new property `hasFirstMember`. Issue [#549](https://github.com/semanticarts/gist/issues/549).
+- Fixed bug: `gist:isRecordedAt` is now a subproperty of `gist:atDateTime` instead of `gist:actualEndDateTime`. Issue [#726](https://github.com/semanticarts/gist/issues/726).
+- Added new property `gist:hasFirstMember`. Issue [#549](https://github.com/semanticarts/gist/issues/549).
 - Updates related to `gist:isConnectedTo`:
-
   - Made the property symmetric. Issue [#699](https://github.com/semanticarts/gist/issues/699).
-  - Replaced it in the restriction on `TemporalRelation` with `hasParticipant`. Issue [#706](https://github.com/semanticarts/gist/issues/706).
+  - Replaced it in the restriction on `gist:TemporalRelation` with `gist:hasParticipant`. Issue [#706](https://github.com/semanticarts/gist/issues/706).
 - Replaced `rdfs:range` on `gist:conformsTo` with `gist:rangeIncludes`. Issue [#700](https://github.com/semanticarts/gist/issues/700).
 - Added the inadvertently omitted predicate `gist:follows`. Issue [#300](https://github.com/semanticarts/gist/issues/300).
-- Changed superproperty `startDateTime` to `actualStartDateTime` in formal definition of `gist:ContemporaryEvent`. Issue [#696](https://github.com/semanticarts/gist/issues/696).
+- Changed superproperty `gist:startDateTime` to `gist:actualStartDateTime` in formal definition of `gist:ContemporaryEvent`. Issue [#696](https://github.com/semanticarts/gist/issues/696).
 
 ### Patch Updates
 
 - Added `gist:domainIncludes gist:Text` to `gist:uniqueText`.
 - Improved the clarity and accuracy of annotations on several terms, including definitions, examples, and scope notes:
-
   - `gist:Building`: Issue [#482](https://github.com/semanticarts/gist/issues/482).
   - `gist:PhysicalSubstance` and `gist:PhysicalIdentifiableItem`: Issue [#644](https://github.com/semanticarts/gist/issues/644).
   - `gist:uniqueText`: Issue[#577](https://github.com/semanticarts/gist/issues/577).
@@ -32,6 +30,9 @@ Release 11.1.0
   - `gist:Template` [#408](https://github.com/semanticarts/gist/issues/408).
 - Added SHACL `PrefixDeclaration`s for prefixes used in the gist ontology. The declaration for `gist:` is in the gist core ontology, and additional prefixes are included in a separate ontology file. Issue [#684](https://github.com/semanticarts/gist/issues/684).
 - Reformatted gist for Protege + serializer compatibility. Issue [#646](https://github.com/semanticarts/gist/issues/646).
+- Updated gist logo. [#713](https://github.com/semanticarts/gist/issues/713).
+- Put validation files into one folder. [#711](https://github.com/semanticarts/gist/issues/711).
+- Fixed text defintion of `gist:actualStartDateTime`. [#689](https://github.com/semanticarts/gist/issues/689).
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore11.1.0>.
 
