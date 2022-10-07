@@ -11,8 +11,8 @@
 	a owl:Ontology ;
 	owl:imports <https://ontologies.semanticarts.com/o/gistCoreX.x.x> ;
 	owl:versionIRI <https://ontologies.semanticarts.com/o/gistDeprecatedX.x.x> ;
-	skos:definition "Concepts that have been deprecated since the last major release (in this case, 10.0.0)."^^xsd:string ;
-	skos:prefLabel "gistDeprecated"^^xsd:string ;
+	skos:definition "Concepts that have been deprecated since the last major release."^^xsd:string ;
+	skos:prefLabel "gist deprecated"^^xsd:string ;
 	skos:scopeNote "This file will be removed on the next major release."^^xsd:string ;
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
 	.
@@ -23,6 +23,7 @@ gist:_greenwichTimeZone
 		owl:Thing ,
 		gist:TimeZoneStandard
 		;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "The time zone containing the Royal Observatory in Greenwich, England, which is located on the prime meridian."^^xsd:string ;
 	skos:prefLabel "Greenwich Time Zone"^^xsd:string ;
 	.
@@ -33,6 +34,7 @@ gist:_one_day
 		owl:Thing ,
 		gist:Duration
 		;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "A duration equal to 24 hours."^^xsd:string ;
 	skos:prefLabel "one day"^^xsd:string ;
 	skos:scopeNote "This is a gist:Magnutude, not a unit of measure, it means essentially the same thing as the unit, day."^^xsd:string ;
@@ -46,6 +48,7 @@ gist:_one_millisecond
 		owl:Thing ,
 		gist:Duration
 		;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "A duration equal to one millisecond."^^xsd:string ;
 	skos:prefLabel "one millisecond"^^xsd:string ;
 	skos:scopeNote "This is a gist:Magnutude, not a unit of measure, it means essentially the same thing as the unit, millisecond."^^xsd:string ;
@@ -59,6 +62,7 @@ gist:_one_minute
 		owl:Thing ,
 		gist:Duration
 		;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "A duration equal to one minute."^^xsd:string ;
 	skos:prefLabel "one minute"^^xsd:string ;
 	skos:scopeNote "This is a gist:Magnutude, not a unit of measure, it means essentially the same thing as the unit, minute."^^xsd:string ;
