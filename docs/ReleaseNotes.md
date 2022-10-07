@@ -1,4 +1,4 @@
-Gist Release Notes
+gist Release Notes
 =====
 
 Release 11.1.0
@@ -29,9 +29,6 @@ Release 11.1.0
   - `gist:precedes`, `gist:precedesDirectly`, and `gist:followsDirectly`. Issue [#300](https://github.com/semanticarts/gist/issues/300).
   - `gist:Template` [#408](https://github.com/semanticarts/gist/issues/408).
 - Added SHACL `PrefixDeclaration`s for prefixes used in the gist ontology. The declaration for `gist:` is in the gist core ontology, and additional prefixes are included in a separate ontology file. Issue [#684](https://github.com/semanticarts/gist/issues/684).
-- Reformatted gist for Protege + serializer compatibility. Issue [#646](https://github.com/semanticarts/gist/issues/646).
-- Updated gist logo. [#713](https://github.com/semanticarts/gist/issues/713).
-- Put validation files into one folder. [#711](https://github.com/semanticarts/gist/issues/711).
 - Fixed text defintion of `gist:actualStartDateTime`. [#689](https://github.com/semanticarts/gist/issues/689).
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore11.1.0>.
