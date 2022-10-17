@@ -48,17 +48,19 @@ Serialization
 Local Names
 -----
 
-### Orthographic Conventions for Class and Property Local Names
+### Spelling Conventions for Class and Property Local Names
 
 -----
 
 - Camelcase
-  - Classes initial uppercase
-  - Properties initial lowercase
+  - Classes initial uppercase.
+    - Example: `GeoPoint` not `geopoint` or `geoPoint`.
+  - Properties initial lowercase.
+    - Example: `hasDirectPart` not `HasDirectPart` or `hasdirectpart` or `has_direct_part`.
 - Alphanumeric characters only.
   - Example: `Isbn10`, not `Isbn-10` or `ISBN-10`.
 - Acronyms are also camelcased so that word boundaries are unambiguous.
-  - Examples: `AmaGuideline`, not `AMAGuideline`; `UriScheme`, not `URIScheme`
+  - Examples: `AmaGuideline`, not `AMAGuideline`; `UriScheme`, not `URIScheme`.
   - `ID` is an exception, because Merriam-Webster spells it in all-caps.
 - No non-standard abbreviations. E.g., `hasUoM` should be `hasUnitOfMeasure`.
   
@@ -66,12 +68,12 @@ Local Names
 
 -----
 
-These standards involve choice of wording, which are generally more difficult to define and reach consensus on than the orthographic conventions above. The goals of defining standards are to improve the ontology along the following metrics:
+These standards involve choice of wording, which are generally more difficult to define and reach consensus on than the spelling conventions above. The goals of defining standards are to improve the ontology along the following metrics:
 
 - Consistency: The ontology could have been written by a single person.
 - Objectivity: Two ontologists following these standards should agree on the name for a new property in most cases.
-- Clarity
-- Explicitness
+- Clarity.
+- Explicitness.
 - Idiomaticity: Follows English natural language insofar as possible. This includes "reading well", as in `Mary isConnectedTo John` rather than `Mary connectedTo John`.
 - Accuracy: Expresses intended meaning.
 - Alignment with textual definitions. In some cases this requires a re-analysis of the intended meaning, and then perhaps a change in definition rather than local name. However, within the current scope of work, the local name was changed to match the definition, and the re-analysis will be done at a later time.
@@ -109,11 +111,11 @@ Some of the examples resulted in changes to gist `10.0.0`, others are hypothetic
 
 These conventions apply to both data and taxonomy terms.
 
-- Leading underscore
-- An infix consisting of the name of the class that is the *most specific rigid* class the instance belongs to
-- A single underscore
-- The name of the instance, with spaces and hyphens replaced by underscores (no camelcasing) and only alphanumeric characters and underscores allowed
-- Leave case as it is
+- Leading underscore.
+- An infix consisting of the name of the class that is the *most specific rigid* class the instance belongs to.
+- A single underscore.
+- The name of the instance, with spaces and hyphens replaced by underscores (no camelcasing) and only alphanumeric characters and underscores allowed.
+- Leave case as it is.
 
 A "rigid" class is one that the instance inherently belongs; it is part of the essence of the object, which would not be the same object if it did not belong to this class. A non-rigid class may be temporary and/or express a role or relationship; for example, `Child`, `Patient`, `Employee`. The notion of rigid classes originates in [OntoClean](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.99.7618&rep=rep1&type=pdf).
 
@@ -128,15 +130,15 @@ The following conventions apply to `skos:prefLabel` but not `skos:altLabel`.
 
 ### Classes
 
-- Title case (see definition of title case below)
+- Title case (see definition of title case below).
 - Normalized to natural language standards. E.g., hyphens inserted, acronyms in all caps, etc.
-  - Examples: *AMA Guideline*, *ISBN-10*
+  - Examples: `*AMA Guideline*`, `*ISBN-10*`.
   
 ### Properties
 
-- Lower case
+- Lower case.
 - Normalized to natural language standards. E.g., hyphens inserted, acronyms in all caps, proper nouns capitalized, etc.
-- Examples: *has unit of measure*, *has SSN*, *unit symbol Unicode*
+- Examples: `*has unit of measure*`, `*has SSN*`, `*unit symbol Unicode*`.
 
 ### gist Definition of Title Case
 
@@ -145,15 +147,15 @@ The rules of title case are not universally standardized; standardization is onl
 This style guide defines the rules for title case as follows:
 
 - Capitalize:
-  - First and last words
-  - Words of four or more letters (e.g., *Between*, *With*, *This*)
-  - Second part of hyphenated word (e.g., *Data-Centric*, not *Data-centric*)
+  - First and last words.
+  - Words of four or more letters (e.g., *Between*, *With*, *This*).
+  - Second part of hyphenated word (e.g., *Data-Centric*, not *Data-centric*).
 - Lowercase:
-  - Articles: *a*, *an*, *the*
-  - Conjunctions: *and*, *but*, *if*, *for*, *or*, *nor*, *so*, *yet*
-  - Prepositions: *as*, *at*, *by*, *cum*, *ere*, *for*, *in*, *of*, *off*, *on*, *out*, *per*, *pre*, *pro*, *qua*, *re*, *sub*, *to*, *up*, *via*
-- Acronyms in all caps (e.g., *SSN*, *ISBN*)
-- Capitalize everything else
+  - Articles: *a*, *an*, *the*.
+  - Conjunctions: *and*, *but*, *if*, *for*, *or*, *nor*, *so*, *yet*.
+  - Prepositions: *as*, *at*, *by*, *cum*, *ere*, *for*, *in*, *of*, *off*, *on*, *out*, *per*, *pre*, *pro*, *qua*, *re*, *sub*, *to*, *up*, *via*.
+- Acronyms in all caps (e.g., *SSN*, *ISBN*).
+- Capitalize everything else.
 
 -----
 
@@ -164,7 +166,7 @@ Annotations
 
 gist uses SKOS annotations rather than `rdfs:label` and `rdfs:comment`. The accepted annotations, intended use, and previous usage are shown in the following tables. Refer to the [SKOS ontology](http://www.w3.org/2004/02/skos/core) for formal definitions.
 
-*Preferred SKOS annotations*
+*Preferred SKOS annotations:*
 
 | Annotation | Use | Instead Of |
 | ---------: | --- |:---------|
@@ -175,16 +177,16 @@ gist uses SKOS annotations rather than `rdfs:label` and `rdfs:comment`. The acce
 | `skos:example`   | One or more examples  | `rdfs:comment` |
 | `skos:editorialNote` | Notes for editors | `rdfs:comment` |
 
-*RDFS annotations*
+*RDFS annotations:*
 
 Certain RDFS annotations are recommended where there is no SKOS equivalent.
 
 | Annotation | Use |
 | ---------: | --- |
 | `rdfs:seeAlso` | Indicates a resource that may provide additional information about the subject. Preferably points to a web page or RDF resource rather than text. |
-| `rdfs:isDefinedBy` | Identifies the ontology module the term is defined in. Added automatically during gist release bundling and does not needed to be added by hand. |
+| `rdfs:isDefinedBy` | Identifies the ontology module the term is defined in. Added automatically during gist release bundling and does not need to be added by hand. |
 
-*Use only rarely*
+*Use only rarely:*
 
 | Annotation | Comment |
 | ---------: | ------- |
@@ -192,7 +194,7 @@ Certain RDFS annotations are recommended where there is no SKOS equivalent.
 | `skos:historyNote` | Normally change notes are provided by the git history or version comparison. |
 | `skos:note` | Use a more specific annotation whenever possible. |
 
-*Do not use*
+**_Do not use:_**
 | Annotation | Instead Use |
 | ---------: | ----------- |
 | `rdfs:label` | `skos:prefLabel` |
@@ -216,4 +218,4 @@ Inverses should not be defined without a compelling reason. They can be referenc
 Documentation
 -----
 
-Documentation is generally written in Markdown, and a Markdown linter should be applied to flag and fix [Markdown rule](https://github.com/DavidAnson/markdownlint/blob/v0.20.3/doc/Rules.md) violations. The Markdown config file [markdownlint.json](.markdownlint.json) configures the Markdown delinter. If using VS Code as an editor, [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) is a helpful extension that provides code hints and can be configured to automatically correct errors.
+Documentation is generally written in Markdown, and a Markdown linter should be applied to flag and fix [Markdown rule](https://github.com/DavidAnson/markdownlint/blob/v0.20.3/doc/Rules.md) violations. The Markdown config file [markdownlint.json](.markdownlint.json) configures the Markdown delinter. If using [VS Code](https://code.visualstudio.com/) as an editor, [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) is a helpful extension that provides code hints and can be configured to automatically correct errors.
