@@ -901,7 +901,7 @@ gist:Event
 	skos:example "Transaction, concert, baseball game, hurricane, earthquake."^^xsd:string ;
 	skos:prefLabel "Event"^^xsd:string ;
 	skos:scopeNote
-		"An event does not necessarily have either planned or actual start or end date.s For example, a wedding can be in the planning phase without any dates selected, but is nevertheless an event (though not a ScheduledEvent according to the formal definition of that class). The subclasses state particular restrictions on planned and actual start and end dates." ,
+		"An event does not necessarily have either planned or actual start or end date.s For example, a wedding can be in the planning phase without any dates selected, but is nevertheless an event (though not a ScheduledEvent according to the formal definition of that class). The subclasses state particular restrictions on planned and actual start and end dates."^^xsd:string ,
 		"Roughly equivalent to the Basic Formal Ontology (BFO) Process class."^^xsd:string
 		;
 	.
@@ -2281,8 +2281,8 @@ gist:Task
 		) ;
 	] ;
 	skos:definition "An event characterized by a defined piece of work that is either proposed, planned, scheduled, underway, or completed."^^xsd:string ;
-	skos:scopeNote "A thing that could potentially be executed which is merely described but not proposed in any specific way, such as a guidebook providing instructions for following hiking trails, is not a task but rather a task template."^^xsd:string ,
 	skos:prefLabel "Task"^^xsd:string ;
+	skos:scopeNote "A thing that could potentially be executed which is merely described but not proposed in any specific way, such as a guidebook providing instructions for following hiking trails, is not a task but rather a task template."^^xsd:string ;
 	.
 
 gist:TaskTemplate
@@ -3874,3 +3874,4 @@ gist:usesTimeZoneStandard
 		gist:_second
 	) ;
 	.
+
