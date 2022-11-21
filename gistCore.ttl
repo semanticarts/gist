@@ -892,28 +892,18 @@ gist:EquipmentType
 
 gist:Event
 	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isCharacterizedAs ;
-				owl:someValuesFrom gist:Behavior ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:endDateTime ;
-				owl:cardinality "1"^^xsd:nonNegativeInteger ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:startDateTime ;
-				owl:cardinality "1"^^xsd:nonNegativeInteger ;
-			]
-		) ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty gist:isCharacterizedAs ;
+		owl:someValuesFrom gist:Behavior ;
 	] ;
-	skos:definition "Something that occurs over some period of time, often characterized as an activity being carried out by some person, organization, or software application."^^xsd:string ;
+	skos:definition "Something that occurs over some period of time, often characterized as an activity being carried out by some person, organization, or software application or brought about by natural forces."^^xsd:string ;
+	skos:example "Transaction, concert, baseball game, hurricane, earthquake."^^xsd:string ;
 	skos:prefLabel "Event"^^xsd:string ;
+	skos:scopeNote
+		"An event does not necessarily have either planned or actual start or end date.s For example, a wedding can be in the planning phase without any dates selected, but is nevertheless an event (though not a ScheduledEvent according to the formal definition of that class). The subclasses state particular restrictions on planned and actual start and end dates." ,
+		"Roughly equivalent to the Basic Formal Ontology (BFO) Process class."^^xsd:string
+		;
 	.
 
 gist:Extent
@@ -1919,28 +1909,6 @@ gist:Place
 	skos:prefLabel "Place"^^xsd:string ;
 	.
 
-gist:PlannedEvent
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Event
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:plannedEndDateTime ;
-				owl:cardinality "1"^^xsd:nonNegativeInteger ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:plannedStartDateTime ;
-				owl:cardinality "1"^^xsd:nonNegativeInteger ;
-			]
-		) ;
-	] ;
-	skos:definition "An event which, at the time it is created, is to occur in the future."^^xsd:string ;
-	skos:prefLabel "Planned Event"^^xsd:string ;
-	.
-
 gist:PostalAddress
 	a owl:Class ;
 	rdfs:subClassOf gist:Address ;
@@ -2014,21 +1982,22 @@ gist:ProductUnit
 	skos:scopeNote "A ProductUnit is intended have a value for conversionFactor."^^xsd:string ;
 	.
 
-gist:ProjectExecution
+gist:Project
 	a owl:Class ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:TaskExecution
+			gist:Task
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasPart ;
-				owl:someValuesFrom gist:TaskExecution ;
+				owl:someValuesFrom gist:Task ;
 			]
 		) ;
 	] ;
-	skos:definition "A project execution is a task execution (usually a longer duration task) made up of other task executions."^^xsd:string ;
-	skos:prefLabel "Project Execution"^^xsd:string ;
+	skos:definition "A task, usually of longer duration, made up of other tasks."^^xsd:string ;
+	skos:example "Renovating a kitchen, writing a book, building an ontology."^^xsd:string ;
+	skos:prefLabel "Project"^^xsd:string ;
 	.
 
 gist:RatioMagnitude
@@ -2127,17 +2096,40 @@ gist:Restriction
 	skos:prefLabel "Restriction"^^xsd:string ;
 	.
 
-gist:ScheduledTaskExecution
+gist:ScheduledEvent
 	a owl:Class ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:PlannedEvent
-			gist:TaskExecution
+			gist:Event
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:plannedEndDateTime ;
+				owl:cardinality "1"^^xsd:nonNegativeInteger ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:plannedStartDateTime ;
+				owl:cardinality "1"^^xsd:nonNegativeInteger ;
+			]
 		) ;
 	] ;
-	skos:definition "The execution of a task that was planned to occur at a given time. When it was scheduled, it would have been in the future, but now might be in the past."^^xsd:string ;
-	skos:prefLabel "Scheduled Task Execution"^^xsd:string ;
+	skos:definition "An event which, at the time it is created, is to occur in the future. It remains a scheduled event after it has started or ended, but then is also either a historical or contemporary event as well."^^xsd:string ;
+	skos:prefLabel "Scheduled Event"^^xsd:string ;
+	skos:scopeNote "Not all planned events are scheduled events. For example, a wedding can be in an early planning phase without any dates yet selected."^^xsd:string ;
+	.
+
+gist:ScheduledTask
+	a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:ScheduledEvent
+			gist:Task
+		) ;
+	] ;
+	skos:definition "A task that was or is planned to occur at a given time. When it was scheduled, it would have been in the future, but now might be in the past."^^xsd:string ;
+	skos:prefLabel "Scheduled Task"^^xsd:string ;
 	.
 
 gist:SchemaMetaData
@@ -2275,7 +2267,7 @@ gist:Tag
 	skos:prefLabel "Tag"^^xsd:string ;
 	.
 
-gist:TaskExecution
+gist:Task
 	a owl:Class ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2288,8 +2280,9 @@ gist:TaskExecution
 			]
 		) ;
 	] ;
-	skos:definition "An event characterized by a defined piece of work that is either scheduled, accomplished, or both."^^xsd:string ;
-	skos:prefLabel "Task Execution"^^xsd:string ;
+	skos:definition "An event characterized by a defined piece of work that is either proposed, planned, scheduled, underway, or completed."^^xsd:string ;
+	skos:scopeNote "A thing that could potentially be executed which is merely described but not proposed in any specific way, such as a guidebook providing instructions for following hiking trails, is not a task but rather a task template."^^xsd:string ,
+	skos:prefLabel "Task"^^xsd:string ;
 	.
 
 gist:TaskTemplate
@@ -2306,8 +2299,12 @@ gist:TaskTemplate
 		) ;
 	] ;
 	skos:definition "An outline of a task of a particular type, which is the basis for executing such tasks."^^xsd:string ;
+	skos:example "A recipe for making a cake."^^xsd:string ;
 	skos:prefLabel "Task Template"^^xsd:string ;
-	skos:scopeNote "The class TaskExecution is used to represent the execution of the task. Use the property isBasedOn to link the TaskExecution back to the TaskTemplate."^^xsd:string ;
+	skos:scopeNote
+		"A task template may define a single task or a series of tasks. For example, a recipe for baking a particular type of chocolate cake may consist of sub-templates such as cracking eggs, turning on the oven, mixing flour and sugar, etc. The level of granularity is variable according to use case: e.g., mixing flour and sugar can be further broken down into measuring each into a bowl and stirring."^^xsd:string ,
+		"Use the property isBasedOn to link the Task back to the TaskTemplate."^^xsd:string
+		;
 	.
 
 gist:Taxonomy
@@ -3487,8 +3484,9 @@ gist:isSupersededBy
 
 gist:isTriggeredBy
 	a owl:ObjectProperty ;
-	skos:definition "General causal relation.  For obligations a property that describes what would happen to trigger the contingent obligation.  In most cases, before the Contingent becomes an Obligation, the triggered by event is a planned event (that is it hasn't happened yet -- if it had happened the contingency would no longer be contingent.  In most cases it will be  a ContingentEvent .  Other uses include controls, processes etc"^^xsd:string ;
+	skos:definition "Relates a contingency, such as an event or obligation, to the event that gives rise to it."^^xsd:string ;
 	skos:prefLabel "is triggered by"^^xsd:string ;
+	skos:scopeNote "For obligations, this property describes what must happen to trigger the contingent obligation.  In most cases, before the contingent obligation becomes an actual obligation, the triggering event is scheduled to occur in the future, since if it had already happened, the contingency would no longer be contingent. Other uses include controls, processes, etc."^^xsd:string ;
 	.
 
 gist:isUnderJurisdictionOf
@@ -3876,4 +3874,3 @@ gist:usesTimeZoneStandard
 		gist:_second
 	) ;
 	.
-
