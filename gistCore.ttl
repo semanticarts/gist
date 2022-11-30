@@ -895,13 +895,13 @@ gist:Event
 	rdfs:subClassOf [
 		a owl:Restriction ;
 		owl:onProperty gist:isCharacterizedAs ;
-		owl:someValuesFrom gist:Behavior ;
+		owl:minCardinality "1"^^xsd:integer ;
 	] ;
 	skos:definition "Something that occurs over some period of time, often characterized as an activity being carried out by some person, organization, or software application or brought about by natural forces."^^xsd:string ;
 	skos:example "Transaction, concert, baseball game, hurricane, earthquake."^^xsd:string ;
 	skos:prefLabel "Event"^^xsd:string ;
 	skos:scopeNote
-		"An event does not necessarily have either planned or actual start or end date.s For example, a wedding can be in the planning phase without any dates selected, but is nevertheless an event (though not a ScheduledEvent according to the formal definition of that class). The subclasses state particular restrictions on planned and actual start and end dates."^^xsd:string ,
+		"An event does not necessarily have either planned or actual start or end dates. For example, a wedding can be in the planning phase without any dates selected, but is nevertheless an event (though not a ScheduledEvent according to the formal definition of that class). The subclasses state particular restrictions on planned and actual start and end dates."^^xsd:string ,
 		"Roughly equivalent to the Basic Formal Ontology (BFO) Process class."^^xsd:string
 		;
 	.
