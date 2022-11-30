@@ -4,15 +4,6 @@ gist Release Notes
 Release X.x.x - The next release may be either 11.2.0 or 12.0.0
 -----
 
-### Minor Updates
-
-- Changes related to tasks, projects, and events. Issue Issue [#760](https://github.com/semanticarts/gist/issues/760).
-  - Deprecated `gist:TaskExeuction`, `gist:ScheduledTaskExecution`, and `gist:ProjectExecution` and renamed to `gist:Task`, `gist:ScheduledTask`, and `gist:Project`.
-  - These classes are no longer limited to the execution of a task or project, but include proposed and planned events.
-  - Removed datetime-related restrictions on `gists:Event`.
-  - Deprecated `gist:PlannedEvent` and renamed to `gist:ScheduledEvent`.
-  - Added `skos:scopeNote`s and `skos:example`s to clarify meaning and usage.
-
 Import URL: <https://ontologies.semanticarts.com/o/gistCoreX.x.x>.
 
 Release 11.1.0
