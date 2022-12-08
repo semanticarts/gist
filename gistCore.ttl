@@ -2615,6 +2615,7 @@ gist:_candela
 gist:_day
 	a
 		owl:NamedIndividual ,
+		owl:Thing ,
 		gist:DurationUnit
 		;
 	skos:definition "A duration unit that is 24 hours long."^^xsd:string ;
@@ -2678,6 +2679,7 @@ gist:_meter
 gist:_millisecond
 	a
 		owl:NamedIndividual ,
+		owl:Thing ,
 		gist:DurationUnit
 		;
 	skos:definition "A unit equal to a thousandth of a second."^^xsd:string ;
@@ -2690,6 +2692,7 @@ gist:_millisecond
 gist:_minute
 	a
 		owl:NamedIndividual ,
+		owl:Thing ,
 		gist:DurationUnit
 		;
 	skos:definition "A unit equal to 60 seconds."^^xsd:string ;
