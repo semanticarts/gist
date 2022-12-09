@@ -316,29 +316,6 @@ gist:CoherentRatioUnit
 	skos:prefLabel "Coherent Ratio Unit"^^xsd:string ;
 	.
 
-gist:CoherentUnit
-	a owl:Class ;
-	rdfs:seeAlso <http://www.eim.gr/metrology/measurement-units/si-derived-units/coherent-derived-units/> ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:unionOf (
-			gist:BaseUnit
-			gist:CoherentProductUnit
-			gist:CoherentRatioUnit
-		) ;
-	] ;
-	skos:definition "A unit that is expressed in units that have no conversions.  It may be a simple unit.  It may also be a product or ratio unit that bottoms out in simple units."^^xsd:string ;
-	skos:example
-		"A simple unit: kilogram"^^xsd:string ,
-		"The standard unit for acceleration is meters per square second (feet per square second  requires a conversion)"^^xsd:string
-		;
-	skos:prefLabel "Coherent Unit"^^xsd:string ;
-	skos:scopeNote
-		"Coherent unit is the physics term for this, informally you might think of it as the standard unit for a given dimension."^^xsd:string ,
-		"In principle, the CoherentUnit for a ProductUnit or RatioUnit can be inferred by recursively decomposing the products and ratios into their respective CoherentUnits, bottoming out in SimpleUnits"^^xsd:string
-		;
-	.
-
 gist:Collection
 	a owl:Class ;
 	skos:definition "A grouping of things."^^xsd:string ;
@@ -969,8 +946,7 @@ gist:GeoPoint
 		gist:Magnitude ,
 		gist:Organization ,
 		gist:PhysicalIdentifiableItem ,
-		gist:PhysicalSubstance ,
-		gist:UnitOfMeasure
+		gist:PhysicalSubstance
 		;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1007,8 +983,7 @@ gist:GeoRegion
 		gist:Organization ,
 		gist:PhysicalIdentifiableItem ,
 		gist:PhysicalSubstance ,
-		gist:Template ,
-		gist:UnitOfMeasure
+		gist:Template
 		;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1211,8 +1186,7 @@ gist:IntellectualProperty
 		gist:Magnitude ,
 		gist:Organization ,
 		gist:PhysicalIdentifiableItem ,
-		gist:PhysicalSubstance ,
-		gist:UnitOfMeasure
+		gist:PhysicalSubstance
 		;
 	skos:definition "A work, invention or concept, independent of its being expressed in text, audio, video, image, or live performance.  IP can also be tacit knowledge, know-how, or skill. Also includes Brands."^^xsd:string ;
 	skos:example "The Old Man and The Sea; the Page Rank algorithm; Coca Cola"^^xsd:string ;
@@ -1226,8 +1200,7 @@ gist:Intention
 		gist:Magnitude ,
 		gist:Organization ,
 		gist:PhysicalIdentifiableItem ,
-		gist:PhysicalSubstance ,
-		gist:UnitOfMeasure
+		gist:PhysicalSubstance
 		;
 	skos:definition 'Goal, desire, aspiration. This is the "teleologic" aspect of the system that indicates things are done with a purpose.'^^xsd:string ;
 	skos:prefLabel "Intention"^^xsd:string ;
@@ -1282,8 +1255,7 @@ gist:Language
 		gist:Magnitude ,
 		gist:Organization ,
 		gist:PhysicalIdentifiableItem ,
-		gist:PhysicalSubstance ,
-		gist:UnitOfMeasure
+		gist:PhysicalSubstance
 		;
 	skos:definition "A recognized, organized set of symbols and grammar."^^xsd:string ;
 	skos:example "Natural languages such as English and Spanish; computer languages such as OWL, Python, and XML."^^xsd:string ;
@@ -1361,8 +1333,7 @@ gist:Magnitude
 	owl:disjointWith
 		gist:Organization ,
 		gist:PhysicalIdentifiableItem ,
-		gist:PhysicalSubstance ,
-		gist:UnitOfMeasure
+		gist:PhysicalSubstance
 		;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -2191,6 +2162,32 @@ gist:Specification
 	skos:prefLabel "Specification"^^xsd:string ;
 	.
 
+gist:StandardUnit
+	a owl:Class ;
+	rdfs:seeAlso <http://www.eim.gr/metrology/measurement-units/si-derived-units/coherent-derived-units/> ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:UnitOfMeasure
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasStandardUnit ;
+				owl:hasSelf "true"^^xsd:boolean ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:convertToStandard ;
+				owl:hasValue "1"^^xsd:double ;
+			]
+		) ;
+	] ;
+	skos:altLabel "Conherent Unit"^^xsd:string ;
+	skos:definition "A unit that has itself as a standard unit and has no conversions."^^xsd:string ;
+	skos:example "kilogram (for mass); meters per square second (for acceleration)"^^xsd:string ;
+	skos:prefLabel "Standard Unit"^^xsd:string ;
+	skos:scopeNote "Coherent unit is the physics term for this, informally you might think of it as the standard unit for a given dimension."^^xsd:string ;
+	.
+
 gist:StreetAddress
 	a owl:Class ;
 	rdfs:subClassOf gist:PostalAddress ;
@@ -2509,7 +2506,33 @@ gist:TreatyOrganization
 
 gist:UnitOfMeasure
 	a owl:Class ;
-	skos:definition "Standard unit by which we measure things"^^xsd:string ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:Magnitude
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasUnitOfMeasure ;
+				owl:hasSelf "true"^^xsd:boolean ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:conversionFactor ;
+				owl:someValuesFrom xsd:double ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasStandardUnit ;
+				owl:someValuesFrom gist:StandardUnit ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:numericValue ;
+				owl:hasValue "1"^^xsd:double ;
+			]
+		) ;
+	] ;
+	skos:definition "A magnitude intended for use as a unit for other magnitudes. A unit of measure always has itself as a unit, a decimalValuel of 1, a standard unit and a conversion to that standard unit."^^xsd:string ;
 	skos:prefLabel "Unit of Measure"^^xsd:string ;
 	.
 
@@ -3357,7 +3380,7 @@ gist:hasRecipient
 gist:hasStandardUnit
 	a owl:ObjectProperty ;
 	rdfs:domain gist:UnitOfMeasure ;
-	rdfs:range gist:CoherentUnit ;
+	rdfs:range gist:StandardUnit ;
 	skos:definition "For a complex unit refers to a unit that has all the component parts in SI"^^xsd:string ;
 	skos:prefLabel "has standard unit"^^xsd:string ;
 	.

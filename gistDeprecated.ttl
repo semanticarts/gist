@@ -17,6 +17,30 @@
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
 	.
 
+gist:CoherentUnit
+	a owl:Class ;
+	rdfs:seeAlso <http://www.eim.gr/metrology/measurement-units/si-derived-units/coherent-derived-units/> ;
+	owl:deprecated "true"^^xsd:boolean ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:unionOf (
+			gist:BaseUnit
+			gist:CoherentProductUnit
+			gist:CoherentRatioUnit
+		) ;
+	] ;
+	skos:definition "A unit that is expressed in units that have no conversions.  It may be a simple unit.  It may also be a product or ratio unit that bottoms out in simple units."^^xsd:string ;
+	skos:example
+		"A simple unit: kilogram"^^xsd:string ,
+		"The standard unit for acceleration is meters per square second (feet per square second  requires a conversion)"^^xsd:string
+		;
+	skos:prefLabel "Coherent Unit"^^xsd:string ;
+	skos:scopeNote
+		"Coherent unit is the physics term for this, informally you might think of it as the standard unit for a given dimension."^^xsd:string ,
+		"In principle, the CoherentUnit for a ProductUnit or RatioUnit can be inferred by recursively decomposing the products and ratios into their respective CoherentUnits, bottoming out in SimpleUnits"^^xsd:string
+		;
+	.
+
 gist:Group
 	a owl:Class ;
 	owl:deprecated "true"^^xsd:boolean ;
