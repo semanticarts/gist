@@ -131,7 +131,7 @@ gist:Artifact
 
 gist:Aspect
 	a owl:Class ;
-	rdfs:subClassOf gist:Category ;
+	rdfs:subClassOf gist:SchemaMetaData ;
 	skos:definition "A very general term for the characteristic of something that is being measured.  E.g., property (height) or a process (cycle time) or a behavior (loyalty)."^^xsd:string ;
 	skos:prefLabel "Aspect"^^xsd:string ;
 	.
@@ -240,80 +240,6 @@ gist:Category
 	skos:example "Tags used in folksonomies; formal definitions from other systems."^^xsd:string ;
 	skos:prefLabel "Category"^^xsd:string ;
 	skos:scopeNote "Often a 'bucket' can be modeled either as an owl:Class or as a gist:Category. Use the latter if you don't care much about the formal structure of the different types, or if there is a whole hierarchy of types that are going to be managed by a group separate from the ontology developers. The formal structure may be defined elsewhere and linked to, if necessary."^^xsd:string ;
-	.
-
-gist:CoherentProductUnit
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:ProductUnit
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMultiplicand ;
-				owl:allValuesFrom [
-					a owl:Class ;
-					owl:unionOf (
-						gist:BaseUnit
-						gist:CoherentProductUnit
-						gist:CoherentRatioUnit
-					) ;
-				] ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMultiplier ;
-				owl:allValuesFrom [
-					a owl:Class ;
-					owl:unionOf (
-						gist:BaseUnit
-						gist:CoherentProductUnit
-						gist:CoherentRatioUnit
-					) ;
-				] ;
-			]
-		) ;
-	] ;
-	skos:definition "A product unit both of whose factors are coherent units. The conversion factor is 1."^^xsd:string ;
-	skos:example "Square meter, an area unit."^^xsd:string ;
-	skos:prefLabel "Coherent Product Unit"^^xsd:string ;
-	.
-
-gist:CoherentRatioUnit
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:RatioUnit
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasDenominator ;
-				owl:allValuesFrom [
-					a owl:Class ;
-					owl:unionOf (
-						gist:BaseUnit
-						gist:CoherentProductUnit
-						gist:CoherentRatioUnit
-					) ;
-				] ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasNumerator ;
-				owl:allValuesFrom [
-					a owl:Class ;
-					owl:unionOf (
-						gist:BaseUnit
-						gist:CoherentProductUnit
-						gist:CoherentRatioUnit
-					) ;
-				] ;
-			]
-		) ;
-	] ;
-	skos:definition "A ratio unit whose conversion factor is 1."^^xsd:string ;
-	skos:example "Newton, a force unit also expressed as kg-m/s^2"^^xsd:string ;
-	skos:prefLabel "Coherent Ratio Unit"^^xsd:string ;
 	.
 
 gist:Collection
@@ -1917,23 +1843,6 @@ gist:ProductCategory
 	skos:prefLabel "Product Category"^^xsd:string ;
 	.
 
-gist:ProductMagnitude
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Magnitude
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasUnitOfMeasure ;
-				owl:someValuesFrom gist:ProductUnit ;
-			]
-		) ;
-	] ;
-	skos:definition "A magnitude expressed as a product of primitives.  (E.g., Force = M*A)."^^xsd:string ;
-	skos:prefLabel "Product Magnitude"^^xsd:string ;
-	.
-
 gist:ProductSpecification
 	a owl:Class ;
 	owl:equivalentClass [
@@ -1951,30 +1860,6 @@ gist:ProductSpecification
 	skos:prefLabel "Product Specification"^^xsd:string ;
 	.
 
-gist:ProductUnit
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:UnitOfMeasure
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMultiplicand ;
-				owl:someValuesFrom gist:UnitOfMeasure ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMultiplier ;
-				owl:someValuesFrom gist:UnitOfMeasure ;
-			]
-		) ;
-	] ;
-	skos:definition "A unit of measure that is the product of two simpler ones."^^xsd:string ;
-	skos:example "Area and Volume are the classic cases.  But other, more exotic cases exist, such as Newtons."^^xsd:string ;
-	skos:prefLabel "Product Unit"^^xsd:string ;
-	skos:scopeNote "A ProductUnit is intended have a value for conversionFactor."^^xsd:string ;
-	.
-
 gist:ProjectExecution
 	a owl:Class ;
 	owl:equivalentClass [
@@ -1990,49 +1875,6 @@ gist:ProjectExecution
 	] ;
 	skos:definition "A project execution is a task execution (usually a longer duration task) made up of other task executions."^^xsd:string ;
 	skos:prefLabel "Project Execution"^^xsd:string ;
-	.
-
-gist:RatioMagnitude
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Magnitude
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasUnitOfMeasure ;
-				owl:someValuesFrom gist:RatioUnit ;
-			]
-		) ;
-	] ;
-	skos:definition "This is a number whose unit of measure is a ratio."^^xsd:string ;
-	skos:example "Speed.  The ratio magnitude is 60, the unit of measure might be MilesPerHour."^^xsd:string ;
-	skos:prefLabel "Ratio Magnitude"^^xsd:string ;
-	skos:scopeNote "A RatioMagnitude just has one decimal value."^^xsd:string ;
-	.
-
-gist:RatioUnit
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:UnitOfMeasure
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasDenominator ;
-				owl:someValuesFrom gist:UnitOfMeasure ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasNumerator ;
-				owl:someValuesFrom gist:UnitOfMeasure ;
-			]
-		) ;
-	] ;
-	skos:definition "A UnitOfMeasure composed of a numerator unit and a denominator unit."^^xsd:string ;
-	skos:example "Miles per hour."^^xsd:string ;
-	skos:prefLabel "Ratio Unit"^^xsd:string ;
-	skos:scopeNote "If needed, a conversion factor for a RatioUnit can be (recursively) derived from the conversion factors of the numerator and denominator units.  E.g., the derived conversion factor from km/minute to meters/second is 1000/60 or 16 2/3."^^xsd:string ;
 	.
 
 gist:ReferenceValue
@@ -3368,6 +3210,7 @@ gist:hasPrecision
 	skos:definition "Links a Magnitude to the degree of accuracy of the numeric value.   This allows for fuzzy numbers.  All magnitudes have a precision.  Usually we don't record them.  When we do this, it will be a value whose extent covers 2 standard deviations around the stated magnitude"^^xsd:string ;
 	skos:example "Temperature precise to tenth of a degree C; length precise to the nearest centimeter."^^xsd:string ;
 	skos:prefLabel "has precision"^^xsd:string ;
+	skos:scopeNote "The precision must have the same standard unit as the magnitude."^^xsd:string ;
 	.
 
 gist:hasRecipient
