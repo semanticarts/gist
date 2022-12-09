@@ -99,7 +99,7 @@ gist:AreaUnit
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:ProductUnit
+			gist:UnitOfMeasure
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasMultiplicand ;
@@ -1128,7 +1128,7 @@ gist:Intention
 		gist:PhysicalIdentifiableItem ,
 		gist:PhysicalSubstance
 		;
-	skos:definition 'Goal, desire, aspiration. This is the "teleologic" aspect of the system that indicates things are done with a purpose.'^^xsd:string ;
+	skos:definition "Goal, desire, aspiration. This is the 'teleologic' aspect of the system that indicates things are done with a purpose."^^xsd:string ;
 	skos:prefLabel "Intention"^^xsd:string ;
 	.
 
@@ -1281,7 +1281,8 @@ gist:Magnitude
 			]
 		) ;
 	] ;
-	skos:definition "Base class for units which can be converted.  The primitive units can be converted from one measurement system to another; the complex units (ratio or product) have to decompose to their primitives."^^xsd:string ;
+	skos:definition "A quantity consisting of a UnitOfMeasure and a numeric value and a precision."^^xsd:string ;
+	skos:example "3.2 kilometers; 4 litres, 4 amperes"^^xsd:string ;
 	skos:prefLabel "Magnitude"^^xsd:string ;
 	skos:scopeNote
 		"Magnitudes of the same dimensional type (i.e., duration or electric current) can be compared with a greater-than or less-than operator, but can still differ in their relationToTheWorld type.  (I.e., you can compare actuals to estimates or references, so long as the dimension is the same.)"^^xsd:string ,
@@ -1671,8 +1672,33 @@ gist:Organization
 
 gist:Percentage
 	a owl:Class ;
-	rdfs:subClassOf gist:RatioMagnitude ;
-	skos:definition "A ratio where the numerator and denominator are of the same unit of measure."^^xsd:string ;
+	rdfs:subClassOf [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:Magnitude
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasUnitOfMeasure ;
+				owl:someValuesFrom [
+					a owl:Class ;
+					owl:intersectionOf (
+						gist:UnitOfMeasure
+						[
+							a owl:Restriction ;
+							owl:onProperty gist:hasDenominator ;
+							owl:someValuesFrom gist:UnitOfMeasure ;
+						]
+						[
+							a owl:Restriction ;
+							owl:onProperty gist:hasNumerator ;
+							owl:someValuesFrom gist:UnitOfMeasure ;
+						]
+					) ;
+				] ;
+			]
+		) ;
+	] ;
+	skos:definition "A Magnitude with a unit of measure that is a ratio where the numerator and denominator are of the same unit of measure."^^xsd:string ;
 	skos:prefLabel "Percentage"^^xsd:string ;
 	skos:scopeNote "There are various ways to represent percentage: 50/100 could be represented as ?50? or ?0.5?.  gist uses the latter, as it involves fewer conversions for subsequent use."^^xsd:string ;
 	.
@@ -2376,6 +2402,7 @@ gist:UnitOfMeasure
 	] ;
 	skos:definition "A magnitude intended for use as a unit for other magnitudes. A unit of measure always has itself as a unit, a decimalValuel of 1, a standard unit and a conversion to that standard unit."^^xsd:string ;
 	skos:prefLabel "Unit of Measure"^^xsd:string ;
+	skos:scopeNote "The primitive units can be converted from one measurement system to another; the complex units composed of products and/or ratios of other units have to decompose to their primitives."^^xsd:string ;
 	.
 
 gist:Volume
@@ -2400,7 +2427,7 @@ gist:VolumeUnit
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:ProductUnit
+			gist:UnitOfMeasure
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasMultiplicand ;
@@ -3119,13 +3146,13 @@ gist:hasMember
 
 gist:hasMultiplicand
 	a owl:ObjectProperty ;
-	skos:definition "Relates a ProductUnit such as square mile to the second of two units multiplied together (e.g. mile)."^^xsd:string ;
+	skos:definition "Relates a unit of measure such as square mile to the second of two units multiplied together (e.g. mile)."^^xsd:string ;
 	skos:prefLabel "has multiplicand"^^xsd:string ;
 	.
 
 gist:hasMultiplier
 	a owl:ObjectProperty ;
-	skos:definition "Relates a ProductUnit such as square mile to the first of two units multiplied together (e.g. mile)"^^xsd:string ;
+	skos:definition "Relates a unit of measure such as square mile to the first of two units multiplied together (e.g. mile)"^^xsd:string ;
 	skos:prefLabel "has multiplier"^^xsd:string ;
 	.
 
