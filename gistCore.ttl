@@ -640,6 +640,23 @@ gist:DegreeOfCommitment
 	skos:prefLabel "Degree Of Commitment"^^xsd:string ;
 	.
 
+gist:Distance
+	a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:Magnitude
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasUnitOfMeasure ;
+				owl:someValuesFrom gist:DistanceUnit ;
+			]
+		) ;
+	] ;
+	skos:definition "A measure of distance, which could be distances over the Earth, and could also be height, width, length, depth, girth, etc."^^xsd:string ;
+	skos:prefLabel "Extent"^^xsd:string ;
+	.
+
 gist:DistanceUnit
 	a owl:Class ;
 	owl:disjointWith
