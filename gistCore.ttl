@@ -155,7 +155,7 @@ gist:Balance
 
 gist:BaseUnit
 	a owl:Class ;
-	rdfs:subClassOf gist:SimpleUnitOfMeasure ;
+	rdfs:subClassOf gist:UnitOfMeasure ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:oneOf (
@@ -523,7 +523,7 @@ gist:CountingUnit
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:SimpleUnitOfMeasure
+			gist:UnitOfMeasure
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBaseUnit ;
@@ -594,7 +594,7 @@ gist:CurrencyUnit
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:SimpleUnitOfMeasure
+			gist:UnitOfMeasure
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBaseUnit ;
@@ -620,7 +620,7 @@ gist:DataSizeUnit
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:SimpleUnitOfMeasure
+			gist:UnitOfMeasure
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBaseUnit ;
@@ -653,7 +653,7 @@ gist:DistanceUnit
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:SimpleUnitOfMeasure
+			gist:UnitOfMeasure
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBaseUnit ;
@@ -696,7 +696,7 @@ gist:DurationUnit
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:SimpleUnitOfMeasure
+			gist:UnitOfMeasure
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBaseUnit ;
@@ -736,7 +736,7 @@ gist:ElectricalCurrentUnit
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:SimpleUnitOfMeasure
+			gist:UnitOfMeasure
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBaseUnit ;
@@ -1242,7 +1242,7 @@ gist:LuminousIntensityUnit
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:SimpleUnitOfMeasure
+			gist:UnitOfMeasure
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBaseUnit ;
@@ -1316,7 +1316,7 @@ gist:MassUnit
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:SimpleUnitOfMeasure
+			gist:UnitOfMeasure
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBaseUnit ;
@@ -1408,7 +1408,7 @@ gist:MoleUnit
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:SimpleUnitOfMeasure
+			gist:UnitOfMeasure
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBaseUnit ;
@@ -2000,29 +2000,6 @@ gist:ServiceSpecification
 	skos:prefLabel "Service Specification"^^xsd:string ;
 	.
 
-gist:SimpleUnitOfMeasure
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:UnitOfMeasure
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasBaseUnit ;
-				owl:onClass gist:BaseUnit ;
-				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:conversionFactor ;
-				owl:someValuesFrom xsd:double ;
-			]
-		) ;
-	] ;
-	skos:definition "Each simple unit has a base unit and a conversion factor to the base. The bases are from the System International (SI). The conversion factor is the number which one multiplies a Unit by to get to base, or divides by to get from base.  E.g., the conversionFactor for inch is 0.0254 to get to the base unit (meter)."^^xsd:string ;
-	skos:prefLabel "Simple Unit Of Measure"^^xsd:string ;
-	.
-
 gist:Specification
 	a owl:Class ;
 	rdfs:subClassOf gist:Requirement ;
@@ -2228,7 +2205,7 @@ gist:TemperatureUnit
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:SimpleUnitOfMeasure
+			gist:UnitOfMeasure
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBaseUnit ;

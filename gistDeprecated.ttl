@@ -91,6 +91,30 @@ gist:ScheduledTask
 	skos:prefLabel "Scheduled Task"^^xsd:string ;
 	.
 
+gist:SimpleUnitOfMeasure
+	a owl:Class ;
+	owl:deprecated "true"^^xsd:boolean ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:UnitOfMeasure
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasBaseUnit ;
+				owl:onClass gist:BaseUnit ;
+				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:conversionFactor ;
+				owl:someValuesFrom xsd:double ;
+			]
+		) ;
+	] ;
+	skos:definition "Each simple unit has a base unit and a conversion factor to the base. The bases are from the System International (SI). The conversion factor is the number which one multiplies a Unit by to get to base, or divides by to get from base.  E.g., the conversionFactor for inch is 0.0254 to get to the base unit (meter)."^^xsd:string ;
+	skos:prefLabel "Simple Unit Of Measure"^^xsd:string ;
+	.
+
 gist:Task
 	a owl:Class ;
 	owl:deprecated "true"^^xsd:boolean ;
