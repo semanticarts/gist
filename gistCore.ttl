@@ -813,23 +813,6 @@ gist:Event
 	skos:prefLabel "Event"^^xsd:string ;
 	.
 
-gist:Extent
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Magnitude
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasUnitOfMeasure ;
-				owl:someValuesFrom gist:DistanceUnit ;
-			]
-		) ;
-	] ;
-	skos:definition "A measure of distance, which could be distances over the Earth, and could also be height, width, length, depth, girth, etc."^^xsd:string ;
-	skos:prefLabel "Extent"^^xsd:string ;
-	.
-
 gist:FormattedContent
 	a owl:Class ;
 	owl:equivalentClass [
@@ -880,7 +863,7 @@ gist:GeoPoint
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasAltitude ;
-				owl:someValuesFrom gist:Extent ;
+				owl:someValuesFrom gist:Distance ;
 			]
 			[
 				a owl:Restriction ;
@@ -2990,7 +2973,7 @@ gist:hasAddress
 gist:hasAltitude
 	a owl:ObjectProperty ;
 	rdfs:domain gist:GeoPoint ;
-	rdfs:range gist:Extent ;
+	rdfs:range gist:Distance ;
 	skos:definition "Distance above sea level"^^xsd:string ;
 	skos:prefLabel "has altitude"^^xsd:string ;
 	.
