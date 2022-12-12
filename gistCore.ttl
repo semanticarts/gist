@@ -3248,7 +3248,10 @@ gist:hasRecipient
 	.
 
 gist:hasStandardUnit
-	a owl:ObjectProperty ;
+	a
+		owl:ObjectProperty ,
+		owl:FunctionalProperty
+		;
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range gist:StandardUnit ;
 	skos:definition "For a complex unit refers to a unit that has all the component parts in SI"^^xsd:string ;
