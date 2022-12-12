@@ -187,3 +187,14 @@ gist:_one_minute
 	gist:numericValue "1.0"^^xsd:double ;
 	.
 
+gist:hasBaseUnit
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasStandardUnit ;
+	rdfs:domain gist:UnitOfMeasure ;
+	rdfs:range gist:BaseUnit ;
+	owl:deprecated "true"^^xsd:boolean ;
+	skos:definition "Relates a UnitOfMeasure to its BaseUnit.  This indicates what kind of Unit something is."^^xsd:string ;
+	skos:example "Saying that a furlong hasBaseUnit  meter says it is a DistanceUnit."^^xsd:string ;
+	skos:prefLabel "has base unit"^^xsd:string ;
+	.
+

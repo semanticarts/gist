@@ -526,7 +526,7 @@ gist:CountingUnit
 			gist:UnitOfMeasure
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasBaseUnit ;
+				owl:onProperty gist:hasStandardUnit ;
 				owl:hasValue gist:_each ;
 			]
 		) ;
@@ -597,7 +597,7 @@ gist:CurrencyUnit
 			gist:UnitOfMeasure
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasBaseUnit ;
+				owl:onProperty gist:hasStandardUnit ;
 				owl:hasValue gist:_USDollar ;
 			]
 		) ;
@@ -623,7 +623,7 @@ gist:DataSizeUnit
 			gist:UnitOfMeasure
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasBaseUnit ;
+				owl:onProperty gist:hasStandardUnit ;
 				owl:hasValue gist:_bit ;
 			]
 		) ;
@@ -656,7 +656,7 @@ gist:DistanceUnit
 			gist:UnitOfMeasure
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasBaseUnit ;
+				owl:onProperty gist:hasStandardUnit ;
 				owl:hasValue gist:_meter ;
 			]
 		) ;
@@ -699,7 +699,7 @@ gist:DurationUnit
 			gist:UnitOfMeasure
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasBaseUnit ;
+				owl:onProperty gist:hasStandardUnit ;
 				owl:hasValue gist:_second ;
 			]
 		) ;
@@ -739,7 +739,7 @@ gist:ElectricalCurrentUnit
 			gist:UnitOfMeasure
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasBaseUnit ;
+				owl:onProperty gist:hasStandardUnit ;
 				owl:hasValue gist:_ampere ;
 			]
 		) ;
@@ -1245,7 +1245,7 @@ gist:LuminousIntensityUnit
 			gist:UnitOfMeasure
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasBaseUnit ;
+				owl:onProperty gist:hasStandardUnit ;
 				owl:hasValue gist:_candela ;
 			]
 		) ;
@@ -1319,7 +1319,7 @@ gist:MassUnit
 			gist:UnitOfMeasure
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasBaseUnit ;
+				owl:onProperty gist:hasStandardUnit ;
 				owl:hasValue gist:_kilogram ;
 			]
 		) ;
@@ -1411,7 +1411,7 @@ gist:MoleUnit
 			gist:UnitOfMeasure
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasBaseUnit ;
+				owl:onProperty gist:hasStandardUnit ;
 				owl:hasValue gist:_mole ;
 			]
 		) ;
@@ -2208,7 +2208,7 @@ gist:TemperatureUnit
 			gist:UnitOfMeasure
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasBaseUnit ;
+				owl:onProperty gist:hasStandardUnit ;
 				owl:hasValue gist:_kelvin ;
 			]
 			[
@@ -2438,7 +2438,7 @@ gist:_USDollar
 	skos:definition "The base unit for currency."^^xsd:string ;
 	skos:prefLabel "US Dollar"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_USDollar ;
+	gist:hasStandardUnit gist:_USDollar ;
 	gist:unitSymbol "USD"^^xsd:string ;
 	.
 
@@ -2451,7 +2451,7 @@ gist:_ampere
 	skos:definition "The base unit for electrical current."^^xsd:string ;
 	skos:prefLabel "ampere"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_ampere ;
+	gist:hasStandardUnit gist:_ampere ;
 	gist:unitSymbol "A"^^xsd:string ;
 	.
 
@@ -2465,7 +2465,7 @@ gist:_bit
 	skos:prefLabel "bit"^^xsd:string ;
 	skos:scopeNote "A bit (short for binary digit) is the smallest unit of data in a computer. A bit has a single binary value, either 0 or 1."^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_bit ;
+	gist:hasStandardUnit gist:_bit ;
 	.
 
 gist:_candela
@@ -2477,7 +2477,7 @@ gist:_candela
 	skos:definition "The base unit for luminous intensity."^^xsd:string ;
 	skos:prefLabel "candela"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_candela ;
+	gist:hasStandardUnit gist:_candela ;
 	gist:unitSymbol "cd"^^xsd:string ;
 	.
 
@@ -2489,7 +2489,7 @@ gist:_day
 	skos:definition "A duration unit that is 24 hours long."^^xsd:string ;
 	skos:prefLabel "day"^^xsd:string ;
 	gist:conversionFactor "86400.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_second ;
+	gist:hasStandardUnit gist:_second ;
 	.
 
 gist:_each
@@ -2501,7 +2501,7 @@ gist:_each
 	skos:definition "The base unit for count magnitudes."^^xsd:string ;
 	skos:prefLabel "each"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_each ;
+	gist:hasStandardUnit gist:_each ;
 	.
 
 gist:_kelvin
@@ -2514,7 +2514,7 @@ gist:_kelvin
 	skos:prefLabel "Kelvin"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:conversionOffset "0.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_kelvin ;
+	gist:hasStandardUnit gist:_kelvin ;
 	gist:unitSymbol "K"^^xsd:string ;
 	.
 
@@ -2527,7 +2527,7 @@ gist:_kilogram
 	skos:definition "The base unit for measuring mass."^^xsd:string ;
 	skos:prefLabel "mass"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_kilogram ;
+	gist:hasStandardUnit gist:_kilogram ;
 	gist:unitSymbol "kg"^^xsd:string ;
 	.
 
@@ -2540,7 +2540,7 @@ gist:_meter
 	skos:definition "The base unit for measuring distance."^^xsd:string ;
 	skos:prefLabel "distance"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_meter ;
+	gist:hasStandardUnit gist:_meter ;
 	gist:unitSymbol "m"^^xsd:string ;
 	.
 
@@ -2552,7 +2552,7 @@ gist:_millisecond
 	skos:definition "A unit equal to a thousandth of a second."^^xsd:string ;
 	skos:prefLabel "millisecond"^^xsd:string ;
 	gist:conversionFactor "0.001"^^xsd:double ;
-	gist:hasBaseUnit gist:_second ;
+	gist:hasStandardUnit gist:_second ;
 	gist:unitSymbol "ms"^^xsd:string ;
 	.
 
@@ -2564,7 +2564,7 @@ gist:_minute
 	skos:definition "A unit equal to 60 seconds."^^xsd:string ;
 	skos:prefLabel "minute"^^xsd:string ;
 	gist:conversionFactor "60.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_second ;
+	gist:hasStandardUnit gist:_second ;
 	gist:unitSymbol "min"^^xsd:string ;
 	.
 
@@ -2577,7 +2577,7 @@ gist:_mole
 	skos:definition "The base unit for measuring molar quantities."^^xsd:string ;
 	skos:prefLabel "mole"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_mole ;
+	gist:hasStandardUnit gist:_mole ;
 	gist:unitSymbol "mol"^^xsd:string ;
 	.
 
@@ -2590,7 +2590,7 @@ gist:_second
 	skos:definition "The base unit for measuring durations."^^xsd:string ;
 	skos:prefLabel "second"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_second ;
+	gist:hasStandardUnit gist:_second ;
 	gist:unitSymbol "s"^^xsd:string ;
 	.
 
@@ -2993,16 +2993,6 @@ gist:hasAltitude
 	rdfs:range gist:Extent ;
 	skos:definition "Distance above sea level"^^xsd:string ;
 	skos:prefLabel "has altitude"^^xsd:string ;
-	.
-
-gist:hasBaseUnit
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:hasStandardUnit ;
-	rdfs:domain gist:UnitOfMeasure ;
-	rdfs:range gist:BaseUnit ;
-	skos:definition "Relates a UnitOfMeasure to its BaseUnit.  This indicates what kind of Unit something is."^^xsd:string ;
-	skos:example "Saying that a furlong hasBaseUnit  meter says it is a DistanceUnit."^^xsd:string ;
-	skos:prefLabel "has base unit"^^xsd:string ;
 	.
 
 gist:hasBiologicalParent
