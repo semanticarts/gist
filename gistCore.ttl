@@ -112,6 +112,11 @@ gist:AreaUnit
 				owl:onClass gist:DistanceUnit ;
 				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasStandardUnit ;
+				owl:hasValue gist:_square_meter ;
+			]
 		) ;
 	] ;
 	skos:definition "A unit of two-dimensional area, such as square inches or hectares."^^xsd:string ;
@@ -2021,7 +2026,7 @@ gist:StandardUnit
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:convertToStandard ;
+				owl:onProperty gist:conversionFactor ;
 				owl:hasValue "1"^^xsd:double ;
 			]
 		) ;
@@ -2417,6 +2422,11 @@ gist:VolumeUnit
 				owl:onClass gist:DistanceUnit ;
 				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasStandardUnit ;
+				owl:hasValue gist:_cubic_meter ;
+			]
 		) ;
 	] ;
 	skos:definition "Units of three-dimensional space, expressed here as an area times a distance."^^xsd:string ;
@@ -2475,6 +2485,18 @@ gist:_candela
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasStandardUnit gist:_candela ;
 	gist:unitSymbol "cd"^^xsd:string ;
+	.
+
+gist:_cubic_meter
+	a
+		owl:Thing ,
+		gist:VolumeUnit
+		;
+	gist:conversionFactor "1.0"^^xsd:double ;
+	gist:hasMultiplicand gist:_square_meter ;
+	gist:hasMultiplier gist:_meter ;
+	gist:hasStandardUnit gist:_cubic_meter ;
+	gist:unitSymbol "m^3"^^xsd:string ;
 	.
 
 gist:_day
@@ -2582,6 +2604,18 @@ gist:_second
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasStandardUnit gist:_second ;
 	gist:unitSymbol "s"^^xsd:string ;
+	.
+
+gist:_square_meter
+	a
+		owl:Thing ,
+		gist:AreaUnit
+		;
+	gist:conversionFactor "1.0"^^xsd:double ;
+	gist:hasMultiplicand gist:_meter ;
+	gist:hasMultiplier gist:_meter ;
+	gist:hasStandardUnit gist:_square_meter ;
+	gist:unitSymbol "m^2"^^xsd:string ;
 	.
 
 gist:accepts
