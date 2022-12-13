@@ -2432,8 +2432,7 @@ gist:_PrefixDeclaration_gist
 gist:_USDollar
 	a
 		owl:NamedIndividual ,
-		owl:Thing ,
-		gist:BaseUnit
+		owl:Thing
 		;
 	skos:definition "The base unit for currency."^^xsd:string ;
 	skos:prefLabel "US Dollar"^^xsd:string ;
@@ -2445,8 +2444,7 @@ gist:_USDollar
 gist:_ampere
 	a
 		owl:NamedIndividual ,
-		owl:Thing ,
-		gist:BaseUnit
+		owl:Thing
 		;
 	skos:definition "The base unit for electrical current."^^xsd:string ;
 	skos:prefLabel "ampere"^^xsd:string ;
@@ -2458,8 +2456,7 @@ gist:_ampere
 gist:_bit
 	a
 		owl:NamedIndividual ,
-		owl:Thing ,
-		gist:BaseUnit
+		owl:Thing
 		;
 	skos:definition "The base unit for measuring digital information."^^xsd:string ;
 	skos:prefLabel "bit"^^xsd:string ;
@@ -2471,8 +2468,7 @@ gist:_bit
 gist:_candela
 	a
 		owl:NamedIndividual ,
-		owl:Thing ,
-		gist:BaseUnit
+		owl:Thing
 		;
 	skos:definition "The base unit for luminous intensity."^^xsd:string ;
 	skos:prefLabel "candela"^^xsd:string ;
@@ -2495,8 +2491,7 @@ gist:_day
 gist:_each
 	a
 		owl:NamedIndividual ,
-		owl:Thing ,
-		gist:BaseUnit
+		owl:Thing
 		;
 	skos:definition "The base unit for count magnitudes."^^xsd:string ;
 	skos:prefLabel "each"^^xsd:string ;
@@ -2507,8 +2502,7 @@ gist:_each
 gist:_kelvin
 	a
 		owl:NamedIndividual ,
-		owl:Thing ,
-		gist:BaseUnit
+		owl:Thing
 		;
 	skos:definition "The base unit for measuring temperature."^^xsd:string ;
 	skos:prefLabel "Kelvin"^^xsd:string ;
@@ -2521,8 +2515,7 @@ gist:_kelvin
 gist:_kilogram
 	a
 		owl:NamedIndividual ,
-		owl:Thing ,
-		gist:BaseUnit
+		owl:Thing
 		;
 	skos:definition "The base unit for measuring mass."^^xsd:string ;
 	skos:prefLabel "mass"^^xsd:string ;
@@ -2534,8 +2527,7 @@ gist:_kilogram
 gist:_meter
 	a
 		owl:NamedIndividual ,
-		owl:Thing ,
-		gist:BaseUnit
+		owl:Thing
 		;
 	skos:definition "The base unit for measuring distance."^^xsd:string ;
 	skos:prefLabel "distance"^^xsd:string ;
@@ -2571,8 +2563,7 @@ gist:_minute
 gist:_mole
 	a
 		owl:NamedIndividual ,
-		owl:Thing ,
-		gist:BaseUnit
+		owl:Thing
 		;
 	skos:definition "The base unit for measuring molar quantities."^^xsd:string ;
 	skos:prefLabel "mole"^^xsd:string ;
@@ -2584,8 +2575,7 @@ gist:_mole
 gist:_second
 	a
 		owl:NamedIndividual ,
-		owl:Thing ,
-		gist:BaseUnit
+		owl:Thing
 		;
 	skos:definition "The base unit for measuring durations."^^xsd:string ;
 	skos:prefLabel "second"^^xsd:string ;
