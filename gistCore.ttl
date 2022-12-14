@@ -96,29 +96,37 @@ gist:Area
 
 gist:AreaUnit
 	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:UnitOfMeasure
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMultiplicand ;
-				owl:onClass gist:DistanceUnit ;
-				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMultiplier ;
-				owl:onClass gist:DistanceUnit ;
-				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasStandardUnit ;
-				owl:hasValue gist:_square_meter ;
-			]
-		) ;
-	] ;
+	owl:equivalentClass
+		[
+			a owl:Class ;
+			owl:intersectionOf (
+				gist:UnitOfMeasure
+				[
+					a owl:Restriction ;
+					owl:onProperty gist:hasStandardUnit ;
+					owl:hasValue gist:_square_meter ;
+				]
+			) ;
+		] ,
+		[
+			a owl:Class ;
+			owl:intersectionOf (
+				gist:UnitOfMeasure
+				[
+					a owl:Restriction ;
+					owl:onProperty gist:hasMultiplicand ;
+					owl:onClass gist:DistanceUnit ;
+					owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+				]
+				[
+					a owl:Restriction ;
+					owl:onProperty gist:hasMultiplier ;
+					owl:onClass gist:DistanceUnit ;
+					owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+				]
+			) ;
+		]
+		;
 	skos:definition "A unit of two-dimensional area, such as square inches or hectares."^^xsd:string ;
 	skos:prefLabel "Area Unit"^^xsd:string ;
 	.
@@ -2406,29 +2414,37 @@ gist:Volume
 
 gist:VolumeUnit
 	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:UnitOfMeasure
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMultiplicand ;
-				owl:onClass gist:AreaUnit ;
-				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMultiplier ;
-				owl:onClass gist:DistanceUnit ;
-				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasStandardUnit ;
-				owl:hasValue gist:_cubic_meter ;
-			]
-		) ;
-	] ;
+	owl:equivalentClass
+		[
+			a owl:Class ;
+			owl:intersectionOf (
+				gist:UnitOfMeasure
+				[
+					a owl:Restriction ;
+					owl:onProperty gist:hasStandardUnit ;
+					owl:hasValue gist:_cubic_meter ;
+				]
+			) ;
+		] ,
+		[
+			a owl:Class ;
+			owl:intersectionOf (
+				gist:UnitOfMeasure
+				[
+					a owl:Restriction ;
+					owl:onProperty gist:hasMultiplicand ;
+					owl:onClass gist:AreaUnit ;
+					owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+				]
+				[
+					a owl:Restriction ;
+					owl:onProperty gist:hasMultiplier ;
+					owl:onClass gist:DistanceUnit ;
+					owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+				]
+			) ;
+		]
+		;
 	skos:definition "Units of three-dimensional space, expressed here as an area times a distance."^^xsd:string ;
 	skos:prefLabel "Volume Unit"^^xsd:string ;
 	.
@@ -2490,7 +2506,7 @@ gist:_candela
 gist:_cubic_meter
 	a
 		owl:Thing ,
-		gist:VolumeUnit
+		gist:UnitOfMeasure
 		;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasMultiplicand gist:_square_meter ;
@@ -2609,7 +2625,7 @@ gist:_second
 gist:_square_meter
 	a
 		owl:Thing ,
-		gist:AreaUnit
+		gist:UnitOfMeasure
 		;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasMultiplicand gist:_meter ;
