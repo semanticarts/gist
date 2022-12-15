@@ -2568,7 +2568,7 @@ gist:_meter
 		owl:Thing
 		;
 	skos:definition "The base unit for measuring distance."^^xsd:string ;
-	skos:prefLabel "distance"^^xsd:string ;
+	skos:prefLabel "meter"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasStandardUnit gist:_meter ;
 	gist:unitSymbol "m"^^xsd:string ;
