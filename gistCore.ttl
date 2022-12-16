@@ -619,6 +619,23 @@ gist:CurrencyUnit
 	skos:prefLabel "Currency Unit"^^xsd:string ;
 	.
 
+gist:DataSize
+	a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:Magnitude
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasUnitOfMeasure ;
+				owl:someValuesFrom gist:DataSizeUnit ;
+			]
+		) ;
+	] ;
+	skos:definition "An amount of data, such as 6 petabytes, or 640KB."^^xsd:string ;
+	skos:prefLabel "Data Size"^^xsd:string ;
+	.
+
 gist:DataSizeUnit
 	a owl:Class ;
 	owl:disjointWith
@@ -1098,23 +1115,6 @@ gist:ID
 	skos:example "SSN for a person; serial number for a product; employee ID."^^xsd:string ;
 	skos:prefLabel "ID"^^xsd:string ;
 	skos:scopeNote "This is used in conjunction with gist:isIdentifiedBy"^^xsd:string ;
-	.
-
-gist:InformationQuantity
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Magnitude
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasUnitOfMeasure ;
-				owl:someValuesFrom gist:DataSizeUnit ;
-			]
-		) ;
-	] ;
-	skos:definition "An amount of data, such as 6 petabytes, or 640KB."^^xsd:string ;
-	skos:prefLabel "Information Quantity"^^xsd:string ;
 	.
 
 gist:IntellectualProperty
@@ -2484,7 +2484,7 @@ gist:_bit
 		owl:NamedIndividual ,
 		owl:Thing
 		;
-	skos:definition "The base unit for measuring digital information."^^xsd:string ;
+	skos:definition "The base unit for measuring the amount of digital information."^^xsd:string ;
 	skos:prefLabel "bit"^^xsd:string ;
 	skos:scopeNote "A bit (short for binary digit) is the smallest unit of data in a computer. A bit has a single binary value, either 0 or 1."^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
