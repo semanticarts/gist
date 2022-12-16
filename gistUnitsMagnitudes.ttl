@@ -363,11 +363,6 @@ gist:LuminousIntensityUnit
 
 gist:Magnitude
 	a owl:Class ;
-	owl:disjointWith
-		gist:Organization ,
-		gist:PhysicalIdentifiableItem ,
-		gist:PhysicalSubstance
-		;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -910,12 +905,13 @@ gist:hasNumerator
 	skos:prefLabel "has numerator"^^xsd:string ;
 	.
 
-gist:hasOffsetToUniversal
+gist:hasPrecision
 	a owl:ObjectProperty ;
-	rdfs:domain gist:TimeZone ;
-	rdfs:range gist:Duration ;
-	skos:definition "How many hours the time zone is off GMT"^^xsd:string ;
-	skos:prefLabel "has offset to universal"^^xsd:string ;
+	rdfs:range gist:Magnitude ;
+	skos:definition "Links a Magnitude to the degree of accuracy of the numeric value.   This allows for fuzzy numbers.  All magnitudes have a precision.  Usually we don't record them.  When we do this, it will be a value whose extent covers 2 standard deviations around the stated magnitude"^^xsd:string ;
+	skos:example "Temperature precise to tenth of a degree C; length precise to the nearest centimeter."^^xsd:string ;
+	skos:prefLabel "has precision"^^xsd:string ;
+	skos:scopeNote "The precision must have the same standard unit as the magnitude."^^xsd:string ;
 	.
 
 gist:hasStandardUnit
@@ -935,6 +931,12 @@ gist:hasUnitOfMeasure
 	rdfs:range gist:UnitOfMeasure ;
 	skos:definition "Which unit of measure you are using. All measures are expressed in some unit of measure, even if we don't know what it is initially."^^xsd:string ;
 	skos:prefLabel "has unit of measure"^^xsd:string ;
+	.
+
+gist:license
+	a owl:AnnotationProperty ;
+	skos:definition "An annotation for providing the licensing on this or derivative ontologies"^^xsd:string ;
+	skos:prefLabel "license"^^xsd:string ;
 	.
 
 gist:numericValue

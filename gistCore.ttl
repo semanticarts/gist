@@ -1,3 +1,5 @@
+# imports: https://ontologies.semanticarts.com/o/gistUnitsMagnitudes
+
 @prefix : <https://ontologies.semanticarts.com/o/gistCore#> .
 @prefix gist: <https://ontologies.semanticarts.com/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -10,6 +12,7 @@
 
 <https://ontologies.semanticarts.com/o/gistCore>
 	a owl:Ontology ;
+	owl:imports <https://ontologies.semanticarts.com/o/gistUnitsMagnitudes> ;
 	owl:versionIRI <https://ontologies.semanticarts.com/o/gistCoreX.x.x> ;
 	skos:definition "gist is a minimalist upper ontology created by Semantic Arts."^^xsd:string ;
 	skos:prefLabel "gist"^^xsd:string ;
@@ -1201,6 +1204,7 @@ gist:OrderedMember
 gist:Organization
 	a owl:Class ;
 	owl:disjointWith
+		gist:Magnitude ,
 		gist:PhysicalIdentifiableItem ,
 		gist:PhysicalSubstance ,
 		gist:SchemaMetaData ,
@@ -1302,8 +1306,8 @@ gist:PhysicalIdentifiableItem
 		]
 		;
 	owl:disjointWith
-		gist:SchemaMetaData ,
-		gist:UnitOfMeasure
+		gist:Magnitude ,
+		gist:SchemaMetaData
 		;
 	skos:definition "A discrete physical object which, if subdivided, will result in parts that are distinguishable in nature from the whole and in general also from the other parts."^^xsd:string ;
 	skos:example "A computer, book, car."^^xsd:string ;
@@ -1325,7 +1329,7 @@ gist:PhysicalSubstance
 			owl:someValuesFrom gist:Volume ;
 		]
 		;
-	owl:disjointWith gist:UnitOfMeasure ;
+	owl:disjointWith gist:Magnitude ;
 	skos:definition "An undifferentiated amount of physical material which, when subdivided, results in each part being indistinguishable in nature from the whole and from every other part."^^xsd:string ;
 	skos:example "An amount of water, penicillin, sand, gold: an actual piece of gold, not the concept of gold."^^xsd:string ;
 	skos:prefLabel "Physical Substance"^^xsd:string ;
@@ -2290,6 +2294,14 @@ gist:hasNavigationalParent
 	skos:prefLabel "has navigational parent"^^xsd:string ;
 	.
 
+gist:hasOffsetToUniversal
+	a owl:ObjectProperty ;
+	rdfs:domain gist:TimeZone ;
+	rdfs:range gist:Duration ;
+	skos:definition "How many hours the time zone is off GMT"^^xsd:string ;
+	skos:prefLabel "has offset to universal"^^xsd:string ;
+	.
+
 gist:hasPart
 	a
 		owl:ObjectProperty ,
@@ -2334,15 +2346,6 @@ gist:hasPhysicalLocation
 	rdfs:range gist:Place ;
 	skos:definition "Where something is located"^^xsd:string ;
 	skos:prefLabel "has physical location"^^xsd:string ;
-	.
-
-gist:hasPrecision
-	a owl:ObjectProperty ;
-	rdfs:range gist:Magnitude ;
-	skos:definition "Links a Magnitude to the degree of accuracy of the numeric value.   This allows for fuzzy numbers.  All magnitudes have a precision.  Usually we don't record them.  When we do this, it will be a value whose extent covers 2 standard deviations around the stated magnitude"^^xsd:string ;
-	skos:example "Temperature precise to tenth of a degree C; length precise to the nearest centimeter."^^xsd:string ;
-	skos:prefLabel "has precision"^^xsd:string ;
-	skos:scopeNote "The precision must have the same standard unit as the magnitude."^^xsd:string ;
 	.
 
 gist:hasRecipient
@@ -2640,12 +2643,6 @@ gist:latitude
 	rdfs:range xsd:double ;
 	skos:definition "Degrees above or below equator"^^xsd:string ;
 	skos:prefLabel "latitude"^^xsd:string ;
-	.
-
-gist:license
-	a owl:AnnotationProperty ;
-	skos:definition "An annotation for providing the licensing on this or derivative ontologies"^^xsd:string ;
-	skos:prefLabel "license"^^xsd:string ;
 	.
 
 gist:links
