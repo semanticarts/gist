@@ -522,7 +522,7 @@ gist:Count
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasUnitOfMeasure ;
-				owl:someValuesFrom gist:CountingUnit ;
+				owl:someValuesFrom gist:CountUnit ;
 			]
 		) ;
 	] ;
@@ -531,7 +531,7 @@ gist:Count
 	skos:scopeNote "Count is not disjoint with all the other magnitudes, as there are some magnitudes that could conceivably be counted."^^xsd:string ;
 	.
 
-gist:CountingUnit
+gist:CountUnit
 	a owl:Class ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -544,8 +544,8 @@ gist:CountingUnit
 			]
 		) ;
 	] ;
-	skos:definition "A unit of counting, especially ?each?, but also units such as dozens."^^xsd:string ;
-	skos:prefLabel "Counting Unit"^^xsd:string ;
+	skos:definition "A unit of counting, especially ?each?, but also units such as dozen."^^xsd:string ;
+	skos:prefLabel "Count Unit"^^xsd:string ;
 	.
 
 gist:CountryGeoRegion
@@ -1398,7 +1398,7 @@ gist:MessageDefinition
 	skos:prefLabel "Message Definition"^^xsd:string ;
 	.
 
-gist:MolarQuantity
+gist:MoleQuantity
 	a owl:Class ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -1412,7 +1412,7 @@ gist:MolarQuantity
 		) ;
 	] ;
 	skos:definition "Amount of a substance, as counted molecules."^^xsd:string ;
-	skos:prefLabel "Molar Quantity"^^xsd:string ;
+	skos:prefLabel "Mole Quantity"^^xsd:string ;
 	.
 
 gist:MoleUnit
@@ -2603,7 +2603,7 @@ gist:_mole
 		owl:NamedIndividual ,
 		owl:Thing
 		;
-	skos:definition "The base unit for measuring molar quantities."^^xsd:string ;
+	skos:definition "The base unit for measuring mole quantities."^^xsd:string ;
 	skos:prefLabel "mole"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasStandardUnit gist:_mole ;

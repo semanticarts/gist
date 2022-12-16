@@ -41,6 +41,24 @@ gist:CoherentUnit
 		;
 	.
 
+gist:CountingUnit
+	a owl:Class ;
+	owl:deprecated "true"^^xsd:boolean ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:UnitOfMeasure
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasStandardUnit ;
+				owl:hasValue gist:_each ;
+			]
+		) ;
+	] ;
+	skos:definition "A unit of counting, especially ?each?, but also units such as dozen."^^xsd:string ;
+	skos:prefLabel "Counting Unit"^^xsd:string ;
+	.
+
 gist:Extent
 	a owl:Class ;
 	owl:deprecated "true"^^xsd:boolean ;
@@ -75,6 +93,24 @@ gist:Group
 	] ;
 	skos:definition "A collection of People. The group may or may not be an Organization.  Many organizations consist of groups of people, but that is not a defining characteristic."^^xsd:string ;
 	skos:prefLabel "Group"^^xsd:string ;
+	.
+
+gist:MolarQuantity
+	a owl:Class ;
+	owl:deprecated "true"^^xsd:boolean ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:Magnitude
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasUnitOfMeasure ;
+				owl:someValuesFrom gist:MoleUnit ;
+			]
+		) ;
+	] ;
+	skos:definition "Amount of a substance, as counted molecules."^^xsd:string ;
+	skos:prefLabel "Molar Quantity"^^xsd:string ;
 	.
 
 gist:Project
