@@ -3,7 +3,7 @@ variables:
   name: "gist"
   version: "X.x.x"
   input: "."
-  rdf-toolkit: "{input}/tools/rdf-toolkit.jar"
+  rdf-toolkit: "{input}/tools/serializer/rdf-toolkit.jar"
   output: "{name}{version}_webDownload"
 tools:
 - name: "serializer"
