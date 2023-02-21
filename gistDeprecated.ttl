@@ -35,6 +35,15 @@ gist:Group
 	skos:prefLabel "Group"^^xsd:string ;
 	.
 
+gist:Percentage
+	a owl:Class ;
+	rdfs:subClassOf gist:RatioMagnitude ;
+	owl:deprecated "true"^^xsd:boolean ;
+	skos:definition "A ratio where the numerator and denominator are of the same unit of measure."^^xsd:string ;
+	skos:prefLabel "Percentage"^^xsd:string ;
+	skos:scopeNote "There are various ways to represent percentage: 50/100 could be represented as ?50? or ?0.5?.  gist uses the latter, as it involves fewer conversions for subsequent use."^^xsd:string ;
+	.
+
 gist:Project
 	a owl:Class ;
 	owl:deprecated "true"^^xsd:boolean ;
@@ -88,7 +97,6 @@ gist:Task
 
 gist:_greenwichTimeZone
 	a
-		owl:NamedIndividual ,
 		owl:Thing ,
 		gist:TimeZoneStandard
 		;
@@ -99,7 +107,6 @@ gist:_greenwichTimeZone
 
 gist:_one_day
 	a
-		owl:NamedIndividual ,
 		owl:Thing ,
 		gist:Duration
 		;
@@ -113,7 +120,6 @@ gist:_one_day
 
 gist:_one_millisecond
 	a
-		owl:NamedIndividual ,
 		owl:Thing ,
 		gist:Duration
 		;
@@ -127,7 +133,6 @@ gist:_one_millisecond
 
 gist:_one_minute
 	a
-		owl:NamedIndividual ,
 		owl:Thing ,
 		gist:Duration
 		;
@@ -139,11 +144,3 @@ gist:_one_minute
 	gist:numericValue "1.0"^^xsd:double ;
 	.
 
-gist:Percentage
-	a owl:Class ;
-	rdfs:subClassOf gist:RatioMagnitude ;
-		owl:deprecated "true"^^xsd:boolean ;
-	skos:definition "A ratio where the numerator and denominator are of the same unit of measure."^^xsd:string ;
-	skos:prefLabel "Percentage"^^xsd:string ;
-	skos:scopeNote "There are various ways to represent percentage: 50/100 could be represented as ?50? or ?0.5?.  gist uses the latter, as it involves fewer conversions for subsequent use."^^xsd:string ;
-	.
