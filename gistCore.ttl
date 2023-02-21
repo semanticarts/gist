@@ -464,7 +464,11 @@ gist:ContingentEvent
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasMagnitude ;
-				owl:someValuesFrom gist:Percentage ;
+				owl:someValuesFrom [
+					a owl:Restriction ;
+					owl:onProperty gist:hasUnitOfMeasure ;
+					owl:hasValue gist:_percent ;
+				] ;
 			]
 			[
 				a owl:Restriction ;
@@ -1772,14 +1776,6 @@ gist:Organization
 	skos:scopeNote "There are a plethora of different kinds of organizations that differ along many facets, including members, structure, purpose, legal vs. non-legal, etc."^^xsd:string ;
 	.
 
-gist:Percentage
-	a owl:Class ;
-	rdfs:subClassOf gist:RatioMagnitude ;
-	skos:definition "A ratio where the numerator and denominator are of the same unit of measure."^^xsd:string ;
-	skos:prefLabel "Percentage"^^xsd:string ;
-	skos:scopeNote "There are various ways to represent percentage: 50/100 could be represented as ?50? or ?0.5?.  gist uses the latter, as it involves fewer conversions for subsequent use."^^xsd:string ;
-	.
-
 gist:Permission
 	a owl:Class ;
 	owl:equivalentClass [
@@ -2562,7 +2558,6 @@ gist:_PrefixDeclaration_gist
 
 gist:_USDollar
 	a
-		owl:NamedIndividual ,
 		owl:Thing ,
 		gist:BaseUnit
 		;
@@ -2575,7 +2570,6 @@ gist:_USDollar
 
 gist:_ampere
 	a
-		owl:NamedIndividual ,
 		owl:Thing ,
 		gist:BaseUnit
 		;
@@ -2588,7 +2582,6 @@ gist:_ampere
 
 gist:_bit
 	a
-		owl:NamedIndividual ,
 		owl:Thing ,
 		gist:BaseUnit
 		;
@@ -2601,7 +2594,6 @@ gist:_bit
 
 gist:_candela
 	a
-		owl:NamedIndividual ,
 		owl:Thing ,
 		gist:BaseUnit
 		;
@@ -2613,10 +2605,7 @@ gist:_candela
 	.
 
 gist:_day
-	a
-		owl:NamedIndividual ,
-		gist:DurationUnit
-		;
+	a gist:DurationUnit ;
 	skos:definition "A duration unit that is 24 hours long."^^xsd:string ;
 	skos:prefLabel "day"^^xsd:string ;
 	gist:conversionFactor "86400.0"^^xsd:double ;
@@ -2625,7 +2614,6 @@ gist:_day
 
 gist:_each
 	a
-		owl:NamedIndividual ,
 		owl:Thing ,
 		gist:BaseUnit
 		;
@@ -2637,7 +2625,6 @@ gist:_each
 
 gist:_kelvin
 	a
-		owl:NamedIndividual ,
 		owl:Thing ,
 		gist:BaseUnit
 		;
@@ -2651,7 +2638,6 @@ gist:_kelvin
 
 gist:_kilogram
 	a
-		owl:NamedIndividual ,
 		owl:Thing ,
 		gist:BaseUnit
 		;
@@ -2664,7 +2650,6 @@ gist:_kilogram
 
 gist:_meter
 	a
-		owl:NamedIndividual ,
 		owl:Thing ,
 		gist:BaseUnit
 		;
@@ -2676,10 +2661,7 @@ gist:_meter
 	.
 
 gist:_millisecond
-	a
-		owl:NamedIndividual ,
-		gist:DurationUnit
-		;
+	a gist:DurationUnit ;
 	skos:definition "A unit equal to a thousandth of a second."^^xsd:string ;
 	skos:prefLabel "millisecond"^^xsd:string ;
 	gist:conversionFactor "0.001"^^xsd:double ;
@@ -2688,10 +2670,7 @@ gist:_millisecond
 	.
 
 gist:_minute
-	a
-		owl:NamedIndividual ,
-		gist:DurationUnit
-		;
+	a gist:DurationUnit ;
 	skos:definition "A unit equal to 60 seconds."^^xsd:string ;
 	skos:prefLabel "minute"^^xsd:string ;
 	gist:conversionFactor "60.0"^^xsd:double ;
@@ -2701,7 +2680,6 @@ gist:_minute
 
 gist:_mole
 	a
-		owl:NamedIndividual ,
 		owl:Thing ,
 		gist:BaseUnit
 		;
@@ -2712,9 +2690,21 @@ gist:_mole
 	gist:unitSymbol "mol"^^xsd:string ;
 	.
 
+gist:_percent
+	a gist:UnitOfMeasure ;
+	skos:definition "The unit designating a quantity that is the ratio of two quantities with the same unit of measure and which has been multiplied by 100."^^xsd:string ;
+	skos:prefLabel "percent"^^xsd:string ;
+	skos:scopeNote
+		"Because the units of the numerator and denominator are the same, they cancel out, resulting in a dimensional quantity."^^xsd:string ,
+		"To keep the unit of measure of the numerator and denominator, use a ratio unit; e.g., cm/cm."^^xsd:string
+		;
+	gist:conversionFactor "0.01"^^xsd:double ;
+	gist:hasBaseUnit gist:_each ;
+	gist:unitSymbol "%"^^xsd:string ;
+	.
+
 gist:_second
 	a
-		owl:NamedIndividual ,
 		owl:Thing ,
 		gist:BaseUnit
 		;
@@ -4038,12 +4028,3 @@ gist:usesTimeZoneStandard
 	) ;
 	.
 
-gist:_percent 
-              a gist:UnitOfMeasure ;
-              gist:hasBaseUnit gist:_each ;
-              gist:conversionFactor "0.01"^^xsd:double ;
-              gist:unitSymbol "%"^^xsd:string ;
-              skos:definition "The unit designating a quantity that is the ratio of two quantities with the same unit of measure and which has been multiplied by 100." ;
-              skos:scopeNote "Because the units of the numerator and denominator are the same, they cancel out, resulting in a dimensional quantity." ,
-              "To keep the unit of measure of the numerator and denominator, use a ratio unit; e.g., cm/cm."
-              skos:prefLabel "percent"^^xsd:string .
