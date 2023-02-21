@@ -4038,3 +4038,12 @@ gist:usesTimeZoneStandard
 	) ;
 	.
 
+gist:_percent 
+              a gist:UnitOfMeasure ;
+              gist:hasBaseUnit gist:_each ;
+              gist:conversionFactor "0.01"^^xsd:double ;
+              gist:unitSymbol "%"^^xsd:string ;
+              skos:definition "The unit designating a quantity that is the ratio of two quantities with the same unit of measure and which has been multiplied by 100." ;
+              skos:scopeNote "Because the units of the numerator and denominator are the same, they cancel out, resulting in a dimensional quantity." ,
+              "To keep the unit of measure of the numerator and denominator, use a ratio unit; e.g., cm/cm."
+              skos:prefLabel "percent"^^xsd:string .
