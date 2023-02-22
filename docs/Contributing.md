@@ -53,12 +53,19 @@ Submitting an Issue
 
 - External contributors should not specify assignees, projects, or milestones. These are assigned during the internal review process.
 
-Implementation
+Contributing to gist
 -----
+
+After cloning the gist repository, run this script `./tools/setup.sh`.
 
 ### Pre-commit Hook
 
-- The `./tools` directory contains a pre-commit hook that you should copy into `./git/hooks`. This ensures that the serializer is run before each commit, converting files into a standard Turtle format in order to prevent noise in the diffs. As the comments in the file indicate, you should use the version of `rdf-toolkit.jar` in this directory, rather than another version that you may have on your local drive.
+The `./tools` directory contains a pre-commit hook that you should copy into `./git/hooks`. The setup.sh script mentioned above will do this for you.
+
+The pre-commit hook does a several things when you do a `git commit`:
+- Prevent commits to the following branchs: develop, main, and master.
+- Run the serializer before each commit. This converts files into a standard Turtle format in order to prevent noise in the diffs. As the comments in the file indicate, you should use the version of `rdf-toolkit.jar` in this directory, rather than another version that you may have on your local drive.
+- Run a `sed` command to remove `skos` stubs that Protege may add to your files.
 
 ### Working Branch
 
