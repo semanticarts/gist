@@ -26,7 +26,7 @@ function log_error() {
   log "ERROR: $@"
 }
 
-log "This is the pre-commit hook."
+log "This is the serializer pre-commit hook."
 
 java_exe=""
 base_dir=""
@@ -85,37 +85,36 @@ function findJava() {
 
 function findSerializerJar() {
 
-  # DO NOT MODIFY! Only the version of rdf-toolkit.jar found in ${PWD}/tools/serializer should be used. Mixing versions may create bogus diffs.
-  RDF_TOOLKIT_JAR="$PWD/tools/serializer/rdf-toolkit.jar"
+  # DO NOT MODIFY! Only the version of rdf-toolkit.jar found in ${base_dir}/tools/serializer should be used. Mixing versions may create bogus diffs.
+  RDF_TOOLKIT_JAR="$base_dir/tools/serializer/rdf-toolkit.jar"
 
   if [ -f "${RDF_TOOLKIT_JAR}" ] ; then
   	log "Found rdf-toolkit: ${RDF_TOOLKIT_JAR}"
   	return 0
   fi
 
-  log_error "Could not find rdf-toolkit.jar in ${PWD}/tools/serializer. Please retrieve the file from the git repository. ONLY this version of the file should be used in order to prevent bogus diffs caused by mixing versions."
+  log_error "Could not find $RDF_TOOLKIT_JAR. Please retrieve the file from the git repository. ONLY this version of the file should be used in order to prevent bogus diffs caused by mixing versions."
 
   return 1
 }
 
-# function findBaseDir() {
+function findBaseDir() {
+  #
+  # For now, we just take the top level directory of the current git repository as the base dir
+  #
+  base_dir=$(git rev-parse --show-toplevel)
 
-#   #
-#   # For now, we just take the top level directory of the current git repository as the base dir
-#   #
-#   base_dir=$(git rev-parse --show-toplevel)
+  if [ "${base_dir}" == "" ] ; then
+    log_error "Could not find base directory"
+    return 1
+  fi
+  if [ ! -d "${base_dir}" ] ; then
+    log_error "Could not find base directory"
+    return 1
+  fi
 
-#   if [ "${base_dir}" == "" ] ; then
-#     log_error "Could not find base directory"
-#     return 1
-#   fi
-#   if [ ! -d "${base_dir}" ] ; then
-#     log_error "Could not find base directory"
-#     return 1
-#   fi
-
-#   return 0
-# }
+  return 0
+}
 
 function showFilesThatAreInCommit() {
 
@@ -125,7 +124,12 @@ function showFilesThatAreInCommit() {
 function serialize() {
 
   local file="$1"
-  if [ -f "$file" ] ; then
+  if [ ! -f "$file" ] ; then
+    log_error "Could not find file: $file"
+    return 1
+  fi
+
+#  if [ -f "$file" ] ; then
     local extension="${file##*.}"
     log "File extension is $extension"
     if [ -d "$TEMP" ] ; then
@@ -210,9 +214,9 @@ __log_config__
       log_error "sesame-serializer ended with error code ${rc}"
     fi
     return ${rc}
-  else
-    return 0
-  fi
+#  else
+#    return 0
+#  fi
 
 }
 
@@ -240,10 +244,10 @@ function remove_skos_decls () {
 }
 
 function main() {
+  findBaseDir || return 1
+  findJava || return 2
+  findSerializerJar || return 3
 
-	findJava || return 1
-	findSerializerJar || return 2
-#	findBaseDir || return 3
   serialize_all
   remove_skos_decls
 }
