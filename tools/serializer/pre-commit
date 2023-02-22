@@ -129,7 +129,6 @@ function serialize() {
     return 1
   fi
 
-#  if [ -f "$file" ] ; then
     local extension="${file##*.}"
     log "File extension is $extension"
     if [ -d "$TEMP" ] ; then
@@ -207,6 +206,8 @@ __log_config__
 
     if [ ${rc} -eq 0 ] ; then
       log "Re-adding potentially re-serialized file to git staging area: ${file}"
+      permissions=$(stat -c "%a" "${file}")
+      chmod $permissions "${file}X"
       rm  "${file}"
       mv  "${file}X" "${file}"
       git add --update "${file}"
@@ -214,10 +215,6 @@ __log_config__
       log_error "sesame-serializer ended with error code ${rc}"
     fi
     return ${rc}
-#  else
-#    return 0
-#  fi
-
 }
 
 function serialize_all() {
@@ -245,11 +242,13 @@ function remove_skos_decls () {
 
 function main() {
   findBaseDir || return 1
+  cd $base_dir
+
   findJava || return 2
   findSerializerJar || return 3
 
-  serialize_all
-  remove_skos_decls
+  serialize_all || return 4
+  remove_skos_decls || return 5
 }
 
 main $*
