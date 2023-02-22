@@ -233,8 +233,11 @@ function serialize_all() {
 
 function remove_skos_decls () {
   for fileToBeCommitted in $(git diff --cached --name-only) ; do
+    permissions=$(stat -c "%a" "${fileToBeCommitted}")
     sed -e '/^skos/,+3d' "$fileToBeCommitted" > tmp$$
     mv tmp$$ "$fileToBeCommitted"
+    chmod $permissions "${fileToBeCommitted}"
+    git add --update "${fileToBeCommitted}"
   done
 
   return 0
