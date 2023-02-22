@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-# this is expected to be in the .git/hooks directory of the project
+# this is expected to be copied into the .git/hooks directory of the project
 
 # Stops accidental commits to branches master, main, or develop.
 BRANCH=`git rev-parse --abbrev-ref HEAD`
