@@ -56,16 +56,17 @@ Submitting an Issue
 Contributing to gist
 -----
 
-After cloning the gist repository, run this script `./tools/setup.cmd`. This script will work on Windows, Linux, and Mac.
+After cloning the gist repository, run the script `./tools/setup.cmd`. This script will work on Windows, Linux, and Mac.
 
 ### Pre-commit Hook
 
 The `./tools` directory contains a pre-commit hook that you should copy into `./git/hooks`. The setup.cmd script mentioned above will do this for you.
 
-The pre-commit hook does a several things when you do a `git commit`:
-- Prevent commits to the following branchs: develop, main, and master.
-- Run the serializer before each commit. This converts files into a standard Turtle format in order to remove noise in the diffs. As the comments in the file indicate, you should use the version of `rdf-toolkit.jar` in this directory, rather than another version that you may have on your local drive.
-- Run a `sed` command to remove `skos` stubs that Protege may add to your files.
+The pre-commit hook does several things when you run `git commit`:
+
+- Prevents commits to the following branchs: develop, main, and master.
+- Runs the serializer before each commit. This converts files into a standard Turtle format in order to remove noise in the diffs. As the comments in the file indicate, you should use the version of `rdf-toolkit.jar` in this directory, rather than another version that you may have elsewhere on your local drive.
+- Runs a `sed` command to remove `skos` stubs that Protege may add to your files.
 
 ### Working Branch
 
