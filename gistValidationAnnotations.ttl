@@ -27,7 +27,7 @@ gist:nonConformingLabel
 		) ;
 	] ;
 	rdfs:range xsd:boolean ;
-	skos:definition "The annotated ontology entity is excluded from label validation rules."^^xsd:string ;
+	skos:definition "Indicates that the annotated term is not required to conform to validation rules for formatting labels."^^xsd:string ;
 	skos:prefLabel "non-conforming label"^^xsd:string ;
 	.
 
