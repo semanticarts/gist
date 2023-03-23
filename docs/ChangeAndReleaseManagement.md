@@ -6,20 +6,25 @@ This document describes the Semantic Arts change and release management process 
 Review and Triage of Outstanding Issues
 -----
 
-- Semantic Arts ontologists meet regularly (twice monthly as of April 30, 2020) in order to review and triage GitHub issues. (Refer to [Contributing.md](Contributing.md) for guidelines on submitting an issue.)
-- Issues are triaged in reverse chronological order.
+- Semantic Arts ontologists meet twice monthly in order to review and triage GitHub issues and plan releases. (Refer to [Contributing.md](Contributing.md) for guidelines on submitting an issue.)
 - Issues are categorized in one of three ways:
   - **Will not implement**
     - Label as `closed:wontfix`, `closed:duplicate`, or `closed:can't reproduce`.
     - For duplicate issues, add the earlier issue number in a comment.
-  - **Will implement**
-    - Assign an implementer (could be external to SA under certain circumstances, such as when the issue submitted is external).
-    - Assign or re-assign priority, impact level, and effort level. These may have been assigned by the submitter but may be revised as appropriate.
-    - Tentatively assign to a release project. This may be reassigned to a later release project as needed.
-    - Label as `status:triaged`.
-    - Determine and document the resolution to be implemented. For small issues this can be done at the current review meeting; larger issues may require additional discussion, in which case the label `status:in review` should also be added. In such cases the assignee will prepare a summary of alternative implementations, pros and cons, rationales, etc. to be presented at the next meeting. This process will continue until reviewers agree on an implementation. Once an implementation is determined, apply the label `status:implementation specified`.
-    - **Needs further review**
-    - This case is similar to the will implement case, in that an assignee is designated to carry the discussion forward at a subsequent meeting; the difference is that here it is not yet agreed whether or how the issue will be addressed. Labels are applied as above.
+  - **Will implement: two processes**
+    - Smaller issues:
+      - Assign an implementer (could be external to SA under certain circumstances, such as when the issue submitted is external).
+      - Assign or re-assign priority, impact level, and effort level. These may have been assigned by the submitter but may be revised as appropriate.
+      - Tentatively assign to a release project. This may be reassigned to a later release project as needed.
+      - Determine and document the resolution to be implemented. For small issues this can be done at the current review meeting; larger issues may require additional discussion, in which case the label `status:in review` should also be added. In such cases the assignee will prepare a summary of alternative implementations, pros and cons, rationales, etc. to be presented at the next meeting. This process will continue until reviewers agree on an implementation. Once an implementation is determined, apply the label `status:implementation specified`.
+    - To address larger, major, or broader issues (e.g., rewriting a portion of the ontology, revising all annotations), an ad hoc working group of volunteers will be formed.
+      - A group leader should be selected and assigned to the issue.
+      - Each group determines their own work schedule and process. There is no deadline or target date for finalizing a proposal.
+      - Once the group has developed a proposal, it will be submitted as a PR and presented during one biweekly meeting (in either order or simultaneously). This does _not_ open up the entire work of the subgroup to be rehashed.
+      - The full group may propose revisions, which the small group will reconvene to consider, but may or may not adopt.
+      - Once the PR has been finalized and gone through the normal review process, it will be incorporated into the release schedule (i.e., if it is a major change, it will be deferred until the next scheduled major release).
+  - **Needs further review**
+    - This case is similar to the will implement case, in that an assignee is designated to carry the discussion forward at a subsequent meeting. The difference is that here it is not yet agreed whether or how the issue will be addressed. Labels are applied as above.
 
 Workflow: Implementation, Pull Requests, and Merges
 
@@ -53,7 +58,8 @@ Deprecation and Deletion Policy
 - Deprecated terms are moved to the `gistDeprecated.ttl` file. To use a deprecated term, this file should be imported into the ontology. The deprecation file imports the rest of gist.
 - A major release contains no deprecations. That is, all currently deprecated terms are deleted, and any other terms will be directly deleted rather than deprecated first.
 
-Releases
+Release Schedule
 -----
 
-- Releases occur monthly, approximately on the last working day of the month, unless it is determined during a review meeting that there are not a significant number of substantive changes to warrant a release.
+- **Major versions** are released on an ad hoc basis when there is a major update, but no more than once every six months.
+- **Minor versions** are (aspirationally) released once per quarter.

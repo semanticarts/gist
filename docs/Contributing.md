@@ -60,7 +60,7 @@ After cloning the gist repository, run the script `./tools/setup.cmd`. This scri
 
 ### Pre-commit Hook
 
-The `./tools` directory contains a pre-commit hook that you should copy into `./git/hooks`. The setup.cmd script mentioned above will do this for you.
+The `./tools` directory contains a pre-commit hook that you should copy into `./git/hooks`. The `setup.cmd` script mentioned above will do this for you.
 
 The pre-commit hook does several things when you run `git commit`:
 
@@ -79,6 +79,7 @@ The pre-commit hook does several things when you run `git commit`:
 
 ### Commits, Pushes, and Merges
 
+- When you start working on an issue, move it to the "In Progress" column of the project board.
 - If you are working on a project that will require more than one commit, you should commit to your working branch regularly to create logical checkpoints that can be restored if necessary. Each commit should be atomic for ease of rollback or reversion. Ideally, you finish working on one sub-task and commit it before taking up another.
 - However, it is possible to go overboard and commit every little change independently. This creates clutter in the repository history.
 - As you work, it is _essential_ that you merge or rebase regularly - e.g., daily - from develop back into your working branch. This ensures that, when it comes time to merge your work into develop, you will have resolved any merge conflicts with a minimum of difficulty. Note that your PR cannot be merged to develop until all merge conflicts are resolved.
@@ -95,9 +96,10 @@ Pull Requests
 - Once your work is ready to be merged into develop, you will create a pull request (PR).
 - Before submitting the PR, you should ensure that you have (a) merged or rebased develop into your working branch, as above [during implementation](#commits-pushes-and-merges), and (b) run the serializer. The latter _should_ be unnecessary, since the serializer should have been run before every commit, but running it again protects against having forgotten at some point.
 - Submit the PR to develop.
-- If the issue(s) addressed by the PR is(are) slated for a particular release, assign the PR to the same release project, using the Project labels on the right sidebar, in order to facilitate release management.
+- If the issue(s) addressed by the PR is (are) slated for a particular release, assign the PR to the same release project, using the Project labels on the right sidebar, in order to facilitate release management.
+- The project board is configured to automatically put the PR in the "In Review" column. However, the associated issue must be moved manually.
+- Once the PR has been submitted, check that there are no conflicts with the develop branch. If there are, merge or rebase develop into your branch and resolve the conflicts. You may need to repeat this step after making any requested changes, in case other PRs have been merged to develop in the meantime.
 - Assign one or more reviewers, as specified [below](#assigning-reviewers).
-- You should _not_ delete your working branch, either locally or on the remote, at this point. If reviewers request changes to the PR, these should be made on the same branch for automatic updating of the PR.
 
 ### Contents of the PR
 
@@ -153,41 +155,28 @@ Pull Requests
 
 #### General
 
-- All PRs must include an update to the release notes, except in the rare cases where there are no user-facing changes. Small fixes of a similar nature, such as correcting several typos in annotations, may be gathered into a single release note, even if they were submitted for separate issues or as separate PRs.
-- Reviewers will reject a PR without well-formed release notes.
-- The release manager will review the release notes for content and formatting before release.
-- On release, the release manager will replace the version placeholder X.x.x with the correct version number, both in the release note heading and in the import URL.
+- Every PR must include a release note, except in the rare cases where there are no user-facing changes. Small fixes of a similar nature, such as correcting several typos in annotations, may be gathered into a single release note, even if they were submitted for separate issues or as separate PRs.
+- Do _not_ add your release note directly to the file `/doc/ReleaseNotes.md`. Rather, create a separate Markdown file for the release note in `/docs/release_notes` (create this directory if it does not already exist). This avoids messy merge conflicts when multiple issues are being worked on simultaneously. Be sure to include a heading in the file indicating whether it will go into the major, minor, or patch section of the release notes. The individual release notes will be compiled into the `ReleaseNotes.md` file before the release package is built.
+- The name of the release note file has no significance, though it is helpful to name it according to the PR or issue number being addressed.
+- Reviewers will reject a PR without a well-formed release note.
+- Before building the release package, the release manager will review and the release notes for content and formatting, revising as necessary; copy them into the `ReleaseNotes.md` file, using sections for major, minor, and patch changes; and delete the individual files.
+- On release, the release manager will replace the version placeholder `X.x.x` with the correct version number, both in the release note heading and in the import URL.
 
 #### Formatting
 
-- The release notes will be divided into three sections, for major, minor, and patch changes, as relevant.
+- The final release notes will be divided into three sections, for major, minor, and patch changes, as relevant.
 - Each release note should follow the following formatting conventions:
   - Descriptions begin with a past tense verb.
   - Ontology and other code terms are enclosed in backticks; e.g., `gist:Weight`.
   - Each note ends in a period.
   - Refer to the most recent release notes for examples.
   - Please follow the heading conventions shown, as the [markdown configuration file](markdownlint.json) dictates the mixed heading style.
-  - Release notes example:
-  
-#### Example
+  - Release note example:
 
 ```markdown
-Release notes gist 9.4.0
------
-
-### Major Updates
-
-- Changed the `gist` namespace from `http:` to `https:`.
 
 ### Minor Updates
 
 - Changes to category predicates: added intransitive properties `hasDirectSubCategory` and `hasDirectSuperCategory` as subproperties of `hasSubCategory` and `hasSuperCategory`, respectively. The latter are defined as transitive. Issues [#104](https://github.com/semanticarts/gist/issues/104), [#107](https://github.com/semanticarts/gist/issues/107).
-
-### Patch Updates
-
-- Deprecated `gist:_unitedNations`. Issue [#207](https://github.com/semanticarts/gist/issues/207).
-- Made `gist:hasPhysicalLocation` transitive. Issue [#109](https://github.com/semanticarts/gist/issues/109).
-
-Import URL: <https://ontologies.semanticarts.com/o/gistCore9.4.0>.
 
 ```
