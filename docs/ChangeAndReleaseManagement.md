@@ -35,9 +35,9 @@ Versions and Version Numbering
 
 Version numbers are of the form `X.x.x` (major.minor.patch). We follow [Semantic Versioning 2.0.0](https://semver.org/): as a guideline, but adjust as needed.
 
-- **Major:** Non-backward-compatible (i.e., reasoning produces different results).
-  - Examples: adding a restriction, domain, range.
-  - Major changes should have a significant impact aside from technically modifying inferencing, if the latter is low-impact. For example, changing an equivalent class assertion pointing to a union class to a subclass axiom in order to allow new subclasses to be defined is not a major change.
+- **Major:** Non-backward-compatible, breaking changes, including inferencing, queries, and data conversion.
+  - Examples: adding a restriction, domain, range; adding language tags to annotations.
+  - Major changes should have a significant impact aside from technically modifying inferencing, if the latter is low-impact. For example, in gist 11.1.0 we removed the restriction on `gist:PhysicallyIdentifiableItem` stating that it must have an identifier. Technically, this impacts inferencing, since you can no longer infer that an object of this type has an identifier. However, we considered this so low impact that it was classified as a minor change.
 
 - **Minor:** New, backward-compatible functionality. Includes _any_ addition to the ontology, even annotation properties. May constitute a large change to the ontology, such as addition of a new module.
   - Examples: adding a class or property; removing a restriction; adding annotation property `domainIncludes`; deprecation of a term (see following section Deprecation and Deletion Policy).
