@@ -120,13 +120,13 @@ Pull Requests
 
 ### Assigning Reviewers
 
-- Assign reviewer(s) based on the impact of the issue (major, minor, patch). The impact level should be labelled on the issue; if not, refer to the forthcoming Change and Release Management document and [Semantic Versioning](https://semver.org/).
+- Assign reviewer(s) based on the impact of the issue (major, minor, patch). The impact level should be labelled on the issue; if not, refer to the [Change and Release Management documentation](ChangeAndReleaseManagement.md) for guidance.
   - Major: three reviewers
   - Minor: two reviewers
   - Patch: one reviewer
 - You should assign exactly this number, or at most one more. Assigning too many reviewers can cause confusion.
 - Reviewers must be internal to Semantic Arts.
-- Many issues are general enough to be reviewed by any ontologist; some may require specific expertise. Use your judgement. This might be the time to use the "at most one more" prerogative.
+- Many issues are general enough to be reviewed by any ontologist; some may require specific expertise. Use your judgment. This might be the time to use the "at most one more" prerogative.
 
 ### Review Process
 
@@ -170,7 +170,7 @@ Pull Requests
   - Ontology and other code terms are enclosed in backticks; e.g., `gist:Weight`.
   - Each note ends in a period.
   - Refer to the most recent release notes for examples.
-  - Please follow the heading conventions shown, as the [markdown configuration file](markdownlint.json) dictates the mixed heading style.
+  - Please follow the heading conventions shown, as the [markdown configuration file](.markdownlint.json) dictates the mixed heading style.
   - Release note example:
 
 ```markdown
