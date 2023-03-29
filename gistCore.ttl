@@ -3492,6 +3492,22 @@ gist:isRenderedOn
 	skos:prefLabel "is rendered on"^^xsd:string ;
 	.
 
+gist:isSubTaskOf
+	a
+		owl:ObjectProperty ,
+		owl:TransitiveProperty
+		;
+	skos:definition "All the upper tasks this task belongs to"^^xsd:string ;
+	skos:prefLabel "is subtask of"^^xsd:string ;
+	.
+
+gist:isSupersededBy
+	a owl:AnnotationProperty ;
+	skos:definition "Relates a deprecated term to a term that replaces it, which is either an exact (in the case of simple renaming) or approximate (in the case of renaming and some semantic change) semantic match."^^xsd:string ;
+	skos:example "gist:connectedTo gist:isSupersededBy gist:isConnectedTo (renaming with no semantic change)."^^xsd:string ;
+	skos:prefLabel "is superseded by"^^xsd:string ;
+	.
+
 gist:isTriggeredBy
 	a owl:ObjectProperty ;
 	skos:definition "General causal relation.  For obligations a property that describes what would happen to trigger the contingent obligation.  In most cases, before the Contingent becomes an Obligation, the triggered by event is a planned event (that is it hasn't happened yet -- if it had happened the contingency would no longer be contingent.  In most cases it will be  a ContingentEvent .  Other uses include controls, processes etc"^^xsd:string ;
@@ -3883,4 +3899,3 @@ gist:usesTimeZoneStandard
 		gist:_second
 	) ;
 	.
-
