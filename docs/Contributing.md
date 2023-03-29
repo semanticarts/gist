@@ -139,7 +139,8 @@ Pull Requests
 
 #### General
 
-- Every PR must include a release note, with the exception of changes that are not user-facing, not included in the release package (such as this document), or too trivial to document. Small fixes of a similar nature, such as correcting several typos in annotations, may be gathered into a single release note, even if they were submitted to address separate issues or as separate PRs.
+- Every PR must include a release note, with the exception of changes that are not user-facing, not included in the release package (such as this document), or too trivial to document. If you deliberately do not include a release note, please indicate this in the PR description so reviewers are aware.
+- Small fixes of a similar nature, such as correcting several typos in annotations, may be gathered into a single release note, even if they were submitted to address separate issues or as separate PRs.
 - Do _not_ add your release note directly to the file `/doc/ReleaseNotes.md`. Rather, create a separate Markdown file for the release note in `/docs/release_notes` (create this directory if it does not already exist). This avoids messy merge conflicts when multiple issues are being worked on simultaneously. Be sure to include a heading in the file indicating whether it will go into the major, minor, or patch section of the release notes. The individual release notes will be compiled into the `ReleaseNotes.md` file before the release package is built.
 - The name of the release note file has no significance, though it is helpful to name it according to the PR or issue number being addressed.
 - Reviewers will reject a PR without a well-formed release note.
