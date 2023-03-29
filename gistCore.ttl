@@ -3353,8 +3353,10 @@ gist:isAllocatedBy
 			gist:Person
 		) ;
 	] ;
-	skos:definition "Connection between an ID and the thing that minted the ID.  It may be a person or organization, or could be an algorithm (next available or random number generator)"^^xsd:string ;
+	skos:definition "Relates the subject to whoever/whatever assigns or distributes it."^^xsd:string ;
+	skos:example "An employee's email address is allocated by the employer. A license plate is allocated by a state's Department of Motor Vehicles. An ID is allocated by whoever minted the ID."^^xsd:string ;
 	skos:prefLabel "is allocated by"^^xsd:string ;
+	gist:domainIncludes gist:ID ;
 	.
 
 gist:isAspectOf
