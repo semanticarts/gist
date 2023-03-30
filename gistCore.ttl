@@ -3453,6 +3453,7 @@ gist:isMemberOf
 	a owl:ObjectProperty ;
 	skos:definition "What group the member is in"^^xsd:string ;
 	skos:prefLabel "is member of"^^xsd:string ;
+	gist:rangeIncludes gist:Collection ;
 	.
 
 gist:isPartOf
