@@ -3608,7 +3608,7 @@ gist:occupiesGeographically
 		) ;
 	] ;
 	rdfs:range gist:Place ;
-	skos:definition "A thing occupies are region"^^xsd:string ;
+	skos:definition "A thing occupies a region"^^xsd:string ;
 	skos:prefLabel "occupies geographically"^^xsd:string ;
 	.
 
