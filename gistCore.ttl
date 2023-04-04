@@ -2352,7 +2352,9 @@ gist:Taxonomy
 							owl:unionOf (
 								[
 									a owl:Restriction ;
-									owl:onProperty [owl:inverseOf gist:isSubCategoryOf] ;
+									owl:onProperty [
+										owl:inverseOf gist:isSubCategoryOf ;
+									] ;
 									owl:someValuesFrom gist:Category ;
 								]
 								[
@@ -3159,14 +3161,6 @@ gist:hasDenominator
 	skos:prefLabel "has denominator"^^xsd:string ;
 	.
 
-gist:isDirectSubCategoryOf
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:isSubCategoryOf ;
-	skos:definition "The subject category is a subcategory of the object category. This property defines the direct links in a category hierarchy; no intermediate categories can exist between the direct links."^^xsd:string ;
-	skos:prefLabel "is direct subcategory of"^^xsd:string ;
-	skos:scopeNote "Unlike its superproperty gist:isSubCategoryOf, this property is not transitive. It is essentially the same as the non-transitive skos:broader, using gist:Category rather than skos:Concept."^^xsd:string ;
-	.
-
 gist:hasFirstMember
 	a
 		owl:ObjectProperty ,
@@ -3301,16 +3295,6 @@ gist:hasStandardUnit
 	skos:prefLabel "has standard unit"^^xsd:string ;
 	.
 
-gist:isSubCategoryOf
-	a
-		owl:ObjectProperty ,
-		owl:TransitiveProperty
-		;
-	skos:definition "The subject category is included by, or narrower than, the object category. Everything categorized by the subcategory can be inferred to be categorized by the supercategory."^^xsd:string ;
-	skos:prefLabel "is subcategory of"^^xsd:string ;
-	skos:scopeNote "This is essentially the same as skos:broaderTransitive, using gist:Category instead of skos:Concept."^^xsd:string ;
-	.
-
 gist:hasUniqueNavigationalParent
 	a
 		owl:ObjectProperty ,
@@ -3319,16 +3303,6 @@ gist:hasUniqueNavigationalParent
 	rdfs:subPropertyOf gist:hasNavigationalParent ;
 	skos:definition "Relates a subject category to a unique parent category in an informal (e.g., faceted) hierarchy."^^xsd:string ;
 	skos:prefLabel "has unique navigational parent"^^xsd:string ;
-	.
-
-gist:isUniqueSubCategoryOf
-	a
-		owl:ObjectProperty ,
-		owl:FunctionalProperty
-		;
-	rdfs:subPropertyOf gist:isSubCategoryOf ;
-	skos:definition "Used for taxos that must have single parents"^^xsd:string ;
-	skos:prefLabel "is unique subcategory of"^^xsd:string ;
 	.
 
 gist:hasUnitOfMeasure
@@ -3411,6 +3385,14 @@ gist:isDirectPartOf
 		"It is safest to use this property when there is semantic directness inherent in the relationship, rather than choosing appropriate granularity. For example, a spark plug is a direct part of an engine block; there cannot be any intermediate parts.  Beware of making a directPartOf assertion and then inserting an intermediate part; this will result in making an asserted triple false even though there was no change in the world."^^xsd:string ,
 		"Use this property to directly associate a part with the whole. partOf is the transitive version."^^xsd:string
 		;
+	.
+
+gist:isDirectSubCategoryOf
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:isSubCategoryOf ;
+	skos:definition "The subject category is a subcategory of the object category. This property defines the direct links in a category hierarchy; no intermediate categories can exist between the direct links."^^xsd:string ;
+	skos:prefLabel "is direct subcategory of"^^xsd:string ;
+	skos:scopeNote "Unlike its superproperty gist:isSubCategoryOf, this property is not transitive. It is essentially the same as the non-transitive skos:broader, using gist:Category rather than skos:Concept."^^xsd:string ;
 	.
 
 gist:isDirectSubTaskOf
@@ -3499,6 +3481,16 @@ gist:isRenderedOn
 	skos:prefLabel "is rendered on"^^xsd:string ;
 	.
 
+gist:isSubCategoryOf
+	a
+		owl:ObjectProperty ,
+		owl:TransitiveProperty
+		;
+	skos:definition "The subject category is included by, or narrower than, the object category. Everything categorized by the subcategory can be inferred to be categorized by the supercategory."^^xsd:string ;
+	skos:prefLabel "is subcategory of"^^xsd:string ;
+	skos:scopeNote "This is essentially the same as skos:broaderTransitive, using gist:Category instead of skos:Concept."^^xsd:string ;
+	.
+
 gist:isSubTaskOf
 	a
 		owl:ObjectProperty ,
@@ -3518,6 +3510,16 @@ gist:isUnderJurisdictionOf
 	a owl:ObjectProperty ;
 	skos:definition "Relates a law, contract, etc., to the system of law or government which has the power, right, or authority to interpret and apply it."^^xsd:string ;
 	skos:prefLabel "is under jurisdiction of"^^xsd:string ;
+	.
+
+gist:isUniqueSubCategoryOf
+	a
+		owl:ObjectProperty ,
+		owl:FunctionalProperty
+		;
+	rdfs:subPropertyOf gist:isSubCategoryOf ;
+	skos:definition "Used for taxos that must have single parents"^^xsd:string ;
+	skos:prefLabel "is unique subcategory of"^^xsd:string ;
 	.
 
 gist:latitude
