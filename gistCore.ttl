@@ -1723,7 +1723,9 @@ gist:OrderedCollection
 				owl:unionOf (
 					[
 						a owl:Restriction ;
-						owl:onProperty gist:hasFirstMember ;
+						owl:onProperty [
+							owl:inverseOf gist:isFirstMemberOf ;
+						] ;
 						owl:someValuesFrom owl:Thing ;
 					]
 					[
@@ -3161,21 +3163,6 @@ gist:hasDenominator
 	skos:prefLabel "has denominator"^^xsd:string ;
 	.
 
-gist:hasFirstMember
-	a
-		owl:ObjectProperty ,
-		owl:InverseFunctionalProperty
-		;
-	rdfs:subPropertyOf [
-		owl:inverseOf gist:isMemberOf ;
-	] ;
-	rdfs:domain gist:OrderedCollection ;
-	rdfs:range gist:OrderedMember ;
-	skos:definition "Relates an ordered collection to its first member."^^xsd:string ;
-	skos:prefLabel "has first member"^^xsd:string ;
-	skos:scopeNote "Given the Open World Assumption, the absence of a predecessor does not entail that an ordered member is the first member of an ordered collection. This property is used to explicitly indicate the first member. Since ordered collections may not be strictly ordered, there can be more than one first member."^^xsd:string ;
-	.
-
 gist:hasGiver
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasParticipant ;
@@ -3405,6 +3392,19 @@ gist:isExpressedIn
 	a owl:ObjectProperty ;
 	skos:definition "The language something was expressed in"^^xsd:string ;
 	skos:prefLabel "is expressed in"^^xsd:string ;
+	.
+
+gist:isFirstMemberOf
+	a
+		owl:ObjectProperty ,
+		owl:FunctionalProperty
+		;
+	rdfs:subPropertyOf gist:isMemberOf ;
+	rdfs:domain gist:OrderedMember ;
+	rdfs:range gist:OrderedCollection ;
+	skos:definition "Relates the first member of an ordered collection to that collection."^^xsd:string ;
+	skos:prefLabel "is first member of"^^xsd:string ;
+	skos:scopeNote "Given the Open World Assumption, the absence of a predecessor does not entail that an ordered member is the first member of an ordered collection. This property is used to explicitly indicate the first member. Since ordered collections may not be strictly ordered, there can be more than one first member."^^xsd:string ;
 	.
 
 gist:isGeographicallyContainedIn
