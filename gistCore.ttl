@@ -3339,16 +3339,6 @@ gist:hasViableRange
 	skos:prefLabel "has viable range"^^xsd:string ;
 	.
 
-gist:identifies
-	a
-		owl:ObjectProperty ,
-		owl:FunctionalProperty
-		;
-	owl:inverseOf gist:isIdentifiedBy ;
-	skos:definition "The thing the identifier refers to."^^xsd:string ;
-	skos:prefLabel "identifies"^^xsd:string ;
-	.
-
 gist:isAbout
 	a owl:ObjectProperty ;
 	rdfs:domain gist:Content ;
