@@ -2491,40 +2491,6 @@ gist:Text
 	skos:prefLabel "Text"^^xsd:string ;
 	.
 
-gist:TimeZone
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:GeoRegion
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasOffsetToUniversal ;
-				owl:someValuesFrom gist:Duration ;
-			]
-		) ;
-	] ;
-	skos:definition "A region that observes a uniform standard time for legal, commercial, and social purposes.  A typical time zone averages 15? of longitude in width and typically observes a clock time one hour earlier than the zone immediately to the east."^^xsd:string ;
-	skos:prefLabel "Time Zone"^^xsd:string ;
-	.
-
-gist:TimeZoneStandard
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Specification
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isBasedOn ;
-				owl:someValuesFrom gist:TimeZone ;
-			]
-		) ;
-	] ;
-	skos:definition "The algorithm for getting from Greenwich Mean Time to local time, which includes the time zone offset and rules about daylight savings time."^^xsd:string ;
-	skos:prefLabel "Time Zone Standard"^^xsd:string ;
-	.
-
 gist:Transaction
 	a owl:Class ;
 	rdfs:subClassOf gist:Event ;
@@ -2899,7 +2865,7 @@ The subproperties allow the ontologist to do three things:
 
 All datetimes are of the same format: '2021-06-01T08:03:27.12324-6:00'^^xsd:dateTime. This is compatible with and a subset of ISO 8601.
 
-Time zone offset, such as -6:00 (of which there are a few dozen) is recognized in the date itself, as shown. The actual time zone standard (of which there are 131) may optionally be attached to the event or other object itself; see property gist:usesTimeZoneStandard.
+Time zone offset, such as -6:00 (of which there are a few dozen) is recognized in the date itself, as shown. The actual time zone standard (of which there are 131) may optionally be attached to the event or other object itself.
 
 There will be many historical dates that do not have a time zone offset (e.g., Lincoln's birthday, as well as about 75% of all legacy systems), and in that case the offset can be omitted. 
 
@@ -2908,7 +2874,6 @@ The conventions for precision that are repeated in each property name are as fol
 	- *Date refers to a calendar date (e.g., birthdays and invoice dates) and is assumed to have precision of one day. Time zone offset is allowed.
 	- *Minute refers to clock time; e.g., a meeting will start at 9:15 with a timezone offset. Precision is assumed to have precision of one minute.
 	- *Microsecond refers to system time, and it will be as precise as the system can supply; typically at least milliseconds, sometime microseconds.
-
 """^^xsd:string ;
 	.
 
@@ -3220,14 +3185,6 @@ gist:hasNumerator
 	a owl:ObjectProperty ;
 	skos:definition "Relates a RatioUnit such as meter(s)/second to the numerator Unit (e.g. meter)."^^xsd:string ;
 	skos:prefLabel "has numerator"^^xsd:string ;
-	.
-
-gist:hasOffsetToUniversal
-	a owl:ObjectProperty ;
-	rdfs:domain gist:TimeZone ;
-	rdfs:range gist:Duration ;
-	skos:definition "How many hours the time zone is off GMT"^^xsd:string ;
-	skos:prefLabel "has offset to universal"^^xsd:string ;
 	.
 
 gist:hasPart
@@ -3888,14 +3845,6 @@ gist:unitSymbolUnicode
 	rdfs:range xsd:string ;
 	skos:definition "The standard symbol for the unit preferred for pretty printing, may use special characters.  E.g. square meter would be  m? rather than m^2."^^xsd:string ;
 	skos:prefLabel "unit symbol Unicode"^^xsd:string ;
-	.
-
-gist:usesTimeZoneStandard
-	a owl:ObjectProperty ;
-	rdfs:range gist:TimeZoneStandard ;
-	skos:definition "The time zone, including daylight savings time adjustment, of an event or other object that can have a date and time."^^xsd:string ;
-	skos:example "EST (Eastern Standard Time), PST (Pacific Daylight Time)."^^xsd:string ;
-	skos:prefLabel "uses time zone standard"^^xsd:string ;
 	.
 
 []
