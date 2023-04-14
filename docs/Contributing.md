@@ -51,7 +51,7 @@ The pre-commit hook does several things when you run `git commit`:
 - Prevents commits to the following branchs: develop, main, and master.
 - Runs the serializer before each commit. This converts files into a standard Turtle format in order to remove noise in the diffs. As the comments in the file indicate, you should use the version of `rdf-toolkit.jar` in this directory, rather than another version that you may have elsewhere on your local drive.
 - Runs a `sed` command to remove `skos` stubs that Protege may add to your files.
-- Any PR containing commits without running the pre-commit hook will be returned for correction.
+- Any PR containing commits without serialization will be returned for correction.
 
 ### Working Branch
 
@@ -64,6 +64,8 @@ The pre-commit hook does several things when you run `git commit`:
 ### Commits, Pushes, and Merges
 
 - When you start working on an issue, move it to the "In Progress" column of the project board.
+- Every version of gist committed to the repository must be logically consistent. You can ensure this by loading the ontology into Protégé and running a reasoner.
+- If you use Protégé to edit gist, you must remove the stub definitions it inserts for terms that gist uses but does not define, such as SKOS annotation properties. 
 - If you are working on a project that will require more than one commit, you should commit to your working branch regularly to create logical checkpoints that can be restored if necessary. Each commit should be atomic for ease of rollback or reversion. Ideally, you finish working on one sub-task and commit it before taking up another.
 - However, it is possible to go overboard and commit every little change independently. This creates clutter in the repository history.
 - As you work, it is _essential_ that you merge or rebase regularly from develop back into your working branch. This ensures that, when it comes time to merge your work into develop, you will have resolved most merge conflicts with a minimum of difficulty. Note that your PR cannot be merged to develop until all merge conflicts are resolved.

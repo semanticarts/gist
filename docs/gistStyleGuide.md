@@ -4,6 +4,7 @@ gist Style Guide <!-- omit in toc -->
 - [Purpose of This Style Guide](#purpose-of-this-style-guide)
 - [OWL Version](#owl-version)
 - [Serialization](#serialization)
+- [Logical Consistency](#logical-consistency)
 - [Local Names](#local-names)
   - [Orthographic Conventions for Class and Property Local Names](#orthographic-conventions-for-class-and-property-local-names)
   - [Textual Standards for Property Local Names](#textual-standards-for-property-local-names)
@@ -15,6 +16,7 @@ gist Style Guide <!-- omit in toc -->
 - [Annotations](#annotations)
   - [Conventions](#conventions)
   - [Rationale](#rationale)
+  - [Annotation Format](#annotation-format)
 - [Inverses](#inverses)
 - [Documentation](#documentation)
 
@@ -31,7 +33,7 @@ The purpose of this evolving document is twofold:
 OWL Version
 -----
 
-gist uses OWL 2 DL.
+gist is an OWL 2 DL ontology.
 
 -----
 
@@ -39,9 +41,15 @@ Serialization
 -----
 
 - gist OWL files are serialized in RDF Turtle.
-- The [EDM Council's RDF serialization tool, `rdf-toolkit.jar`,](https://github.com/edmcouncil/rdf-toolkit) should be run before every commit in order to standardize formatting and eliminate noise in git diffs.
-- It is recommended to run this as a [pre-commit hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) in your git repository to ensure that it is done every time. In order to use the standard settings, copy the provided `pre-commit` script from the `tools/` directory in the repository to `.git/hooks/` after the repository is cloned, and ensure that `JAVA_HOME` is set in your environment. Java 11 or higher is required. This script will format only RDF files, ignoring all others.
-- **Only** the `rdf-toolkit.jar` file found in `tools/` should be used, since mixing versions may result in bogus diffs.
+- They are serialized using the [EDM Council's RDF serialization tool, `rdf-toolkit.jar`,](https://github.com/edmcouncil/rdf-toolkit) in order to standardize formatting and eliminate noise in git diffs.
+- After cloning the repository, run `/tools/setup.cmd`, as described in [Contributing.md](Contributing.md), which, among other things, installs a pre-commit hook that runs the serializer. This guarantees that committed files have been serialized.
+
+-----
+
+Logical Consistency
+-----
+
+Every version of gist committed to the repository must be logically consistent. You can ensure this by loading the ontology into Protégé and running a reasoner.
 
 -----
 
@@ -77,7 +85,7 @@ These standards involve choice of wording, which are generally more difficult to
 - Alignment with textual definitions. In some cases this requires a re-analysis of the intended meaning, and then perhaps a change in definition rather than local name. However, within the current scope of work, the local name was changed to match the definition, and the re-analysis will be done at a later time.
 - Loose coupling and future-proofing.
 
-Some of the examples resulted in changes to gist `10.0.0`, others are hypothetical.
+Some of the examples resulted in changes to gist `10.0.0`, others are hypothetical. Some of the cited properties have been removed since this document was written, but they are still useful as examples.
 
 | Standard | Examples |
 | ---------: | ------- |
@@ -110,7 +118,7 @@ Some of the examples resulted in changes to gist `10.0.0`, others are hypothetic
 These conventions apply to both data and taxonomy terms.
 
 - Leading underscore
-- An infix consisting of the name of the class that is the *most specific rigid* class the instance belongs to
+- An infix consisting of the name of the class that is the *most specific rigid* class the instance belongs to (but see caveats below)
 - A single underscore
 - The name of the instance, with spaces and hyphens replaced by underscores (no camelcasing) and only alphanumeric characters and underscores allowed
 - Leave case as it is
@@ -120,6 +128,8 @@ A "rigid" class is one that the instance inherently belongs; it is part of the e
 The "most specific rigid" class is the rigid class that the instance most directly belongs to.
 
 For example, given the class hierarchy `Living Thing` > `Person` > `Student`, where the first two classes are rigid and the third is not, the name for Sir Tim Berners-Lee is `_Person_Sir_Tim_Berners_Lee`.
+
+Caveat: During data conversion it may be difficult or impossible to determine the *most specific* rigid class. In such cases it is acceptable to use a higher-level rigid class, such as `_UnitOfMeasure_` rather than, for example, `_DurationUnit_`. 
 
 Labels
 -----
@@ -164,13 +174,18 @@ Annotations
 
 gist uses SKOS annotations rather than `rdfs:label` and `rdfs:comment`. The accepted annotations, intended use, and previous usage are shown in the following tables. Refer to the [SKOS ontology](http://www.w3.org/2004/02/skos/core) for formal definitions.
 
-*Preferred SKOS annotations*
+*Required SKOS annotations*
 
 | Annotation | Use | Instead Of |
 | ---------: | --- |:---------|
 | `skos:prefLabel` | Preferred label | `rdfs:label` |
-| `skos:altLabel`  | Alternative label, where relevant | n/a |
 | `skos:definition` | Definition | `rdfs:comment` |
+
+*Preferred SKOS annotations*
+
+| Annotation | Use | Instead Of |
+| ---------: | --- |:---------|
+| `skos:altLabel`  | Alternative label, where relevant | n/a |
 | `skos:scopeNote` | Additional clarifying comments about the meaning or usage of a term | `rdfs:comment` |
 | `skos:example`   | One or more examples  | `rdfs:comment` |
 | `skos:editorialNote` | Notes for editors | `rdfs:comment` |
@@ -181,7 +196,7 @@ Certain RDFS annotations are recommended where there is no SKOS equivalent.
 
 | Annotation | Use |
 | ---------: | --- |
-| `rdfs:seeAlso` | Indicates a resource that may provide additional information about the subject. Preferably points to a web page or RDF resource rather than text. |
+| `rdfs:seeAlso` | Indicates a resource that may provide additional information about the subject. Preferably points to a web page or RDF resource rather than text. This annotation should be used instead of adding references to a definition or scope note. |
 | `rdfs:isDefinedBy` | Identifies the ontology module the term is defined in. Added automatically during gist release bundling and does not needed to be added by hand. |
 
 *Use only rarely*
@@ -202,17 +217,57 @@ Certain RDFS annotations are recommended where there is no SKOS equivalent.
 
 SKOS annotations allow a more fine-grained approach to human-readable documentation. This change also aligns with emerging common practice.
 
+### Annotation Format
+
+| Annotation | Format |
+| ---------: | ------- |
+| `skos:prefLabel` - classes| Title case |
+| `skos:prefLabel` - properties| Lowercase, aside from words that are normally written with uppercase, such as proper names, abbreviations, and acronyms |
+| `skos:altLabel` | Follow format for `skos:prefLabel` unless different in normal usage. |
+| `skos:definition` and the various SKOS notes listed above | Sentence case, ending in a period. Include Oxford commas.|
+| `skos:example` | For full sentences, follow the format for notes. No final comma for words or phrases. |
+
+You may find the SHACL shapes defined in `/vaidation/shapes/ontologyShapes.ttl` a useful reference.
+
 -----
 
 Inverses
 -----
 
-Inverses should not be defined without a compelling reason. They can be referenced in SPARQL using an inverse property path, and in OWL restrictions using the construction
+We adopt a best practice that ontologies should not define inverse properties, and have removed all inverses from gist 12.0.0. No inverses should be added to future versions of gist.
 
-```
-  owl:onProperty [ owl:inverseOf :someProperty ] 
+Determining which of a pair of inverses to keep was a balancing act involving several considerations; as you can see, some of the criteria contradict one another and had to be weighed carefully.
+
+| Consideration | Example |
+| ---------: | ------- |
+| In hierarchies, prefer child-to-parent over parent-to-child | `hasSuperCategory`, not `hasSubCategory`,  |
+| Expected cardinality of query results (related to above)| `hasNavigationalParent`, not `hasNavigationalChild`.
+| gist usage: the number of times a property is reference in definitions of other terms | `hasPart` vs `isPartOf` |
+| Naturalness in the way we think about the concepts | `isIdentifiedBy`, not `identifies`|
+| Clarity and lack of ambiguity | `isRecognizedBy`, not `recognizes` |
+| Simplicity | `isAbout` vs `isDescribedIn` |
+
+These guidelines should be followed when defining new properties.
+
+There are several rationales behind this best practice:
+
+- Inverses increase cognitive load in building the ontology, converting data to RDF, and querying data, by providing two different ways to assert the same relationship and thus requiring two query paths to get complete result sets.
+- Inverses increase inferencing time by an order of magnitude.
+
+Inverses are not strictly necessary, given the availability of inverse paths in OWL, SPARQL, and SHACL. Sample use of `owl:inverseOf` to express a property restriction:
+
+```markdown
+[
+    a owl:Restriction ;
+    owl:onProperty [
+      owl:inverseOf gist:isGovernedBy ;
+    ] ;
+    owl:someValuesFrom gist:GeoRegion ;
+]
 ```
 
+An exception to this best practice is in the context of Linked Open Data, where they are sometimes necessary to assert and publish relationships between two instances in different namespaces. Users of gist in this context can define inverses to gist proeprties within their own namespaces.
+  
 Documentation
 -----
 

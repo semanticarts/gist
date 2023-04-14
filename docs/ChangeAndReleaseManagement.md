@@ -40,10 +40,10 @@ Version numbers are of the form `X.x.x` (major.minor.patch). We follow [Semantic
 
 - **Major:** Non-backward-compatible, breaking changes, including inferencing, queries, and data conversion.
   - Examples: adding a restriction, domain, range; adding language tags to annotations.
-  - Major changes should have a significant impact aside from technically modifying inferencing, if the latter is low-impact. For example, in gist 11.1.0 we removed the restriction on `gist:PhysicallyIdentifiableItem` stating that it must have an identifier. Technically, this impacts inferencing, since you can no longer infer that an object of this type has an identifier. However, we considered this so low impact that it was classified as a minor change.
+  - Major changes should have a significant impact aside from technically modifying inferencing, if the latter is low-impact. For example, in gist 11.1.0 we removed the restriction on `gist:PhysicallyIdentifiableItem` stating that it must have an identifier. Technically, this impacts inferencing, but we considered this so low impact that it was classified as a minor change.
 
-- **Minor:** New, backward-compatible functionality. Includes _any_ addition to the ontology, even annotation properties. May constitute a large change to the ontology, such as addition of a new module.
-  - Examples: adding a class or property; removing a restriction; adding annotation property `domainIncludes`; deprecation of a term (see the [Deprecation and Deletion Policy](DeprecationAndDeletionPolicy.md).
+- **Minor:** New, backward-compatible functionality. Includes _any_ addition to the ontology, even annotation properties or introduction of a new module.
+  - Examples: adding a class or property; adding a `domainIncludes` annotation; deprecation of a term; see the [Deprecation and Deletion Policy](DeprecationAndDeletionPolicy.md).
 
 - **Patch:** No new functionality other than bug fixes.
   - Correction of an error, even if not backward-compatible, does not require a major release. The expectation is that users will not have implemented against an obvious error. This would be a patch.
