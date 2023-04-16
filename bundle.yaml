@@ -97,7 +97,6 @@ actions:
     - gistCore.ttl
     - gistMediaTypes.ttl
     - gistPrefixDeclarations.ttl
-    - gistDeprecated.ttl
 - action: "definedBy"
   message: "Adding rdfs:definedBy."
   source: "{output}"
@@ -221,11 +220,3 @@ actions:
   message: "Formatting time-related changes documentation."
   source: "{output}/migration/v11.0/TimeRelatedChanges_v11.md"
   target: "{output}/migration/v11.0/TimeRelatedChanges_v11.html"
-- action: "move"
-  message: "Creating Deprecated folder."
-  source: "{output}"
-  target: "{output}/Deprecated"
-  includes:
-    - "*Deprecated*.ttl"
-    - "*Deprecated*.rdf"
-    - "*Deprecated*.jsonld"
