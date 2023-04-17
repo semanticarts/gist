@@ -2820,7 +2820,7 @@ The subproperties allow the ontologist to do three things:
 
 All datetimes are of the same format: '2021-06-01T08:03:27.12324-6:00'^^xsd:dateTime. This is compatible with and a subset of ISO 8601.
 
-Time zone offset, such as -6:00 (of which there are a few dozen) is recognized in the date itself, as shown. The actual time zone standard (of which there are 131) may optionally be attached to the event or other object itself.
+A time zone offset, such as -6:00, can be included as part of the datetime itself, as shown. The offset is not the same as a time zone. There are roughly a few dozen time zone offsets and around 130 named time zones. If needed, a time zone may be recorded by attaching it to the event or other object.
 
 There will be many historical dates that do not have a time zone offset (e.g., Lincoln's birthday, as well as about 75% of all legacy systems), and in that case the offset can be omitted. 
 
