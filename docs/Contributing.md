@@ -65,7 +65,7 @@ The pre-commit hook does several things when you run `git commit`:
 
 - When you start working on an issue, move it to the "In Progress" column of the project board.
 - Every version of gist committed to the repository must be logically consistent. You can ensure this by loading the ontology into Protégé and running a reasoner.
-- If you use Protégé to edit gist, you must remove the stub definitions it inserts for terms that gist uses but does not define, such as SKOS annotation properties. 
+- If you use Protégé to edit gist, you must remove the stub definitions it inserts for terms that gist uses but does not define, such as SKOS annotation properties.
 - If you are working on a project that will require more than one commit, you should commit to your working branch regularly to create logical checkpoints that can be restored if necessary. Each commit should be atomic for ease of rollback or reversion. Ideally, you finish working on one sub-task and commit it before taking up another.
 - However, it is possible to go overboard and commit every little change independently. This creates clutter in the repository history.
 - As you work, it is _essential_ that you merge or rebase regularly from develop back into your working branch. This ensures that, when it comes time to merge your work into develop, you will have resolved most merge conflicts with a minimum of difficulty. Note that your PR cannot be merged to develop until all merge conflicts are resolved.
@@ -95,7 +95,7 @@ Pull Requests
 - The title of the PR should contain the keywords "fixes #nnn" (or another of the [GitHub keywords](https://docs.github.com/en/enterprise/2.21/user/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)) where nnn is the issue number. This automatically closes the related issue(s) when the PR is merged.
   - Example: "Correct cardinality restriction on class gist:Room. Fixes #98."
   - Note that if the PR fixes multiple issues, each issue number must be prefixed by the keyword. E.g., "Fixes #98, fixes #102", rather than "Fixes #98, #102" or "Fixes #98 and #102".
-- The PR description should contain a link to the issue addressed.
+- The PR description should also contain the keyword and issue number. This creates a link which allows readers and reviewers to easily reference the issue.
 - The PR should include an update to the release notes. See [Release Notes](#release-notes).
 - Refer to the [deprecation and deletion policy](DeprecationAndDeletionPolicy.md) if you are deprecating or deleting terms.
 
