@@ -1,4 +1,4 @@
-![gist logo](https://user-images.githubusercontent.com/1693668/194119931-68f20cad-1686-4803-8256-250dc7417aa8.png)
+![gist logo](./gist-logo.png)
 
 About gist
 =====
