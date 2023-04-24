@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-# pre-commit hook script that activates the Sesame serializer to serialize any OWL files in a standard format just before
-# they are committed to the (local) Github repository.
+# pre-commit hook script that activates the Sesame serializer to serialize any OWL files in a standard format just before they are committed to the (local) Github repository.
 #
 # Called by "git commit" with no arguments. This hook will stop the commit when it encounters an error.
 #
-# To enable this hook, save this file to the directory <your git clone root>/.git/hooks
+# This hook is executed by the primary pre-commit hook that has been copied into .git/hooks. See setup.cmd.
 #
 
 # Customized by the git user - or set JAVA_HOME as persistent environment variable
