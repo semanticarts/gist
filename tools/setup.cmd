@@ -13,13 +13,19 @@ fi
 # Get root directory of this git repository
 base_dir=$(git rev-parse --show-toplevel)
 
-# print out commands so user can see what is being done
+# Print out commands so user can see what is being done
 set -x
 
-# copy pre-commit to the git hooks directory
+# Copy pre-commit to the git hooks directory
 cp "${base_dir}/tools/pre-commit" "${base_dir}/.git/hooks/"
 
-# exit linux shell
+# Make pre-commit hook executable. Needed at least on Mac, where the copied file is non-executable unless there's an existing executable file in the hooks directory, regardless of the status of the original file.
+chmod +x "${base_dir}/.git/hooks/pre-commit"
+
+# Also ensure that the serializer pre-commit is executable
+chmod +x serializer/pre-commit
+
+# Exit linux shell
 exit
 
 
