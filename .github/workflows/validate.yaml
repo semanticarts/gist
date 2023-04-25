@@ -15,10 +15,9 @@ jobs:
           python-version: 3.8
       - name: Install onto-tool
         run: |
-          python -m pip cache purge
-          python -m pip install guess-language-spirit
           python -m pip install --upgrade pip
-          pip install --no-cache-dir onto-tool
+          python -m pip install guess-language-spirit
+          python -m pip install onto-tool
       - name: Build distribution
         run: |
           onto_tool bundle bundle.yaml
