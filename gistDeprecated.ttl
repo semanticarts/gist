@@ -144,3 +144,27 @@ gist:_one_minute
 	gist:numericValue "1.0"^^xsd:double ;
 	.
 
+gist:TreatyOrganization
+	a owl:Class ;
+	owl:deprecated "true"^^xsd:boolean ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:IntergovernmentalOrganization
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasMember ;
+				owl:allValuesFrom gist:CountryGovernment ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasMember ;
+				owl:minCardinality "2"^^xsd:nonNegativeInteger ;
+			]
+		) ;
+	] ;
+	skos:definition "An organization whose members are country governments."^^xsd:string ;
+	skos:example "NATO, the Louisiana Purchase, the Treaty of Versailles"^^xsd:string ;
+	skos:prefLabel "Treaty Organization"^^xsd:string ;
+	.
+
