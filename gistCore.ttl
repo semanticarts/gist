@@ -1251,9 +1251,9 @@ gist:IntergovernmentalOrganization
 			]
 		) ;
 	] ;
-	skos:definition "An organization whose members are government organizations."^^xsd:string ;
-	skos:example "The United Nations, the European Union"^^xsd:string ;
-	skos:prefLabel "Inter-Governmental Organization"^^xsd:string ;
+	skos:definition "An organization whose members are government organizations. This can comprise regional, municipal, state, province, or national level entities."^^xsd:string ;
+	skos:example "The United Nations, the European Union, the MTA (Metropolitan Transit Authority)"^^xsd:string ;
+	skos:prefLabel "Intergovernmental Organization"^^xsd:string ;
 	.
 
 gist:Landmark
@@ -2444,29 +2444,6 @@ gist:Transaction
 	rdfs:subClassOf gist:Event ;
 	skos:definition "An event which has an effect on at least one accumulator."^^xsd:string ;
 	skos:prefLabel "Transaction"^^xsd:string ;
-	.
-
-gist:TreatyOrganization
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:IntergovernmentalOrganization
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMember ;
-				owl:allValuesFrom gist:CountryGovernment ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMember ;
-				owl:minCardinality "2"^^xsd:nonNegativeInteger ;
-			]
-		) ;
-	] ;
-	skos:definition "An organization whose members are country governments."^^xsd:string ;
-	skos:example "NATO, the Louisiana Purchase, the Treaty of Versailles"^^xsd:string ;
-	skos:prefLabel "Treaty Organization"^^xsd:string ;
 	.
 
 gist:UnitOfMeasure
