@@ -15,7 +15,7 @@ jobs:
           python-version: '3.10'
       - name: Install onto-tool
         run: |
-          virtualenv -p python myenv
+          python -m venv myenv
           source myenv/bin/activate
           python -m pip install --upgrade pip
           python -m pip install onto-tool
