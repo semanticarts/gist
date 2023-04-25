@@ -15,6 +15,7 @@ jobs:
           python-version: 3.8
       - name: Install onto-tool
         run: |
+          python -m pip cache remove guess-language-spirit wheel
           python -m pip install guess-language-spirit
           python -m pip install --upgrade pip
           pip install --no-cache-dir onto-tool
