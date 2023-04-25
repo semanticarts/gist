@@ -95,6 +95,30 @@ gist:Task
 	skos:scopeNote "Note that this differs from the ordinary sense of 'task,' which is not an event (e.g., 'A piece of work to be done or undertaken.')."^^xsd:string ;
 	.
 
+gist:TreatyOrganization
+	a owl:Class ;
+	owl:deprecated "true"^^xsd:boolean ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:IntergovernmentalOrganization
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasMember ;
+				owl:allValuesFrom gist:CountryGovernment ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasMember ;
+				owl:minCardinality "2"^^xsd:nonNegativeInteger ;
+			]
+		) ;
+	] ;
+	skos:definition "An organization whose members are country governments."^^xsd:string ;
+	skos:example "NATO, the Louisiana Purchase, the Treaty of Versailles"^^xsd:string ;
+	skos:prefLabel "Treaty Organization"^^xsd:string ;
+	.
+
 gist:_greenwichTimeZone
 	a
 		owl:Thing ,
@@ -142,29 +166,5 @@ gist:_one_minute
 	skos:scopeNote "This is a gist:Magnutude, not a unit of measure, it means essentially the same thing as the unit, minute."^^xsd:string ;
 	gist:hasUnitOfMeasure gist:_minute ;
 	gist:numericValue "1.0"^^xsd:double ;
-	.
-
-gist:TreatyOrganization
-	a owl:Class ;
-	owl:deprecated "true"^^xsd:boolean ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:IntergovernmentalOrganization
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMember ;
-				owl:allValuesFrom gist:CountryGovernment ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMember ;
-				owl:minCardinality "2"^^xsd:nonNegativeInteger ;
-			]
-		) ;
-	] ;
-	skos:definition "An organization whose members are country governments."^^xsd:string ;
-	skos:example "NATO, the Louisiana Purchase, the Treaty of Versailles"^^xsd:string ;
-	skos:prefLabel "Treaty Organization"^^xsd:string ;
 	.
 
