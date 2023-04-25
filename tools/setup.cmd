@@ -23,7 +23,7 @@ cp "${base_dir}/tools/pre-commit" "${base_dir}/.git/hooks/"
 chmod +x "${base_dir}/.git/hooks/pre-commit"
 
 # Also ensure that the serializer pre-commit is executable
-chmod +x serializer/pre-commit
+chmod +x "${base_dir}/tools/serializer/pre-commit"
 
 # Exit linux shell
 exit
