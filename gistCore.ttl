@@ -472,18 +472,14 @@ gist:ContingentEvent
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:plannedEndDateTime ;
-				owl:someValuesFrom xsd:dateTime ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:plannedStartDateTime ;
-				owl:someValuesFrom xsd:dateTime ;
+				owl:onProperty gist:isTriggeredBy ;
+				owl:someValuesFrom gist:Event ;
 			]
 		) ;
 	] ;
 	skos:definition "An event with a probability of happening in the future, and usually dependent upon some other event or condition."^^xsd:string ;
-	skos:prefLabel "Contingent Event"^^xsd:string ;
+	skos:example "Sell 20 shares of stock in a given company when the price drops below $200/share.";
+  skos:prefLabel "Contingent Event"^^xsd:string ;
 	.
 
 gist:ContingentObligation
