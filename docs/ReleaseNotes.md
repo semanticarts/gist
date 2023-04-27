@@ -18,7 +18,6 @@ Release 11.1.0
 - Replaced `rdfs:range` on `gist:conformsTo` with `gist:rangeIncludes`. Issue [#700](https://github.com/semanticarts/gist/issues/700).
 - Added the inadvertently omitted predicate `gist:follows`. Issue [#300](https://github.com/semanticarts/gist/issues/300).
 - Changed superproperty `gist:startDateTime` to `gist:actualStartDateTime` in formal definition of `gist:ContemporaryEvent`. Issue [#696](https://github.com/semanticarts/gist/issues/696).
-- Deprecated `gist:TreatyOrganization` in favor of its parent `gist:IntergovernmentalOrganization` and updated definitions and labels. Issues [#766](https://github.com/semanticarts/gist/issues/766) and [#756](https://github.com/semanticarts/gist/issues/756)
 
 ### Patch Updates
 
