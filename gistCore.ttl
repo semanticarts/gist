@@ -2491,6 +2491,17 @@ gist:Text
 	skos:prefLabel "Text"^^xsd:string ;
 	.
 
+gist:TimeInterval
+	a owl:Class ;
+	skos:definition "A span of time with a known start time, end time, and duration. As long as two of the three are known, the third can be inferred."^^xsd:string ;
+	skos:example "7pm to 9pm on Jan 1, 2001; fiscal year 2023; the week starting at midnight of January 12, 2023 and lasting exactly 168 hours."^^xsd:string ;
+	skos:prefLabel "Time Interval"^^xsd:string ;
+	skos:scopeNote
+		"An ongoing state of affairs with an unknown end time in the future cannot be a time interval; e.g. the lifespan of a living person cannot be a time interval, as the end time is unknown."^^xsd:string ,
+		"This is distinct from a gist:Duration, which describes how long a time interval lasts (e.g., one hour; 3 days; 22 minutes)."^^xsd:string
+		;
+	.
+
 gist:Transaction
 	a owl:Class ;
 	rdfs:subClassOf gist:Event ;
