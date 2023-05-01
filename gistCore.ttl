@@ -1086,7 +1086,9 @@ gist:GeoVolume
 		owl:intersectionOf (
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:containsGeographically ;
+				owl:onProperty [
+					owl:inverseOf gist:isGeographicallyContainedIn ;
+				] ;
 				owl:someValuesFrom gist:GeoPoint ;
 			]
 			[
@@ -2930,17 +2932,6 @@ gist:containedText
 	skos:prefLabel "contained text"^^xsd:string ;
 	.
 
-gist:containsGeographically
-	a
-		owl:ObjectProperty ,
-		owl:TransitiveProperty
-		;
-	rdfs:domain gist:Place ;
-	rdfs:range gist:Place ;
-	skos:definition "Relate one place to another place that is contained within the first."^^xsd:string ;
-	skos:prefLabel "contains geographically"^^xsd:string ;
-	.
-
 gist:contributesTo
 	a owl:ObjectProperty ;
 	skos:definition "The parts of a system contribute to the goal/ function of the whole system"^^xsd:string ;
@@ -3407,6 +3398,17 @@ gist:isExpressedIn
 	a owl:ObjectProperty ;
 	skos:definition "The language something was expressed in"^^xsd:string ;
 	skos:prefLabel "is expressed in"^^xsd:string ;
+	.
+
+gist:isGeographicallyContainedIn
+	a
+		owl:ObjectProperty ,
+		owl:TransitiveProperty
+		;
+	rdfs:domain gist:Place ;
+	rdfs:range gist:Place ;
+	skos:definition "Relates one place to another place that contains the first."^^xsd:string ;
+	skos:prefLabel "is geographically contained in"^^xsd:string ;
 	.
 
 gist:isGovernedBy
