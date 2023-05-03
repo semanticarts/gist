@@ -47,7 +47,7 @@ Version numbers are of the form `X.x.x` (major.minor.patch). We follow [Semantic
   - Examples: adding a restriction, domain, range; adding language tags to annotations.
   - Major changes should have a significant impact aside from technically modifying inferencing, if the latter is low-impact. For example, in gist 11.1.0 we removed the restriction on `gist:PhysicallyIdentifiableItem` stating that it must have an identifier. Technically, this impacts inferencing, but we considered this so low impact that it was classified as a minor change.
 
-- **Minor:** New, backward-compatible functionality. Includes *any* addition to the ontology, even annotation properties or introduction of a new module.
+- **Minor:** New, backward-compatible functionality. Includes *any* non-major addition to the ontology, even annotation properties or introduction of a new module.
   - Examples: adding a class or property; adding a `domainIncludes` annotation; deprecation of a term - see the [*Deprecation and Deletion Policy*](DeprecationAndDeletionPolicy.md).
 
 - **Patch:** No new functionality other than bug fixes.

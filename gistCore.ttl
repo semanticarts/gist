@@ -3492,15 +3492,6 @@ gist:isRenderedOn
 	skos:prefLabel "is rendered on"^^xsd:string ;
 	.
 
-gist:isSubTaskOf
-	a
-		owl:ObjectProperty ,
-		owl:TransitiveProperty
-		;
-	skos:definition "All the upper tasks this task belongs to"^^xsd:string ;
-	skos:prefLabel "is subtask of"^^xsd:string ;
-	.
-
 gist:isSupersededBy
 	a owl:AnnotationProperty ;
 	skos:definition "Relates a deprecated term to a term that replaces it, which is either an exact (in the case of simple renaming) or approximate (in the case of renaming and some semantic change) semantic match."^^xsd:string ;
