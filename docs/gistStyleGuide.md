@@ -4,6 +4,7 @@ gist Style Guide <!-- omit in toc -->
 - [Purpose of This Style Guide](#purpose-of-this-style-guide)
 - [OWL Version](#owl-version)
 - [Serialization](#serialization)
+- [Logical Consistency](#logical-consistency)
 - [Local Names](#local-names)
   - [Orthographic Conventions for Class and Property Local Names](#orthographic-conventions-for-class-and-property-local-names)
   - [Textual Standards for Property Local Names](#textual-standards-for-property-local-names)
@@ -16,6 +17,7 @@ gist Style Guide <!-- omit in toc -->
   - [Conventions for Use](#conventions-for-use)
   - [Formatting Conventions](#formatting-conventions)
   - [Cardinality](#cardinality)
+- [Literals](#literals)
 - [Documentation](#documentation)
 
 Purpose of This Style Guide
@@ -31,7 +33,7 @@ The purpose of this evolving document is twofold:
 OWL Version
 -----
 
-gist uses OWL 2 DL.
+gist is an OWL 2 DL ontology.
 
 -----
 
@@ -40,10 +42,15 @@ Serialization
 
 - gist OWL files are serialized in RDF Turtle.
 - The [EDM Council's RDF serialization tool, `rdf-toolkit.jar`,](https://github.com/edmcouncil/rdf-toolkit) should be run before every commit in order to standardize formatting and eliminate noise in git diffs.
-- It is recommended to run this as a [pre-commit hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) in your git repository to ensure that it is done every time. In order to use the standard settings, copy the provided `pre-commit` script from the `tools/` directory in the repository to `.git/hooks/` after the repository is cloned, and ensure that `JAVA_HOME` is set in your environment. Java 11 or higher is required. This script will format only RDF files, ignoring all others.
+- It is recommended to run this as a [pre-commit hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) in your git repository to ensure that it is done before every commit. See [*Contributing*](Contributing.md#pre-commit-hook) for instructions on setting up your repository with a pre-commit hook.
 - **Only** the `rdf-toolkit.jar` file found in `tools/` should be used, since mixing versions may result in bogus diffs.
 
 -----
+
+Logical Consistency
+-----
+
+Every version of gist committed to the git repository must be logically consistent. See [*Contributing*](Contributing.md#commits-pushes-and-merges).
 
 Local Names
 -----
@@ -109,17 +116,21 @@ Some of the examples resulted in changes to gist `10.0.0`, others are hypothetic
 
 These conventions apply to both data and taxonomy terms.
 
-- Leading underscore
-- An infix consisting of the name of the class that is the *most specific rigid* class the instance belongs to
-- A single underscore
-- The name of the instance, with spaces and hyphens replaced by underscores (no camelcasing) and only alphanumeric characters and underscores allowed
-- Leave case as it is
+- A leading underscore.
+- An infix indicating the type of the instance. As a rule of thumb, this is the *most specific rigid* class the instance belongs to, but there are exceptions where this is not viable (see below).
+- A single underscore.
+- The name of the instance, with spaces and hyphens replaced by underscores (no camelcasing) and only alphanumeric characters and underscores allowed.
+- Leave case as it is,
 
-A "rigid" class is one that the instance inherently belongs; it is part of the essence of the object, which would not be the same object if it did not belong to this class. A non-rigid class may be temporary and/or express a role or relationship; for example, `Child`, `Patient`, `Employee`. The notion of rigid classes originates in [OntoClean](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.99.7618&rep=rep1&type=pdf).
+A *rigid* class is one that the instance inherently belongs; it is part of the essence of the object, which would not be the same object if it did not belong to this class. A non-rigid class may be temporary and/or express a role or relationship; for example, `Patient`, `Employee`, `Spouse`. The notion of rigid classes originates in [OntoClean](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.99.7618&rep=rep1&type=pdf).
 
-The "most specific rigid" class is the rigid class that the instance most directly belongs to.
+The *most specific rigid* class is the rigid class that the instance most directly belongs to.
 
-For example, given the class hierarchy `Living Thing` > `Person` > `Student`, where the first two classes are rigid and the third is not, the name for Sir Tim Berners-Lee is `_Person_Sir_Tim_Berners_Lee`.
+For example, given the class hierarchy `Living Thing` > `Person` > `Professor`, where the first two classes are rigid and the third is not, the name for Sir Tim Berners-Lee is `_Person_Sir_Tim_Berners_Lee`.
+
+Exceptions to this guideline arise may arise in IRI minting during data transformation. Based on how the data is presented, it is often difficult or cumbersome to know the most specific type of an instance, so one can fall back on a higher-level class. E.g., `_Magnitude_` rather than `_Duration_`.
+
+Note: As of version 12.0.0, gist itself does not itself follow the infix convention, though it does use the leading underscore. This is under consideration for a future update.
 
 Labels
 -----
@@ -195,7 +206,7 @@ Certain RDFS annotations are recommended where there is no SKOS equivalent.
 
 | Annotation | Use |
 | ---------: | --- |
-| `rdfs:seeAlso` | Indicates a resource that may provide additional information about the subject. Preferably points to a web page or RDF resource rather than text. |
+| `rdfs:seeAlso` | Indicates a resource that may provide additional information about the subject. Should be a link to a web page or RDF resource rather than text. See examples of its use in gist to get an idea of where it would be helpful. |
 | `rdfs:isDefinedBy` | Identifies the ontology module the term is defined in. Added automatically during gist release bundling and does not needed to be added by hand. |
 
 *Use only rarely*
@@ -216,8 +227,8 @@ Certain RDFS annotations are recommended where there is no SKOS equivalent.
 | Annotation | Format |
 | ---------: | ----------- |
 | `skos:prefLabel`, `skos:altLabel` | See section [Labels](#labels) above. |
-| `skos:definition`, `skos:scopeNote`, `skos:note`, `skos:editorialNote` | Full sentence(s) ending in period. It is acceptable to omit the subject at the beginning of the definition in order to avoid the vacuous "This predicate..." or "This class is..." E.g., "Relates a person to his or her spouse." or "A series of steps in a workflow." There should nevertheless be a final period.|
-| `skos:example` | May be either a full sentence or a list. Use a final period only in the former case. E.g., "SSN, driver's license number, employee ID" or "NIH sponsors a research project." Lists with short items, such as the first example, can be delimited by either commas or semi-colons; full-sentence examples should be semi-colon-delimited. |
+| `skos:definition`, `skos:scopeNote`, `skos:note`, `skos:editorialNote` | Full sentence(s) ending in period. It is acceptable to omit the subject at the beginning of the definition in order to avoid the vacuous "This predicate..." or "This class is..." E.g., "Relates a person to his or her spouse." or "A series of steps in a workflow." There should nevertheless be a final period. Use Oxford commas.|
+| `skos:example` | May be either a full sentence or a list. Use a final period only in the former case. E.g., "SSN, driver's license number, employee ID" or "NIH sponsors a research project." Lists with short items, such as the first example, can be delimited by either commas (include Oxford commas) or semi-colons; full-sentence examples should be semi-colon-delimited. |
 
 ### Cardinality
 
@@ -227,6 +238,13 @@ Certain RDFS annotations are recommended where there is no SKOS equivalent.
 | `skos:definition` | Exactly 1 |
 | `skos:scopeNote`, `skos:editorialNote`, `skos:note` | At the implementer's discretion, multiple unrelated notes can be included in either a single annotation or multiple annotations. |
 | `skos:example` | Recommended practice is to combine all examples into a single annotation. |
+
+-----
+
+Literals
+-----
+
+- Literal values should be typed with one of the  datatypes included in the [OWL 2 Datatype Maps](https://www.w3.org/TR/owl2-syntax/#Datatype_Maps). It is not necessary to explicitly type strings as `xsd:string` because the [serializer](serialization) will add this to all untyped literals.
 
 Documentation
 -----
