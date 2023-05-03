@@ -1,11 +1,35 @@
-gist Contributor Guidelines for Issues and Pull Requests
+gist Contributor Guidelines for Issues and Pull Requests <!-- omit in toc -->
 =====
+
+- [Contributing to gist](#contributing-to-gist)
+- [Submitting an Issue](#submitting-an-issue)
+  - [Content](#content)
+  - [Issue Title](#issue-title)
+  - [Issue Description](#issue-description)
+  - [Proposals for Resolution](#proposals-for-resolution)
+  - [Issue Metadata](#issue-metadata)
+- [Submitting a Pull Request (PR)](#submitting-a-pull-request-pr)
+  - [Setting up the Local Repository](#setting-up-the-local-repository)
+  - [Working Branch](#working-branch)
+  - [Style Guide](#style-guide)
+  - [Commits, Pushes, and Merges](#commits-pushes-and-merges)
+  - [Creating the Pull Request (PR)](#creating-the-pull-request-pr)
+  - [Contents of the PR](#contents-of-the-pr)
+  - [Reviewing Problems with the PR](#reviewing-problems-with-the-pr)
+  - [Assigning Reviewers](#assigning-reviewers)
+  - [Review Process](#review-process)
+  - [Merging the PR](#merging-the-pr)
+  - [Multi-Developer Projects](#multi-developer-projects)
+  - [Release Notes](#release-notes)
+    - [General](#general)
+    - [Formatting](#formatting)
 
 Contributing to gist
 -----
 
+- There are a variety of ways to contribute to the ongoing evolution of gist: commenting on issue threads; upvoting issues; submitting bug reports, feature requests, and pull requests.
 - All bug reports and feature requests should be submitted via issues in this repository rather than through email, the website contact form, or other communication channels, and all discussion will be tracked through comments on the issue. These practices ensure that requests are addressed transparently and systematically, and that all discussion is recorded and preserved in a single, public location.
-- External contributors may submit a PR accompanied by an issue. These will be reviewed as part of our regular triage process, and will either be accepted and merged to develop, accepted with requested modifications, or rejected and closed. Submit only an issue if you have a request without a solution; submit a PR with the issue if you have a proposed solution that you would like to implement. External contributions should conform to the requirements for issues and PRs outlined in the following sections.
+- External contributors may submit a pull request (PR) accompanied by an issue. These will be reviewed as part of our regular triage process, and will either be accepted and merged to develop, accepted with requested modifications, or rejected and closed. Submit only an issue if you have a request without a solution; submit a PR with the issue if you have a proposed solution that you would like to implement. External contributions should conform to the requirements for issues and PRs outlined in the following sections.
 
 Submitting an Issue
 -----
@@ -37,21 +61,21 @@ Submitting an Issue
 
 - External contributors should not specify assignees, projects, or milestones, nor apply labels for priority, effort, etc. These are assigned during the internal review process.
 
-How to Contribute
+Submitting a Pull Request (PR)
 -----
 
-After cloning the gist repository, run the script `./tools/setup.cmd`. This script will work on Windows, Linux, and Mac.
+### Setting up the Local Repository
 
-### Pre-Commit Hook
+- Clone the [gist GitHub repository](https://github.com/semanticarts/gist.git).
 
-The `./tools` directory contains a pre-commit hook that you should copy into `./git/hooks`. The `setup.cmd` script mentioned above will do this for you.
+- Run the script `./tools/setup.cmd`. This script will work on Windows, Linux, and Mac. It copies the `./tools/pre-commit` hook into `.git/hooks`, which means it will run before every commit you make to the repository.
 
 The pre-commit hook does several things when you run `git commit`:
 
-- Prevents commits to the following branchs: develop, main, and master.
-- Runs the serializer before each commit. This converts files into a standard Turtle format in order to remove noise in the diffs. As the comments in the file indicate, you should use the version of `rdf-toolkit.jar` in this directory, rather than another version that you may have elsewhere on your local drive.
+- Prevents commits to the following branches: develop, main, and master.
+- Runs the serializer before each commit. This converts files into a standard Turtle format in order to remove noise in the diffs. As the comments in the file indicate, you should use the version of `rdf-toolkit.jar` in this directory, rather than another version that you may have elsewhere on your local drive. This is the pre-approved version.
 - Runs a `sed` command to remove `skos` stubs that Protege may add to your files.
-- Any PR containing commits without serialization will be returned for correction.
+- Note: Any PR containing unserialized commits will be returned for correction.
 
 ### Working Branch
 
@@ -64,8 +88,8 @@ The pre-commit hook does several things when you run `git commit`:
 ### Commits, Pushes, and Merges
 
 - When you start working on an issue, move it to the "In Progress" column of the project board.
-- Every version of gist committed to the repository must be logically consistent. You can ensure this by loading the ontology into Protégé and running a reasoner.
-- If you use Protégé to edit gist, you must remove the stub definitions it inserts for terms that gist uses but does not define, such as SKOS annotation properties.
+- Every version of gist committed to the repository must be logically consistent. You can ensure this by loading the ontology into Protégé and running a reasoner, or by running a commandline reasoner.
+- If you use Protégé to edit gist, you must remove the stub definitions it inserts for terms that gist uses but does not define or import, such as SKOS annotation properties.
 - If you are working on a project that will require more than one commit, you should commit to your working branch regularly to create logical checkpoints that can be restored if necessary. Each commit should be atomic for ease of rollback or reversion. Ideally, you finish working on one sub-task and commit it before taking up another.
 - However, it is possible to go overboard and commit every little change independently. This creates clutter in the repository history.
 - As you work, it is _essential_ that you merge or rebase regularly from develop back into your working branch. This ensures that, when it comes time to merge your work into develop, you will have resolved most merge conflicts with a minimum of difficulty. Note that your PR cannot be merged to develop until all merge conflicts are resolved.
@@ -73,9 +97,6 @@ The pre-commit hook does several things when you run `git commit`:
   - Examples:
     - YES: "Fix typo in definition of gist:Address."
     - NO: "Fix typo."
-
-Pull Requests
------
 
 ### Creating the Pull Request (PR)
 
