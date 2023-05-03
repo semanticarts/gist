@@ -116,11 +116,6 @@ function findBaseDir() {
   return 0
 }
 
-function showFilesThatAreInCommit() {
-
-  git diff --cached --name-only
-}
-
 function serialize() {
 
   local file="$1"
@@ -220,9 +215,8 @@ __log_config__
 function serialize_all() {
 
   #echo "Checking the following files:"
-  #showFilesThatAreInCommit
 
-  for fileToBeCommitted in $(git diff --cached --name-only) ; do
+  for fileToBeCommitted in $(git diff --name-only) ; do
     if ! serialize "$fileToBeCommitted" ; then
       return 1
     fi
@@ -232,7 +226,7 @@ function serialize_all() {
 }
 
 function remove_skos_decls () {
-  for fileToBeCommitted in $(git diff --cached --name-only) ; do
+  for fileToBeCommitted in $(git diff --name-only) ; do
     permissions=$(stat -c "%a" "${fileToBeCommitted}")
     sed -e '/^skos/,+3d' "$fileToBeCommitted" > tmp$$
     mv tmp$$ "$fileToBeCommitted"
