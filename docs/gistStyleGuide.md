@@ -237,7 +237,7 @@ Certain RDFS annotations are recommended where there is no SKOS equivalent.
 | `skos:prefLabel` | Exactly 1 |
 | `skos:definition` | Exactly 1 |
 | `skos:scopeNote`, `skos:editorialNote`, `skos:note` | At the implementer's discretion, multiple unrelated notes can be included in either a single annotation or multiple annotations. |
-| `skos:example` | Recommended practice is to combine all examples into a single annotation. |
+| `skos:example` | Recommended practice is to combine all examples into a single annotation, especially if there is a list of short items. |
 
 -----
 
