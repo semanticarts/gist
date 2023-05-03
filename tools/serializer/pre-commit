@@ -121,7 +121,7 @@ function serialize() {
   local file="$1"
   if [ ! -f "$file" ] ; then
     log_error "Could not find file: $file"
-    return 1
+    return 0
   fi
 
     local extension="${file##*.}"
