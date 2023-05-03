@@ -1,0 +1,502 @@
+@prefix gist: <https://ontologies.semanticarts.com/gist/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xs: <http://www.w3.org/2001/XMLSchema#> .
+
+gist:Account
+	rdfs:subClassOf gist:Agreement ;
+	.
+
+gist:Actuator
+	rdfs:subClassOf gist:Equipment ;
+	.
+
+gist:Address
+	rdfs:subClassOf gist:Content ;
+	.
+
+gist:Agreement
+	rdfs:subClassOf gist:Commitment ;
+	.
+
+gist:Area
+	rdfs:subClassOf gist:ProductMagnitude ;
+	.
+
+gist:AreaUnit
+	rdfs:subClassOf gist:ProductUnit ;
+	.
+
+gist:Aspect
+	rdfs:subClassOf gist:Category ;
+	.
+
+gist:Balance
+	rdfs:subClassOf gist:Magnitude ;
+	.
+
+gist:BaseUnit
+	rdfs:subClassOf
+		gist:CoherentUnit ,
+		gist:SimpleUnitOfMeasure
+		;
+	.
+
+gist:Behavior
+	rdfs:subClassOf gist:Category ;
+	.
+
+gist:Building
+	rdfs:subClassOf
+		gist:Artifact ,
+		gist:Landmark
+		;
+	.
+
+gist:BundledCatalogItem
+	rdfs:subClassOf gist:CatalogItem ;
+	.
+
+gist:CatalogItem
+	rdfs:subClassOf gist:Specification ;
+	.
+
+gist:CoherentProductUnit
+	rdfs:subClassOf
+		gist:CoherentUnit ,
+		gist:ProductUnit
+		;
+	.
+
+gist:CoherentRatioUnit
+	rdfs:subClassOf
+		gist:CoherentUnit ,
+		gist:RatioUnit
+		;
+	.
+
+gist:CoherentUnit
+	rdfs:subClassOf gist:UnitOfMeasure ;
+	.
+
+gist:Commitment
+	rdfs:subClassOf gist:Intention ;
+	.
+
+gist:Component
+	rdfs:subClassOf gist:Artifact ;
+	.
+
+gist:ContemporaryEvent
+	rdfs:subClassOf gist:Event ;
+	.
+
+gist:Content
+	rdfs:subClassOf gist:Artifact ;
+	.
+
+gist:ContentExpression
+	rdfs:subClassOf gist:Content ;
+	.
+
+gist:ContingentEvent
+	rdfs:subClassOf gist:PlannedEvent ;
+	.
+
+gist:ContingentObligation
+	rdfs:subClassOf gist:Commitment ;
+	.
+
+gist:Contract
+	rdfs:subClassOf gist:Agreement ;
+	.
+
+gist:ContractTerm
+	rdfs:subClassOf gist:Specification ;
+	.
+
+gist:ControlledVocabulary
+	rdfs:subClassOf gist:Collection ;
+	.
+
+gist:Controller
+	rdfs:subClassOf gist:Equipment ;
+	.
+
+gist:ControllerType
+	rdfs:subClassOf gist:Category ;
+	.
+
+gist:Count
+	rdfs:subClassOf gist:Magnitude ;
+	.
+
+gist:CountingUnit
+	rdfs:subClassOf gist:SimpleUnitOfMeasure ;
+	.
+
+gist:CountryGeoRegion
+	rdfs:subClassOf gist:GovernedGeoRegion ;
+	.
+
+gist:CountryGovernment
+	rdfs:subClassOf gist:GovernmentOrganization ;
+	.
+
+gist:CurrencyUnit
+	rdfs:subClassOf gist:SimpleUnitOfMeasure ;
+	.
+
+gist:DataSizeUnit
+	rdfs:subClassOf gist:SimpleUnitOfMeasure ;
+	.
+
+gist:DegreeOfCommitment
+	rdfs:subClassOf gist:Category ;
+	.
+
+gist:DistanceUnit
+	rdfs:subClassOf gist:SimpleUnitOfMeasure ;
+	.
+
+gist:Duration
+	rdfs:subClassOf gist:Magnitude ;
+	.
+
+gist:DurationUnit
+	rdfs:subClassOf gist:SimpleUnitOfMeasure ;
+	.
+
+gist:ElectricCurrent
+	rdfs:subClassOf gist:Magnitude ;
+	.
+
+gist:ElectricalCurrentUnit
+	rdfs:subClassOf gist:SimpleUnitOfMeasure ;
+	.
+
+gist:ElectronicMessageAddress
+	rdfs:subClassOf gist:Address ;
+	.
+
+gist:EmailAddress
+	rdfs:subClassOf gist:ElectronicMessageAddress ;
+	.
+
+gist:Equipment
+	rdfs:subClassOf
+		gist:Artifact ,
+		gist:PhysicalIdentifiableItem
+		;
+	.
+
+gist:EquipmentType
+	rdfs:subClassOf gist:Category ;
+	.
+
+gist:Extent
+	rdfs:subClassOf gist:Magnitude ;
+	.
+
+gist:FormattedContent
+	rdfs:subClassOf gist:ContentExpression ;
+	.
+
+gist:Function
+	rdfs:subClassOf gist:Intention ;
+	.
+
+gist:GeneralMediaType
+	rdfs:subClassOf gist:Category ;
+	.
+
+gist:GeoPoint
+	rdfs:subClassOf gist:Place ;
+	.
+
+gist:GeoRegion
+	rdfs:subClassOf gist:Place ;
+	.
+
+gist:GeoRoute
+	rdfs:subClassOf
+		gist:OrderedCollection ,
+		gist:Place
+		;
+	.
+
+gist:GeoSegment
+	rdfs:subClassOf gist:Place ;
+	.
+
+gist:GeoVolume
+	rdfs:subClassOf gist:Place ;
+	.
+
+gist:Goal
+	rdfs:subClassOf gist:Intention ;
+	.
+
+gist:GovernedGeoRegion
+	rdfs:subClassOf gist:GeoRegion ;
+	.
+
+gist:GovernmentOrganization
+	rdfs:subClassOf gist:Organization ;
+	.
+
+gist:HistoricalEvent
+	rdfs:subClassOf gist:Event ;
+	.
+
+gist:ID
+	rdfs:subClassOf gist:Content ;
+	.
+
+gist:InformationQuantity
+	rdfs:subClassOf gist:Magnitude ;
+	.
+
+gist:IntellectualProperty
+	rdfs:subClassOf gist:Artifact ;
+	.
+
+gist:IntergovernmentalOrganization
+	rdfs:subClassOf gist:Organization ;
+	.
+
+gist:Landmark
+	rdfs:subClassOf
+		gist:PhysicalIdentifiableItem ,
+		gist:Place
+		;
+	.
+
+gist:LivingThing
+	rdfs:subClassOf gist:PhysicalIdentifiableItem ;
+	.
+
+gist:LuminousIntensity
+	rdfs:subClassOf gist:Magnitude ;
+	.
+
+gist:LuminousIntensityUnit
+	rdfs:subClassOf gist:SimpleUnitOfMeasure ;
+	.
+
+gist:Mass
+	rdfs:subClassOf gist:Magnitude ;
+	.
+
+gist:MassUnit
+	rdfs:subClassOf gist:SimpleUnitOfMeasure ;
+	.
+
+gist:MediaType
+	rdfs:subClassOf gist:Category ;
+	.
+
+gist:Medium
+	rdfs:subClassOf gist:Category ;
+	.
+
+gist:Message
+	rdfs:subClassOf gist:ContentExpression ;
+	.
+
+gist:MessageDefinition
+	rdfs:subClassOf gist:SchemaMetaData ;
+	.
+
+gist:MolarQuantity
+	rdfs:subClassOf gist:Magnitude ;
+	.
+
+gist:MoleUnit
+	rdfs:subClassOf gist:SimpleUnitOfMeasure ;
+	.
+
+gist:Monetary
+	rdfs:subClassOf gist:Magnitude ;
+	.
+
+gist:Network
+	rdfs:subClassOf gist:Artifact ;
+	.
+
+gist:Obligation
+	rdfs:subClassOf gist:Commitment ;
+	.
+
+gist:Offer
+	rdfs:subClassOf gist:ContingentObligation ;
+	.
+
+gist:OrderedCollection
+	rdfs:subClassOf gist:Collection ;
+	.
+
+gist:Permission
+	rdfs:subClassOf gist:Intention ;
+	.
+
+gist:Person
+	rdfs:subClassOf gist:LivingThing ;
+	.
+
+gist:PhenomenaType
+	rdfs:subClassOf gist:Category ;
+	.
+
+gist:PhysicalActionType
+	rdfs:subClassOf gist:Category ;
+	.
+
+gist:PhysicalEvent
+	rdfs:subClassOf gist:Event ;
+	.
+
+gist:PlannedEvent
+	rdfs:subClassOf gist:Event ;
+	.
+
+gist:PostalAddress
+	rdfs:subClassOf gist:Address ;
+	.
+
+gist:ProductCategory
+	rdfs:subClassOf gist:Category ;
+	.
+
+gist:ProductMagnitude
+	rdfs:subClassOf gist:Magnitude ;
+	.
+
+gist:ProductSpecification
+	rdfs:subClassOf gist:CatalogItem ;
+	.
+
+gist:ProductUnit
+	rdfs:subClassOf gist:UnitOfMeasure ;
+	.
+
+gist:ProjectExecution
+	rdfs:subClassOf gist:TaskExecution ;
+	.
+
+gist:RatioMagnitude
+	rdfs:subClassOf gist:Magnitude ;
+	.
+
+gist:RatioUnit
+	rdfs:subClassOf gist:UnitOfMeasure ;
+	.
+
+gist:ReferenceValue
+	rdfs:subClassOf gist:Magnitude ;
+	.
+
+gist:RenderedContent
+	rdfs:subClassOf gist:FormattedContent ;
+	.
+
+gist:Requirement
+	rdfs:subClassOf gist:Intention ;
+	.
+
+gist:Restriction
+	rdfs:subClassOf gist:Intention ;
+	.
+
+gist:ScheduledTaskExecution
+	rdfs:subClassOf
+		gist:PlannedEvent ,
+		gist:TaskExecution
+		;
+	.
+
+gist:Sensor
+	rdfs:subClassOf gist:Equipment ;
+	.
+
+gist:ServiceSpecification
+	rdfs:subClassOf gist:CatalogItem ;
+	.
+
+gist:SimpleUnitOfMeasure
+	rdfs:subClassOf gist:UnitOfMeasure ;
+	.
+
+gist:Specification
+	rdfs:subClassOf gist:Requirement ;
+	.
+
+gist:StreetAddress
+	rdfs:subClassOf gist:PostalAddress ;
+	.
+
+gist:SubCountryGovernment
+	rdfs:subClassOf gist:GovernmentOrganization ;
+	.
+
+gist:System
+	rdfs:subClassOf gist:Artifact ;
+	.
+
+gist:Tag
+	rdfs:subClassOf gist:Category ;
+	.
+
+gist:TaskExecution
+	rdfs:subClassOf gist:Event ;
+	.
+
+gist:TaskTemplate
+	rdfs:subClassOf gist:Template ;
+	.
+
+gist:Taxonomy
+	rdfs:subClassOf gist:ControlledVocabulary ;
+	.
+
+gist:TelephoneNumber
+	rdfs:subClassOf gist:Address ;
+	.
+
+gist:Temperature
+	rdfs:subClassOf gist:Magnitude ;
+	.
+
+gist:TemperatureUnit
+	rdfs:subClassOf gist:SimpleUnitOfMeasure ;
+	.
+
+gist:Text
+	rdfs:subClassOf gist:Content ;
+	.
+
+gist:TimeZone
+	rdfs:subClassOf gist:GeoRegion ;
+	.
+
+gist:TimeZoneStandard
+	rdfs:subClassOf gist:Specification ;
+	.
+
+gist:Transaction
+	rdfs:subClassOf gist:Event ;
+	.
+
+gist:TreatyOrganization
+	rdfs:subClassOf gist:IntergovernmentalOrganization ;
+	.
+
+gist:Volume
+	rdfs:subClassOf gist:ProductMagnitude ;
+	.
+
+gist:VolumeUnit
+	rdfs:subClassOf gist:ProductUnit ;
+	.
+
