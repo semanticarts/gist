@@ -478,7 +478,11 @@ gist:ContingentEvent
 		) ;
 	] ;
 	skos:definition "An event with a probability of happening in the future, and usually dependent upon some other event or condition."^^xsd:string ;
-	skos:example "Sell 20 shares of stock in a given company when the price drops below $200/share."^^xsd:string ;
+	skos:example
+		"Fire insurance is contingent on a particular building burning down"^^xsd:string ,
+		"Sell 20 shares of stock in a given company when the price drops below $200/share."^^xsd:string ,
+		"The death benefit payout on a life insurance policy following the death of a very specific person."^^xsd:string
+		;
 	skos:prefLabel "Contingent Event"^^xsd:string ;
 	.
 
