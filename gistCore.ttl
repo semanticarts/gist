@@ -17,6 +17,26 @@
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
 	.
 
+skos:scopeNote
+	a owl:AnnotationProperty ;
+	.
+
+sh:PrefixDeclaration
+	a owl:Class ;
+	.
+
+sh:declare
+	a owl:AnnotationProperty ;
+	.
+
+sh:namespace
+	a owl:AnnotationProperty ;
+	.
+
+sh:prefix
+	a owl:AnnotationProperty ;
+	.
+
 gist:Account
 	a owl:Class ;
 	owl:equivalentClass [
@@ -3354,9 +3374,13 @@ gist:isAllocatedBy
 		) ;
 	] ;
 	skos:definition "Relates the subject to whoever/whatever assigns or distributes it."^^xsd:string ;
-	skos:example "An employee's email address is allocated by the employer. A license plate is allocated by a state's Department of Motor Vehicles. An ID is allocated by whoever minted the ID."^^xsd:string ;
+	skos:example "A U.S. Social Security number is allocated by the U.S. Social Security Administration. The gist:MediaType 'CVS' is allocated by the gist Development Team."^^xsd:string ;
 	skos:prefLabel "is allocated by"^^xsd:string ;
-	gist:domainIncludes gist:ID ;
+	skos:scopeNote "The allocator may be a person or an organization, or even an automated process like an algorithm."^^xsd:string ;
+	gist:domainIncludes
+		gist:Category ,
+		gist:ID
+		;
 	.
 
 gist:isAspectOf
