@@ -1,10 +1,10 @@
 gist Release Notes
 =====
 
-Release 11.2.0
+Release 12.0.0
 -----
 
-Import URL: <https://ontologies.semanticarts.com/o/gistCore11.2.0>.
+Import URL: <https://ontologies.semanticarts.com/o/gistCore12.0.0>.
 
 Release 11.1.0
 -----
