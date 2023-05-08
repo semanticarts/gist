@@ -481,7 +481,7 @@ gist:ContingentEvent
 	skos:example
 		"Fire insurance is contingent on a particular building burning down"^^xsd:string ,
 		"Sell 20 shares of stock in a given company when the price drops below $200/share."^^xsd:string ,
-		"The death benefit payout on a life insurance policy following the death of a very specific person."^^xsd:string
+		"The death benefit payout on a life insurance policy following the death of a specific person."^^xsd:string
 		;
 	skos:prefLabel "Contingent Event"^^xsd:string ;
 	.
