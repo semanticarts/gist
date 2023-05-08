@@ -62,10 +62,7 @@ actions:
   inference: "none"
   source: "{input}"
   includes:
-    - gistCore.ttl
-    - gistMediaTypes.ttl
-    - gistPrefixDeclarations.ttl
-    - gistValidationAnnotations.ttl
+    - "*.ttl"
   shapes:
     source: "{input}/validation/shapes/ontologyShapes.ttl"
 - action: "verify"
@@ -94,9 +91,7 @@ actions:
     from: "(.*)\\.ttl"
     to: "\\g<1>{version}.ttl"
   includes:
-    - gistCore.ttl
-    - gistMediaTypes.ttl
-    - gistPrefixDeclarations.ttl
+    - "*.ttl"
 - action: "definedBy"
   message: "Adding rdfs:definedBy."
   source: "{output}"
