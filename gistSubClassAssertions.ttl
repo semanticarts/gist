@@ -12,7 +12,7 @@
 	owl:imports <https://ontologies.semanticarts.com/o/gistCore> ;
 	skos:definition "Supplementary subclass assertions for gistCore."^^xsd:string ;
 	skos:prefLabel "gist Subclass Assertions"^^xsd:string ;
-	skos:scopeNote "This ontology file contains supplementary subclass assertions that are logically entailed by gistCore but are unable to be inferred by some automated reasoners. (For example, an RL reasoner would not infer that gist:Commitment is a subclass of gist:Intention, even though it must be.) More precisely, it contains (1) subclass assertions derived using an OWL DL reasoner and (2) the subclass assertions that are already explicit in gistCore."^^xsd:string ;
+	skos:scopeNote "This ontology file contains supplementary subclass assertions that are logically entailed by gist but are not inferred by some automated reasoners. For example, an RL reasoner would not infer that gist:Commitment is a subclass of gist:Intention, even though it must be. More precisely, it contains (1) subclass assertions derived using an OWL DL reasoner and (2) the subclass assertions that are already explicit in gistCore."^^xsd:string ;
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
 	.
 
