@@ -1,10 +1,9 @@
-import sys
 import os
 import tempfile
 from rdflib import Graph
 import rdflib
 from owlready2 import get_ontology, default_world, sync_reasoner
-from rdflib.namespace import RDF, RDFS, OWL
+from rdflib.namespace import RDFS
 
 # This script can be used during the gist release process to generate gistSubClassAssertions.ttl. After running it, the release manager should manually add the ontology metadata (the owl:imports statement, the skos:prefLabel, etc.) before generating the release package.
 
