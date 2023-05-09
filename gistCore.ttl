@@ -900,7 +900,7 @@ gist:Event
 	skos:definition "Something that occurs over a period of time, often characterized as an activity being carried out by some person, organization, or software application or brought about by natural forces."^^xsd:string ;
 	skos:example "A transaction, conference, baseball game, earthquake."^^xsd:string ;
 	skos:prefLabel "Event"^^xsd:string ;
-	skos:scopeNote "An event does not necessarily have either planned or actual start or end dates. For example, a conference can be in the planning phase without any dates selected, but is nevertheless an (unscheduled) event. The subclasses of Event state particular restrictions on planned and actual start and end dates."^^xsd:string ;
+	skos:scopeNote "An event does not necessarily have either planned or actual start or end datetimes. For example, a conference can be in the planning phase without any dates selected, but is nevertheless an (unscheduled) event. The subclasses of Event state particular restrictions on planned and actual start and end dates."^^xsd:string ;
 	.
 
 gist:Extent
@@ -2106,9 +2106,8 @@ gist:ScheduledEvent
 			]
 		) ;
 	] ;
-	skos:definition "An event which, at the time it is created, is to occur in the future. It remains a scheduled event after it has started or ended, but then is also either a historical or contemporary event as well."^^xsd:string ;
-	skos:prefLabel "Scheduled Event"^^xsd:string ;
-	skos:scopeNote "Not all planned events are scheduled events. For example, a conference can be in an early planning phase without any dates yet selected."^^xsd:string ;
+skos:definition "An event with a planned start datetime."^^xsd:string ;
+skos:scopeNote "If the event already started, but has not yet ended, it is a contemporary event with an actual start datetime. If the event is over, it is a historical event having an actual end datetime. The event always retains its planned start datetime, and thus continues to be a scheduled event."^^xsd:string ; 
 	.
 
 gist:ScheduledTask
@@ -2120,8 +2119,9 @@ gist:ScheduledTask
 			gist:Task
 		) ;
 	] ;
-	skos:definition "A task that was or is planned to occur at a given time. When it was scheduled, it would have been in the future, but might now be in the past."^^xsd:string ;
 	skos:prefLabel "Scheduled Task"^^xsd:string ;
+	skos:definition "A task with a planned start datetime."^^xsd:string ;
+skos:scopeNote "If work on the task has already started, but has not yet ended, it will have an actual start datetime. If the task is completed, it will also have an actual end datetime. The task always retains its planned start time, and thus continues to be a scheduled task."^^xsd:string ; 
 	.
 
 gist:SchemaMetaData
@@ -3481,7 +3481,11 @@ gist:isTriggeredBy
 	a owl:ObjectProperty ;
 	skos:definition "Relates a contingency, such as an event or obligation, to the event that gives rise to it."^^xsd:string ;
 	skos:prefLabel "is triggered by"^^xsd:string ;
-	skos:scopeNote "For obligations, this property describes what must happen to trigger the contingent obligation.  In most cases, before the contingent obligation becomes an actual obligation, the triggering event is scheduled to occur in the future, since if it had already happened, the contingency would no longer be contingent. Other uses include controls, processes, etc."^^xsd:string ;
+skos:scopeNote "For obligations, this property describes what must happen to trigger the contingent obligation. Other uses include controls, processes, etc."^^xsd:string ;
+	skos:example
+		"Fire insurance is contingent on a particular building burning down"^^xsd:string ,
+		"The death benefit payout on a life insurance policy following the death of a specific person."^^xsd:string
+		;  
 	.
 
 gist:isUnderJurisdictionOf
