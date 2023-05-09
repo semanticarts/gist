@@ -3353,10 +3353,10 @@ gist:isAllocatedBy
 			gist:Person
 		) ;
 	] ;
-	skos:definition "Relates the subject to whoever/whatever assigns or distributes it."^^xsd:string ;
+	skos:definition "Relates the subject to whomever or whatever assigns or distributes it."^^xsd:string ;
 	skos:example "A U.S. Social Security number is allocated by the U.S. Social Security Administration. The media type https://www.iana.org/assignments/media-types/text/csv is allocated by the Internet Assigned Numbers Authority (IANA)."^^xsd:string ;
 	skos:prefLabel "is allocated by"^^xsd:string ;
-	skos:scopeNote "The allocator may be a person or an organization, or even an automated process like an algorithm."^^xsd:string ;
+	skos:scopeNote "The allocator may be a person, an organization, or an automated process such as an algorithm."^^xsd:string ;
 	gist:domainIncludes
 		gist:Category ,
 		gist:ID
