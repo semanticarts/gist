@@ -2022,7 +2022,7 @@ gist:ProjectExecution
 			gist:TaskExecution
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasSubTask ;
+				owl:onProperty gist:hasPart ;
 				owl:someValuesFrom gist:TaskExecution ;
 			]
 		) ;
@@ -3110,15 +3110,6 @@ gist:hasDirectPart
 		;
 	.
 
-gist:hasDirectSubTask
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:hasSubTask ;
-	rdfs:domain gist:TaskExecution ;
-	rdfs:range gist:TaskExecution ;
-	skos:definition "Immediate child task"^^xsd:string ;
-	skos:prefLabel "has direct sub task"^^xsd:string ;
-	.
-
 gist:hasDirectSuperCategory
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasSuperCategory ;
@@ -3273,17 +3264,6 @@ gist:hasStandardUnit
 	rdfs:range gist:CoherentUnit ;
 	skos:definition "For a complex unit refers to a unit that has all the component parts in SI"^^xsd:string ;
 	skos:prefLabel "has standard unit"^^xsd:string ;
-	.
-
-gist:hasSubTask
-	a
-		owl:ObjectProperty ,
-		owl:TransitiveProperty
-		;
-	rdfs:domain gist:TaskExecution ;
-	rdfs:range gist:TaskExecution ;
-	skos:definition "A task that is part of a larger task. The time frame of the subtasks may overlap but may not extend beyond the time frame of the parent task. A subtask may be part of more than one parent task."^^xsd:string ;
-	skos:prefLabel "has subtask"^^xsd:string ;
 	.
 
 gist:hasSuperCategory
@@ -3896,3 +3876,4 @@ gist:usesTimeZoneStandard
 		gist:_second
 	) ;
 	.
+
