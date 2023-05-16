@@ -95,7 +95,7 @@ actions:
     to: "\\g<1>{version}.ttl"
   includes:
     - "*.ttl"
-- action: "isDefinedBy"
+- action: "definedBy"
   message: "Adding rdfs:isDefinedBy."
   source: "{output}"
   target: "{output}"
