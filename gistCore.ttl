@@ -2106,6 +2106,7 @@ gist:ScheduledEvent
 			]
 		) ;
 	] ;
+skos:prefLabel "Scheduled Event" ;
 skos:definition "An event with a planned start datetime."^^xsd:string ;
 skos:scopeNote "If the event already started, but has not yet ended, it is a contemporary event with an actual start datetime. If the event is over, it is a historical event having an actual end datetime. The event always retains its planned start datetime, and thus continues to be a scheduled event."^^xsd:string ; 
 	.
