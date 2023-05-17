@@ -17,6 +17,46 @@
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
 	.
 
+gist:MonetaryPerDuration
+	a owl:Class ;
+	owl:equivalentClass [
+		owl:intersectionOf (
+			gist:RatioMagnitude
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasUnitOfMeasure ;
+				owl:someValuesFrom gist:CurrencyPerDurationUnit ;
+			]
+		) ;
+	] ;
+	skos:definition "A monetary amount over a period of time."^^xsd:string ;
+	skos:example "Dollars per hour, euros per month."^^xsd:string ;
+	skos:prefLabel "Monetary per Duration"^^xsd:string ;
+	.
+
+gist:CurrencyPerDurationUnit
+	a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:RatioUnit
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasDenominator ;
+				owl:someValuesFrom gist:DurationUnit ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasNumerator ;
+				owl:someValuesFrom gist:CurrencyUnit ;
+			]
+		) ;
+	] ;
+	skos:definition "A unit to measure a monetary amount over a period of time, such as dollars/hour or euros/month."^^xsd:string ;
+	skos:prefLabel "Currency per Duration Unit"^^xsd:string ;
+	.
+
+
 gist:Account
 	a owl:Class ;
 	owl:equivalentClass [
