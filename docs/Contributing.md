@@ -178,6 +178,7 @@ The pre-commit hook does several things when you run `git commit`:
   - Ontology and other code terms are enclosed in backticks and use the `gist:` prefix; e.g., `gist:Weight`.
   - Each note includes a link to the issue(s) - but not PRs - addressed.
   - Each note ends in a period.
+  - Bullets are symbolized with dash rather than asterisk.
   - Refer to the most recent release notes for examples.
   - Follow the heading conventions shown, as the [markdown configuration file](.markdownlint.json) dictates the mixed heading style.
   - Release note example:
