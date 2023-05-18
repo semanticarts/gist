@@ -26,7 +26,7 @@ def run_reasoner(input_ttl, output_ttl):
 
     raw_output_graph = Graph().parse(data=default_world.as_rdflib_graph().serialize(format='turtle'), format='turtle')
 
-    GIST = Namespace("https://ontologies.semanticarts.com/gist/")
+    GIST = Namespace("https://w3id.org/semanticarts/gist/")
     subclass_ontology = URIRef("https://ontologies.semanticarts.com/o/gistSubClassAssertions.ttl")
 
     output_graph = Graph()
