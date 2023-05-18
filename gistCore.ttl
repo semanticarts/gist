@@ -1,5 +1,5 @@
 @prefix : <https://ontologies.semanticarts.com/o/gistCore#> .
-@prefix gist: <https://ontologies.semanticarts.com/gist/> .
+@prefix gist: <https://w3id.org/semanticarts/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -2605,7 +2605,7 @@ gist:VolumeUnit
 
 gist:_PrefixDeclaration_gist
 	a sh:PrefixDeclaration ;
-	sh:namespace "https://ontologies.semanticarts.com/gist/"^^xsd:anyURI ;
+	sh:namespace "https://w3id.org/semanticarts/gist/"^^xsd:anyURI ;
 	sh:prefix "gist"^^xsd:string ;
 	.
 
