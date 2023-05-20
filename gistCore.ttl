@@ -25,7 +25,7 @@ gist:MonetaryPerDuration
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasUnitOfMeasure ;
-				owl:someValuesFrom gist:CurrencyPerDurationUnit ;
+				owl:allValuesFrom gist:CurrencyPerDurationUnit ;
 			]
 		) ;
 	] ;
@@ -43,16 +43,16 @@ gist:CurrencyPerDurationUnit
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasDenominator ;
-				owl:someValuesFrom gist:DurationUnit ;
+				owl:allValuesFrom gist:DurationUnit ;
 			]
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasNumerator ;
-				owl:someValuesFrom gist:CurrencyUnit ;
+				owl:allValuesFrom gist:CurrencyUnit ;
 			]
 		) ;
 	] ;
-	skos:definition "A unit to measure a monetary amount over a period of time, such as dollars/hour or euros/month."^^xsd:string ;
+	skos:definition "A unit for measuring a monetary amount over a period of time, such as dollars/hour or euros/month."^^xsd:string ;
 	skos:prefLabel "Currency per Duration Unit"^^xsd:string ;
 	.
 
