@@ -1,0 +1,47 @@
+prefix sh: <http://www.w3.org/ns/shacl#>
+prefix gist: <https://ontologies.semanticarts.com/gist/>
+prefix newGist: <https://w3id.org/semanticarts/gist/>
+
+CONSTRUCT {
+    ?report a sh:ValidationReport ;
+        sh:conforms false ;
+        sh:result
+            [
+                a sh:ValidationResult ;
+                sh:focusNode ?renamed ;
+                sh:resultMessage ?error ;
+                sh:resultSeverity sh:Warning ;
+                sh:sourceConstraintComponent <urn:constraint:renamed-entity>
+            ] .
+}
+WHERE {
+    {
+        select distinct ?renamed where {
+            values (?renamed ?newName) {
+                ## Issue: #760
+                ## PR: #777
+                (gist:TaskExecution newGist:Task)
+                (gist:ScheduledTaskExecution newGist:ScheduledTask)
+                (gist:ProjectExecution newGist:Project)
+                (gist:PlannedEvent newGist:ScheduledEvent)
+            }
+            {
+                ?s ?renamed ?o
+            } UNION {
+                ?s ?p ?renamed
+            } UNION {
+                ?renamed ?p ?o
+            } UNION {
+                graph ?g { ?s ?renamed ?o }
+            } UNION {
+                graph ?g { ?s ?p ?renamed }
+            } UNION {
+                graph ?g { ?renamed ?p ?o }
+            }
+        }
+    }
+    bind(<urn:renamed-entity-validation-report> as ?report)
+    bind(CONCAT("WARNING: incorrectly named property gist:",
+        REPLACE(STR(?renamed), '^.*[/#]', ''), " was changed to ", STR(?newName)
+        ) as ?error)
+}

@@ -1,0 +1,33 @@
+prefix gist: <https://ontologies.semanticarts.com/gist/>
+prefix newGist: <https://w3id.org/semanticarts/gist/>
+
+DELETE {
+  ?s ?removedInverse ?o
+}
+INSERT {
+  ?o ?replacementProperty ?s
+}
+where {
+  values (?replacementProperty ?removedInverse) {
+    (newGist:hasDirectPart gist:isDirectPartOf)
+    (newGist:hasDirectSubTask gist:isDirectSubTaskOf)
+    (newGist:hasDirectSuperCategory gist:hasDirectSubCategory)
+    (newGist:hasMember gist:isMemberOf)
+    (newGist:hasNavigationalParent gist:hasNavigationalChild)
+    (newGist:hasPart gist:isPartOf)
+    (newGist:hasSubTask gist:isSubTaskOf)
+    (newGist:hasSuperCategory gist:hasSubCategory)
+    (newGist:isAbout gist:isDescribedIn)
+    (newGist:isAffectedBy gist:affects)
+    (newGist:isBasedOn gist:isBasisFor)
+    (newGist:isGeographicallyContainedIn gist:containsGeographically)
+    (newGist:isGovernedBy gist:governs)
+    (newGist:isIdentifiedBy gist:identifies)
+    (newGist:isRecognizedBy gist:recognizes)
+    (newGist:occupiesGeographically gist:isGeographicallyOccupiedBy)
+    (newGist:occupiesGeographicallyPermanently gist:isGeographicallyPermanentlyOccupiedBy)
+    (newGist:precedes gist:follows)
+    (newGist:precedesDirectly gist:followsDirectly)
+  }
+  ?s ?removedInverse ?o
+}
