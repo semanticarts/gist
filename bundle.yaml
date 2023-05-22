@@ -196,7 +196,7 @@ actions:
     to: "(./\\g<1>.html)"
 - action: "copy"
   message: "Copying namespace document to Documentation directory and patching local links."
-  source: "NamespacesAndOntologyIRIs.md"
+  source: "{input}/docs/NamespacesAndOntologyIRIs.md"
   target: "{output}/Documentation/NamespacesAndOntologyIRIs.md"
   replace:
     from: "\\(./(\\w+)\\.md\\)"
