@@ -170,7 +170,7 @@ actions:
   includes:
     - "*.ttl"
 - action: "copy"
-  message: "Copying license text."
+  message: "Copying license."
   source: "{input}/LICENSE.txt"
   target: "{output}"
 - action: "copy"
