@@ -1,0 +1,28 @@
+prefix gist: <https://ontologies.semanticarts.com/gist/>
+prefix newGist: <https://w3id.org/semanticarts/gist/>
+
+DELETE {
+    ?oldTerm ?sp ?so .
+    ?ps ?oldTerm ?po .
+    ?os ?op ?oldTerm .
+}
+INSERT {
+    ?newTerm ?sp ?so .
+    ?ps ?newTerm ?po .
+    ?os ?op ?newTerm .
+}
+where {
+  values (?oldTerm ?newTerm) {
+    (gist:TaskExecution newGist:Task)
+    (gist:ScheduledTaskExecution newGist:ScheduledTask)
+    (gist:ProjectExecution newGist:Project)
+    (gist:PlannedEvent newGist:ScheduledEvent)
+  }
+  {
+      ?oldTerm ?sp ?so
+  } UNION {
+      ?ps ?oldTerm ?po
+  } UNION {
+      ?os ?op ?oldTerm
+  }
+}
