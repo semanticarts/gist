@@ -17,46 +17,6 @@
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
 	.
 
-gist:MonetaryPerDuration
-	a owl:Class ;
-	owl:equivalentClass [
-		owl:intersectionOf (
-			gist:RatioMagnitude
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasUnitOfMeasure ;
-				owl:allValuesFrom gist:CurrencyPerDurationUnit ;
-			]
-		) ;
-	] ;
-	skos:definition "A monetary amount over a period of time."^^xsd:string ;
-	skos:example "Dollars per hour, euros per month."^^xsd:string ;
-	skos:prefLabel "Monetary per Duration"^^xsd:string ;
-	.
-
-gist:CurrencyPerDurationUnit
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:RatioUnit
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasDenominator ;
-				owl:allValuesFrom gist:DurationUnit ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasNumerator ;
-				owl:allValuesFrom gist:CurrencyUnit ;
-			]
-		) ;
-	] ;
-	skos:definition "A unit for measuring a monetary amount over a period of time, such as dollars/hour or euros/month."^^xsd:string ;
-	skos:prefLabel "Currency per Duration Unit"^^xsd:string ;
-	.
-
-
 gist:Account
 	a owl:Class ;
 	owl:equivalentClass [
@@ -720,6 +680,28 @@ gist:CountryGovernment
 	skos:definition "A Government Organization which asserts both sovereignty (i.e., it is not governed by some other government organization) and governance over an entity generally recognized as a 'country'."^^xsd:string ;
 	skos:prefLabel "Country Government"^^xsd:string ;
 	skos:scopeNote "While a country government may enter into treaties with other country governments, there are no governing relationships among the treaty members."^^xsd:string ;
+	.
+
+gist:CurrencyPerDurationUnit
+	a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:RatioUnit
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasDenominator ;
+				owl:allValuesFrom gist:DurationUnit ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasNumerator ;
+				owl:allValuesFrom gist:CurrencyUnit ;
+			]
+		) ;
+	] ;
+	skos:definition "A unit for measuring a monetary amount over a period of time, such as dollars/hour or euros/month."^^xsd:string ;
+	skos:prefLabel "Currency per Duration Unit"^^xsd:string ;
 	.
 
 gist:CurrencyUnit
@@ -1574,6 +1556,23 @@ gist:Monetary
 	skos:prefLabel "Monetary"^^xsd:string ;
 	.
 
+gist:MonetaryPerDuration
+	a owl:Class ;
+	owl:equivalentClass [
+		owl:intersectionOf (
+			gist:RatioMagnitude
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasUnitOfMeasure ;
+				owl:allValuesFrom gist:CurrencyPerDurationUnit ;
+			]
+		) ;
+	] ;
+	skos:definition "A monetary amount over a period of time."^^xsd:string ;
+	skos:example "Dollars per hour, euros per month."^^xsd:string ;
+	skos:prefLabel "Monetary per Duration"^^xsd:string ;
+	.
+
 gist:Network
 	a owl:Class ;
 	owl:equivalentClass [
@@ -2146,9 +2145,9 @@ gist:ScheduledEvent
 			]
 		) ;
 	] ;
-skos:prefLabel "Scheduled Event" ;
-skos:definition "An event with a planned start datetime."^^xsd:string ;
-skos:scopeNote "If the event already started, but has not yet ended, it is a contemporary event with an actual start datetime. If the event is over, it is a historical event having an actual end datetime. The event always retains its planned start datetime, and thus continues to be a scheduled event."^^xsd:string ; 
+	skos:definition "An event with a planned start datetime."^^xsd:string ;
+	skos:prefLabel "Scheduled Event"^^xsd:string ;
+	skos:scopeNote "If the event already started, but has not yet ended, it is a contemporary event with an actual start datetime. If the event is over, it is a historical event having an actual end datetime. The event always retains its planned start datetime, and thus continues to be a scheduled event."^^xsd:string ;
 	.
 
 gist:ScheduledTask
@@ -2160,9 +2159,9 @@ gist:ScheduledTask
 			gist:Task
 		) ;
 	] ;
-	skos:prefLabel "Scheduled Task"^^xsd:string ;
 	skos:definition "A task with a planned start datetime."^^xsd:string ;
-skos:scopeNote "If work on the task has already started, but has not yet ended, it will have an actual start datetime. If the task is completed, it will also have an actual end datetime. The task always retains its planned start time, and thus continues to be a scheduled task."^^xsd:string ; 
+	skos:prefLabel "Scheduled Task"^^xsd:string ;
+	skos:scopeNote "If work on the task has already started, but has not yet ended, it will have an actual start datetime. If the task is completed, it will also have an actual end datetime. The task always retains its planned start time, and thus continues to be a scheduled task."^^xsd:string ;
 	.
 
 gist:SchemaMetaData
@@ -3521,12 +3520,12 @@ gist:isSupersededBy
 gist:isTriggeredBy
 	a owl:ObjectProperty ;
 	skos:definition "Relates a contingency, such as an event or obligation, to the event that gives rise to it."^^xsd:string ;
-	skos:prefLabel "is triggered by"^^xsd:string ;
-skos:scopeNote "For obligations, this property describes what must happen to trigger the contingent obligation. Other uses include controls, processes, etc."^^xsd:string ;
 	skos:example
 		"Fire insurance is contingent on a particular building burning down"^^xsd:string ,
 		"The death benefit payout on a life insurance policy following the death of a specific person."^^xsd:string
-		;  
+		;
+	skos:prefLabel "is triggered by"^^xsd:string ;
+	skos:scopeNote "For obligations, this property describes what must happen to trigger the contingent obligation. Other uses include controls, processes, etc."^^xsd:string ;
 	.
 
 gist:isUnderJurisdictionOf
@@ -3914,3 +3913,4 @@ gist:usesTimeZoneStandard
 		gist:_second
 	) ;
 	.
+
