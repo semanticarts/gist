@@ -1,6 +1,5 @@
 prefix sh: <http://www.w3.org/ns/shacl#>
 prefix gist: <https://ontologies.semanticarts.com/gist/>
-prefix newGist: <https://w3id.org/semanticarts/gist/>
 
 CONSTRUCT {
   ?report a sh:ValidationReport ;
@@ -21,17 +20,17 @@ WHERE {
       values (?renamed ?newName) {
         ## Issue: #760
         ## PR: #777
-        (gist:TaskExecution newGist:Task)
-        (gist:ScheduledTaskExecution newGist:ScheduledTask)
-        (gist:ProjectExecution newGist:Project)
-        (gist:PlannedEvent newGist:ScheduledEvent)
+        (gist:TaskExecution gist:Task)
+        (gist:ScheduledTaskExecution gist:ScheduledTask)
+        (gist:ProjectExecution gist:Project)
+        (gist:PlannedEvent gist:ScheduledEvent)
       }
       {
-          ?s ?renamed ?o
+          graph ?g { ?s ?renamed ?o }
       } UNION {
-          ?s ?p ?renamed
+          graph ?g { ?s ?p ?renamed }
       } UNION {
-          ?renamed ?p ?o
+          graph ?g { ?renamed ?p ?o }
       }
     }
   }

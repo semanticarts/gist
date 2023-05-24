@@ -1,6 +1,5 @@
 prefix sh: <http://www.w3.org/ns/shacl#>
 prefix gist: <https://ontologies.semanticarts.com/gist/>
-prefix newGist: <https://w3id.org/semanticarts/gist/>
 
 CONSTRUCT {
     ?report a sh:ValidationReport ;
@@ -8,7 +7,7 @@ CONSTRUCT {
         sh:result
             [
                 a sh:ValidationResult ;
-                sh:focusNode ?s ;
+                sh:focusNode ?p ;
                 sh:resultMessage ?error ;
                 sh:resultSeverity sh:Warning ;
                 sh:sourceConstraintComponent <urn:constraint:renamed-entity>
@@ -17,10 +16,10 @@ CONSTRUCT {
 WHERE {
     {
         ?s ?p ?o 
-        FILTER(STRSTARTS(STR(?s), "https://ontologies.semanticarts.com/gist/"))
+        FILTER(STRSTARTS(STR(?p), "https://ontologies.semanticarts.com/gist/"))
     }
     bind(<urn:renamed-entity-validation-report> as ?report)
-    bind(CONCAT("WARNING: old namespace in use: ", STR(?s),
-        ". This should now be: https://w3id.org/semanticarts/gist/", REPLACE(STR(?s), '^.*[/#]', '')
+    bind(CONCAT("WARNING: old namespace in use: ", STR(?p),
+        ". This should now be: https://ontologies.semanticarts.com/gist/", REPLACE(STR(?p), '^.*[/#]', '')
         ) as ?error)
 }

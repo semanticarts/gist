@@ -7,7 +7,7 @@ CONSTRUCT {
     sh:result
       [
         a sh:ValidationResult ;
-        sh:focusNode ?o ;
+        sh:focusNode ?g ;
         sh:resultMessage ?error ;
         sh:resultSeverity sh:Warning ;
         sh:sourceConstraintComponent <urn:constraint:renamed-entity>
@@ -15,11 +15,11 @@ CONSTRUCT {
 }
 WHERE {
   GRAPH ?g {
-    ?s ?p ?o
+    ?s ?p ?o 
   }
-  FILTER(STRSTARTS(STR(?o), "https://ontologies.semanticarts.com/gist/"))
+  FILTER(STRSTARTS(STR(?g), "https://ontologies.semanticarts.com/gist/"))
   BIND(<urn:renamed-entity-validation-report> as ?report)
-  BIND(CONCAT("WARNING: old namespace in use: ", STR(?o),
-    ". This should now be: https://w3id.org/semanticarts/gist/", REPLACE(STR(?o), '^.*[/#]', '')
+  BIND(CONCAT("WARNING: old namespace in use: ", STR(?g),
+    ". This should now be: https://ontologies.semanticarts.com/gist/", REPLACE(STR(?g), '^.*[/#]', '')
     ) as ?error)
 }
