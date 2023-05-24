@@ -1,0 +1,41 @@
+prefix gist: <https://ontologies.semanticarts.com/gist/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+DELETE {
+  ?s ?p ?percentage .
+  ?percentage ?predicate ?object ;
+    rdf:type ?types ;
+  .
+}
+INSERT {
+  ?s ?p ?magnitude .
+  ?magnitude gist:hasUnitOfMeasure gist:_percent ;
+    rdf:type gist:Magnitude ;
+    gist:numericValue ?value ;
+    ?predicate ?object ;
+  .
+}
+WHERE {
+  {
+    # subjects with reference to percentage
+    ?s ?p ?percentage .
+    ?percentage rdf:type gist:Percentage ;
+      gist:numericValue ?value ;
+    .
+  } UNION {
+    ?percentage rdf:type gist:Percentage ;
+      # the value of the percentage
+      # predicate must exist
+      gist:numericValue ?value ;
+      # types to delete
+      rdf:type ?types ;
+      # data/object/annotation properties
+      ?predicate ?object ;
+      # no types moved to new magnitude object
+      FILTER(?predicate != rdf:type)
+    .
+  }
+  # new gist:Magnitude using hash of percentage for iri
+  # duplicates from union will be the same object from hash of percentage
+  BIND(IRI(CONCAT(STR(gist:Magnitude), "-", SHA256(STR(?percentage))))AS ?magnitude)
+}
