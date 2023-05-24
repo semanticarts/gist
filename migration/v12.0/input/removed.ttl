@@ -1,40 +1,50 @@
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ex: <https://data.ex.com/data/> .
+@prefix gist: <https://ontologies.semanticarts.com/gist/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix gist: <https://ontologies.semanticarts.com/gist/> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix ex: <https://data.ex.com/data/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-## these have no migration and will result in an invalid report
+ex:_subject_100
+	ex:_predicate_100
+		gist:Percentage ,
+		gist:TimeZone ,
+		gist:TimeZoneStandard ,
+		gist:TreatyOrganization ,
+		gist:hasOffsetToUniversal ,
+		gist:usesTimeZoneStandard
+		;
+	gist:Percentage ex:_object_100 ;
+	gist:TimeZone ex:_object_100 ;
+	gist:TimeZoneStandard ex:_object_100 ;
+	gist:TreatyOrganization ex:_object_100 ;
+	gist:hasOffsetToUniversal ex:_object_100 ;
+	gist:usesTimeZoneStandard ex:_object_100 ;
+	.
 
-## Issue: #785
-## PR: #793
-gist:Percentage ex:_predicate ex:_object .
-ex:_subject gist:Percentage ex:_object .
-ex:_subject ex:_predicate gist:Percentage .
+gist:Percentage
+	ex:_predicate_100 ex:_object_100 ;
+	.
 
-## Issue: #650 
-## PR: #815
-gist:TimeZone ex:_predicate ex:_object .
-ex:_subject gist:TimeZone ex:_object .
-ex:_subject ex:_predicate gist:TimeZone .
+gist:TimeZone
+	ex:_predicate_100 ex:_object_100 ;
+	.
 
-gist:TimeZoneStandard ex:_predicate ex:_object .
-ex:_subject gist:TimeZoneStandard ex:_object .
-ex:_subject ex:_predicate gist:TimeZoneStandard .
+gist:TimeZoneStandard
+	ex:_predicate_100 ex:_object_100 ;
+	.
 
-gist:hasOffsetToUniversal ex:_predicate ex:_object .
-ex:_subject gist:hasOffsetToUniversal ex:_object .
-ex:_subject ex:_predicate gist:hasOffsetToUniversal .
+gist:TreatyOrganization
+	ex:_predicate_100 ex:_object_100 ;
+	.
 
-gist:usesTimeZoneStandard ex:_predicate ex:_object .
-ex:_subject gist:usesTimeZoneStandard ex:_object .
-ex:_subject ex:_predicate gist:usesTimeZoneStandard .
+gist:hasOffsetToUniversal
+	ex:_predicate_100 ex:_object_100 ;
+	.
 
-## Issue: #766, 756
-## PR: #825
-gist:TreatyOrganization ex:_predicate ex:_object .
-ex:_subject gist:TreatyOrganization ex:_object .
-ex:_subject ex:_predicate gist:TreatyOrganization .
+gist:usesTimeZoneStandard
+	ex:_predicate_100 ex:_object_100 ;
+	.
+

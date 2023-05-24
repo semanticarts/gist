@@ -1,6 +1,5 @@
 prefix sh: <http://www.w3.org/ns/shacl#>
-prefix gist: <https://ontologies.semanticarts.com/gist/>
-prefix newGist: <https://w3id.org/semanticarts/gist/>
+prefix gist: <https://w3id.org/semanticarts/gist/>
 
 CONSTRUCT {
     ?report a sh:ValidationReport ;
