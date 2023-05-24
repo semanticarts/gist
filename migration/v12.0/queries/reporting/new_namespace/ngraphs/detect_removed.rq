@@ -1,5 +1,5 @@
 prefix sh: <http://www.w3.org/ns/shacl#>
-prefix gist: <https://ontologies.semanticarts.com/gist/>
+prefix gist: <https://w3id.org/semanticarts/gist/>
 
 CONSTRUCT {
 ?report a sh:ValidationReport ;
@@ -52,11 +52,11 @@ WHERE {
         gist:TreatyOrganization
       }
       {
-          ?s ?deleted ?o
+          graph ?g { ?s ?deleted ?o }
       } UNION {
-          ?s ?p ?deleted
+          graph ?g { ?s ?p ?deleted }
       } UNION {
-          ?deleted ?p ?o
+          graph ?g { ?deleted ?p ?o }
       }
     }
   }

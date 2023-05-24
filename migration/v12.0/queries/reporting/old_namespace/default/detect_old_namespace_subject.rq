@@ -1,0 +1,25 @@
+prefix sh: <http://www.w3.org/ns/shacl#>
+prefix gist: <https://ontologies.semanticarts.com/gist/>
+
+CONSTRUCT {
+    ?report a sh:ValidationReport ;
+        sh:conforms false ;
+        sh:result
+            [
+                a sh:ValidationResult ;
+                sh:focusNode ?s ;
+                sh:resultMessage ?error ;
+                sh:resultSeverity sh:Warning ;
+                sh:sourceConstraintComponent <urn:constraint:renamed-entity>
+            ] .
+}
+WHERE {
+    {
+        ?s ?p ?o 
+        FILTER(STRSTARTS(STR(?s), "https://ontologies.semanticarts.com/gist/"))
+    }
+    bind(<urn:renamed-entity-validation-report> as ?report)
+    bind(CONCAT("WARNING: old namespace in use: ", STR(?s),
+        ". This should now be: https://ontologies.semanticarts.com/gist/", REPLACE(STR(?s), '^.*[/#]', '')
+        ) as ?error)
+}
