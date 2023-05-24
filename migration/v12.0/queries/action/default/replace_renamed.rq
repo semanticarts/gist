@@ -1,5 +1,4 @@
 prefix gist: <https://ontologies.semanticarts.com/gist/>
-prefix newGist: <https://w3id.org/semanticarts/gist/>
 
 DELETE {
     ?oldTerm ?sp ?so .
@@ -11,12 +10,12 @@ INSERT {
     ?ps ?newTerm ?po .
     ?os ?op ?newTerm .
 }
-where {
-  values (?oldTerm ?newTerm) {
-    (gist:TaskExecution newGist:Task)
-    (gist:ScheduledTaskExecution newGist:ScheduledTask)
-    (gist:ProjectExecution newGist:Project)
-    (gist:PlannedEvent newGist:ScheduledEvent)
+WHERE {
+  VALUES (?oldTerm ?newTerm) {
+    (gist:TaskExecution gist:Task)
+    (gist:ScheduledTaskExecution gist:ScheduledTask)
+    (gist:ProjectExecution gist:Project)
+    (gist:PlannedEvent gist:ScheduledEvent)
   }
   {
       ?oldTerm ?sp ?so
