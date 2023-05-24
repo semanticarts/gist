@@ -1,0 +1,71 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix gist: <https://ontologies.semanticarts.com/gist/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ex: <https://data.ex.com/data/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+## Issue: #506
+## PR: #813
+
+# | Properties retained in gist | Inverse properties removed from gist|
+# | ----------- | ----------- | 
+# `hasDirectPart` | `isDirectPartOf`
+# `hasDirectSubTask` | `isDirectSubTaskOf`
+# `hasDirectSuperCategory` | `hasDirectSubCategory`
+# `hasMember` | `isMemberOf`
+# `hasNavigationalParent` | `hasNavigationalChild`
+# `hasPart` | `isPartOf`
+# `hasSubTask` | `isSubTaskOf`
+# `hasSuperCategory` | `hasSubCategory`
+# `isAbout` | `isDescribedIn`
+# `isAffectedBy` | `affects`
+# `isBasedOn` | `isBasisFor`
+# `isGeographicallyContainedIn` | `containsGeographically`
+# `isGovernedBy` | `governs`
+# `isIdentifiedBy` | `identifies`
+# `isRecognizedBy` | `recognizes`
+# `occupiesGeographically` | `isGeographicallyOccupiedBy`
+# `occupiesGeographicallyPermanently` | `isGeographicallyPermanentlyOccupiedBy`
+# `precedes` | `follows`
+# `precedesDirectly` | `followsDirectly`
+
+ex:_subject gist:isDirectPartOf ex:_object .
+
+ex:_subject gist:isDirectSubTaskOf ex:_object .
+
+ex:_subject gist:hasDirectSubCategory ex:_object .
+
+ex:_subject gist:isMemberOf ex:_object .
+
+ex:_subject gist:hasNavigationalChild ex:_object .
+
+ex:_subject gist:isPartOf ex:_object .
+
+ex:_subject gist:isSubTaskOf ex:_object .
+
+ex:_subject gist:hasSubCategory ex:_object .
+
+ex:_subject gist:isDescribedIn ex:_object .
+
+ex:_subject gist:affects ex:_object .
+
+ex:_subject gist:isBasisFor ex:_object .
+
+ex:_subject gist:containsGeographically ex:_object .
+
+ex:_subject gist:governs ex:_object .
+
+ex:_subject gist:identifies ex:_object .
+
+ex:_subject gist:recognizes ex:_object .
+
+ex:_subject gist:isGeographicallyOccupiedBy ex:_object .
+
+ex:_subject gist:isGeographicallyPermanentlyOccupiedBy ex:_object .
+
+ex:_subject gist:follows ex:_object .
+
+ex:_subject gist:followsDirectly ex:_object .

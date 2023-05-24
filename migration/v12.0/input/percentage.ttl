@@ -1,0 +1,15 @@
+@prefix ex: <https://data.ex.com/data/> .
+@prefix gist: <https://ontologies.semanticarts.com/gist/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# example 1: gist:Percentage with no relationships
+ex:_percentage_1 a gist:Percentage ;
+    gist:numericValue 12 ;
+    ex:_predicate_1 "example 1" .
+
+ex:_non_percentage_3 ex:_predicate_2 ex:_percentage_1 .
+
+# example 2: gist:Percentage with extra predicate and being referenced
+ex:_percentage_2 a gist:Percentage ;
+    gist:numericValue 10 ;
+    ex:_predicate_1 "example" .
