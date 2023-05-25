@@ -1,7 +1,7 @@
 bundle: gist-v12.0-migration
 variables:
   action_queries_path: "./queries/action"
-  reporting_queries_path: "./queries/reporting/new_namespace"
+  reporting_queries_path: "./queries/report/default/new_namespace"
   input: "./input"
   output: "./output"
   report: "./reports"
@@ -65,7 +65,7 @@ actions:
       - "*.ttl"
       - "*.owl"
     queries:
-      source: "{reporting_queries_path}/default/"
+      source: "{reporting_queries_path}/"
       includes:
         - "detect_removed.rq"
         - "detect_renamed.rq"
