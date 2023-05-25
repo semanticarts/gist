@@ -1,6 +1,6 @@
 bundle: gist-v12.0-migration
 variables:
-  action_queries_path: "./queries/action"
+  action_queries_path: "./queries/action/default"
   reporting_queries_path: "./queries/report/default/new_namespace"
   input: "./input"
   output: "./output"
@@ -8,13 +8,13 @@ variables:
 tools:
   - name: "inverse-properties"
     type: "sparql"
-    query: "{action_queries_path}/default/replace_inverse_properties.rq"
+    query: "{action_queries_path}/replace_inverse_properties.rq"
   - name: "rename-terms"
     type: "sparql"
-    query: "{action_queries_path}/default/replace_renamed.rq"
+    query: "{action_queries_path}/replace_renamed.rq"
   - name: "replace-percentage"
     type: "sparql"
-    query: "{action_queries_path}/default/replace_percentage.rq"
+    query: "{action_queries_path}/replace_percentage.rq"
 actions:
   # transform actions
   # note: first transform is input -> output
