@@ -109,7 +109,7 @@ actions:
   includes:
     - "*.ttl"
   query: >
-    prefix gist: <https://ontologies.semanticarts.com/gist/>
+    prefix gist: <https://w3id.org/semanticarts/gist/>
     prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     prefix skos: <http://www.w3.org/2004/02/skos/core#>
 
@@ -170,7 +170,7 @@ actions:
   includes:
     - "*.ttl"
 - action: "copy"
-  message: "Copying license text."
+  message: "Copying license."
   source: "{input}/LICENSE.txt"
   target: "{output}"
 - action: "copy"
@@ -195,6 +195,13 @@ actions:
     from: "\\(./(\\w+)\\.md\\)"
     to: "(./\\g<1>.html)"
 - action: "copy"
+  message: "Copying namespace document to Documentation directory and patching local links."
+  source: "{input}/docs/NamespacesAndOntologyIRIs.md"
+  target: "{output}/Documentation/NamespacesAndOntologyIRIs.md"
+  replace:
+    from: "\\(./(\\w+)\\.md\\)"
+    to: "(./\\g<1>.html)"
+- action: "copy"
   message: "Copying gist logo to Documentation directory."
   source: "gist-logo.png"
   target: "{output}/Documentation/gist-logo.png"
@@ -210,6 +217,10 @@ actions:
   message: "Formatting migration instructions."
   source: "{output}/Documentation/MajorVersionMigration.md"
   target: "{output}/Documentation/MajorVersionMigration.html"
+- action: "markdown"
+  message: "Formatting namespace document."
+  source: "{output}/Documentation/NamespacesAndOntologyIRIs.md"
+  target: "{output}/Documentation/NamespacesAndOntologyIRIs.html"
 - action: "markdown"
   message: "Formatting migration readme."
   source: "{output}/migration/v11.0/README.md"
