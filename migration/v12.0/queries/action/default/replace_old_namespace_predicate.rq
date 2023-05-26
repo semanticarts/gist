@@ -1,0 +1,11 @@
+DELETE {
+  ?s ?p ?o
+}
+INSERT {
+  ?s ?newP ?o
+}
+WHERE {
+  ?s ?p ?o 
+  FILTER(STRSTARTS(STR(?p), "https://ontologies.semanticarts.com/gist/"))
+  BIND(IRI(CONCAT("https://w3id.org/semanticarts/gist/", REPLACE(STR(?p), "^.*[/#]", "")))AS ?newP)
+}
