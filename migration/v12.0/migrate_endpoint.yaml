@@ -10,7 +10,7 @@ variables:
   password: "UPDATE_PASSWORD"
   report: "./reports"
 actions:
-  default
+  # default
   - action: "sparql"
     message: "Replace removed inverse properties in default graph."
     query: "{action_queries_path_default}/replace_inverse_properties.rq"
