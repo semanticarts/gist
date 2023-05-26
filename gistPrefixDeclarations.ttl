@@ -6,9 +6,9 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://ontologies.semanticarts.com/o/gistPrefixDeclarations>
+<https://w3id.org/semanticarts/gistPrefixDeclarations>
 	a owl:Ontology ;
-	owl:versionIRI <https://ontologies.semanticarts.com/o/gistPrefixDeclarationsX.x.x> ;
+	owl:versionIRI <https://w3id.org/semanticarts/gistPrefixDeclarationsX.x.x> ;
 	skos:definition "Prefix declarations, which pair a prefix with a namespace, used in the gist ontology. Provided to support applications such as visualizers."^^xsd:string ;
 	skos:prefLabel "gist Prefix Declarations"^^xsd:string ;
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
