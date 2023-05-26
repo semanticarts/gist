@@ -14,14 +14,14 @@ INSERT {
     ?os ?op ?newTerm .
   }
 }
-where {
-  values (?oldTerm ?newTerm) {
+WHERE {
+  VALUES (?oldTerm ?newTerm) {
     (gist:TaskExecution gist:Task)
     (gist:ScheduledTaskExecution gist:ScheduledTask)
     (gist:ProjectExecution gist:Project)
     (gist:PlannedEvent gist:ScheduledEvent)
   }
-  graph ?graph {
+  GRAPH ?graph {
     {
       ?oldTerm ?sp ?so
     } UNION {
