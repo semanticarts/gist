@@ -51,7 +51,7 @@ In the background the system always expands these shortcuts.
 The default namespace
 -----
 
-Most ontology editing tools allow the use of a “default” namespace. If
+Most ontology editing tools allow the use of a "default" namespace. If
 you do not add a prefix to terms you are using, the system will assume
 you meant the default, which by default is the name of the ontology
 itself. This is the root of the confusion.
@@ -64,7 +64,7 @@ Minting IRIs
 -----
 
 The person or system that first defines a term or creates an identifier
-for a real world instance is said to have “minted” the identifier. It
+for a real world instance is said to have "minted" the identifier. It
 mints it within a namespace. It should be a namespace you have
 control over. Minting an IRI in someone else’s namespace is called
 "namespace squatting." Not only is it poor form, it doesn’t really
@@ -85,7 +85,7 @@ This is essentially a path within the domain name `w3id.org`, whose owners
 have given us exclusive control over. When we mint new terms, we will do so
 in this namespace.
 
-An ontology needn’t have any IRIs minted it its “own” namespace
+An ontology needn’t have any IRIs minted it its "own" namespace
 -----
 
 To cement the idea that the ontology need not have a 1:1 coorespondence to
