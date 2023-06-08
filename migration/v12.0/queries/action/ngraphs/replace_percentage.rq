@@ -1,0 +1,55 @@
+PREFIX gist: <https://ontologies.semanticarts.com/gist/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ex: <https://www.example.org/>
+
+# This query will find instances of gist:Percentage as used in gist v11
+# and change them to instances of gist:Magnitude as used in gist v12.
+# However, you probably will want instances URIs to be different than what
+# this query will create, so review the BIND() below and change as needed.
+
+DELETE {
+  GRAPH ?g {
+    ?s ?p ?percentage .
+    ?percentage ?predicate ?object ;
+      rdf:type ?types ;
+    .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    ?s ?p ?magnitude .
+    ?magnitude gist:hasUnitOfMeasure gist:_percent ;
+      rdf:type gist:Magnitude ;
+      gist:numericValue ?value ;
+      ?predicate ?object ;
+    .
+  }
+}
+WHERE {
+  {
+    GRAPH ?g {
+      # subjects with reference to percentage
+      ?s ?p ?percentage .
+      ?percentage rdf:type gist:Percentage ;
+        gist:numericValue ?value ;
+      .
+    }
+  } UNION {
+    GRAPH ?g {
+      ?percentage rdf:type gist:Percentage ;
+        # the value of the percentage
+        # predicate must exist
+        gist:numericValue ?value ;
+        # types to delete
+        rdf:type ?types ;
+        # data/object/annotation properties
+        ?predicate ?object ;
+        # no types moved to new magnitude object
+        FILTER(?predicate != rdf:type)
+      .
+    }
+  }
+  # new gist:Magnitude using hash of percentage for iri
+  # duplicates from union will be the same object from hash of percentage
+  BIND(IRI(CONCAT(STR(ex:_Magnitude_), SHA256(STR(?percentage)))) AS ?magnitude)
+}

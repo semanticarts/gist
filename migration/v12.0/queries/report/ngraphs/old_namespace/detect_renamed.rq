@@ -1,0 +1,42 @@
+prefix sh: <http://www.w3.org/ns/shacl#>
+prefix gist: <https://ontologies.semanticarts.com/gist/>
+
+CONSTRUCT {
+  ?report a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result
+      [
+        a sh:ValidationResult ;
+        sh:focusNode ?renamed ;
+        sh:resultMessage ?error ;
+        sh:resultSeverity sh:Warning ;
+        sh:sourceConstraintComponent <urn:constraint:renamed-entity>
+      ]
+  .
+}
+WHERE {
+  {
+    select distinct ?renamed ?newName where {
+      values (?renamed ?newName) {
+        ## Issue: #760
+        ## PR: #777
+        (gist:TaskExecution gist:Task)
+        (gist:ScheduledTaskExecution gist:ScheduledTask)
+        (gist:ProjectExecution gist:Project)
+        (gist:PlannedEvent gist:ScheduledEvent)
+      }
+      {
+          graph ?g { ?s ?renamed ?o }
+      } UNION {
+          graph ?g { ?s ?p ?renamed }
+      } UNION {
+          graph ?g { ?renamed ?p ?o }
+      }
+    }
+  }
+  BIND(<urn:renamed-entity-validation-report> as ?report)
+  BIND(CONCAT("WARNING: detected use of a class name that has changed - gist:",
+      REPLACE(STR(?renamed), '^.*[/#]', ''), " was changed to gist:", 
+      REPLACE(STR(?newName), '^.*[/#]', '')
+      ) as ?error)
+}

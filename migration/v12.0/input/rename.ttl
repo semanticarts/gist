@@ -1,0 +1,26 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix gist: <https://ontologies.semanticarts.com/gist/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ex: <https://data.ex.com/data/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+## Issue: #760
+## PR: #777
+gist:TaskExecution ex:_predicate_1 ex:_object_1 .
+ex:_subject_1 gist:TaskExecution ex:_object_1 .
+ex:_subject_1 ex:_predicate_1 gist:TaskExecution .
+
+gist:ScheduledTaskExecution ex:_predicate_2 ex:_object_2 .
+ex:_subject_2 gist:ScheduledTaskExecution ex:_object_2 .
+ex:_subject_2 ex:_predicate_2 gist:ScheduledTaskExecution .
+
+gist:ProjectExecution ex:_predicate_3 ex:_object_3 .
+ex:_subject_3 gist:ProjectExecution ex:_object_3 .
+ex:_subject_3 ex:_predicate_3 gist:ProjectExecution .
+
+gist:PlannedEvent ex:_predicate_4 ex:_object_4 .
+ex:_subject_4 gist:PlannedEvent ex:_object_4 .
+ex:_subject_4 ex:_predicate_4 gist:PlannedEvent .

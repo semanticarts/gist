@@ -1,0 +1,74 @@
+bundle: gist-v12.0-migration
+variables:
+  action_queries_path: "./queries/action/default"
+  reporting_queries_path: "./queries/report/default/new_namespace"
+  input: "./input"
+  output: "./output"
+  report: "./reports"
+tools:
+  - name: "inverse-properties"
+    type: "sparql"
+    query: "{action_queries_path}/replace_inverse_properties.rq"
+  - name: "rename-terms"
+    type: "sparql"
+    query: "{action_queries_path}/replace_renamed.rq"
+  - name: "replace-percentage"
+    type: "sparql"
+    query: "{action_queries_path}/replace_percentage.rq"
+actions:
+  # transform actions
+  # note: first transform is input -> output
+  #   following are output -> output
+  - action: "transform"
+    message: "Replace inverse properties."
+    tool: "inverse-properties"
+    source: "{input}"
+    target: "{output}"
+    includes:
+      - "*.ttl"
+      - "*.owl"
+  - action: "transform"
+    message: "Migrate renamed terms."
+    tool: "rename-terms"
+    source: "{output}"
+    target: "{output}"
+    includes:
+      - "*.ttl"
+      - "*.owl"
+  - action: "transform"
+    message: "Replace use of gist:Percentage."
+    tool: "replace-percentage"
+    source: "{output}"
+    target: "{output}"
+    includes:
+      - "*.ttl"
+      - "*.owl"
+  # replace namespace
+  - action: "move"
+    source: "{output}"
+    target: "{output}"
+    includes:
+      - "*.ttl"
+      - "*.owl"
+    replace:
+      from: "https://ontologies.semanticarts.com/gist/"
+      to: "https://w3id.org/semanticarts/gist/"
+  # validation
+  - action: "verify"
+    message: "Check for issues that should be reviewed."
+    type: "construct"
+    inference: "none"
+    stopOnFail: false
+    source: "{output}"
+    target: "{report}"
+    includes:
+      - "*.ttl"
+      - "*.owl"
+    queries:
+      source: "{reporting_queries_path}/"
+      includes:
+        - "detect_removed.rq"
+        - "detect_renamed.rq"
+        - "detect_old_namespace_subject.rq"
+        - "detect_old_namespace_predicate.rq"
+        - "detect_old_namespace_object.rq"

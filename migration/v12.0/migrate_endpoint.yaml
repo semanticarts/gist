@@ -1,0 +1,162 @@
+bundle: gist-v12.0-migration
+variables:
+  action_queries_path_default: "./queries/action/default"
+  action_queries_path_ngraphs: "./queries/action/ngraphs"
+  reporting_queries_path_default: "./queries/report/default/new_namespace"
+  reporting_queries_path_ngraphs: "./queries/report/ngraphs/new_namespace"
+  endpoint: "<SPARQL_UPDATE_URI>"
+  update_endpoint: "{endpoint}"
+  user: "UPDATE_USER"
+  password: "UPDATE_PASSWORD"
+  report: "./reports"
+actions:
+  # default
+  - action: "sparql"
+    message: "Replace removed inverse properties in default graph."
+    query: "{action_queries_path_default}/replace_inverse_properties.rq"
+    endpoint:
+      query_uri: "{endpoint}"
+      update_uri: "{update_endpoint}"
+      user: "{user}"
+      password: "{password}"
+  - action: "sparql"
+    message: "Replace gist:Percentage with magnitude object in default graph."
+    query: "{action_queries_path_default}/replace_percentage.rq"
+    endpoint:
+      query_uri: "{endpoint}"
+      update_uri: "{update_endpoint}"
+      user: "{user}"
+      password: "{password}"
+  - action: "sparql"
+    message: "Replace renamed in default graph."
+    query: "{action_queries_path_default}/replace_renamed.rq"
+    endpoint:
+      query_uri: "{endpoint}"
+      update_uri: "{update_endpoint}"
+      user: "{user}"
+      password: "{password}"
+  # ngraphs
+  - action: "sparql"
+    message: "Replace removed inverse properties in named graphs."
+    query: "{action_queries_path_ngraphs}/replace_inverse_properties.rq"
+    endpoint:
+      query_uri: "{endpoint}"
+      update_uri: "{update_endpoint}"
+      user: "{user}"
+      password: "{password}"
+  - action: "sparql"
+    message: "Replace gist:Percentage with magnitude object in named graphs."
+    query: "{action_queries_path_ngraphs}/replace_percentage.rq"
+    endpoint:
+      query_uri: "{endpoint}"
+      update_uri: "{update_endpoint}"
+      user: "{user}"
+      password: "{password}"
+  - action: "sparql"
+    message: "Replace renamed in named graphs."
+    query: "{action_queries_path_ngraphs}/replace_renamed.rq"
+    endpoint:
+      query_uri: "{endpoint}"
+      update_uri: "{update_endpoint}"
+      user: "{user}"
+      password: "{password}"
+  # updated to new gist namespace
+  # split into multiple queries for performance
+  # default s, p, o
+  - action: "sparql"
+    message: "Migrate subjects in default graph to new Gist namespace."
+    query: "{action_queries_path_default}/replace_old_namespace_subject.rq"
+    endpoint:
+      query_uri: "{endpoint}"
+      update_uri: "{update_endpoint}"
+      user: "{user}"
+      password: "{password}"
+  - action: "sparql"
+    message: "Migrate predicates in default graph to new Gist namespace."
+    query: "{action_queries_path_default}/replace_old_namespace_predicate.rq"
+    endpoint:
+      query_uri: "{endpoint}"
+      update_uri: "{update_endpoint}"
+      user: "{user}"
+      password: "{password}"
+  - action: "sparql"
+    message: "Migrate objects in default graph to new Gist namespace."
+    query: "{action_queries_path_default}/replace_old_namespace_object.rq"
+    endpoint:
+      query_uri: "{endpoint}"
+      update_uri: "{update_endpoint}"
+      user: "{user}"
+      password: "{password}"
+  # ngraphs s, p, o, g
+  - action: "sparql"
+    message: "Migrate subjects in named graphs to new Gist namespace."
+    query: "{action_queries_path_ngraphs}/replace_old_namespace_subject.rq"
+    endpoint:
+      query_uri: "{endpoint}"
+      update_uri: "{update_endpoint}"
+      user: "{user}"
+      password: "{password}"
+  - action: "sparql"
+    message: "Migrate predicates in named graphs to new Gist namespace."
+    query: "{action_queries_path_ngraphs}/replace_old_namespace_predicate.rq"
+    endpoint:
+      query_uri: "{endpoint}"
+      update_uri: "{update_endpoint}"
+      user: "{user}"
+      password: "{password}"
+  - action: "sparql"
+    message: "Migrate objects in named graphs to new Gist namespace."
+    query: "{action_queries_path_ngraphs}/replace_old_namespace_object.rq"
+    endpoint:
+      query_uri: "{endpoint}"
+      update_uri: "{update_endpoint}"
+      user: "{user}"
+      password: "{password}"
+  - action: "sparql"
+    message: "Migrate named graphs to new Gist namespace."
+    query: "{action_queries_path_ngraphs}/replace_old_namespace_graph.rq"
+    endpoint:
+      query_uri: "{endpoint}"
+      update_uri: "{update_endpoint}"
+      user: "{user}"
+      password: "{password}"
+  # validation
+  # default
+  - action: "verify"
+    message: "Check the default graph for other items that should be reviewed."
+    type: "construct"
+    inference: "none"
+    stopOnFail: false
+    target: "{report}"
+    endpoint:
+      query_uri: "{endpoint}"
+      user: "{user}"
+      password: "{password}"
+    queries:
+      source: "{reporting_queries_path_default}/"
+      includes:
+        - "detect_removed.rq"
+        - "detect_renamed.rq"
+        - "detect_old_namespace_subject.rq"
+        - "detect_old_namespace_predicate.rq"
+        - "detect_old_namespace_object.rq"
+  # ngraphs
+  - action: "verify"
+    message: "Check named graphs for other items that should be reviewed."
+    type: "construct"
+    inference: "none"
+    stopOnFail: false
+    target: "{report}"
+    endpoint:
+      query_uri: "{endpoint}"
+      user: "{user}"
+      password: "{password}"
+    queries:
+      source: "{reporting_queries_path_ngraphs}/"
+      includes:
+        - "detect_removed.rq"
+        - "detect_renamed.rq"
+        - "detect_old_namespace_subject.rq"
+        - "detect_old_namespace_predicate.rq"
+        - "detect_old_namespace_object.rq"
+        - "detect_old_namespace_graph.rq"

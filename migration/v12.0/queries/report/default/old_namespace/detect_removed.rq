@@ -1,0 +1,63 @@
+prefix sh: <http://www.w3.org/ns/shacl#>
+prefix gist: <https://ontologies.semanticarts.com/gist/>
+
+CONSTRUCT {
+?report a sh:ValidationReport ;
+  sh:conforms false ;
+  sh:result
+    [
+      a sh:ValidationResult ;
+      sh:focusNode ?deleted ;
+      sh:resultMessage ?error ;
+      sh:resultSeverity sh:Warning ;
+      sh:sourceConstraintComponent <urn:constraint:removed-entity>
+    ] .
+}
+WHERE {
+  VALUES ?deleted {
+    ## Issue: #785
+    ## PR: #793
+    gist:Percentage
+    ## Issue: #650 
+    ## PR: #815
+    gist:TimeZone
+    gist:TimeZoneStandard
+    gist:hasOffsetToUniversal
+    gist:usesTimeZoneStandard
+    ## Issue: #506
+    ## PR: #813
+    gist:isDirectPartOf
+    gist:isDirectSubTaskOf
+    gist:hasDirectSubCategory
+    gist:isMemberOf
+    gist:hasNavigationalChild
+    gist:isPartOf
+    gist:isSubTaskOf
+    gist:hasSubCategory
+    gist:isDescribedIn
+    gist:affects
+    gist:isBasisFor
+    gist:containsGeographically
+    gist:governs
+    gist:identifies
+    gist:recognizes
+    gist:isGeographicallyOccupiedBy
+    gist:isGeographicallyPermanentlyOccupiedBy
+    gist:follows
+    gist:followsDirectly
+    ## Issue: #766, 756
+    ## PR: #825
+    gist:TreatyOrganization
+  }
+  {
+      ?s ?deleted ?o
+  } UNION {
+      ?s ?p ?deleted
+  } UNION {
+      ?deleted ?p ?o
+  }
+  BIND(<urn:deleted-entity-validation-report> as ?report)
+  BIND(CONCAT("Removed entity gist:",
+      REPLACE(STR(?deleted), '^.*[/#]', ''), " referenced in data. ",
+      "Review release notes for information about the changes.") as ?error)
+}
