@@ -4,39 +4,87 @@ gist Release Notes
 Release 12.0.0
 -----
 
-Import URL: <https://w3id.org/semanticarts/gistCore12.0.0>.
+This is a major release, which includes several changes which break compatibility with previous versions of gist. See the [migration guide](./MajorVersionMigration.html) for documentation on updating existing gist-based ontologies and instance data.
 
-Release 11.1.0
------
+### Major Updates
+
+- Removed all inverse properties. Issue [#506](https://github.com/semanticarts/gist/issues/506)
+  - For each pair of inverses, the property deemed clearest, simplest, and/or most useful was retained.
+  - Relevant axioms changed to include only properties that were kept in gist.
+  - Breakdown:
+      | Properties retained in gist | Inverse properties removed from gist|
+      | ----------- | ----------- | 
+      `hasDirectPart` | `isDirectPartOf`
+      `hasDirectSubTask` | `isDirectSubTaskOf`
+      `hasDirectSuperCategory` | `hasDirectSubCategory`
+      `hasMember` | `isMemberOf`
+      `hasNavigationalParent` | `hasNavigationalChild`
+      `hasPart` | `isPartOf`
+      `hasSubTask` | `isSubTaskOf`
+      `hasSuperCategory` | `hasSubCategory`
+      `isAbout` | `isDescribedIn`
+      `isAffectedBy` | `affects`
+      `isBasedOn` | `isBasisFor`
+      `isGeographicallyContainedIn` | `containsGeographically`
+      `isGovernedBy` | `governs`
+      `isIdentifiedBy` | `identifies`
+      `isRecognizedBy` | `recognizes`
+      `occupiesGeographically` | `isGeographicallyOccupiedBy`
+      `occupiesGeographicallyPermanently` | `isGeographicallyPermanentlyOccupiedBy`
+      `precedes` | `follows`
+      `precedesDirectly` | `followsDirectly`
+- Deleted classes and properties related to time zones. Issue [#650](https://github.com/semanticarts/gist/issues/650). Terms removed:
+  - `gist:TimeZone`
+  - `gist:TimeZoneStandard`
+  - `gist:hasOffsetToUniversal`
+  - `gist:usesTimeZoneStandard`
+- Removed `gist:hasSubTask` and `gist:hasDirectSubTask`. In future, `gist:hasPart` and `gist:hasDirectPart` will respectively be used. Updated the restriction on `gist:Project` to use `gist:hasPart` instead of `gist:hasSubTask`. Issue [#733](https://github.com/semanticarts/gist/issues/733).
+- Deleted class `gist:Percentage`. Issue [#785](https://github.com/semanticarts/gist/issues/785).
+- Deleted `gist:TreatyOrganization` per issue [#766](https://github.com/semanticarts/gist/issues/766).
 
 ### Minor Updates
 
-- Renamed `gist:Task`, `gist:ScheduledTask` and `gist:Project` to `gist:TaskExecution`, `gist:ScheduledTaskExecution` and  `gist:ProjectExecution`, respectively. Issue [#590](https://github.com/semanticarts/gist/issues/590).
-- Updated class `gist:Collection` to allow for empty collections. Issue [#570](https://github.com/semanticarts/gist/issues/570).
-- Deprecated `gist:Group`. Issue [#663](https://github.com/semanticarts/gist/issues/663).
-- Deprecated `gist:_greenwichTimeZone`, `gist:_one_day`, `gist:_one_millisecond`, and `gist:_one_minute`. Issue [#692](https://github.com/semanticarts/gist/issues/692).
-- Fixed bug: `gist:isRecordedAt` is now a subproperty of `gist:atDateTime` instead of `gist:actualEndDateTime`. Issue [#726](https://github.com/semanticarts/gist/issues/726).
-- Added new property `gist:hasFirstMember`. Issue [#549](https://github.com/semanticarts/gist/issues/549).
-- Updates related to `gist:isConnectedTo`:
-  - Made the property symmetric. Issue [#699](https://github.com/semanticarts/gist/issues/699).
-  - Replaced it in the restriction on `gist:TemporalRelation` with `gist:hasParticipant`. Issue [#706](https://github.com/semanticarts/gist/issues/706).
-- Replaced `rdfs:range` on `gist:conformsTo` with `gist:rangeIncludes`. Issue [#700](https://github.com/semanticarts/gist/issues/700).
-- Added the inadvertently omitted predicate `gist:follows`. Issue [#300](https://github.com/semanticarts/gist/issues/300).
-- Changed superproperty `gist:startDateTime` to `gist:actualStartDateTime` in formal definition of `gist:ContemporaryEvent`. Issue [#696](https://github.com/semanticarts/gist/issues/696).
+- Changes related to tasks, projects, and events. Issue [#760](https://github.com/semanticarts/gist/issues/760).
+  - Renamed `gist:TaskExecution`, `gist:ScheduledTaskExecution`, and `gist:ProjectExecution` to `gist:Task`, `gist:ScheduledTask`, and `gist:Project`, respectively.
+  - These classes are no longer limited to the execution of a task or project, but include proposed and planned events.
+  - Removed datetime restrictions on `gist:Event`.
+  - Replaced `gist:PlannedEvent` with `gist:ScheduledEvent`.
+  - Added `skos:scopeNote`s and `skos:example`s to clarify meaning and usage.
+- Added unit of measure for percents. Issue [#785](https://github.com/semanticarts/gist/issues/785).
+- Added annotation property `gist:isSupersededBy` to link deprecated terms to a replacement term, if there is one.
+- Broadened definition of `gist:isAllocatedBy` to include entities other than IDs, and added clarifying annotations, as per [#530](https://github.com/semanticarts/gist/issues/530).
+- Added `gist:TimeInterval` class. Issue [#786](https://github.com/semanticarts/gist/issues/786).
+- Added `gistSubClassAssertions.ttl` file with supplementary sublcass assertions that are logically entailed, but not inferred by some reasoners. Issue [#714](https://github.com/semanticarts/gist/issues/714).
+- Updated definition and label on `gist:IntergovernmentalOrganization` per issue [#756](https://github.com/semanticarts/gist/issues/756).
+- Updated formal definition of `gist:ContingentEvent`. Issue [#776](https://github.com/semanticarts/gist/issues/776).
+  - Removed datetime restrictions from `gist:ContingentEvent`.
+  - Added a restriction on property `gist:isTriggeredBy`.
+- Documentation updates, including:
+  - Clarifications on the process for editing gist and submitting a PR.
+  - New deprecation policy
+  - Style guide updates for new best practices on predicate naming, inverses, and annotation format and cardinality.
+  - Description of changes to the release process and schedule.
 
 ### Patch Updates
 
-- Added `gist:domainIncludes gist:Text` to `gist:uniqueText`.
-- Improved the clarity and accuracy of annotations on several terms, including definitions, examples, and scope notes:
-  - `gist:Building`: Issue [#482](https://github.com/semanticarts/gist/issues/482).
-  - `gist:PhysicalSubstance` and `gist:PhysicalIdentifiableItem`: Issue [#644](https://github.com/semanticarts/gist/issues/644).
-  - `gist:uniqueText`: Issue[#577](https://github.com/semanticarts/gist/issues/577).
-  - `gist:precedes`, `gist:precedesDirectly`, and `gist:followsDirectly` These predicates no longer apply to objects at the same position. Issue [#300](https://github.com/semanticarts/gist/issues/300).
-  - `gist:Template` [#408](https://github.com/semanticarts/gist/issues/408).
-- Added SHACL `PrefixDeclaration`s for prefixes used in the gist ontology. The declaration for `gist:` is in the gist core ontology, and additional prefixes are included in a separate ontology file. Issue [#684](https://github.com/semanticarts/gist/issues/684).
-- Fixed text definition of `gist:actualStartDateTime`. [#689](https://github.com/semanticarts/gist/issues/689).
+- Deleted `gistDeprecated.ttl` based on [updated deprecation and deletion policy](DeprecationAndDeletionPolicy.md). Issue [#835](https://github.com/semanticarts/gist/issues/835).
+- Upgraded to version 1.14.2 of the [EDM RDF serializer](https://github.com/edmcouncil/rdf-toolkit) which is applied in a pre-commit hook during development. This removes `owl:NamedIndividual` assertions on instances defined by gist, such as `gist:_second`. Issue [#774](https://github.com/semanticarts/gist/issues/774).
+- Modifications to pre-commit hook. Issues [#794](https://github.com/semanticarts/gist/issues/794) and [#795](https://github.com/semanticarts/gist/issues/795).
+  - Modified the serialize pre-commit hook so it:
+    - Makes sure the script starts in the root directory of the repository
+    - Adds file to the commit after the sed command
+    - Preserves file permissions during processing steps
+  - Added new "root" pre-commit hook which:
+    - Prevents commits to these branches: develop, main, master
+    - Then runs the serializer pre-commit hook
+  - Added a setup.cmd file to install the pre-commit hook into the .git/hooks directory. This script will work on Mac, Linux, and Windows.
+  - Updated user documentation to reflect these changes.
+- Fixed broken links to gist logo in `docs/README.*`.
+- Updated tools/serializer/pre-commit to ignore, and not error on, files that have been deleted.
+- Amended `bundle.yaml` file to include `gistSubClassAssertions.ttl` in the release package. Issue [#714](https://github.com/semanticarts/gist/issues/714).
+- Added `materialize_subclass_inferences.py`, which generates the subclass assertions for `gistSubClassAssertions.ttl`. Issue [#714](https://github.com/semanticarts/gist/issues/714).
 
-Import URL: <https://ontologies.semanticarts.com/o/gistCore11.1.0>.
+Import URL: <https://w3id.org/semanticarts/gistCore12.0.0>.
 
 Release 11.0.0
 -----
