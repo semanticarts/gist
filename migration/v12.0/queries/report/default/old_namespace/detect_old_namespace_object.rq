@@ -20,6 +20,6 @@ WHERE {
     }
     bind(<urn:renamed-entity-validation-report> as ?report)
     bind(CONCAT("WARNING: old namespace in use: ", STR(?o),
-        ". This should now be: https://ontologies.semanticarts.com/gist/", REPLACE(STR(?o), '^.*[/#]', '')
+        ". This should now be: https://w3id.org/semanticarts/gist/", REPLACE(STR(?o), '^.*[/#]', '')
         ) as ?error)
 }
