@@ -35,7 +35,7 @@ WHERE {
     }
   }
   BIND(<urn:renamed-entity-validation-report> as ?report)
-  BIND(CONCAT("WARNING: incorrectly named property gist:",
+  BIND(CONCAT("WARNING: detected use of a class name that has changed - gist:",
       REPLACE(STR(?renamed), '^.*[/#]', ''), " was changed to gist:", 
       REPLACE(STR(?newName), '^.*[/#]', '')
       ) as ?error)
