@@ -13,7 +13,7 @@ This is a major release, which includes several changes which break compatibilit
   - Relevant axioms changed to include only properties that were kept in gist.
   - Breakdown:
       | Properties retained in gist | Inverse properties removed from gist|
-      | ----------- | ----------- | 
+      | ----------- | ----------- |
       `hasDirectPart` | `isDirectPartOf`
       `hasDirectSubTask` | `isDirectSubTaskOf`
       `hasDirectSuperCategory` | `hasDirectSubCategory`
@@ -55,6 +55,7 @@ This is a major release, which includes several changes which break compatibilit
 - Broadened definition of `gist:isAllocatedBy` to include entities other than IDs, and added clarifying annotations, as per [#530](https://github.com/semanticarts/gist/issues/530).
 - Added `gist:TimeInterval` class. Issue [#786](https://github.com/semanticarts/gist/issues/786).
 - Added `gistSubClassAssertions.ttl` file with supplementary sublcass assertions that are logically entailed, but not inferred by some reasoners. Issue [#714](https://github.com/semanticarts/gist/issues/714).
+- Added `MonetaryPerDuration` and `CurrencyPerDurationUnit` classes. Issue [[#856](https://github.com/semanticarts/gist/issues/856).]
 - Updated definition and label on `gist:IntergovernmentalOrganization` per issue [#756](https://github.com/semanticarts/gist/issues/756).
 - Updated formal definition of `gist:ContingentEvent`. Issue [#776](https://github.com/semanticarts/gist/issues/776).
   - Removed datetime restrictions from `gist:ContingentEvent`.
@@ -64,6 +65,7 @@ This is a major release, which includes several changes which break compatibilit
   - New deprecation policy
   - Style guide updates for new best practices on predicate naming, inverses, and annotation format and cardinality.
   - Description of changes to the release process and schedule.
+  - Added file `docs\Namespace.md`.
 
 ### Patch Updates
 
