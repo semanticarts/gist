@@ -500,10 +500,6 @@ gist:Transaction
 	rdfs:subClassOf gist:Event ;
 	.
 
-gist:TreatyOrganization
-	rdfs:subClassOf gist:IntergovernmentalOrganization ;
-	.
-
 gist:Volume
 	rdfs:subClassOf gist:ProductMagnitude ;
 	.

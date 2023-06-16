@@ -1140,10 +1140,7 @@ gist:GovernedGeoRegion
 gist:GovernmentOrganization
 	a owl:Class ;
 	rdfs:subClassOf gist:Organization ;
-	owl:disjointWith
-		gist:IntergovernmentalOrganization ,
-		gist:TreatyOrganization
-		;
+	owl:disjointWith gist:IntergovernmentalOrganization ;
 	skos:definition "An organization which exercises political and/or regulatory authority over a political unit, people, geo-region, etc., as well as performing certain functions for this unit or body. Differs from a corporation in that it cannot be owned."^^xsd:string ;
 	skos:example "The State of Washington Office of Financial Management; the Food and Drug Administration; the Scottish Parliament."^^xsd:string ;
 	skos:prefLabel "Government Organization"^^xsd:string ;
@@ -2507,29 +2504,6 @@ gist:Transaction
 	rdfs:subClassOf gist:Event ;
 	skos:definition "An event which has an effect on at least one accumulator."^^xsd:string ;
 	skos:prefLabel "Transaction"^^xsd:string ;
-	.
-
-gist:TreatyOrganization
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:IntergovernmentalOrganization
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMember ;
-				owl:allValuesFrom gist:CountryGovernment ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMember ;
-				owl:minCardinality "2"^^xsd:nonNegativeInteger ;
-			]
-		) ;
-	] ;
-	skos:definition "An organization whose members are country governments."^^xsd:string ;
-	skos:example "NATO, the Louisiana Purchase, the Treaty of Versailles"^^xsd:string ;
-	skos:prefLabel "Treaty Organization"^^xsd:string ;
 	.
 
 gist:UnitOfMeasure
