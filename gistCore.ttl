@@ -1261,9 +1261,9 @@ gist:IntergovernmentalOrganization
 			]
 		) ;
 	] ;
-	skos:definition "An organization whose members are government organizations."^^xsd:string ;
-	skos:example "The United Nations, the European Union"^^xsd:string ;
-	skos:prefLabel "Inter-Governmental Organization"^^xsd:string ;
+	skos:definition "An organization whose members are government organizations. This can comprise regional, municipal, state/province, or national level entities."^^xsd:string ;
+	skos:example "The United Nations, the European Union, the MTA (Metropolitan Transit Authority)"^^xsd:string ;
+	skos:prefLabel "Intergovernmental Organization"^^xsd:string ;
 	.
 
 gist:Landmark
