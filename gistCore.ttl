@@ -18,7 +18,7 @@
 	.
 
 gist:Account
-	a owl:Class 
+	a owl:Class ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -3847,3 +3847,4 @@ gist:unitSymbolUnicode
 		gist:_second
 	) ;
 	.
+
