@@ -1,9 +1,9 @@
 The Ontology Namespace vs the Ontology IRI
 =====
 
-Welcome to the gist namespace.
+Welcome to the `gist` namespace.
 
-You requested [https://w3id.org/semanticarts/gist](https://w3id.org/semanticarts/gist), which is the gist namespace.
+You requested [https://w3id.org/semanticarts/ns/ontology/gist](https://w3id.org/semanticarts/ns/ontology/gist), which is the gist namespace.
 
 You may have been looking for the gist ontology; if so, you can find it at
 [https://w3id.org/semanticarts/gistCore](https://w3id.org/semanticarts/gistCore)
@@ -80,7 +80,7 @@ For over a decade, the gist namespace was `http://ontologies.semanticarts.com/gi
 and later `https://ontologies.semanticarts.com/gist/`. Both of these namespaces
 are based on the domain name `semanticarts.com`, which Semantic Arts owns.
 
-We recently migrated to the namespace `https://w3id.org/semanticarts/gist/`.
+We recently migrated to the namespace `https://w3id.org/semanticarts/ns/ontology/gist/`.
 This is essentially a path within the domain name `w3id.org`, whose owners
 have given us exclusive control over. When we mint new terms, we will do so
 in this namespace.
@@ -94,7 +94,7 @@ its namespace, consider the following legitimate ontology.
 ```bash
  1  @prefix sa: <https://ontologies.semanticarts.com/SemArts/> .
  2  @prefix dbr: <http://dbpedia.org/resource> .
- 3  @prefix gist: <https://ontologies.semanticarts.com/gist/> .
+ 3  @prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
  4  @prefix owl: <http://www.w3.org/2002/07/owl#> .
  5  @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
  6  @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
