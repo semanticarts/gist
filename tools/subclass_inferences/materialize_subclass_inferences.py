@@ -64,4 +64,4 @@ if __name__ == '__main__':
     output_ttl_file = "../gistSubClassAssertions.ttl"
 
     run_reasoner(input_ttl_file, output_ttl_file)
-    print(f'Subclass assertions output in {output_ttl_file}.')
+    print(f'Subclass assertions output to {output_ttl_file}.')
