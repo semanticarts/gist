@@ -1,5 +1,5 @@
-@prefix : <https://w3id.org/semanticarts/gistCore#> .
-@prefix gist: <https://w3id.org/semanticarts/gist/> .
+@prefix : <https://w3id.org/semanticarts/ontology/gistCore#> .
+@prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -8,9 +8,9 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://w3id.org/semanticarts/gistCore>
+<https://w3id.org/semanticarts/ontology/gistCore>
 	a owl:Ontology ;
-	owl:versionIRI <https://w3id.org/semanticarts/gistCoreX.x.x> ;
+	owl:versionIRI <https://w3id.org/semanticarts/ontology/gistCoreX.x.x> ;
 	skos:definition "gist is a minimalist upper ontology created by Semantic Arts."^^xsd:string ;
 	skos:prefLabel "gist"^^xsd:string ;
 	sh:declare gist:_PrefixDeclaration_gist ;
@@ -2555,7 +2555,7 @@ gist:VolumeUnit
 
 gist:_PrefixDeclaration_gist
 	a sh:PrefixDeclaration ;
-	sh:namespace "https://w3id.org/semanticarts/gist/"^^xsd:anyURI ;
+	sh:namespace "https://w3id.org/semanticarts/ns/ontology/gist/"^^xsd:anyURI ;
 	sh:prefix "gist"^^xsd:string ;
 	.
 

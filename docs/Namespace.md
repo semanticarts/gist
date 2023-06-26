@@ -1,12 +1,11 @@
-The Ontology Namespace vs the Ontology IRI
-=====
+# The Ontology Namespace vs the Ontology IRI
 
 Welcome to the `gist` namespace.
 
 You requested [https://w3id.org/semanticarts/ns/ontology/gist](https://w3id.org/semanticarts/ns/ontology/gist), which is the gist namespace.
 
 You may have been looking for the gist ontology; if so, you can find it at
-[https://w3id.org/semanticarts/gistCore](https://w3id.org/semanticarts/gistCore)
+[https://w3id.org/semanticarts/ontology/gistCore](https://w3id.org/semanticarts/ontology/gistCore)
 (which you can click on or copy and paste into your ontology editing
 tool).
 
@@ -20,8 +19,7 @@ other ontologies have different names but share the gist namespace.
 If you’re wondering why the namespace isn’t the same as the ontology IRI,
 and therefore why it didn’t return the ontology, read on.
 
-The Difference Between Namespaces and Ontologies
------
+## The Difference Between Namespaces and Ontologies
 
 The namespace is the contextual qualifier that assures that ontological
 terms (and indeed all identifiers in an RDF knowledge graph) are unique.
@@ -37,8 +35,7 @@ It turns out that applying this default behavior to production systems is
 an anti-pattern. There are several issues that converge to make this an
 anti-pattern, which we describe below.
 
-Namespace prefixes
------
+## Namespace prefixes
 
 The prefix (for instance `owl:` or `gist:`) is just a local shortcut or abbreviation
 for ontology or query writing. You can see this on the top of ontology
@@ -48,8 +45,7 @@ or query files, some declarations like:
 
 In the background the system always expands these shortcuts.
 
-The default namespace
------
+## The default namespace
 
 Most ontology editing tools allow the use of a "default" namespace. If
 you do not add a prefix to terms you are using, the system will assume
@@ -60,8 +56,7 @@ We advocate not using a default namespace. Much better to be explicit,
 and as we’ll see, explicitness encourages (or at least doesn’t obscure)
 reusing other terms that may have been minted elsewhere.
 
-Minting IRIs
------
+## Minting IRIs
 
 The person or system that first defines a term or creates an identifier
 for a real world instance is said to have "minted" the identifier. It
@@ -85,8 +80,7 @@ This is essentially a path within the domain name `w3id.org`, whose owners
 have given us exclusive control over. When we mint new terms, we will do so
 in this namespace.
 
-An ontology needn’t have any IRIs minted it its "own" namespace
------
+## An ontology needn’t have any IRIs minted it its "own" namespace
 
 To cement the idea that the ontology need not have a 1:1 coorespondence to
 its namespace, consider the following legitimate ontology.
@@ -100,7 +94,7 @@ its namespace, consider the following legitimate ontology.
  6  @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
  7  @prefix xml: <http://www.w3.org/XML/1998/namespace> .
  8  @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
- 9  
+ 9
 10  <https://data.semanticarts.com/example> rdf:type owl:Ontology .
 11  sa:mccomb gist:owns dbr:semanticarts .
 ```
@@ -117,14 +111,12 @@ This ontology does not have any IRIs minted in either its namespace
 (which isn’t even declared; I took out the default declaration) or
 in this ontology.
 
-How to partition
------
+## How to partition
 
 Once we decouple the namespace from the ontology, we can rightly ask:
 when do you use a new namespace and/or a new ontology?
 
-Modularity drives ontology packaging
------
+## Modularity drives ontology packaging
 
 When you import an ontology, you get all of its axioms. Unlike
 importing a software library, in the case of ontologies you are
@@ -138,8 +130,7 @@ materials ontology and a vendor ontology. Someone building out an
 inventory system might import the materials ontology and not bother
 with the other two.
 
-Governance drives namespace use
------
+## Governance drives namespace use
 
 But just because you’ve divided your ontology into partitions (modules)
 doesn’t mean the namespaces must follow. In the above example, if one
@@ -163,8 +154,7 @@ taxonomy groups need only a light bit of coordination with the
 ontologists, and we find having them manage their work in their own
 namespace to be the most productive.
 
-Refactoring made difficult by conflating namespaces with ontologies
------
+## Refactoring made difficult by conflating namespaces with ontologies
 
 We have worked on ontologies managed by other groups who followed
 the anti-pattern of one namespace per ontology per file.
@@ -182,8 +172,7 @@ have referred to the earlier term must now refer to the new term.
 
 Hence, refactoring is unnecessarily slowed down.
 
-Summary
------
+## Summary
 
 Because of the default behavior of most ontology tools, many people have
 conflated the naming of namespaces with ontologies. This conflation

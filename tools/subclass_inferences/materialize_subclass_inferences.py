@@ -26,7 +26,7 @@ def run_reasoner(input_ttl, output_ttl):
 
     raw_output_graph = Graph().parse(data=default_world.as_rdflib_graph().serialize(format='turtle'), format='turtle')
 
-    GIST = Namespace("https://w3id.org/semanticarts/gist/")
+    GIST = Namespace("https://w3id.org/semanticarts/ns/ontology/gist/")
     subclass_ontology = URIRef("https://w3id.org/semanticarts/gistSubClassAssertions.ttl")
 
     output_graph = Graph()
@@ -38,7 +38,7 @@ def run_reasoner(input_ttl, output_ttl):
 
     triples = [
         (RDF.type, OWL.Ontology),
-        (OWL.imports, URIRef("https://w3id.org/semanticarts/gistCore")),
+        (OWL.imports, URIRef("https://w3id.org/semanticarts/ontology/gistCore")),
         (SKOS.definition, Literal("Supplementary subclass assertions for gistCore.", datatype=XSD.string)),
         (SKOS.prefLabel, Literal("gist Subclass Assertions")),
         (SKOS.scopeNote, Literal("This ontology file contains supplementary subclass assertions that are logically entailed by gist but are not inferred by some automated reasoners. For example, an RL reasoner would not infer that gist:Commitment is a subclass of gist:Intention, even though it must be. More precisely, it contains (1) subclass assertions derived using an OWL DL reasoner and (2) the subclass assertions that are already explicit in gistCore.", datatype=XSD.string)),

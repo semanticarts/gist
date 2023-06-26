@@ -6,226 +6,226 @@ variables:
   rdf-toolkit: "{input}/tools/serializer/rdf-toolkit.jar"
   output: "{name}{version}_webDownload"
 tools:
-- name: "serializer"
-  type: "Java"
-  jar: "{rdf-toolkit}"
-  arguments:
-    - "-sfmt"
-    - "turtle"
-    - "-tfmt"
-    - "turtle"
-    - "-sdt"
-    - "explicit"
-    - "-dtd"
-    - "-sni"
-    - "-ibn"
-    - "-s"
-    - "{inputFile}"
-    - "-t"
-    - "{outputFile}"
-- name: "xml-serializer"
-  type: "Java"
-  jar: "{rdf-toolkit}"
-  arguments:
-    - "-sfmt"
-    - "turtle"
-    - "-tfmt"
-    - "rdf-xml"
-    - "-sdt"
-    - "explicit"
-    - "-dtd"
-    - "-sni"
-    - "-ibn"
-    - "-s"
-    - "{inputFile}"
-    - "-t"
-    - "{outputFile}"
-- name: "json-serializer"
-  type: "Java"
-  jar: "{rdf-toolkit}"
-  arguments:
-    - "-sfmt"
-    - "turtle"
-    - "-tfmt"
-    - "json-ld"
-    - "-sdt"
-    - "explicit"
-    - "-dtd"
-    - "-sni"
-    - "-ibn"
-    - "-s"
-    - "{inputFile}"
-    - "-t"
-    - "{outputFile}"
+  - name: "serializer"
+    type: "Java"
+    jar: "{rdf-toolkit}"
+    arguments:
+      - "-sfmt"
+      - "turtle"
+      - "-tfmt"
+      - "turtle"
+      - "-sdt"
+      - "explicit"
+      - "-dtd"
+      - "-sni"
+      - "-ibn"
+      - "-s"
+      - "{inputFile}"
+      - "-t"
+      - "{outputFile}"
+  - name: "xml-serializer"
+    type: "Java"
+    jar: "{rdf-toolkit}"
+    arguments:
+      - "-sfmt"
+      - "turtle"
+      - "-tfmt"
+      - "rdf-xml"
+      - "-sdt"
+      - "explicit"
+      - "-dtd"
+      - "-sni"
+      - "-ibn"
+      - "-s"
+      - "{inputFile}"
+      - "-t"
+      - "{outputFile}"
+  - name: "json-serializer"
+    type: "Java"
+    jar: "{rdf-toolkit}"
+    arguments:
+      - "-sfmt"
+      - "turtle"
+      - "-tfmt"
+      - "json-ld"
+      - "-sdt"
+      - "explicit"
+      - "-dtd"
+      - "-sni"
+      - "-ibn"
+      - "-s"
+      - "{inputFile}"
+      - "-t"
+      - "{outputFile}"
 actions:
-# Validate ontology
-- action: "verify"
-  message: "Validating ontology via SHACL."
-  type: "shacl"
-  inference: "none"
-  source: "{input}"
-  includes:
-    - "*.ttl"
-  shapes:
-    source: "{input}/validation/shapes/ontologyShapes.ttl"
-- action: "verify"
-  message: "Verify ontology via queries."
-  type: "construct"
-  inference: "none"
-  source: "{input}"
-  includes:
-    - gistCore.ttl
-  stopOnFail: false
-  target: '{input}/validation'
-  queries:
-    source: '{input}/validation/queries'
+  # Validate ontology
+  - action: "verify"
+    message: "Validating ontology via SHACL."
+    type: "shacl"
+    inference: "none"
+    source: "{input}"
     includes:
-      - '*_construct.rq'
-- action: "mkdir"
-  directory: "{output}"
-- action: "copy"
-  message: "Substituting version numbers."
-  source: "{input}"
-  target: "{output}"
-  replace:
-    from: "X.x.x"
-    to: "{version}"
-  rename:
-    from: "(.*)\\.ttl"
-    to: "\\g<1>{version}.ttl"
-  includes:
-    - "*.ttl"
-- action: "definedBy"
-  message: "Adding rdfs:isDefinedBy."
-  source: "{output}"
-  target: "{output}"
-  includes:
-    - "*.ttl"
-- action: "sparql"
-  message: "Generating rdfs:label and rdfs:comment for backward compatibility."
-  source: "{output}"
-  target: "{output}/rdfsAnnotations.ttl"
-  format: "turtle"
-  includes:
-    - "*.ttl"
-  query: >
-    prefix gist: <https://w3id.org/semanticarts/gist/>
-    prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    prefix skos: <http://www.w3.org/2004/02/skos/core#>
+      - "*.ttl"
+    shapes:
+      source: "{input}/validation/shapes/ontologyShapes.ttl"
+  - action: "verify"
+    message: "Verify ontology via queries."
+    type: "construct"
+    inference: "none"
+    source: "{input}"
+    includes:
+      - gistCore.ttl
+    stopOnFail: false
+    target: "{input}/validation"
+    queries:
+      source: "{input}/validation/queries"
+      includes:
+        - "*_construct.rq"
+  - action: "mkdir"
+    directory: "{output}"
+  - action: "copy"
+    message: "Substituting version numbers."
+    source: "{input}"
+    target: "{output}"
+    replace:
+      from: "X.x.x"
+      to: "{version}"
+    rename:
+      from: "(.*)\\.ttl"
+      to: "\\g<1>{version}.ttl"
+    includes:
+      - "*.ttl"
+  - action: "definedBy"
+    message: "Adding rdfs:isDefinedBy."
+    source: "{output}"
+    target: "{output}"
+    includes:
+      - "*.ttl"
+  - action: "sparql"
+    message: "Generating rdfs:label and rdfs:comment for backward compatibility."
+    source: "{output}"
+    target: "{output}/rdfsAnnotations.ttl"
+    format: "turtle"
+    includes:
+      - "*.ttl"
+    query: >
+      prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/>
+      prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+      prefix skos: <http://www.w3.org/2004/02/skos/core#>
 
-    CONSTRUCT {{
-      ?entity rdfs:label ?label ;
-              rdfs:comment ?comment .
-    }}
-    WHERE {{
-      {{ ?entity skos:prefLabel ?label }}
-      UNION
-      {{
-        VALUES (?prop ?prefix ) {{
-          ( skos:altLabel "ALT: " )
-          ( skos:definition "DEFINITION: " )
-          ( skos:example "EXAMPLE: " )
-          ( skos:scopeNote "NOTE: " )
-        }}
-        ?entity ?prop ?text .
-        BIND(CONCAT(?prefix, ?text) as ?comment)
+      CONSTRUCT {{
+        ?entity rdfs:label ?label ;
+                rdfs:comment ?comment .
       }}
-    }}
-- action: "transform"
-  message: "Turtle serialization."
-  tool: "serializer"
-  source: "{output}"
-  target: "{output}"
-  includes:
-    - "*.ttl"
-  rename:
-    from: "(.*)\\.ttl"
-    to: "formatted_\\g<1>.ttl"
-- action: "move"
-  source: "{output}"
-  target: "{output}"
-  includes:
-    - "formatted_*.ttl"
-  rename:
-    from: "formatted_(.*)\\.ttl"
-    to: "\\g<1>.ttl"
-- action: "transform"
-  message: "RDF/XML serialization."
-  tool: "xml-serializer"
-  source: "{output}"
-  target: "{output}"
-  rename:
-    from: "(.*)\\.ttl"
-    to: "\\g<1>.rdf"
-  includes:
-    - "*.ttl"
-- action: "transform"
-  message: "JSON-LD serialization."
-  tool: "json-serializer"
-  source: "{output}"
-  target: "{output}"
-  rename:
-    from: "(.*)\\.ttl"
-    to: "\\g<1>.jsonld"
-  includes:
-    - "*.ttl"
-- action: "copy"
-  message: "Copying license."
-  source: "{input}/LICENSE.txt"
-  target: "{output}"
-- action: "copy"
-  message: "Copying migration queries and scripts."
-  source: "{input}/migration"
-  target: "{output}/migration"
-- action: "copy"
-  message: "Copying documentation and patching local links."
-  source: "{input}/docs"
-  target: "{output}/Documentation"
-  replace:
-    from: "\\(./(\\w+)\\.md\\)"
-    to: "(./\\g<1>.html)"
-  includes:
-    - "ReleaseNotes.md"
-    - "MajorVersionMigration.md"
-- action: "copy"
-  message: "Copying readme to Documentation directory and patching local links."
-  source: "README.md"
-  target: "{output}/Documentation/README.md"
-  replace:
-    from: "\\(./(\\w+)\\.md\\)"
-    to: "(./\\g<1>.html)"
-- action: "copy"
-  message: "Copying namespace document to Documentation directory and patching local links."
-  source: "{input}/docs/Namespace.md"
-  target: "{output}/Documentation/Namespace.md"
-  replace:
-    from: "\\(./(\\w+)\\.md\\)"
-    to: "(./\\g<1>.html)"
-- action: "copy"
-  message: "Copying gist logo to Documentation directory."
-  source: "gist-logo.png"
-  target: "{output}/Documentation/gist-logo.png"
-- action: "markdown"
-  message: "Formatting readme."
-  source: "{output}/Documentation/README.md"
-  target: "{output}/Documentation/README.html"
-- action: "markdown"
-  message: "Formatting release notes."
-  source: "{output}/Documentation/ReleaseNotes.md"
-  target: "{output}/Documentation/ReleaseNotes.html"
-- action: "markdown"
-  message: "Formatting migration instructions."
-  source: "{output}/Documentation/MajorVersionMigration.md"
-  target: "{output}/Documentation/MajorVersionMigration.html"
-- action: "markdown"
-  message: "Formatting namespace document."
-  source: "{output}/Documentation/Namespace.md"
-  target: "{output}/Documentation/Namespace.html"
-- action: "markdown"
-  message: "Formatting migration readme."
-  source: "{output}/migration/v11.0/README.md"
-  target: "{output}/migration/v11.0/README.html"
-- action: "markdown"
-  message: "Formatting time-related changes documentation."
-  source: "{output}/migration/v11.0/TimeRelatedChanges_v11.md"
-  target: "{output}/migration/v11.0/TimeRelatedChanges_v11.html"
+      WHERE {{
+        {{ ?entity skos:prefLabel ?label }}
+        UNION
+        {{
+          VALUES (?prop ?prefix ) {{
+            ( skos:altLabel "ALT: " )
+            ( skos:definition "DEFINITION: " )
+            ( skos:example "EXAMPLE: " )
+            ( skos:scopeNote "NOTE: " )
+          }}
+          ?entity ?prop ?text .
+          BIND(CONCAT(?prefix, ?text) as ?comment)
+        }}
+      }}
+  - action: "transform"
+    message: "Turtle serialization."
+    tool: "serializer"
+    source: "{output}"
+    target: "{output}"
+    includes:
+      - "*.ttl"
+    rename:
+      from: "(.*)\\.ttl"
+      to: "formatted_\\g<1>.ttl"
+  - action: "move"
+    source: "{output}"
+    target: "{output}"
+    includes:
+      - "formatted_*.ttl"
+    rename:
+      from: "formatted_(.*)\\.ttl"
+      to: "\\g<1>.ttl"
+  - action: "transform"
+    message: "RDF/XML serialization."
+    tool: "xml-serializer"
+    source: "{output}"
+    target: "{output}"
+    rename:
+      from: "(.*)\\.ttl"
+      to: "\\g<1>.rdf"
+    includes:
+      - "*.ttl"
+  - action: "transform"
+    message: "JSON-LD serialization."
+    tool: "json-serializer"
+    source: "{output}"
+    target: "{output}"
+    rename:
+      from: "(.*)\\.ttl"
+      to: "\\g<1>.jsonld"
+    includes:
+      - "*.ttl"
+  - action: "copy"
+    message: "Copying license."
+    source: "{input}/LICENSE.txt"
+    target: "{output}"
+  - action: "copy"
+    message: "Copying migration queries and scripts."
+    source: "{input}/migration"
+    target: "{output}/migration"
+  - action: "copy"
+    message: "Copying documentation and patching local links."
+    source: "{input}/docs"
+    target: "{output}/Documentation"
+    replace:
+      from: "\\(./(\\w+)\\.md\\)"
+      to: "(./\\g<1>.html)"
+    includes:
+      - "ReleaseNotes.md"
+      - "MajorVersionMigration.md"
+  - action: "copy"
+    message: "Copying readme to Documentation directory and patching local links."
+    source: "README.md"
+    target: "{output}/Documentation/README.md"
+    replace:
+      from: "\\(./(\\w+)\\.md\\)"
+      to: "(./\\g<1>.html)"
+  - action: "copy"
+    message: "Copying namespace document to Documentation directory and patching local links."
+    source: "{input}/docs/Namespace.md"
+    target: "{output}/Documentation/Namespace.md"
+    replace:
+      from: "\\(./(\\w+)\\.md\\)"
+      to: "(./\\g<1>.html)"
+  - action: "copy"
+    message: "Copying gist logo to Documentation directory."
+    source: "gist-logo.png"
+    target: "{output}/Documentation/gist-logo.png"
+  - action: "markdown"
+    message: "Formatting readme."
+    source: "{output}/Documentation/README.md"
+    target: "{output}/Documentation/README.html"
+  - action: "markdown"
+    message: "Formatting release notes."
+    source: "{output}/Documentation/ReleaseNotes.md"
+    target: "{output}/Documentation/ReleaseNotes.html"
+  - action: "markdown"
+    message: "Formatting migration instructions."
+    source: "{output}/Documentation/MajorVersionMigration.md"
+    target: "{output}/Documentation/MajorVersionMigration.html"
+  - action: "markdown"
+    message: "Formatting namespace document."
+    source: "{output}/Documentation/Namespace.md"
+    target: "{output}/Documentation/Namespace.html"
+  - action: "markdown"
+    message: "Formatting migration readme."
+    source: "{output}/migration/v11.0/README.md"
+    target: "{output}/migration/v11.0/README.html"
+  - action: "markdown"
+    message: "Formatting time-related changes documentation."
+    source: "{output}/migration/v11.0/TimeRelatedChanges_v11.md"
+    target: "{output}/migration/v11.0/TimeRelatedChanges_v11.html"
