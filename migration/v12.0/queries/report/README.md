@@ -35,7 +35,7 @@ The following diagram represent the structure of the directories at this locatio
 - `./report/default|ngraphs/new_namespace/` : Queries in this directory use the new Gist namespace:
 
   ```
-  https://w3id.org/semanticarts/ns/ontology/gist/
+  https://w3id.org/semanticarts/gist/
   ```
 
   > Note: Queries with the new namespace should be used to validate your data **after** running the migration scripts
