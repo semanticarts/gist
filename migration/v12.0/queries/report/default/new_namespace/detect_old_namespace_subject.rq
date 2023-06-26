@@ -1,5 +1,5 @@
 prefix sh: <http://www.w3.org/ns/shacl#>
-prefix gist: <https://w3id.org/semanticarts/gist/>
+prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/>
 
 CONSTRUCT {
     ?report a sh:ValidationReport ;
@@ -20,6 +20,6 @@ WHERE {
     }
     bind(<urn:renamed-entity-validation-report> as ?report)
     bind(CONCAT("WARNING: old namespace in use: ", STR(?s),
-        ". This should now be: https://w3id.org/semanticarts/gist/", REPLACE(STR(?s), '^.*[/#]', '')
+        ". This should now be: https://w3id.org/semanticarts/ns/ontology/gist/", REPLACE(STR(?s), '^.*[/#]', '')
         ) as ?error)
 }
