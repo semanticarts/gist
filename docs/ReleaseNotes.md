@@ -9,7 +9,7 @@ This is a major release which includes several changes which break compatibility
 ### Major Updates
 
 - Changed the gist ontology IRIs and namespace IRI to the `w3id` domain. Issues [#683](https://github.com/semanticarts/gist/issues/683), [#853](https://github.com/semanticarts/gist/issues/853), [#859](https://github.com/semanticarts/gist/issues/859).
-  - The gist ontology IRIs have changed from `https://ontologies.semanticarts.com/o/<ontology-name>` to `https://w3id.org/semanticarts/<ontology-name>`. For example, `https://ontologies.semanticarts.com/o/gistCore` is now `https://w3id.org/semanticarts/ontology/gistCore`.
+  - The gist ontology IRIs have changed from `https://ontologies.semanticarts.com/o/<ontology-name>` to `https://w3id.org/semanticarts/ontology/<ontology-name>`. For example, `https://ontologies.semanticarts.com/o/gistCore` is now `https://w3id.org/semanticarts/ontology/gistCore`.
   - The gist namespace has changed from `https://ontologies.semanticarts.com/gist` to `https://w3id.org/semanticarts/ontology/gist`.
 - Deleted all inverse properties. Issue [#506](<https://github.com/semanticarts/gist/issues/506>).
   - For each pair of inverses, the property deemed clearest, simplest, and/or most useful was retained.
