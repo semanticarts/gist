@@ -1,6 +1,6 @@
-# imports: https://w3id.org/semanticarts/ontology/gistCore
+# imports: https://w3id.org/semanticarts/gistCore
 
-@prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
+@prefix gist: <https://w3id.org/semanticarts/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -10,7 +10,7 @@
 
 <https://w3id.org/semanticarts/gistValidationAnnotations>
 	a owl:Ontology ;
-	owl:imports <https://w3id.org/semanticarts/ontology/gistCore> ;
+	owl:imports <https://w3id.org/semanticarts/gistCore> ;
 	skos:definition "Annotations to assist gist ontology validation."^^xsd:string ;
 	skos:prefLabel "gist Validation Annotations"^^xsd:string ;
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;

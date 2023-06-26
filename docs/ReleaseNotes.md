@@ -1,39 +1,41 @@
-# gist Release Notes
+gist Release Notes
+=====
 
-## Release 12.0.0
+Release 12.0.0
+-----
 
 This is a major release which includes several changes which break compatibility with previous versions of gist. See the [migration guide](./MajorVersionMigration.html) for documentation on updating existing gist-based ontologies and instance data. Migration scripts are included to facilitate the upgrade process.
 
 ### Major Updates
 
 - Changed the gist ontology IRIs and namespace IRI to the `w3id` domain. Issues [#683](https://github.com/semanticarts/gist/issues/683), [#853](https://github.com/semanticarts/gist/issues/853), [#859](https://github.com/semanticarts/gist/issues/859).
-  - The gist ontology IRIs have changed from `https://ontologies.semanticarts.com/o/<ontology-name>` to `https://w3id.org/semanticarts/<ontology-name>`. For example, `https://ontologies.semanticarts.com/o/gistCore` is now `https://w3id.org/semanticarts/ontology/gistCore`.
+  - The gist ontology IRIs have changed from `https://ontologies.semanticarts.com/o/<ontology-name>` to `https://w3id.org/semanticarts/<ontology-name>`. For example, `https://ontologies.semanticarts.com/o/gistCore` is now `https://w3id.org/semanticarts/gistCore`.
   - The gist namespace has changed from `https://ontologies.semanticarts.com/gist` to `https://w3id.org/semanticarts/gist`.
-- Deleted all inverse properties. Issue [#506](https://github.com/semanticarts/gist/issues/506).
+- Deleted all inverse properties. Issue [#506](<https://github.com/semanticarts/gist/issues/506>).
   - For each pair of inverses, the property deemed clearest, simplest, and/or most useful was retained.
-  - Axioms referring to the deleted properties were reformulated using `owl:inverseOf`.
+  - Axioms referring to the deleted properties were reformulated using `owl:inverseOf`.  
   - Breakdown:
-    | Properties retained in gist | Inverse properties removed from gist |
-    | ----------- | ----------- |
-    `hasDirectPart` | `isDirectPartOf`
-    `hasDirectSubTask` | `isDirectSubTaskOf`
-    `hasDirectSuperCategory` | `hasDirectSubCategory`
-    `hasMember` | `isMemberOf`
-    `hasNavigationalParent` | `hasNavigationalChild`
-    `hasPart` | `isPartOf`
-    `hasSubTask` | `isSubTaskOf`
-    `hasSuperCategory` | `hasSubCategory`
-    `isAbout` | `isDescribedIn`
-    `isAffectedBy` | `affects`
-    `isBasedOn` | `isBasisFor`
-    `isGeographicallyContainedIn` | `containsGeographically`
-    `isGovernedBy` | `governs`
-    `isIdentifiedBy` | `identifies`
-    `isRecognizedBy` | `recognizes`
-    `occupiesGeographically` | `isGeographicallyOccupiedBy`
-    `occupiesGeographicallyPermanently` | `isGeographicallyPermanentlyOccupiedBy`
-    `precedes` | `follows`
-    `precedesDirectly` | `followsDirectly`
+      | Properties retained in gist | Inverse properties removed from gist |
+      | ----------- | ----------- |
+      `hasDirectPart` | `isDirectPartOf`
+      `hasDirectSubTask` | `isDirectSubTaskOf`
+      `hasDirectSuperCategory` | `hasDirectSubCategory`
+      `hasMember` | `isMemberOf`
+      `hasNavigationalParent` | `hasNavigationalChild`
+      `hasPart` | `isPartOf`
+      `hasSubTask` | `isSubTaskOf`
+      `hasSuperCategory` | `hasSubCategory`
+      `isAbout` | `isDescribedIn`
+      `isAffectedBy` | `affects`
+      `isBasedOn` | `isBasisFor`
+      `isGeographicallyContainedIn` | `containsGeographically`
+      `isGovernedBy` | `governs`
+      `isIdentifiedBy` | `identifies`
+      `isRecognizedBy` | `recognizes`
+      `occupiesGeographically` | `isGeographicallyOccupiedBy`
+      `occupiesGeographicallyPermanently` | `isGeographicallyPermanentlyOccupiedBy`
+      `precedes` | `follows`
+      `precedesDirectly` | `followsDirectly`
 - Changes related to tasks, projects, and events. Issue [#760](https://github.com/semanticarts/gist/issues/760).
   - Renamed `gist:TaskExecution`, `gist:ScheduledTaskExecution`, and `gist:ProjectExecution` to `gist:Task`, `gist:ScheduledTask`, and `gist:Project`, respectively.
   - These classes are no longer limited to the execution of a task or project, but include proposed and planned events as well.
@@ -86,13 +88,14 @@ This is a major release which includes several changes which break compatibility
 - - Documentation updates. Issues [#567](https://github.com/semanticarts/gist/issues/567), [#576](https://github.com/semanticarts/gist/issues/576), [#734](https://github.com/semanticarts/gist/issues/734), [#736](https://github.com/semanticarts/gist/issues/736), [#758](https://github.com/semanticarts/gist/issues/758), [#801](https://github.com/semanticarts/gist/issues/801), [#802](https://github.com/semanticarts/gist/issues/802), [#810](https://github.com/semanticarts/gist/issues/810).
 - Miscellaneous non-semantic annotation updates. Issues [#734](https://github.com/semanticarts/gist/issues/734),[#753](https://github.com/semanticarts/gist/issues/753), [#758](https://github.com/semanticarts/gist/issues/758).
 
-Import URL: <https://w3id.org/semanticarts/ontology/gistCore12.0.0>.
+Import URL: <https://w3id.org/semanticarts/gistCore12.0.0>.
 
-## Release 11.1.0
+Release 11.1.0
+-----
 
 ### Minor Updates
 
-- Renamed `gist:Task`, `gist:ScheduledTask` and `gist:Project` to `gist:TaskExecution`, `gist:ScheduledTaskExecution` and `gist:ProjectExecution`, respectively. Issue [#590](https://github.com/semanticarts/gist/issues/590).
+- Renamed `gist:Task`, `gist:ScheduledTask` and `gist:Project` to `gist:TaskExecution`, `gist:ScheduledTaskExecution` and  `gist:ProjectExecution`, respectively. Issue [#590](https://github.com/semanticarts/gist/issues/590).
 - Updated class `gist:Collection` to allow for empty collections. Issue [#570](https://github.com/semanticarts/gist/issues/570).
 - Deprecated `gist:Group`. Issue [#663](https://github.com/semanticarts/gist/issues/663).
 - Deprecated `gist:_greenwichTimeZone`, `gist:_one_day`, `gist:_one_millisecond`, and `gist:_one_minute`. Issue [#692](https://github.com/semanticarts/gist/issues/692).
@@ -119,22 +122,23 @@ Import URL: <https://w3id.org/semanticarts/ontology/gistCore12.0.0>.
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore11.1.0>.
 
-## Release 11.0.0
+Release 11.0.0
+-----
 
 ### Major Updates
 
 - Implemented new time model based on datatype properties rather than `TimeInstant`. Issues [#499](https://github.com/semanticarts/gist/issues/499), [#388](https://github.com/semanticarts/gist/issues/388). Sample triples are provided in the release package.
-  - Deleted class `TimeInstant` and its subclasses. This class was previously used to materialize a point in time with different precisions (day, minute, system time), a time zone, a local and UTC value, and so on. Object properties were used to connect something to an instance of `TimeInstant`, specifying different relationships such as start and end, planned vs actual.
-  - Defined a top-level datatype property `atDateTime`, neutral as to start/end, planned/actual, and precision (year, day, minute, microsecond).
-  - Replaced existing object properties with a hierarchy of subproperties of `atDateTime`, retaining distinctions between start and end, planned vs actual, and precisions.
-  - Added new predicates with year precision alongside the existing day, minute, and milli-/microsecond precisions.
+    - Deleted class `TimeInstant` and its subclasses. This class was previously used to materialize a point in time with different precisions (day, minute, system time), a time zone, a local and UTC value, and so on. Object properties were used to connect something to an instance of `TimeInstant`, specifying different relationships such as start and end, planned vs actual.
+    - Defined a top-level datatype property `atDateTime`, neutral as to start/end, planned/actual, and precision (year, day, minute, microsecond).
+    - Replaced existing object properties with a hierarchy of subproperties of `atDateTime`, retaining distinctions between start and end, planned vs actual, and precisions.
+    - Added new predicates with year precision alongside the existing day, minute, and milli-/microsecond precisions.
 - Renamed `ContemporaneousEvent` to `ContemporaryEvent`.
-- Removed property `gist:hasOrderedMember`. `gist:hasMember` should be used instead. Issue [#540](https://github.com/semanticarts/gist/issues/540).
+- Removed property  `gist:hasOrderedMember`. `gist:hasMember` should be used instead. Issue [#540](https://github.com/semanticarts/gist/issues/540).
 - Distinguished governments from governed geo-regions, as per issue [#215](https://github.com/semanticarts/gist/issues/215). Changes include:
-  - Added classes `SubCountryGovernment`, `IntergovernmentalOrganization`, and `TreatyOrganization` as subclasses of `Organization`.
-  - Added classes `GovernedGeoRegion`, `CountryGeoRegion` as subclasses of `GeoRegion`.
-  - Removed restriction on `CountryGovernment` requiring it to be recognized by some other country government, and stipulate its sovereignty.
-  - Removed `GeoPoliticalRegion` (roughly replaced by `GovernedGeoRegion`).
+    - Added classes `SubCountryGovernment`, `IntergovernmentalOrganization`, and `TreatyOrganization` as subclasses of `Organization`.
+    - Added classes `GovernedGeoRegion`, `CountryGeoRegion` as subclasses of `GeoRegion`.
+    - Removed restriction on `CountryGovernment` requiring it to be recognized by some other country government, and stipulate its sovereignty.
+    - Removed `GeoPoliticalRegion` (roughly replaced by `GovernedGeoRegion`).
 - Removed domain and range constraints from `gist:requires`. Issue [#183](https://github.com/semanticarts/gist/issues/183).
 - Removed domain and range constraints from `gist:hasNumerator`, `gist:hasDenominator`, `gist:hasMultiplier`, and `gist:hasMultiplicand`. Issue [#160](https://github.com/semanticarts/gist/issues/160).
 - Removed predicate `hasBiologicalOffspring`, added domain and range to `hasBiologicalParent`, and modified related restrictions on class `LivingThing`. Issue [#638](https://github.com/semanticarts/gist/issues/638).
@@ -154,10 +158,11 @@ Import URL: <https://ontologies.semanticarts.com/o/gistCore11.1.0>.
 - Improved textual definition of `gist:Task`, per issue [#625](https://github.com/semanticarts/gist/issues/625).
 - Change predicate `hasJurisdictionOver` to `isUnderJurisdictionOf` (bug fix). Issue [#637](https://github.com/semanticarts/gist/issues/637).
 - Clarified restrictions on `gist:OrderedMember`. Issue [#574](https://github.com/semanticarts/gist/issues/574).
-
+  
 Import URL: <https://ontologies.semanticarts.com/o/gistCore11.0.0>.
 
-## Release 10.0.0
+Release 10.0.0
+-----
 
 This is a major release, which includes several changes which break compatibility with previous versions
 of `gist`. See the [migration guide](./MajorVersionMigration.md) for documentation on updating existing
@@ -169,44 +174,45 @@ of `gist`. See the [migration guide](./MajorVersionMigration.md) for documentati
 - Renamed `MimeType` to `MediaType` to be consistent with [IANA guidelines](https://www.iana.org/assignments/media-types/media-types.xhtml).
   and [RFC6838](https://tools.ietf.org/html/rfc6838). Issue [#434](https://github.com/semanticarts/gist/issues/434).
 - Renamed `gist:decimalValue` to `gist:numericValue` and expanded property range to include all numeric data types.
-  supported by OWL. Issue [#171](https://github.com/semanticarts/gist/issues/171).
+  supported by OWL.  Issue [#171](https://github.com/semanticarts/gist/issues/171).
 - Refactored ordered collection model. Issues [#112](https://github.com/semanticarts/gist/issues/112), [#540](https://github.com/semanticarts/gist/issues/540).
-  - Added predicate `gist:providesOrderFor`.
-  - Deleted classes `gist:OrdinalCollection` and `gist:OrdinalMember`.
+    - Added predicate `gist:providesOrderFor`.
+    - Deleted classes `gist:OrdinalCollection` and `gist:OrdinalMember`.
 - Changes to and affecting `gist:Person`, as per issue [#136](https://github.com/semanticarts/gist/issues/136):
-  - Removed `owl:someValuesFrom gist:name` restriction from `gist:Person`.
-  - Made `gist:hasBirthDate` a subproperty of `gist:hasStart` rather than `gist:hasActualStart`.
+    - Removed `owl:someValuesFrom gist:name` restriction from `gist:Person`.
+    - Made `gist:hasBirthDate` a subproperty of `gist:hasStart` rather than `gist:hasActualStart`.
 - Refactored the way network connections are modeled per issue [#126](https://github.com/semanticarts/gist/issues/126):
-  - `networkConnection`, `hasFromNode` and `hasToNode` have been renamed to `links`, `linksFrom` and `linksTo`, respectively.
-  - Added a restriction on `NetworkLink` that it must have exactly 2 links.
-  - Added restrictions on `NetworkLink` and `NetworkNode` that they must be `isMemberOf` a `Network`.
+    - `networkConnection`, `hasFromNode` and `hasToNode` have been renamed to `links`, `linksFrom` and `linksTo`, respectively.
+    - Added a restriction on `NetworkLink` that it must have exactly 2 links.
+    - Added restrictions on `NetworkLink` and `NetworkNode` that they must be `isMemberOf` a `Network`.
 - Extended the range of `comesFromPlace`/`goesToPlace` to include `gist:Address` in addition to `gist:Place`.
   Issue [#392](https://github.com/semanticarts/gist/issues/392).
 - Modified classes and properties related to street addresses as per issue [#483](https://github.com/semanticarts/gist/issues/483):
-  - Removed `BuildingAddress`.
-  - Added `StreetAddress` as subclass of `PostalAddress`.
-  - Replaced `hasStreetAddress` with the more general `hasAddress`. Removed `streetAddressOf`.
-  - Removed `communicationAddressOf` in a general effort to trim unused inverse properties.
-  - Clarified the definition of `hasCommunicationAddress` (now a subproperty of `hasAddress`),
-    added domain (`Person U Organization`).
+    - Removed `BuildingAddress`.
+    - Added `StreetAddress` as subclass of `PostalAddress`.
+    - Replaced `hasStreetAddress` with the more general `hasAddress`. Removed `streetAddressOf`.
+    - Removed `communicationAddressOf` in a general effort to trim unused inverse properties.
+    - Clarified the definition of `hasCommunicationAddress` (now a subproperty of `hasAddress`),
+      added domain (`Person U Organization`).
 
 ### Minor Updates
 
 - Added annotation properties which provide usage guidance for properties without the constraints imposed by `rdfs:range` and `rdfs:domain`: Issue [#389](https://github.com/semanticarts/gist/issues/389).
-  - `domainIncludes`
-  - `rangeIncludes`
+    - `domainIncludes`
+    - `rangeIncludes`
 - Created a `gistMediaTypes` ontology to declare `MediaType` instances relevant to semantic applications.
   Issue [#463](https://github.com/semanticarts/gist/issues/463).
 
 ### Patch Updates
 
 - Updated annotations for `isBasedOn` and `isBasisFor` properties. Issue [#139](https://github.com/semanticarts/gist/issues/139)
-- `hasDirectSubCategory` is now a subproperty of `hasSubCategory`, as it was always supposed to be. Issue [#481](https://github.com/semanticarts/gist/issues/481).
+- `hasDirectSubCategory` is now a subproperty of `hasSubCategory`, as it was always supposed to be.  Issue [#481](https://github.com/semanticarts/gist/issues/481).
 - Clarified the definition of `ContemporaneousEvent`. Issue [#174](https://github.com/semanticarts/gist/issues/174).
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore10.0.0>.
 
-## Release 9.7.0
+Release 9.7.0
+-----
 
 ### Minor Updates
 
@@ -215,29 +221,30 @@ Import URL: <https://ontologies.semanticarts.com/o/gistCore10.0.0>.
 ### Patch Updates
 
 - Updated annotations for the following properties regarding the hasDirectX/hasX pattern. Issue [#115](https://github.com/semanticarts/gist/issues/115)
-  - `geoContains`, `geoContainedIn`
-  - `directPartOf`,`hasDirectPart`
-  - `directlyPrecededBy`, `directlyPrecedes`
+    - `geoContains`, `geoContainedIn`
+    - `directPartOf`,`hasDirectPart`
+    - `directlyPrecededBy`, `directlyPrecedes`
 - Declare `gist:identifies` as `owl:FunctionalProperty` rather than `owl:InverseFunctionalProperty` (bug fix). Issue [#180](https://github.com/semanticarts/gist/issues/180).
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore9.7.0>.
 
-## Release 9.6.0
+Release 9.6.0
+-----
 
 ### Minor Updates
 
 - Added datatype property `gist:description` for describing instance data. Issue [#425](https://github.com/semanticarts/gist/issues/425).
 - Refactored `hasParty`, `giver` and `getter`. Issue [#133](https://github.com/semanticarts/gist/issues/133).
-  - `giver` and `getter`
-    - Renamed to `hasGiver` and `hasGetter`
-    - The newly named versions are no longer sub-properties of `hasParty`
-    - Deprecated `giver` and `getter`
-  - New property: `hasParticipant`
-    - No domain or range
-    - Has sub-properties: `hasGiver`, `hasGetter`, `hasParty`, `fromAgent` and `toAgent`
-  - Added a `skos:scopeNote` to `fromAgent`
-  - Added a `skos:example` to `hasParty`
-  - Updated `skos:definition`s for `toAgent` and `fromAgent`
+    - `giver` and `getter`
+        - Renamed to `hasGiver` and `hasGetter`
+        - The newly named versions are no longer sub-properties of `hasParty`
+        - Deprecated `giver` and `getter`
+    - New property: `hasParticipant`
+        - No domain or range
+        - Has sub-properties: `hasGiver`, `hasGetter`, `hasParty`, `fromAgent` and `toAgent`
+    - Added a `skos:scopeNote` to `fromAgent`
+    - Added a `skos:example` to `hasParty`
+    - Updated `skos:definition`s for `toAgent` and `fromAgent`
 
 ### Patch Updates
 
@@ -249,7 +256,8 @@ Import URL: <https://ontologies.semanticarts.com/o/gistCore9.7.0>.
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore9.6.0>.
 
-## Release 9.5.0
+Release 9.5.0
+-----
 
 ### Minor Updates
 
@@ -262,8 +270,8 @@ Import URL: <https://ontologies.semanticarts.com/o/gistCore9.6.0>.
 
 - Modified build to create JSON-LD ontology files with `.jsonld` extension. Issue [#365](https://github.com/semanticarts/gist/issues/365).
 - Documentation:
-  - Documented policy change on submission of PRs by external contributors (PRs from external contributors are now accepted for review if submitted with an issue). Issue [#382](https://github.com/semanticarts/gist/issues/382).
-  - Documented new, condensed release notes format (reverted release note format introduced in 9.4.0). Issue [#401](https://github.com/semanticarts/gist/issues/401).
+    - Documented policy change on submission of PRs by external contributors (PRs from external contributors are now accepted for review if submitted with an issue). Issue [#382](https://github.com/semanticarts/gist/issues/382).
+    - Documented new, condensed release notes format (reverted release note format introduced in 9.4.0). Issue [#401](https://github.com/semanticarts/gist/issues/401).
 - Added a standard `pre-commit` hook which applies uniform formatting to RDF files using `tools/rdf-toolkit.jar`. Issue [#228](https://github.com/semanticarts/gist/issues/228).
 - Conformed definition of `gist:_second` to other `gist:BaseUnit` individuals. Issue [#92](https://github.com/semanticarts/gist/issues/92).
 - Fixed label of TaskTemplate. Issue [#407](https://github.com/semanticarts/gist/issues/407).
@@ -271,7 +279,8 @@ Import URL: <https://ontologies.semanticarts.com/o/gistCore9.6.0>.
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore9.5.0>.
 
-## Release 9.4.0
+Release 9.4.0
+-----
 
 ### Minor Updates
 
@@ -289,9 +298,10 @@ Import URL: <https://ontologies.semanticarts.com/o/gistCore9.5.0>.
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore9.4.0>.
 
-## Release 9.3.0
+Release 9.3.0
+-----
 
-- Merged into a single module/file all of gist except the gistDeprecated module. Fixes issue [#292](https://github.com/semanticarts/gist/issues/292).
+- Merged into a single module/file all of gist except the gistDeprecated module.  Fixes issue [#292](https://github.com/semanticarts/gist/issues/292).
 - Removed import diagram generation and catalog files from bundling. Fixes issue [#309](https://github.com/semanticarts/gist/issues/309).
 - Amended bundle.yaml to add rdfs:isDefinedBy to all ontology terms during release bundling process. Fixes issue [#266](https://github.com/semanticarts/gist/issues/266).
 - Added gist:EmailAddress as a subclass of gist:ElectronicMessageAddress. Fixes issue [#99](https://github.com/semanticarts/gist/issues/99).
@@ -301,10 +311,11 @@ Import URL: <https://ontologies.semanticarts.com/o/gistCore9.4.0>.
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore9.3.0>.
 
-## Release 9.2.0
+Release 9.2.0
+-----
 
 - Replaced all "xs" namespace prefixes for XML Schema with "xsd". Corrects issue [#158](https://github.com/semanticarts/gist/issues/158).
-- Corrected gist:convertToBase value for gist:\_minute from 1.0 to 60.0. Fixes issue [#82](https://github.com/semanticarts/gist/issues/82).
+- Corrected gist:convertToBase value for gist:_minute from 1.0 to 60.0. Fixes issue [#82](https://github.com/semanticarts/gist/issues/82).
 - Added initial draft of in-progress gist style guide. Fixes issue [#163](https://github.com/semanticarts/gist/issues/163).
 - Added documentation of change and release management process. Fixes issue [#233](<https://github.com/semanticarts/gist/issues/233>>.
 - Added guidelines for submission of GitHub issues and pull requests. Fixes issue [#190](https://github.com/semanticarts/gist/issues/190).
@@ -316,7 +327,8 @@ Import URL: <https://ontologies.semanticarts.com/o/gistCore9.3.0>.
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore9.2.0>.
 
-## Release 9.1.0
+Release 9.1.0
+-----
 
 - Reformatted all files to match uniform serialization.
 - Corrected restriction for `gist:Collection`.
@@ -327,7 +339,8 @@ Import URL: <https://ontologies.semanticarts.com/o/gistCore9.2.0>.
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore9.1.0>.
 
-## Release 9.0
+Release 9.0
+-----
 
 ### Miscellaneous
 
@@ -349,7 +362,7 @@ Import URL: <https://ontologies.semanticarts.com/o/gistCore9.0.0>.
 
 - New property: `hasTag`.
 - A `gist:Category` now uses `gist:hasTag` instead of `gist:containedText`.
-- The definition of `Taxonomy` was corrected. It used to be a controlled vocabulary that had a super category or a navigational parent. But it is not the taxonomy that is part of a hierarchy, it is the elements of the taxonomy that are part of the hierarchy. The definition for `gist:Taxonomy` now says it is a controlled vocabulary and has a member that has either a sub category or super category. The notion of navigational parent is no longer included in the definition.
+- The definition of `Taxonomy` was corrected. It used to be a controlled vocabulary that had a super category or a navigational parent. But it is not the taxonomy that is part of a hierarchy, it is the elements of the taxonomy that are part of the hierarchy.  The definition for `gist:Taxonomy` now says it is a controlled vocabulary and has a member that has either  a sub category or super category.  The notion of navigational parent is no longer included in the definition.
 - The object property `gist:hasPreferredTerm` that pointed to a `gist:Text` property was removed. Use the annotation `skos:prefLabel` instead.
 
 ### Event
@@ -371,10 +384,10 @@ Entirely new ontology for modeling Internet of Things concepts.
 
 ### Measure
 
-- Slight clarification of the meaning of OrdinalCollection. Mathematically, it is more than just a total order, it is a strict total order.
-- `directlyPrecedes` replaces `strictlyPrecedes`.
+- Slight clarification of the meaning of OrdinalCollection.  Mathematically, it is more than just a total order, it is a strict total order.
+- `directlyPrecedes`      replaces `strictlyPrecedes`.
 - `directlyPrecededBy` replaces `strictlyPrecededBy`
-- `PhysicalThing` removed, was a vestige from the past.
+- `PhysicalThing` removed, was  a vestige from the past.
 
 ### Network
 
@@ -382,7 +395,7 @@ Entirely new ontology for modeling Internet of Things concepts.
 
 ### Organization
 
-- New Class: `GeoPoliticalRegion`, a collection of `gist:GeoRegion` administered by a `GovernmentOrganization`.
+- New Class:  `GeoPoliticalRegion`, a collection of `gist:GeoRegion` administered by a `GovernmentOrganization`.
 
 ### Place
 
@@ -401,7 +414,7 @@ Entirely new ontology for modeling Internet of Things concepts.
 - References to `TimeInterval` removed.
 - `Event` is no longer a subclass of `TimeInterval`. Instead, it has a start and end time.
 - `gist:Content` is no longer disjoint with `Intention`.
-- `gist:Magnitude` is no longer `gist:of` something. We used to think of magnitude of say 180 pounds as necessarily being a value associated with something, e.g. a person. `gist:of` was the inverse of `gist:hasA` which no longer exists.
+- `gist:Magnitude` is no longer `gist:of` something.   We used to think of magnitude of say 180 pounds as necessarily being a value associated with something, e.g. a person.  `gist:of` was the inverse of `gist:hasA` which no longer exists.
 
 ### Unit
 
@@ -412,36 +425,40 @@ Entirely new ontology for modeling Internet of Things concepts.
 Added to the list of deprecated things:
 
 1. Renamed
-   - `gist:TemplateTask` (renamed to `TaskTemplate`)
-   - `gist:party` (use `hasParty` instead)
+    - `gist:TemplateTask` (renamed to `TaskTemplate`)
+    - `gist:party` (use `hasParty` instead)
 2. Removed
-   - `gist:SocialBeing` - use `(Person or Organization)` instead
-   - `gist:of` (a vestige of the past)
-   - `gist:sameOrderAs` (was adding unnecessary mathematical precision)
-   - `gist:TimeInterval` (the idea of a time interval is captured by assigning it a start and end time, e.g. an event)
-   - `gist:dateTime`
+    - `gist:SocialBeing`  - use `(Person or Organization)` instead
+    - `gist:of` (a vestige of the past)
+    - `gist:sameOrderAs` (was adding unnecessary mathematical precision)
+    - `gist:TimeInterval` (the idea of a time interval is captured by assigning it a start and end time, e.g. an event)
+    - `gist:dateTime`
 3. Replaced by a variation
-   - `gist:strictlyPrecededBy` (using `directlyPrecededBy` instead)
-   - `gist:strictlyPrecedes` (using `directlyPrecedes` instead)
+    - `gist:strictlyPrecededBy` (using `directlyPrecededBy` instead)
+    - `gist:strictlyPrecedes` (using `directlyPrecedes` instead)
 
-## Release 8.0
+Release 8.0
+-----
 
 This major version primarily changed all concept URIs to use `/` instead of `#`
 Additionally, gistWiki is no longer included by gistCore.
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore8.0.0>.
 
-## Release 7.5
+Release 7.5
+-----
 
-This version focused on making the import structure simpler and flatter, in order to make it easier for people to use subsets of gist if they want to. Because all of gist is in one name space this was relatively easy to do and will have very little impact on anyone who is using gist 7.\* (see the change log there were a few changes that you may want to review).
+This version focused on making the import structure simpler and flatter, in order to make it easier for people to use subsets of gist if they want to.  Because all of gist is in one name space this was relatively easy to do and will have very little impact on anyone who is using gist 7.* (see the change log there were a few changes that you may want to review).
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.5.owl>.
 
-## Release 7.4
+Release 7.4
+-----
 
 Gist 7.4 was an internal release.
 
-## Release 7.3
+Release 7.3
+-----
 
 - An additional supplementary ontology was added for Units of Measure which introduces the concept of a Coherent Unit. This allows for conversions between units of the same dimension to be done using just SPARQL, as opposed to relying on rules.
 - There are new and/or improved annotations (definitions, notes, examples, negative examples, etc.) on all Classes.
@@ -456,7 +473,8 @@ See ChangeLog in pdf file for full details of changes.
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.3.owl>.
 
-## Release 7.2
+Release 7.2
+-----
 
 - Add wiki and rdfshape capability
 - Removed some redundant assertions, and moved some comments to the ontology where the concept was first introduced.
@@ -466,16 +484,18 @@ Import URL: <http://ontologies.semanticarts.com/o/gistCore7.3.owl>.
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.2.owl>.
 
-## Release 7.1.1
+Release 7.1.1
+-----
 
 - Fix an erroneous disjoint statement on the class gist:Magnitude.
-  If you previously downloaded gist 7.1 you may have experienced an inference error if you attempted to run inference using Hermit.
-  The gist 7.1.1 release has eliminated the cause of this error.
+If you previously downloaded gist 7.1 you may have experienced an inference error if you attempted to run inference using Hermit.
+The gist 7.1.1 release has eliminated the cause of this error.
 - In addition to using the OWL files locally, you can import these files via URL directly into your ontology editor of choice(Protegé, Topbraid, etc.) The import will take care of the dependencies.
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.1.1.owl>.
 
-## Release 7.1
+Release 7.1
+-----
 
 Primarily fixes minor errors like typos in our gist 7.0 release.
 
@@ -495,13 +515,14 @@ In addition to using the OWL files locally, you can import these files via URL d
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.1.owl>.
 
-## Release Notes gist 7.0
+Release Notes gist 7.0
+-----
 
 gist 7.0 is a major upgrade from our last released version (6.7.1). The main differences are:
 
 - gist 7.0 is extremely modular. There are 18 modules that can be used collectively or in subsets if you don't need all the concepts in gist.
 - gist 7.0 is more elegant than its predecessors. We have reduced the number of top level concepts that everything else derives from to 12. And these 12 concepts are not philosophical abstractions like endurants and perdurants, or qualia, there are normal terms whose definitions are quite close to what you already believe.
-- gist 7.0 has more extensive and more-fine grained disjointness at the highest level. It turns out that in order for an upper ontology to help you avoid making logical errors in your derived enterprise or ontology, it needs to make use of disjointness. Without disjointness, the reasoner does not find logic errors.
+- gist 7.0 has more extensive and more-fine grained disjointness at the highest level. It turns out that in order for an upper ontology to help you avoid making logical errors in your derived enterprise or ontology, it needs to make use of disjointness. Without  disjointness, the reasoner does not find logic errors.
 
 For documentation and OWL files regarding terms that were deprecated when moving from version 6.7.1 to 7.0, please see the sub-folder called "Deprecated terms from gist6.7.1".
 
