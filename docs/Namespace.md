@@ -6,7 +6,7 @@ Welcome to the `gist` namespace.
 You requested [https://w3id.org/semanticarts/ns/ontology/gist](https://w3id.org/semanticarts/ns/ontology/gist), which is the gist namespace.
 
 You may have been looking for the gist ontology; if so, you can find it at
-[https://w3id.org/semanticarts/gistCore](https://w3id.org/semanticarts/gistCore)
+[https://w3id.org/semanticarts/ontology/gistCore](https://w3id.org/semanticarts/ontology/gistCore)
 (which you can click on or copy and paste into your ontology editing
 tool).
 
