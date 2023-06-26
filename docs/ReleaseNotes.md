@@ -9,8 +9,8 @@ This is a major release which includes several changes which break compatibility
 ### Major Updates
 
 - Changed the gist ontology IRIs and namespace IRI to the `w3id` domain. Issues [#683](https://github.com/semanticarts/gist/issues/683), [#853](https://github.com/semanticarts/gist/issues/853), [#859](https://github.com/semanticarts/gist/issues/859).
-  - The gist ontology IRIs have changed from `https://ontologies.semanticarts.com/o/<ontology-name>` to `https://w3id.org/semanticarts/<ontology-name>`. For example, `https://ontologies.semanticarts.com/o/gistCore` is now `https://w3id.org/semanticarts/gistCore`.
-  - The gist namespace has changed from `https://ontologies.semanticarts.com/gist` to `https://w3id.org/semanticarts/gist`.
+  - The gist ontology IRIs have changed from `https://ontologies.semanticarts.com/o/<ontology-name>` to `https://w3id.org/semanticarts/<ontology-name>`. For example, `https://ontologies.semanticarts.com/o/gistCore` is now `https://w3id.org/semanticarts/ontology/gistCore`.
+  - The gist namespace has changed from `https://ontologies.semanticarts.com/gist` to `https://w3id.org/semanticarts/ontology/gist`.
 - Deleted all inverse properties. Issue [#506](<https://github.com/semanticarts/gist/issues/506>).
   - For each pair of inverses, the property deemed clearest, simplest, and/or most useful was retained.
   - Axioms referring to the deleted properties were reformulated using `owl:inverseOf`.  
@@ -88,7 +88,7 @@ This is a major release which includes several changes which break compatibility
 - - Documentation updates. Issues [#567](https://github.com/semanticarts/gist/issues/567), [#576](https://github.com/semanticarts/gist/issues/576), [#734](https://github.com/semanticarts/gist/issues/734), [#736](https://github.com/semanticarts/gist/issues/736), [#758](https://github.com/semanticarts/gist/issues/758), [#801](https://github.com/semanticarts/gist/issues/801), [#802](https://github.com/semanticarts/gist/issues/802), [#810](https://github.com/semanticarts/gist/issues/810).
 - Miscellaneous non-semantic annotation updates. Issues [#734](https://github.com/semanticarts/gist/issues/734),[#753](https://github.com/semanticarts/gist/issues/753), [#758](https://github.com/semanticarts/gist/issues/758).
 
-Import URL: <https://w3id.org/semanticarts/gistCore12.0.0>.
+Import URL: <https://w3id.org/semanticarts/ontology/gistCore12.0.0>.
 
 Release 11.1.0
 -----

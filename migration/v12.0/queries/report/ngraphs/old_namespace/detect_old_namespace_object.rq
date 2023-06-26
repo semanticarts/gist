@@ -20,6 +20,6 @@ WHERE {
   FILTER(STRSTARTS(STR(?o), "https://ontologies.semanticarts.com/gist/"))
   BIND(<urn:renamed-entity-validation-report> as ?report)
   BIND(CONCAT("WARNING: old namespace in use: ", STR(?o),
-    ". This should now be: https://w3id.org/semanticarts/gist/", REPLACE(STR(?o), '^.*[/#]', '')
+    ". This should now be: https://w3id.org/semanticarts/ns/ontology/gist/", REPLACE(STR(?o), '^.*[/#]', '')
     ) as ?error)
 }
