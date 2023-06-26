@@ -1,6 +1,6 @@
-# imports: https://w3id.org/semanticarts/gistCoreX.x.x
+# imports: https://w3id.org/semanticarts/ontology/gistCoreX.x.x
 
-@prefix gist: <https://w3id.org/semanticarts/gist/> .
+@prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
 @prefix media-app: <https://www.iana.org/assignments/media-types/application/> .
 @prefix media-txt: <https://www.iana.org/assignments/media-types/text/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -12,7 +12,7 @@
 
 <https://w3id.org/semanticarts/gistMediaTypes>
 	a owl:Ontology ;
-	owl:imports <https://w3id.org/semanticarts/gistCoreX.x.x> ;
+	owl:imports <https://w3id.org/semanticarts/ontology/gistCoreX.x.x> ;
 	owl:versionIRI <https://w3id.org/semanticarts/gistMediaTypesX.x.x> ;
 	skos:definition "Definitions of IANA Media Types."^^xsd:string ;
 	skos:prefLabel "gist Media Types"^^xsd:string ;

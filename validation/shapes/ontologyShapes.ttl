@@ -3,7 +3,7 @@
 # imports: http://www.w3.org/ns/shacl#
 
 @prefix dash: <http://datashapes.org/dash#> .
-@prefix gist: <https://w3id.org/semanticarts/gist/> .
+@prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
 @prefix gshapes: <https://shapes.semanticarts.com/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
