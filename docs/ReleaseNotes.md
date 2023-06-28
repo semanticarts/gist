@@ -85,7 +85,7 @@ This is a major release which includes several changes which break compatibility
   - Updated user documentation to reflect these changes.
 - Fixed broken links to gist logo in `docs/README.*`. Issue [#750](https://github.com/semanticarts/gist/issues/750).
 - Added scripts to migrate from `11.x.x` versions to version `12.0.0`. Issue [#816](https://github.com/semanticarts/gist/issues/816).
-- - Documentation updates. Issues [#567](https://github.com/semanticarts/gist/issues/567), [#576](https://github.com/semanticarts/gist/issues/576), [#734](https://github.com/semanticarts/gist/issues/734), [#736](https://github.com/semanticarts/gist/issues/736), [#758](https://github.com/semanticarts/gist/issues/758), [#801](https://github.com/semanticarts/gist/issues/801), [#802](https://github.com/semanticarts/gist/issues/802), [#810](https://github.com/semanticarts/gist/issues/810).
+- Documentation updates. Issues [#567](https://github.com/semanticarts/gist/issues/567), [#576](https://github.com/semanticarts/gist/issues/576), [#734](https://github.com/semanticarts/gist/issues/734), [#736](https://github.com/semanticarts/gist/issues/736), [#758](https://github.com/semanticarts/gist/issues/758), [#801](https://github.com/semanticarts/gist/issues/801), [#802](https://github.com/semanticarts/gist/issues/802), [#810](https://github.com/semanticarts/gist/issues/810).
 - Miscellaneous non-semantic annotation updates. Issues [#734](https://github.com/semanticarts/gist/issues/734),[#753](https://github.com/semanticarts/gist/issues/753), [#758](https://github.com/semanticarts/gist/issues/758).
 
 Import URL: <https://w3id.org/semanticarts/ontology/gistCore12.0.0>.
