@@ -7,12 +7,12 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://w3id.org/semanticarts/ontology/gistSubClassAssertions.ttl>
+<https://w3id.org/semanticarts/ontology/gistSubClassAssertions>
 	a owl:Ontology ;
 	owl:imports <https://w3id.org/semanticarts/ontology/gistCore> ;
 	skos:definition "Supplementary subclass assertions for gistCore."^^xsd:string ;
 	skos:prefLabel "gist Subclass Assertions"^^xsd:string ;
-	skos:scopeNote "This ontology file contains supplementary subclass assertions that are logically entailed by gist but are not inferred by some automated reasoners. For example, an RL reasoner would not infer that gist:Commitment is a subclass of gist:Intention, even though it must be. More precisely, it contains (1) subclass assertions derived using an OWL DL reasoner and (2) the subclass assertions that are already explicit in gistCore."^^xsd:string ;
+	skos:scopeNote "This ontology contains supplementary subclass assertions that are logically entailed by gistCore but are not inferred by some automated reasoners. For example, an OWL RL reasoner would not infer that gist:Commitment is a subclass of gist:Intention, even though it follows from the ontology axioms. More precisely, it contains (1) subclass assertions derived using an OWL DL reasoner and (2) the subclass assertions that are already explicit in gistCore."^^xsd:string ;
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
 	.
 
@@ -113,7 +113,7 @@ gist:ContentExpression
 	.
 
 gist:ContingentEvent
-	rdfs:subClassOf gist:PlannedEvent ;
+	rdfs:subClassOf gist:Event ;
 	.
 
 gist:ContingentObligation
@@ -154,6 +154,10 @@ gist:CountryGeoRegion
 
 gist:CountryGovernment
 	rdfs:subClassOf gist:GovernmentOrganization ;
+	.
+
+gist:CurrencyPerDurationUnit
+	rdfs:subClassOf gist:RatioUnit ;
 	.
 
 gist:CurrencyUnit
@@ -333,6 +337,10 @@ gist:Monetary
 	rdfs:subClassOf gist:Magnitude ;
 	.
 
+gist:MonetaryPerDuration
+	rdfs:subClassOf gist:RatioMagnitude ;
+	.
+
 gist:Network
 	rdfs:subClassOf gist:Artifact ;
 	.
@@ -369,10 +377,6 @@ gist:PhysicalEvent
 	rdfs:subClassOf gist:Event ;
 	.
 
-gist:PlannedEvent
-	rdfs:subClassOf gist:Event ;
-	.
-
 gist:PostalAddress
 	rdfs:subClassOf gist:Address ;
 	.
@@ -393,8 +397,8 @@ gist:ProductUnit
 	rdfs:subClassOf gist:UnitOfMeasure ;
 	.
 
-gist:ProjectExecution
-	rdfs:subClassOf gist:TaskExecution ;
+gist:Project
+	rdfs:subClassOf gist:Task ;
 	.
 
 gist:RatioMagnitude
@@ -421,10 +425,14 @@ gist:Restriction
 	rdfs:subClassOf gist:Intention ;
 	.
 
-gist:ScheduledTaskExecution
+gist:ScheduledEvent
+	rdfs:subClassOf gist:Event ;
+	.
+
+gist:ScheduledTask
 	rdfs:subClassOf
-		gist:PlannedEvent ,
-		gist:TaskExecution
+		gist:ScheduledEvent ,
+		gist:Task
 		;
 	.
 
@@ -460,7 +468,7 @@ gist:Tag
 	rdfs:subClassOf gist:Category ;
 	.
 
-gist:TaskExecution
+gist:Task
 	rdfs:subClassOf gist:Event ;
 	.
 
@@ -486,14 +494,6 @@ gist:TemperatureUnit
 
 gist:Text
 	rdfs:subClassOf gist:Content ;
-	.
-
-gist:TimeZone
-	rdfs:subClassOf gist:GeoRegion ;
-	.
-
-gist:TimeZoneStandard
-	rdfs:subClassOf gist:Specification ;
 	.
 
 gist:Transaction
