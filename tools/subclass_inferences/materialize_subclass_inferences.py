@@ -41,7 +41,7 @@ def run_reasoner(input_ttl, output_ttl):
         (OWL.imports, URIRef("https://w3id.org/semanticarts/ontology/gistCore")),
         (SKOS.definition, Literal("Supplementary subclass assertions for gistCore.", datatype=XSD.string)),
         (SKOS.prefLabel, Literal("gist Subclass Assertions")),
-        (SKOS.scopeNote, Literal("This ontology contains supplementary subclass assertions that are logically entailed by gist but are not inferred by some automated reasoners. For example, an OWL RL reasoner would not infer that gist:Commitment is a subclass of gist:Intention, even though it must be based on the ontology axioms. More precisely, it contains (1) subclass assertions derived using an OWL DL reasoner and (2) the subclass assertions that are already explicit in gistCore.", datatype=XSD.string)),
+        (SKOS.scopeNote, Literal("This ontology contains supplementary subclass assertions that are logically entailed by gistCore but are not inferred by some automated reasoners. For example, an OWL RL reasoner would not infer that gist:Commitment is a subclass of gist:Intention, even though it follows from the ontology axioms. More precisely, it contains (1) subclass assertions derived using an OWL DL reasoner and (2) the subclass assertions that are already explicit in gistCore.", datatype=XSD.string)),
         (GIST.license, Literal("https://creativecommons.org/licenses/by-sa/3.0/", datatype=XSD.string))
     ]   
 
