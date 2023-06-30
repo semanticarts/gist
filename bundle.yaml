@@ -109,7 +109,7 @@ actions:
   includes:
     - "*.ttl"
   query: >
-    prefix gist: <https://w3id.org/semanticarts/gist/>
+    prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/>
     prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     prefix skos: <http://www.w3.org/2004/02/skos/core#>
 

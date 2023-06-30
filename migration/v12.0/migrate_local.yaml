@@ -52,7 +52,7 @@ actions:
       - "*.owl"
     replace:
       from: "https://ontologies.semanticarts.com/gist/"
-      to: "https://w3id.org/semanticarts/gist/"
+      to: "https://w3id.org/semanticarts/ns/ontology/gist/"
   # validation
   - action: "verify"
     message: "Check for issues that should be reviewed."
