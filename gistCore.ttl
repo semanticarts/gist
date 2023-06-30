@@ -1,5 +1,5 @@
-@prefix : <https://w3id.org/semanticarts/gistCore#> .
-@prefix gist: <https://w3id.org/semanticarts/gist/> .
+@prefix : <https://w3id.org/semanticarts/ontology/gistCore#> .
+@prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -8,9 +8,9 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://w3id.org/semanticarts/gistCore>
+<https://w3id.org/semanticarts/ontology/gistCore>
 	a owl:Ontology ;
-	owl:versionIRI <https://w3id.org/semanticarts/gistCoreX.x.x> ;
+	owl:versionIRI <https://w3id.org/semanticarts/ontology/gistCoreX.x.x> ;
 	skos:definition "gist is a minimalist upper ontology created by Semantic Arts."^^xsd:string ;
 	skos:prefLabel "gist"^^xsd:string ;
 	sh:declare gist:_PrefixDeclaration_gist ;
@@ -1140,10 +1140,7 @@ gist:GovernedGeoRegion
 gist:GovernmentOrganization
 	a owl:Class ;
 	rdfs:subClassOf gist:Organization ;
-	owl:disjointWith
-		gist:IntergovernmentalOrganization ,
-		gist:TreatyOrganization
-		;
+	owl:disjointWith gist:IntergovernmentalOrganization ;
 	skos:definition "An organization which exercises political and/or regulatory authority over a political unit, people, geo-region, etc., as well as performing certain functions for this unit or body. Differs from a corporation in that it cannot be owned."^^xsd:string ;
 	skos:example "The State of Washington Office of Financial Management; the Food and Drug Administration; the Scottish Parliament."^^xsd:string ;
 	skos:prefLabel "Government Organization"^^xsd:string ;
@@ -1264,9 +1261,9 @@ gist:IntergovernmentalOrganization
 			]
 		) ;
 	] ;
-	skos:definition "An organization whose members are government organizations."^^xsd:string ;
-	skos:example "The United Nations, the European Union"^^xsd:string ;
-	skos:prefLabel "Inter-Governmental Organization"^^xsd:string ;
+	skos:definition "An organization whose members are government organizations. This can comprise regional, municipal, state/province, or national level entities."^^xsd:string ;
+	skos:example "The United Nations, the European Union, the MTA (Metropolitan Transit Authority)"^^xsd:string ;
+	skos:prefLabel "Intergovernmental Organization"^^xsd:string ;
 	.
 
 gist:Landmark
@@ -2491,38 +2488,15 @@ gist:Text
 	skos:prefLabel "Text"^^xsd:string ;
 	.
 
-gist:TimeZone
+gist:TimeInterval
 	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:GeoRegion
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasOffsetToUniversal ;
-				owl:someValuesFrom gist:Duration ;
-			]
-		) ;
-	] ;
-	skos:definition "A region that observes a uniform standard time for legal, commercial, and social purposes.  A typical time zone averages 15? of longitude in width and typically observes a clock time one hour earlier than the zone immediately to the east."^^xsd:string ;
-	skos:prefLabel "Time Zone"^^xsd:string ;
-	.
-
-gist:TimeZoneStandard
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Specification
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isBasedOn ;
-				owl:someValuesFrom gist:TimeZone ;
-			]
-		) ;
-	] ;
-	skos:definition "The algorithm for getting from Greenwich Mean Time to local time, which includes the time zone offset and rules about daylight savings time."^^xsd:string ;
-	skos:prefLabel "Time Zone Standard"^^xsd:string ;
+	skos:definition "A span of time with a known start time, end time, and duration. As long as two of the three are known, the third can be inferred."^^xsd:string ;
+	skos:example "7pm to 9pm on Jan 1, 2001; fiscal year 2023; the week starting at midnight of January 12, 2023 and lasting exactly 168 hours."^^xsd:string ;
+	skos:prefLabel "Time Interval"^^xsd:string ;
+	skos:scopeNote
+		"An ongoing state of affairs with an unknown end time in the future cannot be a time interval; e.g. the lifespan of a living person cannot be a time interval, as the end time is unknown."^^xsd:string ,
+		"This is distinct from a gist:Duration, which describes how long a time interval lasts (e.g., one hour; 3 days; 22 minutes)."^^xsd:string
+		;
 	.
 
 gist:Transaction
@@ -2530,29 +2504,6 @@ gist:Transaction
 	rdfs:subClassOf gist:Event ;
 	skos:definition "An event which has an effect on at least one accumulator."^^xsd:string ;
 	skos:prefLabel "Transaction"^^xsd:string ;
-	.
-
-gist:TreatyOrganization
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:IntergovernmentalOrganization
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMember ;
-				owl:allValuesFrom gist:CountryGovernment ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMember ;
-				owl:minCardinality "2"^^xsd:nonNegativeInteger ;
-			]
-		) ;
-	] ;
-	skos:definition "An organization whose members are country governments."^^xsd:string ;
-	skos:example "NATO, the Louisiana Purchase, the Treaty of Versailles"^^xsd:string ;
-	skos:prefLabel "Treaty Organization"^^xsd:string ;
 	.
 
 gist:UnitOfMeasure
@@ -2604,7 +2555,7 @@ gist:VolumeUnit
 
 gist:_PrefixDeclaration_gist
 	a sh:PrefixDeclaration ;
-	sh:namespace "https://w3id.org/semanticarts/gist/"^^xsd:anyURI ;
+	sh:namespace "https://w3id.org/semanticarts/ns/ontology/gist/"^^xsd:anyURI ;
 	sh:prefix "gist"^^xsd:string ;
 	.
 
@@ -2899,7 +2850,7 @@ The subproperties allow the ontologist to do three things:
 
 All datetimes are of the same format: '2021-06-01T08:03:27.12324-6:00'^^xsd:dateTime. This is compatible with and a subset of ISO 8601.
 
-Time zone offset, such as -6:00 (of which there are a few dozen) is recognized in the date itself, as shown. The actual time zone standard (of which there are 131) may optionally be attached to the event or other object itself; see property gist:usesTimeZoneStandard.
+Time zone offset, such as -6:00 (of which there are a few dozen) is recognized in the date itself, as shown. The actual time zone standard (of which there are 131) may optionally be attached to the event or other object itself.
 
 There will be many historical dates that do not have a time zone offset (e.g., Lincoln's birthday, as well as about 75% of all legacy systems), and in that case the offset can be omitted. 
 
@@ -2908,7 +2859,6 @@ The conventions for precision that are repeated in each property name are as fol
 	- *Date refers to a calendar date (e.g., birthdays and invoice dates) and is assumed to have precision of one day. Time zone offset is allowed.
 	- *Minute refers to clock time; e.g., a meeting will start at 9:15 with a timezone offset. Precision is assumed to have precision of one minute.
 	- *Microsecond refers to system time, and it will be as precise as the system can supply; typically at least milliseconds, sometime microseconds.
-
 """^^xsd:string ;
 	.
 
@@ -3220,14 +3170,6 @@ gist:hasNumerator
 	a owl:ObjectProperty ;
 	skos:definition "Relates a RatioUnit such as meter(s)/second to the numerator Unit (e.g. meter)."^^xsd:string ;
 	skos:prefLabel "has numerator"^^xsd:string ;
-	.
-
-gist:hasOffsetToUniversal
-	a owl:ObjectProperty ;
-	rdfs:domain gist:TimeZone ;
-	rdfs:range gist:Duration ;
-	skos:definition "How many hours the time zone is off GMT"^^xsd:string ;
-	skos:prefLabel "has offset to universal"^^xsd:string ;
 	.
 
 gist:hasPart
@@ -3888,14 +3830,6 @@ gist:unitSymbolUnicode
 	rdfs:range xsd:string ;
 	skos:definition "The standard symbol for the unit preferred for pretty printing, may use special characters.  E.g. square meter would be  m? rather than m^2."^^xsd:string ;
 	skos:prefLabel "unit symbol Unicode"^^xsd:string ;
-	.
-
-gist:usesTimeZoneStandard
-	a owl:ObjectProperty ;
-	rdfs:range gist:TimeZoneStandard ;
-	skos:definition "The time zone, including daylight savings time adjustment, of an event or other object that can have a date and time."^^xsd:string ;
-	skos:example "EST (Eastern Standard Time), PST (Pacific Daylight Time)."^^xsd:string ;
-	skos:prefLabel "uses time zone standard"^^xsd:string ;
 	.
 
 []
