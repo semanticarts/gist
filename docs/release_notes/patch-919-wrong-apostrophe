@@ -1,0 +1,1 @@
+- The file `docs/Namespace.md` had the wrong character where it should have had an apostrophe. Fixes [#919](https://github.com/semanticarts/gist/issues/919).
