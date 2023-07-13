@@ -2608,7 +2608,10 @@ gist:_candela
 	.
 
 gist:_day
-	a gist:DurationUnit ;
+	a
+		owl:Thing ,
+		gist:DurationUnit
+		;
 	skos:definition "A duration unit that is 24 hours long."^^xsd:string ;
 	skos:prefLabel "day"^^xsd:string ;
 	gist:conversionFactor "86400.0"^^xsd:double ;
@@ -2664,7 +2667,10 @@ gist:_meter
 	.
 
 gist:_millisecond
-	a gist:DurationUnit ;
+	a
+		owl:Thing ,
+		gist:DurationUnit
+		;
 	skos:definition "A unit equal to a thousandth of a second."^^xsd:string ;
 	skos:prefLabel "millisecond"^^xsd:string ;
 	gist:conversionFactor "0.001"^^xsd:double ;
@@ -2673,7 +2679,10 @@ gist:_millisecond
 	.
 
 gist:_minute
-	a gist:DurationUnit ;
+	a
+		owl:Thing ,
+		gist:DurationUnit
+		;
 	skos:definition "A unit equal to 60 seconds."^^xsd:string ;
 	skos:prefLabel "minute"^^xsd:string ;
 	gist:conversionFactor "60.0"^^xsd:double ;
