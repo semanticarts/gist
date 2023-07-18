@@ -15,6 +15,7 @@ This is a major release which includes several changes which break compatibility
   - For each pair of inverses, the property deemed clearest, simplest, and/or most useful was retained.
   - Axioms referring to the deleted properties were reformulated using `owl:inverseOf`.  
   - Breakdown:
+
       | Properties retained in gist | Inverse properties removed from gist |
       | ----------- | ----------- |
       `hasDirectPart` | `isDirectPartOf`
