@@ -107,7 +107,7 @@ actions:
 - action: "sparql"
   message: "Generating rdfs:label and rdfs:comment for backward compatibility."
   source: "{output}"
-  target: "{output}/rdfsAnnotations{version}.ttl"
+  target: "{output}/gistRdfsAnnotations{version}.ttl"
   format: "turtle"
   includes:
     - "*.ttl"
