@@ -1,3 +1,0 @@
-### Patch Updates
-
-- Updated `bundle.yaml` to exclude the `gistValidationAnnotations` ontology from the release package. Issue [#922](https://github.com/semanticarts/gist/issues/922).
