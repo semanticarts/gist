@@ -1,3 +1,0 @@
-### Patch Updates
-
-- Changed smart single quotes to straight quotes for the apostrophes in `docs/Namespace.md`. Issue [#919](https://github.com/semanticarts/gist/issues/919).
