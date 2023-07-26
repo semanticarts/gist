@@ -3187,8 +3187,8 @@ gist:hasParticipant
 	skos:example "An event of transferring money has a participating account that receives the money."^^xsd:string ;
 	skos:prefLabel "has participant"^^xsd:string ;
 	skos:scopeNote
-		"The thing with participants will often be an agreement, event or obligation."^^xsd:string ,
-		"This is intended as an abstract property. Only its subproperties will be directly used."^^xsd:string
+		"The thing with participants will often be an agreement, event or obligation. Participation does not imply agency."^^xsd:string ,
+		"This will most often be used as an abstract property. Use subproperties that indicate the nature of the participation (e.g. hasBorrower, hasVenue)."^^xsd:string
 		;
 	.
 
