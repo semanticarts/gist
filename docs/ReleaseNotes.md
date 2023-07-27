@@ -6,7 +6,7 @@ Release 12.0.1
 
 ### Patch Updates
 
-- Added missing `owl:Thing` assertions to ensure that `rdfs:isDefinedBy` assertions are generated during the release bundling process. Issue [#775](https://github.com/semanticarts/gist/issues/775).
+- Added missing `owl:Thing` assertions to gist instances to ensure that `rdfs:isDefinedBy` assertions are generated during the release bundling process. Issue [#775](https://github.com/semanticarts/gist/issues/775).
 
 - Updated description of gist Forum in README. Issue [#917](https://github.com/semanticarts/gist/issues/917).
 
@@ -14,7 +14,7 @@ Release 12.0.1
   
 - Updated `bundle.yaml` to exclude the `gistValidationAnnotations` ontology from the release package. Issue [#922](https://github.com/semanticarts/gist/issues/922).
 
-- Added newline to release notes to fix HTML rendering. Issue [#923](https://github.com/semanticarts/gist/issues/923).
+Updated the Python HTML renderer to fix browser display issues of gist documentation. Issue [#923](https://github.com/semanticarts/gist/issues/923).
 
 Import URL: <https://w3id.org/semanticarts/ontology/gistCore12.0.1>.
 
