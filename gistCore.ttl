@@ -1565,8 +1565,8 @@ gist:MonetaryPerDuration
 			]
 		) ;
 	] ;
-	skos:definition "A monetary amount over a period of time."^^xsd:string ;
-	skos:example "Dollars per hour, euros per month."^^xsd:string ;
+	skos:definition "An amount of money over a period of time."^^xsd:string ;
+	skos:example "20 dollars per hour, 2000 euros per week."^^xsd:string ;
 	skos:prefLabel "Monetary per Duration"^^xsd:string ;
 	.
 
