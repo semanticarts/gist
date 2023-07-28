@@ -94,7 +94,10 @@ actions:
     from: "(.*)\\.ttl"
     to: "\\g<1>{version}.ttl"
   includes:
-    - "*.ttl"
+    - gistCore.ttl
+    - gistMediaTypes.ttl
+    - gistPrefixDeclarations.ttl
+    - gistSubClassAssertions.ttl
 - action: "definedBy"
   message: "Adding rdfs:isDefinedBy."
   source: "{output}"
