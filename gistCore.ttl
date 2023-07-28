@@ -1275,7 +1275,7 @@ gist:Landmark
 			gist:PhysicalIdentifiableItem
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasPhysicalLocation ;
+				owl:onProperty gist:occupiesGeographicallyPermanently ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -1287,6 +1287,7 @@ gist:Landmark
 		) ;
 	] ;
 	skos:definition "Something permanently attached to the Earth."^^xsd:string ;
+	skos:editorialNote "On the next major release gist:occupiesGeographicallyPermanently will be gone. The restriction above will use gist:hasPhysicalLocation. Use subClassOf instead of equivalentClass."^^xsd:string ;
 	skos:prefLabel "Landmark"^^xsd:string ;
 	.
 
@@ -3215,7 +3216,7 @@ gist:hasPhysicalLocation
 	rdfs:range gist:Place ;
 	skos:definition "Relates something to where it is physically located."^^xsd:string ;
 	skos:prefLabel "has physical location"^^xsd:string ;
-	skos:scopeNote "This property does not distinguish between things whose locations are relatively stable and those that vary over different time periods; e.g., a fire hydrant vs. a car. Use a temporal relation if you need to explicitly model a time-delimited location."^^xsd:string ;
+	skos:scopeNote "This property does not distinguish between things whose locations are stable and those whose locations change over time; e.g., a fire hydrant vs. a car. Use a temporal relation if you need to explicitly model a time-delimited location."^^xsd:string ;
 	.
 
 gist:hasPrecision
@@ -3554,6 +3555,29 @@ gist:numericValue
 	] ;
 	skos:definition "The actual value of a magnitude."^^xsd:string ;
 	skos:prefLabel "numeric value"^^xsd:string ;
+	.
+
+gist:occupiesGeographically
+	a owl:ObjectProperty ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf (
+			gist:PhysicalIdentifiableItem
+			gist:PhysicalSubstance
+		) ;
+	] ;
+	rdfs:range gist:Place ;
+	owl:deprecated "true"^^xsd:boolean ;
+	skos:definition "A thing occupies are region"^^xsd:string ;
+	skos:prefLabel "occupies geographically"^^xsd:string ;
+	.
+
+gist:occupiesGeographicallyPermanently
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:occupiesGeographically ;
+	owl:deprecated "true"^^xsd:boolean ;
+	skos:definition "To be in a fixed position on the earth"^^xsd:string ;
+	skos:prefLabel "occupies geographically permanently"^^xsd:string ;
 	.
 
 gist:occursIn
