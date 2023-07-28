@@ -17,8 +17,8 @@ available, that cover extensions to this core, both horizontally (HR and
 Accounting) and vertically (Professional Services, Healthcare). These
 other ontologies have different names but share the gist namespace.
 
-If you’re wondering why the namespace isn’t the same as the ontology IRI,
-and therefore why it didn’t return the ontology, read on.
+If you're wondering why the namespace isn't the same as the ontology IRI,
+and therefore why it didn't return the ontology, read on.
 
 The Difference Between Namespaces and Ontologies
 -----
@@ -30,7 +30,7 @@ historically contained in a file.
 
 The reason these two terms are so often conflated is that most ontology
 editing tools will provide both as a convenient default and will make both
-the same. When you’re just screwing around learning ontology authoring
+the same. When you're just screwing around learning ontology authoring
 and building toy apps, this collapsing of the two terms is mostly benign.
 
 It turns out that applying this default behavior to production systems is
@@ -57,7 +57,7 @@ you meant the default, which by default is the name of the ontology
 itself. This is the root of the confusion.
 
 We advocate not using a default namespace. Much better to be explicit,
-and as we’ll see, explicitness encourages (or at least doesn’t obscure)
+and as we'll see, explicitness encourages (or at least doesn't obscure)
 reusing other terms that may have been minted elsewhere.
 
 Minting IRIs
@@ -66,8 +66,8 @@ Minting IRIs
 The person or system that first defines a term or creates an identifier
 for a real world instance is said to have "minted" the identifier. It
 mints it within a namespace. It should be a namespace you have
-control over. Minting an IRI in someone else’s namespace is called
-"namespace squatting." Not only is it poor form, it doesn’t really
+control over. Minting an IRI in someone else's namespace is called
+"namespace squatting." Not only is it poor form, it doesn't really
 accomplish anything. If you decide to mint an IRI in the gist
 namespace, no one else will know this happened. You will be shouting
 in a well.
@@ -85,7 +85,7 @@ This is essentially a path within the domain name `w3id.org`, whose owners
 have given us exclusive control over. When we mint new terms, we will do so
 in this namespace.
 
-An ontology needn’t have any IRIs minted it its "own" namespace
+An ontology needn't have any IRIs minted it its "own" namespace
 -----
 
 To cement the idea that the ontology need not have a 1:1 coorespondence to
@@ -106,15 +106,15 @@ its namespace, consider the following legitimate ontology.
 ```
 
 The first 8 lines declare namespace prefixes. Strictly speaking they are
-just conveniences (abbreviations), so that line 11 doesn’t get too long
+just conveniences (abbreviations), so that line 11 doesn't get too long
 to read. The name of the ontology is in line 10. The entire ontology is
-in line 11, and doesn’t refer to anything that was minted in this ontology.
+in line 11, and doesn't refer to anything that was minted in this ontology.
 It just says that someone named mccomb (as per the Semantic Arts
-namespace) owns (as per gist’s definition of ownership) something
+namespace) owns (as per gist's definition of ownership) something
 that dbPedia will soon recognize as Semantic Arts.
 
 This ontology does not have any IRIs minted in either its namespace
-(which isn’t even declared; I took out the default declaration) or
+(which isn't even declared; I took out the default declaration) or
 in this ontology.
 
 How to partition
@@ -141,15 +141,15 @@ with the other two.
 Governance drives namespace use
 -----
 
-But just because you’ve divided your ontology into partitions (modules)
-doesn’t mean the namespaces must follow. In the above example, if one
+But just because you've divided your ontology into partitions (modules)
+doesn't mean the namespaces must follow. In the above example, if one
 group were doing all the ontology work for vendor, material and purchasing,
 they could easily do all three in the same namespace.
 
 You really only need separate namespaces if you have people minting
 terms that are not coordinating with each other. If you have one group
 minting the term: `Account` to mean what accountants think and the
-sales group minting the term `Account` to mean prospect, you’d have
+sales group minting the term `Account` to mean prospect, you'd have
 a difficult time with the accidental term collisions.
 
 The solution is either to coordinate, or to have separate namespaces.
@@ -173,7 +173,7 @@ The problems become more obvious the more files you have. If someone
 mints a term, say a property or a class, in a sub-ontology that everyone
 agrees would be useful to have in other sub-ontologies, the other
 sub-ontologies can either import the one with the term they want
-(getting a bunch of axioms they don’t want) or they can lobby for
+(getting a bunch of axioms they don't want) or they can lobby for
 promoting the term to a higher level ontology where it can be reused
 more easily. The only problem is that with that promotion, because
 each ontology has its own namespace, the name of the term must be
