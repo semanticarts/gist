@@ -14,7 +14,7 @@ Release 12.0.1
   
 - Updated `bundle.yaml` to exclude the `gistValidationAnnotations` ontology from the release package. Issue [#922](https://github.com/semanticarts/gist/issues/922).
 
-- Updated the Python HTML renderer to fix browser display issues of gist documentation. Issue [#923](https://github.com/semanticarts/gist/issues/923).
+- Updated the Python HTML renderer to fix errors in display of gist documentation in the browser. Issue [#923](https://github.com/semanticarts/gist/issues/923).
 
 Import URL: <https://w3id.org/semanticarts/ontology/gistCore12.0.1>.
 
