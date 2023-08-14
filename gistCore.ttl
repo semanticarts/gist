@@ -1566,8 +1566,8 @@ gist:MonetaryPerDuration
 			]
 		) ;
 	] ;
-	skos:definition "A monetary amount over a period of time."^^xsd:string ;
-	skos:example "Dollars per hour, euros per month."^^xsd:string ;
+	skos:definition "An amount of money over a period of time."^^xsd:string ;
+	skos:example "20 dollars per hour, 2000 euros per week."^^xsd:string ;
 	skos:prefLabel "Monetary per Duration"^^xsd:string ;
 	.
 
@@ -2609,7 +2609,10 @@ gist:_candela
 	.
 
 gist:_day
-	a gist:DurationUnit ;
+	a
+		owl:Thing ,
+		gist:DurationUnit
+		;
 	skos:definition "A duration unit that is 24 hours long."^^xsd:string ;
 	skos:prefLabel "day"^^xsd:string ;
 	gist:conversionFactor "86400.0"^^xsd:double ;
@@ -2665,7 +2668,10 @@ gist:_meter
 	.
 
 gist:_millisecond
-	a gist:DurationUnit ;
+	a
+		owl:Thing ,
+		gist:DurationUnit
+		;
 	skos:definition "A unit equal to a thousandth of a second."^^xsd:string ;
 	skos:prefLabel "millisecond"^^xsd:string ;
 	gist:conversionFactor "0.001"^^xsd:double ;
@@ -2674,7 +2680,10 @@ gist:_millisecond
 	.
 
 gist:_minute
-	a gist:DurationUnit ;
+	a
+		owl:Thing ,
+		gist:DurationUnit
+		;
 	skos:definition "A unit equal to 60 seconds."^^xsd:string ;
 	skos:prefLabel "minute"^^xsd:string ;
 	gist:conversionFactor "60.0"^^xsd:double ;
@@ -3188,8 +3197,8 @@ gist:hasParticipant
 	skos:example "An event of transferring money has a participating account that receives the money."^^xsd:string ;
 	skos:prefLabel "has participant"^^xsd:string ;
 	skos:scopeNote
-		"The thing with participants will often be an agreement, event or obligation."^^xsd:string ,
-		"This is intended as an abstract property. Only its subproperties will be directly used."^^xsd:string
+		"The thing with participants will often be an agreement, event or obligation. Participation does not imply agency."^^xsd:string ,
+		"This will most often be used as an abstract property. Use subproperties that indicate the nature of the participation (e.g. hasBorrower, hasVenue)."^^xsd:string
 		;
 	.
 
