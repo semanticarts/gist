@@ -1,0 +1,3 @@
+### Minor Updates
+
+- deprecated isCharacterizedAs
