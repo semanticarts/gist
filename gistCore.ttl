@@ -1287,6 +1287,7 @@ gist:Landmark
 		) ;
 	] ;
 	skos:definition "Something permanently attached to the Earth."^^xsd:string ;
+	skos:editorialNote "See guidance on removing the term in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1679566885."^^xsd:string ;
 	skos:prefLabel "Landmark"^^xsd:string ;
 	.
 
@@ -3222,8 +3223,9 @@ gist:hasPhysicalLocation
 		owl:TransitiveProperty
 		;
 	rdfs:range gist:Place ;
-	skos:definition "Where something is located"^^xsd:string ;
+	skos:definition "Relates something to its physical location."^^xsd:string ;
 	skos:prefLabel "has physical location"^^xsd:string ;
+	skos:scopeNote "This property does not distinguish between things whose locations are stable and those whose locations change over time; e.g., a fire hydrant vs. a car."^^xsd:string ;
 	.
 
 gist:hasPrecision
@@ -3574,6 +3576,7 @@ gist:occupiesGeographically
 		) ;
 	] ;
 	rdfs:range gist:Place ;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "A thing occupies are region"^^xsd:string ;
 	skos:prefLabel "occupies geographically"^^xsd:string ;
 	.
@@ -3581,6 +3584,7 @@ gist:occupiesGeographically
 gist:occupiesGeographicallyPermanently
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:occupiesGeographically ;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "To be in a fixed position on the earth"^^xsd:string ;
 	skos:prefLabel "occupies geographically permanently"^^xsd:string ;
 	.
