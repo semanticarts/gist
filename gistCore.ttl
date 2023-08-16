@@ -1287,7 +1287,7 @@ gist:Landmark
 		) ;
 	] ;
 	skos:definition "Something permanently attached to the Earth."^^xsd:string ;
-	skos:editorialNote "On the next major release gist:occupiesGeographicallyPermanently will be gone. The restriction above will use gist:hasPhysicalLocation. Use subClassOf instead of equivalentClass."^^xsd:string ;
+	skos:editorialNote "See guidance on removing the term in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1679566885."^^xsd:string ;
 	skos:prefLabel "Landmark"^^xsd:string ;
 	.
 
