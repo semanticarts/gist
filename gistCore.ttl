@@ -3100,7 +3100,8 @@ gist:hasCommunicationAddress
 
 gist:hasDenominator
 	a owl:ObjectProperty ;
-	skos:definition "Relates a RatioUnit such as meters/second to the denominator Unit (e.g. second)."^^xsd:string ;
+	skos:definition "Relates a ratio or fraction to its denominator."^^xsd:string ;
+	skos:example "Second is the denominator for the standard speed unit, meters per second."^^xsd:string ;
 	skos:prefLabel "has denominator"^^xsd:string ;
 	.
 
@@ -3173,14 +3174,18 @@ gist:hasMember
 
 gist:hasMultiplicand
 	a owl:ObjectProperty ;
-	skos:definition "Relates a ProductUnit such as square mile to the second of two units multiplied together (e.g. mile)."^^xsd:string ;
+	skos:definition "Relates a product to the factor that is being multiplied by another factor (i.e. the multiplier)."^^xsd:string ;
+	skos:example "Meter is the multiplicand for the unit: newton-meter"^^xsd:string ;
 	skos:prefLabel "has multiplicand"^^xsd:string ;
+	skos:scopeNote "Because multiplication is commutative, the difference between multiplier and multiplicand will not matter for computation, but it may matter if you care about the order for presentation, e.g. newton-meter vs. meter-newton."^^xsd:string ;
 	.
 
 gist:hasMultiplier
 	a owl:ObjectProperty ;
-	skos:definition "Relates a ProductUnit such as square mile to the first of two units multiplied together (e.g. mile)"^^xsd:string ;
+	skos:definition "Relates a product to the factor that is multiplying another factor (i.e. the multiplicand)."^^xsd:string ;
+	skos:example "Newton is the multiplier for the unit: newton-meter"^^xsd:string ;
 	skos:prefLabel "has multiplier"^^xsd:string ;
+	skos:scopeNote "Because multiplication is commutative, the difference between multiplier and multiplicand will not matter for computation, but it may matter if you care about the order for presentation, e.g. newton-meter vs. meter-newton."^^xsd:string ;
 	.
 
 gist:hasNavigationalParent
@@ -3192,7 +3197,8 @@ gist:hasNavigationalParent
 
 gist:hasNumerator
 	a owl:ObjectProperty ;
-	skos:definition "Relates a RatioUnit such as meter(s)/second to the numerator Unit (e.g. meter)."^^xsd:string ;
+	skos:definition "Relates a ratio or fraction to its numerator."^^xsd:string ;
+	skos:example "Meter is the numerator for the standard speed unit, meters per second."^^xsd:string ;
 	skos:prefLabel "has numerator"^^xsd:string ;
 	.
 
