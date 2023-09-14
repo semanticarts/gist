@@ -2445,11 +2445,6 @@ gist:TemporalRelation
 	rdfs:subClassOf
 		[
 			a owl:Restriction ;
-			owl:onProperty gist:endDateTime ;
-			owl:cardinality "1"^^xsd:nonNegativeInteger ;
-		] ,
-		[
-			a owl:Restriction ;
 			owl:onProperty gist:startDateTime ;
 			owl:cardinality "1"^^xsd:nonNegativeInteger ;
 		] ,
