@@ -2725,7 +2725,7 @@ gist:_percent
 	skos:definition "The unit designating a quantity that is the ratio of two quantities with the same unit of measure and which has been multiplied by 100."^^xsd:string ;
 	skos:prefLabel "percent"^^xsd:string ;
 	skos:scopeNote
-		"Because the units of the numerator and denominator are the same, they cancel out, resulting in a dimensional quantity."^^xsd:string ,
+		"Because the units of the numerator and denominator are the same, they cancel out, resulting in a dimensionless quantity."^^xsd:string ,
 		"To keep the unit of measure of the numerator and denominator, use a ratio unit; e.g., cm/cm."^^xsd:string
 		;
 	gist:conversionFactor "0.01"^^xsd:double ;
