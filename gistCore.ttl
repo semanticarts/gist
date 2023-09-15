@@ -3309,6 +3309,22 @@ gist:hasViableRange
 	skos:prefLabel "has viable range"^^xsd:string ;
 	.
 
+gist:idText
+	a owl:DatatypeProperty ;
+	rdfs:range xsd:string ;
+	skos:definition "Relates an individual to a text string that identifies it."^^xsd:string ;
+	skos:example
+		"The id text for a car is '4Y1SL65848Z411439'"^^xsd:string ,
+		"The id text for the HR department for Company X is H31415"^^xsd:string
+		;
+	skos:prefLabel "id text"^^xsd:string ;
+	skos:scopeNote
+		"A common use case would be for pre-existing internal company identifiers."^^xsd:string ,
+		"Often, there will be just one identifying text string. More would be appropriate if the individual had different identifiers, such as employee number and social security number. A good way to model that would be to have functional subproperties of 'idText'."^^xsd:string ,
+		"This property is an alternative to using the property, 'isIdentifiedBy' in conjunction with instances of 'ID'"^^xsd:string
+		;
+	.
+
 gist:isAbout
 	a owl:ObjectProperty ;
 	rdfs:domain gist:Content ;
