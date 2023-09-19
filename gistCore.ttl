@@ -3320,8 +3320,8 @@ gist:idText
 	skos:prefLabel "id text"^^xsd:string ;
 	skos:scopeNote
 		"A common use case would be for pre-existing internal company identifiers."^^xsd:string ,
-		"Often, there will be just one identifying text string. More would be appropriate if the individual had different identifiers, such as employee number and social security number. A good way to model that would be to have functional subproperties of 'idText'."^^xsd:string ,
-		"This property is an alternative to using the property, 'isIdentifiedBy' in conjunction with instances of 'ID'"^^xsd:string
+		"Often, there will be just one identifying text string. More would be appropriate if the individual had different identifiers, such as employee number and social security number. A good way to model that would be to have functional subproperties of idText, such as departmentNumber."^^xsd:string ,
+		"This property is an alternative to using the property isIdentifiedBy in conjunction with instances of the class ID."^^xsd:string
 		;
 	.
 
