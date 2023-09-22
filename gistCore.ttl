@@ -923,7 +923,10 @@ gist:Event
 	skos:editorialNote "See guidance on removing the term in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1679565100."^^xsd:string ;
 	skos:example "A transaction, conference, baseball game, earthquake."^^xsd:string ;
 	skos:prefLabel "Event"^^xsd:string ;
-	skos:scopeNote "An event does not necessarily have either planned or actual start or end datetimes. For example, a conference can be in the planning phase without any dates selected, but is nevertheless an (unscheduled) event. The subclasses of Event state particular restrictions on planned and actual start and end dates."^^xsd:string ;
+	skos:scopeNote
+		"An event does not necessarily have either planned or actual start or end datetimes. For example, a conference can be in the planning phase without any dates selected, but is nevertheless an (unscheduled) event. The subclasses of Event state particular restrictions on planned and actual start and end dates."^^xsd:string ,
+		"An event occurs during a time interval, which is distinct from the event."^^xsd:string
+		;
 	.
 
 gist:Extent
