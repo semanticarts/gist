@@ -1,3 +1,5 @@
+# imports: https://w3id.org/semanticarts/ontology/gistCoreX.x.x
+
 @prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -8,6 +10,7 @@
 
 <https://w3id.org/semanticarts/ontology/gistPrefixDeclarations>
 	a owl:Ontology ;
+	owl:imports <https://w3id.org/semanticarts/ontology/gistCoreX.x.x> ;
 	owl:versionIRI <https://w3id.org/semanticarts/ontology/gistPrefixDeclarationsX.x.x> ;
 	skos:definition "Prefix declarations, which pair a prefix with a namespace, used in the gist ontology. Provided to support applications such as visualizers."^^xsd:string ;
 	skos:prefLabel "gist Prefix Declarations"^^xsd:string ;
