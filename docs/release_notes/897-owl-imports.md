@@ -1,4 +1,4 @@
 ### Minor Updates
 
-- In `gistPrefixDeclarations`, `gistSubClassAssertions`, and `gistValidationAnnotationsUpdated`, the statements importing gist now import a versioned IRI. Also, they all have versioned IRIs of their own. Issue [#897](https://github.com/semanticarts/gist/issues/897).
+- Changed gist import in `gistPrefixDeclarations`, `gistSubClassAssertions`, and `gistValidationAnnotations` to use a versioned IRI, and add version IRIs of their own. Issue [#897](https://github.com/semanticarts/gist/issues/897).
 
