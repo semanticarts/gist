@@ -1,20 +1,64 @@
 # imports: https://w3id.org/semanticarts/ontology/gistCoreX.x.x
+# imports: https://w3id.org/semanticarts/ontology/operators1.0.0
+# imports: https://w3id.org/semanticarts/ontology/versioning1.0.0
 
 @prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
+@prefix ops: <https://w3id.org/semanticarts/ns/ontology/operators/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ver: <https://w3id.org/semanticarts/ns/ontology/versioning/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://w3id.org/semanticarts/ontology/gistPrefixDeclarations>
 	a owl:Ontology ;
-	owl:imports <https://w3id.org/semanticarts/ontology/gistCoreX.x.x> ;
+	owl:imports
+		<https://w3id.org/semanticarts/ontology/gistCoreX.x.x> ,
+		<https://w3id.org/semanticarts/ontology/operators1.0.0> ,
+		<https://w3id.org/semanticarts/ontology/versioning1.0.0>
+		;
 	owl:versionIRI <https://w3id.org/semanticarts/ontology/gistPrefixDeclarationsX.x.x> ;
 	skos:definition "Prefix declarations, which pair a prefix with a namespace, used in the gist ontology. Provided to support applications such as visualizers."^^xsd:string ;
 	skos:prefLabel "gist Prefix Declarations"^^xsd:string ;
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
+	ver:dependsOn
+		[
+			a ver:VersionRangeSpec ;
+			ops:hasValueGreaterOrEqualTo [
+				a ver:SemanticVersionNumber ;
+				ver:uniqueText "1.0.0"^^xsd:string ;
+			] ;
+			ops:hasValueLessThan [
+				a ver:SemanticVersionNumber ;
+				ver:uniqueText "2.0.0"^^xsd:string ;
+			] ;
+			ver:isVersionRangeOf <https://w3id.org/semanticarts/ontology/versioning> ;
+		] ,
+		[
+			a ver:VersionRangeSpec ;
+			ops:hasValueGreaterOrEqualTo [
+				a ver:SemanticVersionNumber ;
+				ver:uniqueText "12.0.0"^^xsd:string ;
+			] ;
+			ops:hasValueLessThan [
+				a ver:SemanticVersionNumber ;
+				ver:uniqueText "13.0.0"^^xsd:string ;
+			] ;
+			ver:isVersionRangeOf <https://w3id.org/semanticarts/ontology/gist> ;
+		]
+		;
+	ver:hasVersionNumber [
+		a ver:SemanticVersionNumber ;
+		ver:uniqueText "X.x.x"^^xsd:string ;
+	] ;
+	.
+
+gist:_PrefixDeclaration_ops
+	a sh:PrefixDeclaration ;
+	sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+	sh:prefix "ops"^^xsd:string ;
 	.
 
 gist:_PrefixDeclaration_owl
@@ -45,6 +89,12 @@ gist:_PrefixDeclaration_skos
 	a sh:PrefixDeclaration ;
 	sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
 	sh:prefix "skos"^^xsd:string ;
+	.
+
+gist:_PrefixDeclaration_ver
+	a sh:PrefixDeclaration ;
+	sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+	sh:prefix "ver"^^xsd:string ;
 	.
 
 gist:_PrefixDeclaration_xsd
