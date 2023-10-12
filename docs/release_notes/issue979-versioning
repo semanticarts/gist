@@ -1,0 +1,7 @@
+### Patch Updates
+
+* Implement [versioning ontology](https://github.com/semanticarts/versioning-ontology/). Issue [#979](https://github.com/semanticarts/gist/issues/979). Changes:
+  
+  * Add gist version declaration.
+  * Add version dependency range to the versioning ontology.
+  * Add versioned `owl:import` statements.
