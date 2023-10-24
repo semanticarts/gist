@@ -2942,8 +2942,15 @@ gist:containedText
 		) ;
 	] ;
 	skos:definition "A string that is closely associated with an individual."^^xsd:string ;
+	skos:example
+		"The string associated with a tag."^^xsd:string ,
+		"The string associated with text content."^^xsd:string
+		;
 	skos:prefLabel "contained text"^^xsd:string ;
-	gist:domainIncludes gist:Text ;
+	gist:domainIncludes
+		gist:Tag ,
+		gist:Text
+		;
 	.
 
 gist:contributesTo
