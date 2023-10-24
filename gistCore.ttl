@@ -2934,8 +2934,9 @@ gist:conformsTo
 gist:containedText
 	a owl:DatatypeProperty ;
 	rdfs:range xsd:string ;
-	skos:definition "Links to the string corresponding to Text"^^xsd:string ;
+	skos:definition "A string that is closely associated with an individual."^^xsd:string ;
 	skos:prefLabel "contained text"^^xsd:string ;
+	gist:domainIncludes gist:Text ;
 	.
 
 gist:contributesTo
