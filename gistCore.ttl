@@ -2286,17 +2286,14 @@ gist:System
 
 gist:Tag
 	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Category
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:tagText ;
-				owl:someValuesFrom xsd:string ;
-			]
-		) ;
-	] ;
+	rdfs:subClassOf
+		gist:Category ,
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:containedText ;
+			owl:someValuesFrom xsd:string ;
+		]
+		;
 	skos:definition "This is for folksonomy type terms, which can be made up on the fly by users."^^xsd:string ;
 	skos:prefLabel "Tag"^^xsd:string ;
 	.
@@ -3839,12 +3836,6 @@ gist:startDateTime
 		"This is an abstraction over the various precisions of start time, and is not expected to be asserted directly. Values with different precisions can be compared since they all have the same format."^^xsd:string ,
 		"We have looked at some extreme edge cases (e.g., did this meeting end before or after the trade was posted?) and we couldn't find any use case that required special processing. Those who have such use cases can implement them (and feel free to let us know)."^^xsd:string
 		;
-	.
-
-gist:tagText
-	a owl:DatatypeProperty ;
-	skos:definition "Used for folksonomy style categories (non controlled vocabulary)"^^xsd:string ;
-	skos:prefLabel "tag text"^^xsd:string ;
 	.
 
 gist:uniqueText
