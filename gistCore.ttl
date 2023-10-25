@@ -2286,15 +2286,18 @@ gist:System
 
 gist:Tag
 	a owl:Class ;
-	rdfs:subClassOf
-		gist:Category ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:containedText ;
-			owl:someValuesFrom xsd:string ;
-		]
-		;
-	skos:definition "This is for folksonomy type terms, which can be made up on the fly by users."^^xsd:string ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:Category
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:tagText ;
+				owl:someValuesFrom xsd:string ;
+			]
+		) ;
+	] ;
+	skos:definition "A term in a folksonomy used to categorize things. Tags can be made up on the fly by users."^^xsd:string ;
 	skos:prefLabel "Tag"^^xsd:string ;
 	.
 
@@ -2933,13 +2936,7 @@ gist:conformsTo
 
 gist:containedText
 	a owl:DatatypeProperty ;
-	rdfs:range [
-		a owl:Class ;
-		owl:unionOf (
-			xsd:string
-			xsd:anyURI
-		) ;
-	] ;
+	rdfs:range xsd:string ;
 	skos:definition "A string that is closely associated with an individual."^^xsd:string ;
 	skos:example
 		"The string associated with a tag."^^xsd:string ,
@@ -3851,12 +3848,18 @@ gist:startDateTime
 		;
 	.
 
+gist:tagText
+	a owl:DatatypeProperty ;
+	owl:deprecated "true"^^xsd:boolean ;
+	skos:definition "Used for folksonomy style categories (non controlled vocabulary)"^^xsd:string ;
+	skos:prefLabel "tag text"^^xsd:string ;
+	.
+
 gist:uniqueText
 	a
 		owl:DatatypeProperty ,
 		owl:FunctionalProperty
 		;
-	rdfs:subPropertyOf gist:containedText ;
 	rdfs:range xsd:string ;
 	skos:definition "The unique string value of some content object; i.e., there is no possibility of having more than one value."^^xsd:string ;
 	skos:example "The unique string for a vehicle identification number."^^xsd:string ;
