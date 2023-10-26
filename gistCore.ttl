@@ -2298,6 +2298,7 @@ gist:Tag
 		) ;
 	] ;
 	skos:definition "A term in a folksonomy used to categorize things. Tags can be made up on the fly by users."^^xsd:string ;
+	skos:editorialNote "See guidance on removing tagText property in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1780220876."^^xsd:string ;
 	skos:prefLabel "Tag"^^xsd:string ;
 	.
 
