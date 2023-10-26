@@ -3171,7 +3171,7 @@ gist:hasMagnitude
 
 gist:hasMember
 	a owl:ObjectProperty ;
-	skos:definition "Relates a Collection to its member individuals."^^xsd:string ;
+	skos:definition "Relates something, such as a collection or organization, to its member individuals."^^xsd:string ;
 	skos:prefLabel "has member"^^xsd:string ;
 	gist:domainIncludes gist:Collection ;
 	.
