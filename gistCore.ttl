@@ -2225,7 +2225,7 @@ gist:SimpleUnitOfMeasure
 gist:Specification
 	a owl:Class ;
 	rdfs:subClassOf gist:Requirement ;
-	skos:definition "A set of requirements to be satisfied by a material, design, product, or service."^^xsd:string ;
+	skos:definition "One or more requirements to be satisfied by a material, design, product, or service."^^xsd:string ;
 	skos:prefLabel "Specification"^^xsd:string ;
 	.
 
