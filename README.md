@@ -1,5 +1,7 @@
 ![gist logo](./gist-logo.png)
 
+[Click here to download the latest version of gist.](https://w3id.org/semanticarts/ontology/gistCore)
+
 About gist
 =====
 

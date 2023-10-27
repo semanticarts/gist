@@ -923,7 +923,10 @@ gist:Event
 	skos:editorialNote "See guidance on removing the term in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1679565100."^^xsd:string ;
 	skos:example "A transaction, conference, baseball game, earthquake."^^xsd:string ;
 	skos:prefLabel "Event"^^xsd:string ;
-	skos:scopeNote "An event does not necessarily have either planned or actual start or end datetimes. For example, a conference can be in the planning phase without any dates selected, but is nevertheless an (unscheduled) event. The subclasses of Event state particular restrictions on planned and actual start and end dates."^^xsd:string ;
+	skos:scopeNote
+		"An event does not necessarily have either planned or actual start or end datetimes. For example, a conference can be in the planning phase without any dates selected, but is nevertheless an (unscheduled) event. The subclasses of Event state particular restrictions on planned and actual start and end dates."^^xsd:string ,
+		"An event occurs during a time interval, which is distinct from the event."^^xsd:string
+		;
 	.
 
 gist:Extent
@@ -2222,7 +2225,7 @@ gist:SimpleUnitOfMeasure
 gist:Specification
 	a owl:Class ;
 	rdfs:subClassOf gist:Requirement ;
-	skos:definition "A set of requirements to be satisfied by a material, design, product, or service."^^xsd:string ;
+	skos:definition "One or more requirements to be satisfied by a material, design, product, or service."^^xsd:string ;
 	skos:prefLabel "Specification"^^xsd:string ;
 	.
 
@@ -2709,7 +2712,7 @@ gist:_percent
 	skos:definition "The unit designating a quantity that is the ratio of two quantities with the same unit of measure and which has been multiplied by 100."^^xsd:string ;
 	skos:prefLabel "percent"^^xsd:string ;
 	skos:scopeNote
-		"Because the units of the numerator and denominator are the same, they cancel out, resulting in a dimensional quantity."^^xsd:string ,
+		"Because the units of the numerator and denominator are the same, they cancel out, resulting in a dimensionless quantity."^^xsd:string ,
 		"To keep the unit of measure of the numerator and denominator, use a ratio unit; e.g., cm/cm."^^xsd:string
 		;
 	gist:conversionFactor "0.01"^^xsd:double ;
@@ -3300,6 +3303,22 @@ gist:hasViableRange
 	a owl:ObjectProperty ;
 	skos:definition "The area over which the sensor can sense (might be a small geospatial area or a specific wire in a circuit)"^^xsd:string ;
 	skos:prefLabel "has viable range"^^xsd:string ;
+	.
+
+gist:idText
+	a owl:DatatypeProperty ;
+	rdfs:range xsd:string ;
+	skos:definition "Relates an individual to a text string that identifies it."^^xsd:string ;
+	skos:example
+		"The id text for a car is '4Y1SL65848Z411439'"^^xsd:string ,
+		"The id text for the HR department for Company X is H31415"^^xsd:string
+		;
+	skos:prefLabel "id text"^^xsd:string ;
+	skos:scopeNote
+		"A common use case would be for pre-existing internal company identifiers."^^xsd:string ,
+		"Often, there will be just one identifying text string. More would be appropriate if the individual had different identifiers, such as employee number and social security number. A good way to model that would be to have functional subproperties of idText, such as departmentNumber."^^xsd:string ,
+		"This property is an alternative to using the property isIdentifiedBy in conjunction with instances of the class ID."^^xsd:string
+		;
 	.
 
 gist:isAbout
