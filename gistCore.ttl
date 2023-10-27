@@ -236,10 +236,10 @@ gist:Category
 			) ;
 		] ;
 	] ;
-	skos:definition "A concept or label used to categorize other instances without formal semantics. Things that can be thought of as types are usually Categories."^^xsd:string ;
+	skos:definition "A concept or label used to categorize other instances without specifying any formal semantics. Things that can be thought of as types are often categories."^^xsd:string ;
 	skos:example "Tags used in folksonomies; formal definitions from other systems."^^xsd:string ;
 	skos:prefLabel "Category"^^xsd:string ;
-	skos:scopeNote "Often a 'bucket' can be modeled either as an owl:Class or as a gist:Category. Use the latter if you don't care much about the formal structure of the different types, or if there is a whole hierarchy of types that are going to be managed by a group separate from the ontology developers. The formal structure may be defined elsewhere and linked to, if necessary."^^xsd:string ;
+	skos:scopeNote "Often a type can be modeled either as an owl:Class or as a gist:Category. Use the latter if you don't care much about the formal structure of the different types, or if there is a whole hierarchy of types that are going to be managed by a group separate from the ontology developers. The formal structure may be defined elsewhere and linked to, if necessary."^^xsd:string ;
 	.
 
 gist:CoherentProductUnit
