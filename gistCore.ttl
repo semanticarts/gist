@@ -2520,8 +2520,9 @@ gist:TimeInterval
 gist:Transaction
 	a owl:Class ;
 	rdfs:subClassOf gist:Event ;
-	skos:definition "An event which has an effect on at least one accumulator."^^xsd:string ;
+	skos:definition "An exchange or transfer of goods, services, or funds."^^xsd:string ;
 	skos:prefLabel "Transaction"^^xsd:string ;
+	skos:scopeNote "Different sorts of transactions can have different datetime precisions. For example, an electronic transaction would have a gist:actualEndMicrosecond."^^xsd:string ;
 	.
 
 gist:UnitOfMeasure
