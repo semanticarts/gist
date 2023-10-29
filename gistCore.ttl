@@ -3859,6 +3859,7 @@ gist:symbol
 	skos:definition "A symbol for something NOT using any special characters."^^xsd:string ;
 	skos:example "The symbol for square meter is m^2."^^xsd:string ;
 	skos:prefLabel "symbol"^^xsd:string ;
+	gist:intendedDomain gist:UnitOfMeasure ;
 	.
 
 gist:symbolHtml
@@ -3869,6 +3870,7 @@ gist:symbolHtml
 	skos:example "E.g. to show square meter the letter m with superscript 2 rather than m^2, the value of this property would be 'm&sup2;'"^^xsd:string ;
 	skos:prefLabel "symbol HTML"^^xsd:string ;
 	skos:scopeNote "This is for when Unicode not supported and the display will be HTML format."^^xsd:string ;
+	gist:intendedDomain gist:UnitOfMeasure ;
 	.
 
 gist:symbolUnicode
@@ -3878,6 +3880,7 @@ gist:symbolUnicode
 	skos:definition " symbol for something preferred for pretty printing, may use special characters."^^xsd:string ;
 	skos:example "E.g. to show square meter as the letter m with superscript 2 rather than m^2, the value of this property would be the unicode symbol for 'm' followed by the unicode symbol for 'superscript 2', i.e., 'U+006D U+00B2'"^^xsd:string ;
 	skos:prefLabel "symbol Unicode"^^xsd:string ;
+	gist:intendedDomain gist:UnitOfMeasure ;
 	.
 
 gist:tagText
