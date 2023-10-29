@@ -2586,6 +2586,7 @@ gist:_USDollar
 	skos:prefLabel "US Dollar"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_USDollar ;
+	gist:symbol "USD"^^xsd:string ;
 	gist:unitSymbol "USD"^^xsd:string ;
 	.
 
@@ -2598,6 +2599,7 @@ gist:_ampere
 	skos:prefLabel "ampere"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_ampere ;
+	gist:symbol "A"^^xsd:string ;
 	gist:unitSymbol "A"^^xsd:string ;
 	.
 
@@ -2622,6 +2624,7 @@ gist:_candela
 	skos:prefLabel "candela"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_candela ;
+	gist:symbol "cd"^^xsd:string ;
 	gist:unitSymbol "cd"^^xsd:string ;
 	.
 
@@ -2657,6 +2660,7 @@ gist:_kelvin
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:conversionOffset "0.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_kelvin ;
+	gist:symbol "K"^^xsd:string ;
 	gist:unitSymbol "K"^^xsd:string ;
 	.
 
@@ -2669,6 +2673,7 @@ gist:_kilogram
 	skos:prefLabel "mass"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_kilogram ;
+	gist:symbol "kg"^^xsd:string ;
 	gist:unitSymbol "kg"^^xsd:string ;
 	.
 
@@ -2681,6 +2686,7 @@ gist:_meter
 	skos:prefLabel "distance"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_meter ;
+	gist:symbol "m"^^xsd:string ;
 	gist:unitSymbol "m"^^xsd:string ;
 	.
 
@@ -2693,6 +2699,7 @@ gist:_millisecond
 	skos:prefLabel "millisecond"^^xsd:string ;
 	gist:conversionFactor "0.001"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
+	gist:symbol "ms"^^xsd:string ;
 	gist:unitSymbol "ms"^^xsd:string ;
 	.
 
@@ -2705,6 +2712,7 @@ gist:_minute
 	skos:prefLabel "minute"^^xsd:string ;
 	gist:conversionFactor "60.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
+	gist:symbol "min"^^xsd:string ;
 	gist:unitSymbol "min"^^xsd:string ;
 	.
 
@@ -2717,6 +2725,7 @@ gist:_mole
 	skos:prefLabel "mole"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_mole ;
+	gist:symbol "mol"^^xsd:string ;
 	gist:unitSymbol "mol"^^xsd:string ;
 	.
 
@@ -2730,6 +2739,7 @@ gist:_percent
 		;
 	gist:conversionFactor "0.01"^^xsd:double ;
 	gist:hasBaseUnit gist:_each ;
+	gist:symbol "%"^^xsd:string ;
 	gist:unitSymbol "%"^^xsd:string ;
 	.
 
@@ -2742,6 +2752,7 @@ gist:_second
 	skos:prefLabel "second"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
+	gist:symbol "s"^^xsd:string ;
 	gist:unitSymbol "s"^^xsd:string ;
 	.
 
@@ -3840,6 +3851,34 @@ gist:startDateTime
 		;
 	.
 
+gist:symbol
+	a owl:DatatypeProperty ;
+	rdfs:domain gist:UnitOfMeasure ;
+	rdfs:range xsd:string ;
+	skos:definition "A symbol for something NOT using any special characters."^^xsd:string ;
+	skos:example "The symbol for square meter is m^2."^^xsd:string ;
+	skos:prefLabel "symbol"^^xsd:string ;
+	.
+
+gist:symbolHtml
+	a owl:DatatypeProperty ;
+	rdfs:domain gist:UnitOfMeasure ;
+	rdfs:range xsd:string ;
+	skos:definition "A symbol for something in HTML format for pretty printing, may use special characters."^^xsd:string ;
+	skos:example "E.g. to show square meter the letter m with superscript 2 rather than m^2, the value of this property would be 'm&sup2;'"^^xsd:string ;
+	skos:prefLabel "symbol HTML"^^xsd:string ;
+	skos:scopeNote "This is for when Unicode not supported and the display will be HTML format."^^xsd:string ;
+	.
+
+gist:symbolUnicode
+	a owl:DatatypeProperty ;
+	rdfs:domain gist:UnitOfMeasure ;
+	rdfs:range xsd:string ;
+	skos:definition " symbol for something preferred for pretty printing, may use special characters."^^xsd:string ;
+	skos:example "E.g. to show square meter as the letter m with superscript 2 rather than m^2, the value of this property would be the unicode symbol for 'm' followed by the unicode symbol for 'superscript 2', i.e., 'U+006D U+00B2'"^^xsd:string ;
+	skos:prefLabel "symbol Unicode"^^xsd:string ;
+	.
+
 gist:tagText
 	a owl:DatatypeProperty ;
 	skos:definition "Used for folksonomy style categories (non controlled vocabulary)"^^xsd:string ;
@@ -3865,6 +3904,7 @@ gist:unitSymbol
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:string ;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "The standard symbol for the unit NOT using any special characters.  E.g. square meter would be m^2 rather than m?."^^xsd:string ;
 	skos:prefLabel "unit symbol"^^xsd:string ;
 	.
@@ -3873,6 +3913,7 @@ gist:unitSymbolHtml
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:string ;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition 'The standard symbol for the unit in HTML format for  pretty printing, may use special characters.  E.g. to show square meter as  m? rather than m^2, the value of this property would be "m&sup2;" This is for when Unicode not supported and the display will be HTML format.'^^xsd:string ;
 	skos:prefLabel "unit symbol HTML"^^xsd:string ;
 	.
@@ -3881,6 +3922,7 @@ gist:unitSymbolUnicode
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:string ;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "The standard symbol for the unit preferred for pretty printing, may use special characters.  E.g. square meter would be  m? rather than m^2."^^xsd:string ;
 	skos:prefLabel "unit symbol Unicode"^^xsd:string ;
 	.
