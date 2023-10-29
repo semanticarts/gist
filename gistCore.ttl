@@ -2583,6 +2583,7 @@ gist:_USDollar
 		gist:BaseUnit
 		;
 	skos:definition "The base unit for currency."^^xsd:string ;
+	skos:editorialNote "See guidance on removing the uses of unitSymbol in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1679565100."^^xsd:string ;
 	skos:prefLabel "US Dollar"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_USDollar ;
