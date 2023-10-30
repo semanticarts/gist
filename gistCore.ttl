@@ -3859,7 +3859,7 @@ gist:symbol
 	skos:definition "A symbol for something NOT using any special characters."^^xsd:string ;
 	skos:example "The ASCII symbol for square meter is m^2."^^xsd:string ;
 	skos:prefLabel "symbol"^^xsd:string ;
-	gist:intendedDomain gist:UnitOfMeasure ;
+	gist:domainIncludes gist:UnitOfMeasure ;
 	.
 
 gist:symbolHtml
