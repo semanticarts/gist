@@ -3870,7 +3870,7 @@ gist:symbolHtml
 	skos:example "For square meter, (ASCII 'm^2'), the letter 'm' followed by the HTML representation of superscript 2, i.e., 'm&sup2;'"^^xsd:string ;
 	skos:prefLabel "symbol HTML"^^xsd:string ;
 	skos:scopeNote "Use when Unicode is not supported and the display will be in HTML."^^xsd:string ;
-	gist:intendedDomain gist:UnitOfMeasure ;
+	gist:domainIncludes gist:UnitOfMeasure ;
 	.
 
 gist:symbolUnicode
@@ -3880,7 +3880,7 @@ gist:symbolUnicode
 	skos:definition "The Unicode symbol for something."^^xsd:string ;
 	skos:example "For square meter (ASCII 'm^2'), the Unicode symbol for 'm' followed by the Unicode symbol for superscript 2, i.e., 'U+006D U+00B2'"^^xsd:string ;
 	skos:prefLabel "symbol Unicode"^^xsd:string ;
-	gist:intendedDomain gist:UnitOfMeasure ;
+	gist:domainIncludes gist:UnitOfMeasure ;
 	.
 
 gist:tagText
