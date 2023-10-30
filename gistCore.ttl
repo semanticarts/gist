@@ -3866,7 +3866,7 @@ gist:symbolHtml
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:string ;
-	skos:definition "A symbol for something in HTML format for pretty printing, may use special characters."^^xsd:string ;
+	skos:definition "A symbol in HTML format for displaying on a web page; may use HTML-encoded characters."^^xsd:string ;
 	skos:example "E.g. to show square meter the letter m with superscript 2 rather than m^2, the value of this property would be 'm&sup2;'"^^xsd:string ;
 	skos:prefLabel "symbol HTML"^^xsd:string ;
 	skos:scopeNote "This is for when Unicode not supported and the display will be HTML format."^^xsd:string ;
