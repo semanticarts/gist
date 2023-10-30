@@ -3867,7 +3867,7 @@ gist:symbolHtml
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:string ;
 	skos:definition "A symbol in HTML format for displaying on a web page; may use HTML-encoded characters."^^xsd:string ;
-	skos:example "For square meter, the letter m with the HTML representation of superscript 2 rather than the ASCII version m^2; i.e., 'm&sup2;'"^^xsd:string ;
+	skos:example "For square meter, (ASCII 'm^2'), the letter 'm' followed by the HTML representation of superscript 2, i.e., 'm&sup2;'"^^xsd:string ;
 	skos:prefLabel "symbol HTML"^^xsd:string ;
 	skos:scopeNote "Use when Unicode is not supported and the display will be in HTML."^^xsd:string ;
 	gist:intendedDomain gist:UnitOfMeasure ;
@@ -3878,7 +3878,7 @@ gist:symbolUnicode
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:string ;
 	skos:definition "The Unicode symbol for something."^^xsd:string ;
-	skos:example "For square meter (ASCII 'm^2', the Unicode symbol for 'm' followed by the Unicode symbol for superscript 2, i.e., 'U+006D U+00B2'"^^xsd:string ;
+	skos:example "For square meter (ASCII 'm^2'), the Unicode symbol for 'm' followed by the Unicode symbol for superscript 2, i.e., 'U+006D U+00B2'"^^xsd:string ;
 	skos:prefLabel "symbol Unicode"^^xsd:string ;
 	gist:intendedDomain gist:UnitOfMeasure ;
 	.
