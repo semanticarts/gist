@@ -3885,7 +3885,7 @@ gist:symbolUnicode
 
 gist:tagText
 	a owl:DatatypeProperty ;
-	skos:definition "Used for folksonomy style categories (non controlled vocabulary)"^^xsd:string ;
+	skos:definition "Used for folksonomy categories (non-controlled vocabularies)"^^xsd:string ;
 	skos:prefLabel "tag text"^^xsd:string ;
 	.
 
