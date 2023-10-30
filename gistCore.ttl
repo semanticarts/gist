@@ -3856,7 +3856,7 @@ gist:symbol
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:string ;
-	skos:definition "A symbol for something NOT using any special characters."^^xsd:string ;
+	skos:definition "A symbol for something using only ASCII characters."^^xsd:string ;
 	skos:example "The ASCII symbol for square meter is m^2."^^xsd:string ;
 	skos:prefLabel "symbol"^^xsd:string ;
 	gist:domainIncludes gist:UnitOfMeasure ;
@@ -3867,9 +3867,9 @@ gist:symbolHtml
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:string ;
 	skos:definition "A symbol in HTML format for displaying on a web page; may use HTML-encoded characters."^^xsd:string ;
-	skos:example "E.g. to show square meter the letter m with superscript 2 rather than m^2, the value of this property would be 'm&sup2;'"^^xsd:string ;
+	skos:example "For square meter, the letter m with the HTML representation of superscript 2 rather than the ASCII version m^2; i.e., 'm&sup2;'"^^xsd:string ;
 	skos:prefLabel "symbol HTML"^^xsd:string ;
-	skos:scopeNote "This is for when Unicode not supported and the display will be HTML format."^^xsd:string ;
+	skos:scopeNote "Use when Unicode is not supported and the display will be in HTML."^^xsd:string ;
 	gist:intendedDomain gist:UnitOfMeasure ;
 	.
 
@@ -3877,8 +3877,8 @@ gist:symbolUnicode
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:string ;
-	skos:definition " symbol for something preferred for pretty printing, may use special characters."^^xsd:string ;
-	skos:example "E.g. to show square meter as the letter m with superscript 2 rather than m^2, the value of this property would be the unicode symbol for 'm' followed by the unicode symbol for 'superscript 2', i.e., 'U+006D U+00B2'"^^xsd:string ;
+	skos:definition "The Unicode symbol for something."^^xsd:string ;
+	skos:example "For square meter (ASCII 'm^2', the Unicode symbol for 'm' followed by the Unicode symbol for superscript 2, i.e., 'U+006D U+00B2'"^^xsd:string ;
 	skos:prefLabel "symbol Unicode"^^xsd:string ;
 	gist:intendedDomain gist:UnitOfMeasure ;
 	.
