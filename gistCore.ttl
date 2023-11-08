@@ -3194,7 +3194,10 @@ gist:hasMember
 	a owl:ObjectProperty ;
 	skos:definition "Relates something, such as a collection or organization, to its member individuals."^^xsd:string ;
 	skos:prefLabel "has member"^^xsd:string ;
-	gist:domainIncludes gist:Collection , gist:Organization
+	gist:domainIncludes
+		gist:Collection ,
+		gist:Organization
+		;
 	.
 
 gist:hasMultiplicand
@@ -3906,6 +3909,7 @@ gist:uniqueText
 	skos:definition "The unique string value of some content object; i.e., there is no possibility of having more than one value."^^xsd:string ;
 	skos:example "The unique string for a vehicle identification number."^^xsd:string ;
 	skos:prefLabel "unique text"^^xsd:string ;
+	skos:scopeNote "The uniqueness only goes in one direction. A case may arise where two different objects have the same unique text."^^xsd:string ;
 	gist:domainIncludes
 		gist:ID ,
 		gist:Text
