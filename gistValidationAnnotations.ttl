@@ -32,6 +32,10 @@ gist:nonConformingLabel
 	skos:prefLabel "non-conforming label"^^xsd:string ;
 	.
 
+gist:symbolUnicode
+	gist:nonConformingLabel "true"^^xsd:boolean ;
+	.
+
 gist:unitSymbolUnicode
 	gist:nonConformingLabel "true"^^xsd:boolean ;
 	.

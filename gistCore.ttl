@@ -236,10 +236,10 @@ gist:Category
 			) ;
 		] ;
 	] ;
-	skos:definition "A concept or label used to categorize other instances informally. Things that can be thought of as types are usually Categories."^^xsd:string ;
+	skos:definition "A concept or label used to categorize other instances without specifying any formal semantics. Things that can be thought of as types are often categories."^^xsd:string ;
 	skos:example "Tags used in folksonomies; formal definitions from other systems."^^xsd:string ;
 	skos:prefLabel "Category"^^xsd:string ;
-	skos:scopeNote "Often a 'bucket' can be modeled either as an owl:Class or as a gist:Category. Use the latter if you don't care much about the formal structure of the different types, or if there is a whole hierarchy of types that are going to be managed by a group separate from the ontology developers. The formal structure may be defined elsewhere and linked to, if necessary."^^xsd:string ;
+	skos:scopeNote "Often a type can be modeled either as an owl:Class or as a gist:Category. Use the latter if you don't care much about the formal structure of the different types, or if there is a whole hierarchy of types that are going to be managed by a group separate from the ontology developers. The formal structure may be defined elsewhere and linked to, if necessary."^^xsd:string ;
 	.
 
 gist:CoherentProductUnit
@@ -2297,7 +2297,8 @@ gist:Tag
 			]
 		) ;
 	] ;
-	skos:definition "This is for folksonomy type terms, which can be made up on the fly by users."^^xsd:string ;
+	skos:definition "A term in a folksonomy used to categorize things. Tags can be made up on the fly by users."^^xsd:string ;
+	skos:editorialNote "See guidance on removing tagText property in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1780220876."^^xsd:string ;
 	skos:prefLabel "Tag"^^xsd:string ;
 	.
 
@@ -2507,8 +2508,9 @@ gist:TimeInterval
 gist:Transaction
 	a owl:Class ;
 	rdfs:subClassOf gist:Event ;
-	skos:definition "An event which has an effect on at least one accumulator."^^xsd:string ;
+	skos:definition "An exchange or transfer of goods, services, or funds."^^xsd:string ;
 	skos:prefLabel "Transaction"^^xsd:string ;
+	skos:scopeNote "Different sorts of transactions can have different datetime precisions. For example, an electronic transaction would have a gist:actualEndMicrosecond."^^xsd:string ;
 	.
 
 gist:UnitOfMeasure
@@ -2570,9 +2572,11 @@ gist:_USDollar
 		gist:BaseUnit
 		;
 	skos:definition "The base unit for currency."^^xsd:string ;
+	skos:editorialNote "See guidance on removing the uses of unitSymbol in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1679565100."^^xsd:string ;
 	skos:prefLabel "US Dollar"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_USDollar ;
+	gist:symbol "USD"^^xsd:string ;
 	gist:unitSymbol "USD"^^xsd:string ;
 	.
 
@@ -2585,6 +2589,7 @@ gist:_ampere
 	skos:prefLabel "ampere"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_ampere ;
+	gist:symbol "A"^^xsd:string ;
 	gist:unitSymbol "A"^^xsd:string ;
 	.
 
@@ -2609,6 +2614,7 @@ gist:_candela
 	skos:prefLabel "candela"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_candela ;
+	gist:symbol "cd"^^xsd:string ;
 	gist:unitSymbol "cd"^^xsd:string ;
 	.
 
@@ -2644,6 +2650,7 @@ gist:_kelvin
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:conversionOffset "0.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_kelvin ;
+	gist:symbol "K"^^xsd:string ;
 	gist:unitSymbol "K"^^xsd:string ;
 	.
 
@@ -2656,6 +2663,7 @@ gist:_kilogram
 	skos:prefLabel "mass"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_kilogram ;
+	gist:symbol "kg"^^xsd:string ;
 	gist:unitSymbol "kg"^^xsd:string ;
 	.
 
@@ -2668,6 +2676,7 @@ gist:_meter
 	skos:prefLabel "distance"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_meter ;
+	gist:symbol "m"^^xsd:string ;
 	gist:unitSymbol "m"^^xsd:string ;
 	.
 
@@ -2680,6 +2689,7 @@ gist:_millisecond
 	skos:prefLabel "millisecond"^^xsd:string ;
 	gist:conversionFactor "0.001"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
+	gist:symbol "ms"^^xsd:string ;
 	gist:unitSymbol "ms"^^xsd:string ;
 	.
 
@@ -2692,6 +2702,7 @@ gist:_minute
 	skos:prefLabel "minute"^^xsd:string ;
 	gist:conversionFactor "60.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
+	gist:symbol "min"^^xsd:string ;
 	gist:unitSymbol "min"^^xsd:string ;
 	.
 
@@ -2704,6 +2715,7 @@ gist:_mole
 	skos:prefLabel "mole"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_mole ;
+	gist:symbol "mol"^^xsd:string ;
 	gist:unitSymbol "mol"^^xsd:string ;
 	.
 
@@ -2717,6 +2729,7 @@ gist:_percent
 		;
 	gist:conversionFactor "0.01"^^xsd:double ;
 	gist:hasBaseUnit gist:_each ;
+	gist:symbol "%"^^xsd:string ;
 	gist:unitSymbol "%"^^xsd:string ;
 	.
 
@@ -2729,6 +2742,7 @@ gist:_second
 	skos:prefLabel "second"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
+	gist:symbol "s"^^xsd:string ;
 	gist:unitSymbol "s"^^xsd:string ;
 	.
 
@@ -2924,8 +2938,16 @@ gist:conformsTo
 gist:containedText
 	a owl:DatatypeProperty ;
 	rdfs:range xsd:string ;
-	skos:definition "Links to the string corresponding to Text"^^xsd:string ;
+	skos:definition "A string that is closely associated with an individual."^^xsd:string ;
+	skos:example
+		"The string associated with a tag."^^xsd:string ,
+		"The string associated with text content."^^xsd:string
+		;
 	skos:prefLabel "contained text"^^xsd:string ;
+	gist:domainIncludes
+		gist:Tag ,
+		gist:Text
+		;
 	.
 
 gist:contributesTo
@@ -3157,9 +3179,9 @@ gist:hasMagnitude
 
 gist:hasMember
 	a owl:ObjectProperty ;
-	skos:definition "Relates a Collection to its member individuals."^^xsd:string ;
+	skos:definition "Relates something, such as a collection or organization, to its member individuals."^^xsd:string ;
 	skos:prefLabel "has member"^^xsd:string ;
-	gist:domainIncludes gist:Collection ;
+	gist:domainIncludes gist:Collection , gist:Organization
 	.
 
 gist:hasMultiplicand
@@ -3827,8 +3849,37 @@ gist:startDateTime
 		;
 	.
 
+gist:symbol
+	a owl:DatatypeProperty ;
+	rdfs:range xsd:string ;
+	skos:definition "A symbol for something using only ASCII characters."^^xsd:string ;
+	skos:example "The ASCII symbol for square meter is m^2."^^xsd:string ;
+	skos:prefLabel "symbol"^^xsd:string ;
+	gist:domainIncludes gist:UnitOfMeasure ;
+	.
+
+gist:symbolHtml
+	a owl:DatatypeProperty ;
+	rdfs:range xsd:string ;
+	skos:definition "A symbol in HTML format for displaying on a web page; may use HTML-encoded characters."^^xsd:string ;
+	skos:example "For square meter, (ASCII 'm^2'), the letter 'm' followed by the HTML representation of superscript 2, i.e., 'm&sup2;'"^^xsd:string ;
+	skos:prefLabel "symbol HTML"^^xsd:string ;
+	skos:scopeNote "Use when Unicode is not supported and the display will be in HTML."^^xsd:string ;
+	gist:domainIncludes gist:UnitOfMeasure ;
+	.
+
+gist:symbolUnicode
+	a owl:DatatypeProperty ;
+	rdfs:range xsd:string ;
+	skos:definition "The Unicode symbol for something."^^xsd:string ;
+	skos:example "For square meter (ASCII 'm^2'), the Unicode symbol for 'm' followed by the Unicode symbol for superscript 2, i.e., 'U+006D U+00B2'"^^xsd:string ;
+	skos:prefLabel "symbol Unicode"^^xsd:string ;
+	gist:domainIncludes gist:UnitOfMeasure ;
+	.
+
 gist:tagText
 	a owl:DatatypeProperty ;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "Used for folksonomy style categories (non controlled vocabulary)"^^xsd:string ;
 	skos:prefLabel "tag text"^^xsd:string ;
 	.
@@ -3852,6 +3903,7 @@ gist:unitSymbol
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:string ;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "The standard symbol for the unit NOT using any special characters.  E.g. square meter would be m^2 rather than m?."^^xsd:string ;
 	skos:prefLabel "unit symbol"^^xsd:string ;
 	.
@@ -3860,6 +3912,7 @@ gist:unitSymbolHtml
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:string ;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition 'The standard symbol for the unit in HTML format for  pretty printing, may use special characters.  E.g. to show square meter as  m? rather than m^2, the value of this property would be "m&sup2;" This is for when Unicode not supported and the display will be HTML format.'^^xsd:string ;
 	skos:prefLabel "unit symbol HTML"^^xsd:string ;
 	.
@@ -3868,6 +3921,7 @@ gist:unitSymbolUnicode
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:string ;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "The standard symbol for the unit preferred for pretty printing, may use special characters.  E.g. square meter would be  m? rather than m^2."^^xsd:string ;
 	skos:prefLabel "unit symbol Unicode"^^xsd:string ;
 	.
