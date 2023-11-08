@@ -2297,7 +2297,8 @@ gist:Tag
 			]
 		) ;
 	] ;
-	skos:definition "This is for folksonomy type terms, which can be made up on the fly by users."^^xsd:string ;
+	skos:definition "A term in a folksonomy used to categorize things. Tags can be made up on the fly by users."^^xsd:string ;
+	skos:editorialNote "See guidance on removing tagText property in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1780220876."^^xsd:string ;
 	skos:prefLabel "Tag"^^xsd:string ;
 	.
 
@@ -2520,8 +2521,9 @@ gist:TimeInterval
 gist:Transaction
 	a owl:Class ;
 	rdfs:subClassOf gist:Event ;
-	skos:definition "An event which has an effect on at least one accumulator."^^xsd:string ;
+	skos:definition "An exchange or transfer of goods, services, or funds."^^xsd:string ;
 	skos:prefLabel "Transaction"^^xsd:string ;
+	skos:scopeNote "Different sorts of transactions can have different datetime precisions. For example, an electronic transaction would have a gist:actualEndMicrosecond."^^xsd:string ;
 	.
 
 gist:UnitOfMeasure
@@ -2949,8 +2951,16 @@ gist:conformsTo
 gist:containedText
 	a owl:DatatypeProperty ;
 	rdfs:range xsd:string ;
-	skos:definition "Links to the string corresponding to Text"^^xsd:string ;
+	skos:definition "A string that is closely associated with an individual."^^xsd:string ;
+	skos:example
+		"The string associated with a tag."^^xsd:string ,
+		"The string associated with text content."^^xsd:string
+		;
 	skos:prefLabel "contained text"^^xsd:string ;
+	gist:domainIncludes
+		gist:Tag ,
+		gist:Text
+		;
 	.
 
 gist:contributesTo
@@ -3182,9 +3192,9 @@ gist:hasMagnitude
 
 gist:hasMember
 	a owl:ObjectProperty ;
-	skos:definition "Relates a Collection to its member individuals."^^xsd:string ;
+	skos:definition "Relates something, such as a collection or organization, to its member individuals."^^xsd:string ;
 	skos:prefLabel "has member"^^xsd:string ;
-	gist:domainIncludes gist:Collection ;
+	gist:domainIncludes gist:Collection , gist:Organization
 	.
 
 gist:hasMultiplicand
@@ -3882,7 +3892,8 @@ gist:symbolUnicode
 
 gist:tagText
 	a owl:DatatypeProperty ;
-	skos:definition "Used for folksonomy categories (non-controlled vocabularies)"^^xsd:string ;
+	owl:deprecated "true"^^xsd:boolean ;
+	skos:definition "Used for folksonomy style categories (non controlled vocabulary)"^^xsd:string ;
 	skos:prefLabel "tag text"^^xsd:string ;
 	.
 
