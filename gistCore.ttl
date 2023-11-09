@@ -1403,7 +1403,8 @@ gist:Magnitude
 			]
 		) ;
 	] ;
-	skos:definition "Base class for units which can be converted.  The primitive units can be converted from one measurement system to another; the complex units (ratio or product) have to decompose to their primitives."^^xsd:string ;
+	skos:definition "A quantity expressed with a unit of measure and a number."^^xsd:string ;
+	skos:example "3 millimeters; 70 miles per hour; 110 degrees F"^^xsd:string ;
 	skos:prefLabel "Magnitude"^^xsd:string ;
 	skos:scopeNote
 		"Magnitudes of the same dimensional type (i.e., duration or electric current) can be compared with a greater-than or less-than operator, but can still differ in their relationToTheWorld type.  (I.e., you can compare actuals to estimates or references, so long as the dimension is the same.)"^^xsd:string ,
