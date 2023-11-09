@@ -22,6 +22,11 @@ cp "${base_dir}/tools/pre-commit" "${base_dir}/.git/hooks/"
 # Make pre-commit hook executable. Needed at least on Mac, where the copied file is non-executable unless there's an existing executable file in the hooks directory, regardless of the status of the original file.
 chmod +x "${base_dir}/.git/hooks/pre-commit"
 
+# Copy serializer pre-commit to hooks directory. Needed for Mac, where the permissions on the file keep changing (after it executes?) and therefore GitHub detects.
+cp "${base_dir}/tools/serializer/pre-commit" "${base_dir}/.git/hooks/pre-commit-serializer"
+# Ensure that the serializer pre-commit hook is executable.
+chmod +x "${base_dir}/.git/hooks/pre-commit-serializer"
+
 # Exit linux shell
 exit
 
