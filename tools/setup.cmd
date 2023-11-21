@@ -27,7 +27,7 @@ cp "${base_dir}/tools/serializer/pre-commit-serializer" "${base_dir}/.git/hooks/
 # Ensure that the serializer pre-commit hook is executable.
 chmod +x "${base_dir}/.git/hooks/pre-commit-serializer"
 
-# Don't track executable flag on files. Needed on Mac, which makes files non-executable on commit. 
+# Don't track executable flag on files; this is a repository-specific setting. Needed on Mac, which makes files non-executable on commit. 
 git config core.filemode false
 
 # Exit linux shell
