@@ -22,10 +22,8 @@ cp "${base_dir}/tools/pre-commit" "${base_dir}/.git/hooks/"
 # Make pre-commit hook executable. 
 chmod +x "${base_dir}/.git/hooks/pre-commit"
 
-# Copy serializer pre-commit to hooks directory.
-cp "${base_dir}/tools/serializer/pre-commit-serializer" "${base_dir}/.git/hooks/pre-commit-serializer"
 # Ensure that the serializer pre-commit hook is executable.
-chmod +x "${base_dir}/.git/hooks/pre-commit-serializer"
+chmod +x "${base_dir}/tools/serializer/pre-commit"
 
 # Don't track executable flags on files in this repository (this is not a global setting). 
 git config core.filemode false
