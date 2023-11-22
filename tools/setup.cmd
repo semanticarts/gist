@@ -19,7 +19,7 @@ set -x
 # Copy pre-commit to the git hooks directory
 cp "${base_dir}/tools/pre-commit" "${base_dir}/.git/hooks/"
 
-# Make pre-commit hook executable. Needed at least on Mac, where the copied file is non-executable unless there's an existing executable file in the hooks directory, regardless of the status of the original file.
+# Make pre-commit hook executable. 
 chmod +x "${base_dir}/.git/hooks/pre-commit"
 
 # Copy serializer pre-commit to hooks directory.
@@ -27,7 +27,7 @@ cp "${base_dir}/tools/serializer/pre-commit-serializer" "${base_dir}/.git/hooks/
 # Ensure that the serializer pre-commit hook is executable.
 chmod +x "${base_dir}/.git/hooks/pre-commit-serializer"
 
-# Don't track executable flag on files; this is a repository-specific setting. Needed on Mac, which makes files non-executable on commit. 
+# Don't track executable flags on files in this repository (this is not a global setting). 
 git config core.filemode false
 
 # Exit linux shell
