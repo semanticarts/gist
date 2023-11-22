@@ -21,7 +21,7 @@ base_dir=$(git rev-parse --show-toplevel)
 # Run the serializer
 set -x
 
-"${base_dir}/.git/hooks/pre-commit-serializer"
+"${base_dir}/tools/serializer/pre-commit"
 
 rc=$?
 set +x
