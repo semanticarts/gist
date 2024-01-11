@@ -13,8 +13,8 @@
 	owl:versionIRI <https://w3id.org/semanticarts/ontology/gistCoreX.x.x> ;
 	skos:definition "gist is a minimalist upper ontology created by Semantic Arts."^^xsd:string ;
 	skos:prefLabel "gist"^^xsd:string ;
-	sh:declare gist:_PrefixDeclaration_gist ;
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
+	skos:editorialNote "Information about the standard namespace prefix is in gistNamespaceInformation.ttl  ."
 	.
 
 gist:Account
@@ -2574,11 +2574,7 @@ gist:VolumeUnit
 	skos:prefLabel "Volume Unit"^^xsd:string ;
 	.
 
-gist:_PrefixDeclaration_gist
-	a sh:PrefixDeclaration ;
-	sh:namespace "https://w3id.org/semanticarts/ns/ontology/gist/"^^xsd:anyURI ;
-	sh:prefix "gist"^^xsd:string ;
-	.
+
 
 gist:_USDollar
 	a

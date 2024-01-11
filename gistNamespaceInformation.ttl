@@ -1,0 +1,19 @@
+@prefix : <https://w3id.org/semanticarts/ontology/gistCore#> .
+@prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/semanticarts/ontology/gistCore>
+	sh:declare gist:_PrefixDeclaration_gist ;
+	.
+
+gist:_PrefixDeclaration_gist
+	a sh:PrefixDeclaration ;
+	sh:namespace "https://w3id.org/semanticarts/ns/ontology/gist/"^^xsd:anyURI ;
+	sh:prefix "gist"^^xsd:string ;
+	.	
