@@ -3504,13 +3504,15 @@ gist:isRecognizedBy
 			gist:Person
 		) ;
 	] ;
-	skos:definition "The entity that formally acknowledges the existence of, as the State recognizes the existence of a particular company"^^xsd:string ;
+	skos:definition "Relates something to a party that formally acknowledges its existence, validity, or legality."^^xsd:string ;
+	skos:example "The state recognizes the existence of a particular company."^^xsd:string ;
 	skos:prefLabel "is recognized by"^^xsd:string ;
 	.
 
 gist:isRecognizedDirectlyBy
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:isRecognizedBy ;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "The party doing the recognition"^^xsd:string ;
 	skos:prefLabel "is recognized directly by"^^xsd:string ;
 	.
