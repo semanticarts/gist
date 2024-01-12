@@ -3505,7 +3505,7 @@ gist:isRecognizedBy
 		) ;
 	] ;
 	skos:definition "Relates something to a party that formally acknowledges its existence, validity, or legality."^^xsd:string ;
-	skos:example "The state recognizes the existence of a particular company."^^xsd:string ;
+	skos:example "The existence of a particular company is recognized by the state."^^xsd:string ;
 	skos:prefLabel "is recognized by"^^xsd:string ;
 	.
 
