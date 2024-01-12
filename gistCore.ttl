@@ -3006,7 +3006,7 @@ gist:description
 	skos:definition "A statement about someone or something's attributes or characteristics."^^xsd:string ;
 	skos:example "The Empire State Building is a 102-story Art Deco skyscraper in Midtown Manhattan in New York City, United States. It was designed by Shreve, Lamb & Harmon and built from 1930 to 1931."^^xsd:string ;
 	skos:prefLabel "description"^^xsd:string ;
-	skos:scopeNote "This property is used to provide a description of an instance entity in greater detail than a label."^^xsd:string ;
+	skos:scopeNote "This property is used to provide a description of an individual in greater detail than a label."^^xsd:string ;
 	.
 
 gist:directs
