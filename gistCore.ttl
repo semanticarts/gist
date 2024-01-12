@@ -1495,7 +1495,7 @@ gist:Message
 			]
 		) ;
 	] ;
-	skos:definition "A specific instance of content sent from an Organization or Person to at least one other Organization or Person."^^xsd:string ;
+	skos:definition "A specific instance of content sent from a sender to at least one other recipient."^^xsd:string ;
 	skos:example "An email message, a phone call, a voice message, or a Web Service message."^^xsd:string ;
 	skos:prefLabel "Message"^^xsd:string ;
 	.
