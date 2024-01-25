@@ -16,6 +16,18 @@
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
 	.
 
+skos:definition
+	a owl:AnnotationProperty ;
+	.
+
+skos:example
+	a owl:AnnotationProperty ;
+	.
+
+skos:prefLabel
+	a owl:AnnotationProperty ;
+	.
+
 gist:Account
 	a owl:Class ;
 	owl:equivalentClass [
