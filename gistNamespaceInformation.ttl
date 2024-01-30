@@ -8,7 +8,7 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://w3id.org/semanticarts/ontology/gistCore>
+<https://w3id.org/semanticarts/ontology/gistNamespaceInformation>
 	sh:declare gist:_PrefixDeclaration_gist ;
 	skos:editorialNote "Please note that including the file gistNamespaceInformation.ttl will break the OWL2 DL conformance of the gist ontology.  This need for this change is described in https://github.com/semanticarts/gist/issues/1001 ." ;
 	.
