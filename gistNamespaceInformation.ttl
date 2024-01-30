@@ -10,6 +10,7 @@
 
 <https://w3id.org/semanticarts/ontology/gistCore>
 	sh:declare gist:_PrefixDeclaration_gist ;
+	skos:editorialNote "Please note that including the file gistNamespaceInformation.ttl will break the OWL2 DL conformance of the gist ontology.  This need for this change is described in https://github.com/semanticarts/gist/issues/1001 ." ;
 	.
 
 gist:_PrefixDeclaration_gist
