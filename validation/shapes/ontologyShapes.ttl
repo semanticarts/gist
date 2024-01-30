@@ -37,7 +37,7 @@ gshapes:ClassShape
 		a sh:SPARQLTarget ;
 		skos:definition "Target only non-blank node classes to avoid noise from OWL constructs."^^xsd:string ;
 		sh:prefixes <http://www.w3.org/2002/07/owl#> ;
-		sh:select "SELECT $this WHERE { $this a owl:Class . filter(!isblank($this)) }"^^xsd:string ;
+		sh:select "SELECT $this WHERE { $this a owl:Class . filter(!isblank($this) && contains(str($this), 'gist')) }"^^xsd:string ;
 	] ;
 	.
 
@@ -114,11 +114,12 @@ gshapes:PropertyShape
 		gshapes:NonConformingLabel
 	) ;
 	sh:property gshapes:MandatoryDefinition ;
-	sh:targetClass
-		owl:AnnotationProperty ,
-		owl:DatatypeProperty ,
-		owl:ObjectProperty
-		;
+	sh:target [
+		a sh:SPARQLTarget ;
+		skos:definition "Target only properties in the gist namespace."^^xsd:string ;
+		sh:prefixes <http://www.w3.org/2002/07/owl#> ;
+		sh:select "SELECT $this WHERE { $this a ?property_type . values ?property_type { owl:DatatypeProperty owl:ObjectProperty owl:AnnotationProperty } filter(contains(str($this), 'gist')) }"^^xsd:string ;
+	] ;
 	.
 
 gshapes:SentenceCase
