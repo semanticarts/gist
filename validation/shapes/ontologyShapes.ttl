@@ -35,7 +35,7 @@ gshapes:ClassShape
 	sh:property gshapes:MandatoryDefinition ;
 	sh:target [
 		a sh:SPARQLTarget ;
-		skos:definition "Target only non-blank node classes to avoid noise from OWL constructs."^^xsd:string ;
+		skos:definition "Target only classes in gist namespace. Filter out blank node classes to avoid noise from OWL constructs."^^xsd:string ;
 		sh:prefixes <http://www.w3.org/2002/07/owl#> ;
 		sh:select "SELECT $this WHERE { $this a owl:Class . filter(!isblank($this) && contains(str($this), 'gist')) }"^^xsd:string ;
 	] ;
