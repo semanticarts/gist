@@ -29,6 +29,10 @@ skos:prefLabel
 	a owl:AnnotationProperty ;
 	.
 
+skos:scopeNote
+	a owl:AnnotationProperty ;
+	.
+
 gist:Account
 	a owl:Class ;
 	owl:equivalentClass [
