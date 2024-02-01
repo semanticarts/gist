@@ -116,9 +116,9 @@ gshapes:PropertyShape
 	sh:property gshapes:MandatoryDefinition ;
 	sh:target [
 		a sh:SPARQLTarget ;
-		skos:definition "Target only properties in the gist namespace."^^xsd:string ;
+		skos:definition "Target all OWL properties in the gist namespace."^^xsd:string ;
 		sh:prefixes <http://www.w3.org/2002/07/owl#> ;
-		sh:select "SELECT $this WHERE { $this a ?property_type . values ?property_type { owl:DatatypeProperty owl:ObjectProperty owl:AnnotationProperty } filter(contains(str($this), 'gist')) }"^^xsd:string ;
+		sh:select "SELECT $this WHERE { $this a ?property_type . VALUES ?property_type { owl:DatatypeProperty owl:ObjectProperty owl:AnnotationProperty } FILTER(CONTAINS(STR($this), 'gist')) }"^^xsd:string ;
 	] ;
 	.
 
