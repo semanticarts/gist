@@ -28,7 +28,7 @@ Contributing to gist
 -----
 
 - There are a variety of ways to contribute to the ongoing evolution of gist: commenting on issue threads; upvoting issues; submitting bug reports, feature requests, and pull requests.
-- All bug reports and feature requests should be submitted via issues in this repository rather than through email, the website contact form, or other communication channels, and all discussion will be tracked through comments on the issue. These practices ensure that requests are addressed transparently and systematically, and that all discussion is recorded and preserved in a single, public location.
+- All bug reports and feature requests should be submitted via issues in this repository rather than through email, the website contact form, or other communication channels, and all discussion will be tracked through comments on the issue. These practices ensure that requests are addressed publicly, transparently, and systematically, and that all discussion is captured and preserved in a single public location.
 - External contributors may submit a pull request (PR) accompanied by an issue. These will be reviewed as part of our regular triage process, and will either be accepted and merged to develop, accepted with requested modifications, or rejected and closed. Submit only an issue if you have a request without a solution; submit a PR with the issue if you have a proposed solution that you would like to implement. External contributions should conform to the requirements for issues and PRs outlined in the following sections.
 
 Submitting an Issue
@@ -87,7 +87,7 @@ The pre-commit hook does several things when you run `git commit`:
 
 ### Commits, Pushes, and Merges
 
-- When you start working on an issue, move it to the "In Progress" column of the project board.
+- When you start working on an issue that is included in a GitHub project, move it to the "In Progress" column of the project board.
 - Every version of gist committed to the repository must be logically consistent. You can ensure this by loading the ontology into Protégé and running a reasoner, or by running a commandline reasoner.
 - If you are working on a project that will require more than one commit, you should commit to your working branch regularly to create logical checkpoints that can be restored if necessary. Each commit should be atomic for ease of rollback or reversion. Ideally, you finish working on one sub-task and commit it before taking up another.
 - However, it is possible to go overboard and commit every little change independently. This creates clutter in the repository history.
@@ -100,29 +100,29 @@ The pre-commit hook does several things when you run `git commit`:
 ### Creating the Pull Request (PR)
 
 - Once your work is ready to be merged into develop, you will create a pull request (PR).
-- Before submitting the PR, you should ensure that you have merged or rebased develop into your working branch, as above [during implementation](#commits-pushes-and-merges).
+- Before submitting the PR, you should ensure that you have merged or rebased develop into your working branch, [as above during implementation](#commits-pushes-and-merges).
 - Submit the PR to develop.
-- If the issue addressed by the PR is slated for a particular release, assign the PR to the same release project, using the Project labels on the right sidebar, in order to facilitate tracking.
-- The project board is configured to automatically put the PR in the "In Review" column. However, the associated issue must be moved manually into that column manually.
+- If the issue addressed by the PR is slated for a particular release, assign the PR to the same release project, using the Project labels on the right sidebar, in order to facilitate tracking. The project board is configured to automatically put the PR in the "In Review" column. However, the associated issue must be moved into that column manually.
 - Once the PR has been submitted, check that there are no conflicts with the develop branch. If there are, merge or rebase develop into your branch and resolve the conflicts. You may need to repeat this step after making any requested changes, in case other PRs have been merged to develop in the meantime.
 - Assign one or more reviewers, as specified [below](#assigning-reviewers).
 
 ### Contents of the PR
 
 - Each PR should be atomic, addressing a single issue. This allows it to be accepted or rejected as a whole.
-  - Exceptions: Several small issues such as typo corrections, definition fixes, or documentation updates can be submitted in a single PR. Issues that are tightly related can be addressed in a single PR.
+  - Exceptions: 
+    - Several small issues such as typo corrections, definition fixes, or documentation updates can be submitted in a single PR. 
+    - Issues that are tightly related can be addressed in a single PR.
 - The PR should address the entirety of an issue. If it does not, either the PR should be modified or the issue should be broken up into parts.
-- The description of the PR should contain the keywords "fixes #nnn" (or another of the [GitHub keywords](https://docs.github.com/en/enterprise/2.21/user/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)) where nnn is the issue number. This automatically closes the related issue(s) when the PR is merged, and creates a link which allows readers and reviewers to easily reference the issue.
+- The description of the PR should contain the keywords "Closes #nnn" (or another of the [GitHub keywords](https://docs.github.com/en/enterprise/2.21/user/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)) where nnn is the issue number. This automatically closes the related issue(s) when the PR is merged, and creates a link which allows readers and reviewers to easily reference the issue.
   - Example: "Correct cardinality restriction on class gist:Room. Fixes #98."
   - Note that if the PR fixes multiple issues, each issue number must be prefixed by the keyword. E.g., "Fixes #98, fixes #102", rather than "Fixes #98, #102" or "Fixes #98 and #102".
-- It is also recommended that the title of the PR include the keywords as well, which facilitates a quick review of open PRs by title.
 - The PR should include an update to the release notes. See [_Release Notes_](#release-notes).
 - Refer to the [_Deprecation and Deletion Policy_](DeprecationAndDeletionPolicy.md) if you are deprecating or deleting terms.
 
 ### Reviewing Problems with the PR
 
 - At the bottom of the Conversation tab of the PR, you will see notifications about whether various merge criteria are met:
-  - At least one review is required. Only one review is stipulated in GitHub, but as outlined below some types of changes require additional reviewers.
+  - At least one review is required. Only one review is stipulated in GitHub, but, as outlined below, some types of changes require additional reviewers.
   - Build checks must have passed. If not, click on the Details link to review the errors.
   - Merge conflicts must be resolved. Note that even if they are resolved when you submit the PR, if there is a time lag before the PR is reviewed and accepted, additional merges from other PRs may have caused new merge conflicts. You will be informed that you need to do another merge.
 - If you prefer to put the PR in draft state while you attend to any issues, you will find a link to do so below the list of reviewers. Be sure to put it back into "ready to review" state, which, annoyingly, is not done in the same place, but below in the build checks section.
@@ -150,8 +150,8 @@ The pre-commit hook does several things when you run `git commit`:
 ### Merging the PR
 
 - The repository is configured to do rebase and merge by default.
-- The GitHub project board is configured to automatically move a merged PR and its associated issue(s) to the Done column, assuming you have linked the PR to the issues.
-- The person performing the merge should delete the merged branch on the remote.
+- The GitHub project board is configured to automatically move a merged PR and its associated issue(s) to the Done column, assuming you have linked the PR to the issue(s).
+- The repository is configured to automatically delete the remoted branch on merge.
 
 ### Multi-Developer Projects
 
@@ -165,11 +165,11 @@ The pre-commit hook does several things when you run `git commit`:
 - All PRs must include an update to the release notes, except in the rare cases where the change is too trivial to mention; e.g., correcting a single typo. If you deliberately do not include a release note, please indicate this in the PR description so reviewers are aware, though they may disagree and request one.
 - Small fixes of a similar nature, such as correcting several typos and/or revising the wording of several annotations, may be gathered into a single release note, even if they were submitted for separate issues or as separate PRs.
 - Changes that are closely related, even if merged in separate PRs, should be combined into a single release note. They should be added to the section appropriate to the most impactful change (major, minor, or patch). For example, adding an automatically-generated file and the script that generates it should be included in the same release note, in this case to the Minor Updates section.
-- PRs containing no user-facing changes, or changes to files not included in the release package, will still include a release note in the Patch section. Examples: changes to this document; modification to the pre-commit hook; update version of rdf-toolkit.jar.
-- Do _not_ add your release note directly to the file `/doc/ReleaseNotes.md`. Rather, create a separate Markdown file for the release note in `/docs/release_notes` (create this directory if it does not already exist). This avoids messy merge conflicts when multiple issues are being worked on simultaneously. Be sure to include a heading in the file indicating whether it will go into the major, minor, or patch section of the release notes. The individual release notes will be compiled into the _ReleaseNotes_ file before the release package is built.
+- PRs containing no user-facing changes, or changes to files not included in the release package, will still include a release note in the Patch section. Examples: changes to this document; modification of the pre-commit hook; update version of rdf-toolkit.jar.
+- Do _not_ add your release note directly to the file `/doc/ReleaseNotes.md`. Rather, create a separate Markdown file for the release note in `/docs/release_notes`. This avoids messy merge conflicts when multiple issues are being worked on simultaneously. Be sure to include a heading in the file indicating whether it will go into the major, minor, or patch section of the release notes. The individual release notes will be compiled into the _ReleaseNotes.md_ file by the release manager before the release package is built.
 - The name of the release note file has no significance, though it is helpful to name it according to the PR or issue number being addressed.
 - Reviewers will reject a PR without a well-formed release note.
-- Before building the release package, the release manager will review the release notes for content and formatting, revising as necessary; copy them into the [_ReleaseNotes_](ReleaseNotes) file, using sections for major, minor, and patch changes; and delete the individual files.
+- Before building the release package, the release manager will review the release notes for content and formatting, revising as necessary; copy them into the [_ReleaseNotes.md_](ReleaseNotes) file, using sections for major, minor, and patch changes; and delete the individual files.
   
 #### Formatting
 
