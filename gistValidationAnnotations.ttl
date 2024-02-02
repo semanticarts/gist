@@ -1,20 +1,58 @@
 # imports: https://w3id.org/semanticarts/ontology/gistCoreX.x.x
+# imports: https://w3id.org/semanticarts/ontology/operators1.0.0
+# imports: https://w3id.org/semanticarts/ontology/versioning1.0.0
 
 @prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
+@prefix ops: <https://w3id.org/semanticarts/ns/ontology/operators/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ver: <https://w3id.org/semanticarts/ns/ontology/versioning/> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://w3id.org/semanticarts/ontology/gistValidationAnnotations>
 	a owl:Ontology ;
-	owl:imports <https://w3id.org/semanticarts/ontology/gistCoreX.x.x> ;
+	owl:imports
+		<https://w3id.org/semanticarts/ontology/gistCoreX.x.x> ,
+		<https://w3id.org/semanticarts/ontology/operators1.0.0> ,
+		<https://w3id.org/semanticarts/ontology/versioning1.0.0>
+		;
 	owl:versionIRI <https://w3id.org/semanticarts/ontology/gistValidationAnnotationsX.x.x> ;
 	skos:definition "Annotations to assist gist ontology validation."^^xsd:string ;
 	skos:prefLabel "gist Validation Annotations"^^xsd:string ;
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
+	ver:dependsOn
+		[
+			a ver:VersionRangeSpec ;
+			ops:hasValueGreaterOrEqualTo [
+				a ver:SemanticVersionNumber ;
+				ver:uniqueText "1.0.0"^^xsd:string ;
+			] ;
+			ops:hasValueLessThan [
+				a ver:SemanticVersionNumber ;
+				ver:uniqueText "2.0.0"^^xsd:string ;
+			] ;
+			ver:isVersionRangeOf <https://w3id.org/semanticarts/ontology/versioning> ;
+		] ,
+		[
+			a ver:VersionRangeSpec ;
+			ops:hasValueGreaterOrEqualTo [
+				a ver:SemanticVersionNumber ;
+				ver:uniqueText "12.0.0"^^xsd:string ;
+			] ;
+			ops:hasValueLessThan [
+				a ver:SemanticVersionNumber ;
+				ver:uniqueText "13.0.0"^^xsd:string ;
+			] ;
+			ver:isVersionRangeOf <https://w3id.org/semanticarts/ontology/gist> ;
+		]
+		;
+	ver:hasVersionNumber [
+		a ver:SemanticVersionNumber ;
+		ver:uniqueText "X.x.x"^^xsd:string ;
+	] ;
 	.
 
 gist:nonConformingLabel
