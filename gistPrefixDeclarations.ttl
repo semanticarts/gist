@@ -9,7 +9,7 @@
 <https://w3id.org/semanticarts/ontology/gistPrefixDeclarations>
 	a owl:Ontology ;
 	owl:versionIRI <https://w3id.org/semanticarts/ontology/gistPrefixDeclarationsX.x.x> ;
-	skos:definition "Define prefix declarations, which pair a prefix with a namespace, used in the gist ontology."^^xsd:string ;
+	skos:definition "Defines prefix declarations, which pair a prefix with a namespace, used in the gist ontology."^^xsd:string ;
 	skos:prefLabel "gist Prefix Declarations"^^xsd:string ;
 	skos:scopeNote "These prefixes are provided to support applications such as visualizers. Note that importing this file breaks OWL 2 DL conformance because SHACL is not an OWL ontology."^^xsd:string ;
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
