@@ -1,5 +1,4 @@
-gist Deprecation and Deletion Policy
-=====
+# gist Deprecation and Deletion Policy
 
 - Terms to be removed, including changing a local name (which constitutes a removal plus an addition), enter a deprecation-deletion cycle.
 - Deletion is a major change. If the next release is not a major update, terms must be deprecated rather than deleted.

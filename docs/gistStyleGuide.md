@@ -1,5 +1,4 @@
-gist Style Guide <!-- omit in toc -->
-=====
+# gist Style Guide <!-- omit in toc -->
 
 - [Purpose of This Style Guide](#purpose-of-this-style-guide)
 - [OWL Version](#owl-version)
@@ -20,44 +19,31 @@ gist Style Guide <!-- omit in toc -->
 - [Literals](#literals)
 - [Documentation](#documentation)
 
-Purpose of This Style Guide
------
+## Purpose of This Style Guide
 
 The purpose of this evolving document is twofold:
 
 - Define and implement conventions in order to standardize gist.
 - Articulate what we consider best or "better" practices for ontology design and implementation.
 
------
-
-OWL Version
------
+## OWL Version
 
 gist is an OWL 2 DL ontology.
 
------
-
-Serialization
------
+## Serialization
 
 - gist OWL files are serialized in RDF Turtle.
 - The [EDM Council's RDF serialization tool, `rdf-toolkit.jar`,](https://github.com/edmcouncil/rdf-toolkit) should be run before every commit in order to standardize formatting and eliminate noise in git diffs.
 - It is recommended to run this as a [pre-commit hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) in your git repository to ensure that it is done before every commit. See [*Contributing*](Contributing.md#pre-commit-hook) for instructions on setting up your repository with a pre-commit hook.
 - **Only** the `rdf-toolkit.jar` file found in `tools/` should be used, since mixing versions may result in bogus diffs.
 
------
-
-Logical Consistency
------
+## Logical Consistency
 
 Every version of gist committed to the git repository must be logically consistent. See [*Contributing*](Contributing.md#commits-pushes-and-merges).
 
-Local Names
------
+## Local Names
 
 ### Orthographic Conventions for Class and Property Local Names
-
------
 
 - Camelcase
   - Classes initial uppercase
@@ -70,8 +56,6 @@ Local Names
 - No non-standard abbreviations. E.g., `hasUoM` should be `hasUnitOfMeasure`.
   
 ### Textual Standards for Property Local Names
-
------
 
 These standards involve choice of wording, which are generally more difficult to define and reach consensus on than the orthographic conventions above. The goals of defining standards are to improve the ontology along the following metrics:
 
@@ -132,8 +116,7 @@ Exceptions to this guideline arise may arise in IRI minting during data transfor
 
 Note: As of version 12.0.0, gist itself does not itself follow the infix convention, though it does use the leading underscore. This is under consideration for a future update.
 
-Labels
------
+## Labels
 
 *The* following conventions apply to `skos:prefLabel` but *not* `skos:altLabel`.
 
@@ -166,10 +149,7 @@ This style guide defines the rules for title case as follows:
 - Acronyms in all caps (e.g., *SSN*, *ISBN*)
 - Capitalize everything else
 
------
-
-Annotations
------
+## Annotations
 
 ### Conventions for Use
 
@@ -239,14 +219,10 @@ Certain RDFS annotations are recommended where there is no SKOS equivalent.
 | `skos:scopeNote`, `skos:editorialNote`, `skos:note` | At the implementer's discretion, multiple unrelated notes can be included in either a single annotation or multiple annotations. |
 | `skos:example` | Recommended practice is to combine all examples into a single annotation, especially if there is a list of short items. |
 
------
-
-Literals
------
+## Literals
 
 - Literal values should be typed with one of the  datatypes included in the [OWL 2 Datatype Maps](https://www.w3.org/TR/owl2-syntax/#Datatype_Maps). It is not necessary to explicitly type strings as `xsd:string` because the [serializer](serialization) will add this to all untyped literals.
 
-Documentation
------
+## Documentation
 
 Documentation is generally written in Markdown, and a Markdown linter should be applied to flag and fix [Markdown rule](https://github.com/DavidAnson/markdownlint/blob/v0.20.3/doc/Rules.md) violations. The Markdown config file [markdownlint.json](.markdownlint.json) configures the Markdown delinter. If using VS Code as an editor, [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) is a helpful extension that provides code hints and can be configured to automatically correct errors.

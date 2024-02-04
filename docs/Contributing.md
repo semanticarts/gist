@@ -1,5 +1,4 @@
-gist Contributor Guidelines for Issues and Pull Requests <!-- omit in toc -->
-=====
+# gist Contributor Guidelines for Issues and Pull Requests <!-- omit in toc -->
 
 - [Contributing to gist](#contributing-to-gist)
 - [Submitting an Issue](#submitting-an-issue)
@@ -24,15 +23,13 @@ gist Contributor Guidelines for Issues and Pull Requests <!-- omit in toc -->
     - [General](#general)
     - [Formatting](#formatting)
 
-Contributing to gist
------
+## Contributing to gist
 
 - There are a variety of ways to contribute to the ongoing evolution of gist: commenting on issue threads; upvoting issues; submitting bug reports, feature requests, and pull requests.
 - All bug reports and feature requests should be submitted via issues in this repository rather than through email, the website contact form, or other communication channels, and all discussion will be tracked through comments on the issue. These practices ensure that requests are addressed publicly, transparently, and systematically, and that all discussion is captured and preserved in a single public location.
 - External contributors may submit a pull request (PR) accompanied by an issue. These will be reviewed as part of our regular triage process, and will either be accepted and merged to develop, accepted with requested modifications, or rejected and closed. Submit only an issue if you have a request without a solution; submit a PR with the issue if you have a proposed solution that you would like to implement. External contributions should conform to the requirements for issues and PRs outlined in the following sections.
 
-Submitting an Issue
------
+## Submitting an Issue
 
 ### Content
 
@@ -61,8 +58,7 @@ Submitting an Issue
 
 - External contributors should not specify assignees, projects, or milestones, nor apply labels for priority, effort, etc. These are assigned during the internal review process.
 
-Submitting a Pull Request (PR)
------
+## Submitting a Pull Request (PR)
 
 ### Setting up the Local Repository
 
@@ -91,7 +87,7 @@ The pre-commit hook does several things when you run `git commit`:
 - Every version of gist committed to the repository must be logically consistent. You can ensure this by loading the ontology into Protégé and running a reasoner, or by running a commandline reasoner.
 - If you are working on a project that will require more than one commit, you should commit to your working branch regularly to create logical checkpoints that can be restored if necessary. Each commit should be atomic for ease of rollback or reversion. Ideally, you finish working on one sub-task and commit it before taking up another.
 - However, it is possible to go overboard and commit every little change independently. This creates clutter in the repository history.
-- As you work, it is _essential_ that you merge or rebase regularly from develop back into your working branch. This ensures that, when it comes time to merge your work into develop, you will have resolved most merge conflicts more easily than when there are a large number all at once. Note that your PR cannot be merged to develop until all merge conflicts are resolved.
+- As you work, it is essential that you merge or rebase regularly from develop back into your working branch. This ensures that, when it comes time to merge your work into develop, you will have resolved most merge conflicts more easily than when there are a large number all at once. Note that your PR cannot be merged to develop until all merge conflicts are resolved.
 - The commit message should be clear enough so that someone can get a basic understanding of the commit without looking at the actual changes in the files.
   - Examples:
     - YES: "Fix typo in definition of gist:Address."
@@ -105,12 +101,13 @@ The pre-commit hook does several things when you run `git commit`:
 - If the issue addressed by the PR is slated for a particular release, assign the PR to the same release project, using the Project labels on the right sidebar, in order to facilitate tracking. The project board is configured to automatically put the PR in the "In Review" column. However, the associated issue must be moved into that column manually.
 - Once the PR has been submitted, check that there are no conflicts with the develop branch. If there are, merge or rebase develop into your branch and resolve the conflicts. You may need to repeat this step after making any requested changes, in case other PRs have been merged to develop in the meantime.
 - Assign one or more reviewers, as specified [below](#assigning-reviewers).
+- Some developers like to create a PR before work is completed or even before it has begun. You should remember to put it into draft state and not assign reviewers until it is ready for review.
 
 ### Contents of the PR
 
 - Each PR should be atomic, addressing a single issue. This allows it to be accepted or rejected as a whole.
-  - Exceptions: 
-    - Several small issues such as typo corrections, definition fixes, or documentation updates can be submitted in a single PR. 
+  - Exceptions:
+    - Several small issues such as typo corrections, definition fixes, or documentation updates can be submitted in a single PR.
     - Issues that are tightly related can be addressed in a single PR.
 - The PR should address the entirety of an issue. If it does not, either the PR should be modified or the issue should be broken up into parts.
 - The description of the PR should contain the keywords "Closes #nnn" (or another of the [GitHub keywords](https://docs.github.com/en/enterprise/2.21/user/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)) where nnn is the issue number. This automatically closes the related issue(s) when the PR is merged, and creates a link which allows readers and reviewers to easily reference the issue.
@@ -146,10 +143,11 @@ The pre-commit hook does several things when you run `git commit`:
 - A reviewer should assign the PR to the same release project as the issue(s) it addresses if that has not been done when the PR was submitted.
 - When you correct your PR based on reviewer comments, and commit these changes, they automaticallly get added to the existing PR, so you should not create another PR.
 - If a reviewer does not deem him/herself qualified to review the PR, he/she should reassign it to another reviewer.
+- The PR will automatically be moved back into the In Progress column when a reviewer requests changes.
 
 ### Merging the PR
 
-- The repository is configured to do rebase and merge by default.
+- The repository is configured to do rebase and merge by default, but there are some cases where a rebase is not possible and merge commit must be selected.
 - The GitHub project board is configured to automatically move a merged PR and its associated issue(s) to the Done column, assuming you have linked the PR to the issue(s).
 - The repository is configured to automatically delete the remoted branch on merge.
 
