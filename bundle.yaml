@@ -210,7 +210,7 @@ actions:
   target: "{output}/Documentation/gist-logo.png"
 - action: "markdown"
   message: "Formatting readme."
-  source: "{output}/Documentation/README.md" 
+  source: "{output}/Documentation/README.md"
   target: "{output}/Documentation/README.html"
 - action: "markdown"
   message: "Formatting release notes."
