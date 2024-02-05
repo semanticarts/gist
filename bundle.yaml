@@ -94,23 +94,24 @@ actions:
     from: "(.*)\\.ttl"
     to: "\\g<1>{version}.ttl"
   includes:
-    - gistCore.ttl
-    - gistMediaTypes.ttl
-    - gistPrefixDeclarations.ttl
-    - gistSubClassAssertions.ttl
+    - '*.ttl'
+  excludes:
+    - gistValidationAnnotations.ttl
 - action: "definedBy"
   message: "Adding rdfs:isDefinedBy."
   source: "{output}/ontologies"
   target: "{output}/ontologies"
   includes:
-    - "*.ttl"
+    - '*.ttl'
 - action: "sparql"
   message: "Generating rdfs:label and rdfs:comment for backward compatibility."
   source: "{output}/ontologies"
   target: "{output}/ontologies/rdfsAnnotations.ttl"
   format: "turtle"
   includes:
-    - "*.ttl"
+    - '*.ttl'
+  excludes:
+    - gistValidationAnnotations.ttl
   query: >
     prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/>
     prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
