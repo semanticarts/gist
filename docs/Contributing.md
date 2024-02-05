@@ -7,15 +7,16 @@
   - [Issue Description](#issue-description)
   - [Proposals for Resolution](#proposals-for-resolution)
   - [Issue Metadata](#issue-metadata)
+- [Setting up the Local Repository](#setting-up-the-local-repository)
 - [Submitting a Pull Request (PR)](#submitting-a-pull-request-pr)
-  - [Setting up the Local Repository](#setting-up-the-local-repository)
   - [Working Branch](#working-branch)
   - [Style Guide](#style-guide)
   - [Commits, Pushes, and Merges](#commits-pushes-and-merges)
   - [Creating the Pull Request (PR)](#creating-the-pull-request-pr)
+  - [Draft PRs](#draft-prs)
   - [Contents of the PR](#contents-of-the-pr)
   - [Reviewing Problems with the PR](#reviewing-problems-with-the-pr)
-  - [Assigning Reviewers](#assigning-reviewers)
+  - [Requesting Reviews](#requesting-reviews)
   - [Review Process](#review-process)
   - [Merging the PR](#merging-the-pr)
   - [Multi-Developer Projects](#multi-developer-projects)
@@ -58,9 +59,7 @@
 
 - External contributors should not specify assignees, projects, or milestones, nor apply labels for priority, effort, etc. These are assigned during the internal review process.
 
-## Submitting a Pull Request (PR)
-
-### Setting up the Local Repository
+## Setting up the Local Repository
 
 - Clone the [gist GitHub repository](https://github.com/semanticarts/gist.git).
 
@@ -68,10 +67,11 @@
 
 The pre-commit hook does several things when you run `git commit`:
 
-- Prevents commits to the following branches: develop, main, and master.
+- Prevents commits to the branches `develop`, `main`, and `master`.
 - Runs the serializer. This converts files into a standard Turtle format in order to remove noise in the diffs. As the comments in the file indicate, you should use the pre-approved version of `rdf-toolkit.jar` in this directory, rather than another version that you may have elsewhere on your local drive.
-- Runs a `sed` command to remove `skos` stubs that Protege may add to your files.
 - Note: Any PR containing unserialized commits will be returned for correction.
+
+## Submitting a Pull Request (PR)
 
 ### Working Branch
 
@@ -95,13 +95,21 @@ The pre-commit hook does several things when you run `git commit`:
 
 ### Creating the Pull Request (PR)
 
-- Once your work is ready to be merged into develop, you will create a pull request (PR).
+- Once your work is ready to be merged into develop, you will [create a pull request](https://github.com/semanticarts/gist/pulls).
+- Assign the PR to yourself for tracking purposes.
 - Before submitting the PR, you should ensure that you have merged or rebased develop into your working branch, [as above during implementation](#commits-pushes-and-merges).
 - Submit the PR to develop.
 - If the issue addressed by the PR is slated for a particular release, assign the PR to the same release project, using the Project labels on the right sidebar, in order to facilitate tracking. The project board is configured to automatically put the PR in the "In Review" column. However, the associated issue must be moved into that column manually.
 - Once the PR has been submitted, check that there are no conflicts with the develop branch. If there are, merge or rebase develop into your branch and resolve the conflicts. You may need to repeat this step after making any requested changes, in case other PRs have been merged to develop in the meantime.
 - Assign one or more reviewers, as specified [below](#assigning-reviewers).
-- Some developers like to create a PR before work is completed or even before it has begun. You should remember to put it into draft state and not assign reviewers until it is ready for review.
+
+### Draft PRs
+
+- Some developers like to create a PR before work is completed or even before it has begun. Follow the steps above to create the PR, and in addition:
+  - Put it into draft state by clicking on the "Convert to draft" link below the list of reviewers.
+  - Do not assign reviewers until the PR is ready for review.
+  - When ready for review, click on the gray "Ready to review" button beneath the build checks section.
+  - Request reviews.
 
 ### Contents of the PR
 
@@ -122,11 +130,11 @@ The pre-commit hook does several things when you run `git commit`:
   - At least one review is required. Only one review is stipulated in GitHub, but, as outlined below, some types of changes require additional reviewers.
   - Build checks must have passed. If not, click on the Details link to review the errors.
   - Merge conflicts must be resolved. Note that even if they are resolved when you submit the PR, if there is a time lag before the PR is reviewed and accepted, additional merges from other PRs may have caused new merge conflicts. You will be informed that you need to do another merge.
-- If you prefer to put the PR in draft state while you attend to any issues, you will find a link to do so below the list of reviewers. Be sure to put it back into "ready to review" state, which, annoyingly, is not done in the same place, but below in the build checks section.
+- If you prefer to [put the PR in draft state](#draft-prs) while you attend to any issues, follow the steps above.
 
-### Assigning Reviewers
+### Requesting Reviews
 
-- Assign reviewer(s) based on the impact of the issue (major, minor, patch). This should be labeled on the issue; if not, consult the [_Change and Release Management_ documentation](ChangeAndReleaseManagement.md) for guidance.
+- Request review(s) based on the impact of the issue (major, minor, patch). This should be labeled on the issue; if not, consult [_Change and Release Management_](ChangeAndReleaseManagement.md) for guidance.
   - Major: three reviewers
   - Minor: two reviewers
   - Patch: one reviewer
