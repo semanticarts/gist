@@ -1,5 +1,4 @@
-Time-Related Changes in gist v11
-=====
+# Time-Related Changes in gist v11
 
 Version 11 of gist includes two important changes to how we handle time.  First, we have deleted the `gist:TimeInstant` class and the object properties that used it.  In their place, we have added the `gist:atDateTime` data property with a number of sub-properties.  We have found that using data properties for all time-related relationships is both easier and more intuitive, and wanted gist to better support that.
 
@@ -7,8 +6,7 @@ This will be of greatest impact where you are using `gist:TimeInstant` class ins
 
 The nature of these changes and the forms your data make take mean it is impossible to provide scripted code for data conversion.  Instead, we offer this guidance to assist you.
 
-Replacing gist:TimeInstant instances, gist:hasActual, gist:hasPlanned, gist:hasStart, gist:hasEnd
------
+## Replacing gist:TimeInstant instances, gist:hasActual, gist:hasPlanned, gist:hasStart, gist:hasEnd
 
 To accommodate the deletion of the `TimeInstant` class and its associated object properties, we have added a number of new sub-properties to the `gist:atDateTime` data property.  The new datatype sub-properties serve two different functions.
 
@@ -49,8 +47,7 @@ In any of these three cases, the object literal is the same.
   If you wish to retain it in the literal, then no change is necessary.  This is our recommended approach.
   If you wish to express it as a separate value, then the literal becomes either `"2022-03-16T01:01:01"^^xsd:dateTime` or `"2022-03-16T00:00:00"^^xsd:dateTime`, depending upon the choices you made above.  Then you can assert relationships between the Subject `:_x` and the appropriate instances of `TimeZone`.
 
-Other changes
------
+## Other changes
 
 ### Replacing gist:wasLastModifiedAt and gist:isRecordedAt
 
