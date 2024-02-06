@@ -29,7 +29,7 @@ This document describes the Semantic Arts change and release management process 
       - Once the PR has been finalized and passed through the normal review process, it will be incorporated into the release schedule for either the next major or minor release as appropriate.
   - **Needs further review**
     - This case is similar to the "will implement" case, in that an assignee is designated to carry the discussion forward at a subsequent meeting. The difference is that here it is not yet agreed whether or how the issue will be addressed. Labels are applied as above, including `status: in review`.
-- Fast-tracking. Some issues are small and non-controversial enough to bypass the group triage sessions (this is admittedly not entirely objective). These are labelled `fast-track` and put into the "To Do" column though even if assigned. Anyone interested in implementing an unassigned, fast-tracked issue may assign the task to him- or herself.
+- Fast-tracking. Some issues are small and non-controversial enough to bypass the group triage sessions. (This is admittedly not entirely objective.) These are labelled `fast-track` and put into the "To Do" column even if assigned. Anyone interested in implementing an unassigned, fast-tracked issue may self-assign the task.
   
 ## Workflow: Implementation, Pull Requests, and Merges
 

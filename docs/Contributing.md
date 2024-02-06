@@ -67,7 +67,7 @@
 
 The pre-commit hook does several things when you run `git commit`:
 
-- Prevents commits to the branches `develop`, `main`, and `master`.
+- Prevents commits to the branches `develop`, `main`, and `master` (though the latter is no longer used in the gist repository).
 - Runs the serializer. This converts files into a standard Turtle format in order to remove noise in the diffs. As the comments in the file indicate, you should use the pre-approved version of `rdf-toolkit.jar` in this directory, rather than another version that you may have elsewhere on your local drive.
 - Note: Any PR containing unserialized commits will be returned for correction.
 
@@ -157,7 +157,7 @@ The pre-commit hook does several things when you run `git commit`:
 
 - The repository is configured to do rebase and merge by default, but there are some cases where a rebase is not possible and merge commit must be selected.
 - The GitHub project board is configured to automatically move a merged PR and its associated issue(s) to the Done column, assuming you have linked the PR to the issue(s).
-- The repository is configured to automatically delete the remoted branch on merge.
+- The repository is configured to automatically delete the remote branch on merge.
 
 ### Multi-Developer Projects
 
