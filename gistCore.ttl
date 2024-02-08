@@ -13,7 +13,6 @@
 	owl:versionIRI <https://w3id.org/semanticarts/ontology/gistCoreX.x.x> ;
 	skos:definition "gist is a minimalist upper ontology created by Semantic Arts."^^xsd:string ;
 	skos:prefLabel "gist"^^xsd:string ;
-	sh:declare gist:_PrefixDeclaration_gist ;
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
 	.
 
@@ -1318,7 +1317,7 @@ gist:LivingThing
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBiologicalParent ;
-				owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+				owl:someValueFrom gist:LivingThing ;
 			]
 			[
 				a owl:Restriction ;
@@ -1495,7 +1494,7 @@ gist:Message
 			]
 		) ;
 	] ;
-	skos:definition "A specific instance of content sent from an Organization or Person to at least one other Organization or Person."^^xsd:string ;
+	skos:definition "A specific instance of content sent from a sender to at least one other recipient."^^xsd:string ;
 	skos:example "An email message, a phone call, a voice message, or a Web Service message."^^xsd:string ;
 	skos:prefLabel "Message"^^xsd:string ;
 	.
@@ -2572,12 +2571,6 @@ gist:VolumeUnit
 	] ;
 	skos:definition "Units of three-dimensional space, expressed here as an area times a distance."^^xsd:string ;
 	skos:prefLabel "Volume Unit"^^xsd:string ;
-	.
-
-gist:_PrefixDeclaration_gist
-	a sh:PrefixDeclaration ;
-	sh:namespace "https://w3id.org/semanticarts/ns/ontology/gist/"^^xsd:anyURI ;
-	sh:prefix "gist"^^xsd:string ;
 	.
 
 gist:_USDollar

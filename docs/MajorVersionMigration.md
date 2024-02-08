@@ -1,5 +1,4 @@
-Major Version Migration <!-- omit in toc -->
-=====
+# Major Version Migration <!-- omit in toc -->
 
 - [Migrating RDF Data in Local Files](#migrating-rdf-data-in-local-files)
 - [Migrating Data in a Triple Store](#migrating-data-in-a-triple-store)
@@ -21,8 +20,7 @@ The migration scripts rely on the [Ontology Toolkit](https://pypi.org/project/on
 Python-based open source tool provided by Semantic Arts. It requires Python version 3.8 or greater
 to be installed.
 
-Migrating RDF Data in Local Files
------
+## Migrating RDF Data in Local Files
 
 Once you have the Ontology Toolkit installed, issue the following command from the directory where
 you [cloned](https://github.com/semanticarts/gist) or downloaded gist:
@@ -41,8 +39,7 @@ directories will be created as needed, but any existing files in them will be ov
 Note that only `.ttl` (Turtle) and `.owl` (RDF/XML) files in the _INPUT-DIR_ are transformed - no
 subdirectories are traversed, and those would require additional tool invocations.
 
-Migrating Data in a Triple Store
------
+## Migrating Data in a Triple Store
 
 Once you have the Ontology Toolkit installed, issue the following command from the directory where
 you [cloned](https://github.com/semanticarts/gist) or downloaded gist:
