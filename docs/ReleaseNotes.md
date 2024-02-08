@@ -1,8 +1,6 @@
-gist Release Notes
-=====
+# gist Release Notes
 
-Release 12.0.1
------
+## Release 12.0.1
 
 ### Patch Updates
 
@@ -18,8 +16,7 @@ Release 12.0.1
 
 Import URL: <https://w3id.org/semanticarts/ontology/gistCore12.0.1>.
 
-Release 12.0.0
------
+## Release 12.0.0
 
 This is a major release which includes several changes which break compatibility with previous versions of gist. See the [migration guide](./MajorVersionMigration.html) for documentation on updating existing gist-based ontologies and instance data. Migration scripts are included to facilitate the upgrade process.
 
@@ -108,8 +105,7 @@ This is a major release which includes several changes which break compatibility
 
 Import URL: <https://w3id.org/semanticarts/ontology/gistCore12.0.0>.
 
-Release 11.1.0
------
+## Release 11.1.0
 
 ### Minor Updates
 
@@ -140,8 +136,7 @@ Release 11.1.0
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore11.1.0>.
 
-Release 11.0.0
------
+## Release 11.0.0
 
 ### Major Updates
 
@@ -179,8 +174,7 @@ Release 11.0.0
   
 Import URL: <https://ontologies.semanticarts.com/o/gistCore11.0.0>.
 
-Release 10.0.0
------
+## Release 10.0.0
 
 This is a major release, which includes several changes which break compatibility with previous versions
 of `gist`. See the [migration guide](./MajorVersionMigration.md) for documentation on updating existing
@@ -229,8 +223,7 @@ of `gist`. See the [migration guide](./MajorVersionMigration.md) for documentati
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore10.0.0>.
 
-Release 9.7.0
------
+## Release 9.7.0
 
 ### Minor Updates
 
@@ -246,8 +239,7 @@ Release 9.7.0
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore9.7.0>.
 
-Release 9.6.0
------
+## Release 9.6.0
 
 ### Minor Updates
 
@@ -274,8 +266,7 @@ Release 9.6.0
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore9.6.0>.
 
-Release 9.5.0
------
+## Release 9.5.0
 
 ### Minor Updates
 
@@ -297,8 +288,7 @@ Release 9.5.0
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore9.5.0>.
 
-Release 9.4.0
------
+## Release 9.4.0
 
 ### Minor Updates
 
@@ -316,8 +306,7 @@ Release 9.4.0
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore9.4.0>.
 
-Release 9.3.0
------
+## Release 9.3.0
 
 - Merged into a single module/file all of gist except the gistDeprecated module.  Fixes issue [#292](https://github.com/semanticarts/gist/issues/292).
 - Removed import diagram generation and catalog files from bundling. Fixes issue [#309](https://github.com/semanticarts/gist/issues/309).
@@ -329,8 +318,7 @@ Release 9.3.0
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore9.3.0>.
 
-Release 9.2.0
------
+## Release 9.2.0
 
 - Replaced all "xs" namespace prefixes for XML Schema with "xsd". Corrects issue [#158](https://github.com/semanticarts/gist/issues/158).
 - Corrected gist:convertToBase value for gist:_minute from 1.0 to 60.0. Fixes issue [#82](https://github.com/semanticarts/gist/issues/82).
@@ -345,8 +333,7 @@ Release 9.2.0
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore9.2.0>.
 
-Release 9.1.0
------
+## Release 9.1.0
 
 - Reformatted all files to match uniform serialization.
 - Corrected restriction for `gist:Collection`.
@@ -357,8 +344,7 @@ Release 9.1.0
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore9.1.0>.
 
-Release 9.0
------
+## Release 9.0
 
 ### Miscellaneous
 
@@ -455,28 +441,24 @@ Added to the list of deprecated things:
     - `gist:strictlyPrecededBy` (using `directlyPrecededBy` instead)
     - `gist:strictlyPrecedes` (using `directlyPrecedes` instead)
 
-Release 8.0
------
+## Release 8.0
 
 This major version primarily changed all concept URIs to use `/` instead of `#`
 Additionally, gistWiki is no longer included by gistCore.
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore8.0.0>.
 
-Release 7.5
------
+## Release 7.5
 
 This version focused on making the import structure simpler and flatter, in order to make it easier for people to use subsets of gist if they want to.  Because all of gist is in one name space this was relatively easy to do and will have very little impact on anyone who is using gist 7.* (see the change log there were a few changes that you may want to review).
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.5.owl>.
 
-Release 7.4
------
+## Release 7.4
 
 Gist 7.4 was an internal release.
 
-Release 7.3
------
+## Release 7.3
 
 - An additional supplementary ontology was added for Units of Measure which introduces the concept of a Coherent Unit. This allows for conversions between units of the same dimension to be done using just SPARQL, as opposed to relying on rules.
 - There are new and/or improved annotations (definitions, notes, examples, negative examples, etc.) on all Classes.
@@ -491,8 +473,7 @@ See ChangeLog in pdf file for full details of changes.
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.3.owl>.
 
-Release 7.2
------
+## Release 7.2
 
 - Add wiki and rdfshape capability
 - Removed some redundant assertions, and moved some comments to the ontology where the concept was first introduced.
@@ -502,8 +483,7 @@ Release 7.2
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.2.owl>.
 
-Release 7.1.1
------
+## Release 7.1.1
 
 - Fix an erroneous disjoint statement on the class gist:Magnitude.
 If you previously downloaded gist 7.1 you may have experienced an inference error if you attempted to run inference using Hermit.
@@ -512,8 +492,7 @@ The gist 7.1.1 release has eliminated the cause of this error.
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.1.1.owl>.
 
-Release 7.1
------
+## Release 7.1
 
 Primarily fixes minor errors like typos in our gist 7.0 release.
 
@@ -533,8 +512,7 @@ In addition to using the OWL files locally, you can import these files via URL d
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.1.owl>.
 
-Release Notes gist 7.0
------
+## Release Notes gist 7.0
 
 gist 7.0 is a major upgrade from our last released version (6.7.1). The main differences are:
 

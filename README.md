@@ -2,8 +2,7 @@
 
 [Click here to download the latest version of gist.](https://w3id.org/semanticarts/ontology/gistCore)
 
-About gist
-=====
+# About gist
 
 gist is Semantic Arts' minimalist upper ontology for the enterprise. It is designed to have the maximum coverage of typical business ontology concepts with the fewest number of primitives and the least amount of ambiguity.
 
@@ -15,8 +14,7 @@ gist is free and open to the public under the [Creative Commons 3.0](http://crea
 
 For more information on gist and to download the current or previous versions of gist, see the [Semantic Arts website](https://www.semanticarts.com/gist).
 
-Documentation
------
+## Documentation
 
 We provide a number of resources for learning more about gist.
 
