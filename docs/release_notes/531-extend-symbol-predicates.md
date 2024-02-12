@@ -4,4 +4,4 @@
   - Deprecated `gist:unitSymbol`, `gist:unitSymbolHtml` and `gist:unitSymbolUnicode`. 
   - Added predicates: `gist:symbol`, `gist:symbolHtml` and `gist:symbolUnicode`.
   - Added symbol triples for existing units, anticipating the removal of `gist:unitSymbol`.
-  - Deprecated `gist:symbolUnicode` and `gist:symbolHtml`
+  - Deleted  `gist:symbolUnicode` and `gist:symbolHtml` since they were added within this change - see above
