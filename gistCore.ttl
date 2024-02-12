@@ -3889,6 +3889,7 @@ gist:symbol
 gist:symbolHtml
 	a owl:DatatypeProperty ;
 	rdfs:range xsd:string ;
+	owl:deprecated "true"^^xsd:string ;
 	skos:definition "A symbol in HTML format for displaying on a web page; may use HTML-encoded characters."^^xsd:string ;
 	skos:example "For square meter, (ASCII 'm^2'), the letter 'm' followed by the HTML representation of superscript 2, i.e., 'm&sup2;'"^^xsd:string ;
 	skos:prefLabel "symbol HTML"^^xsd:string ;
@@ -3899,6 +3900,7 @@ gist:symbolHtml
 gist:symbolUnicode
 	a owl:DatatypeProperty ;
 	rdfs:range xsd:string ;
+	owl:deprecated "true"^^xsd:string ;
 	skos:definition "The Unicode symbol for something."^^xsd:string ;
 	skos:example "For square meter (ASCII 'm^2'), the Unicode symbol for 'm' followed by the Unicode symbol for superscript 2, i.e., 'U+006D U+00B2'"^^xsd:string ;
 	skos:prefLabel "symbol Unicode"^^xsd:string ;
