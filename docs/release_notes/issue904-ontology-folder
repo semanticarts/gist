@@ -1,6 +1,6 @@
 ### Minor Updates
 
-- Move ontology files into a root-level `ontologies` folder. [Issue #904](https://github.com/semanticarts/gist/issues/904).
+- Moved ontology files into a root-level `ontologies` folder. [Issue #904](https://github.com/semanticarts/gist/issues/904).
 
 ### Patch Updates
 
