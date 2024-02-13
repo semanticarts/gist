@@ -1,0 +1,7 @@
+### Minor Updates
+
+- Moved ontology files into a root-level `ontologies` folder. [Issue #904](https://github.com/semanticarts/gist/issues/904).
+
+### Patch Updates
+
+- Updated `bundle.yaml` to use `onto_tool excludes` option. [Issue #962](https://github.com/semanticarts/gist/issues/962).
