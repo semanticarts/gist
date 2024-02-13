@@ -16,6 +16,22 @@
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
 	.
 
+skos:definition
+	a owl:AnnotationProperty ;
+	.
+
+skos:example
+	a owl:AnnotationProperty ;
+	.
+
+skos:prefLabel
+	a owl:AnnotationProperty ;
+	.
+
+skos:scopeNote
+	a owl:AnnotationProperty ;
+	.
+
 gist:Account
 	a owl:Class ;
 	owl:equivalentClass [
@@ -1317,7 +1333,7 @@ gist:LivingThing
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBiologicalParent ;
-				owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+				owl:someValueFrom gist:LivingThing ;
 			]
 			[
 				a owl:Restriction ;
@@ -2999,7 +3015,7 @@ gist:description
 	skos:definition "A statement about someone or something's attributes or characteristics."^^xsd:string ;
 	skos:example "The Empire State Building is a 102-story Art Deco skyscraper in Midtown Manhattan in New York City, United States. It was designed by Shreve, Lamb & Harmon and built from 1930 to 1931."^^xsd:string ;
 	skos:prefLabel "description"^^xsd:string ;
-	skos:scopeNote "This property is used to provide a description of an instance entity in greater detail than a label."^^xsd:string ;
+	skos:scopeNote "This property is used to provide a description of an individual in greater detail than a label."^^xsd:string ;
 	.
 
 gist:directs
@@ -3497,13 +3513,15 @@ gist:isRecognizedBy
 			gist:Person
 		) ;
 	] ;
-	skos:definition "The entity that formally acknowledges the existence of, as the State recognizes the existence of a particular company"^^xsd:string ;
+	skos:definition "Relates something to a party that formally acknowledges its existence, validity, or legality."^^xsd:string ;
+	skos:example "The existence of a particular company is recognized by the state."^^xsd:string ;
 	skos:prefLabel "is recognized by"^^xsd:string ;
 	.
 
 gist:isRecognizedDirectlyBy
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:isRecognizedBy ;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "The party doing the recognition"^^xsd:string ;
 	skos:prefLabel "is recognized directly by"^^xsd:string ;
 	.
