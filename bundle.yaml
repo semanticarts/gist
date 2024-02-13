@@ -69,18 +69,18 @@ actions:
   shapes:
     source: "{input}/validation/shapes/ontologyShapes.ttl"
 - action: "verify"
-  message: "Verify ontology via queries."
+  message: "Verifying ontology via queries."
   type: "construct"
   inference: "none"
   source: "{input}/ontologies"
   includes:
     - gistCore.ttl
   stopOnFail: false
-  target: '{input}/validation'
+  target: "{input}/validation"
   queries:
-    source: '{input}/validation/queries'
+    source: "{input}/validation/queries"
     includes:
-      - '*_construct.rq'
+      - "*_construct.rq"
 - action: "mkdir"
   directory: "{output}"
 - action: "copy"
@@ -94,7 +94,7 @@ actions:
     from: "(.*)\\.ttl"
     to: "\\g<1>{version}.ttl"
   includes:
-    - '*.ttl'
+    - "*.ttl"
   excludes:
     - gistValidationAnnotations.ttl
 - action: "definedBy"
@@ -102,14 +102,14 @@ actions:
   source: "{output}/ontologies"
   target: "{output}/ontologies"
   includes:
-    - '*.ttl'
+    - "*.ttl"
 - action: "sparql"
   message: "Generating rdfs:label and rdfs:comment for backward compatibility."
   source: "{output}/ontologies"
   target: "{output}/ontologies/rdfsAnnotations.ttl"
   format: "turtle"
   includes:
-    - '*.ttl'
+    - "*.ttl"
   excludes:
     - gistValidationAnnotations.ttl
   query: >
