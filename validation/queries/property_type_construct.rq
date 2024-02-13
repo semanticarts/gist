@@ -22,6 +22,6 @@ WHERE {
   ?ref a ?ref_type .
   FILTER (?ref_type in (owl:ObjectProperty, owl:DatatypeProperty, owl:AnnotationProperty))
   FILTER (?focus_type != ?ref_type)
-  bind(<urn:property-vaidation-report> as ?report)
+  bind(<urn:property-validation-report> as ?report)
   bind(CONCAT(?message, " ", REPLACE(STR(?ref), '^.*[/#]', ''), " must be the same type.") as ?error)
 }
