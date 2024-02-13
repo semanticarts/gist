@@ -109,7 +109,7 @@ actions:
   target: "{output}/ontologies/rdfsAnnotations.ttl"
   format: "turtle"
   includes:
-    - '*.ttl'
+    - "*.ttl"
   excludes:
     - gistValidationAnnotations.ttl
   query: >
