@@ -102,7 +102,7 @@ actions:
   source: "{output}/ontologies"
   target: "{output}/ontologies"
   includes:
-    - '*.ttl'
+    - "*.ttl"
 - action: "sparql"
   message: "Generating rdfs:label and rdfs:comment for backward compatibility."
   source: "{output}/ontologies"
