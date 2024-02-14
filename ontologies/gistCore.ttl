@@ -3890,6 +3890,7 @@ gist:tagText
 	a owl:DatatypeProperty ;
 	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "Used for folksonomy style categories (non controlled vocabulary)"^^xsd:string ;
+	skos:editorialNote "See guidance on removing tagText property in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1780220876."^^xsd:string ;
 	skos:prefLabel "tag text"^^xsd:string ;
 	.
 
