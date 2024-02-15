@@ -1333,7 +1333,7 @@ gist:LivingThing
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBiologicalParent ;
-				owl:someValueFrom gist:LivingThing ;
+				owl:someValuesFrom gist:LivingThing ;
 			]
 			[
 				a owl:Restriction ;
@@ -2897,13 +2897,13 @@ gist:atDateTime
 The subproperties allow the ontologist to do three things:
 1) Distinguish start and end times.
 2) Indicate whether a time is planned or actual. This is useful for everything from project management to calendar appointments and the like. It is also useful for date effectivities; i.e., something valid up to a planned date).
-3) Distinguish varying levels of precision; sort of a simple version of the Allen functions.  
+3) Distinguish varying levels of precision; sort of a simple version of the Allen functions.
 
 All datetimes are of the same format: '2021-06-01T08:03:27.12324-6:00'^^xsd:dateTime. This is compatible with and a subset of ISO 8601.
 
 Time zone offset, such as -6:00 (of which there are a few dozen) is recognized in the date itself, as shown. The actual time zone standard (of which there are 131) may optionally be attached to the event or other object itself.
 
-There will be many historical dates that do not have a time zone offset (e.g., Lincoln's birthday, as well as about 75% of all legacy systems), and in that case the offset can be omitted. 
+There will be many historical dates that do not have a time zone offset (e.g., Lincoln's birthday, as well as about 75% of all legacy systems), and in that case the offset can be omitted.
 
 The conventions for precision that are repeated in each property name are as follows:
 	- *DateTime is an abstraction over the various precisions of its subproperties.
@@ -3843,12 +3843,12 @@ gist:requires
 	skos:definition "The subject needs the object or makes it necessary, mandatory, or compulsory."^^xsd:string ;
 	skos:example "Humans require air; solar power requires sunshine."^^xsd:string ;
 	skos:prefLabel "requires"^^xsd:string ;
-	skos:scopeNote """This predicate is defined generally enough to encompass a few different meanings of the English word 'requires': 
-		
+	skos:scopeNote """This predicate is defined generally enough to encompass a few different meanings of the English word 'requires':
+
 		1. To need something or to make something necessary.
 		2. To order or demand something, or to order someone to do something, especially because of a rule or law.
 		3. To make it officially necessary for someone to do something.
-	
+
 	Implementations requiring a more specific meaning should define subproperties."""^^xsd:string ;
 	.
 
