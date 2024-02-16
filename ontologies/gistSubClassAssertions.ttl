@@ -1,4 +1,4 @@
-# imports: https://w3id.org/semanticarts/ontology/gistCoreX.x.x
+# imports: https://w3id.org/semanticarts/ontology/gistCore
 
 @prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -9,8 +9,7 @@
 
 <https://w3id.org/semanticarts/ontology/gistSubClassAssertions>
 	a owl:Ontology ;
-	owl:imports <https://w3id.org/semanticarts/ontology/gistCoreX.x.x> ;
-	owl:versionIRI <https://w3id.org/semanticarts/ontology/gistSubClassAssertionsX.x.x> ;
+	owl:imports <https://w3id.org/semanticarts/ontology/gistCore> ;
 	skos:definition "Supplementary subclass assertions for gistCore."^^xsd:string ;
 	skos:prefLabel "gist Subclass Assertions"^^xsd:string ;
 	skos:scopeNote "This ontology contains supplementary subclass assertions that are logically entailed by gistCore but are not inferred by some automated reasoners. For example, an OWL RL reasoner would not infer that gist:Commitment is a subclass of gist:Intention, although it follows from the ontology axioms. More precisely, it contains (1) subclass assertions derived using an OWL DL reasoner and (2) the subclass assertions that are already explicit in gistCore."^^xsd:string ;
