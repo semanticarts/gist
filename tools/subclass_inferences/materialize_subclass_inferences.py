@@ -6,6 +6,8 @@ from owlready2 import get_ontology, default_world, sync_reasoner
 from rdflib.namespace import RDFS, RDF, SKOS, OWL, XSD
 
 # This script generates gistSubClassAssertions.ttl.
+# From <project-root>/tools directory, run: python subclass_inferences/materialize_subclass_inferences.py
+# The script currently hard-codes Linux path separators, so you need to run from an environment that uses Linux path separators - e.g., Linux commandline, MacOS terminal, or GitBash on Windows.
 
 def run_reasoner(input_ttl, output_ttl):
 
@@ -60,8 +62,8 @@ def run_reasoner(input_ttl, output_ttl):
 if __name__ == '__main__':
     
     # In the future, this can be generalized to run over all TTL files to get any additional subclass assertions that are not part of gistCore.
-    input_ttl_file = "../gistCore.ttl"
-    output_ttl_file = "../gistSubClassAssertions.ttl"
+    input_ttl_file = "../ontologies/gistCore.ttl"
+    output_ttl_file = "../ontologies/gistSubClassAssertions.ttl"
 
     run_reasoner(input_ttl_file, output_ttl_file)
     print(f'Subclass assertions output to {output_ttl_file}.')
