@@ -1,5 +1,87 @@
 # gist Release Notes
 
+## Release 12.1.0
+
+### Minor Updates
+- `gist:tagText` to be replaced by `gist:containedText`Issue [#372](https://github.com/semanticarts/gist/issues/372).   
+   - Deprecated `gist:tagText`.
+   - `containedText`:
+     - Added domainIncludes `Tag` and `Text` 
+     - Removed reference to Text class in the definition
+     - Added examples 
+
+- Extended utility of symbol predicates. Issue [#531](https://github.com/semanticarts/gist/issues/531).
+  - Deprecated `gist:unitSymbol`, `gist:unitSymbolHtml`, and `gist:unitSymbolUnicode`.
+  - Added predicate `gist:symbol`.
+  - Added symbol triples for existing units, anticipating the removal of `gist:unitSymbol`.
+
+- deprecated `gist:isRecognizedDirectlyBy`. Issue [#607](https://github.com/semanticarts/gist/issues/607). 
+
+- Deprecated `gist:isCharacterizedAs`. Issue [#820](https://github.com/semanticarts/gist/issues/820).
+
+- Updated annotations for hasNumerator, hasDenominator, hasMultiplier, and hasMultiplicand. Issue [#821](https://github.com/semanticarts/gist/issues/821).
+
+- Added new datatype property `idText`. Issue [#874](https://github.com/semanticarts/gist/issues/874).
+
+- Changed gist import in `gistPrefixDeclarations`, `gistSubClassAssertions`, and `gistValidationAnnotations` to use a versioned IRI, and add version IRIs of their own. Issue [#897](https://github.com/semanticarts/gist/issues/897).
+
+- Added skeletal definitions for SKOS terms to achieve OWL DL compliance. Issue [#934](https://github.com/semanticarts/gist/issues/934).
+
+- Moved ontology files into a root-level `ontologies` folder. [Issue #904](https://github.com/semanticarts/gist/issues/904).
+
+### Patch Updates
+- Updated definition of `Specification`. Issue [#431](https://github.com/semanticarts/gist/issues/431). 	
+
+- Updated definition of `gist:hasMember`. Issue [#439](https://github.com/semanticarts/gist/issues/439). 
+
+- Updated definition of `gist:Transaction`. Issue [#521](https://github.com/semanticarts/gist/issues/521). 
+
+- Updated annotations for `gist:isRecognizedBy`. Issue [#607] (https://github.com/semanticarts/gist/issues/607). 
+
+- Updated annotations for `gist:hasParticipant`. Issue [#787](https://github.com/semanticarts/gist/issues/787). Changes:
+  - Clarified that participation need not entail agency.
+  - Hinted that the property need not always be abstract.
+
+- Updated annotations for `gist:MonetaryPerDuration`. Issue [#912](https://github.com/semanticarts/gist/issues/912). Changes:
+  - Improved readability of definition.
+  - Corrected mistakes in the examples.
+  
+- Added scope note to `Event`. Issue [#950](https://github.com/semanticarts/gist/issues/950).
+
+- Updated definition of `gist:Magnitude`. Issue [#965](https://github.com/semanticarts/gist/issues/965).
+
+- Updated definition and scopeNote of `Category`. Issue [#968](https://github.com/semanticarts/gist/issues/968).
+
+- Moved SHACL prefix declarations from `gistCore` to `gistPrefixDeclarations`. Issue [#1001](https://github.com/semanticarts/gist/issues/1001).
+
+- Added scope note to `gist:uniqueText`. Issue [#1004](https://github.com/semanticarts/gist/issues/1004). 
+
+- Fixed serializer pre-commit hook permissions problem on MacOS. Issue [#1007](https://github.com/semanticarts/gist/issues/1007).
+
+- Updated serializer pre-commit hook to not corrupt binary files, as per [issue 1010](https://github.com/semanticarts/gist/issues/1010). Also related to [issue 934](https://github.com/semanticarts/gist/issues/934).
+
+- Updated scopeNote for `gist:description`. Issue [#1015](https://github.com/semanticarts/gist/issues/1015). 
+
+- Made minor wording corrections to annotations. Issue [#396](https://github.com/semanticarts/gist/issues/396). Issue [#961](https://github.com/semanticarts/gist/issues/961).
+
+- Changed the `owl:minCardinality 1` restriction on `gist:LivingThing` to `owl:someValuesFrom`. Issue [#806](https://github.com/semanticarts/gist/issues/806).
+
+- Deprecated properties related to occupying a location. Issue [#809](https://github.com/semanticarts/gist/issues/809). Changes:
+  - Deprecated properties: `gist:occupiesGeographically` and `gist:occupiesGeographicallyPermanently`.
+  - Updated annotations for `gist:hasPhysicalLocation` regarding location temporality.
+
+- Renamed branch `master` to `main`. Issue [#865](https://github.com/semanticarts/gist/issues/865).
+
+- Updated `bundle.yaml` to use `onto_tool excludes` option. [Issue #962](https://github.com/semanticarts/gist/issues/962).
+
+- Updated `setup.cmd` to configure git to ignore changes to executable flags on files.
+
+- Documentation updates
+  - Made minor updates to documentation of gist change and release management and contributing to gist. Issues [#918](https://github.com/semanticarts/gist/issues/918), [#993](https://github.com/semanticarts/gist/issues/918).
+  - Added detail to the gist deprecation and deletion policy.
+  - Updated all Markdown files in the repository to use ATX rather than SETEXT header style. Issue [#901](https://github.com/semanticarts/gist/issues/901).
+
+
 ## Release 12.0.1
 
 ### Patch Updates

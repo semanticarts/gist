@@ -1,3 +1,0 @@
-### Patch Updates
-
-- Fixed serializer pre-commit hook permissions problem on MacOS.
