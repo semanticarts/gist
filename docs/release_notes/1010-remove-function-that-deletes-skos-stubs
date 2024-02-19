@@ -1,3 +1,0 @@
-### Patch Updates
-
-- Updated serializer pre-commit hook to not corrupt binary files, as per [issue 1010](https://github.com/semanticarts/gist/issues/1010). Also related to [issue 934](https://github.com/semanticarts/gist/issues/934).

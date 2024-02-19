@@ -1,6 +1,0 @@
-### Patch Updates
-
-- Documentation updates
-  - Made minor updates to documentation of gist change and release management and contributing to gist. Issues [#918](https://github.com/semanticarts/gist/issues/918), [#993](https://github.com/semanticarts/gist/issues/918).
-  - Added detail to the gist deprecation and deletion policy.
-  - Updated all Markdown files in the repository to use ATX rather than SETEXT header style. Issue [#901](https://github.com/semanticarts/gist/issues/901).

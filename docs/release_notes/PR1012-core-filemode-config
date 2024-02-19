@@ -1,3 +1,0 @@
-### Patch Updates
-
-- Updated `setup.cmd` to configure git to ignore changes to executable flags on files.
