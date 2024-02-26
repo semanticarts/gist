@@ -181,7 +181,7 @@ The pre-commit hook does several things when you run `git commit`:
 
 - The final release notes will be divided into three sections, for major, minor, and patch changes, as relevant.
 - Each release note should follow these formatting conventions:
-  - Headings use the simple `ATX` convention: i.e., leading hashes only and no underlining.
+  - Headings use the open `ATX` convention: i.e., leading hashes only and no underlining.
   - Bullet points are symbolized with dash rather than asterisk.
   - Descriptions begin with a past tense verb or a noun; e.g., "Updated..." or "Updates to...".
   - Ontology and other code terms are enclosed in backticks and use the `gist:` prefix; e.g., `gist:Weight`.
