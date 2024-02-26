@@ -187,7 +187,6 @@ The pre-commit hook does several things when you run `git commit`:
   - Each note ends in a period.
   - Bullet points are symbolized with dash rather than asterisk.
   - Refer to the most recent release notes for examples.
-  - Follow the heading conventions shown, as the [markdown configuration file](.markdownlint.json) dictates the mixed heading style.
   - Release note example:
 
 ```markdown
