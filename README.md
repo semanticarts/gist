@@ -1,7 +1,6 @@
 ![gist logo](./gist-logo.png)
 
-About gist
-=====
+# About gist
 
 gist is Semantic Arts' minimalist upper ontology for the enterprise. It is designed to have the maximum coverage of typical business ontology concepts with the fewest number of primitives and the least amount of ambiguity.
 
@@ -11,10 +10,11 @@ You can also contribute to gist by adding your comments to [issue discussion thr
 
 gist is free and open to the public under the [Creative Commons 3.0](http://creativecommons.org/licenses/by-sa/3.0/) attribution share-alike license. In addition to the conditions of this license, we require that any concepts used from gist remain in the gist namespace, and that you do not define your own term definitions in the gist namespace.
 
-For more information on gist and to download the current or previous versions of gist, see the [Semantic Arts website](https://www.semanticarts.com/gist).
+[Download the latest version of gist](https://w3id.org/semanticarts/ontology/gistCore).
 
-Documentation
------
+For more information on gist and to download previous versions, see the [Semantic Arts website](https://www.semanticarts.com/gist).
+
+## Documentation
 
 We provide a number of resources for learning more about gist.
 

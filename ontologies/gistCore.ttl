@@ -13,8 +13,23 @@
 	owl:versionIRI <https://w3id.org/semanticarts/ontology/gistCoreX.x.x> ;
 	skos:definition "gist is a minimalist upper ontology created by Semantic Arts."^^xsd:string ;
 	skos:prefLabel "gist"^^xsd:string ;
-	sh:declare gist:_PrefixDeclaration_gist ;
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
+	.
+
+skos:definition
+	a owl:AnnotationProperty ;
+	.
+
+skos:example
+	a owl:AnnotationProperty ;
+	.
+
+skos:prefLabel
+	a owl:AnnotationProperty ;
+	.
+
+skos:scopeNote
+	a owl:AnnotationProperty ;
 	.
 
 gist:Account
@@ -236,10 +251,10 @@ gist:Category
 			) ;
 		] ;
 	] ;
-	skos:definition "A concept or label used to categorize other instances informally. Things that can be thought of as types are usually Categories."^^xsd:string ;
+	skos:definition "A concept or label used to categorize other instances without specifying any formal semantics. Things that can be thought of as types are often categories."^^xsd:string ;
 	skos:example "Tags used in folksonomies; formal definitions from other systems."^^xsd:string ;
 	skos:prefLabel "Category"^^xsd:string ;
-	skos:scopeNote "Often a 'bucket' can be modeled either as an owl:Class or as a gist:Category. Use the latter if you don't care much about the formal structure of the different types, or if there is a whole hierarchy of types that are going to be managed by a group separate from the ontology developers. The formal structure may be defined elsewhere and linked to, if necessary."^^xsd:string ;
+	skos:scopeNote "Often a type can be modeled either as an owl:Class or as a gist:Category. Use the latter if you don't care much about the formal structure of the different types, or if there is a whole hierarchy of types that are going to be managed by a group separate from the ontology developers. The formal structure may be defined elsewhere and linked to, if necessary."^^xsd:string ;
 	.
 
 gist:CoherentProductUnit
@@ -920,9 +935,13 @@ gist:Event
 		owl:someValuesFrom gist:Behavior ;
 	] ;
 	skos:definition "Something that occurs over a period of time, often characterized as an activity being carried out by some person, organization, or software application or brought about by natural forces."^^xsd:string ;
+	skos:editorialNote "See guidance on removing the term in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1679565100."^^xsd:string ;
 	skos:example "A transaction, conference, baseball game, earthquake."^^xsd:string ;
 	skos:prefLabel "Event"^^xsd:string ;
-	skos:scopeNote "An event does not necessarily have either planned or actual start or end datetimes. For example, a conference can be in the planning phase without any dates selected, but is nevertheless an (unscheduled) event. The subclasses of Event state particular restrictions on planned and actual start and end dates."^^xsd:string ;
+	skos:scopeNote
+		"An event does not necessarily have either planned or actual start or end datetimes. For example, a conference can be in the planning phase without any dates selected, but is nevertheless an (unscheduled) event. The subclasses of Event state particular restrictions on planned and actual start and end dates."^^xsd:string ,
+		"An event occurs during a time interval, which is distinct from the event."^^xsd:string
+		;
 	.
 
 gist:Extent
@@ -1287,6 +1306,7 @@ gist:Landmark
 		) ;
 	] ;
 	skos:definition "Something permanently attached to the Earth."^^xsd:string ;
+	skos:editorialNote "See guidance on removing the term in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1679566885."^^xsd:string ;
 	skos:prefLabel "Landmark"^^xsd:string ;
 	.
 
@@ -1313,7 +1333,7 @@ gist:LivingThing
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBiologicalParent ;
-				owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom gist:LivingThing ;
 			]
 			[
 				a owl:Restriction ;
@@ -1398,7 +1418,8 @@ gist:Magnitude
 			]
 		) ;
 	] ;
-	skos:definition "Base class for units which can be converted.  The primitive units can be converted from one measurement system to another; the complex units (ratio or product) have to decompose to their primitives."^^xsd:string ;
+	skos:definition "A quantity expressed with a unit of measure and a number."^^xsd:string ;
+	skos:example "3 millimeters; 70 miles per hour; 110 degrees F"^^xsd:string ;
 	skos:prefLabel "Magnitude"^^xsd:string ;
 	skos:scopeNote
 		"Magnitudes of the same dimensional type (i.e., duration or electric current) can be compared with a greater-than or less-than operator, but can still differ in their relationToTheWorld type.  (I.e., you can compare actuals to estimates or references, so long as the dimension is the same.)"^^xsd:string ,
@@ -1489,7 +1510,7 @@ gist:Message
 			]
 		) ;
 	] ;
-	skos:definition "A specific instance of content sent from an Organization or Person to at least one other Organization or Person."^^xsd:string ;
+	skos:definition "A specific instance of content sent from a sender to at least one other recipient."^^xsd:string ;
 	skos:example "An email message, a phone call, a voice message, or a Web Service message."^^xsd:string ;
 	skos:prefLabel "Message"^^xsd:string ;
 	.
@@ -1565,8 +1586,8 @@ gist:MonetaryPerDuration
 			]
 		) ;
 	] ;
-	skos:definition "A monetary amount over a period of time."^^xsd:string ;
-	skos:example "Dollars per hour, euros per month."^^xsd:string ;
+	skos:definition "An amount of money over a period of time."^^xsd:string ;
+	skos:example "20 dollars per hour, 2000 euros per week."^^xsd:string ;
 	skos:prefLabel "Monetary per Duration"^^xsd:string ;
 	.
 
@@ -2220,7 +2241,7 @@ gist:SimpleUnitOfMeasure
 gist:Specification
 	a owl:Class ;
 	rdfs:subClassOf gist:Requirement ;
-	skos:definition "A set of requirements to be satisfied by a material, design, product, or service."^^xsd:string ;
+	skos:definition "One or more requirements to be satisfied by a material, design, product, or service."^^xsd:string ;
 	skos:prefLabel "Specification"^^xsd:string ;
 	.
 
@@ -2292,7 +2313,8 @@ gist:Tag
 			]
 		) ;
 	] ;
-	skos:definition "This is for folksonomy type terms, which can be made up on the fly by users."^^xsd:string ;
+	skos:definition "A term in a folksonomy used to categorize things. Tags can be made up on the fly by users."^^xsd:string ;
+	skos:editorialNote "See guidance on removing tagText property in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1780220876."^^xsd:string ;
 	skos:prefLabel "Tag"^^xsd:string ;
 	.
 
@@ -2502,8 +2524,9 @@ gist:TimeInterval
 gist:Transaction
 	a owl:Class ;
 	rdfs:subClassOf gist:Event ;
-	skos:definition "An event which has an effect on at least one accumulator."^^xsd:string ;
+	skos:definition "An exchange or transfer of goods, services, or funds."^^xsd:string ;
 	skos:prefLabel "Transaction"^^xsd:string ;
+	skos:scopeNote "Different sorts of transactions can have different datetime precisions. For example, an electronic transaction would have a gist:actualEndMicrosecond."^^xsd:string ;
 	.
 
 gist:UnitOfMeasure
@@ -2553,21 +2576,17 @@ gist:VolumeUnit
 	skos:prefLabel "Volume Unit"^^xsd:string ;
 	.
 
-gist:_PrefixDeclaration_gist
-	a sh:PrefixDeclaration ;
-	sh:namespace "https://w3id.org/semanticarts/ns/ontology/gist/"^^xsd:anyURI ;
-	sh:prefix "gist"^^xsd:string ;
-	.
-
 gist:_USDollar
 	a
 		owl:Thing ,
 		gist:BaseUnit
 		;
 	skos:definition "The base unit for currency."^^xsd:string ;
+	skos:editorialNote "See guidance on removing the uses of unitSymbol in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1679565100."^^xsd:string ;
 	skos:prefLabel "US Dollar"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_USDollar ;
+	gist:symbol "USD"^^xsd:string ;
 	gist:unitSymbol "USD"^^xsd:string ;
 	.
 
@@ -2580,6 +2599,7 @@ gist:_ampere
 	skos:prefLabel "ampere"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_ampere ;
+	gist:symbol "A"^^xsd:string ;
 	gist:unitSymbol "A"^^xsd:string ;
 	.
 
@@ -2604,6 +2624,7 @@ gist:_candela
 	skos:prefLabel "candela"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_candela ;
+	gist:symbol "cd"^^xsd:string ;
 	gist:unitSymbol "cd"^^xsd:string ;
 	.
 
@@ -2639,6 +2660,7 @@ gist:_kelvin
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:conversionOffset "0.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_kelvin ;
+	gist:symbol "K"^^xsd:string ;
 	gist:unitSymbol "K"^^xsd:string ;
 	.
 
@@ -2651,6 +2673,7 @@ gist:_kilogram
 	skos:prefLabel "mass"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_kilogram ;
+	gist:symbol "kg"^^xsd:string ;
 	gist:unitSymbol "kg"^^xsd:string ;
 	.
 
@@ -2663,6 +2686,7 @@ gist:_meter
 	skos:prefLabel "distance"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_meter ;
+	gist:symbol "m"^^xsd:string ;
 	gist:unitSymbol "m"^^xsd:string ;
 	.
 
@@ -2675,6 +2699,7 @@ gist:_millisecond
 	skos:prefLabel "millisecond"^^xsd:string ;
 	gist:conversionFactor "0.001"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
+	gist:symbol "ms"^^xsd:string ;
 	gist:unitSymbol "ms"^^xsd:string ;
 	.
 
@@ -2687,6 +2712,7 @@ gist:_minute
 	skos:prefLabel "minute"^^xsd:string ;
 	gist:conversionFactor "60.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
+	gist:symbol "min"^^xsd:string ;
 	gist:unitSymbol "min"^^xsd:string ;
 	.
 
@@ -2699,6 +2725,7 @@ gist:_mole
 	skos:prefLabel "mole"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_mole ;
+	gist:symbol "mol"^^xsd:string ;
 	gist:unitSymbol "mol"^^xsd:string ;
 	.
 
@@ -2707,11 +2734,12 @@ gist:_percent
 	skos:definition "The unit designating a quantity that is the ratio of two quantities with the same unit of measure and which has been multiplied by 100."^^xsd:string ;
 	skos:prefLabel "percent"^^xsd:string ;
 	skos:scopeNote
-		"Because the units of the numerator and denominator are the same, they cancel out, resulting in a dimensional quantity."^^xsd:string ,
+		"Because the units of the numerator and denominator are the same, they cancel out, resulting in a dimensionless quantity."^^xsd:string ,
 		"To keep the unit of measure of the numerator and denominator, use a ratio unit; e.g., cm/cm."^^xsd:string
 		;
 	gist:conversionFactor "0.01"^^xsd:double ;
 	gist:hasBaseUnit gist:_each ;
+	gist:symbol "%"^^xsd:string ;
 	gist:unitSymbol "%"^^xsd:string ;
 	.
 
@@ -2724,6 +2752,7 @@ gist:_second
 	skos:prefLabel "second"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
+	gist:symbol "s"^^xsd:string ;
 	gist:unitSymbol "s"^^xsd:string ;
 	.
 
@@ -2855,13 +2884,13 @@ gist:atDateTime
 The subproperties allow the ontologist to do three things:
 1) Distinguish start and end times.
 2) Indicate whether a time is planned or actual. This is useful for everything from project management to calendar appointments and the like. It is also useful for date effectivities; i.e., something valid up to a planned date).
-3) Distinguish varying levels of precision; sort of a simple version of the Allen functions.  
+3) Distinguish varying levels of precision; sort of a simple version of the Allen functions.
 
 All datetimes are of the same format: '2021-06-01T08:03:27.12324-6:00'^^xsd:dateTime. This is compatible with and a subset of ISO 8601.
 
 Time zone offset, such as -6:00 (of which there are a few dozen) is recognized in the date itself, as shown. The actual time zone standard (of which there are 131) may optionally be attached to the event or other object itself.
 
-There will be many historical dates that do not have a time zone offset (e.g., Lincoln's birthday, as well as about 75% of all legacy systems), and in that case the offset can be omitted. 
+There will be many historical dates that do not have a time zone offset (e.g., Lincoln's birthday, as well as about 75% of all legacy systems), and in that case the offset can be omitted.
 
 The conventions for precision that are repeated in each property name are as follows:
 	- *DateTime is an abstraction over the various precisions of its subproperties.
@@ -2919,8 +2948,16 @@ gist:conformsTo
 gist:containedText
 	a owl:DatatypeProperty ;
 	rdfs:range xsd:string ;
-	skos:definition "Links to the string corresponding to Text"^^xsd:string ;
+	skos:definition "A string that is closely associated with an individual."^^xsd:string ;
+	skos:example
+		"The string associated with a tag."^^xsd:string ,
+		"The string associated with text content."^^xsd:string
+		;
 	skos:prefLabel "contained text"^^xsd:string ;
+	gist:domainIncludes
+		gist:Tag ,
+		gist:Text
+		;
 	.
 
 gist:contributesTo
@@ -2965,7 +3002,7 @@ gist:description
 	skos:definition "A statement about someone or something's attributes or characteristics."^^xsd:string ;
 	skos:example "The Empire State Building is a 102-story Art Deco skyscraper in Midtown Manhattan in New York City, United States. It was designed by Shreve, Lamb & Harmon and built from 1930 to 1931."^^xsd:string ;
 	skos:prefLabel "description"^^xsd:string ;
-	skos:scopeNote "This property is used to provide a description of an instance entity in greater detail than a label."^^xsd:string ;
+	skos:scopeNote "This property is used to provide a description of an individual in greater detail than a label."^^xsd:string ;
 	.
 
 gist:directs
@@ -3085,7 +3122,8 @@ gist:hasCommunicationAddress
 
 gist:hasDenominator
 	a owl:ObjectProperty ;
-	skos:definition "Relates a RatioUnit such as meters/second to the denominator Unit (e.g. second)."^^xsd:string ;
+	skos:definition "Relates a ratio or fraction to its denominator."^^xsd:string ;
+	skos:example "Second is the denominator for the standard speed unit, meters per second."^^xsd:string ;
 	skos:prefLabel "has denominator"^^xsd:string ;
 	.
 
@@ -3151,21 +3189,28 @@ gist:hasMagnitude
 
 gist:hasMember
 	a owl:ObjectProperty ;
-	skos:definition "Relates a Collection to its member individuals."^^xsd:string ;
+	skos:definition "Relates something, such as a collection or organization, to its member individuals."^^xsd:string ;
 	skos:prefLabel "has member"^^xsd:string ;
-	gist:domainIncludes gist:Collection ;
+	gist:domainIncludes
+		gist:Collection ,
+		gist:Organization
+		;
 	.
 
 gist:hasMultiplicand
 	a owl:ObjectProperty ;
-	skos:definition "Relates a ProductUnit such as square mile to the second of two units multiplied together (e.g. mile)."^^xsd:string ;
+	skos:definition "Relates a product to the factor that is being multiplied by another factor (i.e. the multiplier)."^^xsd:string ;
+	skos:example "Meter is the multiplicand for the unit: newton-meter"^^xsd:string ;
 	skos:prefLabel "has multiplicand"^^xsd:string ;
+	skos:scopeNote "Because multiplication is commutative, the difference between multiplier and multiplicand will not matter for computation, but it may matter if you care about the order for presentation, e.g. newton-meter vs. meter-newton."^^xsd:string ;
 	.
 
 gist:hasMultiplier
 	a owl:ObjectProperty ;
-	skos:definition "Relates a ProductUnit such as square mile to the first of two units multiplied together (e.g. mile)"^^xsd:string ;
+	skos:definition "Relates a product to the factor that is multiplying another factor (i.e. the multiplicand)."^^xsd:string ;
+	skos:example "Newton is the multiplier for the unit: newton-meter"^^xsd:string ;
 	skos:prefLabel "has multiplier"^^xsd:string ;
+	skos:scopeNote "Because multiplication is commutative, the difference between multiplier and multiplicand will not matter for computation, but it may matter if you care about the order for presentation, e.g. newton-meter vs. meter-newton."^^xsd:string ;
 	.
 
 gist:hasNavigationalParent
@@ -3177,7 +3222,8 @@ gist:hasNavigationalParent
 
 gist:hasNumerator
 	a owl:ObjectProperty ;
-	skos:definition "Relates a RatioUnit such as meter(s)/second to the numerator Unit (e.g. meter)."^^xsd:string ;
+	skos:definition "Relates a ratio or fraction to its numerator."^^xsd:string ;
+	skos:example "Meter is the numerator for the standard speed unit, meters per second."^^xsd:string ;
 	skos:prefLabel "has numerator"^^xsd:string ;
 	.
 
@@ -3196,8 +3242,8 @@ gist:hasParticipant
 	skos:example "An event of transferring money has a participating account that receives the money."^^xsd:string ;
 	skos:prefLabel "has participant"^^xsd:string ;
 	skos:scopeNote
-		"The thing with participants will often be an agreement, event or obligation."^^xsd:string ,
-		"This is intended as an abstract property. Only its subproperties will be directly used."^^xsd:string
+		"The thing with participants will often be an agreement, event or obligation. Participation does not imply agency."^^xsd:string ,
+		"This will most often be used as an abstract property. Use subproperties that indicate the nature of the participation (e.g. hasBorrower, hasVenue)."^^xsd:string
 		;
 	.
 
@@ -3222,8 +3268,9 @@ gist:hasPhysicalLocation
 		owl:TransitiveProperty
 		;
 	rdfs:range gist:Place ;
-	skos:definition "Where something is located"^^xsd:string ;
+	skos:definition "Relates something to its physical location."^^xsd:string ;
 	skos:prefLabel "has physical location"^^xsd:string ;
+	skos:scopeNote "This property does not distinguish between things whose locations are stable and those whose locations change over time; e.g., a fire hydrant vs. a car."^^xsd:string ;
 	.
 
 gist:hasPrecision
@@ -3293,6 +3340,22 @@ gist:hasViableRange
 	skos:prefLabel "has viable range"^^xsd:string ;
 	.
 
+gist:idText
+	a owl:DatatypeProperty ;
+	rdfs:range xsd:string ;
+	skos:definition "Relates an individual to a text string that identifies it."^^xsd:string ;
+	skos:example
+		"The id text for a car is '4Y1SL65848Z411439'"^^xsd:string ,
+		"The id text for the HR department for Company X is H31415"^^xsd:string
+		;
+	skos:prefLabel "id text"^^xsd:string ;
+	skos:scopeNote
+		"A common use case would be for pre-existing internal company identifiers."^^xsd:string ,
+		"Often, there will be just one identifying text string. More would be appropriate if the individual had different identifiers, such as employee number and social security number. A good way to model that would be to have functional subproperties of idText, such as departmentNumber."^^xsd:string ,
+		"This property is an alternative to using the property isIdentifiedBy in conjunction with instances of the class ID."^^xsd:string
+		;
+	.
+
 gist:isAbout
 	a owl:ObjectProperty ;
 	rdfs:domain gist:Content ;
@@ -3350,6 +3413,7 @@ gist:isCharacterizedAs
 	a owl:ObjectProperty ;
 	rdfs:domain gist:Event ;
 	rdfs:range gist:Behavior ;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "A way to categorize a behavior."^^xsd:string ;
 	skos:prefLabel "is characterized as"^^xsd:string ;
 	.
@@ -3436,13 +3500,15 @@ gist:isRecognizedBy
 			gist:Person
 		) ;
 	] ;
-	skos:definition "The entity that formally acknowledges the existence of, as the State recognizes the existence of a particular company"^^xsd:string ;
+	skos:definition "Relates something to a party that formally acknowledges its existence, validity, or legality."^^xsd:string ;
+	skos:example "The existence of a particular company is recognized by the state."^^xsd:string ;
 	skos:prefLabel "is recognized by"^^xsd:string ;
 	.
 
 gist:isRecognizedDirectlyBy
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:isRecognizedBy ;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "The party doing the recognition"^^xsd:string ;
 	skos:prefLabel "is recognized directly by"^^xsd:string ;
 	.
@@ -3574,6 +3640,7 @@ gist:occupiesGeographically
 		) ;
 	] ;
 	rdfs:range gist:Place ;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "A thing occupies are region"^^xsd:string ;
 	skos:prefLabel "occupies geographically"^^xsd:string ;
 	.
@@ -3581,6 +3648,7 @@ gist:occupiesGeographically
 gist:occupiesGeographicallyPermanently
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:occupiesGeographically ;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "To be in a fixed position on the earth"^^xsd:string ;
 	skos:prefLabel "occupies geographically permanently"^^xsd:string ;
 	.
@@ -3762,12 +3830,12 @@ gist:requires
 	skos:definition "The subject needs the object or makes it necessary, mandatory, or compulsory."^^xsd:string ;
 	skos:example "Humans require air; solar power requires sunshine."^^xsd:string ;
 	skos:prefLabel "requires"^^xsd:string ;
-	skos:scopeNote """This predicate is defined generally enough to encompass a few different meanings of the English word 'requires': 
-		
+	skos:scopeNote """This predicate is defined generally enough to encompass a few different meanings of the English word 'requires':
+
 		1. To need something or to make something necessary.
 		2. To order or demand something, or to order someone to do something, especially because of a rule or law.
 		3. To make it officially necessary for someone to do something.
-	
+
 	Implementations requiring a more specific meaning should define subproperties."""^^xsd:string ;
 	.
 
@@ -3796,9 +3864,20 @@ gist:startDateTime
 		;
 	.
 
+gist:symbol
+	a owl:DatatypeProperty ;
+	rdfs:range xsd:string ;
+	skos:definition "A symbol for something using only ASCII characters."^^xsd:string ;
+	skos:example "The ASCII symbol for square meter is m^2."^^xsd:string ;
+	skos:prefLabel "symbol"^^xsd:string ;
+	gist:domainIncludes gist:UnitOfMeasure ;
+	.
+
 gist:tagText
 	a owl:DatatypeProperty ;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "Used for folksonomy style categories (non controlled vocabulary)"^^xsd:string ;
+	skos:editorialNote "See guidance on removing tagText property in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1780220876."^^xsd:string ;
 	skos:prefLabel "tag text"^^xsd:string ;
 	.
 
@@ -3811,6 +3890,7 @@ gist:uniqueText
 	skos:definition "The unique string value of some content object; i.e., there is no possibility of having more than one value."^^xsd:string ;
 	skos:example "The unique string for a vehicle identification number."^^xsd:string ;
 	skos:prefLabel "unique text"^^xsd:string ;
+	skos:scopeNote "The uniqueness only goes in one direction. A product catalog number might also be an employee identifier."^^xsd:string ;
 	gist:domainIncludes
 		gist:ID ,
 		gist:Text
@@ -3821,6 +3901,7 @@ gist:unitSymbol
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:string ;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "The standard symbol for the unit NOT using any special characters.  E.g. square meter would be m^2 rather than m?."^^xsd:string ;
 	skos:prefLabel "unit symbol"^^xsd:string ;
 	.
@@ -3829,6 +3910,7 @@ gist:unitSymbolHtml
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:string ;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition 'The standard symbol for the unit in HTML format for  pretty printing, may use special characters.  E.g. to show square meter as  m? rather than m^2, the value of this property would be "m&sup2;" This is for when Unicode not supported and the display will be HTML format.'^^xsd:string ;
 	skos:prefLabel "unit symbol HTML"^^xsd:string ;
 	.
@@ -3837,6 +3919,7 @@ gist:unitSymbolUnicode
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:string ;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "The standard symbol for the unit preferred for pretty printing, may use special characters.  E.g. square meter would be  m? rather than m^2."^^xsd:string ;
 	skos:prefLabel "unit symbol Unicode"^^xsd:string ;
 	.

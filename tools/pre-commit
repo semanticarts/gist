@@ -21,9 +21,8 @@ base_dir=$(git rev-parse --show-toplevel)
 # Run the serializer
 set -x
 
-# Ensure that the serializer pre-commit is executable
-chmod +x "${base_dir}/tools/serializer/pre-commit"
-"$base_dir/tools/serializer/pre-commit"
+"${base_dir}/tools/serializer/pre-commit"
+
 rc=$?
 set +x
 

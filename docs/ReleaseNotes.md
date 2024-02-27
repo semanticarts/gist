@@ -1,25 +1,71 @@
-gist Release Notes
-=====
+# gist Release Notes
 
-Release 12.0.1
------
+## Release 12.1.0
+
+### Minor Updates
+
+- Deprecated the following properties:
+  - `gist:isCharacterizedAs`. Issue [#820](https://github.com/semanticarts/gist/issues/820).
+  - `gist:isRecognizedDirectlyBy`. Issue [#607](https://github.com/semanticarts/gist/issues/607).
+  - `gist:occupiesGeographically` and `gist:occupiesGeographicallyPermanently`. Issue [#809](https://github.com/semanticarts/gist/issues/809).
+  - `gist:tagText` (to be replaced by the existing `gist:containedText`). Issue [#372](https://github.com/semanticarts/gist/issues/372).
+- Extended the utility of symbol predicates. Issue [#531](https://github.com/semanticarts/gist/issues/531).
+  - Deprecated `gist:unitSymbol`, `gist:unitSymbolHtml`, and `gist:unitSymbolUnicode`.
+  - Added predicate `gist:symbol`.
+  - Added `gist:symbol` triples for existing units, anticipating the removal of `gist:unitSymbol`.
+- Added datatype property `gist:idText`. Issue [#874](https://github.com/semanticarts/gist/issues/874).
+- Changed `gistCore` import in `gistSubClassAssertions` to use a versioned IRI, and added its version IRI. Issue [#897](https://github.com/semanticarts/gist/issues/897).
+- Added skeletal definitions for SKOS terms. Issue [#934](https://github.com/semanticarts/gist/issues/934).
+- Updated annotations (`skos:definition`, `skos:scopeNote`, and `skos:example`) of the following terms:
+  - `gist:Event`. Issue [#950](https://github.com/semanticarts/gist/issues/950).
+  - `gist:Category`. Issue [#968](https://github.com/semanticarts/gist/issues/968).
+  - `gist:Magnitude`. Issue [#965](https://github.com/semanticarts/gist/issues/965).
+  - `gist:Message`. Issue [#396](https://github.com/semanticarts/gist/issues/396).
+  - `gist:MonetaryPerDuration`. Issue [#912](https://github.com/semanticarts/gist/issues/912).
+  - `gist:Specification`. Issue [#431](https://github.com/semanticarts/gist/issues/431).  
+  - `gist:Transaction`. Issue [#521](https://github.com/semanticarts/gist/issues/521).
+  - `gist:containedText`, `gist:Tag`, and `gist:Text`. Issue [#372](https://github.com/semanticarts/gist/issues/372).
+  - `gist:description`. Issue [#1015](https://github.com/semanticarts/gist/issues/1015).
+  - `gist:hasMember`. Issue [#439](https://github.com/semanticarts/gist/issues/439).
+  - `gist:hasNumerator`, `gist:hasDenominator`, `gist:hasMultiplier`, and `gist:hasMultiplicand`. Issue [#821](https://github.com/semanticarts/gist/issues/821).
+  - `gist:hasParticipant`. Issue [#787](https://github.com/semanticarts/gist/issues/787).
+  - `gist:hasPhysicalLocation`. Issue [#809](https://github.com/semanticarts/gist/issues/809).
+  - `gist:isRecognizedBy`. Issue [#607](https://github.com/semanticarts/gist/issues/607).
+  - `gist:uniqueText`. Issue [#1004](https://github.com/semanticarts/gist/issues/1004).
+- Moved SHACL prefix declarations from `gistCore` to `gistPrefixDeclarations`. Issue [#1001](https://github.com/semanticarts/gist/issues/1001).
+- Changed the `owl:minCardinality 1` restriction on `gist:LivingThing` to the logically equivalent `owl:someValuesFrom`. Issue [#806](https://github.com/semanticarts/gist/issues/806).
+
+### Patch Updates
+
+- Fixed typo in the `skos:scopeNote` of `gist:_percent`. Issue [#961](https://github.com/semanticarts/gist/issues/961).
+- Documentation updates:
+  - Minor updates to documentation of [gist change and release management](https://github.com/semanticarts/gist/blob/main/docs/ChangeAndReleaseManagement.md) and [contributing to gist](https://github.com/semanticarts/gist/blob/main/docs/Contributing.md). Issues [#918](https://github.com/semanticarts/gist/issues/918), [#993](https://github.com/semanticarts/gist/issues/918).
+  - Added detail to the [gist deprecation and deletion policy](https://github.com/semanticarts/gist/blob/main/docs/DeprecationAndDeletionPolicy.md).
+  - Updated all Markdown files in the repository to use `ATX` rather than `SETEXT` header style. Issue [#901](https://github.com/semanticarts/gist/issues/901).
+- Infrastructure updates:
+  - Renamed branch `master` to `main`. Issue [#865](https://github.com/semanticarts/gist/issues/865).
+  - Updated `bundle.yaml` to use `onto_tool excludes` option. [Issue #962](https://github.com/semanticarts/gist/issues/962).
+  - Updated `tools/setup.cmd` to configure git to ignore changes to executable flags on files.
+  - Moved ontology files into a root-level `ontologies` folder. [Issue #904](https://github.com/semanticarts/gist/issues/904).
+  - Serializer `pre-commit` hook:
+    - Fixed permissions problem on MacOS. Issue [#1007](https://github.com/semanticarts/gist/issues/1007).
+    - Prevent corruption of binary files. Issue [#1010](<https://github.com/semanticarts/gist/issues/1010>). Also related to issue [#934](https://github.com/semanticarts/gist/issues/934).
+
+Import URL: <https://w3id.org/semanticarts/ontology/gistCore12.1.0>.
+
+## Release 12.0.1
 
 ### Patch Updates
 
 - Added missing `owl:Thing` assertions to gist instances to ensure that `rdfs:isDefinedBy` assertions are generated during the release bundling process. Issue [#775](https://github.com/semanticarts/gist/issues/775).
-
 - Updated description of gist Forum in README. Issue [#917](https://github.com/semanticarts/gist/issues/917).
-
 - Changed smart single quotes to straight quotes for the apostrophes in `docs/Namespace.md`. Issue [#919](https://github.com/semanticarts/gist/issues/919).
-  
 - Updated `bundle.yaml` to exclude the `gistValidationAnnotations` ontology from the release package. Issue [#922](https://github.com/semanticarts/gist/issues/922).
-
 - Updated the Python HTML renderer to fix errors in display of gist documentation in the browser. Issue [#923](https://github.com/semanticarts/gist/issues/923).
 
 Import URL: <https://w3id.org/semanticarts/ontology/gistCore12.0.1>.
 
-Release 12.0.0
------
+## Release 12.0.0
 
 This is a major release which includes several changes which break compatibility with previous versions of gist. See the [migration guide](./MajorVersionMigration.html) for documentation on updating existing gist-based ontologies and instance data. Migration scripts are included to facilitate the upgrade process.
 
@@ -108,8 +154,7 @@ This is a major release which includes several changes which break compatibility
 
 Import URL: <https://w3id.org/semanticarts/ontology/gistCore12.0.0>.
 
-Release 11.1.0
------
+## Release 11.1.0
 
 ### Minor Updates
 
@@ -140,8 +185,7 @@ Release 11.1.0
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore11.1.0>.
 
-Release 11.0.0
------
+## Release 11.0.0
 
 ### Major Updates
 
@@ -179,8 +223,7 @@ Release 11.0.0
   
 Import URL: <https://ontologies.semanticarts.com/o/gistCore11.0.0>.
 
-Release 10.0.0
------
+## Release 10.0.0
 
 This is a major release, which includes several changes which break compatibility with previous versions
 of `gist`. See the [migration guide](./MajorVersionMigration.md) for documentation on updating existing
@@ -229,8 +272,7 @@ of `gist`. See the [migration guide](./MajorVersionMigration.md) for documentati
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore10.0.0>.
 
-Release 9.7.0
------
+## Release 9.7.0
 
 ### Minor Updates
 
@@ -246,8 +288,7 @@ Release 9.7.0
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore9.7.0>.
 
-Release 9.6.0
------
+## Release 9.6.0
 
 ### Minor Updates
 
@@ -274,8 +315,7 @@ Release 9.6.0
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore9.6.0>.
 
-Release 9.5.0
------
+## Release 9.5.0
 
 ### Minor Updates
 
@@ -297,8 +337,7 @@ Release 9.5.0
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore9.5.0>.
 
-Release 9.4.0
------
+## Release 9.4.0
 
 ### Minor Updates
 
@@ -316,8 +355,7 @@ Release 9.4.0
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore9.4.0>.
 
-Release 9.3.0
------
+## Release 9.3.0
 
 - Merged into a single module/file all of gist except the gistDeprecated module.  Fixes issue [#292](https://github.com/semanticarts/gist/issues/292).
 - Removed import diagram generation and catalog files from bundling. Fixes issue [#309](https://github.com/semanticarts/gist/issues/309).
@@ -329,8 +367,7 @@ Release 9.3.0
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore9.3.0>.
 
-Release 9.2.0
------
+## Release 9.2.0
 
 - Replaced all "xs" namespace prefixes for XML Schema with "xsd". Corrects issue [#158](https://github.com/semanticarts/gist/issues/158).
 - Corrected gist:convertToBase value for gist:_minute from 1.0 to 60.0. Fixes issue [#82](https://github.com/semanticarts/gist/issues/82).
@@ -345,8 +382,7 @@ Release 9.2.0
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore9.2.0>.
 
-Release 9.1.0
------
+## Release 9.1.0
 
 - Reformatted all files to match uniform serialization.
 - Corrected restriction for `gist:Collection`.
@@ -357,8 +393,7 @@ Release 9.1.0
 
 Import URL: <https://ontologies.semanticarts.com/o/gistCore9.1.0>.
 
-Release 9.0
------
+## Release 9.0
 
 ### Miscellaneous
 
@@ -455,28 +490,24 @@ Added to the list of deprecated things:
     - `gist:strictlyPrecededBy` (using `directlyPrecededBy` instead)
     - `gist:strictlyPrecedes` (using `directlyPrecedes` instead)
 
-Release 8.0
------
+## Release 8.0
 
 This major version primarily changed all concept URIs to use `/` instead of `#`
 Additionally, gistWiki is no longer included by gistCore.
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore8.0.0>.
 
-Release 7.5
------
+## Release 7.5
 
 This version focused on making the import structure simpler and flatter, in order to make it easier for people to use subsets of gist if they want to.  Because all of gist is in one name space this was relatively easy to do and will have very little impact on anyone who is using gist 7.* (see the change log there were a few changes that you may want to review).
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.5.owl>.
 
-Release 7.4
------
+## Release 7.4
 
 Gist 7.4 was an internal release.
 
-Release 7.3
------
+## Release 7.3
 
 - An additional supplementary ontology was added for Units of Measure which introduces the concept of a Coherent Unit. This allows for conversions between units of the same dimension to be done using just SPARQL, as opposed to relying on rules.
 - There are new and/or improved annotations (definitions, notes, examples, negative examples, etc.) on all Classes.
@@ -491,8 +522,7 @@ See ChangeLog in pdf file for full details of changes.
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.3.owl>.
 
-Release 7.2
------
+## Release 7.2
 
 - Add wiki and rdfshape capability
 - Removed some redundant assertions, and moved some comments to the ontology where the concept was first introduced.
@@ -502,8 +532,7 @@ Release 7.2
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.2.owl>.
 
-Release 7.1.1
------
+## Release 7.1.1
 
 - Fix an erroneous disjoint statement on the class gist:Magnitude.
 If you previously downloaded gist 7.1 you may have experienced an inference error if you attempted to run inference using Hermit.
@@ -512,8 +541,7 @@ The gist 7.1.1 release has eliminated the cause of this error.
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.1.1.owl>.
 
-Release 7.1
------
+## Release 7.1
 
 Primarily fixes minor errors like typos in our gist 7.0 release.
 
@@ -533,8 +561,7 @@ In addition to using the OWL files locally, you can import these files via URL d
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.1.owl>.
 
-Release Notes gist 7.0
------
+## Release Notes gist 7.0
 
 gist 7.0 is a major upgrade from our last released version (6.7.1). The main differences are:
 

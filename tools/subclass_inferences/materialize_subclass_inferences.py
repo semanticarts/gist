@@ -6,6 +6,8 @@ from owlready2 import get_ontology, default_world, sync_reasoner
 from rdflib.namespace import RDFS, RDF, SKOS, OWL, XSD
 
 # This script generates gistSubClassAssertions.ttl.
+# From <project-root>/tools directory, run: python subclass_inferences/materialize_subclass_inferences.py
+# The script currently hard-codes Linux path separators, so you need to run from an environment that uses Linux path separators - e.g., Linux commandline, MacOS terminal, or GitBash on Windows.
 
 def run_reasoner(input_ttl, output_ttl):
 
@@ -38,7 +40,8 @@ def run_reasoner(input_ttl, output_ttl):
 
     triples = [
         (RDF.type, OWL.Ontology),
-        (OWL.imports, URIRef("https://w3id.org/semanticarts/ontology/gistCore")),
+        (OWL.imports, URIRef("https://w3id.org/semanticarts/ontology/gistCoreX.x.x")),
+        (OWL.versionIRI, URIRef("https://w3id.org/semanticarts/ontology/gistSubClassAssertionsX.x.x")),
         (SKOS.definition, Literal("Supplementary subclass assertions for gistCore.", datatype=XSD.string)),
         (SKOS.prefLabel, Literal("gist Subclass Assertions")),
         (SKOS.scopeNote, Literal("This ontology contains supplementary subclass assertions that are logically entailed by gistCore but are not inferred by some automated reasoners. For example, an OWL RL reasoner would not infer that gist:Commitment is a subclass of gist:Intention, although it follows from the ontology axioms. More precisely, it contains (1) subclass assertions derived using an OWL DL reasoner and (2) the subclass assertions that are already explicit in gistCore.", datatype=XSD.string)),
@@ -60,8 +63,8 @@ def run_reasoner(input_ttl, output_ttl):
 if __name__ == '__main__':
     
     # In the future, this can be generalized to run over all TTL files to get any additional subclass assertions that are not part of gistCore.
-    input_ttl_file = "../gistCore.ttl"
-    output_ttl_file = "../gistSubClassAssertions.ttl"
+    input_ttl_file = "../ontologies/gistCore.ttl"
+    output_ttl_file = "../ontologies/gistSubClassAssertions.ttl"
 
     run_reasoner(input_ttl_file, output_ttl_file)
     print(f'Subclass assertions output to {output_ttl_file}.')

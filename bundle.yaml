@@ -63,30 +63,30 @@ actions:
   message: "Validating ontology via SHACL."
   type: "shacl"
   inference: "none"
-  source: "{input}"
+  source: "{input}/ontologies"
   includes:
     - "*.ttl"
   shapes:
     source: "{input}/validation/shapes/ontologyShapes.ttl"
 - action: "verify"
-  message: "Verify ontology via queries."
+  message: "Verifying ontology via queries."
   type: "construct"
   inference: "none"
-  source: "{input}"
+  source: "{input}/ontologies"
   includes:
     - gistCore.ttl
   stopOnFail: false
-  target: '{input}/validation'
+  target: "{input}/validation"
   queries:
-    source: '{input}/validation/queries'
+    source: "{input}/validation/queries"
     includes:
-      - '*_construct.rq'
+      - "*_construct.rq"
 - action: "mkdir"
   directory: "{output}"
 - action: "copy"
   message: "Substituting version numbers."
-  source: "{input}"
-  target: "{output}"
+  source: "{input}/ontologies"
+  target: "{output}/ontologies"
   replace:
     from: "X.x.x"
     to: "{version}"
@@ -94,23 +94,24 @@ actions:
     from: "(.*)\\.ttl"
     to: "\\g<1>{version}.ttl"
   includes:
-    - gistCore.ttl
-    - gistMediaTypes.ttl
-    - gistPrefixDeclarations.ttl
-    - gistSubClassAssertions.ttl
+    - "*.ttl"
+  excludes:
+    - gistValidationAnnotations.ttl
 - action: "definedBy"
   message: "Adding rdfs:isDefinedBy."
-  source: "{output}"
-  target: "{output}"
+  source: "{output}/ontologies"
+  target: "{output}/ontologies"
   includes:
     - "*.ttl"
 - action: "sparql"
   message: "Generating rdfs:label and rdfs:comment for backward compatibility."
-  source: "{output}"
-  target: "{output}/rdfsAnnotations.ttl"
+  source: "{output}/ontologies"
+  target: "{output}/ontologies/rdfsAnnotations.ttl"
   format: "turtle"
   includes:
     - "*.ttl"
+  excludes:
+    - gistValidationAnnotations.ttl
   query: >
     prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/>
     prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -137,16 +138,16 @@ actions:
 - action: "transform"
   message: "Turtle serialization."
   tool: "serializer"
-  source: "{output}"
-  target: "{output}"
+  source: "{output}/ontologies"
+  target: "{output}/ontologies"
   includes:
     - "*.ttl"
   rename:
     from: "(.*)\\.ttl"
     to: "formatted_\\g<1>.ttl"
 - action: "move"
-  source: "{output}"
-  target: "{output}"
+  source: "{output}/ontologies"
+  target: "{output}/ontologies"
   includes:
     - "formatted_*.ttl"
   rename:
@@ -155,8 +156,8 @@ actions:
 - action: "transform"
   message: "RDF/XML serialization."
   tool: "xml-serializer"
-  source: "{output}"
-  target: "{output}"
+  source: "{output}/ontologies"
+  target: "{output}/ontologies"
   rename:
     from: "(.*)\\.ttl"
     to: "\\g<1>.rdf"
@@ -165,8 +166,8 @@ actions:
 - action: "transform"
   message: "JSON-LD serialization."
   tool: "json-serializer"
-  source: "{output}"
-  target: "{output}"
+  source: "{output}/ontologies"
+  target: "{output}/ontologies"
   rename:
     from: "(.*)\\.ttl"
     to: "\\g<1>.jsonld"

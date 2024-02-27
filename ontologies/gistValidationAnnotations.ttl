@@ -1,4 +1,4 @@
-# imports: https://w3id.org/semanticarts/ontology/gistCore
+# imports: https://w3id.org/semanticarts/ontology/gistCoreX.x.x
 
 @prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -10,7 +10,8 @@
 
 <https://w3id.org/semanticarts/ontology/gistValidationAnnotations>
 	a owl:Ontology ;
-	owl:imports <https://w3id.org/semanticarts/ontology/gistCore> ;
+	owl:imports <https://w3id.org/semanticarts/ontology/gistCoreX.x.x> ;
+	owl:versionIRI <https://w3id.org/semanticarts/ontology/gistValidationAnnotationsX.x.x> ;
 	skos:definition "Annotations to assist gist ontology validation."^^xsd:string ;
 	skos:prefLabel "gist Validation Annotations"^^xsd:string ;
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
@@ -29,6 +30,10 @@ gist:nonConformingLabel
 	rdfs:range xsd:boolean ;
 	skos:definition "Indicates that the annotated ontology entity is exempt from label validation rules."^^xsd:string ;
 	skos:prefLabel "non-conforming label"^^xsd:string ;
+	.
+
+gist:symbolUnicode
+	gist:nonConformingLabel "true"^^xsd:boolean ;
 	.
 
 gist:unitSymbolUnicode
