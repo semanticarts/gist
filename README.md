@@ -12,7 +12,7 @@ gist is free and open to the public under the [Creative Commons 3.0](http://crea
 
 [Download the latest version of gist](https://w3id.org/semanticarts/ontology/gistCore).
 
-For more information on gist and to download previous versions of gist, see the [Semantic Arts website](https://www.semanticarts.com/gist).
+For more information on gist and to download previous versions, see the [Semantic Arts website](https://www.semanticarts.com/gist).
 
 ## Documentation
 
