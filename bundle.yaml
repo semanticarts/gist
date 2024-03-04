@@ -6,6 +6,15 @@ variables:
   rdf-toolkit: "{input}/tools/serializer/rdf-toolkit.jar"
   output: "{name}{version}_webDownload"
 tools:
+- name: "subclassMaterializer"
+  type: "shell"
+  arguments:
+    - "python"
+    - "{input}/tools/subclass_inferences/materialize_subclass_inferences.py"
+    - "--version"
+    - "{version}"
+    - "{outputFile}"
+    - "{inputFile}"
 - name: "serializer"
   type: "Java"
   jar: "{rdf-toolkit}"
@@ -135,6 +144,11 @@ actions:
         BIND(CONCAT(?prefix, ?text) as ?comment)
       }}
     }}
+- action: "transform"
+  message: "Materializing subclass inferences."
+  tool: "subclassMaterializer"
+  source: "{output}/ontologies/gistCore{version}.ttl"
+  target: "{output}/ontologies/gistSubClassAssertions{version}.ttl"
 - action: "transform"
   message: "Turtle serialization."
   tool: "serializer"
