@@ -145,7 +145,7 @@ actions:
       }}
     }}
 - action: "transform"
-  message: "Materializing subclass inferences"
+  message: "Materializing subclass inferences."
   tool: "subclassMaterializer"
   source: "{output}/ontologies/gistCore{version}.ttl"
   target: "{output}/ontologies/gistSubClassAssertions{version}.ttl"

@@ -1,4 +1,4 @@
-"""Generate subClassOf inferences to help OWL-RL reasoners."""
+"""Materialize rdfs:subClassOf inferences to help OWL-RL reasoners."""
 
 import sys
 import tempfile
@@ -31,13 +31,12 @@ def _add_ontology_declaration(output_graph: Graph, version: str):
         (SKOS.prefLabel, Literal("gist Subclass Assertions",
                                  datatype=XSD.string)),
         (SKOS.scopeNote, Literal("This ontology contains supplementary subclass "
-                                 "assertions that are logically entailed by gistCore but "
-                                 "are not inferred by some automated reasoners. For example, "
-                                 "an OWL RL reasoner would not infer that gist:Commitment is a "
-                                 "subclass of gist:Intention, although it follows from the "
-                                 "ontology axioms. More precisely, it contains (1) subclass "
-                                 "assertions derived using an OWL DL reasoner and (2) the "
-                                 "subclass assertions that are already explicit in gistCore.",
+                                 "assertions to aid some automated reasoners. For example, "
+                                 "while an OWL DL reasoner infers from the class equivalence that "
+                                 "gist:Commitment is a subclass of gist:Intention, an RL "
+                                 "reasoner does not. More precisely, the ontology contains (1) "
+                                 "direct subclass assertions derived using an OWL DL reasoner and "
+                                 "(2) the subclass assertions that are already explicit in gistCore.",
                                  datatype=XSD.string)),
         (GIST.license, Literal("https://creativecommons.org/licenses/by-sa/3.0/",
                                datatype=XSD.string))
@@ -88,7 +87,7 @@ def _run_reasoner(inputs: list[str], output_ttl: str, version: str):
 def _materialize_subclasses(argv: list[str]):
     parser = ArgumentParser(
         "Subclass Materializer",
-         description="Use OWL-DL reasoner to generate inferred rdfs:subClassOf triples. "
+         description="Use OWL DL reasoner to generate inferred rdfs:subClassOf triples. "
                      "Requires owlready2 to be installed in your Python environment.")
     parser.add_argument("output", action="store",
                         help="Path of output (Turtle format)")
