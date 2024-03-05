@@ -34,17 +34,6 @@ skos:scopeNote
 
 gist:Account
 	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Agreement
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMagnitude ;
-				owl:someValuesFrom gist:Balance ;
-			]
-		) ;
-	] ;
 	skos:definition "An agreement having a balance, as in a bank account, or credit card account, or Accounts Receivable account."^^xsd:string ;
 	skos:prefLabel "Account"^^xsd:string ;
 	.
@@ -92,47 +81,6 @@ gist:Agreement
 	skos:prefLabel "Agreement"^^xsd:string ;
 	.
 
-gist:Area
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Magnitude
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasUnitOfMeasure ;
-				owl:someValuesFrom gist:AreaUnit ;
-			]
-		) ;
-	] ;
-	skos:definition "A measurement of two-dimensional space."^^xsd:string ;
-	skos:prefLabel "Area"^^xsd:string ;
-	.
-
-gist:AreaUnit
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:ProductUnit
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMultiplicand ;
-				owl:onClass gist:DistanceUnit ;
-				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMultiplier ;
-				owl:onClass gist:DistanceUnit ;
-				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			]
-		) ;
-	] ;
-	skos:definition "A unit of two-dimensional area, such as square inches or hectares."^^xsd:string ;
-	skos:prefLabel "Area Unit"^^xsd:string ;
-	.
-
 gist:Artifact
 	a owl:Class ;
 	rdfs:subClassOf [
@@ -149,45 +97,6 @@ gist:Aspect
 	skos:definition "A measurable characteristic such as cost, cycle time, or defect rate."^^xsd:string ;
 	skos:prefLabel "Aspect"^^xsd:string ;
 	skos:scopeNote "Every Aspect should be related to a broader Aspect or related to a Unit Group. For example, angle of incidence should be related to the broader concept of angle, which in turn is related to a Unit Group."^^xsd:string ;
-	.
-
-gist:Balance
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Magnitude
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isAffectedBy ;
-				owl:someValuesFrom gist:Transaction ;
-			]
-		) ;
-	] ;
-	skos:definition "An amount decremented or incremented by a series of transactions."^^xsd:string ;
-	skos:prefLabel "Balance"^^xsd:string ;
-	.
-
-gist:BaseUnit
-	a owl:Class ;
-	rdfs:subClassOf gist:SimpleUnitOfMeasure ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:oneOf (
-			gist:_USDollar
-			gist:_ampere
-			gist:_bit
-			gist:_candela
-			gist:_each
-			gist:_kelvin
-			gist:_kilogram
-			gist:_meter
-			gist:_mole
-			gist:_second
-		) ;
-	] ;
-	skos:definition "A primitive unit that cannot be decomposed into other units. It can be converted from one measurement system to another.  The base units in gist are the seven primitive units from the System Internationale (SI): (meter, second, kilogram, ampere, kelvin, mole, candela), plus three convenience ones: each. bit and usDollar."^^xsd:string ;
-	skos:prefLabel "Base Unit"^^xsd:string ;
 	.
 
 gist:Behavior
@@ -255,103 +164,6 @@ gist:Category
 	skos:example "Tags used in folksonomies; formal definitions from other systems."^^xsd:string ;
 	skos:prefLabel "Category"^^xsd:string ;
 	skos:scopeNote "Often a type can be modeled either as an owl:Class or as a gist:Category. Use the latter if you don't care much about the formal structure of the different types, or if there is a whole hierarchy of types that are going to be managed by a group separate from the ontology developers. The formal structure may be defined elsewhere and linked to, if necessary."^^xsd:string ;
-	.
-
-gist:CoherentProductUnit
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:ProductUnit
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMultiplicand ;
-				owl:allValuesFrom [
-					a owl:Class ;
-					owl:unionOf (
-						gist:BaseUnit
-						gist:CoherentProductUnit
-						gist:CoherentRatioUnit
-					) ;
-				] ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMultiplier ;
-				owl:allValuesFrom [
-					a owl:Class ;
-					owl:unionOf (
-						gist:BaseUnit
-						gist:CoherentProductUnit
-						gist:CoherentRatioUnit
-					) ;
-				] ;
-			]
-		) ;
-	] ;
-	skos:definition "A product unit both of whose factors are coherent units. The conversion factor is 1."^^xsd:string ;
-	skos:example "Square meter, an area unit."^^xsd:string ;
-	skos:prefLabel "Coherent Product Unit"^^xsd:string ;
-	.
-
-gist:CoherentRatioUnit
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:RatioUnit
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasDenominator ;
-				owl:allValuesFrom [
-					a owl:Class ;
-					owl:unionOf (
-						gist:BaseUnit
-						gist:CoherentProductUnit
-						gist:CoherentRatioUnit
-					) ;
-				] ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasNumerator ;
-				owl:allValuesFrom [
-					a owl:Class ;
-					owl:unionOf (
-						gist:BaseUnit
-						gist:CoherentProductUnit
-						gist:CoherentRatioUnit
-					) ;
-				] ;
-			]
-		) ;
-	] ;
-	skos:definition "A ratio unit whose conversion factor is 1."^^xsd:string ;
-	skos:example "Newton, a force unit also expressed as kg-m/s^2"^^xsd:string ;
-	skos:prefLabel "Coherent Ratio Unit"^^xsd:string ;
-	.
-
-gist:CoherentUnit
-	a owl:Class ;
-	rdfs:seeAlso <http://www.eim.gr/metrology/measurement-units/si-derived-units/coherent-derived-units/> ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:unionOf (
-			gist:BaseUnit
-			gist:CoherentProductUnit
-			gist:CoherentRatioUnit
-		) ;
-	] ;
-	skos:definition "A unit that is expressed in units that have no conversions.  It may be a simple unit.  It may also be a product or ratio unit that bottoms out in simple units."^^xsd:string ;
-	skos:example
-		"A simple unit: kilogram"^^xsd:string ,
-		"The standard unit for acceleration is meters per square second (feet per square second  requires a conversion)"^^xsd:string
-		;
-	skos:prefLabel "Coherent Unit"^^xsd:string ;
-	skos:scopeNote
-		"Coherent unit is the physics term for this, informally you might think of it as the standard unit for a given dimension."^^xsd:string ,
-		"In principle, the CoherentUnit for a ProductUnit or RatioUnit can be inferred by recursively decomposing the products and ratios into their respective CoherentUnits, bottoming out in SimpleUnits"^^xsd:string
-		;
 	.
 
 gist:Collection
@@ -476,15 +288,6 @@ gist:ContingentEvent
 		a owl:Class ;
 		owl:intersectionOf (
 			gist:Event
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMagnitude ;
-				owl:someValuesFrom [
-					a owl:Restriction ;
-					owl:onProperty gist:hasUnitOfMeasure ;
-					owl:hasValue gist:_percent ;
-				] ;
-			]
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:isTriggeredBy ;
@@ -616,41 +419,6 @@ gist:ControllerType
 	skos:prefLabel "Controller Type"^^xsd:string ;
 	.
 
-gist:Count
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Magnitude
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasUnitOfMeasure ;
-				owl:someValuesFrom gist:CountingUnit ;
-			]
-		) ;
-	] ;
-	skos:definition "A measure that involves countable amounts (?eaches? as well as cases, etc.). Can be decimal."^^xsd:string ;
-	skos:prefLabel "Count"^^xsd:string ;
-	skos:scopeNote "Count is not disjoint with all the other magnitudes, as there are some magnitudes that could conceivably be counted."^^xsd:string ;
-	.
-
-gist:CountingUnit
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:SimpleUnitOfMeasure
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasBaseUnit ;
-				owl:hasValue gist:_each ;
-			]
-		) ;
-	] ;
-	skos:definition "A unit of counting, especially ?each?, but also units such as dozens."^^xsd:string ;
-	skos:prefLabel "Counting Unit"^^xsd:string ;
-	.
-
 gist:CountryGeoRegion
 	a owl:Class ;
 	owl:equivalentClass [
@@ -697,81 +465,6 @@ gist:CountryGovernment
 	skos:scopeNote "While a country government may enter into treaties with other country governments, there are no governing relationships among the treaty members."^^xsd:string ;
 	.
 
-gist:CurrencyPerDurationUnit
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:RatioUnit
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasDenominator ;
-				owl:allValuesFrom gist:DurationUnit ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasNumerator ;
-				owl:allValuesFrom gist:CurrencyUnit ;
-			]
-		) ;
-	] ;
-	skos:definition "A unit for measuring a monetary amount over a period of time, such as dollars/hour or euros/month."^^xsd:string ;
-	skos:prefLabel "Currency per Duration Unit"^^xsd:string ;
-	.
-
-gist:CurrencyUnit
-	a owl:Class ;
-	owl:disjointWith
-		gist:DataSizeUnit ,
-		gist:DistanceUnit ,
-		gist:DurationUnit ,
-		gist:ElectricalCurrentUnit ,
-		gist:LuminousIntensityUnit ,
-		gist:MassUnit ,
-		gist:MoleUnit ,
-		gist:TemperatureUnit
-		;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:SimpleUnitOfMeasure
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasBaseUnit ;
-				owl:hasValue gist:_USDollar ;
-			]
-		) ;
-	] ;
-	skos:definition "A unit of money. Note: this is the only unit whose conversion factors include time (i.e., the conversion rates change on a daily basis)."^^xsd:string ;
-	skos:prefLabel "Currency Unit"^^xsd:string ;
-	.
-
-gist:DataSizeUnit
-	a owl:Class ;
-	owl:disjointWith
-		gist:DistanceUnit ,
-		gist:DurationUnit ,
-		gist:ElectricalCurrentUnit ,
-		gist:LuminousIntensityUnit ,
-		gist:MassUnit ,
-		gist:MoleUnit ,
-		gist:TemperatureUnit
-		;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:SimpleUnitOfMeasure
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasBaseUnit ;
-				owl:hasValue gist:_bit ;
-			]
-		) ;
-	] ;
-	skos:definition "A unit to measure amounts of digital information."^^xsd:string ;
-	skos:prefLabel "Data Size Unit"^^xsd:string ;
-	.
-
 gist:DegreeOfCommitment
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
@@ -786,114 +479,6 @@ gist:Discipline
 	skos:definition "An area of study or practice, such as accounting."^^xsd:string ;
 	skos:example "Finance, Accounting, Project Management, Acoustics, Ballistics, etc."^^xsd:string ;
 	skos:prefLabel "Discipline"^^xsd:string ;
-	.
-
-gist:DistanceUnit
-	a owl:Class ;
-	owl:disjointWith
-		gist:DurationUnit ,
-		gist:ElectricalCurrentUnit ,
-		gist:LuminousIntensityUnit ,
-		gist:MassUnit ,
-		gist:MoleUnit ,
-		gist:TemperatureUnit
-		;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:SimpleUnitOfMeasure
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasBaseUnit ;
-				owl:hasValue gist:_meter ;
-			]
-		) ;
-	] ;
-	skos:definition "A unit to measure linear distance, such as feet or kilometers."^^xsd:string ;
-	skos:prefLabel "Distance Unit"^^xsd:string ;
-	.
-
-gist:Duration
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Magnitude
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasUnitOfMeasure ;
-				owl:someValuesFrom gist:DurationUnit ;
-			]
-		) ;
-	] ;
-	skos:definition "Time, but not on a timeline."^^xsd:string ;
-	skos:example "One week (or seven days), but not Jan 1, 2008 to Jan 7, 2008 (which is an interval)."^^xsd:string ;
-	skos:prefLabel "Duration"^^xsd:string ;
-	skos:scopeNote "Intervals have durations, but are not themselves durations."^^xsd:string ;
-	.
-
-gist:DurationUnit
-	a owl:Class ;
-	owl:disjointWith
-		gist:ElectricalCurrentUnit ,
-		gist:LuminousIntensityUnit ,
-		gist:MassUnit ,
-		gist:MoleUnit ,
-		gist:TemperatureUnit
-		;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:SimpleUnitOfMeasure
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasBaseUnit ;
-				owl:hasValue gist:_second ;
-			]
-		) ;
-	] ;
-	skos:definition "A unit to measure passage of time: hours, days, years."^^xsd:string ;
-	skos:prefLabel "Duration Unit"^^xsd:string ;
-	.
-
-gist:ElectricCurrent
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Magnitude
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasUnitOfMeasure ;
-				owl:someValuesFrom gist:ElectricalCurrentUnit ;
-			]
-		) ;
-	] ;
-	skos:definition "A flow of electric charge."^^xsd:string ;
-	skos:prefLabel "Electric Current"^^xsd:string ;
-	.
-
-gist:ElectricalCurrentUnit
-	a owl:Class ;
-	owl:disjointWith
-		gist:LuminousIntensityUnit ,
-		gist:MassUnit ,
-		gist:MoleUnit ,
-		gist:TemperatureUnit
-		;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:SimpleUnitOfMeasure
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasBaseUnit ;
-				owl:hasValue gist:_ampere ;
-			]
-		) ;
-	] ;
-	skos:definition "Unit of electrical current, which is charge per unit time.  The SI unit is the ampere.  (Note that electrical current is a composed unit.)"^^xsd:string ;
-	skos:prefLabel "Electrical Current Unit"^^xsd:string ;
 	.
 
 gist:ElectronicMessageAddress
@@ -952,23 +537,6 @@ gist:Event
 		;
 	.
 
-gist:Extent
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Magnitude
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasUnitOfMeasure ;
-				owl:someValuesFrom gist:DistanceUnit ;
-			]
-		) ;
-	] ;
-	skos:definition "A measure of distance, which could be distances over the Earth, and could also be height, width, length, depth, girth, etc."^^xsd:string ;
-	skos:prefLabel "Extent"^^xsd:string ;
-	.
-
 gist:FormattedContent
 	a owl:Class ;
 	owl:equivalentClass [
@@ -1019,11 +587,6 @@ gist:GeoPoint
 		owl:intersectionOf (
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasAltitude ;
-				owl:someValuesFrom gist:Extent ;
-			]
-			[
-				a owl:Restriction ;
 				owl:onProperty gist:latitude ;
 				owl:someValuesFrom xsd:double ;
 			]
@@ -1052,17 +615,6 @@ gist:GeoRegion
 		gist:Template ,
 		gist:UnitOfMeasure
 		;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Place
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMagnitude ;
-				owl:someValuesFrom gist:Area ;
-			]
-		) ;
-	] ;
 	skos:definition "A bounded region (or set of regions) on the surface of the Earth."^^xsd:string ;
 	skos:example "The bounded shape that defines the region occupied by Crater Lake; the bounded area known as the contiguous USA."^^xsd:string ;
 	skos:prefLabel "Geo Region"^^xsd:string ;
@@ -1117,23 +669,6 @@ gist:GeoSegment
 gist:GeoVolume
 	a owl:Class ;
 	rdfs:subClassOf gist:Place ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			[
-				a owl:Restriction ;
-				owl:onProperty [
-					owl:inverseOf gist:isGeographicallyContainedIn ;
-				] ;
-				owl:someValuesFrom gist:GeoPoint ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMagnitude ;
-				owl:someValuesFrom gist:Volume ;
-			]
-		) ;
-	] ;
 	skos:definition "A three-dimensional space on or near the surface of the Earth, such as an oil reservoir, the body of a lake, or an airspace."^^xsd:string ;
 	skos:prefLabel "Geo Volume"^^xsd:string ;
 	.
@@ -1225,23 +760,6 @@ gist:ID
 	skos:example "SSN for a person; serial number for a product; employee ID."^^xsd:string ;
 	skos:prefLabel "ID"^^xsd:string ;
 	skos:scopeNote "This is used in conjunction with gist:isIdentifiedBy"^^xsd:string ;
-	.
-
-gist:InformationQuantity
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Magnitude
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasUnitOfMeasure ;
-				owl:someValuesFrom gist:DataSizeUnit ;
-			]
-		) ;
-	] ;
-	skos:definition "An amount of data, such as 6 petabytes, or 640KB."^^xsd:string ;
-	skos:prefLabel "Information Quantity"^^xsd:string ;
 	.
 
 gist:IntellectualProperty
@@ -1359,45 +877,6 @@ gist:LivingThing
 	skos:scopeNote "Not all life forms have exactly two parents, so the restriction only specifies a minimum of one."^^xsd:string ;
 	.
 
-gist:LuminousIntensity
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Magnitude
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasUnitOfMeasure ;
-				owl:someValuesFrom gist:LuminousIntensityUnit ;
-			]
-		) ;
-	] ;
-	skos:definition "A measure of the wavelength-weighted power emitted by a light source in a particular direction per unit solid angle.  This is based on the luminosity function, a standardized model of the sensitivity of the human eye."^^xsd:string ;
-	skos:prefLabel "Luminous Intensity"^^xsd:string ;
-	.
-
-gist:LuminousIntensityUnit
-	a owl:Class ;
-	owl:disjointWith
-		gist:MassUnit ,
-		gist:MoleUnit ,
-		gist:TemperatureUnit
-		;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:SimpleUnitOfMeasure
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasBaseUnit ;
-				owl:hasValue gist:_candela ;
-			]
-		) ;
-	] ;
-	skos:definition "The measure of brightness. The SI unit is the candela."^^xsd:string ;
-	skos:prefLabel "Luminous Intensity Unit"^^xsd:string ;
-	.
-
 gist:Magnitude
 	a owl:Class ;
 	owl:disjointWith
@@ -1433,44 +912,6 @@ gist:Magnitude
 		"Magnitudes of the same dimensional type (i.e., duration or electric current) can be compared with a greater-than or less-than operator, but can still differ in their relationToTheWorld type.  (I.e., you can compare actuals to estimates or references, so long as the dimension is the same.)"^^xsd:string ,
 		"The precision should be in the same type of unit as the magnitude."^^xsd:string
 		;
-	.
-
-gist:Mass
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Magnitude
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasUnitOfMeasure ;
-				owl:someValuesFrom gist:MassUnit ;
-			]
-		) ;
-	] ;
-	skos:definition "Magnitude of mass."^^xsd:string ;
-	skos:prefLabel "Mass"^^xsd:string ;
-	.
-
-gist:MassUnit
-	a owl:Class ;
-	owl:disjointWith
-		gist:MoleUnit ,
-		gist:TemperatureUnit
-		;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:SimpleUnitOfMeasure
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasBaseUnit ;
-				owl:hasValue gist:_kilogram ;
-			]
-		) ;
-	] ;
-	skos:definition "A unit representing the amount of matter in a particle or object.  The SI unit of mass is the kilogram."^^xsd:string ;
-	skos:prefLabel "Mass Unit"^^xsd:string ;
 	.
 
 gist:MediaType
@@ -1528,75 +969,6 @@ gist:MessageDefinition
 	rdfs:subClassOf gist:SchemaMetaData ;
 	skos:definition "Each pulse from a Sensor is reflected in a message, as well as each instruction to an Actuator"^^xsd:string ;
 	skos:prefLabel "Message Definition"^^xsd:string ;
-	.
-
-gist:MolarQuantity
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Magnitude
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasUnitOfMeasure ;
-				owl:someValuesFrom gist:MoleUnit ;
-			]
-		) ;
-	] ;
-	skos:definition "Amount of a substance, as counted molecules."^^xsd:string ;
-	skos:prefLabel "Molar Quantity"^^xsd:string ;
-	.
-
-gist:MoleUnit
-	a owl:Class ;
-	owl:disjointWith gist:TemperatureUnit ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:SimpleUnitOfMeasure
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasBaseUnit ;
-				owl:hasValue gist:_mole ;
-			]
-		) ;
-	] ;
-	skos:definition "Amount of chemical material.  Measured in Avogadro units (moles) of 6.02 x 10^23 molecules."^^xsd:string ;
-	skos:prefLabel "Mole Unit"^^xsd:string ;
-	.
-
-gist:Monetary
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Magnitude
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasUnitOfMeasure ;
-				owl:someValuesFrom gist:CurrencyUnit ;
-			]
-		) ;
-	] ;
-	skos:definition "A special type of magnitude, due to the way rounding is handled in math and the temporal aspect of conversion."^^xsd:string ;
-	skos:prefLabel "Monetary"^^xsd:string ;
-	.
-
-gist:MonetaryPerDuration
-	a owl:Class ;
-	owl:equivalentClass [
-		owl:intersectionOf (
-			gist:RatioMagnitude
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasUnitOfMeasure ;
-				owl:allValuesFrom gist:CurrencyPerDurationUnit ;
-			]
-		) ;
-	] ;
-	skos:definition "An amount of money over a period of time."^^xsd:string ;
-	skos:example "20 dollars per hour, 2000 euros per week."^^xsd:string ;
-	skos:prefLabel "Monetary per Duration"^^xsd:string ;
 	.
 
 gist:Network
@@ -1724,11 +1096,6 @@ gist:Offer
 						gist:Person
 					) ;
 				] ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMagnitude ;
-				owl:someValuesFrom gist:Monetary ;
 			]
 			[
 				a owl:Restriction ;
@@ -1914,23 +1281,11 @@ gist:PhysicalEvent
 
 gist:PhysicalIdentifiableItem
 	a owl:Class ;
-	rdfs:subClassOf
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:hasMagnitude ;
-			owl:someValuesFrom gist:Mass ;
-		] ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:hasMagnitude ;
-			owl:someValuesFrom gist:Volume ;
-		] ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:isMadeUpOf ;
-			owl:someValuesFrom gist:PhysicalSubstance ;
-		]
-		;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty gist:isMadeUpOf ;
+		owl:someValuesFrom gist:PhysicalSubstance ;
+	] ;
 	owl:disjointWith
 		gist:SchemaMetaData ,
 		gist:UnitOfMeasure
@@ -1943,18 +1298,6 @@ gist:PhysicalIdentifiableItem
 
 gist:PhysicalSubstance
 	a owl:Class ;
-	rdfs:subClassOf
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:hasMagnitude ;
-			owl:someValuesFrom gist:Mass ;
-		] ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:hasMagnitude ;
-			owl:someValuesFrom gist:Volume ;
-		]
-		;
 	owl:disjointWith gist:UnitOfMeasure ;
 	skos:definition "An undifferentiated amount of physical material which, when subdivided, results in each part being indistinguishable in nature from the whole and from every other part."^^xsd:string ;
 	skos:example "An amount of water, penicillin, sand, gold: an actual piece of gold, not the concept of gold."^^xsd:string ;
@@ -1986,23 +1329,6 @@ gist:ProductCategory
 	skos:prefLabel "Product Category"^^xsd:string ;
 	.
 
-gist:ProductMagnitude
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Magnitude
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasUnitOfMeasure ;
-				owl:someValuesFrom gist:ProductUnit ;
-			]
-		) ;
-	] ;
-	skos:definition "A magnitude expressed as a product of primitives.  (E.g., Force = M*A)."^^xsd:string ;
-	skos:prefLabel "Product Magnitude"^^xsd:string ;
-	.
-
 gist:ProductSpecification
 	a owl:Class ;
 	owl:equivalentClass [
@@ -2018,30 +1344,6 @@ gist:ProductSpecification
 	] ;
 	skos:definition "Offering something which could be physically warehoused or digitally stored."^^xsd:string ;
 	skos:prefLabel "Product Specification"^^xsd:string ;
-	.
-
-gist:ProductUnit
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:UnitOfMeasure
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMultiplicand ;
-				owl:someValuesFrom gist:UnitOfMeasure ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMultiplier ;
-				owl:someValuesFrom gist:UnitOfMeasure ;
-			]
-		) ;
-	] ;
-	skos:definition "A unit of measure that is the product of two simpler ones."^^xsd:string ;
-	skos:example "Area and Volume are the classic cases.  But other, more exotic cases exist, such as Newtons."^^xsd:string ;
-	skos:prefLabel "Product Unit"^^xsd:string ;
-	skos:scopeNote "A ProductUnit is intended have a value for conversionFactor."^^xsd:string ;
 	.
 
 gist:Project
@@ -2060,49 +1362,6 @@ gist:Project
 	skos:definition "A task, usually of longer duration, made up of other tasks."^^xsd:string ;
 	skos:example "Designing an insurance product, adding a new feature to a software application, assessing the level of risk for a mortgage application."^^xsd:string ;
 	skos:prefLabel "Project"^^xsd:string ;
-	.
-
-gist:RatioMagnitude
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Magnitude
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasUnitOfMeasure ;
-				owl:someValuesFrom gist:RatioUnit ;
-			]
-		) ;
-	] ;
-	skos:definition "This is a number whose unit of measure is a ratio."^^xsd:string ;
-	skos:example "Speed.  The ratio magnitude is 60, the unit of measure might be MilesPerHour."^^xsd:string ;
-	skos:prefLabel "Ratio Magnitude"^^xsd:string ;
-	skos:scopeNote "A RatioMagnitude just has one decimal value."^^xsd:string ;
-	.
-
-gist:RatioUnit
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:UnitOfMeasure
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasDenominator ;
-				owl:someValuesFrom gist:UnitOfMeasure ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasNumerator ;
-				owl:someValuesFrom gist:UnitOfMeasure ;
-			]
-		) ;
-	] ;
-	skos:definition "A UnitOfMeasure composed of a numerator unit and a denominator unit."^^xsd:string ;
-	skos:example "Miles per hour."^^xsd:string ;
-	skos:prefLabel "Ratio Unit"^^xsd:string ;
-	skos:scopeNote "If needed, a conversion factor for a RatioUnit can be (recursively) derived from the conversion factors of the numerator and denominator units.  E.g., the derived conversion factor from km/minute to meters/second is 1000/60 or 16 2/3."^^xsd:string ;
 	.
 
 gist:ReferenceValue
@@ -2221,29 +1480,6 @@ gist:ServiceSpecification
 	] ;
 	skos:definition "A description of something that can be done for a person or organization (which produces some form of an act)."^^xsd:string ;
 	skos:prefLabel "Service Specification"^^xsd:string ;
-	.
-
-gist:SimpleUnitOfMeasure
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:UnitOfMeasure
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasBaseUnit ;
-				owl:onClass gist:BaseUnit ;
-				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:conversionFactor ;
-				owl:someValuesFrom xsd:double ;
-			]
-		) ;
-	] ;
-	skos:definition "Each simple unit has a base unit and a conversion factor to the base. The bases are from the System International (SI). The conversion factor is the number which one multiplies a Unit by to get to base, or divides by to get from base.  E.g., the conversionFactor for inch is 0.0254 to get to the base unit (meter)."^^xsd:string ;
-	skos:prefLabel "Simple Unit Of Measure"^^xsd:string ;
 	.
 
 gist:Specification
@@ -2416,45 +1652,6 @@ gist:TelephoneNumber
 	skos:prefLabel "Telephone Number"^^xsd:string ;
 	.
 
-gist:Temperature
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Magnitude
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasUnitOfMeasure ;
-				owl:someValuesFrom gist:TemperatureUnit ;
-			]
-		) ;
-	] ;
-	skos:definition "The degree or intensity of heat present in a substance or object, especially as expressed according to a comparative scale."^^xsd:string ;
-	skos:prefLabel "Temperature"^^xsd:string ;
-	.
-
-gist:TemperatureUnit
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:SimpleUnitOfMeasure
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasBaseUnit ;
-				owl:hasValue gist:_kelvin ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:conversionOffset ;
-				owl:someValuesFrom xsd:double ;
-			]
-		) ;
-	] ;
-	skos:definition "Unit of measurement for expressing temperature.  Per SI, the base of temperature is in Kelvin, to allow for all units to be expressed relative to a real (in this case absolute) zero."^^xsd:string ;
-	skos:prefLabel "Temperature Unit"^^xsd:string ;
-	.
-
 gist:Template
 	a owl:Class ;
 	owl:disjointWith gist:UnitOfMeasure ;
@@ -2561,227 +1758,6 @@ gist:UnitOfMeasure
 	a owl:Class ;
 	skos:definition "A standard amount used to measure or specify things."^^xsd:string ;
 	skos:prefLabel "Unit of Measure"^^xsd:string ;
-	.
-
-gist:Volume
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Magnitude
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasUnitOfMeasure ;
-				owl:someValuesFrom gist:VolumeUnit ;
-			]
-		) ;
-	] ;
-	skos:definition "Three-dimensional space, or equivalent fluid measurement."^^xsd:string ;
-	skos:prefLabel "Volume"^^xsd:string ;
-	.
-
-gist:VolumeUnit
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:ProductUnit
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMultiplicand ;
-				owl:onClass gist:AreaUnit ;
-				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMultiplier ;
-				owl:onClass gist:DistanceUnit ;
-				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			]
-		) ;
-	] ;
-	skos:definition "Units of three-dimensional space, expressed here as an area times a distance."^^xsd:string ;
-	skos:prefLabel "Volume Unit"^^xsd:string ;
-	.
-
-gist:_USDollar
-	a
-		owl:Thing ,
-		gist:BaseUnit
-		;
-	skos:definition "The base unit for currency."^^xsd:string ;
-	skos:editorialNote "See guidance on removing the uses of unitSymbol in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1679565100."^^xsd:string ;
-	skos:prefLabel "US Dollar"^^xsd:string ;
-	gist:conversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_USDollar ;
-	gist:symbol "USD"^^xsd:string ;
-	gist:unitSymbol "USD"^^xsd:string ;
-	.
-
-gist:_ampere
-	a
-		owl:Thing ,
-		gist:BaseUnit
-		;
-	skos:definition "The base unit for electrical current."^^xsd:string ;
-	skos:prefLabel "ampere"^^xsd:string ;
-	gist:conversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_ampere ;
-	gist:symbol "A"^^xsd:string ;
-	gist:unitSymbol "A"^^xsd:string ;
-	.
-
-gist:_bit
-	a
-		owl:Thing ,
-		gist:BaseUnit
-		;
-	skos:definition "The base unit for measuring digital information."^^xsd:string ;
-	skos:prefLabel "bit"^^xsd:string ;
-	skos:scopeNote "A bit (short for binary digit) is the smallest unit of data in a computer. A bit has a single binary value, either 0 or 1."^^xsd:string ;
-	gist:conversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_bit ;
-	.
-
-gist:_candela
-	a
-		owl:Thing ,
-		gist:BaseUnit
-		;
-	skos:definition "The base unit for luminous intensity."^^xsd:string ;
-	skos:prefLabel "candela"^^xsd:string ;
-	gist:conversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_candela ;
-	gist:symbol "cd"^^xsd:string ;
-	gist:unitSymbol "cd"^^xsd:string ;
-	.
-
-gist:_day
-	a
-		owl:Thing ,
-		gist:DurationUnit
-		;
-	skos:definition "A duration unit that is 24 hours long."^^xsd:string ;
-	skos:prefLabel "day"^^xsd:string ;
-	gist:conversionFactor "86400.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_second ;
-	.
-
-gist:_each
-	a
-		owl:Thing ,
-		gist:BaseUnit
-		;
-	skos:definition "The base unit for count magnitudes."^^xsd:string ;
-	skos:prefLabel "each"^^xsd:string ;
-	gist:conversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_each ;
-	.
-
-gist:_kelvin
-	a
-		owl:Thing ,
-		gist:BaseUnit
-		;
-	skos:definition "The base unit for measuring temperature."^^xsd:string ;
-	skos:prefLabel "Kelvin"^^xsd:string ;
-	gist:conversionFactor "1.0"^^xsd:double ;
-	gist:conversionOffset "0.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_kelvin ;
-	gist:symbol "K"^^xsd:string ;
-	gist:unitSymbol "K"^^xsd:string ;
-	.
-
-gist:_kilogram
-	a
-		owl:Thing ,
-		gist:BaseUnit
-		;
-	skos:definition "The base unit for measuring mass."^^xsd:string ;
-	skos:prefLabel "mass"^^xsd:string ;
-	gist:conversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_kilogram ;
-	gist:symbol "kg"^^xsd:string ;
-	gist:unitSymbol "kg"^^xsd:string ;
-	.
-
-gist:_meter
-	a
-		owl:Thing ,
-		gist:BaseUnit
-		;
-	skos:definition "The base unit for measuring distance."^^xsd:string ;
-	skos:prefLabel "distance"^^xsd:string ;
-	gist:conversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_meter ;
-	gist:symbol "m"^^xsd:string ;
-	gist:unitSymbol "m"^^xsd:string ;
-	.
-
-gist:_millisecond
-	a
-		owl:Thing ,
-		gist:DurationUnit
-		;
-	skos:definition "A unit equal to a thousandth of a second."^^xsd:string ;
-	skos:prefLabel "millisecond"^^xsd:string ;
-	gist:conversionFactor "0.001"^^xsd:double ;
-	gist:hasBaseUnit gist:_second ;
-	gist:symbol "ms"^^xsd:string ;
-	gist:unitSymbol "ms"^^xsd:string ;
-	.
-
-gist:_minute
-	a
-		owl:Thing ,
-		gist:DurationUnit
-		;
-	skos:definition "A unit equal to 60 seconds."^^xsd:string ;
-	skos:prefLabel "minute"^^xsd:string ;
-	gist:conversionFactor "60.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_second ;
-	gist:symbol "min"^^xsd:string ;
-	gist:unitSymbol "min"^^xsd:string ;
-	.
-
-gist:_mole
-	a
-		owl:Thing ,
-		gist:BaseUnit
-		;
-	skos:definition "The base unit for measuring molar quantities."^^xsd:string ;
-	skos:prefLabel "mole"^^xsd:string ;
-	gist:conversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_mole ;
-	gist:symbol "mol"^^xsd:string ;
-	gist:unitSymbol "mol"^^xsd:string ;
-	.
-
-gist:_percent
-	a gist:UnitOfMeasure ;
-	skos:definition "The unit designating a quantity that is the ratio of two quantities with the same unit of measure and which has been multiplied by 100."^^xsd:string ;
-	skos:prefLabel "percent"^^xsd:string ;
-	skos:scopeNote
-		"Because the units of the numerator and denominator are the same, they cancel out, resulting in a dimensionless quantity."^^xsd:string ,
-		"To keep the unit of measure of the numerator and denominator, use a ratio unit; e.g., cm/cm."^^xsd:string
-		;
-	gist:conversionFactor "0.01"^^xsd:double ;
-	gist:hasBaseUnit gist:_each ;
-	gist:symbol "%"^^xsd:string ;
-	gist:unitSymbol "%"^^xsd:string ;
-	.
-
-gist:_second
-	a
-		owl:Thing ,
-		gist:BaseUnit
-		;
-	skos:definition "The base unit for measuring durations."^^xsd:string ;
-	skos:prefLabel "second"^^xsd:string ;
-	gist:conversionFactor "1.0"^^xsd:double ;
-	gist:hasBaseUnit gist:_second ;
-	gist:symbol "s"^^xsd:string ;
-	gist:unitSymbol "s"^^xsd:string ;
 	.
 
 gist:accepts
@@ -3370,7 +2346,7 @@ gist:hasAddress
 gist:hasAltitude
 	a owl:ObjectProperty ;
 	rdfs:domain gist:GeoPoint ;
-	rdfs:range gist:Extent ;
+	rdfs:range gist:Magnitude ;
 	skos:definition "Distance above sea level"^^xsd:string ;
 	skos:prefLabel "has altitude"^^xsd:string ;
 	.
@@ -3383,16 +2359,6 @@ gist:hasAspect
 	rdfs:range gist:Aspect ;
 	skos:definition "Relates a Magnitude to its Aspect (measurable characteristic)."^^xsd:string ;
 	skos:prefLabel "has aspect"^^xsd:string ;
-	.
-
-gist:hasBaseUnit
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:hasStandardUnit ;
-	rdfs:domain gist:UnitOfMeasure ;
-	rdfs:range gist:BaseUnit ;
-	skos:definition "Relates a UnitOfMeasure to its BaseUnit.  This indicates what kind of Unit something is."^^xsd:string ;
-	skos:example "Saying that a furlong hasBaseUnit  meter says it is a DistanceUnit."^^xsd:string ;
-	skos:prefLabel "has base unit"^^xsd:string ;
 	.
 
 gist:hasBiologicalParent
@@ -3589,14 +2555,6 @@ gist:hasRecipient
 	rdfs:subPropertyOf gist:hasParticipant ;
 	skos:definition "The recipient"^^xsd:string ;
 	skos:prefLabel "has recipient"^^xsd:string ;
-	.
-
-gist:hasStandardUnit
-	a owl:ObjectProperty ;
-	rdfs:domain gist:UnitOfMeasure ;
-	rdfs:range gist:CoherentUnit ;
-	skos:definition "For a complex unit refers to a unit that has all the component parts in SI"^^xsd:string ;
-	skos:prefLabel "has standard unit"^^xsd:string ;
 	.
 
 gist:hasSuperCategory
@@ -4233,21 +3191,5 @@ gist:unitSymbolUnicode
 	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "The standard symbol for the unit preferred for pretty printing, may use special characters.  E.g. square meter would be  m? rather than m^2."^^xsd:string ;
 	skos:prefLabel "unit symbol Unicode"^^xsd:string ;
-	.
-
-[]
-	a owl:AllDifferent ;
-	owl:distinctMembers (
-		gist:_USDollar
-		gist:_ampere
-		gist:_bit
-		gist:_candela
-		gist:_each
-		gist:_kelvin
-		gist:_kilogram
-		gist:_meter
-		gist:_mole
-		gist:_second
-	) ;
 	.
 
