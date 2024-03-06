@@ -10,7 +10,7 @@
 
 <https://w3id.org/semanticarts/ontology/gistCore>
 	a owl:Ontology ;
-	owl:versionIRI <https://w3id.org/semanticarts/ontology/gistCore13.0.0> ;
+	owl:versionIRI <https://w3id.org/semanticarts/ontology/gistCoreX.x.x> ;
 	skos:definition "gist is a minimalist upper ontology created by Semantic Arts."^^xsd:string ;
 	skos:prefLabel "gist"^^xsd:string ;
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
@@ -2335,6 +2335,14 @@ gist:goesToPlace
 	skos:prefLabel "goes to place"^^xsd:string ;
 	.
 
+gist:hasAddend
+	a owl:ObjectProperty ;
+	skos:definition "Relates an Aspect to another Aspect that is an additive component of it."^^xsd:string ;
+	skos:example "In the equation profit = revenue - expenses, revenue is an Addend and expenses is a Subtrahend."^^xsd:string ;
+	skos:prefLabel "has addend"^^xsd:string ;
+	skos:scopeNote "Commonly used with financial metrics."^^xsd:string ;
+	.
+
 gist:hasAddress
 	a owl:ObjectProperty ;
 	rdfs:range gist:Address ;
@@ -2384,13 +2392,6 @@ gist:hasCommunicationAddress
 	skos:prefLabel "has communication address"^^xsd:string ;
 	.
 
-gist:hasDenominator
-	a owl:ObjectProperty ;
-	skos:definition "Relates a ratio or fraction to its denominator."^^xsd:string ;
-	skos:example "Second is the denominator for the standard speed unit, meters per second."^^xsd:string ;
-	skos:prefLabel "has denominator"^^xsd:string ;
-	.
-
 gist:hasDirectPart
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasPart ;
@@ -2409,6 +2410,14 @@ gist:hasDirectSuperCategory
 	skos:definition "The subject category is a subcategory of the object category. This property defines the direct links in a category hierarchy; no intermediate categories can exist between the direct links."^^xsd:string ;
 	skos:prefLabel "has direct supercategory"^^xsd:string ;
 	skos:scopeNote "Unlike its superproperty gist:hasSuperCategory, this property is not transitive. It is essentially the same as the non-transitive skos:broader, using gist:Category rather than skos:Concept."^^xsd:string ;
+	.
+
+gist:hasDivisor
+	a owl:ObjectProperty ;
+	skos:definition "Relates an Aspect to another Aspect that is a divisor. May also be used with Units of Measure."^^xsd:string ;
+	skos:example "Miles per hour has miles as a multiplier and hour as a divisor."^^xsd:string ;
+	skos:prefLabel "has divisor"^^xsd:string ;
+	skos:scopeNote "Provides a supplemental method of decomposing an Aspect or UnitOfMeasure into component factors. Enables dimensional analysis such as miles per hour x hours = miles."^^xsd:string ;
 	.
 
 gist:hasFirstMember
@@ -2462,20 +2471,12 @@ gist:hasMember
 		;
 	.
 
-gist:hasMultiplicand
-	a owl:ObjectProperty ;
-	skos:definition "Relates a product to the factor that is being multiplied by another factor (i.e. the multiplier)."^^xsd:string ;
-	skos:example "Meter is the multiplicand for the unit: newton-meter"^^xsd:string ;
-	skos:prefLabel "has multiplicand"^^xsd:string ;
-	skos:scopeNote "Because multiplication is commutative, the difference between multiplier and multiplicand will not matter for computation, but it may matter if you care about the order for presentation, e.g. newton-meter vs. meter-newton."^^xsd:string ;
-	.
-
 gist:hasMultiplier
 	a owl:ObjectProperty ;
-	skos:definition "Relates a product to the factor that is multiplying another factor (i.e. the multiplicand)."^^xsd:string ;
-	skos:example "Newton is the multiplier for the unit: newton-meter"^^xsd:string ;
+	skos:definition "Relates an Aspect to another Aspect that is a factor. May also be used with Units of Measure."^^xsd:string ;
+	skos:example "Miles per hour has miles as a multiplier and hour as a divisor."^^xsd:string ;
 	skos:prefLabel "has multiplier"^^xsd:string ;
-	skos:scopeNote "Because multiplication is commutative, the difference between multiplier and multiplicand will not matter for computation, but it may matter if you care about the order for presentation, e.g. newton-meter vs. meter-newton."^^xsd:string ;
+	skos:scopeNote "Provides a supplemental method of decomposing an Aspect or UnitOfMeasure into component factors. Enables dimensional analysis such as miles per hour x hours = miles."^^xsd:string ;
 	.
 
 gist:hasNavigationalParent
@@ -2483,13 +2484,6 @@ gist:hasNavigationalParent
 	skos:definition "Relates a child category to a parent category in an informal (e.g., faceted) hierarchy."^^xsd:string ;
 	skos:example "Refrigerator handles are not refrigerators, but it may be useful to represent their relationship hierarchically for a faceted UI filter."^^xsd:string ;
 	skos:prefLabel "has navigational parent"^^xsd:string ;
-	.
-
-gist:hasNumerator
-	a owl:ObjectProperty ;
-	skos:definition "Relates a ratio or fraction to its numerator."^^xsd:string ;
-	skos:example "Meter is the numerator for the standard speed unit, meters per second."^^xsd:string ;
-	skos:prefLabel "has numerator"^^xsd:string ;
 	.
 
 gist:hasPart
@@ -2555,6 +2549,14 @@ gist:hasRecipient
 	rdfs:subPropertyOf gist:hasParticipant ;
 	skos:definition "The recipient"^^xsd:string ;
 	skos:prefLabel "has recipient"^^xsd:string ;
+	.
+
+gist:hasSubtrahend
+	a owl:ObjectProperty ;
+	skos:definition "Relates an Aspect to another Aspect that is a subtracted component of it."^^xsd:string ;
+	skos:example "In the equation profit = revenue - expenses, revenue is an Addend and expenses is a Subtrahend."^^xsd:string ;
+	skos:prefLabel "has subtrahend"^^xsd:string ;
+	skos:scopeNote "Commonly used with financial metrics."^^xsd:string ;
 	.
 
 gist:hasSuperCategory
