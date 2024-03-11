@@ -1,5 +1,6 @@
 @prefix : <https://w3id.org/semanticarts/ontology/gistCore#> .
 @prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
+@prefix gistd: <https://w3id.org/semanticarts/ns/data/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -32,8 +33,79 @@ skos:scopeNote
 	a owl:AnnotationProperty ;
 	.
 
+gistd:_Aspect_area
+	a gist:Aspect ;
+	skos:definition "The Aspect area."^^xsd:string ;
+	skos:prefLabel "area"^^xsd:string ;
+	skos:scopeNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
+	.
+
+gistd:_Aspect_balance
+	a gist:Aspect ;
+	skos:definition "The Aspect balance."^^xsd:string ;
+	skos:prefLabel "balance"^^xsd:string ;
+	skos:scopeNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
+	.
+
+gistd:_Aspect_distance
+	a gist:Aspect ;
+	skos:definition "The Aspect distance."^^xsd:string ;
+	skos:prefLabel "distance"^^xsd:string ;
+	skos:scopeNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
+	.
+
+gistd:_Aspect_mass
+	a gist:Aspect ;
+	skos:definition "The Aspect mass."^^xsd:string ;
+	skos:prefLabel "mass"^^xsd:string ;
+	skos:scopeNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
+	.
+
+gistd:_Aspect_monetary_value
+	a gist:Aspect ;
+	skos:definition "The Aspect monetary value."^^xsd:string ;
+	skos:prefLabel "monetary value"^^xsd:string ;
+	skos:scopeNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
+	.
+
+gistd:_Aspect_probability
+	a gist:Aspect ;
+	skos:definition "The Aspect probability."^^xsd:string ;
+	skos:prefLabel "probability"^^xsd:string ;
+	skos:scopeNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
+	.
+
+gistd:_Aspect_volume
+	a gist:Aspect ;
+	skos:definition "The Aspect volume."^^xsd:string ;
+	skos:prefLabel "volume"^^xsd:string ;
+	skos:scopeNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
+	.
+
 gist:Account
 	a owl:Class ;
+	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:Agreement
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasMagnitude ;
+				owl:someValuesFrom [
+					a owl:Class ;
+					owl:intersectionOf (
+						gist:Magnitude
+						[
+							a owl:Restriction ;
+							owl:onProperty gist:hasAspect ;
+							owl:hasValue gistd:_Aspect_balance ;
+						]
+					) ;
+				] ;
+			]
+		) ;
+	] ;
 	skos:definition "An agreement having a balance, as in a bank account, or credit card account, or Accounts Receivable account."^^xsd:string ;
 	skos:prefLabel "Account"^^xsd:string ;
 	.
@@ -284,10 +356,26 @@ gist:ContentExpression
 
 gist:ContingentEvent
 	a owl:Class ;
+	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
 			gist:Event
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasMagnitude ;
+				owl:someValuesFrom [
+					a owl:Class ;
+					owl:intersectionOf (
+						gist:Magnitude
+						[
+							a owl:Restriction ;
+							owl:onProperty gist:hasAspect ;
+							owl:hasValue gistd:_Aspect_probability ;
+						]
+					) ;
+				] ;
+			]
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:isTriggeredBy ;
@@ -572,6 +660,7 @@ gist:GeneralMediaType
 gist:GeoPoint
 	a owl:Class ;
 	rdfs:subClassOf gist:Place ;
+	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	owl:disjointWith
 		gist:IntellectualProperty ,
 		gist:Intention ,
@@ -585,6 +674,21 @@ gist:GeoPoint
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasAltitude ;
+				owl:someValuesFrom [
+					a owl:Class ;
+					owl:intersectionOf (
+						gist:Magnitude
+						[
+							a owl:Restriction ;
+							owl:onProperty gist:hasAspect ;
+							owl:hasValue gistd:_Aspect_distance ;
+						]
+					) ;
+				] ;
+			]
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:latitude ;
@@ -604,6 +708,7 @@ gist:GeoPoint
 
 gist:GeoRegion
 	a owl:Class ;
+	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	owl:disjointWith
 		gist:IntellectualProperty ,
 		gist:Intention ,
@@ -615,13 +720,31 @@ gist:GeoRegion
 		gist:Template ,
 		gist:UnitOfMeasure
 		;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:Place
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasMagnitude ;
+				owl:someValuesFrom [
+					a owl:Class ;
+					owl:intersectionOf (
+						gist:Magnitude
+						[
+							a owl:Restriction ;
+							owl:onProperty gist:hasAspect ;
+							owl:hasValue gistd:_Aspect_area ;
+						]
+					) ;
+				] ;
+			]
+		) ;
+	] ;
 	skos:definition "A bounded region (or set of regions) on the surface of the Earth."^^xsd:string ;
 	skos:example "The bounded shape that defines the region occupied by Crater Lake; the bounded area known as the contiguous USA."^^xsd:string ;
 	skos:prefLabel "Geo Region"^^xsd:string ;
-	skos:scopeNote
-		"A GeoRegion could be non-contiguous; e.g. the region governed by the USA is the region governed by the lower 48 states plus that of Alaska and Hawaii.  Child classes in lower ontologies can make this distinction."^^xsd:string ,
-		"A GeoRegion has an area, but it is not itself an instance of the Area class.  (Area in gist is a magnitude)."^^xsd:string
-		;
+	skos:scopeNote "A GeoRegion could be non-contiguous; e.g. the region governed by the USA is the region governed by the lower 48 states plus that of Alaska and Hawaii.  Child classes in lower ontologies can make this distinction."^^xsd:string ;
 	.
 
 gist:GeoRoute
@@ -669,15 +792,36 @@ gist:GeoSegment
 gist:GeoVolume
 	a owl:Class ;
 	rdfs:subClassOf gist:Place ;
+	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasMagnitude ;
+				owl:someValuesFrom [
+					a owl:Class ;
+					owl:intersectionOf (
+						gist:Magnitude
+						[
+							a owl:Restriction ;
+							owl:onProperty gist:hasAspect ;
+							owl:hasValue gistd:_Aspect_volume ;
+						]
+					) ;
+				] ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty [
+					owl:inverseOf gist:isGeographicallyContainedIn ;
+				] ;
+				owl:someValuesFrom gist:GeoPoint ;
+			]
+		) ;
+	] ;
 	skos:definition "A three-dimensional space on or near the surface of the Earth, such as an oil reservoir, the body of a lake, or an airspace."^^xsd:string ;
 	skos:prefLabel "Geo Volume"^^xsd:string ;
-	.
-
-gist:Goal
-	a owl:Class ;
-	rdfs:subClassOf gist:Intention ;
-	skos:definition "A specific intentional endpoint.  One can tell whether it has been achieved, as opposed to an intention, which may not have an evaluation function."^^xsd:string ;
-	skos:prefLabel "Goal"^^xsd:string ;
 	.
 
 gist:GovernedGeoRegion
@@ -890,6 +1034,11 @@ gist:Magnitude
 		owl:intersectionOf (
 			[
 				a owl:Restriction ;
+				owl:onProperty gist:hasAspect ;
+				owl:someValuesFrom gist:Aspect ;
+			]
+			[
+				a owl:Restriction ;
 				owl:onProperty gist:hasPrecision ;
 				owl:someValuesFrom gist:Magnitude ;
 			]
@@ -901,17 +1050,35 @@ gist:Magnitude
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:numericValue ;
-				owl:someValuesFrom xsd:double ;
+				owl:someValuesFrom [
+					a rdfs:Datatype ;
+					owl:unionOf (
+						xsd:byte
+						xsd:decimal
+						xsd:double
+						xsd:float
+						xsd:int
+						xsd:integer
+						xsd:long
+						xsd:negativeInteger
+						xsd:nonNegativeInteger
+						xsd:nonPositiveInteger
+						xsd:positiveInteger
+						xsd:short
+						xsd:unsignedByte
+						xsd:unsignedInt
+						xsd:unsignedLong
+						xsd:unsignedShort
+						owl:rational
+						owl:real
+					) ;
+				] ;
 			]
 		) ;
 	] ;
-	skos:definition "A quantity expressed with a unit of measure and a number."^^xsd:string ;
-	skos:example "3 millimeters; 70 miles per hour; 110 degrees F"^^xsd:string ;
+	skos:definition "The amount of a measurable characteristic (Aspect)."^^xsd:string ;
+	skos:example "A model of car could have a wheelbase of 113.2 inches. In this example, the Aspect is wheelbase, the Unit of Measure is inch, and the numericValue is 113.2."^^xsd:string ;
 	skos:prefLabel "Magnitude"^^xsd:string ;
-	skos:scopeNote
-		"Magnitudes of the same dimensional type (i.e., duration or electric current) can be compared with a greater-than or less-than operator, but can still differ in their relationToTheWorld type.  (I.e., you can compare actuals to estimates or references, so long as the dimension is the same.)"^^xsd:string ,
-		"The precision should be in the same type of unit as the magnitude."^^xsd:string
-		;
 	.
 
 gist:MediaType
@@ -1077,6 +1244,7 @@ gist:Obligation
 
 gist:Offer
 	a owl:Class ;
+	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -1094,6 +1262,21 @@ gist:Offer
 					owl:unionOf (
 						gist:Organization
 						gist:Person
+					) ;
+				] ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasMagnitude ;
+				owl:someValuesFrom [
+					a owl:Class ;
+					owl:intersectionOf (
+						gist:Magnitude
+						[
+							a owl:Restriction ;
+							owl:onProperty gist:hasAspect ;
+							owl:hasValue gistd:_Aspect_monetary_value ;
+						]
 					) ;
 				] ;
 			]
@@ -1281,11 +1464,44 @@ gist:PhysicalEvent
 
 gist:PhysicalIdentifiableItem
 	a owl:Class ;
-	rdfs:subClassOf [
-		a owl:Restriction ;
-		owl:onProperty gist:isMadeUpOf ;
-		owl:someValuesFrom gist:PhysicalSubstance ;
-	] ;
+	rdfs:subClassOf
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:hasMagnitude ;
+			owl:someValuesFrom [
+				a owl:Class ;
+				owl:intersectionOf (
+					gist:Magnitude
+					[
+						a owl:Restriction ;
+						owl:onProperty gist:hasAspect ;
+						owl:hasValue gistd:_Aspect_mass ;
+					]
+				) ;
+			] ;
+		] ,
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:hasMagnitude ;
+			owl:someValuesFrom [
+				a owl:Class ;
+				owl:intersectionOf (
+					gist:Magnitude
+					[
+						a owl:Restriction ;
+						owl:onProperty gist:hasAspect ;
+						owl:hasValue gistd:_Aspect_volume ;
+					]
+				) ;
+			] ;
+		] ,
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:isMadeUpOf ;
+			owl:someValuesFrom gist:PhysicalSubstance ;
+		]
+		;
+	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	owl:disjointWith
 		gist:SchemaMetaData ,
 		gist:UnitOfMeasure
@@ -1298,6 +1514,39 @@ gist:PhysicalIdentifiableItem
 
 gist:PhysicalSubstance
 	a owl:Class ;
+	rdfs:subClassOf
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:hasMagnitude ;
+			owl:someValuesFrom [
+				a owl:Class ;
+				owl:intersectionOf (
+					gist:Magnitude
+					[
+						a owl:Restriction ;
+						owl:onProperty gist:hasAspect ;
+						owl:hasValue gistd:_Aspect_mass ;
+					]
+				) ;
+			] ;
+		] ,
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:hasMagnitude ;
+			owl:someValuesFrom [
+				a owl:Class ;
+				owl:intersectionOf (
+					gist:Magnitude
+					[
+						a owl:Restriction ;
+						owl:onProperty gist:hasAspect ;
+						owl:hasValue gistd:_Aspect_volume ;
+					]
+				) ;
+			] ;
+		]
+		;
+	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	owl:disjointWith gist:UnitOfMeasure ;
 	skos:definition "An undifferentiated amount of physical material which, when subdivided, results in each part being indistinguishable in nature from the whole and from every other part."^^xsd:string ;
 	skos:example "An amount of water, penicillin, sand, gold: an actual piece of gold, not the concept of gold."^^xsd:string ;
@@ -1749,9 +1998,9 @@ gist:UnitGroup
 	] ;
 	owl:disjointWith gist:UnitOfMeasure ;
 	skos:definition "A collection of Units of Measure that can all be used to measure the same Aspects."^^xsd:string ;
-	skos:example "Bit, byte, kilobit, kilobyte, etc. can all be used to measure an amount of data."^^xsd:string ;
+	skos:example "The Units of Measure bit, byte, kilobit, kilobyte, etc. are all in the same Unit Group because they can all be used to measure an amount of data."^^xsd:string ;
 	skos:prefLabel "Unit Group"^^xsd:string ;
-	skos:scopeNote "When adding a unit of measure to a Unit Group, make sure it has the same exponents as the other members of the Unit Group. For example, miles per gallon and gallons per mile could both be used to measure vehicle efficiency, but they need to be in different unit groups."^^xsd:string ;
+	skos:scopeNote "When adding a Unit of Measure to a Unit Group, make sure it has the same exponents as the other members of the Unit Group. For example, miles per gallon and gallons per mile could both be used to measure vehicle efficiency, but they need to be in different unit groups."^^xsd:string ;
 	.
 
 gist:UnitOfMeasure
@@ -2004,9 +2253,9 @@ gist:conversionOffset
 		owl:FunctionalProperty
 		;
 	rdfs:domain gist:UnitOfMeasure ;
-	rdfs:range xsd:double ;
+	rdfs:range xsd:decimal ;
 	skos:definition """
-		A value used along with a conversion factor to relate a Unit to its corresponding Unit in the International System of Units. In the equation below, the 5/9 is the conversion factor and 459.669607 is the conversion offset.
+		A value used along with a conversion factor to relate a Unit to its corresponding Unit in the International System of Units. In the equation below, the conversion offset is 459.669607 and the conversion factor is 5/9.
 
 		y degrees Fahrenheit = (y + 459.669607) x 5/9 degrees Kelvin
 
@@ -2377,6 +2626,15 @@ gist:hasBiologicalParent
 	skos:prefLabel "has biological parent"^^xsd:string ;
 	.
 
+gist:hasBroader
+	a
+		owl:ObjectProperty ,
+		owl:TransitiveProperty
+		;
+	skos:definition "Relates a thing to another thing with a broader meaning."^^xsd:string ;
+	skos:prefLabel "has broader"^^xsd:string ;
+	.
+
 gist:hasCommunicationAddress
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasAddress ;
@@ -2457,7 +2715,7 @@ gist:hasMagnitude
 	a owl:ObjectProperty ;
 	rdfs:range gist:Magnitude ;
 	skos:definition "Relates a Thing to a Magnitude."^^xsd:string ;
-	skos:example "A car or model of car has a Magnitude for length, one for width, one for weight, etc."^^xsd:string ;
+	skos:example "A car or a model of car has a Magnitude for length, one for width, one for weight, etc."^^xsd:string ;
 	skos:prefLabel "has magnitude"^^xsd:string ;
 	.
 
@@ -2554,7 +2812,7 @@ gist:hasRecipient
 gist:hasSubtrahend
 	a owl:ObjectProperty ;
 	skos:definition "Relates an Aspect to another Aspect that is a subtracted component of it."^^xsd:string ;
-	skos:example "In the equation profit = revenue - expenses, revenue is an Addend and expenses is a Subtrahend."^^xsd:string ;
+	skos:example "In the equation profit = revenue - expenses, revenue is an addend and expenses is a subtrahend."^^xsd:string ;
 	skos:prefLabel "has subtrahend"^^xsd:string ;
 	skos:scopeNote "Commonly used with financial metrics."^^xsd:string ;
 	.
@@ -2658,12 +2916,6 @@ gist:isAllocatedBy
 		gist:Category ,
 		gist:ID
 		;
-	.
-
-gist:isAspectOf
-	a owl:ObjectProperty ;
-	skos:definition "What this aspect is referring to"^^xsd:string ;
-	skos:prefLabel "is aspect of"^^xsd:string ;
 	.
 
 gist:isBasedOn
