@@ -84,7 +84,6 @@ gistd:_Aspect_volume
 
 gist:Account
 	a owl:Class ;
-	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -356,7 +355,6 @@ gist:ContentExpression
 
 gist:ContingentEvent
 	a owl:Class ;
-	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -660,7 +658,6 @@ gist:GeneralMediaType
 gist:GeoPoint
 	a owl:Class ;
 	rdfs:subClassOf gist:Place ;
-	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	owl:disjointWith
 		gist:IntellectualProperty ,
 		gist:Intention ,
@@ -708,7 +705,6 @@ gist:GeoPoint
 
 gist:GeoRegion
 	a owl:Class ;
-	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	owl:disjointWith
 		gist:IntellectualProperty ,
 		gist:Intention ,
@@ -792,7 +788,6 @@ gist:GeoSegment
 gist:GeoVolume
 	a owl:Class ;
 	rdfs:subClassOf gist:Place ;
-	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -1244,7 +1239,6 @@ gist:Obligation
 
 gist:Offer
 	a owl:Class ;
-	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -1501,7 +1495,6 @@ gist:PhysicalIdentifiableItem
 			owl:someValuesFrom gist:PhysicalSubstance ;
 		]
 		;
-	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	owl:disjointWith
 		gist:SchemaMetaData ,
 		gist:UnitOfMeasure
@@ -1546,7 +1539,6 @@ gist:PhysicalSubstance
 			] ;
 		]
 		;
-	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	owl:disjointWith gist:UnitOfMeasure ;
 	skos:definition "An undifferentiated amount of physical material which, when subdivided, results in each part being indistinguishable in nature from the whole and from every other part."^^xsd:string ;
 	skos:example "An amount of water, penicillin, sand, gold: an actual piece of gold, not the concept of gold."^^xsd:string ;
@@ -2341,7 +2333,6 @@ gist:exponentOfAmpere
 gist:exponentOfBit
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitGroup ;
-	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of Bit in a product of powers of base units."^^xsd:string ;
 	skos:example """
@@ -2360,7 +2351,6 @@ gist:exponentOfBit
 gist:exponentOfCandela
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitGroup ;
-	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of Candela in a product of powers of base units."^^xsd:string ;
 	skos:example """
@@ -2378,7 +2368,6 @@ gist:exponentOfCandela
 gist:exponentOfKelvin
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitGroup ;
-	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of Kelvin in a product of powers of base units."^^xsd:string ;
 	skos:example """
@@ -2396,7 +2385,6 @@ gist:exponentOfKelvin
 gist:exponentOfKilogram
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitGroup ;
-	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of Kilogram in a product of powers of base units."^^xsd:string ;
 	skos:example """
@@ -2414,7 +2402,6 @@ gist:exponentOfKilogram
 gist:exponentOfMeter
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitGroup ;
-	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of Meter in a product of powers of base units."^^xsd:string ;
 	skos:example """
@@ -2432,7 +2419,6 @@ gist:exponentOfMeter
 gist:exponentOfMole
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitGroup ;
-	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of Mole in a product of powers of base units."^^xsd:string ;
 	skos:example """1 katal = 1 x mole per second
@@ -2449,7 +2435,6 @@ gist:exponentOfMole
 gist:exponentOfNumber
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitGroup ;
-	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of Number in a product of powers of base units."^^xsd:string ;
 	skos:example """
@@ -2469,7 +2454,6 @@ gist:exponentOfNumber
 gist:exponentOfOther
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitGroup ;
-	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	rdfs:range xsd:decimal ;
 	skos:definition "Indicates that the decomposition of the Unit of Measure into exponents of the base units, along with the conversionOffset and conversionFactor, does not provide a complete description of the Unit of Measure."^^xsd:string ;
 	skos:prefLabel "exponent of other"^^xsd:string ;
@@ -2481,7 +2465,6 @@ gist:exponentOfOther
 gist:exponentOfRadian
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitGroup ;
-	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of Radian in a product of powers of base units."^^xsd:string ;
 	skos:example """
@@ -2499,7 +2482,6 @@ gist:exponentOfRadian
 gist:exponentOfSecond
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitGroup ;
-	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of Second in a product of powers of base units."^^xsd:string ;
 	skos:example """
@@ -2518,7 +2500,6 @@ gist:exponentOfSecond
 gist:exponentOfSteradian
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitGroup ;
-	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of Steradian in a product of powers of base units."^^xsd:string ;
 	skos:example """radiance is measured in watts per square meter steradian
@@ -2539,7 +2520,6 @@ gist:exponentOfSteradian
 gist:exponentOfUSDollar
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitGroup ;
-	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of US Dollar in a product of powers of base units."^^xsd:string ;
 	skos:example """
