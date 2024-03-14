@@ -2317,27 +2317,23 @@ gist:exponentOfAmpere
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitGroup ;
 	rdfs:range xsd:decimal ;
-	skos:definition "The exponent of Ampere in a product of powers of base units."^^xsd:string ;
-	skos:example """
-
-		1 milliampere = 0.001 x ampere^1
+	skos:definition "The exponent of ampere in a product of powers of base units."^^xsd:string ;
+	skos:example """In the equation 1 milliampere = 0.001 x ampere
 
 		the conversionFactor for milliampere is 0.001
 		the exponent of ampere is 1
 		all other exponents are zero
 
 		Every member of a Unit Group containing milliampere will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
-	skos:prefLabel "exponent of Ampere"^^xsd:string ;
+	skos:prefLabel "exponent of ampere"^^xsd:string ;
 	.
 
 gist:exponentOfBit
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitGroup ;
 	rdfs:range xsd:decimal ;
-	skos:definition "The exponent of Bit in a product of powers of base units."^^xsd:string ;
-	skos:example """
-
-		1 megabit per second = 1000000 x bit per second
+	skos:definition "The exponent of bit in a product of powers of base units."^^xsd:string ;
+	skos:example """In the equation 1 megabit per second = 1000000 x bit per second
 
 		the conversion factor for megabit per second is 1000000
 		the exponent of bit is 1
@@ -2352,10 +2348,8 @@ gist:exponentOfCandela
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitGroup ;
 	rdfs:range xsd:decimal ;
-	skos:definition "The exponent of Candela in a product of powers of base units."^^xsd:string ;
-	skos:example """
-
-		1 candlepower = 1 x candela
+	skos:definition "The exponent of candela in a product of powers of base units."^^xsd:string ;
+	skos:example """In the equation 1 candlepower = 1 x candela
 
 		the conversion factor for candlepower is 1
 		the exponent of candela is 1
@@ -2369,9 +2363,8 @@ gist:exponentOfKelvin
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitGroup ;
 	rdfs:range xsd:decimal ;
-	skos:definition "The exponent of Kelvin in a product of powers of base units."^^xsd:string ;
-	skos:example """
-		y degrees Fahrenheit = (y + 459.6669607) x 5/9 degrees Kelvin
+	skos:definition "The exponent of kelvin in a product of powers of base units."^^xsd:string ;
+	skos:example """In the equation y degrees Fahrenheit = (y + 459.6669607) x 5/9 degrees Kelvin
 
 		the conversion offset for degree Fahrenheit is 459.6669607
 		the conversion factor for degree Fahrenheit is 5/9
@@ -2379,16 +2372,15 @@ gist:exponentOfKelvin
 		all other exponents are zero
 
 		Every member of a Unit Group containing degree Fahrenheit will have a similar decomposition, although with a different conversionFactor and conversionOffset."""^^xsd:string ;
-	skos:prefLabel "exponent of Kelvin"^^xsd:string ;
+	skos:prefLabel "exponent of kelvin"^^xsd:string ;
 	.
 
 gist:exponentOfKilogram
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitGroup ;
 	rdfs:range xsd:decimal ;
-	skos:definition "The exponent of Kilogram in a product of powers of base units."^^xsd:string ;
-	skos:example """
-		1 millimole per gram = 1 x mole per kilogram
+	skos:definition "The exponent of kilogram in a product of powers of base units."^^xsd:string ;
+	skos:example """In the equation 1 millimole per gram = 1 x mole per kilogram
 
 		the conversion factor for millimole per gram is 1
 		the exponent of mole is 1
@@ -2403,9 +2395,8 @@ gist:exponentOfMeter
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitGroup ;
 	rdfs:range xsd:decimal ;
-	skos:definition "The exponent of Meter in a product of powers of base units."^^xsd:string ;
-	skos:example """
-		1 microgram per milliliter = 0.001 x kilogram per meterCubed
+	skos:definition "The exponent of meter in a product of powers of base units."^^xsd:string ;
+	skos:example """In the equation 1 microgram per milliliter = 0.001 x kilogram per meterCubed
 
 		the conversion factor for microgram per milliliter is 0.001
 		the exponent of kilogram is 1
@@ -2420,8 +2411,8 @@ gist:exponentOfMole
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitGroup ;
 	rdfs:range xsd:decimal ;
-	skos:definition "The exponent of Mole in a product of powers of base units."^^xsd:string ;
-	skos:example """1 katal = 1 x mole per second
+	skos:definition "The exponent of mole in a product of powers of base units."^^xsd:string ;
+	skos:example """In the equation 1 katal = 1 x mole per second
 
 		the conversion factor for katal is 1
 		the exponent of mole is 1
@@ -2436,10 +2427,8 @@ gist:exponentOfNumber
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitGroup ;
 	rdfs:range xsd:decimal ;
-	skos:definition "The exponent of Number in a product of powers of base units."^^xsd:string ;
-	skos:example """
-
-		1 beat per minute = 0.016667 x number per second
+	skos:definition "The exponent of number in a product of powers of base units."^^xsd:string ;
+	skos:example """In the equation 1 beat per minute = 0.016667 x number per second
 
 		the conversion factor for beat per minute is 0.016667
 		the exponent of number is 1
@@ -2455,7 +2444,7 @@ gist:exponentOfOther
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitGroup ;
 	rdfs:range xsd:decimal ;
-	skos:definition "Indicates that the decomposition of the Unit of Measure into exponents of the base units, along with the conversionOffset and conversionFactor, does not provide a complete description of the Unit of Measure."^^xsd:string ;
+	skos:definition "Indicates whether a Unit of Measure is defined using a logarithmic or other non-linear scale, of that has some term not covered by the list of exponents."^^xsd:string ;
 	skos:prefLabel "exponent of other"^^xsd:string ;
 	skos:scopeNote """Set the value to 0 if the other exponents give a complete decomposition of the Unit of Measure.
 
@@ -2466,10 +2455,8 @@ gist:exponentOfRadian
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitGroup ;
 	rdfs:range xsd:decimal ;
-	skos:definition "The exponent of Radian in a product of powers of base units."^^xsd:string ;
-	skos:example """
-
-		1 revolution = 6.283 x radian
+	skos:definition "The exponent of radian in a product of powers of base units."^^xsd:string ;
+	skos:example """In the equation 1 revolution = 6.283 x radian
 
 		the conversion factor for revolution is 6.283
 		the exponent of radian is 1
@@ -2483,9 +2470,8 @@ gist:exponentOfSecond
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitGroup ;
 	rdfs:range xsd:decimal ;
-	skos:definition "The exponent of Second in a product of powers of base units."^^xsd:string ;
-	skos:example """
-		1 watt-hour = 3600 x kilogram meterSquared per secondSquared
+	skos:definition "The exponent of second in a product of powers of base units."^^xsd:string ;
+	skos:example """In the equation 1 watt-hour = 3600 x kilogram meterSquared per secondSquared
 
 		the conversion factor for watt-hour is 3600
 		the exponent of kilogram is 1
@@ -2501,10 +2487,8 @@ gist:exponentOfSteradian
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitGroup ;
 	rdfs:range xsd:decimal ;
-	skos:definition "The exponent of Steradian in a product of powers of base units."^^xsd:string ;
-	skos:example """radiance is measured in watts per square meter steradian
-
-		1 watt per square meter steradian = 1 x kilogram per secondCubed steradian
+	skos:definition "The exponent of steradian in a product of powers of base units."^^xsd:string ;
+	skos:example """In the equation 1 watt per square meter steradian = 1 x kilogram per secondCubed steradian
 
 		the conversion factor for watt per square meter steradian is 1
 		the exponent of kilogram is 1
@@ -2522,9 +2506,7 @@ gist:exponentOfUSDollar
 	rdfs:domain gist:UnitGroup ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of US Dollar in a product of powers of base units."^^xsd:string ;
-	skos:example """
-
-		1 million dollars per week = 1.65344 x dollars per second
+	skos:example """In the equation 1 million dollars per week = 1.65344 x dollars per second
 
 		the conversion factor for million dollars per week is 1.65344
 		the exponent of US Dollar is 1
@@ -2532,8 +2514,8 @@ gist:exponentOfUSDollar
 		all other exponents are zero
 
 		Every member of a Unit Group containing million dollars per week will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
-	skos:prefLabel "exponent of US Dollar"^^xsd:string ;
-	skos:scopeNote "The factor for converting from one currency to another changes constantly."^^xsd:string ;
+	skos:prefLabel "exponent of us dollar"^^xsd:string ;
+	skos:scopeNote "The factors for converting from one currency to another change constantly."^^xsd:string ;
 	.
 
 gist:goesToAgent
