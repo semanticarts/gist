@@ -1,0 +1,42 @@
+# entries from the Semantic Arts UoM reference data that the client will be using
+# run this query on the Semantic Arts repository for Unit of Measure reference data
+# 
+# TIP: if the query becomes too large, split into sections using union to avoid cross-products
+
+# select distinct ?aspect ?unitGroup ?unitOfMeasure 
+
+construct {
+   ?broaderAspect ?broaderAspectPredicate ?broaderAspectObject .
+   ?unitGroup     ?unitGroupPredicate     ?unitGroupObject .
+   ?unitOfMeasure ?unitOfMeasurePredicate ?unitOfMeasureObject .
+  }
+
+where {
+
+# input is a list of Aspects and Units the client will be using
+  values (?aspect                             ?unitOfMeasure  ) {
+
+         (gistd:_Aspect_base_pay_rate       gistd:_UnitOfMeasure_US_dollar_per_hour)    # customize this section per client
+         (gistd:_Aspect_base_pay_rate       gistd:_UnitOfMeasure_US_dollar_per_day )
+         (gistd:_Aspect_billing_rate        gistd:_UnitOfMeasure_US_dollar_per_hour)
+         (gistd:_Aspect_billing_rate        gistd:_UnitOfMeasure_US_dollar_per_day )
+         (gistd:_Aspect_write_off           gistd:_UnitOfMeasure_fraction          )
+         }
+  
+  ?aspect gist:hasBroader*/gist:hasUnitGroup/gist:hasMember ?unitOfMeasure . # binds an aspect/unit pair from the list above
+  
+  ?aspect gist:hasBroader*/gist:hasUnitGroup ?unitGroup .  # get unitGroup
+  ?unitGroup gist:hasMember ?unitOfMeasure .
+  
+  ?unitOfMeasure ?unitOfMeasurePredicate ?unitOfMeasureObject . 
+  ?unitGroup     ?unitGroupPredicate     ?unitGroupObject .
+
+# keep UnitGroup triples that do not have hasMember as predicate, 
+# and also triples with hasMember as predicate and with a unit of measure from the list as object
+  filter (?unitGroupPredicate != gist:hasMember || ?unitGroupObject = ?unitOfMeasure ) 
+  
+# get data for all aspects in the path from original aspect to unit of measure
+  ?aspect gist:hasBroader* ?broaderAspect .
+  ?broaderAspect ?broaderAspectPredicate ?broaderAspectObject .
+  
+}

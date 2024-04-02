@@ -1,0 +1,28 @@
+# show Aspect/UnitOfMeasure pairs where the Aspect is represented within the name of a Magnitude or Thing with a Magnitude
+# these pairs will be candidates for updating the Semantic Arts reference data
+# 
+# add one section to the union for each embedded string that represents a Magnitude
+
+select distinct ?aspect ?unit
+
+where {
+              
+   ############ copy text strings from findAspects5 ##################
+
+   {
+    bind("abc" as ?aspect)
+    ?magnitude gist:hasUnitOfMeasure ?unit .
+    filter(contains(str(?magnitude), ?aspect))
+   }
+
+   union
+   {
+    bind("xyz" as ?aspect)
+    ?magnitude gist:hasUnitOfMeasure ?unit .
+    ?thing gist:hasMagnitude ?magnitude .
+    filter(contains(str(?thing), ?aspect))
+   }
+
+   ##################################################################
+}
+order by ?aspect ?unit      

@@ -1,0 +1,16 @@
+# look for instances of hasBaseUnit and hasStandardUnit
+# should no longer be needed because reference data provides definition of units and how they relate to the base
+#
+# DEPENDENCY: make sure the three steps of multiplierDivisor are completed before doing this
+
+# test
+construct {?s ?p ?o . }  # these are to be deleted
+
+# delete {?s ?p ?o .}
+
+where { 
+
+   ?s (gist:hasBaseUnit|gist:hasStandardUnit|gist:isAspectOf) ?o ;
+      ?p ?o .
+}
+

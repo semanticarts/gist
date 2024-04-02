@@ -1,0 +1,24 @@
+# find Aspects that are the subject of gist:isAspectOf
+# these pairs will be candidates for updating the Semantic Arts reference data
+
+select ?aspect ?unit
+
+where { 
+
+  ?magnitude gist:hasUnitOfMeasure ?unit .
+
+  {
+   ?aspect gist:isAspectOf ?magnitude  .
+  }
+
+  union
+  {
+
+   ?thing gist:hasMagnitude ?magnitude . 
+
+   ?aspect gist:isAspectOf ?thing .
+
+  }
+
+} order by ?aspect ?unit
+

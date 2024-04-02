@@ -1,0 +1,45 @@
+# remove subclasses of Unit of Measure (the ones that represent Aspects and are no longer needed)
+# these can be identified by running findSubclassesOfUnitOfMeasure.rq
+# explicitly list the ones to be deleted by using the values statement
+#
+# test
+# construct {?s ?p ?oldSubclass . ?oldSubclass ?p2 ?o2 . }        # to be deleted
+# construct {?s ?p gist:UnitOfMeasure . }  # to be inserted
+
+delete {?s ?p ?oldSubclass .   ?oldSubclass ?p2 ?o2 .}
+insert {?s ?p gist:UnitOfMeasure .}
+
+where {
+
+    values ?oldSubclass {
+           gist:AreaUnit
+           gist:BaseUnit
+           gist:CoherentProductUnit
+           gist:CoherentRatioUnit
+           gist:CountingUnit
+           gist:CurrencyPerDurationUnit
+           gist:CurrencyUnit
+           gist:DataSizeUnit
+           gist:DistanceUnit
+           gist:DurationUnit
+           gist:ElectricalCurrentUnit
+           gist:LuminousIntensityUnit
+           gist:MassUnit
+           gist:MoleUnit
+           gist:ProductUnit
+           gist:RatioUnit
+           gist:SimpleUnitOfMeasure
+           gist:TemperatureUnit
+           gist:VolumeUnit
+
+#          customized list of client subclasses of Unit of Measure to be deleted
+#          CLIENTNAMESPACE:clientSubclassOfUnitOfMeasure    # customize as needed
+           }
+
+#  triples to be removed
+
+   ?s ?p ?oldSubclass .
+
+   ?oldSubclass ?p2 ?o2 .
+}
+order by ?oldSubclass 

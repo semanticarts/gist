@@ -1,0 +1,38 @@
+# insert Aspects represented within the name of a Magnitude or the name of a Thing with a Magnitude
+# create a new section of the union for each embedded string that represents an Aspect
+
+# test
+select distinct ?magnitude ?aspect ?newAspect
+
+# insert {?magnitude gist:hasAspect ?newAspect .}
+
+where {
+
+   ############# copy ?aspect from findAspects5, and add new Aspect ############3
+   values (?aspect    ?newAspect) {
+          ("abc"      gistd:_Aspect_xxx )
+          ("xyz"      gistd:_Aspect_yyy )
+          }
+          ##################################################################
+   
+   filter not exists {?magnitude gist:hasAspect ?anything . }   # to prevent duplicates (idempotent)
+              
+   ############ copy text strings from findAspects5 ##################
+
+   {
+    bind("abc" as ?aspect)
+    ?magnitude gist:hasUnitOfMeasure ?unit .
+    filter(contains(str(?magnitude), ?aspect))
+   }
+
+   union
+   {
+    bind("xyz" as ?aspect)
+    ?magnitude gist:hasUnitOfMeasure ?unit .
+    ?thing gist:hasMagnitude ?magnitude .
+    filter(contains(str(?thing), ?aspect))
+   }
+
+   ##################################################################
+}
+order by ?magnitude ?newAspect

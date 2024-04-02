@@ -1,0 +1,32 @@
+# find existing Aspects that are represented as a property with a Magnitude as object
+# (e.g. hasMass)
+#
+# use this query iteratively as follows:
+#
+#   - run the query
+#   - pick a few lines of output
+#   - update the upper section of the query with properties that do NOT represent an Aspect
+#   - update the lower section of the query (filter not exists) with properties that DO represent Aspects
+#   - repeat
+#
+# this iterative process accounts for every property that has a a Magnitude as object
+# when the query returns no results, every row of the original output has been accounted for
+
+
+select distinct ?thingToMagnitudeProperty
+
+where {
+  
+  ?magnitude gist:hasUnitOfMeasure ?unit .
+  
+  ?thing ?thingToMagnitudeProperty ?magnitude .
+
+  filter (?thingToMagnitudeProperty != gist:hasMagnitude)   # properties that do not represent an Aspect
+  
+  filter not exists {
+
+    values ?thingToMagnitudeProperty {     # properties that represent a Magnitude
+
+       }
+    }
+  } order by ?thingToMagnitudeProperty
