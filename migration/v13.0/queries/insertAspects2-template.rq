@@ -1,0 +1,45 @@
+# insert Aspects represented by a property or property value of a Thing with a Magnitude
+#
+# copy the values statements from the lower section (filter not exists) of findAspects2
+
+
+# test
+select distinct ?magnitude  ?aspect ?newAspect
+
+# insert {?magnitude gist:hasAspect ?newAspect .}
+
+
+where {
+  
+   ?magnitude gist:hasUnitOfMeasure ?unit .
+
+   ?thing gist:hasMagnitude ?magnitude ;
+          ?thingProperty ?thingPropertyValue ;
+          .
+
+   filter not exists {?magnitude gist:hasAspect ?anything . }   # to prevent duplicates (idempotent)
+                
+   {
+    ################ copy from findAspects2, and add new Aspect #################
+    values (?thingPropertyValue   ?newAspect) { 
+
+           }
+           ##################################################
+
+    bind(?thingPropertyValue as ?aspect)
+   }
+
+   union
+   {
+    ################ copy from findAspects2, and add new Aspect #################
+     values (?thingProperty ?newAspect)  { 
+
+            }
+           ##################################################
+
+    bind(?thingProperty as ?aspect)
+   }
+
+}
+order by ?magnitude ?newAspect
+

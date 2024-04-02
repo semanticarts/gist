@@ -1,0 +1,58 @@
+# validate basic relationships for Unit of Measure reference data
+
+select ?error ?unit ?group ?aspect ?discipline
+
+where {
+
+  {
+   bind("Discipline with no Aspects" as ?error)
+   ?discipline rdf:type gist:Discipline .
+#  optional          { ?aspect rdf:type gist:Aspect ; gist:isCategorizedBy/gist:hasBroader* ?discipline . }
+   filter not exists { ?aspect rdf:type gist:Aspect ; gist:isCategorizedBy/gist:hasBroader* ?discipline . }
+  }
+  union
+  {
+   bind("Aspect with no UnitGroup" as  ?error)
+   ?aspect rdf:type gist:Aspect .
+#  optional          {?aspect gist:hasBroader*/gist:hasUnitGroup ?group . }
+   filter not exists {?aspect gist:hasBroader*/gist:hasUnitGroup ?group . }
+  }
+  union
+  {
+   bind("UnitGroup with no Aspect" as ?error)
+   ?group rdf:type gist:UnitGroup .
+#  optional          {?aspect gist:hasUnitGroup ?group . }
+   filter not exists {?aspect gist:hasUnitGroup ?group . }
+  }
+  union
+  {
+   bind("UnitGroup with no Units" as ?error)
+   ?group rdf:type gist:UnitGroup .
+#  optional          {?group gist:hasMember ?unit . }
+   filter not exists {?group gist:hasMember ?unit . }
+  }
+  union
+  {
+   bind("Unit with no UnitGroup" as ?error)
+   ?unit rdf:type gist:UnitOfMeasure .
+#  optional          {?group gist:hasMember ?unit . }
+   filter not exists {?group gist:hasMember ?unit . }
+  }
+  union
+  {
+   bind("UnitGroup with wrong rdf:type" as ?error)
+   ?aspect rdf:type gist:Aspect ;
+           gist:hasUnitGroup ?group.
+#  optional          {?group rdf:type gist:UnitGroup . }
+   filter not exists {?group rdf:type gist:UnitGroup . }
+  }
+  union
+  {
+   bind("Unit with wrong rdf:type" as ?error)
+   ?group rdf:type gist:UnitGroup ;
+           gist:hasMember ?unit.
+#  optional          {?unit rdf:type gist:UnitOfMeasure . }
+   filter not exists {?unit rdf:type gist:UnitOfMeasure . }
+  }
+}
+

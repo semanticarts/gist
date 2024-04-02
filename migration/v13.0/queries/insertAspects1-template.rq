@@ -1,0 +1,42 @@
+# insert new Aspects into the graph, where the old Aspect was represented as a property of a Magnitude, or its value
+
+# test
+select distinct ?magnitude ?aspect ?newAspect
+# select distinct ?magnitude ?magnitudeProperty ?magnitudePropertyValue ?newAspect
+# select distinct ?magnitude ?magnitudeProperty ?newAspect
+
+# insert { ?magnitude gist:hasAspect ?newAspect . }}
+
+where {
+  
+   ?magnitude gist:hasUnitOfMeasure ?unit ;
+              ?magnitudeProperty ?magnitudePropertyValue  ;
+              .
+
+   filter not exists {?magnitude gist:hasAspect ?anything . }   # to prevent duplicates (idempotent)
+              
+  {
+    ################ copy ?magnitudePropertyValue from findAspects1, and add new Aspect #################
+    values (?magnitudePropertyValue   ?newAspect)  {
+       
+           (gist:Duration             gistd:_Aspect_duration)    # sample value
+           }
+
+           ##################################################
+
+   bind(?magnitudePropertyValue as ?aspect)
+  }
+
+  union
+  {
+   ################ copy ?magnitudeProperty from findAspects1, and add new Aspect #################
+   values (?magnitudeProperty   ?newAspect) {
+
+          }
+          ##################################################
+
+   bind(?magnitudeProperty as ?aspect)
+  }
+
+}
+order by ?magnitude ?newAspect

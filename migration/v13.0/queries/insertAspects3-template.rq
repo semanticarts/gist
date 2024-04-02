@@ -1,0 +1,24 @@
+# insert Aspects, where the Aspect is represented as a property with a Magnitude as object
+# (e.g. hasMass)
+
+# test
+select distinct ?magnitude ?thingToMagnitudeProperty ?newAspect
+
+# insert {?magnitude gist:hasAspect ?newAspect . }
+
+where {
+  
+  ?magnitude gist:hasUnitOfMeasure ?unit .
+  
+  ?thing ?thingToMagnitudeProperty ?magnitude .
+
+  filter not exists {?magnitude gist:hasAspect ?anything . }   # to prevent duplicates (idempotent)
+
+  ################ copy ?thingToMagnitudeProperty from findAspects3, and add new Aspect #################
+  values (?thingToMagnitudeProperty  ?newAspect) {
+
+         }
+         ##################################################
+
+  } order by ?magnitude ?newAspect
+

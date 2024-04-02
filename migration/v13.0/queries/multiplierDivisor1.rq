@@ -1,0 +1,26 @@
+# replace hasMultiplicand and hasNumerator with hasMultiplier
+# replace hasDenominator with hasDivisor
+
+# test
+  construct {?s ?p ?o . }  # before
+# construct {?s ?newPredicate ?o . }  # after 
+
+# delete and insert
+# delete {?s ?p ?o . }
+# insert {?s ?newPredicate ?o . }
+
+where {
+  {
+   bind(gist:hasMultiplier as ?newPredicate)
+
+   ?s (gist:hasMultiplicand|gist:hasNumerator) ?o ;
+      ?p ?o .
+  }
+  union
+  {
+   bind(gist:hasDivisor as ?newPredicate)
+
+   ?s (gist:hasDenominator) ?o ;
+      ?p ?o .
+  }
+}

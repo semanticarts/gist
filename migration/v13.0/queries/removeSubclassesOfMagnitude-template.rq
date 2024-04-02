@@ -1,0 +1,41 @@
+
+# remove Magnitude subclasses that represent Aspects
+#
+# these can be identified by running findSubclassesOfMagnitude.rq
+# explicitly list the ones to be deleted by using the values statement
+#
+# test
+construct {?s ?p ?oldSubclass . }    # to be deleted
+# construct {?s ?p gist:Magnitude . }  # to be inserted
+
+# delete {?s ?p ?oldSubclass .}
+# insert {?s ?p gist:UnitOfMeasure .}      # re-point to gist:Magnitude
+
+where {
+  
+  values (?oldSubclass {
+
+         gist:Area
+         gist:Balance
+         gist:Count
+         gist:Duration
+         gist:ElectricCurrent
+         gist:Extent
+         gist:InformationQuantity
+         gist:LuminousIntensity
+         gist:Mass
+         gist:MolarQuantity
+         gist:Monetary
+         gist:Temperature
+         gist:Volume
+
+#        client:clientSubclassOfMagnitude   # add entries from the client namespace
+         }
+
+#  triples to replace or remove
+
+   ?s ?p ?oldSubclass .
+
+   ?oldSubclass ?p2 ?o2 .
+}
+order by ?oldSubclass
