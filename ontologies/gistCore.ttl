@@ -1773,7 +1773,6 @@ gist:OrderedCollection
 
 gist:OrderedMember
 	a owl:Class ;
-	rdfs:isDefinedBy <https://w3id.org/semanticarts/ontology/gistCore> ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
