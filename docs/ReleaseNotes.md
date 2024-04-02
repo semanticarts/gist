@@ -1,5 +1,8 @@
 # gist Release Notes
 
+## Release 13.0.0
+-Removed domain and range from `gist:isGovernedBy`. Issue [899] (https://github.com/semanticarts/gist/issues/899)
+
 ## Release 12.1.0
 
 ### Minor Updates
