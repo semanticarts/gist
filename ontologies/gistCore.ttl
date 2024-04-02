@@ -1750,7 +1750,7 @@ gist:OrderedCollection
 					[
 						a owl:Restriction ;
 						owl:onProperty gist:hasFirstMember ;
-						owl:someValuesFrom owl:OrderedMember ;
+						owl:someValuesFrom gist:OrderedMember ;
 					]
 					[
 						a owl:Restriction ;
