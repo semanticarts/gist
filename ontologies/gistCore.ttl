@@ -16,15 +16,7 @@
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
 	.
 
-skos:definition
-	a owl:AnnotationProperty ;
-	.
-
 skos:example
-	a owl:AnnotationProperty ;
-	.
-
-skos:prefLabel
 	a owl:AnnotationProperty ;
 	.
 
@@ -2868,8 +2860,6 @@ gist:actualStartYear
 
 gist:allows
 	a owl:ObjectProperty ;
-	rdfs:domain gist:Intention ;
-	rdfs:range gist:Behavior ;
 	skos:definition "The intention (say a grant) allows a particular kind of activity (for instance egress)"^^xsd:string ;
 	skos:prefLabel "allows"^^xsd:string ;
 	.
