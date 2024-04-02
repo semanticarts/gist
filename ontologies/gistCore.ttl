@@ -1778,9 +1778,9 @@ gist:OrderedMember
 		a owl:Class ;
 		owl:intersectionOf (
 			[
-        		a owl:Restriction ;
-        		owl:onProperty gist:providesOrderFor ;
-        		owl:someValuesFrom owl:Thing ;
+				a owl:Restriction ;
+				owl:onProperty gist:providesOrderFor ;
+				owl:someValuesFrom owl:Thing ;
 			]
 			[
 				a owl:Class ;
