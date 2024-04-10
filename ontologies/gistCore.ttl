@@ -35,49 +35,49 @@ skos:scopeNote
 
 gistd:_Aspect_area
 	a gist:Aspect ;
-	skos:definition "The Aspect area."^^xsd:string ;
+	skos:definition "The aspect area."^^xsd:string ;
 	skos:prefLabel "area"^^xsd:string ;
 	skos:scopeNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
 	.
 
 gistd:_Aspect_balance
 	a gist:Aspect ;
-	skos:definition "The Aspect balance."^^xsd:string ;
+	skos:definition "The aspect balance."^^xsd:string ;
 	skos:prefLabel "balance"^^xsd:string ;
 	skos:scopeNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
 	.
 
 gistd:_Aspect_distance
 	a gist:Aspect ;
-	skos:definition "The Aspect distance."^^xsd:string ;
+	skos:definition "The aspect distance."^^xsd:string ;
 	skos:prefLabel "distance"^^xsd:string ;
 	skos:scopeNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
 	.
 
 gistd:_Aspect_mass
 	a gist:Aspect ;
-	skos:definition "The Aspect mass."^^xsd:string ;
+	skos:definition "The aspect mass."^^xsd:string ;
 	skos:prefLabel "mass"^^xsd:string ;
 	skos:scopeNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
 	.
 
 gistd:_Aspect_monetary_value
 	a gist:Aspect ;
-	skos:definition "The Aspect monetary value."^^xsd:string ;
+	skos:definition "The aspect monetary value."^^xsd:string ;
 	skos:prefLabel "monetary value"^^xsd:string ;
 	skos:scopeNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
 	.
 
 gistd:_Aspect_probability
 	a gist:Aspect ;
-	skos:definition "The Aspect probability."^^xsd:string ;
+	skos:definition "The aspect probability."^^xsd:string ;
 	skos:prefLabel "probability"^^xsd:string ;
 	skos:scopeNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
 	.
 
 gistd:_Aspect_volume
 	a gist:Aspect ;
-	skos:definition "The Aspect volume."^^xsd:string ;
+	skos:definition "The aspect volume."^^xsd:string ;
 	skos:prefLabel "volume"^^xsd:string ;
 	skos:scopeNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
 	.
@@ -167,7 +167,7 @@ gist:Aspect
 	a owl:Class ;
 	skos:definition "A measurable characteristic such as cost, cycle time, or defect rate."^^xsd:string ;
 	skos:prefLabel "Aspect"^^xsd:string ;
-	skos:scopeNote "Every Aspect should be related to a broader Aspect or related to a Unit Group. For example, angle of incidence should be related to the broader concept of angle, which in turn is related to a Unit Group."^^xsd:string ;
+	skos:scopeNote "Every aspect should be related to a broader aspect or related to a unit group. For example, angle of incidence should be related to the broader concept of angle, which in turn is related to a unit group."^^xsd:string ;
 	.
 
 gist:Behavior
@@ -1072,7 +1072,7 @@ gist:Magnitude
 		) ;
 	] ;
 	skos:definition "The amount of a measurable characteristic (Aspect)."^^xsd:string ;
-	skos:example "A model of car could have a wheelbase of 113.2 inches. In this example, the Aspect is wheelbase, the Unit of Measure is inch, and the numericValue is 113.2."^^xsd:string ;
+	skos:example "A model of car could have a wheelbase of 113.2 inches. In this example, the aspect is wheelbase, the unit of measure is inch, and the numericValue is 113.2."^^xsd:string ;
 	skos:prefLabel "Magnitude"^^xsd:string ;
 	.
 
@@ -1989,10 +1989,10 @@ gist:UnitGroup
 		) ;
 	] ;
 	owl:disjointWith gist:UnitOfMeasure ;
-	skos:definition "A collection of Units of Measure that can all be used to measure the same Aspects."^^xsd:string ;
-	skos:example "The Units of Measure bit, byte, kilobit, kilobyte, etc. are all in the same Unit Group because they can all be used to measure an amount of data."^^xsd:string ;
+	skos:definition "A collection of units of measure that can all be used to measure the same aspects."^^xsd:string ;
+	skos:example "The units of measure bit, byte, kilobit, kilobyte, etc. are all in the same unit group because they can all be used to measure an amount of data."^^xsd:string ;
 	skos:prefLabel "Unit Group"^^xsd:string ;
-	skos:scopeNote "Typically there is one UnitGroup per Aspect. An example of an Aspect with two Unit Groups is vehicle efficiency, which can be measured by miles per gallon (distance per volume) or by liters per 100 kilometers (volume per distance). These two Units of Measure need to be in different Unit Groups because they have different values of exponents. When adding a Unit of Measure to a Unit Group, make sure it has the same exponents as the other members of the Unit Group."^^xsd:string ;
+	skos:scopeNote "Typically there is one UnitGroup per aspect. An example of an aspect with two unit groups is vehicle efficiency, which can be measured by miles per gallon (distance per volume) or by liters per 100 kilometers (volume per distance). These two units of measure need to be in different unit groups because they have different values of exponents. When adding a unit of measure to a unit group, make sure it has the same exponents as the other members of the unit group."^^xsd:string ;
 	.
 
 gist:UnitOfMeasure
@@ -2225,9 +2225,9 @@ gist:conversionFactor
 		) ;
 	] ;
 	rdfs:seeAlso gist:conversionOffset ;
-	skos:definition "A value that relates a Unit of Measure to units of the International System of Units. For example, in the equation 1 inch = 0.0254 meters, the value 0.0254 is the conversion factor of inch."^^xsd:string ;
+	skos:definition "A value that relates a unit of measure to units of the International System of Units. For example, in the equation 1 inch = 0.0254 meters, the value 0.0254 is the conversion factor of inch."^^xsd:string ;
 	skos:prefLabel "conversion factor"^^xsd:string ;
-	skos:scopeNote """To convert a numeric value from one Unit of Measure to another, multiply by the conversion factor of the first unit and then divide by the conversion factor of the second unit.
+	skos:scopeNote """To convert a numeric value from one unit of measure to another, multiply by the conversion factor of the first unit and then divide by the conversion factor of the second unit.
 
 	For example, to convert 27 feet to yards:
 
@@ -2324,7 +2324,7 @@ gist:exponentOfAmpere
 		the exponent of ampere is 1
 		all other exponents are zero
 
-		Every member of a Unit Group containing milliampere will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
+		Every member of a unit group containing milliampere will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
 	skos:prefLabel "exponent of ampere"^^xsd:string ;
 	.
 
@@ -2340,7 +2340,7 @@ gist:exponentOfBit
 		the exponent of second is -1
 		all other exponents are zero
 
-		Every member of a Unit Group containing megabit per second will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
+		Every member of a unit group containing megabit per second will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
 	skos:prefLabel "exponent of bit"^^xsd:string ;
 	.
 
@@ -2355,7 +2355,7 @@ gist:exponentOfCandela
 		the exponent of candela is 1
 		all other exponents are zero
 
-		Every member of a Unit Group containing candlepower will have a similar decomposition."""^^xsd:string ;
+		Every member of a unit group containing candlepower will have a similar decomposition."""^^xsd:string ;
 	skos:prefLabel "exponent of candela"^^xsd:string ;
 	.
 
@@ -2371,7 +2371,7 @@ gist:exponentOfKelvin
 		the exponent of kelvin is 1
 		all other exponents are zero
 
-		Every member of a Unit Group containing degree Fahrenheit will have a similar decomposition, although with a different conversionFactor and conversionOffset."""^^xsd:string ;
+		Every member of a unit group containing degree Fahrenheit will have a similar decomposition, although with a different conversionFactor and conversionOffset."""^^xsd:string ;
 	skos:prefLabel "exponent of kelvin"^^xsd:string ;
 	.
 
@@ -2387,7 +2387,7 @@ gist:exponentOfKilogram
 		the exponent of kilogram is -1
 		all other exponents are zero
 
-		Every member of a Unit Group containing millimole per gram will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
+		Every member of a unit group containing millimole per gram will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
 	skos:prefLabel "exponent of kilogram"^^xsd:string ;
 	.
 
@@ -2403,7 +2403,7 @@ gist:exponentOfMeter
 		the exponent of meter is -3
 		all other exponents are zero
 
-		Every member of a Unit Group containing microgram per milliliter will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
+		Every member of a unit group containing microgram per milliliter will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
 	skos:prefLabel "exponent of meter"^^xsd:string ;
 	.
 
@@ -2419,7 +2419,7 @@ gist:exponentOfMole
 		the exponent of second is -1
 		all other exponents are zero
 
-		Every member of a Unit Group containing katal will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
+		Every member of a unit group containing katal will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
 	skos:prefLabel "exponent of mole"^^xsd:string ;
 	.
 
@@ -2435,20 +2435,20 @@ gist:exponentOfNumber
 		the exponent of second is -1
 		all other exponents are zero
 
-		Every member of a Unit Group containing beat per minute will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
+		Every member of a unit group containing beat per minute will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
 	skos:prefLabel "exponent of number"^^xsd:string ;
-	skos:scopeNote "Use when the Unit of Measure involves a count or other number."^^xsd:string ;
+	skos:scopeNote "Use when the unit of measure involves a count or other number."^^xsd:string ;
 	.
 
 gist:exponentOfOther
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:UnitGroup ;
 	rdfs:range xsd:decimal ;
-	skos:definition "Indicates whether a Unit of Measure is defined using a logarithmic or other non-linear scale, of that has some term not covered by the list of exponents."^^xsd:string ;
+	skos:definition "Indicates whether a unit of measure is defined using a logarithmic or other non-linear scale, of that has some term not covered by the list of exponents."^^xsd:string ;
 	skos:prefLabel "exponent of other"^^xsd:string ;
-	skos:scopeNote """Set the value to 0 if the other exponents give a complete decomposition of the Unit of Measure.
+	skos:scopeNote """Set the value to 0 if the other exponents give a complete decomposition of the unit of measure.
 
-		Set the value to 1 if there is a missing exponent, or if the Unit of Measure is defined in terms of logarithms or some other non-linear transformation."""^^xsd:string ;
+		Set the value to 1 if there is a missing exponent, or if the unit of measure is defined in terms of logarithms or some other non-linear transformation."""^^xsd:string ;
 	.
 
 gist:exponentOfRadian
@@ -2462,7 +2462,7 @@ gist:exponentOfRadian
 		the exponent of radian is 1
 		all other exponents are zero
 
-		Every member of a Unit Group containing revolution will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
+		Every member of a unit group containing revolution will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
 	skos:prefLabel "exponent of radian"^^xsd:string ;
 	.
 
@@ -2479,7 +2479,7 @@ gist:exponentOfSecond
 		the exponent of second is -2
 		all other exponents are zero
 
-		Every member of a Unit Group containing watt-hour will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
+		Every member of a unit group containing watt-hour will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
 	skos:prefLabel "exponent of second"^^xsd:string ;
 	.
 
@@ -2496,7 +2496,7 @@ gist:exponentOfSteradian
 		the exponent of steradian is -1
 		all other exponents are zero
 
-		Every member of a Unit Group containing watt per square meter steradian will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
+		Every member of a unit group containing watt per square meter steradian will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
 	skos:prefLabel "exponent of steradian"^^xsd:string ;
 	skos:scopeNote "Steradian is a measure of solid angle."^^xsd:string ;
 	.
@@ -2513,7 +2513,7 @@ gist:exponentOfUSDollar
 		the exponent of second is -1
 		all other exponents are zero
 
-		Every member of a Unit Group containing million dollars per week will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
+		Every member of a unit group containing million dollars per week will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
 	skos:prefLabel "exponent of us dollar"^^xsd:string ;
 	skos:scopeNote "The factors for converting from one currency to another change constantly."^^xsd:string ;
 	.
@@ -2548,7 +2548,7 @@ gist:goesToPlace
 
 gist:hasAddend
 	a owl:ObjectProperty ;
-	skos:definition "Relates an Aspect to another Aspect that is an additive component of it."^^xsd:string ;
+	skos:definition "Relates an aspect to another aspect that is an additive component of it."^^xsd:string ;
 	skos:example "In the equation profit = revenue - expenses, revenue is an Addend and expenses is a Subtrahend."^^xsd:string ;
 	skos:prefLabel "has addend"^^xsd:string ;
 	skos:scopeNote "Commonly used with financial metrics."^^xsd:string ;
@@ -2576,7 +2576,7 @@ gist:hasAspect
 		owl:FunctionalProperty
 		;
 	rdfs:range gist:Aspect ;
-	skos:definition "Relates a Magnitude to its Aspect (measurable characteristic)."^^xsd:string ;
+	skos:definition "Relates a magnitude to its aspect (measurable characteristic)."^^xsd:string ;
 	skos:prefLabel "has aspect"^^xsd:string ;
 	.
 
@@ -2634,10 +2634,10 @@ gist:hasDirectSuperCategory
 
 gist:hasDivisor
 	a owl:ObjectProperty ;
-	skos:definition "Relates an Aspect to another Aspect that is a divisor. May also be used with Units of Measure."^^xsd:string ;
+	skos:definition "Relates an aspect to another aspect that is a divisor. May also be used with units of measure."^^xsd:string ;
 	skos:example "Miles per hour has miles as a multiplier and hour as a divisor."^^xsd:string ;
 	skos:prefLabel "has divisor"^^xsd:string ;
-	skos:scopeNote "Provides a supplemental method of decomposing an Aspect or UnitOfMeasure into component factors. Enables dimensional analysis such as miles per hour x hours = miles."^^xsd:string ;
+	skos:scopeNote "Provides a supplemental method of decomposing an aspect or unit of measure into component factors. Enables dimensional analysis such as miles per hour x hours = miles."^^xsd:string ;
 	.
 
 gist:hasFirstMember
@@ -2676,8 +2676,8 @@ gist:hasIncumbent
 gist:hasMagnitude
 	a owl:ObjectProperty ;
 	rdfs:range gist:Magnitude ;
-	skos:definition "Relates a Thing to a Magnitude."^^xsd:string ;
-	skos:example "A car or a model of car has a Magnitude for length, one for width, one for weight, etc."^^xsd:string ;
+	skos:definition "Relates a Thing to a magnitude."^^xsd:string ;
+	skos:example "A car or a model of car has a magnitude for length, one for width, one for weight, etc."^^xsd:string ;
 	skos:prefLabel "has magnitude"^^xsd:string ;
 	.
 
@@ -2693,10 +2693,10 @@ gist:hasMember
 
 gist:hasMultiplier
 	a owl:ObjectProperty ;
-	skos:definition "Relates an Aspect to another Aspect that is a factor. May also be used with Units of Measure."^^xsd:string ;
+	skos:definition "Relates an aspect to another aspect that is a factor. May also be used with units of measure."^^xsd:string ;
 	skos:example "Miles per hour has miles as a multiplier and hour as a divisor."^^xsd:string ;
 	skos:prefLabel "has multiplier"^^xsd:string ;
-	skos:scopeNote "Provides a supplemental method of decomposing an Aspect or UnitOfMeasure into component factors. Enables dimensional analysis such as miles per hour x hours = miles."^^xsd:string ;
+	skos:scopeNote "Provides a supplemental method of decomposing an aspect or UnitOfMeasure into component factors. Enables dimensional analysis such as miles per hour x hours = miles."^^xsd:string ;
 	.
 
 gist:hasNavigationalParent
@@ -2758,7 +2758,7 @@ gist:hasPrecision
 		owl:FunctionalProperty
 		;
 	rdfs:range gist:Magnitude ;
-	skos:definition "Relates a Magnitude to the accuracy of the numeric value."^^xsd:string ;
+	skos:definition "Relates a magnitude to the accuracy of the numeric value."^^xsd:string ;
 	skos:example "Temperature precise to tenth of a degree C; length precise to the nearest centimeter."^^xsd:string ;
 	skos:prefLabel "has precision"^^xsd:string ;
 	skos:scopeNote "A typical way to use precision is to have it represent 2 standard deviations of the distribution of measurement errors. With this convention, when the measurement method is well-calibrated (has an average error of zero), there is a 95% chance that the actual error in measurement, in either direction, is less than the precision."^^xsd:string ;
@@ -2773,7 +2773,7 @@ gist:hasRecipient
 
 gist:hasSubtrahend
 	a owl:ObjectProperty ;
-	skos:definition "Relates an Aspect to another Aspect that is a subtracted component of it."^^xsd:string ;
+	skos:definition "Relates an aspect to another aspect that is a subtracted component of it."^^xsd:string ;
 	skos:example "In the equation profit = revenue - expenses, revenue is an addend and expenses is a subtrahend."^^xsd:string ;
 	skos:prefLabel "has subtrahend"^^xsd:string ;
 	skos:scopeNote "Commonly used with financial metrics."^^xsd:string ;
@@ -2813,7 +2813,7 @@ gist:hasUnitGroup
 	a owl:ObjectProperty ;
 	rdfs:domain gist:Aspect ;
 	rdfs:range gist:UnitGroup ;
-	skos:definition "Relates an Aspect to a Unit Group. The Aspect can be measured using any of the members of the Unit Group."^^xsd:string ;
+	skos:definition "Relates an aspect to a unit group. The aspect can be measured using any of the members of the unit group."^^xsd:string ;
 	skos:prefLabel "has unit group"^^xsd:string ;
 	.
 
