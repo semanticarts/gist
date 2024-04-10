@@ -3087,7 +3087,6 @@ gist:name
 
 gist:numericValue
 	a owl:DatatypeProperty ;
-	rdfs:domain gist:Magnitude ;
 	rdfs:range [
 		a rdfs:Datatype ;
 		owl:unionOf (
