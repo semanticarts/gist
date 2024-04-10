@@ -1992,7 +1992,7 @@ gist:UnitGroup
 	skos:definition "A collection of Units of Measure that can all be used to measure the same Aspects."^^xsd:string ;
 	skos:example "The Units of Measure bit, byte, kilobit, kilobyte, etc. are all in the same Unit Group because they can all be used to measure an amount of data."^^xsd:string ;
 	skos:prefLabel "Unit Group"^^xsd:string ;
-	skos:scopeNote "When adding a Unit of Measure to a Unit Group, make sure it has the same exponents as the other members of the Unit Group. For example, miles per gallon and gallons per mile could both be used to measure vehicle efficiency, but they need to be in different unit groups."^^xsd:string ;
+	skos:scopeNote "Typically there is one UnitGroup per Aspect. An example of an Aspect with two Unit Groups is vehicle efficiency, which can be measured by miles per gallon (distance per volume) or by liters per 100 kilometers (volume per distance). These two Units of Measure need to be in different Unit Groups because they have different values of exponents. When adding a Unit of Measure to a Unit Group, make sure it has the same exponents as the other members of the Unit Group."^^xsd:string ;
 	.
 
 gist:UnitOfMeasure
@@ -2813,7 +2813,7 @@ gist:hasUnitGroup
 	a owl:ObjectProperty ;
 	rdfs:domain gist:Aspect ;
 	rdfs:range gist:UnitGroup ;
-	skos:definition "Relates an Aspect to a Unit Group whose members are Units of Measure. The Aspect can be measured using any of the members of the Unit Group."^^xsd:string ;
+	skos:definition "Relates an Aspect to a Unit Group. The Aspect can be measured using any of the members of the Unit Group."^^xsd:string ;
 	skos:prefLabel "has unit group"^^xsd:string ;
 	.
 
