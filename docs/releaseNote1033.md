@@ -6,7 +6,7 @@ This is a major release which includes several changes which break compatibility
 
 #### New model of units and magnitudes. Issue [#1033](https://github.com/semanticarts/gist/issues/1033)
 
-- Deleted all subclasses of `gist:Magnitude`:
+- Deleted all subclasses of `gist:Magnitude` except `gist:ReferenceValue`:
   - `gist:Area`
   - `gist:Balance`
   - `gist:Count`
