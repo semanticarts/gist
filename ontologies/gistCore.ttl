@@ -2250,8 +2250,10 @@ gist:SimpleUnitOfMeasure
 gist:Specification
 	a owl:Class ;
 	rdfs:subClassOf gist:Requirement ;
-	skos:definition "One or more requirements to be satisfied by a material, design, product, or service."^^xsd:string ;
+	skos:definition "One or more characteristics that specify what it means to be a particular type of thing such as a material, product, service or event. A specification is sufficiently precise to allow conformance of something to the specification to be tested."^^xsd:string ;
+	skos:example "The specification of the iPhone 14; hypothetical events covered by a home owner's insurance policy."^^xsd:string ;
 	skos:prefLabel "Specification"^^xsd:string ;
+	skos:scopeNote "Although a characterization of how to do something is often called a specification, the intended meaning here is limited to specifying what something is. The focus is on the what, not the how. Use the task template class for specifying the how, such as a plan or process specification."^^xsd:string ;
 	.
 
 gist:StreetAddress
