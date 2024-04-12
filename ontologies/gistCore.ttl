@@ -944,6 +944,15 @@ gist:Event
 		;
 	.
 
+gist:EventSpecification
+	a owl:Class ;
+	rdfs:subClassOf gist:Specification ;
+	skos:definition "A characterization of an event that might happen."^^xsd:string ;
+	skos:example "A hail storm that is covered by an insurance policy.  Someone defaults on a loan."^^xsd:string ;
+	skos:prefLabel "Event Specification"^^xsd:string ;
+	skos:scopeNote "It is useful for risk assessment and insurance policies."^^xsd:string ;
+	.
+
 gist:Extent
 	a owl:Class ;
 	owl:equivalentClass [
