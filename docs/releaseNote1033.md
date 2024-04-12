@@ -1,121 +1,116 @@
 ## Release 13.0.0
 
-Updated to improve Units of Measure and Magnitude.
+This is a major release which includes several changes which break compatibility with previous versions of gist, most notably an entirely revised model of units and magnitudes. See the [migration guide](./MajorVersionMigration.html) for documentation on updating existing gist-based ontologies and instance data. Migration scripts are included to facilitate the upgrade process.
 
 ### Major Updates
 
-- Removed the following:
+#### New model of units and magnitudes. Issue [#1033](https://github.com/semanticarts/gist/issues/1033)
 
-  - `gist:Area`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:Balance`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:Count`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:Duration`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:ElectricCurrent`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:Extent`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:InformationQuantity`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:LuminousIntensity`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:Mass`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:MolarQuantity`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:Monetary`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:MonetaryPerDuration`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:ProductMagnitude`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:RatioMagnitude`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:Temperature`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:Volume`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-
-  - `gist:AreaUnit`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:BaseUnit`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:CoherentRatioUnit`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:CoherentProductUnit`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:CountingUnit`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:CurrencyPerDurationUnit`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:CurrencyUnit`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:DataSizeUnit`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:DistanceUnit`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:ElectricalCurrentUnit`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:LuminousIntensityUnit`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:MassUnit`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:MoleUnit`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:ProductUnit`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:RatioUnit`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:SimpleUnitOfMeasure`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:TemperatureUnit`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:VolumeUnit`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-
-  - `gist:hasDenominator`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:hasMultiplicand`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:hasNumerator`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:hasStandardUnit`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:isAspectOf`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-
-  - `gist:_ampere`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:_bit`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:_candela`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:_day`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:_each`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:_kelvin`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:_kilogram`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:_meter`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:_millisecond`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:_minute`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:_mole`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:_percent`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:_second`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:_USDollar`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-
-- Added the following:
-
-  - `gist:Discipline`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:UnitGroup`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:hasAddend`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:hasAspect`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:hasBroader`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:hasDivisor`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:hasSubtrahend`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:hasUnitGroup`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:exponentOfAmpere`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:exponentOfBit`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:exponentOfCandela`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:exponentOfKelvin`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:exponentOfKilogram`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:exponentOfMeter`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:exponentOfMole`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:exponentOfNumber`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:exponentOfOther`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:exponentOfRadian`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:exponentOfSecond`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:exponentOfSteradian`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:exponentOfUSDollar`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gistd:_Aspect_area`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gistd:_Aspect_balance`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gistd:_Aspect_distance`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gistd:_Aspect_mass`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gistd:_Aspect_probability`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gistd:_Aspect_volume`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-
-  - prefix for gistd. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-
-- Modified the following:
-
-  - `gist:Aspect`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:Magnitude`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:UnitOfMeasure`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:hasMagnitude`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:hasMultiplier`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:hasPrecision`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:conversionFactor`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:conversionOffset`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-
-### Minor Updates
-
+- Deleted all subclasses of `gist:Magnitude`:
+  - `gist:Area`
+  - `gist:Balance`
+  - `gist:Count`
+  - `gist:Duration`
+  - `gist:ElectricCurrent`
+  - `gist:Extent`
+  - `gist:InformationQuantity`
+  - `gist:LuminousIntensity`
+  - `gist:Mass`
+  - `gist:MolarQuantity`
+  - `gist:Monetary`
+  - `gist:MonetaryPerDuration`
+  - `gist:ProductMagnitude`
+  - `gist:RatioMagnitude`
+  - `gist:Temperature`
+  - `gist:Volume`
+- Deleted all subclass of `gist:UnitOfMeasure`:
+  - `gist:AreaUnit`
+  - `gist:BaseUnit`
+  - `gist:CoherentRatioUnit`
+  - `gist:CoherentProductUnit`
+  - `gist:CountingUnit`
+  - `gist:CurrencyPerDurationUnit`
+  - `gist:CurrencyUnit`
+  - `gist:DataSizeUnit`
+  - `gist:DistanceUnit`
+  - `gist:ElectricalCurrentUnit`
+  - `gist:LuminousIntensityUnit`
+  - `gist:MassUnit`
+  - `gist:MoleUnit`
+  - `gist:ProductUnit`
+  - `gist:RatioUnit`
+  - `gist:SimpleUnitOfMeasure`
+  - `gist:TemperatureUnit`
+  - `gist:VolumeUnit`
+- Deleted the following predicates:
+  - `gist:hasDenominator`
+  - `gist:hasMultiplicand`
+  - `gist:hasNumerator`
+  - `gist:hasStandardUnit`
+  - `gist:isAspectOf`
+  
+- Deleted all unit of measure instances:
+  - `gist:_ampere`
+  - `gist:_bit`
+  - `gist:_candela`
+  - `gist:_day`
+  - `gist:_each`
+  - `gist:_kelvin`
+  - `gist:_kilogram`
+  - `gist:_meter`
+  - `gist:_millisecond`
+  - `gist:_minute`
+  - `gist:_mole`
+  - `gist:_percent`
+  - `gist:_second`
+  - `gist:_USDollar`
+- Added classes and predicates:
+  - `gist:Discipline`
+  - `gist:UnitGroup`
+  - `gist:hasAddend`
+  - `gist:hasAspect`
+  - `gist:hasBroader`
+  - `gist:hasDivisor`
+  - `gist:hasSubtrahend`
+  - `gist:hasUnitGroup`
+  - `gist:exponentOfAmpere`
+  - `gist:exponentOfBit`
+  - `gist:exponentOfCandela`
+  - `gist:exponentOfKelvin`
+  - `gist:exponentOfKilogram`
+  - `gist:exponentOfMeter`
+  - `gist:exponentOfMole`
+  - `gist:exponentOfNumber`
+  - `gist:exponentOfOther`
+  - `gist:exponentOfRadian`
+  - `gist:exponentOfSecond`
+  - `gist:exponentOfSteradian`
+  - `gist:exponentOfUSDollar`
+- Added aspect instances. Note the new `gistd:` namespace (`<https://w3id.org/semanticarts/ns/data/gist/>`).
+  - `gistd:_Aspect_area`
+  - `gistd:_Aspect_balance`
+  - `gistd:_Aspect_distance`
+  - `gistd:_Aspect_mass`
+  - `gistd:_Aspect_probability`
+  - `gistd:_Aspect_volume`
 - Modified the class expression restrictions of:
-
-  - `gist:Account`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:ContingentEvent`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:GeoPoint`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:GeoRegion`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:Offer`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:PhysicalIdentifiableItem`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
-  - `gist:PhysicalSubstance`. Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
+  - `gist:Account`
+  - `gist:ContingentEvent`
+  - `gist:GeoPoint`
+  - `gist:GeoRegion`
+  - `gist:Offer`
+  - `gist:PhysicalIdentifiableItem`
+  - `gist:PhysicalSubstance`
+- Modified the following classes and predicates:
+  - `gist:Aspect`
+  - `gist:Magnitude`
+  - `gist:UnitOfMeasure`
+  - `gist:hasMagnitude`
+  - `gist:hasMultiplier`
+  - `gist:hasPrecision`
+  - `gist:conversionFactor`
+  - `gist:conversionOffset`
+- Added scripts for the migration of existing client ontologies and instance data. [TODO - add pointer]
+- Added complete documentation on understanding and implementing the new model. [TODO - add pointer]
 
 Import URL: <https://w3id.org/semanticarts/ontology/gistCore13.0.0>.
