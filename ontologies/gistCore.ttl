@@ -2499,11 +2499,12 @@ gist:exponentOfOther
 		) ;
 	] ;
 	rdfs:range xsd:decimal ;
-	skos:definition "Indicates whether a unit of measure is defined using a logarithmic or other non-linear scale, or that has some term not included in the list of exponents."^^xsd:string ;
+	skos:definition "Indicates whether a unit of measure can be expressed in terms of the standard exponents (as shown in the examples)."^^xsd:string ;
+	skos:example "Decibel, pH, and octave are units of measure that are logarithmic. Their unit groups have exponent of other = 1."^^xsd:string ;
 	skos:prefLabel "exponent of other"^^xsd:string ;
-	skos:scopeNote """Set the value to 0 if the other exponents give a complete decomposition of the unit of measure.
+	skos:scopeNote """Set the value to 0 if the units of measure in the unit group can be expressed using the standard set of exponents (as in the examples).
 
-		Set the value to 1 if there is a missing exponent, or if the unit of measure is defined in terms of logarithms or some other non-linear transformation."""^^xsd:string ;
+		Otherwise set the value to 1, which typically means the units of measure in the group use a logarithmic scale."""^^xsd:string ;
 	.
 
 gist:exponentOfRadian
