@@ -2325,7 +2325,7 @@ gist:exponentOfAmpere
 		the exponent of ampere is 1
 		all other exponents are zero
 
-		Every member of a unit group containing milliampere will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
+		Every member of a unit group containing milliampere must be a multiple of ampere."""^^xsd:string ;
 	skos:prefLabel "exponent of ampere"^^xsd:string ;
 	.
 
@@ -2341,7 +2341,7 @@ gist:exponentOfBit
 		the exponent of second is -1
 		all other exponents are zero
 
-		Every member of a unit group containing megabit per second will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
+		Every member of a unit group containing megabit per second must be a multiple of bit per second."""^^xsd:string ;
 	skos:prefLabel "exponent of bit"^^xsd:string ;
 	.
 
@@ -2356,7 +2356,7 @@ gist:exponentOfCandela
 		the exponent of candela is 1
 		all other exponents are zero
 
-		Every member of a unit group containing candlepower will have a similar decomposition."""^^xsd:string ;
+		Every member of a unit group containing candlepower must be a multiple of candela."""^^xsd:string ;
 	skos:prefLabel "exponent of candela"^^xsd:string ;
 	.
 
@@ -2372,7 +2372,7 @@ gist:exponentOfKelvin
 		the exponent of kelvin is 1
 		all other exponents are zero
 
-		Every member of a unit group containing degree Fahrenheit will have a similar decomposition, although with a different conversionFactor and conversionOffset."""^^xsd:string ;
+		Every member of a unit group containing degree Fahrenheit will have a similar equation, with different offset or conversion factor (or both)."""^^xsd:string ;
 	skos:prefLabel "exponent of kelvin"^^xsd:string ;
 	.
 
@@ -2388,7 +2388,7 @@ gist:exponentOfKilogram
 		the exponent of kilogram is -1
 		all other exponents are zero
 
-		Every member of a unit group containing millimole per gram will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
+		Every member of a unit group containing millimole per gram must be a multiple of mole per kilogram."""^^xsd:string ;
 	skos:prefLabel "exponent of kilogram"^^xsd:string ;
 	.
 
@@ -2404,7 +2404,7 @@ gist:exponentOfMeter
 		the exponent of meter is -3
 		all other exponents are zero
 
-		Every member of a unit group containing microgram per milliliter will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
+		Every member of a unit group containing microgram per milliliter must be a multiple of kilogram per meterCubed."""^^xsd:string ;
 	skos:prefLabel "exponent of meter"^^xsd:string ;
 	.
 
@@ -2420,7 +2420,7 @@ gist:exponentOfMole
 		the exponent of second is -1
 		all other exponents are zero
 
-		Every member of a unit group containing katal will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
+		Every member of a unit group containing katal must be a multiple of mole per second."""^^xsd:string ;
 	skos:prefLabel "exponent of mole"^^xsd:string ;
 	.
 
@@ -2436,7 +2436,7 @@ gist:exponentOfNumber
 		the exponent of second is -1
 		all other exponents are zero
 
-		Every member of a unit group containing beat per minute will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
+		Every member of a unit group containing beat per minute must be a multiple of number per second."""^^xsd:string ;
 	skos:prefLabel "exponent of number"^^xsd:string ;
 	skos:scopeNote "Use when the unit of measure involves a count or other number."^^xsd:string ;
 	.
@@ -2463,7 +2463,7 @@ gist:exponentOfRadian
 		the exponent of radian is 1
 		all other exponents are zero
 
-		Every member of a unit group containing revolution will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
+		Every member of a unit group containing revolution must be a multiple of radian."""^^xsd:string ;
 	skos:prefLabel "exponent of radian"^^xsd:string ;
 	.
 
@@ -2480,7 +2480,7 @@ gist:exponentOfSecond
 		the exponent of second is -2
 		all other exponents are zero
 
-		Every member of a unit group containing watt-hour will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
+		Every member of a unit group containing watt-hour must be a multiple of kilogram meterSquared per secondSquared."""^^xsd:string ;
 	skos:prefLabel "exponent of second"^^xsd:string ;
 	.
 
@@ -2497,7 +2497,7 @@ gist:exponentOfSteradian
 		the exponent of steradian is -1
 		all other exponents are zero
 
-		Every member of a unit group containing watt per square meter steradian will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
+		Every member of a unit group containing watt per square meter steradian must a multiple of kilogram per secondCubed steradian."""^^xsd:string ;
 	skos:prefLabel "exponent of steradian"^^xsd:string ;
 	skos:scopeNote "Steradian is a measure of solid angle."^^xsd:string ;
 	.
@@ -2507,14 +2507,14 @@ gist:exponentOfUSDollar
 	rdfs:domain gist:UnitGroup ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of US Dollar in a product of powers of base units."^^xsd:string ;
-	skos:example """In the equation 1 million dollars per week = 1.65344 x dollars per second
+	skos:example """In the equation 1 million dollars per week = 1.65344 x dollar per second
 
 		the conversion factor for million dollars per week is 1.65344
 		the exponent of US Dollar is 1
 		the exponent of second is -1
 		all other exponents are zero
 
-		Every member of a unit group containing million dollars per week will have a similar decomposition, although with a different conversionFactor."""^^xsd:string ;
+		Every member of a unit group containing million dollars per week must be a multiple of dollar per second."""^^xsd:string ;
 	skos:prefLabel "exponent of us dollar"^^xsd:string ;
 	skos:scopeNote "The factors for converting from one currency to another change constantly."^^xsd:string ;
 	.
