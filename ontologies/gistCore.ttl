@@ -2316,7 +2316,13 @@ gist:endDateTime
 
 gist:exponentOfAmpere
 	a owl:DatatypeProperty ;
-	rdfs:domain gist:UnitGroup ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf (
+			gist:UnitGroup
+			gist:UnitOfMeasure
+		) ;
+	] ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of ampere in a product of powers of base units."^^xsd:string ;
 	skos:example """In the equation 1 milliampere = 0.001 x ampere
@@ -2331,7 +2337,13 @@ gist:exponentOfAmpere
 
 gist:exponentOfBit
 	a owl:DatatypeProperty ;
-	rdfs:domain gist:UnitGroup ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf (
+			gist:UnitGroup
+			gist:UnitOfMeasure
+		) ;
+	] ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of bit in a product of powers of base units."^^xsd:string ;
 	skos:example """In the equation 1 megabit per second = 1000000 x bit per second
@@ -2347,7 +2359,13 @@ gist:exponentOfBit
 
 gist:exponentOfCandela
 	a owl:DatatypeProperty ;
-	rdfs:domain gist:UnitGroup ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf (
+			gist:UnitGroup
+			gist:UnitOfMeasure
+		) ;
+	] ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of candela in a product of powers of base units."^^xsd:string ;
 	skos:example """In the equation 1 candlepower = 1 x candela
@@ -2362,7 +2380,13 @@ gist:exponentOfCandela
 
 gist:exponentOfKelvin
 	a owl:DatatypeProperty ;
-	rdfs:domain gist:UnitGroup ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf (
+			gist:UnitGroup
+			gist:UnitOfMeasure
+		) ;
+	] ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of kelvin in a product of powers of base units."^^xsd:string ;
 	skos:example """In the equation y degrees Fahrenheit = (y + 459.6669607) x 5/9 degrees Kelvin
@@ -2378,7 +2402,13 @@ gist:exponentOfKelvin
 
 gist:exponentOfKilogram
 	a owl:DatatypeProperty ;
-	rdfs:domain gist:UnitGroup ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf (
+			gist:UnitGroup
+			gist:UnitOfMeasure
+		) ;
+	] ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of kilogram in a product of powers of base units."^^xsd:string ;
 	skos:example """In the equation 1 millimole per gram = 1 x mole per kilogram
@@ -2394,7 +2424,13 @@ gist:exponentOfKilogram
 
 gist:exponentOfMeter
 	a owl:DatatypeProperty ;
-	rdfs:domain gist:UnitGroup ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf (
+			gist:UnitGroup
+			gist:UnitOfMeasure
+		) ;
+	] ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of meter in a product of powers of base units."^^xsd:string ;
 	skos:example """In the equation 1 microgram per milliliter = 0.001 x kilogram per meterCubed
@@ -2410,7 +2446,13 @@ gist:exponentOfMeter
 
 gist:exponentOfMole
 	a owl:DatatypeProperty ;
-	rdfs:domain gist:UnitGroup ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf (
+			gist:UnitGroup
+			gist:UnitOfMeasure
+		) ;
+	] ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of mole in a product of powers of base units."^^xsd:string ;
 	skos:example """In the equation 1 katal = 1 x mole per second
@@ -2426,7 +2468,13 @@ gist:exponentOfMole
 
 gist:exponentOfNumber
 	a owl:DatatypeProperty ;
-	rdfs:domain gist:UnitGroup ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf (
+			gist:UnitGroup
+			gist:UnitOfMeasure
+		) ;
+	] ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of number in a product of powers of base units."^^xsd:string ;
 	skos:example """In the equation 1 beat per minute = 0.016667 x number per second
@@ -2443,7 +2491,13 @@ gist:exponentOfNumber
 
 gist:exponentOfOther
 	a owl:DatatypeProperty ;
-	rdfs:domain gist:UnitGroup ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf (
+			gist:UnitGroup
+			gist:UnitOfMeasure
+		) ;
+	] ;
 	rdfs:range xsd:decimal ;
 	skos:definition "Indicates whether a unit of measure is defined using a logarithmic or other non-linear scale, of that has some term not covered by the list of exponents."^^xsd:string ;
 	skos:prefLabel "exponent of other"^^xsd:string ;
@@ -2454,7 +2508,13 @@ gist:exponentOfOther
 
 gist:exponentOfRadian
 	a owl:DatatypeProperty ;
-	rdfs:domain gist:UnitGroup ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf (
+			gist:UnitGroup
+			gist:UnitOfMeasure
+		) ;
+	] ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of radian in a product of powers of base units."^^xsd:string ;
 	skos:example """In the equation 1 revolution = 6.283 x radian
@@ -2469,7 +2529,13 @@ gist:exponentOfRadian
 
 gist:exponentOfSecond
 	a owl:DatatypeProperty ;
-	rdfs:domain gist:UnitGroup ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf (
+			gist:UnitGroup
+			gist:UnitOfMeasure
+		) ;
+	] ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of second in a product of powers of base units."^^xsd:string ;
 	skos:example """In the equation 1 watt-hour = 3600 x kilogram meterSquared per secondSquared
@@ -2486,7 +2552,13 @@ gist:exponentOfSecond
 
 gist:exponentOfSteradian
 	a owl:DatatypeProperty ;
-	rdfs:domain gist:UnitGroup ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf (
+			gist:UnitGroup
+			gist:UnitOfMeasure
+		) ;
+	] ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of steradian in a product of powers of base units."^^xsd:string ;
 	skos:example """In the equation 1 watt per square meter steradian = 1 x kilogram per secondCubed steradian
@@ -2504,7 +2576,13 @@ gist:exponentOfSteradian
 
 gist:exponentOfUSDollar
 	a owl:DatatypeProperty ;
-	rdfs:domain gist:UnitGroup ;
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf (
+			gist:UnitGroup
+			gist:UnitOfMeasure
+		) ;
+	] ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of US Dollar in a product of powers of base units."^^xsd:string ;
 	skos:example """In the equation 1 million dollars per week = 1.65344 x dollar per second

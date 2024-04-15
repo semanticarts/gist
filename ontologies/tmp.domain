@@ -1,0 +1,8 @@
+	rdfs:domain [
+		a owl:Class ;
+		owl:unionOf (
+			gist:UnitGroup
+			gist:UnitOfMeasure
+		) ;
+	] ;
+
