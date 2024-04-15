@@ -563,7 +563,7 @@ gist:Discipline
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
 	skos:definition "An area of study or practice, such as accounting."^^xsd:string ;
-	skos:example "Finance, Accounting, Project Management, Acoustics, Ballistics, etc."^^xsd:string ;
+	skos:example "Finance, accounting, project management, acoustics, ballistics, etc."^^xsd:string ;
 	skos:prefLabel "Discipline"^^xsd:string ;
 	.
 
@@ -1071,8 +1071,8 @@ gist:Magnitude
 			]
 		) ;
 	] ;
-	skos:definition "The amount of a measurable characteristic (Aspect)."^^xsd:string ;
-	skos:example "A model of car could have a wheelbase of 113.2 inches. In this example, the aspect is wheelbase, the unit of measure is inch, and the numericValue is 113.2."^^xsd:string ;
+	skos:definition "The amount of a measurable characteristic (aspect)."^^xsd:string ;
+	skos:example "A model of car could have a wheelbase of 113.2 inches. In this example, the aspect is wheelbase, the unit of measure is inch, and the numeric value is 113.2."^^xsd:string ;
 	skos:prefLabel "Magnitude"^^xsd:string ;
 	.
 
@@ -1608,7 +1608,7 @@ gist:Project
 gist:ReferenceValue
 	a owl:Class ;
 	rdfs:subClassOf gist:Magnitude ;
-	skos:definition "A measure that was neither measured nor estimated but set by fiat. For instance, a goal. There is no Measurement associated with a ReferenceValue."^^xsd:string ;
+	skos:definition "A measure that was neither measured nor estimated but set by fiat. For instance, a goal. There is no measurement associated with a reference value."^^xsd:string ;
 	skos:prefLabel "Reference Value"^^xsd:string ;
 	.
 
@@ -2499,7 +2499,7 @@ gist:exponentOfOther
 		) ;
 	] ;
 	rdfs:range xsd:decimal ;
-	skos:definition "Indicates whether a unit of measure is defined using a logarithmic or other non-linear scale, of that has some term not covered by the list of exponents."^^xsd:string ;
+	skos:definition "Indicates whether a unit of measure is defined using a logarithmic or other non-linear scale, or that has some term not included in the list of exponents."^^xsd:string ;
 	skos:prefLabel "exponent of other"^^xsd:string ;
 	skos:scopeNote """Set the value to 0 if the other exponents give a complete decomposition of the unit of measure.
 
@@ -2716,7 +2716,7 @@ gist:hasDivisor
 	skos:definition "Relates a unit of measure to another unit of measure that is a divisor, or relates an aspect to another aspect that is a divisor."^^xsd:string ;
 	skos:example "Miles per hour has miles as a multiplier and hour as a divisor."^^xsd:string ;
 	skos:prefLabel "has divisor"^^xsd:string ;
-	skos:scopeNote "Provides a supplemental method of decomposing an aspect or unit of measure into component factors. Enables dimensional analysis such as miles per hour x hours = miles."^^xsd:string ;
+	skos:scopeNote "Provides a supplemental method of decomposing unit of measure or an aspect into component factors. Enables dimensional analysis such as miles per hour x hours = miles."^^xsd:string ;
 	.
 
 gist:hasFirstMember
@@ -2755,7 +2755,7 @@ gist:hasIncumbent
 gist:hasMagnitude
 	a owl:ObjectProperty ;
 	rdfs:range gist:Magnitude ;
-	skos:definition "Relates a Thing to a magnitude."^^xsd:string ;
+	skos:definition "Relates a thing to a magnitude."^^xsd:string ;
 	skos:example "A car or a model of car has a magnitude for length, one for width, one for weight, etc."^^xsd:string ;
 	skos:prefLabel "has magnitude"^^xsd:string ;
 	.
@@ -2775,7 +2775,7 @@ gist:hasMultiplier
 	skos:definition "Relates a unit of measure to another unit of measure that is a factor, or relates an aspect to another aspect that is a factor."^^xsd:string ;
 	skos:example "Miles per hour has miles as a multiplier and hour as a divisor."^^xsd:string ;
 	skos:prefLabel "has multiplier"^^xsd:string ;
-	skos:scopeNote "Provides a supplemental method of decomposing an aspect or unit of measure into component factors. Enables dimensional analysis such as miles per hour x hours = miles."^^xsd:string ;
+	skos:scopeNote "Provides a supplemental method of decomposing unit of measure or aspect into component factors. Enables dimensional analysis such as miles per hour x hours = miles."^^xsd:string ;
 	.
 
 gist:hasNavigationalParent
@@ -2902,7 +2902,7 @@ gist:hasUnitOfMeasure
 	a owl:ObjectProperty ;
 	rdfs:domain gist:Magnitude ;
 	rdfs:range gist:UnitOfMeasure ;
-	skos:definition "Which unit of measure you are using. All measures are expressed in some unit of measure, even if we don't know what it is initially."^^xsd:string ;
+	skos:definition "Which unit of measure you are using. All measures are expressed in some unit of measure."^^xsd:string ;
 	skos:prefLabel "has unit of measure"^^xsd:string ;
 	.
 
