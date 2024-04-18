@@ -3035,11 +3035,12 @@ gist:directs
 gist:domainIncludes
 	a owl:AnnotationProperty ;
 	rdfs:subPropertyOf skos:scopeNote ;
-	skos:definition "Relates a property to a class that is (one of) the type(s) the property is expected to be used on."^^xsd:string ;
+	skos:definition "Relates a property to a class that the property is expected to be used on."^^xsd:string ;
+	skos:example "The domain of the property gist:containedText includes gist:Tag and gist:Text."^^xsd:string ;
 	skos:prefLabel "domain includes"^^xsd:string ;
 	skos:scopeNote
-		"This property is used to guide the ontology user; like all annotation properties, it does not play a role in inference."^^xsd:string ,
-		"This property means the same thing as the Schema.org version, which is an rdf:Property and not compliant with OWL-DL."^^xsd:string
+		"There may be multiple domainIncludes assertions on a single property."^^xsd:string ,
+		"This property is used to guide the ontology user; like all annotation properties, it does not play a role in inference."^^xsd:string
 		;
 	.
 
@@ -3410,7 +3411,7 @@ gist:isDirectPartOf
 	skos:prefLabel "is direct part of"^^xsd:string ;
 	skos:scopeNote
 		"Because the part has independent existence, there is no cascading delete."^^xsd:string ,
-		"It is safest to use this property when there is semantic directness inherent in the relationship, rather than simply choosing granularity. For example, a spark plug is a direct part of an engine block; there cannot be any intermediate parts. Otherwise, there is a risk of making an isDirectPartOf assertion and then later inserting an intermediate part; this will result in making an asserted triple false even though there was no change in the world. If you are not sure, use the transitive version gist:isPartOf."^^xsd:string
+		"It is safest to use this property when semantic directness is inherent in the relationship, rather than simply expressing a chosen granularity. For example, a spark plug is a direct part of an engine block; there cannot be any intermediate parts. Otherwise, there is a risk of making an isDirectPartOf assertion and then later inserting an intermediate part; this will result in making an asserted triple false even though there was no change in the world. When in doubt, use the transitive version gist:isPartOf."^^xsd:string
 		;
 	.
 
@@ -3839,12 +3840,12 @@ gist:providesOrderFor
 gist:rangeIncludes
 	a owl:AnnotationProperty ;
 	rdfs:subPropertyOf skos:scopeNote ;
-	skos:definition "Relates a property to a class that constitutes (one of) the expected type(s) for values of the property."^^xsd:string ;
-	skos:example "The range for the property gist:isCategorizedBy includes gist:Category."^^xsd:string ;
+	skos:definition "Relates a property to a class that is an expected type of its values."^^xsd:string ;
+	skos:example "The range of the property gist:isCategorizedBy includes gist:Category."^^xsd:string ;
 	skos:prefLabel "range includes"^^xsd:string ;
 	skos:scopeNote
-		"This property is used to guide the ontology user; like all annotation properties, it does not play a role in inference."^^xsd:string ,
-		"This property means the same thing as the Schema.org version, which is an rdf:Property and not compliant with OWL-DL."^^xsd:string
+		"There may be multiple rangeIncludes assertions on a single property."^^xsd:string ,
+		"This property is used to guide the ontology user; like all annotation properties, it does not play a role in inference."^^xsd:string
 		;
 	.
 
