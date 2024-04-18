@@ -4,7 +4,7 @@
   
     | Old | New |
     | --------- | ------- |
-    | `hasDirectPart` | `isDirectPartOf`|
+    |`hasDirectPart` | `isDirectPartOf`|
     |`hasFirstMember` | `isFirstMemberOf`|
     |`hasMember` | `isMemberOf`|
-    |`hasMember` | `isMemberOf`|
+    |`hasPart` | `isPartOf`|
