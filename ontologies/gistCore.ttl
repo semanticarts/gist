@@ -1295,7 +1295,7 @@ gist:Landmark
 			gist:PhysicalIdentifiableItem
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:occupiesGeographicallyPermanently ;
+				owl:onProperty gist:hasPhysicalLocation ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -1307,7 +1307,6 @@ gist:Landmark
 		) ;
 	] ;
 	skos:definition "Something permanently attached to the Earth."^^xsd:string ;
-	skos:editorialNote "See guidance on removing the term in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1679566885."^^xsd:string ;
 	skos:prefLabel "Landmark"^^xsd:string ;
 	.
 
@@ -3655,29 +3654,6 @@ gist:numericValue
 	] ;
 	skos:definition "The actual value of a magnitude."^^xsd:string ;
 	skos:prefLabel "numeric value"^^xsd:string ;
-	.
-
-gist:occupiesGeographically
-	a owl:ObjectProperty ;
-	rdfs:domain [
-		a owl:Class ;
-		owl:unionOf (
-			gist:PhysicalIdentifiableItem
-			gist:PhysicalSubstance
-		) ;
-	] ;
-	rdfs:range gist:Place ;
-	owl:deprecated "true"^^xsd:boolean ;
-	skos:definition "A thing occupies are region"^^xsd:string ;
-	skos:prefLabel "occupies geographically"^^xsd:string ;
-	.
-
-gist:occupiesGeographicallyPermanently
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:occupiesGeographically ;
-	owl:deprecated "true"^^xsd:boolean ;
-	skos:definition "To be in a fixed position on the earth"^^xsd:string ;
-	skos:prefLabel "occupies geographically permanently"^^xsd:string ;
 	.
 
 gist:occursIn
