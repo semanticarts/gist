@@ -81,7 +81,7 @@ Some of the examples resulted in changes to gist `10.0.0`, others are hypothetic
 || `usesTimeZoneStandard`, not `timeZoneStandardUsed` |
 | Prefix "is" to "-ed" forms, both past participles and adjectives | `isGovernedBy`, not `governedBy` |
 || `isCharacterizedBy`, not `characterizedBy` |
-| Prefer an ordinary verb to "hasX" or "isX", even in a pair of inverses | `follows`, not `isPrecededBy`, even when inverse `precedes` exists |
+| Prefer an ordinary verb to "hasX" or "isX" | `precedes`, not `isFollowedBy` |
 | "At" rather than "on" for datetimes | `isRecordedAt`, not `isRecordedOn`. |
 | Present tense only with minimal exceptions when the meaning is inherently in the past | `isRenderedOn`, not `wasRenderedOn`, but `wasLastModifiedBy` rather than `isLastModifiedBy` |
 || `precedes`, not `preceded` |
