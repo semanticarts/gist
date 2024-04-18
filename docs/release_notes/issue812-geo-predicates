@@ -1,0 +1,4 @@
+### Major Updates
+
+- Removed `gist:occupiesGeographically` and `gist:occupiesGeographicallyPermanently`, and replaced with `gist:hasPhysicalLocation` in class restriction. Issue [#809](https://github.com/semanticarts/gist/issues/809).
+- Shortened local name of `gist:isGeographicallyContainedin` to `isGeoContainedin`. Issue [#812](https://github.com/semanticarts/gist/issues/812).
