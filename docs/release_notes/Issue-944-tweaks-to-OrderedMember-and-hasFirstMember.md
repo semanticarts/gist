@@ -5,4 +5,4 @@
 
 ### Patch Updates
 
-- Updated `skos:scopeNote` on `gist:isFirstMemberOf` (formerly `gist:hasFirstMember`): updated language to reflect that strict orderings *are* allowed.  Issue [944](https://github.com/semanticarts/gist/issues/944).
+- Updated `skos:scopeNote` on `gist:isFirstMemberOf` (formerly `gist:hasFirstMember`) to reflect that strict orderings *are* allowed.  Issue [944](https://github.com/semanticarts/gist/issues/944).
