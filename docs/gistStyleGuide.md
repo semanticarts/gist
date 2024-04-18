@@ -131,12 +131,14 @@ The following conventions apply to `skos:prefLabel` but *not* `skos:altLabel`, w
 
 - Lower case
 - Normalized to natural language standards. E.g., hyphens inserted, acronyms in all caps, proper nouns capitalized, etc.
-- Examples: *has unit of measure*, *has SSN*, *unit symbol Unicode*
-- In some cases the label may deviate lexically from the local name. For example, the predicate `gist:isGeoContainedIn` uses a shortened form of "geographically" for conciseness. The `skos:prefLabel` uses the fully spelled out word: "is geographically contained in."
+- Examples: *has unit of measure*, *has SSN*
 
 ### Valid Exceptions
 
-Occasionally there is a valid reason to deviate from the label format conventions. Since this will fail the SHACL validation constraints applied to `skos:prefLabel`s during the ontology build and release process, add the predicate to the `gistValidationAnnotations.ttl` file so that label validation will be skipped.
+There may occasionally be valid reasons to deviate from the conventions stated here:
+
+- Deviation from wording of the local name. For example, the predicate `gist:isGeoContainedIn` uses a shortened form of "geographically" for conciseness. The `skos:prefLabel` uses the fully spelled out word: "is geographically contained in."
+- Deviation from typographical conventions such as case. For example, a proper name in a property label could appropriately be capitalized. Since this will fail the SHACL validation constraints during the ontology build and release process, add the term to the `gistValidationAnnotations.ttl` file so that label validation will be skipped.
 
 ### gist Definition of Title Case
 
