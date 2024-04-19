@@ -955,7 +955,7 @@ gist:EventSpecification
 	a owl:Class ;
 	rdfs:subClassOf gist:Specification ;
 	skos:definition "A characterization of an event that might happen."^^xsd:string ;
-	skos:example "A hail storm that is covered by an insurance policy.  Someone defaults on a loan."^^xsd:string ;
+	skos:example "An insurance company defines the characteristics of a weather event that must be satisfied for it to qualify as a hail storm covered in its homeowner's policy. Defaulting on a loan."^^xsd:string ;
 	skos:prefLabel "Event Specification"^^xsd:string ;
 	skos:scopeNote "This concept is useful for risk assessment and insurance policies."^^xsd:string ;
 	.
