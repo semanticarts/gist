@@ -1,11 +1,9 @@
-
 # replace old client units with new Units 
 # the new units must already be in the graph as part of the reference data
 #
 # test
-# construct {?s ?p ?oldUnit . }    # all triples that include the old unit
-# construct {?oldUnit ?p2 ?o2 . }    # all triples that include the old unit
-# select ?s ?p ?newUnit ?oldUnit .                     # the new unit that is replacing the old one
+# construct {?s ?p ?oldUnit . ?oldUnit ?p2 ?o2 . }   # to be deleted, all triples that include the old unit
+# select ?s ?p ?newUnit ?oldUnit .                  # the new unit that is replacing the old one
 
 # delete {?s ?p ?oldUnit .  ?oldUnit ?p2 ?o2 . }    # delete all triples that include the old unit
 # insert {?s ?p ?newUnit .}                         # insert the new unit
@@ -16,7 +14,7 @@ where {
 
     values (?oldUnit          ?newUnit) {
 
-           (gist:_ampere      gistd:_UnitOfMeasure_ampere)
+           (gist:_ampere      gistd:_UnitOfMeasure_ampere)    # comment out units not used by the client
            (gist:_bit         gistd:_UnitOfMeasure_bit)
            (gist:_candela     gistd:_UnitOfMeasure_candela)
            (gist:_day         gistd:_UnitOfMeasure_day)
