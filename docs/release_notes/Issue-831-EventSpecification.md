@@ -4,5 +4,5 @@
 ### Major Updates
 
 ### Minor Updates
-- Added `EventSpecification` [#831](https://github.com/semanticarts/gist/issues/831).
-- Added and updated annotations for `Specification` [#831](https://github.com/semanticarts/gist/issues/831).
+- Added `gist:EventSpecification`. Issue [#831](https://github.com/semanticarts/gist/issues/831).
+- Added and updated annotations for `gist:Specification`. Issue [#831](https://github.com/semanticarts/gist/issues/831).
