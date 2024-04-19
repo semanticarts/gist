@@ -1045,29 +1045,7 @@ gist:Magnitude
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:numericValue ;
-				owl:someValuesFrom [
-					a rdfs:Datatype ;
-					owl:unionOf (
-						xsd:byte
-						xsd:decimal
-						xsd:double
-						xsd:float
-						xsd:int
-						xsd:integer
-						xsd:long
-						xsd:negativeInteger
-						xsd:nonNegativeInteger
-						xsd:nonPositiveInteger
-						xsd:positiveInteger
-						xsd:short
-						xsd:unsignedByte
-						xsd:unsignedInt
-						xsd:unsignedLong
-						xsd:unsignedShort
-						owl:rational
-						owl:real
-					) ;
-				] ;
+				owl:minCardinality "1"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
