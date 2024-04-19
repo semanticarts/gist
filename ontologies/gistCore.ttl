@@ -165,7 +165,7 @@ gist:Artifact
 
 gist:Aspect
 	a owl:Class ;
-	skos:definition "A measurable characteristic such as cost, cycle time, or defect rate."^^xsd:string ;
+	skos:definition "A measurable characteristic such as length, weight, cost, cycle time, or defect rate."^^xsd:string ;
 	skos:prefLabel "Aspect"^^xsd:string ;
 	skos:scopeNote "Every aspect should be related to a broader aspect or to a unit group. For example, angle of incidence should be related to the broader concept of angle, which in turn is related to a unit group."^^xsd:string ;
 	.
