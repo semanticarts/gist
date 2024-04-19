@@ -957,7 +957,7 @@ gist:EventSpecification
 	skos:definition "A characterization of an event that might happen."^^xsd:string ;
 	skos:example "A hail storm that is covered by an insurance policy.  Someone defaults on a loan."^^xsd:string ;
 	skos:prefLabel "Event Specification"^^xsd:string ;
-	skos:scopeNote "It is useful for risk assessment and insurance policies."^^xsd:string ;
+	skos:scopeNote "This concept is useful for risk assessment and insurance policies."^^xsd:string ;
 	.
 
 gist:Extent
@@ -2270,8 +2270,8 @@ gist:SimpleUnitOfMeasure
 gist:Specification
 	a owl:Class ;
 	rdfs:subClassOf gist:Requirement ;
-	skos:definition "One or more characteristics that specify what it means to be a particular type of thing such as a material, product, service or event. A specification is sufficiently precise to allow testing conformance to the specification."^^xsd:string ;
-	skos:example "The specification of the iPhone 14; hypothetical events covered by a home owner's insurance policy."^^xsd:string ;
+	skos:definition "One or more characteristics that specify what it means to be a particular type of thing such as a material, product, service or event. A specification is sufficiently precise to allow evaluating conformance to the specification."^^xsd:string ;
+	skos:example "The specification of the iPhone 14; hypothetical events covered by a homeowner's insurance policy."^^xsd:string ;
 	skos:prefLabel "Specification"^^xsd:string ;
 	skos:scopeNote "Although a characterization of how to do something is often called a specification, the intended meaning here is limited to specifying what something is. The focus is on the what, not the how. Use the task template class for specifying the how, such as a plan or process specification."^^xsd:string ;
 	.
