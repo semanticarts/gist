@@ -2572,7 +2572,7 @@ gist:exponentOfUSDollar
 		all other exponents are zero
 
 		Every member of a unit group containing million dollars per week must be a multiple of dollar per second."""^^xsd:string ;
-	skos:prefLabel "exponent of us dollar"^^xsd:string ;
+	skos:prefLabel "exponent of US dollar"^^xsd:string ;
 	skos:scopeNote "The factors for converting from one currency to another change constantly."^^xsd:string ;
 	.
 
