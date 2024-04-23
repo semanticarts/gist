@@ -2652,6 +2652,7 @@ gist:hasBroader
 		owl:TransitiveProperty
 		;
 	skos:definition "Relates a thing to another thing with a broader meaning."^^xsd:string ;
+	skos:example "Height is a context-specific notion of distance, so height has broader distance."^^xsd:string ;
 	skos:prefLabel "has broader"^^xsd:string ;
 	.
 
