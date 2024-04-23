@@ -2375,7 +2375,7 @@ gist:exponentOfKelvin
 		all other exponents are zero
 
 		Every member of a unit group containing degree Fahrenheit will have a similar equation, with different offset or conversion factor (or both)."""^^xsd:string ;
-	skos:prefLabel "exponent of Kelvin"^^xsd:string ;
+	skos:prefLabel "exponent of kelvin"^^xsd:string ;
 	.
 
 gist:exponentOfKilogram
