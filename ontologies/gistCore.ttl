@@ -2694,7 +2694,10 @@ gist:hasDirectSuperCategory
 gist:hasDivisor
 	a owl:ObjectProperty ;
 	skos:definition "Relates a unit of measure to another unit of measure that is a divisor, or relates an aspect to another aspect that is a divisor."^^xsd:string ;
-	skos:example "Miles per hour has miles as a multiplier and hour as a divisor."^^xsd:string ;
+	skos:example
+		"Miles per hour has miles as a multiplier and hour as a divisor."^^xsd:string ,
+		"Speed has distance as a multiplier and duration as a divisor."^^xsd:string
+		;
 	skos:prefLabel "has divisor"^^xsd:string ;
 	skos:scopeNote "Provides a supplemental method of decomposing unit of measure or an aspect into component factors. Enables dimensional analysis such as miles per hour x hours = miles."^^xsd:string ;
 	.
