@@ -2226,7 +2226,7 @@ gist:conversionOffset
 	rdfs:domain gist:UnitOfMeasure ;
 	rdfs:range xsd:decimal ;
 	skos:definition """
-		A value used along with a conversion factor to relate a Unit to its corresponding Unit in the International System of Units. In the equation below, the conversion offset is 459.669607 and the conversion factor is 5/9.
+		A value used along with a conversion factor to relate a unit to its corresponding unit in the International System of Units. In the equation below, the conversion offset is 459.669607 and the conversion factor is 5/9.
 
 		y degrees Fahrenheit = (y + 459.669607) x 5/9 degrees Kelvin
 
