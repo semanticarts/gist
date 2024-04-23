@@ -2366,16 +2366,16 @@ gist:exponentOfKelvin
 		) ;
 	] ;
 	rdfs:range xsd:decimal ;
-	skos:definition "The exponent of kelvin in a product of powers of base units."^^xsd:string ;
+	skos:definition "The exponent of Kelvin in a product of powers of base units."^^xsd:string ;
 	skos:example """In the equation y degrees Fahrenheit = (y + 459.6669607) x 5/9 degrees Kelvin
 
 		the conversion offset for degree Fahrenheit is 459.6669607
 		the conversion factor for degree Fahrenheit is 5/9
-		the exponent of kelvin is 1
+		the exponent of Kelvin is 1
 		all other exponents are zero
 
 		Every member of a unit group containing degree Fahrenheit will have a similar equation, with different offset or conversion factor (or both)."""^^xsd:string ;
-	skos:prefLabel "exponent of kelvin"^^xsd:string ;
+	skos:prefLabel "exponent of Kelvin"^^xsd:string ;
 	.
 
 gist:exponentOfKilogram
