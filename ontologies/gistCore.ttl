@@ -2889,7 +2889,10 @@ gist:hasUnitOfMeasure
 	a owl:ObjectProperty ;
 	rdfs:domain gist:Magnitude ;
 	rdfs:range gist:UnitOfMeasure ;
-	skos:definition "Which unit of measure you are using. All measures are expressed in some unit of measure."^^xsd:string ;
+	skos:definition
+		"Relates a magnitude to a unit of measure."^^xsd:string ,
+		"The magnitude 87 inches of height has unit of measure inches."^^xsd:string
+		;
 	skos:prefLabel "has unit of measure"^^xsd:string ;
 	.
 
