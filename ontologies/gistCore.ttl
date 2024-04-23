@@ -2881,6 +2881,7 @@ gist:hasUnitGroup
 	rdfs:domain gist:Aspect ;
 	rdfs:range gist:UnitGroup ;
 	skos:definition "Relates an aspect to a unit group. The aspect can be measured using any of the members of the unit group."^^xsd:string ;
+	skos:example "The aspect distance can have a unit group that includes the units meter, inch, foot, etc."^^xsd:string ;
 	skos:prefLabel "has unit group"^^xsd:string ;
 	.
 
