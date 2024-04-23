@@ -2303,7 +2303,7 @@ gist:exponentOfAmpere
 	] ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of ampere in a product of powers of base units."^^xsd:string ;
-	skos:example """In the equation 1 milliampere = 0.001 x ampere
+	skos:example """In the equation '1 milliampere = 0.001 x ampere'
 
 		the conversionFactor for milliampere is 0.001
 		the exponent of ampere is 1
@@ -2324,7 +2324,7 @@ gist:exponentOfBit
 	] ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of bit in a product of powers of base units."^^xsd:string ;
-	skos:example """In the equation 1 megabit per second = 1000000 x bit per second
+	skos:example """In the equation '1 megabit per second = 1000000 x bit per second'
 
 		the conversion factor for megabit per second is 1000000
 		the exponent of bit is 1
@@ -2346,7 +2346,7 @@ gist:exponentOfCandela
 	] ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of candela in a product of powers of base units."^^xsd:string ;
-	skos:example """In the equation 1 candlepower = 1 x candela
+	skos:example """In the equation '1 candlepower = 1 x candela'
 
 		the conversion factor for candlepower is 1
 		the exponent of candela is 1
@@ -2367,7 +2367,7 @@ gist:exponentOfKelvin
 	] ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of kelvin in a product of powers of base units."^^xsd:string ;
-	skos:example """In the equation y degrees Fahrenheit = (y + 459.6669607) x 5/9 degrees Kelvin
+	skos:example """In the equation 'y degrees Fahrenheit = (y + 459.6669607) x 5/9 degrees Kelvin'
 
 		the conversion offset for degree Fahrenheit is 459.6669607
 		the conversion factor for degree Fahrenheit is 5/9
@@ -2389,7 +2389,7 @@ gist:exponentOfKilogram
 	] ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of kilogram in a product of powers of base units."^^xsd:string ;
-	skos:example """In the equation 1 millimole per gram = 1 x mole per kilogram
+	skos:example """In the equation '1 millimole per gram = 1 x mole per kilogram'
 
 		the conversion factor for millimole per gram is 1
 		the exponent of mole is 1
@@ -2411,7 +2411,7 @@ gist:exponentOfMeter
 	] ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of meter in a product of powers of base units."^^xsd:string ;
-	skos:example """In the equation 1 microgram per milliliter = 0.001 x kilogram per meterCubed
+	skos:example """In the equation '1 microgram per milliliter = 0.001 x kilogram per meterCubed'
 
 		the conversion factor for microgram per milliliter is 0.001
 		the exponent of kilogram is 1
@@ -2433,7 +2433,7 @@ gist:exponentOfMole
 	] ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of mole in a product of powers of base units."^^xsd:string ;
-	skos:example """In the equation 1 katal = 1 x mole per second
+	skos:example """In the equation '1 katal = 1 x mole per second'
 
 		the conversion factor for katal is 1
 		the exponent of mole is 1
@@ -2455,7 +2455,7 @@ gist:exponentOfNumber
 	] ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of number in a product of powers of base units."^^xsd:string ;
-	skos:example """In the equation 1 beat per minute = 0.016667 x number per second
+	skos:example """In the equation '1 beat per minute = 0.016667 x number per second'
 
 		the conversion factor for beat per minute is 0.016667
 		the exponent of number is 1
@@ -2496,7 +2496,7 @@ gist:exponentOfRadian
 	] ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of radian in a product of powers of base units."^^xsd:string ;
-	skos:example """In the equation 1 revolution = 6.283 x radian
+	skos:example """In the equation '1 revolution = 6.283 x radian'
 
 		the conversion factor for revolution is 6.283
 		the exponent of radian is 1
@@ -2517,7 +2517,7 @@ gist:exponentOfSecond
 	] ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of second in a product of powers of base units."^^xsd:string ;
-	skos:example """In the equation 1 watt-hour = 3600 x kilogram meterSquared per secondSquared
+	skos:example """In the equation '1 watt-hour = 3600 x kilogram meterSquared per secondSquared'
 
 		the conversion factor for watt-hour is 3600
 		the exponent of kilogram is 1
@@ -2540,7 +2540,7 @@ gist:exponentOfSteradian
 	] ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of steradian in a product of powers of base units."^^xsd:string ;
-	skos:example """In the equation 1 watt per square meter steradian = 1 x kilogram per secondCubed steradian
+	skos:example """In the equation '1 watt per square meter steradian = 1 x kilogram per secondCubed steradian'
 
 		the conversion factor for watt per square meter steradian is 1
 		the exponent of kilogram is 1
@@ -2564,7 +2564,7 @@ gist:exponentOfUSDollar
 	] ;
 	rdfs:range xsd:decimal ;
 	skos:definition "The exponent of US Dollar in a product of powers of base units."^^xsd:string ;
-	skos:example """In the equation 1 million dollars per week = 1.65344 x dollar per second
+	skos:example """In the equation '1 million dollars per week = 1.65344 x dollar per second'
 
 		the conversion factor for million dollars per week is 1.65344
 		the exponent of US Dollar is 1
@@ -2607,7 +2607,7 @@ gist:goesToPlace
 gist:hasAddend
 	a owl:ObjectProperty ;
 	skos:definition "Relates an aspect to another aspect that is an additive component of it."^^xsd:string ;
-	skos:example "In the equation profit = revenue - expenses, revenue is an addend and expenses is a subtrahend."^^xsd:string ;
+	skos:example "In the equation 'profit = revenue - expenses', revenue is an addend and expenses is a subtrahend."^^xsd:string ;
 	skos:prefLabel "has addend"^^xsd:string ;
 	skos:scopeNote "Commonly used with financial metrics."^^xsd:string ;
 	.
@@ -2841,7 +2841,7 @@ gist:hasRecipient
 gist:hasSubtrahend
 	a owl:ObjectProperty ;
 	skos:definition "Relates an aspect to another aspect that is a subtracted component of it."^^xsd:string ;
-	skos:example "In the equation profit = revenue - expenses, revenue is an addend and expenses is a subtrahend."^^xsd:string ;
+	skos:example "In the equation 'profit = revenue - expenses', revenue is an addend and expenses is a subtrahend."^^xsd:string ;
 	skos:prefLabel "has subtrahend"^^xsd:string ;
 	skos:scopeNote "Commonly used with financial metrics."^^xsd:string ;
 	.
