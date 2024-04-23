@@ -2699,7 +2699,7 @@ gist:hasDivisor
 		"Speed has distance as a multiplier and duration as a divisor."^^xsd:string
 		;
 	skos:prefLabel "has divisor"^^xsd:string ;
-	skos:scopeNote "Provides a supplemental method of decomposing unit of measure or an aspect into component factors. Enables dimensional analysis such as miles per hour x hours = miles."^^xsd:string ;
+	skos:scopeNote "Provides a supplemental method of decomposing a unit of measure or an aspect into component factors. Enables dimensional analysis such as miles per hour x hours = miles."^^xsd:string ;
 	.
 
 gist:hasFirstMember
@@ -2761,7 +2761,7 @@ gist:hasMultiplier
 		"Speed has distance as a multiplier and duration as a divisor."^^xsd:string
 		;
 	skos:prefLabel "has multiplier"^^xsd:string ;
-	skos:scopeNote "Provides a supplemental method of decomposing unit of measure or aspect into component factors. Enables dimensional analysis such as miles per hour x hours = miles."^^xsd:string ;
+	skos:scopeNote "Provides a supplemental method of decomposing a unit of measure or aspect into component factors. Enables dimensional analysis such as miles per hour x hours = miles."^^xsd:string ;
 	.
 
 gist:hasNavigationalParent
