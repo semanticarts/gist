@@ -1049,7 +1049,7 @@ gist:Magnitude
 			]
 		) ;
 	] ;
-	skos:definition "The amount of a measurable characteristic (aspect)."^^xsd:string ;
+	skos:definition "The amount of a measurable characteristic (aspect) of a thing."^^xsd:string ;
 	skos:example "A model of car could have a wheelbase of 113.2 inches. In this example, the aspect is wheelbase, the unit of measure is inch, and the numeric value is 113.2."^^xsd:string ;
 	skos:prefLabel "Magnitude"^^xsd:string ;
 	.
