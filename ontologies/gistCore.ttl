@@ -1277,7 +1277,7 @@ gist:OrderedCollection
 					[
 						a owl:Restriction ;
 						owl:onProperty gist:hasFirstMember ;
-						owl:someValuesFrom owl:Thing ;
+						owl:someValuesFrom gist:OrderedMember ;
 					]
 					[
 						a owl:Restriction ;
@@ -1303,6 +1303,11 @@ gist:OrderedMember
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:providesOrderFor ;
+				owl:someValuesFrom owl:Thing ;
+			]
 			[
 				a owl:Class ;
 				owl:unionOf (
@@ -2089,8 +2094,6 @@ gist:actualStartYear
 
 gist:allows
 	a owl:ObjectProperty ;
-	rdfs:domain gist:Intention ;
-	rdfs:range gist:Behavior ;
 	skos:definition "The intention (say a grant) allows a particular kind of activity (for instance egress)"^^xsd:string ;
 	skos:prefLabel "allows"^^xsd:string ;
 	.
@@ -2709,7 +2712,7 @@ gist:hasFirstMember
 	rdfs:range gist:OrderedMember ;
 	skos:definition "Relates an ordered collection to its first member."^^xsd:string ;
 	skos:prefLabel "has first member"^^xsd:string ;
-	skos:scopeNote "Given the Open World Assumption, the absence of a predecessor does not entail that an ordered member is the first member of an ordered collection. This property is used to explicitly indicate the first member. Since ordered collections may not be strictly ordered, there can be more than one first member."^^xsd:string ;
+	skos:scopeNote "Given the Open World Assumption, the absence of a predecessor does not entail that an ordered member is the first member of an ordered collection. This property is used to explicitly indicate the first member. Since ordered collections need not be strictly ordered, there can be more than one first member."^^xsd:string ;
 	.
 
 gist:hasGiver
