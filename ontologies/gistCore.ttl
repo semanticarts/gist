@@ -705,18 +705,7 @@ gist:GeoPoint
 
 gist:GeoRegion
 	a owl:Class ;
-	owl:disjointWith
-		gist:IntellectualProperty ,
-		gist:Intention ,
-		gist:Language ,
-		gist:Magnitude ,
-		gist:Organization ,
-		gist:PhysicalIdentifiableItem ,
-		gist:PhysicalSubstance ,
-		gist:Template ,
-		gist:UnitOfMeasure
-		;
-	owl:equivalentClass [
+	rdfs:subClassOf [
 		a owl:Class ;
 		owl:intersectionOf (
 			gist:Place
@@ -737,6 +726,17 @@ gist:GeoRegion
 			]
 		) ;
 	] ;
+	owl:disjointWith
+		gist:IntellectualProperty ,
+		gist:Intention ,
+		gist:Language ,
+		gist:Magnitude ,
+		gist:Organization ,
+		gist:PhysicalIdentifiableItem ,
+		gist:PhysicalSubstance ,
+		gist:Template ,
+		gist:UnitOfMeasure
+		;
 	skos:definition "A bounded region (or set of regions) on the surface of the Earth."^^xsd:string ;
 	skos:example "The bounded shape that defines the region occupied by Crater Lake; the bounded area known as the contiguous USA."^^xsd:string ;
 	skos:prefLabel "Geo Region"^^xsd:string ;
