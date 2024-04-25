@@ -49,13 +49,6 @@ gist:Account
 	skos:prefLabel "Account"^^xsd:string ;
 	.
 
-gist:Actuator
-	a owl:Class ;
-	rdfs:subClassOf gist:Equipment ;
-	skos:definition "A device that can affect the real world via a message interface"^^xsd:string ;
-	skos:prefLabel "Actuator"^^xsd:string ;
-	.
-
 gist:Address
 	a owl:Class ;
 	rdfs:subClassOf gist:Content ;
@@ -580,40 +573,6 @@ gist:ControlledVocabulary
 	] ;
 	skos:definition "A collection of terms approved and managed by some organization or person."^^xsd:string ;
 	skos:prefLabel "Controlled Vocabulary"^^xsd:string ;
-	.
-
-gist:Controller
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Equipment
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:directs ;
-				owl:someValuesFrom gist:Actuator ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isCategorizedBy ;
-				owl:someValuesFrom gist:ControllerType ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:respondsTo ;
-				owl:someValuesFrom gist:Sensor ;
-			]
-		) ;
-	] ;
-	skos:definition "A device that takes messages or signals from a sensor and decides through algorithms whether and which actuator to fire via messages"^^xsd:string ;
-	skos:prefLabel "Controller"^^xsd:string ;
-	.
-
-gist:ControllerType
-	a owl:Class ;
-	rdfs:subClassOf gist:Category ;
-	skos:definition "A kind of controller."^^xsd:string ;
-	skos:prefLabel "Controller Type"^^xsd:string ;
 	.
 
 gist:Count
@@ -1518,7 +1477,7 @@ gist:Message
 gist:MessageDefinition
 	a owl:Class ;
 	rdfs:subClassOf gist:SchemaMetaData ;
-	skos:definition "Each pulse from a Sensor is reflected in a message, as well as each instruction to an Actuator"^^xsd:string ;
+	skos:definition "Each communication to and from a remote device or application programming interface is reflected in a message."^^xsd:string ;
 	skos:prefLabel "Message Definition"^^xsd:string ;
 	.
 
@@ -2192,13 +2151,6 @@ gist:SchemaMetaData
 	owl:disjointWith gist:UnitOfMeasure ;
 	skos:definition "Superclass for all types of metadata, including owl concepts (such as class) and relational (tables, elements) and tool related (queries, R2RML maps etc etc)"^^xsd:string ;
 	skos:prefLabel "Schema Meta Data"^^xsd:string ;
-	.
-
-gist:Sensor
-	a owl:Class ;
-	rdfs:subClassOf gist:Equipment ;
-	skos:definition "A device that can detect something and report it. Light sensors, temperature sensors,"^^xsd:string ;
-	skos:prefLabel "Sensor"^^xsd:string ;
 	.
 
 gist:ServiceSpecification
@@ -3010,7 +2962,8 @@ gist:description
 
 gist:directs
 	a owl:ObjectProperty ;
-	skos:definition "The set of actuators that a controller can affect"^^xsd:string ;
+	skos:definition "To issue orders to someone or something by right of authority."^^xsd:string ;
+	skos:example "A police officer directs traffic. A programmable logic controller directs an actuator."^^xsd:string ;
 	skos:prefLabel "directs"^^xsd:string ;
 	.
 
@@ -3335,12 +3288,6 @@ gist:hasUnitOfMeasure
 	rdfs:range gist:UnitOfMeasure ;
 	skos:definition "Which unit of measure you are using. All measures are expressed in some unit of measure, even if we don't know what it is initially."^^xsd:string ;
 	skos:prefLabel "has unit of measure"^^xsd:string ;
-	.
-
-gist:hasViableRange
-	a owl:ObjectProperty ;
-	skos:definition "The area over which the sensor can sense (might be a small geospatial area or a specific wire in a circuit)"^^xsd:string ;
-	skos:prefLabel "has viable range"^^xsd:string ;
 	.
 
 gist:idText
@@ -3840,12 +3787,6 @@ gist:requires
 		3. To make it officially necessary for someone to do something.
 
 	Implementations requiring a more specific meaning should define subproperties."""^^xsd:string ;
-	.
-
-gist:respondsTo
-	a owl:ObjectProperty ;
-	skos:definition "The set of sensors that a controller is attached to"^^xsd:string ;
-	skos:prefLabel "responds to"^^xsd:string ;
 	.
 
 gist:sequence
