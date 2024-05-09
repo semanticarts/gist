@@ -54,6 +54,13 @@ gistd:_Aspect_distance
 	skos:prefLabel "distance"^^xsd:string ;
 	.
 
+gistd:_Aspect_duration
+	a gist:Aspect ;
+	skos:definition "The aspect duration."^^xsd:string ;
+	skos:editorialNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
+	skos:prefLabel "duration"^^xsd:string ;
+	.
+
 gistd:_Aspect_mass
 	a gist:Aspect ;
 	skos:definition "The aspect mass."^^xsd:string ;
