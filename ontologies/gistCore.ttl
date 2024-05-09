@@ -1,5 +1,6 @@
 @prefix : <https://w3id.org/semanticarts/ontology/gistCore#> .
 @prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
+@prefix gistd: <https://w3id.org/semanticarts/ns/data/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -2526,7 +2527,17 @@ gist:TimeInterval
 		[
 			a owl:Restriction ;
 			owl:onProperty gist:hasMagnitude ;
-			owl:onClass gist:Duration ;
+			owl:onClass [
+				a owl:Class ;
+				owl:intersectionOf (
+					gist:Magnitude
+					[
+						a owl:Restriction ;
+						owl:onProperty gist:hasAspect ;
+						owl:hasValue gistd:_Aspect_duration ;
+					]
+				) ;
+			] ;
 			owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 		]
 		;
