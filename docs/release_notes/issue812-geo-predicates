@@ -5,4 +5,4 @@
 
 ### Patch Updates
 
-- Added notes on exceptions to `skos:prefLabel` formatting conventions to [gist Style Guide](#gistStyleGuide.md).
+- Added section on use of `gist:nonConformingLabel` annotation to `gistStyleGuide.md`.
