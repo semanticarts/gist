@@ -12,6 +12,7 @@
   - [Classes](#classes)
   - [Properties](#properties)
   - [Valid Exceptions](#valid-exceptions)
+  - [gist:nonConformingLabel](#gistnonconforminglabel)
   - [gist Definition of Title Case](#gist-definition-of-title-case)
 - [Annotations](#annotations)
   - [Conventions for Use](#conventions-for-use)
@@ -131,14 +132,17 @@ The following conventions apply to `skos:prefLabel` but *not* `skos:altLabel`, w
 
 - Lower case
 - Normalized to natural language standards. E.g., hyphens inserted, acronyms in all caps, proper nouns capitalized, etc.
-- Examples: *has unit of measure*, *has SSN*
+- Examples: *has unit of measure*, *has SSN*, *Unicode symbol*, *W2*
 
 ### Valid Exceptions
 
 There may occasionally be valid reasons to deviate from the conventions stated here:
 
 - Deviation from wording of the local name. For example, the predicate `gist:isGeoContainedIn` uses a shortened form of "geographically" for conciseness. The `skos:prefLabel` uses the fully spelled out word: "is geographically contained in."
-- Deviation from typographical conventions such as case. For example, a proper name in a property label could appropriately be capitalized. Since this will fail the SHACL validation constraints during the ontology build and release process, add the term to the `gistValidationAnnotations.ttl` file so that label validation will be skipped.
+
+### gist:nonConformingLabel
+
+- The general label conventions have been captured in SHACL shapes which are run during the ontology build and release process and the repository continuous integration script. These shapes do not allow for special cases like capitalized proper names. To prevent validation failures, add the annotation `gist:nonConformingLabel true` to the term in the `gistValidationAnnotations` ontology so that label validation will be skipped.
 
 ### gist Definition of Title Case
 
