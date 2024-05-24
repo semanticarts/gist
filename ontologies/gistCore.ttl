@@ -1478,10 +1478,19 @@ gist:MassUnit
 
 gist:MediaType
 	a owl:Class ;
-	rdfs:subClassOf gist:Category ;
+	rdfs:subClassOf
+		gist:Category ,
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:uniqueText ;
+			owl:someValuesFrom xsd:string ;
+		]
+		;
 	rdfs:seeAlso <https://www.iana.org/assignments/media-types/media-types.xhtml> ;
 	skos:definition "A digitized type that computer applications can recognize."^^xsd:string ;
+	skos:example "application/sparql-results+xml"^^xsd:string ;
 	skos:prefLabel "Media Type"^^xsd:string ;
+	skos:scopeNote "The unique text for a media type is the concatenation of the 'Type name', a slash '/', and the 'Subtype name' as provided on the page displayed when you resolve the URI of the MediaType."^^xsd:string ;
 	.
 
 gist:Medium
@@ -3941,6 +3950,7 @@ gist:uniqueText
 	skos:scopeNote "The uniqueness only goes in one direction. A product catalog number might also be an employee identifier."^^xsd:string ;
 	gist:domainIncludes
 		gist:ID ,
+		gist:MediaType ,
 		gist:Text
 		;
 	.
