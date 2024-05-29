@@ -12,13 +12,15 @@
   - [Classes](#classes)
   - [Properties](#properties)
   - [Valid Exceptions](#valid-exceptions)
-  - [gist:nonConformingLabel](#gistnonconforminglabel)
+  - [Non-Conforming Labels](#non-conforming-labels)
   - [gist Definition of Title Case](#gist-definition-of-title-case)
 - [Annotations](#annotations)
   - [Conventions for Use](#conventions-for-use)
   - [Formatting Conventions](#formatting-conventions)
   - [Cardinality](#cardinality)
+  - [Use of Ontology Terms in Annotations](#use-of-ontology-terms-in-annotations)
 - [Literals](#literals)
+- [Inverses](#inverses)
 - [Documentation](#documentation)
 
 ## Purpose of This Style Guide
@@ -108,13 +110,13 @@ These conventions apply to both data and taxonomy terms.
 - The name of the instance, with spaces and hyphens replaced by underscores (no camelcasing) and only alphanumeric characters and underscores allowed.
 - Leave case as it is,
 
-A *rigid* class is one that the instance inherently belongs; it is part of the essence of the object, which would not be the same object if it did not belong to this class. A non-rigid class may be temporary and/or express a role or relationship; for example, `Patient`, `Employee`, `Spouse`. The notion of rigid classes originates in [OntoClean](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.99.7618&rep=rep1&type=pdf).
+A *rigid* class is one that the instance inherently belongs; it is part of the essence of the object, which would not be the same object if it did not belong to this class. A non-rigid class may be temporary and/or express a role or relationship; for example, `Patient`, `Employee`, `Spouse`. The notion of rigid classes originates in [OntoClean](https://www.researchgate.net/publication/226934944_An_Overview_of_OntoClean).
 
 The *most specific rigid* class is the rigid class that the instance most directly belongs to.
 
 For example, given the class hierarchy `Living Thing` > `Person` > `Professor`, where the first two classes are rigid and the third is not, the name for Sir Tim Berners-Lee is `_Person_Sir_Tim_Berners_Lee`.
 
-Exceptions to this guideline arise may arise in IRI minting during data transformation. Based on how the data is presented, it is often difficult or cumbersome to know the most specific type of an instance, so one can fall back on a higher-level class. E.g., `_Magnitude_` rather than `_Duration_`.
+Exceptions to this guideline arise may arise in IRI minting during data transformation. Based on how the data is presented, it is often difficult or cumbersome to know the most specific type of an instance, so one can fall back on a higher-level class. E.g., when processing a table of organizations, it may not be possible to know which are governmental organizations, so the infix `_Organization_` can be used throughout.
 
 Note: As of version 12.0.0, gist itself does not itself follow the infix convention, though it does use the leading underscore. This is under consideration for a future update.
 
@@ -140,7 +142,7 @@ There may occasionally be valid reasons to deviate from the conventions stated h
 
 - Deviation from wording of the local name. For example, the predicate `gist:isGeoContainedIn` uses a shortened form of "geographically" for conciseness. The `skos:prefLabel` uses the fully spelled out word: "is geographically contained in."
 
-### gist:nonConformingLabel
+### Non-Conforming Labels
 
 - The general label conventions have been captured in SHACL shapes which are run during the ontology build and release process and the repository continuous integration script. These shapes do not allow for special cases like capitalized proper names. To prevent validation failures, add the annotation `gist:nonConformingLabel true` to the term in the `gistValidationAnnotations` ontology so that label validation will be skipped.
 
@@ -183,7 +185,9 @@ gist uses SKOS annotations rather than `rdfs:label` and `rdfs:comment`. The acce
 
 These annotations help the user understand the use and meaning of the term, and prevent definitions from becoming lengthy and unstructured. `skos:definition` is expected to provide a definition, not lengthy usage notes or examples. These should instead be included in a `skos:scopeNote` or `skos:example`, respectively.
 
-Occasionally a definition can hardly be understood at all without an example or two, in which case they can be included. For example, the term `ResearchProduct` might be defined as "An output of a research project, such as a document or spreadsheet."
+Negative examples should be prefaced by the text "Negative example:" or "Negative examples:". For example, the definition of `gist:LivingThing` includes `skos:example "Negative examples: fictional life forms such as unicorns or Mickey Mouse."`
+
+Occasionally a definition can hardly be understood at all without an example or two, in which case they can be included in the `skos:definition`. For example, the term `ResearchProduct` might be defined as "An output of a research project, such as a document or spreadsheet."
 
 *Use where relevant*
 
@@ -231,9 +235,37 @@ Certain RDFS annotations are recommended where there is no SKOS equivalent.
 | `skos:scopeNote`, `skos:editorialNote`, `skos:note` | At the implementer's discretion, multiple unrelated notes can be included in either a single annotation or multiple annotations. |
 | `skos:example` | Recommended practice is to combine all examples into a single annotation, especially if there is a list of short items. |
 
+### Use of Ontology Terms in Annotations
+
+In general it is preferred to use natural language rather than ontology terms in annotations. For example, the definition of `gist:GovernedGeoRegion` reads "A defined geographical area (or areas) governed by exactly one country government." rather than using the ontology class names `GeoRegion` and `CountryGovernment`.
+
+The exception is when a note needs to make specific reference to an ontology term rather than to a concept. For example, the scope note on `gist:birthDate` reads "This is a subproperty of `gist:startDateTime` rather than `gist:actualStartDate` because some living things have yet to be born."
+
+Caution: gist is not yet fully aligned with this best practice, which is aspirational.
+
 ## Literals
 
 - Literal values should be typed with one of the  datatypes included in the [OWL 2 Datatype Maps](https://www.w3.org/TR/owl2-syntax/#Datatype_Maps). It is not necessary to explicitly type strings as `xsd:string` because the [serializer](serialization) will add this to all untyped literals.
+
+## Inverses
+
+All inverses were removed from gist as of version `12.0.0`, with minor modifications in version `13.0.0`. We consider it a best practice not to define inverses, for several reasons:
+
+- Reduce cognitive load for developers and implementers of the ontology.
+- Promote uniformity in the graph.
+- Eliminate the need for duplicate query paths in queries.
+- Reduce memory load during inferencing.
+
+In selecting which of a potential pair of inverses to define, we apply the child-to-parent or cardinality principle: select the direction which will generally produce the fewest query results. Examples:
+
+| Child | Parent |
+| ---------: | --- |
+| `isMemberOf` | `hasMember` |
+| `isPartOf` | `hasPart` |
+| `hasBiologicalParent` | `hasBiologicalChild` |
+| `hasSuperCategory` | `hasSubCategory` |
+
+This principle will determine most but not all cases; e.g., `precedes` vs `follows`; in these cases an arbitrary decision is made.
 
 ## Documentation
 
