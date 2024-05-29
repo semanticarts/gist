@@ -1124,7 +1124,7 @@ gist:GeoVolume
 			[
 				a owl:Restriction ;
 				owl:onProperty [
-					owl:inverseOf gist:isGeographicallyContainedIn ;
+					owl:inverseOf gist:isGeoContainedIn ;
 				] ;
 				owl:someValuesFrom gist:GeoPoint ;
 			]
@@ -1305,7 +1305,7 @@ gist:Landmark
 			gist:PhysicalIdentifiableItem
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:occupiesGeographicallyPermanently ;
+				owl:onProperty gist:hasPhysicalLocation ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -3458,14 +3458,14 @@ gist:isFirstMemberOf
 	skos:scopeNote "Given the Open World Assumption, the absence of a predecessor does not entail that an ordered member is the first member of an ordered collection. This property is used to explicitly indicate the first member. Since ordered collections need not be strictly ordered, there can be more than one first member."^^xsd:string ;
 	.
 
-gist:isGeographicallyContainedIn
+gist:isGeoContainedIn
 	a
 		owl:ObjectProperty ,
 		owl:TransitiveProperty
 		;
 	rdfs:domain gist:Place ;
 	rdfs:range gist:Place ;
-	skos:definition "Relates one place to another place that contains the first."^^xsd:string ;
+	skos:definition "Relates one place to another that contains it."^^xsd:string ;
 	skos:prefLabel "is geographically contained in"^^xsd:string ;
 	.
 
@@ -3676,29 +3676,6 @@ gist:numericValue
 	] ;
 	skos:definition "The actual value of a magnitude."^^xsd:string ;
 	skos:prefLabel "numeric value"^^xsd:string ;
-	.
-
-gist:occupiesGeographically
-	a owl:ObjectProperty ;
-	rdfs:domain [
-		a owl:Class ;
-		owl:unionOf (
-			gist:PhysicalIdentifiableItem
-			gist:PhysicalSubstance
-		) ;
-	] ;
-	rdfs:range gist:Place ;
-	owl:deprecated "true"^^xsd:boolean ;
-	skos:definition "A thing occupies are region"^^xsd:string ;
-	skos:prefLabel "occupies geographically"^^xsd:string ;
-	.
-
-gist:occupiesGeographicallyPermanently
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:occupiesGeographically ;
-	owl:deprecated "true"^^xsd:boolean ;
-	skos:definition "To be in a fixed position on the earth"^^xsd:string ;
-	skos:prefLabel "occupies geographically permanently"^^xsd:string ;
 	.
 
 gist:occursIn
