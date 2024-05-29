@@ -23,7 +23,7 @@ This is a major release that includes several changes which break compatibility 
   - `gist:RatioMagnitude`
   - `gist:Temperature`
   - `gist:Volume`
-- Deleted all subclass of `gist:UnitOfMeasure`:
+- Deleted all subclasses of `gist:UnitOfMeasure`:
   - `gist:AreaUnit`
   - `gist:BaseUnit`
   - `gist:CoherentRatioUnit`
@@ -48,7 +48,6 @@ This is a major release that includes several changes which break compatibility 
   - `gist:hasNumerator`
   - `gist:hasStandardUnit`
   - `gist:isAspectOf`
-  
 - Deleted all unit of measure instances:
   - `gist:_ampere`
   - `gist:_bit`
