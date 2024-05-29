@@ -1,6 +1,6 @@
 ## Release 13.0.0
 
-This is a major release which includes several changes which break compatibility with previous versions of gist, most notably an entirely revised model of units and magnitudes. See the [migration guide](./MajorVersionMigration.html) for documentation on updating existing gist-based ontologies and instance data. Migration scripts are included to facilitate the upgrade process.
+This is a major release that includes several changes which break compatibility with previous versions of gist, most notably an entirely revised model of units and magnitudes. See the [migration guide](./MajorVersionMigration.html) for documentation on updating existing gist-based ontologies and instance data. Migration scripts are included to facilitate the upgrade process.
 
 ### Major Updates
 
