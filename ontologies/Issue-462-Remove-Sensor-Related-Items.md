@@ -8,6 +8,7 @@
   - `gist:Actuator`
   - `gist:Controller`
   - `gist:Sensor`
+  - `gist:PhenomenaType`
   
 - Properties removed:
   - `gist:hasViableRange`

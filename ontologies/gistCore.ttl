@@ -1833,13 +1833,6 @@ gist:Person
 	skos:prefLabel "Person"^^xsd:string ;
 	.
 
-gist:PhenomenaType
-	a owl:Class ;
-	rdfs:subClassOf gist:Category ;
-	skos:definition "The things that a sensor can sense, such as light, heat, current, moisture, etc."^^xsd:string ;
-	skos:prefLabel "Phenomena Type"^^xsd:string ;
-	.
-
 gist:PhysicalActionType
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
