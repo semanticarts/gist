@@ -7,6 +7,7 @@
 - Classes removed:
   - `gist:Actuator`
   - `gist:Controller`
+  - `gist:ControllerType`
   - `gist:Sensor`
   - `gist:PhenomenaType`
   
