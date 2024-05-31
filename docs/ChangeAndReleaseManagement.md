@@ -44,9 +44,9 @@ Version numbers are of the form `X.x.x` (major.minor.patch). We follow [Semantic
   - Large changes, such as introducing a new module, are not in and of themselves major changes; they are major updates only if they impact the semantics of existing terms.
 - **Minor:** New, backward-compatible functionality. Includes *any* non-major addition to the ontology, even annotation properties or introduction of a new module.
   - Examples: adding a class or property; adding a `domainIncludes` annotation; deprecation of a term. - See the [*Deprecation and Deletion Policy*](DeprecationAndDeletionPolicy.md).
-- **Patch:** Backward-compatible bug fixes, documentation, and infrastructure changes that affect process but not the ontology itself. Examples:
+- **Patch:** Backward-compatible bug fixes, documentation, and infrastructure changes that affect the gist release process but not the ontology itself. Examples:
   - Fixing a typo in an annotation.
-  - Modification of the bundle configuration.
+  - Modifying the bundle configuration.
   - Adding documentation on version numbering.
 
 A minor or patch version should require only that the user update the version number in the extension ontology's import statement; no other changes are required to retain existing functionality.
