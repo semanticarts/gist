@@ -40,13 +40,6 @@ gistd:_Aspect_area
 	skos:prefLabel "area"^^xsd:string ;
 	.
 
-gistd:_Aspect_balance
-	a gist:Aspect ;
-	skos:definition "The aspect balance."^^xsd:string ;
-	skos:editorialNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
-	skos:prefLabel "balance"^^xsd:string ;
-	.
-
 gistd:_Aspect_distance
 	a gist:Aspect ;
 	skos:definition "The aspect distance."^^xsd:string ;
@@ -59,6 +52,13 @@ gistd:_Aspect_duration
 	skos:definition "The aspect duration."^^xsd:string ;
 	skos:editorialNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
 	skos:prefLabel "duration"^^xsd:string ;
+	.
+
+gistd:_Aspect_financial_balance
+	a gist:Aspect ;
+	skos:definition "The aspect financial balance."^^xsd:string ;
+	skos:editorialNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
+	skos:prefLabel "balance"^^xsd:string ;
 	.
 
 gistd:_Aspect_mass
@@ -105,7 +105,7 @@ gist:Account
 						[
 							a owl:Restriction ;
 							owl:onProperty gist:hasAspect ;
-							owl:hasValue gistd:_Aspect_balance ;
+							owl:hasValue gistd:_Aspect_financial_balance ;
 						]
 					) ;
 				] ;
