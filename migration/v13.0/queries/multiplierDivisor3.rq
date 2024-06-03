@@ -6,7 +6,7 @@
 # test
 construct {?s ?p ?o . }  # these triples are to be deleted
 
-# delete
+# update graph
 # delete {?s ?p ?o .}
 
 where {

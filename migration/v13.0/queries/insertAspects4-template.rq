@@ -2,31 +2,28 @@
 # use the insert scripts in order to prioritize which new Aspect to use (when there is duplication)
 
 # test
-select ?magnitude ?aspect ?newAspect
+select distinct ?aspect ?newAspect
 
-# insert {?magnitude gist:hasAspect ?newAspect .}
+# update graph
+# insert {graph ?g {?magnitude gist:hasAspect ?newAspect .}}
 
 where { 
 
-  ################ copy ?aspect from findAspects1, and add new Aspect #########
+  ######## include values returned by findAspects4 along with new aspect #########
   values (?aspect ?newAspect) {
-
          }
-         ##########################################
 
-  ?magnitude gist:hasUnitOfMeasure ?unit .
+  graph ?g {
+        ?magnitude gist:hasUnitOfMeasure ?unit .
 
-  filter not exists {?magnitude gist:hasAspect ?anything . }   # to prevent duplicates (idempotent)
+        filter not exists {?magnitude gist:hasAspect ?anything . }   # to prevent duplicates (idempotent)
+        }
 
-  {
-   ?aspect gist:isAspectOf ?magnitude  .
-  }
-
+  { ?aspect gist:isAspectOf ?magnitude  .  }
   union
-  {
+  { 
    ?aspect gist:isAspectOf ?thing .
-
    ?thing gist:hasMagnitude ?magnitude . 
   }
+} 
 
-} order by ?magnitude ?aspect

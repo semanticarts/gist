@@ -1,0 +1,25 @@
+# remove references to older Aspects that were found with findAspects2
+# carefully choose the subset of values that you want to delete (some might make sense to keep)
+
+# test
+construct {?thing ?thingProperty ?thingPropertyValue .}
+
+# update graph
+# delete {?thing ?thingProperty ?thingPropertyValue .}
+
+where {
+  
+     ############ copy values from lower section of findAspect2 (the filter-not-exists section) ###############
+
+     values (?thingProperty     ?thingPropertyValue) {    # property or value that represents an Aspect
+       
+#           (rdf:type           gist:BillingRate)   # sample value, commented out
+
+            }
+
+     ?magnitude gist:hasUnitOfMeasure ?unit .
+
+     ?thing gist:hasMagnitude ?magnitude ;
+            ?thingProperty    ?thingPropertyValue .
+}
+# order by ?thingProperty ?thingPropertyValue

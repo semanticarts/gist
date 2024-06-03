@@ -1,0 +1,23 @@
+# remove triples using properties that are no longer used
+# the list may be extended, e.g. with aspect-specific properties that are no longer needed
+#
+# DEPENDENCY: make sure the three steps of multiplierDivisor are completed before doing this
+
+# test
+construct {?s ?oldProperty ?o . }
+
+# update graph
+# delete {?s ?oldProperty ?o .}
+
+where { 
+
+   values ?oldProperty {
+          gist:hasBaseUnit
+          gist:hasStandardUnit
+          gist:isAspectOf
+          }
+
+   ?s ?oldProperty ?o ;
+}
+# order by ?s ?oldProperty ?o 
+

@@ -1,41 +1,29 @@
 # replace old client units with new Units 
 # the new units must already be in the graph as part of the reference data
-#
-# test
-# construct {?s ?p ?oldUnit . ?oldUnit ?p2 ?o2 . }   # to be deleted, all triples that include the old unit
-# select ?s ?p ?newUnit ?oldUnit .                  # the new unit that is replacing the old one
+# (note: the sequence of the clauses in the union is important)
 
+# test
+ construct {?s ?p ?oldUnit . }      # triples that include the old unit
+# construct {?oldUnit ?p2 ?o2 . }    # more triples that include the old unit
+# select ?s ?p ?newUnit ?oldUnit .   # the new unit that is replacing the old one
+
+# update graph
 # delete {?s ?p ?oldUnit .  ?oldUnit ?p2 ?o2 . }    # delete all triples that include the old unit
-# insert {?s ?p ?newUnit .}                         # insert the new unit
+# insert {graph ?g {?s ?p ?newUnit .}}              # insert the new unit
 
 where {
 
 #  input
 
-    values (?oldUnit          ?newUnit) {
+   values (?oldUnit        ?newUnit) {
 
-           (gist:_ampere      gistd:_UnitOfMeasure_ampere)    # comment out units not used by the client
-           (gist:_bit         gistd:_UnitOfMeasure_bit)
-           (gist:_candela     gistd:_UnitOfMeasure_candela)
-           (gist:_day         gistd:_UnitOfMeasure_day)
-           (gist:_each        gistd:_UnitOfMeasure_each)
-           (gist:_kelvin      gistd:_UnitOfMeasure_kelvin)
-           (gist:_kilogram    gistd:_UnitOfMeasure_kilogram)
-           (gist:_meter       gistd:_UnitOfMeasure_meter)
-           (gist:_millisecond gistd:_UnitOfMeasure_millisecond)
-           (gist:_minute      gistd:_UnitOfMeasure_minute)
-           (gist:_mole        gistd:_UnitOfMeasure_mole)
-           (gist:_percent     gistd:_UnitOfMeasure_percent)
-           (gist:_second      gistd:_UnitOfMeasure_second)
-           (gist:_USDollar    gistd:_UnitOfMeasure_US_dollar)
-
-           (CLIENTNAMESPACE:_someOldUnit gistd:_UnitOfMeasure_newUnit)      # customize to include all units used by the client
+#         (gist:_USDollar  gistd:_UnitOfMeasure_US_dollar)  # sample values, commented out
            }
 
-#  triples that include the old unit
+# triples that include the old unit
 
-   { ?s ?p ?oldUnit . }
+   {?oldUnit ?p2 ?o2 . }
    union
-   { ?oldUnit ?p2 ?o2 . }
+   {graph ?g {?s ?p ?oldUnit .}}
 }
 
