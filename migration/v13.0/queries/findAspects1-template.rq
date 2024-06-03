@@ -43,6 +43,7 @@ where {
      values (?magnitudeProperty     ?magnitudePropertyValue) {    # property/value pairs with a property or value that represents an Aspect
        
             (rdf:type               gist:Duration)            # sample value
+
             }
   }
 }

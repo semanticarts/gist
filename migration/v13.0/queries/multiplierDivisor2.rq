@@ -4,8 +4,8 @@
 # test
 construct {?s ?newPredicate ?o . }  # after 
 
-# insert
-insert {?s ?newPredicate ?o . }
+# update graph
+# insert {graph ?g {?s ?newPredicate ?o .}}
 
 where {
 
@@ -13,11 +13,14 @@ where {
   {
    bind(gist:hasMultiplier as ?newPredicate)
 
-   ?s          gist:hasMultiplier ?middleNode .
-   ?middleNode gist:hasMultiplier ?o .
+   graph ?g {
 
-   filter(!isBlank(?s))
-   filter(isBlank(?middleNode))
+         ?s          gist:hasMultiplier ?middleNode .
+         ?middleNode gist:hasMultiplier ?o .
+
+         filter(!isBlank(?s))
+         filter(isBlank(?middleNode))
+         }
   }
 
 # multiplier then divisor
@@ -25,11 +28,13 @@ where {
   {
    bind(gist:hasDivisor as ?newPredicate)
 
-   ?s          gist:hasMultiplier ?middleNode .
-   ?middleNode gist:hasDivisor    ?o .
+   graph ?g {
+         ?s          gist:hasMultiplier ?middleNode .
+         ?middleNode gist:hasDivisor    ?o .
 
-   filter(!isBlank(?s))
-   filter(isBlank(?middleNode))
+         filter(!isBlank(?s))
+         filter(isBlank(?middleNode))
+         }
   }
 
 # divisor then multiplier
@@ -37,11 +42,13 @@ where {
   {
    bind(gist:hasDivisor as ?newPredicate)
 
-   ?s          gist:hasDivisor    ?middleNode .
-   ?middleNode gist:hasMultiplier ?o .
+   graph ?g {
+         ?s          gist:hasDivisor    ?middleNode .
+         ?middleNode gist:hasMultiplier ?o .
 
-   filter(!isBlank(?s))
-   filter(isBlank(?middleNode))
+         filter(!isBlank(?s))
+         filter(isBlank(?middleNode))
+         }
   }
 
 # two divisors
@@ -49,11 +56,13 @@ where {
   {
    bind(gist:hasMultiplier as ?newPredicate)
 
-   ?s          gist:hasDivisor ?middleNode .
-   ?middleNode gist:hasDivisor ?o .
+   graph ?g {
+         ?s          gist:hasDivisor ?middleNode .
+         ?middleNode gist:hasDivisor ?o .
 
-   filter(!isBlank(?s))
-   filter(isBlank(?middleNode))
+         filter(!isBlank(?s))
+         filter(isBlank(?middleNode))
+         }
   }
 
 # multiplier then hasBaseUnit or hasStandardUnit
@@ -61,11 +70,13 @@ where {
   {
    bind(gist:hasMultiplier as ?newPredicate)
 
-   ?s           gist:hasMultiplier    ?middleNode .
-   ?middleNode (gist:hasBaseUnit|gist:hasStandardUnit)   ?o .
+   graph ?g {
+         ?s           gist:hasMultiplier    ?middleNode .
+         ?middleNode (gist:hasBaseUnit|gist:hasStandardUnit)   ?o .
 
-   filter(!isBlank(?s))
-   filter(isBlank(?middleNode))
+         filter(!isBlank(?s))
+         filter(isBlank(?middleNode))
+         }
   }
 
 # divisor then hasBaseUnit or hasStandardUnit
@@ -73,10 +84,12 @@ where {
   {
    bind(gist:hasDivisor as ?newPredicate)
 
-   ?s           gist:hasDivisor       ?middleNode .
-   ?middleNode (gist:hasBaseUnit|gist:hasStandardUnit)   ?o .
+   graph ?g {
+         ?s           gist:hasDivisor       ?middleNode .
+         ?middleNode (gist:hasBaseUnit|gist:hasStandardUnit)   ?o .
 
-   filter(!isBlank(?s))
-   filter(isBlank(?middleNode))
+         filter(!isBlank(?s))
+         filter(isBlank(?middleNode))
+         }
   }
 }

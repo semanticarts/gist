@@ -4,7 +4,7 @@
 #
 #    - Aspect defined but never used
 #    - Aspect used by pattern not included in the queries (investigate and write custom queries)
-#
+
 select ?possibleAspect
 where {
 
@@ -19,4 +19,4 @@ where {
   }
 
   }
-
+order by ?possibleAspect

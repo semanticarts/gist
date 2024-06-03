@@ -1,42 +1,52 @@
 # entries from the Semantic Arts UoM reference data that the client will be using
 # run this query on the Semantic Arts repository for Unit of Measure reference data
+# note: sequence of clauses in the union is important
 # 
-# TIP: if the query becomes too large, split into sections using union to avoid cross-products
-
-# select distinct ?aspect ?unitGroup ?unitOfMeasure 
+# select distinct ?unitGroup ?unitGroupPredicate ?unitGroupObject
 
 construct {
-   ?broaderAspect ?broaderAspectPredicate ?broaderAspectObject .
-   ?unitGroup     ?unitGroupPredicate     ?unitGroupObject .
-   ?unitOfMeasure ?unitOfMeasurePredicate ?unitOfMeasureObject .
+  ?unitOfMeasure ?unitOfMeasurePredicate ?unitOfMeasureObject .  
+  ?category      ?categoryPredicate      ?categoryObject .  
+  ?unitGroup     ?unitGroupPredicate     ?unitGroupObject .
+  ?broaderAspect ?broaderAspectPredicate ?broaderAspectObject .
   }
 
 where {
 
-# input is a list of Aspects and Units the client will be using
-  values (?aspect                             ?unitOfMeasure  ) {
+# input is a list of Aspects and a list of Units the client will be using
 
-         (gistd:_Aspect_base_pay_rate       gistd:_UnitOfMeasure_US_dollar_per_hour)    # customize this section per client
-         (gistd:_Aspect_base_pay_rate       gistd:_UnitOfMeasure_US_dollar_per_day )
-         (gistd:_Aspect_billing_rate        gistd:_UnitOfMeasure_US_dollar_per_hour)
-         (gistd:_Aspect_billing_rate        gistd:_UnitOfMeasure_US_dollar_per_day )
-         (gistd:_Aspect_write_off           gistd:_UnitOfMeasure_fraction          )
+  values ?aspect {
+
+#        gistd:_Aspect_budget       # sample value, commented out
          }
-  
-  ?aspect gist:hasBroader*/gist:hasUnitGroup/gist:hasMember ?unitOfMeasure . # binds an aspect/unit pair from the list above
-  
-  ?aspect gist:hasBroader*/gist:hasUnitGroup ?unitGroup .  # get unitGroup
-  ?unitGroup gist:hasMember ?unitOfMeasure .
-  
-  ?unitOfMeasure ?unitOfMeasurePredicate ?unitOfMeasureObject . 
-  ?unitGroup     ?unitGroupPredicate     ?unitGroupObject .
+    
+# reference data for the units
+  {
+   values ?unitOfMeasure {
 
-# keep UnitGroup triples that do not have hasMember as predicate, 
-# and also triples with hasMember as predicate and with a unit of measure from the list as object
-  filter (?unitGroupPredicate != gist:hasMember || ?unitGroupObject = ?unitOfMeasure ) 
+#        gistd:_UnitOfMeasure_US_dollar  # sample value, commented out
+         }
+    
+    ?unitOfMeasure ?unitOfMeasurePredicate ?unitOfMeasureObject .}
+   
+# reference data for the categories
+  union {
+  ?aspect gist:hasBroader* ?broaderAspect .
+  ?broaderAspect gist:isCategorizedBy ?category .
+  ?category ?categoryPredicate ?categoryObject .
+  }
+
+# reference data for the unit groups
+  union {
+  ?aspect gist:hasBroader* ?broaderAspect .
+  ?broaderAspect gist:hasUnitGroup ?unitGroup .
+  ?unitGroup ?unitGroupPredicate ?unitGroupObject .
+  }
   
-# get data for all aspects in the path from original aspect to unit of measure
+# reference data for the aspects and broader aspects
+  union {
   ?aspect gist:hasBroader* ?broaderAspect .
   ?broaderAspect ?broaderAspectPredicate ?broaderAspectObject .
-  
+  }  
 }
+

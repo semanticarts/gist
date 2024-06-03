@@ -1,24 +1,30 @@
 # insert Aspects, where the Aspect is represented as a property with a Magnitude as object
-# (e.g. hasMass)
+# (e.g. hasArea)
 
 # test
-select distinct ?magnitude ?thingToMagnitudeProperty ?newAspect
+select distinct ?thingToMagnitudeProperty ?newAspect
 
-# insert {?magnitude gist:hasAspect ?newAspect . }
+# update graph
+# insert {graph ?g {?magnitude gist:hasAspect ?newAspect . }}
 
 where {
-  
-  ?magnitude gist:hasUnitOfMeasure ?unit .
-  
-  ?thing ?thingToMagnitudeProperty ?magnitude .
 
-  filter not exists {?magnitude gist:hasAspect ?anything . }   # to prevent duplicates (idempotent)
+  graph ?g {
+  
+        ?magnitude gist:hasUnitOfMeasure ?unit .
+        ?thing ?thingToMagnitudeProperty ?magnitude .
 
-  ################ copy ?thingToMagnitudeProperty from findAspects3, and add new Aspect #################
+        filter not exists {?magnitude gist:hasAspect ?anything . }   # to prevent duplicates (idempotent)
+        }
+
+  ################ include the values returned by findAspects3 #################
+
   values (?thingToMagnitudeProperty  ?newAspect) {
 
-         }
-         ##################################################
+#        (gist:hasCurrentBalance     gistd:_Aspect_financial_balance)   # sample value, commented out
 
-  } order by ?magnitude ?newAspect
+         }
+
+  } 
+# order by ?magnitude ?newAspect
 

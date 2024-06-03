@@ -1,0 +1,18 @@
+# make sure every magnitude is in the Magnitude class, or in the ReferenceValue class
+# if some magnitudes are in default graph, might need to run again without the graph condition
+
+# test
+select ?magnitude
+
+# update graph
+# insert {graph ?g {?magnitude rdf:type gist:Magnitude.}}
+
+where {
+
+  graph ?g {
+        ?magnitude gist:hasUnitOfMeasure ?unit .   # identify the magnitudes
+        filter not exists {?magnitude rdf:type gist:Magnitude.}
+        filter not exists {?magnitude rdf:type gist:ReferenceValue.}
+        }
+  }
+

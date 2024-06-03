@@ -4,3 +4,4 @@ select ?aspect
 
 where { ?aspect gist:isAspectOf ?x .}
 
+order by ?aspect
