@@ -1,6 +1,6 @@
 ## Release 13.0.0
 
-This is a major release which includes several changes which break compatibility with previous versions of gist, most notably an entirely revised model of units and magnitudes. See the [migration guide](./MajorVersionMigration.html) for documentation on updating existing gist-based ontologies and instance data. Migration scripts are included to facilitate the upgrade process.
+This is a major release that includes several changes which break compatibility with previous versions of gist, most notably an entirely revised model of units and magnitudes. See the [migration guide](./MajorVersionMigration.html) for documentation on updating existing gist-based ontologies and instance data. Migration scripts are included to facilitate the upgrade process.
 
 ### Major Updates
 
@@ -23,7 +23,7 @@ This is a major release which includes several changes which break compatibility
   - `gist:RatioMagnitude`
   - `gist:Temperature`
   - `gist:Volume`
-- Deleted all subclass of `gist:UnitOfMeasure`:
+- Deleted all subclasses of `gist:UnitOfMeasure`:
   - `gist:AreaUnit`
   - `gist:BaseUnit`
   - `gist:CoherentRatioUnit`
@@ -48,7 +48,6 @@ This is a major release which includes several changes which break compatibility
   - `gist:hasNumerator`
   - `gist:hasStandardUnit`
   - `gist:isAspectOf`
-  
 - Deleted all unit of measure instances:
   - `gist:_ampere`
   - `gist:_bit`

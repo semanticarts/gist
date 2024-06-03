@@ -17,6 +17,10 @@
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
 	.
 
+gist:exponentOfKelvin
+	gist:nonConformingLabel "true"^^xsd:boolean ;
+	.
+
 gist:nonConformingLabel
 	a owl:AnnotationProperty ;
 	rdfs:domain [

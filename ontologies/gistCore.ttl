@@ -1048,7 +1048,7 @@ gist:Magnitude
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:numericValue ;
-				owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom rdfs:Literal ;
 			]
 		) ;
 	] ;
@@ -2373,7 +2373,7 @@ gist:exponentOfKelvin
 		) ;
 	] ;
 	rdfs:range xsd:decimal ;
-	skos:definition "The exponent of kelvin in a product of powers of base units."^^xsd:string ;
+	skos:definition "The exponent of Kelvin in a product of powers of base units."^^xsd:string ;
 	skos:example """In the equation 'y degrees Fahrenheit = (y + 459.6669607) x 5/9 degrees Kelvin'
 
 		the conversion offset for degree Fahrenheit is 459.6669607
@@ -2382,7 +2382,7 @@ gist:exponentOfKelvin
 		all other exponents are zero
 
 		Every member of a unit group containing degree Fahrenheit will have a similar equation, with different offset or conversion factor (or both)."""^^xsd:string ;
-	skos:prefLabel "exponent of kelvin"^^xsd:string ;
+	skos:prefLabel "exponent of Kelvin"^^xsd:string ;
 	.
 
 gist:exponentOfKilogram
