@@ -1712,9 +1712,7 @@ gist:Offer
 			gist:ContingentObligation
 			[
 				a owl:Restriction ;
-				owl:onProperty [
-					owl:inverseOf gist:isDirectPartOf ;
-				] ;
+				owl:onProperty isOfferOf ;
 				owl:someValuesFrom gist:CatalogItem ;
 			]
 			[
@@ -3524,6 +3522,12 @@ gist:isMemberOf
 		gist:Collection ,
 		gist:Organization
 		;
+	.
+
+gist:isOfferOf
+	a owl:ObjectProperty ;
+	skos:definition "Relates an Offer to a thing being offered."^^xsd:string ;
+	skos:prefLabel "is order of"^^xsd:string ;
 	.
 
 gist:isPartOf
