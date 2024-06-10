@@ -1035,7 +1035,7 @@ gist:LivingThing
 
 gist:Magnitude
 	a owl:Class ;
-	rdfs:seeAlso gist:hasPrecision ;
+	rdfs:seeAlso gist:hasAccuracy ;
 	owl:disjointWith
 		gist:Organization ,
 		gist:PhysicalIdentifiableItem ,
@@ -1065,7 +1065,7 @@ gist:Magnitude
 	skos:definition "The amount of a measurable characteristic (aspect)."^^xsd:string ;
 	skos:example "A model of car could have a wheelbase of 113.2 inches. In this example, the aspect is wheelbase, the unit of measure is inch, and the numeric value is 113.2."^^xsd:string ;
 	skos:prefLabel "Magnitude"^^xsd:string ;
-	skos:scopeNote "A precision can be assigned to a magnitude to describe the probabilistic accuracy of the numeric value."^^xsd:string ;
+	skos:scopeNote "An accuracy can be assigned to a magnitude using the property has accuracy."^^xsd:string ;
 	.
 
 gist:MediaType
@@ -2654,6 +2654,20 @@ gist:goesToPlace
 	skos:prefLabel "goes to place"^^xsd:string ;
 	.
 
+gist:hasAccuracy
+	a
+		owl:ObjectProperty ,
+		owl:FunctionalProperty
+		;
+	rdfs:range gist:Magnitude ;
+	skos:definition "Relates a magnitude to the accuracy of its numeric value."^^xsd:string ;
+	skos:example "Temperature accurate to tenth of a degree C; length accurate to the nearest centimeter."^^xsd:string ;
+	skos:prefLabel "has accuracy"^^xsd:string ;
+	skos:scopeNote """A typical way to use accuracy is to have it represent 2 standard deviations of the distribution of measurement errors. With this convention, when the measurement method is well-calibrated (has an average error of zero) and its errors have a normal distribution, there is a 95% chance that the actual error in measurement, in either direction, is less than the accuracy.
+
+Note that the unit of measure of the accuracy has to be compatible with the unit of measure of the original magnitude (e.g. something measured in meters could have a accuracy in terms of millimeters or any other unit that measures distance)."""^^xsd:string ;
+	.
+
 gist:hasAddend
 	a owl:ObjectProperty ;
 	skos:definition "Relates an aspect to another aspect that is an additive component of it."^^xsd:string ;
@@ -2821,20 +2835,6 @@ gist:hasPhysicalLocation
 	skos:definition "Relates something to its physical location."^^xsd:string ;
 	skos:prefLabel "has physical location"^^xsd:string ;
 	skos:scopeNote "This property does not distinguish between things whose locations are stable and those whose locations change over time; e.g., a fire hydrant vs. a car."^^xsd:string ;
-	.
-
-gist:hasPrecision
-	a
-		owl:ObjectProperty ,
-		owl:FunctionalProperty
-		;
-	rdfs:range gist:Magnitude ;
-	skos:definition "Relates a magnitude to the accuracy of the numeric value."^^xsd:string ;
-	skos:example "Temperature precise to tenth of a degree C; length precise to the nearest centimeter."^^xsd:string ;
-	skos:prefLabel "has precision"^^xsd:string ;
-	skos:scopeNote """A typical way to use precision is to have it represent 2 standard deviations of the distribution of measurement errors. With this convention, when the measurement method is well-calibrated (has an average error of zero) and its errors have a normal distribution, there is a 95% chance that the actual error in measurement, in either direction, is less than the precision.
-
-Note that the unit of measure of the precision has to be compatible with the unit of measure of the original magnitude (e.g. something measured in meters could have a precision in terms of millimeters or any other unit that measures distance)."""^^xsd:string ;
 	.
 
 gist:hasRecipient
