@@ -1712,7 +1712,7 @@ gist:Offer
 			gist:ContingentObligation
 			[
 				a owl:Restriction ;
-				owl:onProperty isOfferOf ;
+				owl:onProperty gist:isOfferOf ;
 				owl:someValuesFrom gist:CatalogItem ;
 			]
 			[
