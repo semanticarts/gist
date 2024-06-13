@@ -259,7 +259,7 @@ All inverses were removed from gist as of version `12.0.0`, with minor modificat
 
 In selecting which of a potential pair of inverses to define, we apply the child-to-parent or cardinality principle: select the direction which will generally produce the fewest query results. Examples:
 
-| Child | Parent |
+| Child to Parent | Parent to Child |
 | ---------: | --- |
 | `isMemberOf` | `hasMember` |
 | `isPartOf` | `hasPart` |
