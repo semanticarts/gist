@@ -1712,7 +1712,7 @@ gist:Offer
 			gist:ContingentObligation
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isOfferOf ;
+				owl:onProperty gist:offers ;
 				owl:someValuesFrom gist:CatalogItem ;
 			]
 			[
@@ -3524,12 +3524,6 @@ gist:isMemberOf
 		;
 	.
 
-gist:isOfferOf
-	a owl:ObjectProperty ;
-	skos:definition "Relates an Offer to a thing being offered."^^xsd:string ;
-	skos:prefLabel "is offer of"^^xsd:string ;
-	.
-
 gist:isPartOf
 	a
 		owl:ObjectProperty ,
@@ -3686,6 +3680,13 @@ gist:occursIn
 	a owl:ObjectProperty ;
 	skos:definition "The geospatial place where something happened or will happen"^^xsd:string ;
 	skos:prefLabel "occurs in"^^xsd:string ;
+	.
+
+gist:offers
+	a owl:ObjectProperty ;
+	skos:definition "Relates something to a thing it makes available for acceptance or rejection."^^xsd:string ;
+	skos:example "An instance of gist:Offer offers a specific product at a particular price; a company offers an employee benefit; Honda offers vehicles for sale."^^xsd:string ;
+	skos:prefLabel "is offer of"^^xsd:string ;
 	.
 
 gist:owns
