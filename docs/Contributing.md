@@ -99,7 +99,7 @@ The pre-commit hook does several things when you run `git commit`:
 - Assign the PR to yourself for tracking purposes.
 - Before submitting the PR, you should ensure that you have merged or rebased develop into your working branch, [as above during implementation](#commits-pushes-and-merges).
 - Submit the PR to develop.
-- If the issue addressed by the PR is slated for a particular release, assign the PR to the same release project, using the Project labels on the right sidebar, in order to facilitate tracking. The project board is configured to automatically put the PR in the "In Review" column. However, the associated issue must be moved into that column manually.
+- If the issue addressed by the PR is slated for a particular release, assign the PR to the same release project, using the Project labels on the right sidebar, in order to facilitate tracking. The PR and the associated issue(s) should be moved to the "In Review" column.
 - Once the PR has been submitted, check that there are no conflicts with the develop branch. If there are, merge or rebase develop into your branch and resolve the conflicts. You may need to repeat this step after making any requested changes, in case other PRs have been merged to develop in the meantime.
 - Assign one or more reviewers, as specified [below](#assigning-reviewers).
 
@@ -119,8 +119,8 @@ The pre-commit hook does several things when you run `git commit`:
     - Issues that are tightly related can be addressed in a single PR.
 - The PR should address the entirety of an issue. If it does not, either the PR should be modified or the issue should be broken up into parts.
 - The description of the PR should contain the keywords "Closes #nnn" (or another of the [GitHub keywords](https://docs.github.com/en/enterprise/2.21/user/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)) where nnn is the issue number. This automatically closes the related issue(s) when the PR is merged, and creates a link which allows readers and reviewers to easily reference the issue.
-  - Example: "Correct cardinality restriction on class gist:Room. Fixes #98."
-  - Note that if the PR fixes multiple issues, each issue number must be prefixed by the keyword. E.g., "Fixes #98, fixes #102", rather than "Fixes #98, #102" or "Fixes #98 and #102".
+  - Example: "Correct cardinality restriction on class gist:Room. Closes #98."
+  - Note that if the PR fixes multiple issues, each issue number must be prefixed by the keyword. E.g., "Closes #98, closes #102", rather than "Closes #98, #102" or "Closes #98 and #102".
 - The PR should include an update to the release notes. See [_Release Notes_](#release-notes).
 - Refer to the [_Deprecation and Deletion Policy_](DeprecationAndDeletionPolicy.md) if you are deprecating or deleting terms.
 
