@@ -1991,7 +1991,7 @@ gist:TimeInterval
 	skos:prefLabel "Time Interval"^^xsd:string ;
 	skos:scopeNote
 		"An ongoing state of affairs with an unknown end time in the future cannot be a time interval; e.g. the lifespan of a living person cannot be a time interval, as the end time is unknown."^^xsd:string ,
-		"This is distinct from a gist:Duration, which describes how long a time interval lasts (e.g., one hour; 3 days; 22 minutes)."^^xsd:string
+		"This is distinct from a duration, which describes how long a time interval lasts (e.g., one hour; 3 days; 22 minutes)."^^xsd:string
 		;
 	.
 
