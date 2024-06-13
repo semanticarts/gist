@@ -3469,29 +3469,6 @@ gist:isGeoContainedIn
 
 gist:isGovernedBy
 	a owl:ObjectProperty ;
-	rdfs:domain [
-		a owl:Class ;
-		owl:unionOf (
-			gist:Category
-			gist:Content
-			gist:GeoRegion
-			gist:IntellectualProperty
-			gist:Intention
-			gist:Organization
-			gist:Person
-			gist:PhysicalIdentifiableItem
-			gist:PhysicalSubstance
-		) ;
-	] ;
-	rdfs:range [
-		a owl:Class ;
-		owl:unionOf (
-			gist:Intention
-			gist:Organization
-			gist:Person
-			gist:Template
-		) ;
-	] ;
 	skos:definition "A reference from the thing being governed to the governor"^^xsd:string ;
 	skos:prefLabel "is governed by"^^xsd:string ;
 	.
