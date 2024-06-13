@@ -33,18 +33,18 @@ skos:scopeNote
 	a owl:AnnotationProperty ;
 	.
 
+gistd:_Aspect_altitude
+	a gist:Aspect ;
+	skos:definition "The aspect altitude."^^xsd:string ;
+	skos:editorialNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
+	skos:prefLabel "area"^^xsd:string ;
+	.
+
 gistd:_Aspect_area
 	a gist:Aspect ;
 	skos:definition "The aspect area."^^xsd:string ;
 	skos:editorialNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
 	skos:prefLabel "area"^^xsd:string ;
-	.
-
-gistd:_Aspect_distance
-	a gist:Aspect ;
-	skos:definition "The aspect distance."^^xsd:string ;
-	skos:editorialNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
-	skos:prefLabel "distance"^^xsd:string ;
 	.
 
 gistd:_Aspect_duration
@@ -694,7 +694,7 @@ gist:GeoPoint
 						[
 							a owl:Restriction ;
 							owl:onProperty gist:hasAspect ;
-							owl:hasValue gistd:_Aspect_distance ;
+							owl:hasValue gistd:_Aspect_altitude ;
 						]
 					) ;
 				] ;
