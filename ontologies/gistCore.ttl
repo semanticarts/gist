@@ -790,7 +790,7 @@ gist:DegreeOfCommitment
 gist:Determination
 	a owl:Class ;
 	rdfs:subClassOf gist:Event ;
-	skos:definition "An event whose purpose is to establish a specific result, value, or outcome usually by research, measuring, evaluating, or calculating."^^xsd:string ;
+	skos:definition "An event whose purpose is to establish a specific result, value, or outcome, usually by research, measuring, evaluating, or calculating."^^xsd:string ;
 	skos:example "Measuring the sulphur content of crude oil. Evaluation of a loan application for approval. Estimating the price of gas for the next three months. Determining whether and by how much an interest rate should change. Classifying something."^^xsd:string ;
 	skos:prefLabel "Determination"^^xsd:string ;
 	.
