@@ -2143,7 +2143,7 @@ gist:RenderedContent
 gist:Requirement
 	a owl:Class ;
 	rdfs:subClassOf gist:Intention ;
-	skos:definition "A documented physical or functional need that a particular design, product, or process must be able to perform.  Alternately, the obligation of a person or organization to behave in a certain way (i.e., drive on the right side of the road)."^^xsd:string ;
+	skos:definition "The obligation of a person or organization to behave in a certain way (e.g., drive on the right side of the road)."^^xsd:string ;
 	skos:prefLabel "Requirement"^^xsd:string ;
 	.
 
@@ -2254,7 +2254,7 @@ gist:SimpleUnitOfMeasure
 
 gist:Specification
 	a owl:Class ;
-	rdfs:subClassOf gist:Requirement ;
+	rdfs:subClassOf gist:Intention ;
 	skos:definition "One or more characteristics that specify what it means to be a particular type of thing such as a material, product, service or event. A specification is sufficiently precise to allow evaluating conformance to the specification."^^xsd:string ;
 	skos:example "The specification of the iPhone 14; hypothetical events covered by a homeowner's insurance policy."^^xsd:string ;
 	skos:prefLabel "Specification"^^xsd:string ;
