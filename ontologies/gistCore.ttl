@@ -1499,7 +1499,7 @@ gist:MediaType
 	skos:definition "A digitized type that computer applications can recognize."^^xsd:string ;
 	skos:example "application/sparql-results+xml"^^xsd:string ;
 	skos:prefLabel "Media Type"^^xsd:string ;
-	skos:scopeNote "The unique text for a media type is the concatenation of the 'Type name', a slash '/', and the 'Subtype name' as provided on the page displayed when you resolve the URI of the MediaType."^^xsd:string ;
+	skos:scopeNote "The unique text for an IANA media type is the concatenation of the 'Type name', a slash '/', and the 'Subtype name' as provided on the page displayed when you resolve the URI of the media type."^^xsd:string ;
 	.
 
 gist:Medium
