@@ -75,7 +75,7 @@ The pre-commit hook does several things when you run `git commit`:
 
 ### Working Branch
 
-- The first step is to create a working branch from develop for your work: e.g., `feature/document_submission_guidelines` or `bugfix/fix_typo_in_Address_definition`. This branch will not be preserved after the work is merged into develop, so its name does not have to be particularly specific, accurate, or detailed. Some developers like to add the issue number to the branch.
+- The first step is to create a working branch from develop for your work. This branch will not be preserved after the work is merged into develop, so its name does not have to be particularly specific, accurate, or detailed. Some developers like to add the issue number to the branch. Prefix your GitHub username with a slash to the branch name so that it is easy to track who created which branch. E.g.,`rounes/documentation_updates` or `ryounes/issue546_documentation_updates`.
 
 ### Style Guide
 
