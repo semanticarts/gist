@@ -14,7 +14,7 @@
 	owl:versionIRI <https://w3id.org/semanticarts/ontology/gistCoreX.x.x> ;
 	skos:definition "gist is a minimalist upper ontology created by Semantic Arts."^^xsd:string ;
 	skos:prefLabel "gist"^^xsd:string ;
-	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
+	gist:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:string ;
 	.
 
 skos:definition

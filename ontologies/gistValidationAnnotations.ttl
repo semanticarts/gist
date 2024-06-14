@@ -14,7 +14,7 @@
 	owl:versionIRI <https://w3id.org/semanticarts/ontology/gistValidationAnnotationsX.x.x> ;
 	skos:definition "Annotations to assist gist ontology validation."^^xsd:string ;
 	skos:prefLabel "gist Validation Annotations"^^xsd:string ;
-	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
+	gist:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:string ;
 	.
 
 gist:nonConformingLabel
