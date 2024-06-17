@@ -918,10 +918,7 @@ gist:ElectronicAddressType
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
 	skos:definition "A categorization of virtual electronic addresses based, usually, upon the technology that enables routing to the address referent."^^xsd:string ;
-	skos:prefLabel
-		"Electronic Address Type"^^xsd:string ,
-		<https://ontologies.semanticarts.com/o/gistCore>
-		;
+	skos:prefLabel "Electronic Address Type"^^xsd:string ;
 	.
 
 gist:Equipment
@@ -1938,10 +1935,7 @@ gist:PhysicalAddressType
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
 	skos:definition "A categorization of physical addresses based upon local customary characterizations."^^xsd:string ;
-	skos:prefLabel
-		"Physical Address Type"^^xsd:string ,
-		<https://ontologies.semanticarts.com/o/gistCore>
-		;
+	skos:prefLabel "Physical Address Type"^^xsd:string ;
 	.
 
 gist:PhysicalEvent

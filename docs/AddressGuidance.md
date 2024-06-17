@@ -29,7 +29,7 @@ And we removed gist:hasCommunicationAddress and we added a new object property, 
 
 The formal restriction definition for gist:PhysicalAddress is "gist:Address and (gist:refersTo some gist:Place)". In other words, a physical address exists in the real, physical world. It is possible for someone to go there and touch the address's referent.
 
-The gist:ElectronicAddress class has no formal restriction definition. But it does have a text definition: _"_ _Content referring to a locatable virtual place not physically existing, as such, but made by software or electronics to appear to do so."_ From a practical perspective, it is an address which is not tangible. One cannot touch it. (One might touch the WI-FI router associated with your IP Address. But that is _not_ the address itself.)
+The gist:ElectronicAddress class has no formal restriction definition. But it does have a text definition: _"_ _Content referring to a locatable virtual place not physically existing, as such, but made by software or electronics to appear to do so."_ From a practical perspective, it is an address which is not tangible. One cannot touch it. (One might touch the WI-FI router associated with an IP Address. But that is _not_ the address itself.)
 
 ### Using the new model
 
@@ -70,11 +70,10 @@ Beyond the physical/electronic distinction made by the classes, other important 
 
 ### Address Categories & Instances
 
-gist v13.0.0 supplies four "starter" categories for distinguishing addresses.
+gist v13.0.0 supplies three "starter" categories for distinguishing addresses.
 - gist:\AddressUsageType
 - gist:\ElectronicAddressType
-- gist:\PhysicalAddressType 
-- gist:\PrecedenceType .
+- gist:\PhysicalAddressType .
 
 However, in keeping with our self-imposed rules around the gistCore ontology, we do not supply member instances of those classes as part of the gist release. But fear not. This document will provide some concrete suggestions.
 
@@ -82,7 +81,7 @@ Every user will need to evaluate how best to categorize their address instances 
 
 Below are some examples we recommend for consideration. (The instance IRIs should use the appropriate domain namespace, not _gist_'s or _example_'s.) But ultimately, the classes and instances must suit the user's particular context.
 
-In addition to the three classes provided within gistCore, we encourage you to consider adding ex:PrecedenceType to your domain ontology. In our experience, the combination of these four categories should cover most addresses.
+In addition to the three classes provided within gistCore, we encourage adding ex:PrecedenceType to the domain ontology. In our experience, the combination of these four categories should cover most addresses.
 
 #### gist:PhysicalAddressType
 
@@ -108,7 +107,7 @@ In addition to the three classes provided within gistCore, we encourage you to c
 - ex:\_AddressUsageType_postal
 - ex:\_AddressUsageType_residence
 
-#### gist:PrecedenceType
+#### ex:PrecedenceType
 
 - ex:\_PrecedenceType_primary
 - ex:\_PrecedenceType_secondary
