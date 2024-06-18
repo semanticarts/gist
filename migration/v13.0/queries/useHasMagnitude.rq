@@ -2,7 +2,7 @@
 # use the output of findAspects3 to identify the thing/magnitude pairs of interest
 
 # test
-construct {?thing ?thingToMagnitudProperty ?magnitude.}
+construct {?thing ?thingToMagnitudeProperty ?magnitude.}
 
 # update graph
 # insert {graph ?g {?thing gist:hasMagnitude ?magnitude .}}
@@ -10,10 +10,10 @@ construct {?thing ?thingToMagnitudProperty ?magnitude.}
 where {
 
   values ?thingToMagnitudeProperty  {
-#        ex:hasArea    # sample value, commented out
+         gist:hasAltitude   # add more values as needed
          }
  
-  ?magnitude gist:hasUnitOfMeasure ?unit .
+  ?magnitude gist:hasUnitOfMeasure ?unit .   # to identify magnitudes
 
   graph ?g {
         ?thing ?thingToMagnitudeProperty ?magnitude.
