@@ -686,7 +686,7 @@ gist:GeoPoint
 		owl:intersectionOf (
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasAltitude ;
+				owl:onProperty gist:hasMagnitude ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:intersectionOf (
