@@ -60,16 +60,16 @@ gist:Actuator
 gist:Address
 	a owl:Class ;
 	rdfs:subClassOf gist:Content ;
-	skos:definition "A reference to a place (real or virtual) that can be located by some routing algorithm, and to where messages or things can be sent or from where they can be received."^^xsd:string ;
-	skos:example "EXAMPLE: A PO Box or a Web URL to a PDF file."^^xsd:string ;
+	skos:definition "A reference to a place (real or virtual) that can be located by some routing algorithm, and where messages or things can be sent to or received from."^^xsd:string ;
+	skos:example "A PO Box or a Web URL to a PDF file."^^xsd:string ;
 	skos:prefLabel "Address"^^xsd:string ;
 	.
 
 gist:AddressUsageType
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	skos:definition "A categorization of the context or manner in which an address may be used."^^xsd:string ;
-	skos:example "EXAMPLES: billing, business, personal, postal, residence."^^xsd:string ;
+	skos:definition "A category indicating the context or manner in which an address may be used."^^xsd:string ;
+	skos:example "Billing, business, personal, postal, residence."^^xsd:string ;
 	skos:prefLabel "Address Usage Type"^^xsd:string ;
 	.
 
@@ -909,15 +909,15 @@ gist:ElectronicAddress
 	rdfs:subClassOf gist:Address ;
 	owl:disjointWith gist:PhysicalAddress ;
 	skos:altLabel "Virtual Address"^^xsd:string ;
-	skos:definition "Content referring to a locatable virtual place not physically existing, as such, but made by software or electronics to appear to do so."^^xsd:string ;
-	skos:example "EXAMPLES: a file directory, a website, an IP address."^^xsd:string ;
+	skos:definition "An address referring to a locatable virtual place not physically existing, as such, but made by software or electronics to appear to do so."^^xsd:string ;
+	skos:example "A file directory, a website, an IP address."^^xsd:string ;
 	skos:prefLabel "Electronic Address"^^xsd:string ;
 	.
 
 gist:ElectronicAddressType
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	skos:definition "A categorization of virtual electronic addresses based, usually, upon the technology that enables routing to the address referent."^^xsd:string ;
+	skos:definition "A category indicating a kind of virtual electronic address. Such a category is usually based on the technology that enables routing to the address referent."^^xsd:string ;
 	skos:prefLabel "Electronic Address Type"^^xsd:string ;
 	.
 
@@ -1927,7 +1927,7 @@ gist:PhysicalAddress
 			]
 		) ;
 	] ;
-	skos:definition "Content referring to a locatable place within the material, physical universe."^^xsd:string ;
+	skos:definition "An address referring to a locatable place within the material, physical universe."^^xsd:string ;
 	skos:prefLabel "Physical Address"^^xsd:string ;
 	.
 
@@ -3131,7 +3131,7 @@ gist:goesToPlace
 gist:hasAddress
 	a owl:ObjectProperty ;
 	rdfs:range gist:Address ;
-	skos:definition "Relates the Subject to its physical or electronic address Object."^^xsd:string ;
+	skos:definition "Relates something to its physical or electronic address."^^xsd:string ;
 	skos:example "The street address of a building. The email address of a person."^^xsd:string ;
 	skos:prefLabel "has address"^^xsd:string ;
 	.

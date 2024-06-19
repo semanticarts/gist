@@ -5,15 +5,15 @@ In gist v13.0.0, we introduced a new paradigm for modeling addresses. The new me
 ## Background
 
 As recently as gist 12.1.0, we had five subclasses of gist:Address: 
-- gist:\ElectronicMessageAddress
-- gist:\EmailAddress
-- gist:\PostalAddress
-- gist:\StreetAddress
-- gist:\TelephoneNumber .
+- gist:ElectronicMessageAddress
+- gist:EmailAddress
+- gist:PostalAddress
+- gist:StreetAddress
+- gist:TelephoneNumber .
 
 And we had two properties specifically aimed at addresses:
-- gist:\hasAddress
-- gist:\hasCommunicationAddress
+- gist:hasAddress
+- gist:hasCommunicationAddress
 
 But these classes and properties pre-dated our adoption of the catgories (CBox) paradigm. Further, it is not always possible to know at the time of minting the instances what _kind_ of address is being represented. Is it a Postal Address or a Street Address? If it is both, with what midfix should the IRI be minted?
 
@@ -22,14 +22,16 @@ Upon analysis, we decided these classes were not semantically dissimilar enough 
 ## The New Model
 
 With gist v13.0.0, we reduced gist:Address down to two disjoint subclasses:
-- gist:\Address
-  - gist:\ElectronicAddress
-  - gist:\PhysicalAddress .
+- gist:Address
+  - gist:ElectronicAddress
+  - gist:PhysicalAddress .
 And we removed gist:hasCommunicationAddress and we added a new object property, gist:refersTo.
 
-The formal restriction definition for gist:PhysicalAddress is "gist:Address and (gist:refersTo some gist:Place)". In other words, a physical address exists in the real, physical world. It is possible for someone to go there and touch the address's referent.
+The formal restriction definition for `gist:PhysicalAddress` is:
+- "gist:Address and (gist:refersTo some gist:Place)". 
+In other words, a physical address exists in the real, physical world. It is possible for someone to go there and touch the address's referent.
 
-The gist:ElectronicAddress class has no formal restriction definition. But it does have a text definition: _"_ _Content referring to a locatable virtual place not physically existing, as such, but made by software or electronics to appear to do so."_ From a practical perspective, it is an address which is not tangible. One cannot touch it. (One might touch the WI-FI router associated with an IP Address. But that is _not_ the address itself.)
+The `gist:ElectronicAddress` class has no formal restriction definition. But it does have a text definition: _"_ _Content referring to a locatable virtual place not physically existing, as such, but made by software or electronics to appear to do so."_ From a practical perspective, it is an address which is not tangible. One cannot touch it. (One might touch the WI-FI router associated with an IP Address. But that is _not_ the address itself.)
 
 ### Using the new model
 
@@ -39,7 +41,6 @@ Now, our address-related triples can all conform to three basic patterns:
 | **Pattern Set 1** | owl:Thing | gist:hasAddress | gist:PhysicalAddress |
 | **Pattern Set 1** | owl:Thing | gist:hasAddress | gist:ElectronicAddress |
 | **Pattern Set 2** | gist:PhysicalAddress | gist:containedText | xsd:string |
-| **Pattern Set 2** | gist:ElectronicAddress | gist:containedText | xsd:string |
 | **Pattern Set 2** | gist:ElectronicAddress | gist:containedText | xsd:string |
 | **Pattern Set 3** | gist:PhysicalAddress | gist:refersTo | gist:Place |
 | **Pattern Set 3** | gist:PhysicalAddress | gist:refersTo | gist:GeoPoint |
@@ -66,14 +67,14 @@ Now, our address-related triples can all conform to three basic patterns:
 
 Especially in the case of electronic addresses, one should be careful not to confuse or conflate the _xsd:string_ object used in the "gist:containedText" triple with the _rdf:resource_ object used in the "gist:refersTo" triple.
 
-Beyond the physical/electronic distinction made by the classes, other important distinctions need to be made. One reasonably might ask, "Still, what _kind_ of address are we talking about?" These additional distinctions are to be handled using categories in the CBox.
+Beyond the physical/electronic distinction made by the classes, other important distinctions need to be made. One reasonably might ask, "Still, what _kind_ of address are we talking about?" These additional distinctions are to be handled using categories (i.e., instances of `gist:Category`).
 
 ### Address Categories & Instances
 
 gist v13.0.0 supplies three "starter" categories for distinguishing addresses.
-- gist:\AddressUsageType
-- gist:\ElectronicAddressType
-- gist:\PhysicalAddressType .
+- gist:AddressUsageType
+- gist:ElectronicAddressType
+- gist:PhysicalAddressType .
 
 However, in keeping with our self-imposed rules around the gistCore ontology, we do not supply member instances of those classes as part of the gist release. But fear not. This document will provide some concrete suggestions.
 
@@ -85,33 +86,33 @@ In addition to the three classes provided within gistCore, we encourage adding e
 
 #### gist:PhysicalAddressType
 
-- ex:\_PhysicalAddressType_street
-- ex:\_PhysicalAddressType_postal_drop (for PO Boxes, etc.)
-- ex:\_PhysicalAddressType_fuzzy (e.g., "Corner of Main St & First Ave")
+- ex:_PhysicalAddressType_street
+- ex:_PhysicalAddressType_postal_drop (for PO Boxes, etc.)
+- ex:_PhysicalAddressType_fuzzy (e.g., "Corner of Main St & First Ave")
 
 #### gist:ElectronicAddressType
 
-- ex:\_ElectronicAddressType_mobile_telephone
-- ex:\_ElectronicAddressType_stationary_telephone
-- ex:\_ElectronicAddressType_fax
-- ex:\_ElectronicAddressType_email
-- ex:\_ElectronicAddressType_web
-- ex:\_ElectronicAddressType_ip (for Internet Protocol)
-- ex:\_ElectronicAddressType_mac (for Medium Access Control)
+- ex:_ElectronicAddressType_mobile_telephone
+- ex:_ElectronicAddressType_stationary_telephone
+- ex:_ElectronicAddressType_fax
+- ex:_ElectronicAddressType_email
+- ex:_ElectronicAddressType_web
+- ex:_ElectronicAddressType_ip (for Internet Protocol)
+- ex:_ElectronicAddressType_mac (for Medium Access Control)
 
 #### gist:AddressUsageType
 
-- ex:\_AddressUsageType_billing
-- ex:\_AddressUsageType_business
-- ex:\_AddressUsageType_personal
-- ex:\_AddressUsageType_postal
-- ex:\_AddressUsageType_residence
+- ex:_AddressUsageType_billing
+- ex:_AddressUsageType_business
+- ex:_AddressUsageType_personal
+- ex:_AddressUsageType_postal
+- ex:_AddressUsageType_residence
 
 #### ex:PrecedenceType
 
-- ex:\_PrecedenceType_primary
-- ex:\_PrecedenceType_secondary
-- ex:\_PrecedenceType_non_primary
+- ex:_PrecedenceType_primary
+- ex:_PrecedenceType_secondary
+- ex:_PrecedenceType_non_primary
 
 ## Temporal Addresses
 
@@ -121,13 +122,13 @@ Rather than assigning an Address instance directly to a person or organization, 
 
 ### Use of gist:refersTo
 
-Because gist:Address and its subclasses are subclasses of gist:Content, it does not make semantic sense to say that an address "is contained in a georegion". However, it does make sense to say that the address "refers to something". That "something" can be a geo-point (with a very specific latitude & longitude), a city, state, or country, a postal zone, or some custom-defined area. Hence, we do not assign a range to the gist:refersTo property.
+Because `gist:Address` and its subclasses are subclasses of gist:Content, it does not make semantic sense to say that an address "is contained in a georegion". However, it does make sense to say that the address "refers to something". That "something" can be a geo-point (with a very specific latitude & longitude), a city, state, or country, a postal zone, or some custom-defined area. Hence, we do not assign a range to the gist:refersTo property.
 
 Also, an address can refer to multiple things, using multiple triples. This is perhaps what people really have in mind when they want an address string split into its component parts. But parsing a string just results in multiple strings. Determining what _actual things_ an address refers to, and using the IRIs for those things, results in much more useful information. So, let the address instance refer to the IRIs for as many things as are useful in the domain's context.
 
 An important point to bear in mind is that an address string might not _explicitly_ refer to a country (e.g., "1313 Mockingbird Ln, Munster, IN"). But it _implicitly_ refers to it. In the example, the address implies the USA because Indiana is part of the US. So, it is perfectly acceptable to have a triple asserting that the address refers to the IRI for the country, even when the address string lacks it.
 
-In the case of some electronic address types (e.g., email addresses), one might choose not to use the gist:references property, at all.
+In the case of some electronic address types (e.g., email addresses), one might choose not to use the `gist:refersTo property`, at all.
 
 ### Address Segments
 
