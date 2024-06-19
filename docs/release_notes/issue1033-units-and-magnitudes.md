@@ -43,9 +43,11 @@ This is a major release that includes several changes which break compatibility 
   - `gist:TemperatureUnit`
   - `gist:VolumeUnit`
 - Deleted the following predicates:
+  - `gist:hasAltitude`
   - `gist:hasDenominator`
   - `gist:hasMultiplicand`
   - `gist:hasNumerator`
+  - `gist:hasPrecision`
   - `gist:hasStandardUnit`
   - `gist:isAspectOf`
 - Deleted all unit of measure instances:
@@ -66,6 +68,7 @@ This is a major release that includes several changes which break compatibility 
 - Added classes and predicates:
   - `gist:Discipline`
   - `gist:UnitGroup`
+  - `gist:hasAccuracy`
   - `gist:hasAddend`
   - `gist:hasAspect`
   - `gist:hasBroader`
@@ -86,9 +89,9 @@ This is a major release that includes several changes which break compatibility 
   - `gist:exponentOfSteradian`
   - `gist:exponentOfUSDollar`
 - Added aspect instances. Note the new `gistd:` namespace (`<https://w3id.org/semanticarts/ns/data/gist/>`).
+  - `gistd:_Aspect_altitude`
   - `gistd:_Aspect_area`
   - `gistd:_Aspect_balance`
-  - `gistd:_Aspect_distance`
   - `gistd:_Aspect_mass`
   - `gistd:_Aspect_probability`
   - `gistd:_Aspect_volume`
