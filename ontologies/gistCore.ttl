@@ -61,7 +61,7 @@ gist:Address
 	a owl:Class ;
 	rdfs:subClassOf gist:Content ;
 	skos:definition "A reference to a place (real or virtual) that can be located by some routing algorithm, and where messages or things can be sent to or received from."^^xsd:string ;
-	skos:example "A PO Box or a Web URL to a PDF file."^^xsd:string ;
+	skos:example "A PO Box, a Web URL to a PDF file."^^xsd:string ;
 	skos:prefLabel "Address"^^xsd:string ;
 	.
 
@@ -909,8 +909,8 @@ gist:ElectronicAddress
 	rdfs:subClassOf gist:Address ;
 	owl:disjointWith gist:PhysicalAddress ;
 	skos:altLabel "Virtual Address"^^xsd:string ;
-	skos:definition "An address referring to a locatable virtual place not physically existing, as such, but made by software or electronics to appear to do so."^^xsd:string ;
-	skos:example "A file directory, a website, an IP address."^^xsd:string ;
+	skos:definition "An address referring to a locatable virtual place that does not physically exist, as such, but made by software or electronics to appear to do so."^^xsd:string ;
+	skos:example "A path to a file in a file system, a website, an IP address."^^xsd:string ;
 	skos:prefLabel "Electronic Address"^^xsd:string ;
 	.
 
@@ -1927,14 +1927,14 @@ gist:PhysicalAddress
 			]
 		) ;
 	] ;
-	skos:definition "An address referring to a locatable place within the material, physical universe."^^xsd:string ;
+	skos:definition "An address that refers to a locatable place within the physical universe."^^xsd:string ;
 	skos:prefLabel "Physical Address"^^xsd:string ;
 	.
 
 gist:PhysicalAddressType
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	skos:definition "A categorization of physical addresses based upon local customary characterizations."^^xsd:string ;
+	skos:definition "A category indicating local customary characterizations of physical addresses."^^xsd:string ;
 	skos:prefLabel "Physical Address Type"^^xsd:string ;
 	.
 
@@ -3132,7 +3132,7 @@ gist:hasAddress
 	a owl:ObjectProperty ;
 	rdfs:range gist:Address ;
 	skos:definition "Relates something to its physical or electronic address."^^xsd:string ;
-	skos:example "The street address of a building. The email address of a person."^^xsd:string ;
+	skos:example "A brick-and-mortar store has a street address. A person can be reached electronically by their email address."^^xsd:string ;
 	skos:prefLabel "has address"^^xsd:string ;
 	.
 
