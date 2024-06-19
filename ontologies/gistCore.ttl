@@ -3826,7 +3826,7 @@ gist:rangeIncludes
 
 gist:refersTo
 	a owl:ObjectProperty ;
-	skos:definition "The Subject points to, indicates, or references the Object."^^xsd:string ;
+	skos:definition "Relates something to another resource that it points to, indicates, or references."^^xsd:string ;
 	skos:prefLabel "refers to"^^xsd:string ;
 	.
 
