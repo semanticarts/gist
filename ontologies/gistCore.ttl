@@ -959,6 +959,15 @@ gist:Event
 		;
 	.
 
+gist:EventSpecification
+	a owl:Class ;
+	rdfs:subClassOf gist:Specification ;
+	skos:definition "A characterization of an event that might happen."^^xsd:string ;
+	skos:example "An insurance company defines the characteristics of a weather event that must be satisfied for it to qualify as a hail storm covered in its homeowner's policy. Defaulting on a loan."^^xsd:string ;
+	skos:prefLabel "Event Specification"^^xsd:string ;
+	skos:scopeNote "This concept is useful for risk assessment and insurance policies."^^xsd:string ;
+	.
+
 gist:Extent
 	a owl:Class ;
 	owl:equivalentClass [
@@ -1132,7 +1141,7 @@ gist:GeoVolume
 			[
 				a owl:Restriction ;
 				owl:onProperty [
-					owl:inverseOf gist:isGeographicallyContainedIn ;
+					owl:inverseOf gist:isGeoContainedIn ;
 				] ;
 				owl:someValuesFrom gist:GeoPoint ;
 			]
@@ -1313,7 +1322,7 @@ gist:Landmark
 			gist:PhysicalIdentifiableItem
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:occupiesGeographicallyPermanently ;
+				owl:onProperty gist:hasPhysicalLocation ;
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
@@ -1486,10 +1495,19 @@ gist:MassUnit
 
 gist:MediaType
 	a owl:Class ;
-	rdfs:subClassOf gist:Category ;
+	rdfs:subClassOf
+		gist:Category ,
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:uniqueText ;
+			owl:someValuesFrom xsd:string ;
+		]
+		;
 	rdfs:seeAlso <https://www.iana.org/assignments/media-types/media-types.xhtml> ;
 	skos:definition "A digitized type that computer applications can recognize."^^xsd:string ;
+	skos:example "application/sparql-results+xml"^^xsd:string ;
 	skos:prefLabel "Media Type"^^xsd:string ;
+	skos:scopeNote "The unique text for an IANA media type is the concatenation of the 'Type name', a slash '/', and the 'Subtype name' as provided on the page displayed when you resolve the URI of the media type."^^xsd:string ;
 	.
 
 gist:Medium
@@ -2157,7 +2175,7 @@ gist:RenderedContent
 gist:Requirement
 	a owl:Class ;
 	rdfs:subClassOf gist:Intention ;
-	skos:definition "A documented physical or functional need that a particular design, product, or process must be able to perform.  Alternately, the obligation of a person or organization to behave in a certain way (i.e., drive on the right side of the road)."^^xsd:string ;
+	skos:definition "The obligation of a person or organization to behave in a certain way (e.g., drive on the right side of the road)."^^xsd:string ;
 	skos:prefLabel "Requirement"^^xsd:string ;
 	.
 
@@ -2268,9 +2286,11 @@ gist:SimpleUnitOfMeasure
 
 gist:Specification
 	a owl:Class ;
-	rdfs:subClassOf gist:Requirement ;
-	skos:definition "One or more requirements to be satisfied by a material, design, product, or service."^^xsd:string ;
+	rdfs:subClassOf gist:Intention ;
+	skos:definition "One or more characteristics that specify what it means to be a particular type of thing, such as a material, product, service or event. A specification is sufficiently precise to allow evaluating conformance to the specification."^^xsd:string ;
+	skos:example "The specification of the iPhone 14; hypothetical events covered by a homeowner's insurance policy."^^xsd:string ;
 	skos:prefLabel "Specification"^^xsd:string ;
+	skos:scopeNote "Although a characterization of how to do something is often called a specification, the intended meaning here is limited to specifying what something is. The focus is on the what, not the how. Use the TaskTemplate class for specifying the how, such as a plan or process specification."^^xsd:string ;
 	.
 
 gist:StreetAddress
@@ -3466,42 +3486,19 @@ gist:isFirstMemberOf
 	skos:scopeNote "Given the Open World Assumption, the absence of a predecessor does not entail that an ordered member is the first member of an ordered collection. This property is used to explicitly indicate the first member. Since ordered collections need not be strictly ordered, there can be more than one first member."^^xsd:string ;
 	.
 
-gist:isGeographicallyContainedIn
+gist:isGeoContainedIn
 	a
 		owl:ObjectProperty ,
 		owl:TransitiveProperty
 		;
 	rdfs:domain gist:Place ;
 	rdfs:range gist:Place ;
-	skos:definition "Relates one place to another place that contains the first."^^xsd:string ;
+	skos:definition "Relates one place to another that contains it."^^xsd:string ;
 	skos:prefLabel "is geographically contained in"^^xsd:string ;
 	.
 
 gist:isGovernedBy
 	a owl:ObjectProperty ;
-	rdfs:domain [
-		a owl:Class ;
-		owl:unionOf (
-			gist:Category
-			gist:Content
-			gist:GeoRegion
-			gist:IntellectualProperty
-			gist:Intention
-			gist:Organization
-			gist:Person
-			gist:PhysicalIdentifiableItem
-			gist:PhysicalSubstance
-		) ;
-	] ;
-	rdfs:range [
-		a owl:Class ;
-		owl:unionOf (
-			gist:Intention
-			gist:Organization
-			gist:Person
-			gist:Template
-		) ;
-	] ;
 	skos:definition "A reference from the thing being governed to the governor"^^xsd:string ;
 	skos:prefLabel "is governed by"^^xsd:string ;
 	.
@@ -3684,29 +3681,6 @@ gist:numericValue
 	] ;
 	skos:definition "The actual value of a magnitude."^^xsd:string ;
 	skos:prefLabel "numeric value"^^xsd:string ;
-	.
-
-gist:occupiesGeographically
-	a owl:ObjectProperty ;
-	rdfs:domain [
-		a owl:Class ;
-		owl:unionOf (
-			gist:PhysicalIdentifiableItem
-			gist:PhysicalSubstance
-		) ;
-	] ;
-	rdfs:range gist:Place ;
-	owl:deprecated "true"^^xsd:boolean ;
-	skos:definition "A thing occupies are region"^^xsd:string ;
-	skos:prefLabel "occupies geographically"^^xsd:string ;
-	.
-
-gist:occupiesGeographicallyPermanently
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:occupiesGeographically ;
-	owl:deprecated "true"^^xsd:boolean ;
-	skos:definition "To be in a fixed position on the earth"^^xsd:string ;
-	skos:prefLabel "occupies geographically permanently"^^xsd:string ;
 	.
 
 gist:occursIn
@@ -3949,6 +3923,7 @@ gist:uniqueText
 	skos:scopeNote "The uniqueness only goes in one direction. A product catalog number might also be an employee identifier."^^xsd:string ;
 	gist:domainIncludes
 		gist:ID ,
+		gist:MediaType ,
 		gist:Text
 		;
 	.
