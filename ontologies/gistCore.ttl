@@ -936,11 +936,6 @@ gist:EquipmentType
 
 gist:Event
 	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Restriction ;
-		owl:onProperty gist:isCharacterizedAs ;
-		owl:someValuesFrom gist:Behavior ;
-	] ;
 	skos:definition "Something that occurs over a period of time, often characterized as an activity being carried out by some person, organization, or software application or brought about by natural forces."^^xsd:string ;
 	skos:editorialNote "See guidance on removing the term in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1679565100."^^xsd:string ;
 	skos:example "A transaction, conference, baseball game, earthquake."^^xsd:string ;
@@ -2330,14 +2325,14 @@ gist:Tag
 			gist:Category
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:tagText ;
+				owl:onProperty gist:containedText ;
 				owl:someValuesFrom xsd:string ;
 			]
 		) ;
 	] ;
 	skos:definition "A term in a folksonomy used to categorize things. Tags can be made up on the fly by users."^^xsd:string ;
-	skos:editorialNote "See guidance on removing tagText property in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1780220876."^^xsd:string ;
 	skos:prefLabel "Tag"^^xsd:string ;
+	skos:scopeNote "Whether to use gist:containedText or gist:uniqueText on tags is an implementation decision."^^xsd:string ;
 	.
 
 gist:Task
@@ -2629,12 +2624,10 @@ gist:_USDollar
 		gist:BaseUnit
 		;
 	skos:definition "The base unit for currency."^^xsd:string ;
-	skos:editorialNote "See guidance on removing the uses of unitSymbol in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1679565100."^^xsd:string ;
 	skos:prefLabel "US Dollar"^^xsd:string ;
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_USDollar ;
 	gist:symbol "USD"^^xsd:string ;
-	gist:unitSymbol "USD"^^xsd:string ;
 	.
 
 gist:_ampere
@@ -2647,7 +2640,6 @@ gist:_ampere
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_ampere ;
 	gist:symbol "A"^^xsd:string ;
-	gist:unitSymbol "A"^^xsd:string ;
 	.
 
 gist:_bit
@@ -2672,7 +2664,6 @@ gist:_candela
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_candela ;
 	gist:symbol "cd"^^xsd:string ;
-	gist:unitSymbol "cd"^^xsd:string ;
 	.
 
 gist:_day
@@ -2708,7 +2699,6 @@ gist:_kelvin
 	gist:conversionOffset "0.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_kelvin ;
 	gist:symbol "K"^^xsd:string ;
-	gist:unitSymbol "K"^^xsd:string ;
 	.
 
 gist:_kilogram
@@ -2721,7 +2711,6 @@ gist:_kilogram
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_kilogram ;
 	gist:symbol "kg"^^xsd:string ;
-	gist:unitSymbol "kg"^^xsd:string ;
 	.
 
 gist:_meter
@@ -2734,7 +2723,6 @@ gist:_meter
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_meter ;
 	gist:symbol "m"^^xsd:string ;
-	gist:unitSymbol "m"^^xsd:string ;
 	.
 
 gist:_millisecond
@@ -2747,7 +2735,6 @@ gist:_millisecond
 	gist:conversionFactor "0.001"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
 	gist:symbol "ms"^^xsd:string ;
-	gist:unitSymbol "ms"^^xsd:string ;
 	.
 
 gist:_minute
@@ -2760,7 +2747,6 @@ gist:_minute
 	gist:conversionFactor "60.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
 	gist:symbol "min"^^xsd:string ;
-	gist:unitSymbol "min"^^xsd:string ;
 	.
 
 gist:_mole
@@ -2773,7 +2759,6 @@ gist:_mole
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_mole ;
 	gist:symbol "mol"^^xsd:string ;
-	gist:unitSymbol "mol"^^xsd:string ;
 	.
 
 gist:_percent
@@ -2787,7 +2772,6 @@ gist:_percent
 	gist:conversionFactor "0.01"^^xsd:double ;
 	gist:hasBaseUnit gist:_each ;
 	gist:symbol "%"^^xsd:string ;
-	gist:unitSymbol "%"^^xsd:string ;
 	.
 
 gist:_second
@@ -2800,7 +2784,6 @@ gist:_second
 	gist:conversionFactor "1.0"^^xsd:double ;
 	gist:hasBaseUnit gist:_second ;
 	gist:symbol "s"^^xsd:string ;
-	gist:unitSymbol "s"^^xsd:string ;
 	.
 
 gist:accepts
@@ -3410,15 +3393,6 @@ gist:isCategorizedBy
 	gist:rangeIncludes gist:Category ;
 	.
 
-gist:isCharacterizedAs
-	a owl:ObjectProperty ;
-	rdfs:domain gist:Event ;
-	rdfs:range gist:Behavior ;
-	owl:deprecated "true"^^xsd:boolean ;
-	skos:definition "A way to categorize a behavior."^^xsd:string ;
-	skos:prefLabel "is characterized as"^^xsd:string ;
-	.
-
 gist:isConnectedTo
 	a
 		owl:ObjectProperty ,
@@ -3888,42 +3862,17 @@ gist:uniqueText
 		owl:DatatypeProperty ,
 		owl:FunctionalProperty
 		;
+	rdfs:subPropertyOf gist:containedText ;
 	rdfs:range xsd:string ;
-	skos:definition "The unique string value of some content object; i.e., there is no possibility of having more than one value."^^xsd:string ;
+	skos:definition "The unique string value of some content object, to be used when there is no possibility of having more than one value."^^xsd:string ;
 	skos:example "The unique string for a vehicle identification number."^^xsd:string ;
 	skos:prefLabel "unique text"^^xsd:string ;
-	skos:scopeNote "The uniqueness only goes in one direction. A product catalog number might also be an employee identifier."^^xsd:string ;
+	skos:scopeNote "Note that the uniqueness only goes in one direction: a product catalog number might also be an employee ID."^^xsd:string ;
 	gist:domainIncludes
 		gist:ID ,
+		gist:Tag ,
 		gist:Text
 		;
-	.
-
-gist:unitSymbol
-	a owl:DatatypeProperty ;
-	rdfs:domain gist:UnitOfMeasure ;
-	rdfs:range xsd:string ;
-	owl:deprecated "true"^^xsd:boolean ;
-	skos:definition "The standard symbol for the unit NOT using any special characters.  E.g. square meter would be m^2 rather than m?."^^xsd:string ;
-	skos:prefLabel "unit symbol"^^xsd:string ;
-	.
-
-gist:unitSymbolHtml
-	a owl:DatatypeProperty ;
-	rdfs:domain gist:UnitOfMeasure ;
-	rdfs:range xsd:string ;
-	owl:deprecated "true"^^xsd:boolean ;
-	skos:definition 'The standard symbol for the unit in HTML format for  pretty printing, may use special characters.  E.g. to show square meter as  m? rather than m^2, the value of this property would be "m&sup2;" This is for when Unicode not supported and the display will be HTML format.'^^xsd:string ;
-	skos:prefLabel "unit symbol HTML"^^xsd:string ;
-	.
-
-gist:unitSymbolUnicode
-	a owl:DatatypeProperty ;
-	rdfs:domain gist:UnitOfMeasure ;
-	rdfs:range xsd:string ;
-	owl:deprecated "true"^^xsd:boolean ;
-	skos:definition "The standard symbol for the unit preferred for pretty printing, may use special characters.  E.g. square meter would be  m? rather than m^2."^^xsd:string ;
-	skos:prefLabel "unit symbol Unicode"^^xsd:string ;
 	.
 
 []
