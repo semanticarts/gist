@@ -2684,14 +2684,6 @@ gist:hasAddress
 	skos:prefLabel "has address"^^xsd:string ;
 	.
 
-gist:hasAltitude
-	a owl:ObjectProperty ;
-	rdfs:domain gist:GeoPoint ;
-	rdfs:range gist:Magnitude ;
-	skos:definition "Distance above sea level"^^xsd:string ;
-	skos:prefLabel "has altitude"^^xsd:string ;
-	.
-
 gist:hasAspect
 	a
 		owl:ObjectProperty ,
