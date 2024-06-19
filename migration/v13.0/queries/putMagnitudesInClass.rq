@@ -1,18 +1,21 @@
 # make sure every magnitude is in the Magnitude class, or in the ReferenceValue class
-# if some magnitudes are in default graph, might need to run again without the graph condition
+# modify as needed if some of the triples are in the default graph
 
 # test
-select ?magnitude
+select ?magnitude ?type
 
 # update graph
+# delete {graph ?g {?magnitude rdf:type ?type.}}
 # insert {graph ?g {?magnitude rdf:type gist:Magnitude.}}
 
 where {
 
   graph ?g {
-        ?magnitude gist:hasUnitOfMeasure ?unit .   # identify the magnitudes
-        filter not exists {?magnitude rdf:type gist:Magnitude.}
-        filter not exists {?magnitude rdf:type gist:ReferenceValue.}
+        ?magnitude gist:hasUnitOfMeasure ?unit ;   # identify the magnitudes
+                   rdf:type ?type .
+
+        filter (?type != gist:Magnitude)
+        filter (?type != gist:ReferenceValue)
         }
   }
 
