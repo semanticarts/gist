@@ -3474,30 +3474,3 @@ gist:uniqueText
 		;
 	.
 
-gist:unitSymbol
-	a owl:DatatypeProperty ;
-	rdfs:domain gist:UnitOfMeasure ;
-	rdfs:range xsd:string ;
-	owl:deprecated "true"^^xsd:boolean ;
-	skos:definition "The standard symbol for the unit NOT using any special characters.  E.g. square meter would be m^2 rather than m?."^^xsd:string ;
-	skos:prefLabel "unit symbol"^^xsd:string ;
-	.
-
-gist:unitSymbolHtml
-	a owl:DatatypeProperty ;
-	rdfs:domain gist:UnitOfMeasure ;
-	rdfs:range xsd:string ;
-	owl:deprecated "true"^^xsd:boolean ;
-	skos:definition 'The standard symbol for the unit in HTML format for  pretty printing, may use special characters.  E.g. to show square meter as  m? rather than m^2, the value of this property would be "m&sup2;" This is for when Unicode not supported and the display will be HTML format.'^^xsd:string ;
-	skos:prefLabel "unit symbol HTML"^^xsd:string ;
-	.
-
-gist:unitSymbolUnicode
-	a owl:DatatypeProperty ;
-	rdfs:domain gist:UnitOfMeasure ;
-	rdfs:range xsd:string ;
-	owl:deprecated "true"^^xsd:boolean ;
-	skos:definition "The standard symbol for the unit preferred for pretty printing, may use special characters.  E.g. square meter would be  m? rather than m^2."^^xsd:string ;
-	skos:prefLabel "unit symbol Unicode"^^xsd:string ;
-	.
-
