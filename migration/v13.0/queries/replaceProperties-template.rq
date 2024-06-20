@@ -17,6 +17,10 @@ where {
 
           (gist:hasAltitude  gist:hasMagnitude)
           (gist:hasPrecision gist:hasAccuracy)
+
+          (gist:unitSymbol        gist:symbol)
+          (gist:unitSymbolHtml    gist:symbol)
+          (gist:unitSymbolUnicode gist:symbol)
           # etc
            }
 
