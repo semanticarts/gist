@@ -50,6 +50,9 @@ This is a major release that includes several changes which break compatibility 
   - `gist:hasPrecision`
   - `gist:hasStandardUnit`
   - `gist:isAspectOf`
+  - `gist:unitSymbol`
+  - `gist:unitSymbolHtml`
+  - `gist:unitSymbolUnicode`
 - Deleted all unit of measure instances:
   - `gist:_ampere`
   - `gist:_bit`
