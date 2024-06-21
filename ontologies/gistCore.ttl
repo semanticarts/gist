@@ -3661,9 +3661,9 @@ gist:occursIn
 
 gist:offers
 	a owl:ObjectProperty ;
-	skos:definition "Relates something to a thing it makes available for acceptance or rejection."^^xsd:string ;
+	skos:definition "Relates something to a thing that is being made available for acceptance or rejection."^^xsd:string ;
 	skos:example "An instance of gist:Offer offers a specific product at a particular price; a company offers an employee benefit; Honda offers vehicles for sale."^^xsd:string ;
-	skos:prefLabel "is offer of"^^xsd:string ;
+	skos:prefLabel "offers"^^xsd:string ;
 	.
 
 gist:owns
