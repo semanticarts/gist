@@ -1,0 +1,121 @@
+## Release 13.0.0
+
+This is a major release that includes several changes which break compatibility with previous versions of gist, most notably an entirely revised model of units and magnitudes. See the [migration guide](./MajorVersionMigration.html) for documentation on updating existing gist-based ontologies and instance data. Migration scripts are included to facilitate the upgrade process.
+
+### Major Updates
+
+#### New model of units and magnitudes. Issue [#1033](https://github.com/semanticarts/gist/issues/1033)
+
+- Deleted all subclasses of `gist:Magnitude` except `gist:ReferenceValue`:
+  - `gist:Area`
+  - `gist:Balance`
+  - `gist:Count`
+  - `gist:Duration`
+  - `gist:ElectricCurrent`
+  - `gist:Extent`
+  - `gist:InformationQuantity`
+  - `gist:LuminousIntensity`
+  - `gist:Mass`
+  - `gist:MolarQuantity`
+  - `gist:Monetary`
+  - `gist:MonetaryPerDuration`
+  - `gist:ProductMagnitude`
+  - `gist:RatioMagnitude`
+  - `gist:Temperature`
+  - `gist:Volume`
+- Deleted all subclasses of `gist:UnitOfMeasure`:
+  - `gist:AreaUnit`
+  - `gist:BaseUnit`
+  - `gist:CoherentRatioUnit`
+  - `gist:CoherentProductUnit`
+  - `gist:CountingUnit`
+  - `gist:CurrencyPerDurationUnit`
+  - `gist:CurrencyUnit`
+  - `gist:DataSizeUnit`
+  - `gist:DistanceUnit`
+  - `gist:ElectricalCurrentUnit`
+  - `gist:LuminousIntensityUnit`
+  - `gist:MassUnit`
+  - `gist:MoleUnit`
+  - `gist:ProductUnit`
+  - `gist:RatioUnit`
+  - `gist:SimpleUnitOfMeasure`
+  - `gist:TemperatureUnit`
+  - `gist:VolumeUnit`
+- Deleted the following predicates:
+  - `gist:hasAltitude`
+  - `gist:hasDenominator`
+  - `gist:hasMultiplicand`
+  - `gist:hasNumerator`
+  - `gist:hasPrecision`
+  - `gist:hasStandardUnit`
+  - `gist:isAspectOf`
+  - `gist:unitSymbol`
+  - `gist:unitSymbolHtml`
+  - `gist:unitSymbolUnicode`
+- Deleted all unit of measure instances:
+  - `gist:_ampere`
+  - `gist:_bit`
+  - `gist:_candela`
+  - `gist:_day`
+  - `gist:_each`
+  - `gist:_kelvin`
+  - `gist:_kilogram`
+  - `gist:_meter`
+  - `gist:_millisecond`
+  - `gist:_minute`
+  - `gist:_mole`
+  - `gist:_percent`
+  - `gist:_second`
+  - `gist:_USDollar`
+- Added classes and predicates:
+  - `gist:Discipline`
+  - `gist:UnitGroup`
+  - `gist:hasAccuracy`
+  - `gist:hasAddend`
+  - `gist:hasAspect`
+  - `gist:hasBroader`
+  - `gist:hasDivisor`
+  - `gist:hasSubtrahend`
+  - `gist:hasUnitGroup`
+  - `gist:exponentOfAmpere`
+  - `gist:exponentOfBit`
+  - `gist:exponentOfCandela`
+  - `gist:exponentOfKelvin`
+  - `gist:exponentOfKilogram`
+  - `gist:exponentOfMeter`
+  - `gist:exponentOfMole`
+  - `gist:exponentOfNumber`
+  - `gist:exponentOfOther`
+  - `gist:exponentOfRadian`
+  - `gist:exponentOfSecond`
+  - `gist:exponentOfSteradian`
+  - `gist:exponentOfUSDollar`
+- Added aspect instances. Note the new `gistd:` namespace (`<https://w3id.org/semanticarts/ns/data/gist/>`).
+  - `gistd:_Aspect_altitude`
+  - `gistd:_Aspect_area`
+  - `gistd:_Aspect_balance`
+  - `gistd:_Aspect_mass`
+  - `gistd:_Aspect_probability`
+  - `gistd:_Aspect_volume`
+- Modified the class expression restrictions of:
+  - `gist:Account`
+  - `gist:ContingentEvent`
+  - `gist:GeoPoint`
+  - `gist:GeoRegion`
+  - `gist:Offer`
+  - `gist:PhysicalIdentifiableItem`
+  - `gist:PhysicalSubstance`
+- Modified the following classes and predicates:
+  - `gist:Aspect`
+  - `gist:Magnitude`
+  - `gist:UnitOfMeasure`
+  - `gist:hasMagnitude`
+  - `gist:hasMultiplier`
+  - `gist:hasPrecision`
+  - `gist:conversionFactor`
+  - `gist:conversionOffset`
+- Added scripts for the migration of existing client ontologies and instance data. [TODO - add pointer]
+- Added complete documentation on understanding and implementing the new model. [TODO - add pointer]
+
+Import URL: <https://w3id.org/semanticarts/ontology/gistCore13.0.0>.
