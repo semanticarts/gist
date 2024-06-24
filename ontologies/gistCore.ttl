@@ -36,56 +36,56 @@ skos:scopeNote
 gistd:_Aspect_altitude
 	a gist:Aspect ;
 	skos:definition "The aspect altitude."^^xsd:string ;
-	skos:editorialNote "This instance has been duplicated from reference data so it can be used in restrictions."^^xsd:string ;
+	skos:editorialNote "This instance has been duplicated from reference data so it can be used in property restrictions."^^xsd:string ;
 	skos:prefLabel "area"^^xsd:string ;
 	.
 
 gistd:_Aspect_area
 	a gist:Aspect ;
 	skos:definition "The aspect area."^^xsd:string ;
-	skos:editorialNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
+	skos:editorialNote "This instance has been duplicated from reference data so it can be used in property restrictions."^^xsd:string ;
 	skos:prefLabel "area"^^xsd:string ;
 	.
 
 gistd:_Aspect_duration
 	a gist:Aspect ;
 	skos:definition "The aspect duration."^^xsd:string ;
-	skos:editorialNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
+	skos:editorialNote "This instance has been duplicated from reference data so it can be used in property restrictions."^^xsd:string ;
 	skos:prefLabel "duration"^^xsd:string ;
 	.
 
 gistd:_Aspect_financial_balance
 	a gist:Aspect ;
 	skos:definition "The aspect financial balance."^^xsd:string ;
-	skos:editorialNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
+	skos:editorialNote "This instance has been duplicated from reference data so it can be used in property restrictions."^^xsd:string ;
 	skos:prefLabel "balance"^^xsd:string ;
 	.
 
 gistd:_Aspect_mass
 	a gist:Aspect ;
 	skos:definition "The aspect mass."^^xsd:string ;
-	skos:editorialNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
+	skos:editorialNote "This instance has been duplicated from reference data so it can be used in property restrictions."^^xsd:string ;
 	skos:prefLabel "mass"^^xsd:string ;
 	.
 
 gistd:_Aspect_monetary_value
 	a gist:Aspect ;
 	skos:definition "The aspect monetary value."^^xsd:string ;
-	skos:editorialNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
+	skos:editorialNote "This instance has been duplicated from reference data so it can be used in property restrictions."^^xsd:string ;
 	skos:prefLabel "monetary value"^^xsd:string ;
 	.
 
 gistd:_Aspect_probability
 	a gist:Aspect ;
 	skos:definition "The aspect probability."^^xsd:string ;
-	skos:editorialNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
+	skos:editorialNote "This instance has been duplicated from reference data so it can be used in property restrictions."^^xsd:string ;
 	skos:prefLabel "probability"^^xsd:string ;
 	.
 
 gistd:_Aspect_volume
 	a gist:Aspect ;
 	skos:definition "The aspect volume."^^xsd:string ;
-	skos:editorialNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
+	skos:editorialNote "This instance has been duplicated from reference data so it can be used in property restrictions."^^xsd:string ;
 	skos:prefLabel "volume"^^xsd:string ;
 	.
 
@@ -119,8 +119,18 @@ gist:Account
 gist:Address
 	a owl:Class ;
 	rdfs:subClassOf gist:Content ;
-	skos:definition "A reference to a place (real or virtual) that can be located by some routing algorithm, and where messages or things can be sent to or retrieved from. E.g. PO Box or URL to a PDF file."^^xsd:string ;
+	skos:definition "A reference to a place (real or virtual) that can be located by some routing algorithm and where messages or things can be sent to or received from."^^xsd:string ;
+	skos:example "A PO Box, a URL to a PDF file."^^xsd:string ;
 	skos:prefLabel "Address"^^xsd:string ;
+	.
+
+gist:AddressUsageType
+	a owl:Class ;
+	rdfs:subClassOf gist:Category ;
+	skos:definition "A category indicating the context or manner in which an address may be used."^^xsd:string ;
+	skos:example "Billing, business, personal, postal, residence."^^xsd:string ;
+	skos:prefLabel "Address Usage Type"^^xsd:string ;
+	skos:scopeNote "If you are using temporal relations involving addresses, this category should be used to qualify the temporal relation rather than the address itself, since the same address may have different uses in different contexts, by different people and organizations, or at different times."^^xsd:string ;
 	.
 
 gist:Agreement
@@ -547,18 +557,22 @@ gist:Discipline
 	skos:prefLabel "Discipline"^^xsd:string ;
 	.
 
-gist:ElectronicMessageAddress
+gist:ElectronicAddress
 	a owl:Class ;
 	rdfs:subClassOf gist:Address ;
-	skos:definition "Any place an electronic message (email, fax, etc.) can be sent."^^xsd:string ;
-	skos:prefLabel "Electronic Message Address"^^xsd:string ;
+	owl:disjointWith gist:PhysicalAddress ;
+	skos:altLabel "Virtual Address"^^xsd:string ;
+	skos:definition "An address referring to a locatable virtual place that does not physically exist but is made by software or electronics to appear to do so."^^xsd:string ;
+	skos:example "A path to a file in a file system, a website URL, an IP address, an email address, a mobile or landline telephone number."^^xsd:string ;
+	skos:prefLabel "Electronic Address"^^xsd:string ;
 	.
 
-gist:EmailAddress
+gist:ElectronicAddressType
 	a owl:Class ;
-	rdfs:subClassOf gist:ElectronicMessageAddress ;
-	skos:definition "An email address is a unique identifier for an email account. It is used to both send and receive email messages over the Internet."^^xsd:string ;
-	skos:prefLabel "Email Address"^^xsd:string ;
+	rdfs:subClassOf gist:Category ;
+	skos:definition "A category indicating a kind of electronic address. Such a category is usually based on the technology that enables routing to the address referent."^^xsd:string ;
+	skos:example "URL, file system path, email address, mobile telephone number."^^xsd:string ;
+	skos:prefLabel "Electronic Address Type"^^xsd:string ;
 	.
 
 gist:Equipment
@@ -1398,6 +1412,33 @@ gist:PhysicalActionType
 	skos:prefLabel "Physical Action Type"^^xsd:string ;
 	.
 
+gist:PhysicalAddress
+	a owl:Class ;
+	rdfs:subClassOf gist:Address ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:Address
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:refersTo ;
+				owl:someValuesFrom gist:Place ;
+			]
+		) ;
+	] ;
+	skos:definition "An address that refers to a locatable place within the physical universe."^^xsd:string ;
+	skos:example "A street address, a PO box address."^^xsd:string ;
+	skos:prefLabel "Physical Address"^^xsd:string ;
+	.
+
+gist:PhysicalAddressType
+	a owl:Class ;
+	rdfs:subClassOf gist:Category ;
+	skos:definition "A category indicating local customary characterizations of physical addresses."^^xsd:string ;
+	skos:example "Street address, PO box, FPO code."^^xsd:string ;
+	skos:prefLabel "Physical Address Type"^^xsd:string ;
+	.
+
 gist:PhysicalEvent
 	a owl:Class ;
 	owl:equivalentClass [
@@ -1516,14 +1557,6 @@ gist:Place
 	a owl:Class ;
 	skos:definition "Union of all the geo classes"^^xsd:string ;
 	skos:prefLabel "Place"^^xsd:string ;
-	.
-
-gist:PostalAddress
-	a owl:Class ;
-	rdfs:subClassOf gist:Address ;
-	skos:definition "A set of codes the postal authorities can use to deliver physical mail."^^xsd:string ;
-	skos:example "A street address, a PO Box, an FPO code, or the route codes."^^xsd:string ;
-	skos:prefLabel "Postal Address"^^xsd:string ;
 	.
 
 gist:ProductCategory
@@ -1690,15 +1723,6 @@ gist:Specification
 	skos:scopeNote "Although a characterization of how to do something is often called a specification, the intended meaning here is limited to specifying what something is. The focus is on the what, not the how. Use the TaskTemplate class for specifying the how, such as a plan or process specification."^^xsd:string ;
 	.
 
-gist:StreetAddress
-	a owl:Class ;
-	rdfs:subClassOf gist:PostalAddress ;
-	skos:definition "An address which references a fixed location in the physical world."^^xsd:string ;
-	skos:example "The street address of a building, a park, campground, or an empty lot."^^xsd:string ;
-	skos:prefLabel "Street Address"^^xsd:string ;
-	skos:scopeNote "This excludes addresses not associated with a fixed location, such as a PO box or FPO code."^^xsd:string ;
-	.
-
 gist:SubCountryGovernment
 	a owl:Class ;
 	owl:equivalentClass [
@@ -1849,14 +1873,6 @@ gist:Taxonomy
 	skos:prefLabel "Taxonomy"^^xsd:string ;
 	.
 
-gist:TelephoneNumber
-	a owl:Class ;
-	rdfs:subClassOf gist:Address ;
-	skos:definition "A numeric code a telephonic device uses for contacting another telephonic device."^^xsd:string ;
-	skos:example "Mobile, fax, or landline phone number."^^xsd:string ;
-	skos:prefLabel "Telephone Number"^^xsd:string ;
-	.
-
 gist:Template
 	a owl:Class ;
 	owl:disjointWith gist:UnitOfMeasure ;
@@ -1885,7 +1901,7 @@ gist:TemporalRelation
 		]
 		;
 	skos:definition "A relationship existing for a period of time."^^xsd:string ;
-	skos:example "employs-Employment, hasStreetAddress-EstablishedLocation. One important context for reifying a property."^^xsd:string ;
+	skos:example "employs-Employment, hasAddress-EstablishedLocation. One important context for reifying a property."^^xsd:string ;
 	skos:prefLabel "Temporal Relation"^^xsd:string ;
 	skos:scopeNote
 		"A temporal relation must have a minimum of two participants. For example, both the employer and the employee are participants in a temporal relation representing a period of employment."^^xsd:string ,
@@ -2632,8 +2648,8 @@ gist:hasAddend
 gist:hasAddress
 	a owl:ObjectProperty ;
 	rdfs:range gist:Address ;
-	skos:definition "Relates the subject to its physical or virtual address."^^xsd:string ;
-	skos:example "The street address of a building; the email address of a person."^^xsd:string ;
+	skos:definition "Relates something to its physical or electronic address."^^xsd:string ;
+	skos:example "A brick-and-mortar store has a street address. A person can be contacted electronically via an email address."^^xsd:string ;
 	skos:prefLabel "has address"^^xsd:string ;
 	.
 
@@ -2663,21 +2679,6 @@ gist:hasBroader
 	skos:definition "Relates a thing to another thing with a broader meaning."^^xsd:string ;
 	skos:example "The aspect distance is broader than the aspect height."^^xsd:string ;
 	skos:prefLabel "has broader"^^xsd:string ;
-	.
-
-gist:hasCommunicationAddress
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:hasAddress ;
-	rdfs:domain [
-		a owl:Class ;
-		owl:unionOf (
-			gist:Organization
-			gist:Person
-		) ;
-	] ;
-	rdfs:range gist:Address ;
-	skos:definition "Relates a Person or Organization to where they can receive messages, including postal addresses, fax numbers, phone numbers, email, web site, etc."^^xsd:string ;
-	skos:prefLabel "has communication address"^^xsd:string ;
 	.
 
 gist:hasDirectSuperCategory
@@ -3323,6 +3324,12 @@ gist:rangeIncludes
 		"There may be multiple rangeIncludes assertions on a single property."^^xsd:string ,
 		"This property is used to guide the ontology user; like all annotation properties, it does not play a role in inference."^^xsd:string
 		;
+	.
+
+gist:refersTo
+	a owl:ObjectProperty ;
+	skos:definition "Relates something to another resource that it points to, indicates, or references."^^xsd:string ;
+	skos:prefLabel "refers to"^^xsd:string ;
 	.
 
 gist:requires
