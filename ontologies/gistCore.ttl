@@ -71,7 +71,7 @@ gist:AddressUsageType
 	skos:definition "A category indicating the context or manner in which an address may be used."^^xsd:string ;
 	skos:example "Billing, business, personal, postal, residence."^^xsd:string ;
 	skos:prefLabel "Address Usage Type"^^xsd:string ;
-	skos:scopeNote "If you are using temporal relations involving the address, this category should be used on the temporal relation rather than the address itself. For example, a person's use of a specific street address as their residence address - that is, their relation with that address - will have a discrete start (and possibly end) date."^^xsd:string ;
+	skos:scopeNote "If you are using temporal relations involving addresses, this category should be used to qualify the temporal relation rather than the address itself, since the same address may have different uses in different contexts, by different people and organizations, or at different times."^^xsd:string ;
 	.
 
 gist:Agreement
@@ -919,8 +919,8 @@ gist:ElectronicAddressType
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
 	skos:definition "A category indicating a kind of electronic address. Such a category is usually based on the technology that enables routing to the address referent."^^xsd:string ;
-	skos:prefLabel "Electronic Address Type"^^xsd:string ;
 	skos:example "URL, file system path, email address, mobile telephone number."^^xsd:string ;
+	skos:prefLabel "Electronic Address Type"^^xsd:string ;
 	.
 
 gist:Equipment
@@ -1948,7 +1948,7 @@ gist:PhysicalAddress
 		) ;
 	] ;
 	skos:definition "An address that refers to a locatable place within the physical universe."^^xsd:string ;
-	skos:example "A street address, a PO box address."
+	skos:example "A street address, a PO box address."^^xsd:string ;
 	skos:prefLabel "Physical Address"^^xsd:string ;
 	.
 
@@ -1956,8 +1956,8 @@ gist:PhysicalAddressType
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
 	skos:definition "A category indicating local customary characterizations of physical addresses."^^xsd:string ;
-	skos:prefLabel "Physical Address Type"^^xsd:string ;
 	skos:example "Street address, PO box, FPO code."^^xsd:string ;
+	skos:prefLabel "Physical Address Type"^^xsd:string ;
 	.
 
 gist:PhysicalEvent
