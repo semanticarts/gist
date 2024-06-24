@@ -61,7 +61,7 @@ gist:Address
 	a owl:Class ;
 	rdfs:subClassOf gist:Content ;
 	skos:definition "A reference to a place (real or virtual) that can be located by some routing algorithm, and where messages or things can be sent to or received from."^^xsd:string ;
-	skos:example "A PO Box, a Web URL to a PDF file."^^xsd:string ;
+	skos:example "A PO Box, a URL to a PDF file."^^xsd:string ;
 	skos:prefLabel "Address"^^xsd:string ;
 	.
 
