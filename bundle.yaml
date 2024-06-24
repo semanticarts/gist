@@ -115,7 +115,7 @@ actions:
 - action: "sparql"
   message: "Generating rdfs:label and rdfs:comment for backward compatibility."
   source: "{output}/ontologies"
-  target: "{output}/ontologies/rdfsAnnotations.ttl"
+  target: "{output}/ontologies/gistRdfsAnnotations.ttl"
   format: "turtle"
   includes:
     - "*.ttl"
@@ -205,17 +205,11 @@ actions:
   includes:
     - "ReleaseNotes.md"
     - "MajorVersionMigration.md"
+    - "Namespace.md"
 - action: "copy"
   message: "Copying readme to Documentation directory and patching local links."
   source: "README.md"
   target: "{output}/Documentation/README.md"
-  replace:
-    from: "\\(./(\\w+)\\.md\\)"
-    to: "(./\\g<1>.html)"
-- action: "copy"
-  message: "Copying namespace document to Documentation directory and patching local links."
-  source: "{input}/docs/Namespace.md"
-  target: "{output}/Documentation/Namespace.md"
   replace:
     from: "\\(./(\\w+)\\.md\\)"
     to: "(./\\g<1>.html)"
