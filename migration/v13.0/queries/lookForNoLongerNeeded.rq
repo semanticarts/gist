@@ -1,0 +1,22 @@
+# look for classes or individuals that might be removed from ontologies or taxonomies
+# follow governance processes for removing them if deemed no longer necessary
+
+select distinct ?subject 
+
+where {
+
+   {
+    ?subject  (rdfs:subClassOf|(owl:equivalentClass/owl:intersectionOf/rdf:first))+ gist:Magnitude .
+    filter(?subject != gist:ReferenceValue)
+   }
+   union
+   {
+    ?subject  (rdfs:subClassOf|(owl:equivalentClass/owl:intersectionOf/rdf:first))+ gist:UnitOfMeasure .
+   }
+   union
+   {
+    ?subject (rdfs:subClassOf|(owl:equivalentClass/owl:intersectionOf/rdf:first))+ gist:Aspect .
+   }
+}
+order by ?subject  
+

@@ -1,0 +1,20 @@
+# remove hasMultiplier that starts or ends with blank node
+# remove hasDivisor    that starts or ends with blank node
+#
+# CAUTION: run only after inserting the desired hasMultiplier, hasDivisor triples without blank nodes 
+
+# test
+construct {?s ?p ?o . }  # these triples are to be deleted
+
+# update graph
+# delete {?s ?p ?o .}
+
+where {
+
+# multiplier or divisor begins or ends with blank node
+
+ ?s (gist:hasMultiplier|gist:hasDivisor) ?o ;
+     ?p ?o .
+
+  filter(isBlank(?s) || isBlank(?o))
+}

@@ -1,0 +1,50 @@
+# find existing Aspects that are represented as either:
+#
+#   - a property of a Magnitude 
+#   - or the value of a property of a Magnitude
+#
+# use this query iteratively as follows:
+#
+#   - run the query
+#   - pick a few lines of output
+#   - update the upper section of the query with concepts that do NOT involve an Aspect
+#   - update the lower section of the query (filter not exists) with properties and values that DO represent Aspects
+#   - repeat
+#
+# this iterative process accounts for every property and value associated with a Magnitude
+# when the query returns no results, every row of the original output has been accounted for
+
+select distinct ?magnitudeProperty ?magnitudePropertyValue
+
+where {
+  
+   ?magnitude gist:hasUnitOfMeasure ?unit ;
+              ?magnitudeProperty ?magnitudePropertyValue ;
+              .
+              
+   filter(?magnitudeProperty not in (   # properties that do not involve an Aspect
+           gist:hasUnitOfMeasure,
+           gist:numericValue,
+           skos:definition,
+           skos:scopeNote,
+           skos:prefLabel,
+           rdfs:isDefinedBy
+           )) 
+              
+   filter(?magnitudePropertyValue not in (     # values that do not represent Aspects
+           gist:Magnitude,
+           owl:Thing,
+           owl:NamedIndividual
+           ))
+   
+
+  filter not exists {
+
+     values (?magnitudeProperty     ?magnitudePropertyValue) {    # property/value pairs with a property or value that represents an Aspect
+       
+            (rdf:type               gist:Duration)            # sample value
+
+            }
+  }
+}
+order by ?magnitudeProperty ?magnitudePropertyValue

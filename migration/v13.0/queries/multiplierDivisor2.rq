@@ -1,0 +1,95 @@
+# add single predicate when pattern of two chained hasMultiplier, hasDivisor is found
+# run repeatedly until no more results are found
+
+# test
+construct {?s ?newPredicate ?o . }  # after 
+
+# update graph
+# insert {graph ?g {?s ?newPredicate ?o .}}
+
+where {
+
+# two multipliers
+  {
+   bind(gist:hasMultiplier as ?newPredicate)
+
+   graph ?g {
+
+         ?s          gist:hasMultiplier ?middleNode .
+         ?middleNode gist:hasMultiplier ?o .
+
+         filter(!isBlank(?s))
+         filter(isBlank(?middleNode))
+         }
+  }
+
+# multiplier then divisor
+  union
+  {
+   bind(gist:hasDivisor as ?newPredicate)
+
+   graph ?g {
+         ?s          gist:hasMultiplier ?middleNode .
+         ?middleNode gist:hasDivisor    ?o .
+
+         filter(!isBlank(?s))
+         filter(isBlank(?middleNode))
+         }
+  }
+
+# divisor then multiplier
+  union
+  {
+   bind(gist:hasDivisor as ?newPredicate)
+
+   graph ?g {
+         ?s          gist:hasDivisor    ?middleNode .
+         ?middleNode gist:hasMultiplier ?o .
+
+         filter(!isBlank(?s))
+         filter(isBlank(?middleNode))
+         }
+  }
+
+# two divisors
+  union
+  {
+   bind(gist:hasMultiplier as ?newPredicate)
+
+   graph ?g {
+         ?s          gist:hasDivisor ?middleNode .
+         ?middleNode gist:hasDivisor ?o .
+
+         filter(!isBlank(?s))
+         filter(isBlank(?middleNode))
+         }
+  }
+
+# multiplier then hasBaseUnit or hasStandardUnit
+  union
+  {
+   bind(gist:hasMultiplier as ?newPredicate)
+
+   graph ?g {
+         ?s           gist:hasMultiplier    ?middleNode .
+         ?middleNode (gist:hasBaseUnit|gist:hasStandardUnit)   ?o .
+
+         filter(!isBlank(?s))
+         filter(isBlank(?middleNode))
+         }
+  }
+
+# divisor then hasBaseUnit or hasStandardUnit
+  union
+  {
+   bind(gist:hasDivisor as ?newPredicate)
+
+   graph ?g {
+         ?s           gist:hasDivisor       ?middleNode .
+         ?middleNode (gist:hasBaseUnit|gist:hasStandardUnit)   ?o .
+
+         filter(!isBlank(?s))
+         filter(isBlank(?middleNode))
+         }
+  }
+}

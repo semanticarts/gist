@@ -14,7 +14,11 @@
 	owl:versionIRI <https://w3id.org/semanticarts/ontology/gistValidationAnnotationsX.x.x> ;
 	skos:definition "Annotations to assist gist ontology validation."^^xsd:string ;
 	skos:prefLabel "gist Validation Annotations"^^xsd:string ;
-	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
+	gist:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:string ;
+	.
+
+gist:exponentOfKelvin
+	gist:nonConformingLabel "true"^^xsd:boolean ;
 	.
 
 gist:nonConformingLabel
@@ -30,13 +34,5 @@ gist:nonConformingLabel
 	rdfs:range xsd:boolean ;
 	skos:definition "Indicates that the annotated ontology entity is exempt from label validation rules."^^xsd:string ;
 	skos:prefLabel "non-conforming label"^^xsd:string ;
-	.
-
-gist:symbolUnicode
-	gist:nonConformingLabel "true"^^xsd:boolean ;
-	.
-
-gist:unitSymbolUnicode
-	gist:nonConformingLabel "true"^^xsd:boolean ;
 	.
 
