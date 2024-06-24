@@ -36,7 +36,7 @@ skos:scopeNote
 gistd:_Aspect_altitude
 	a gist:Aspect ;
 	skos:definition "The aspect altitude."^^xsd:string ;
-	skos:editorialNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
+skos:editorialNote "This instance has been duplicated from reference data so it can be used in restrictions."^^xsd:string ;
 	skos:prefLabel "area"^^xsd:string ;
 	.
 
