@@ -909,7 +909,7 @@ gist:ElectronicAddress
 	rdfs:subClassOf gist:Address ;
 	owl:disjointWith gist:PhysicalAddress ;
 	skos:altLabel "Virtual Address"^^xsd:string ;
-	skos:definition "An address referring to a locatable virtual place that does not physically exist, as such, but made by software or electronics to appear to do so."^^xsd:string ;
+	skos:definition "An address referring to a locatable virtual place that does not physically exist but is made by software or electronics to appear to do so."^^xsd:string ;
 	skos:example "A path to a file in a file system, a website, an IP address."^^xsd:string ;
 	skos:prefLabel "Electronic Address"^^xsd:string ;
 	.
