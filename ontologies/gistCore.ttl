@@ -1474,13 +1474,6 @@ gist:Message
 	skos:prefLabel "Message"^^xsd:string ;
 	.
 
-gist:MessageDefinition
-	a owl:Class ;
-	rdfs:subClassOf gist:SchemaMetaData ;
-	skos:definition "Each communication to and from a remote device or application programming interface is reflected in a message."^^xsd:string ;
-	skos:prefLabel "Message Definition"^^xsd:string ;
-	.
-
 gist:MolarQuantity
 	a owl:Class ;
 	owl:equivalentClass [
@@ -2951,13 +2944,6 @@ gist:description
 	skos:example "The Empire State Building is a 102-story Art Deco skyscraper in Midtown Manhattan in New York City, United States. It was designed by Shreve, Lamb & Harmon and built from 1930 to 1931."^^xsd:string ;
 	skos:prefLabel "description"^^xsd:string ;
 	skos:scopeNote "This property is used to provide a description of an individual in greater detail than a label."^^xsd:string ;
-	.
-
-gist:directs
-	a owl:ObjectProperty ;
-	skos:definition "To issue orders to someone or something by right of authority."^^xsd:string ;
-	skos:example "A police officer directs traffic. A programmable logic controller directs an actuator."^^xsd:string ;
-	skos:prefLabel "directs"^^xsd:string ;
 	.
 
 gist:domainIncludes
