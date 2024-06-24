@@ -36,56 +36,56 @@ skos:scopeNote
 gistd:_Aspect_altitude
 	a gist:Aspect ;
 	skos:definition "The aspect altitude."^^xsd:string ;
-	skos:editorialNote "This instance has been duplicated from reference data so it can be used in restrictions."^^xsd:string ;
+	skos:editorialNote "This instance has been duplicated from reference data so it can be used in property restrictions."^^xsd:string ;
 	skos:prefLabel "area"^^xsd:string ;
 	.
 
 gistd:_Aspect_area
 	a gist:Aspect ;
 	skos:definition "The aspect area."^^xsd:string ;
-	skos:editorialNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
+	skos:editorialNote "This instance has been duplicated from reference data so it can be used in property restrictions."^^xsd:string ;
 	skos:prefLabel "area"^^xsd:string ;
 	.
 
 gistd:_Aspect_duration
 	a gist:Aspect ;
 	skos:definition "The aspect duration."^^xsd:string ;
-	skos:editorialNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
+	skos:editorialNote "This instance has been duplicated from reference data so it can be used in property restrictions."^^xsd:string ;
 	skos:prefLabel "duration"^^xsd:string ;
 	.
 
 gistd:_Aspect_financial_balance
 	a gist:Aspect ;
 	skos:definition "The aspect financial balance."^^xsd:string ;
-	skos:editorialNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
+	skos:editorialNote "This instance has been duplicated from reference data so it can be used in property restrictions."^^xsd:string ;
 	skos:prefLabel "balance"^^xsd:string ;
 	.
 
 gistd:_Aspect_mass
 	a gist:Aspect ;
 	skos:definition "The aspect mass."^^xsd:string ;
-	skos:editorialNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
+	skos:editorialNote "This instance has been duplicated from reference data so it can be used in property restrictions."^^xsd:string ;
 	skos:prefLabel "mass"^^xsd:string ;
 	.
 
 gistd:_Aspect_monetary_value
 	a gist:Aspect ;
 	skos:definition "The aspect monetary value."^^xsd:string ;
-	skos:editorialNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
+	skos:editorialNote "This instance has been duplicated from reference data so it can be used in property restrictions."^^xsd:string ;
 	skos:prefLabel "monetary value"^^xsd:string ;
 	.
 
 gistd:_Aspect_probability
 	a gist:Aspect ;
 	skos:definition "The aspect probability."^^xsd:string ;
-	skos:editorialNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
+	skos:editorialNote "This instance has been duplicated from reference data so it can be used in property restrictions."^^xsd:string ;
 	skos:prefLabel "probability"^^xsd:string ;
 	.
 
 gistd:_Aspect_volume
 	a gist:Aspect ;
 	skos:definition "The aspect volume."^^xsd:string ;
-	skos:editorialNote "This instance has been duplicated from reference data so it can be used in class equivalence statements."^^xsd:string ;
+	skos:editorialNote "This instance has been duplicated from reference data so it can be used in property restrictions."^^xsd:string ;
 	skos:prefLabel "volume"^^xsd:string ;
 	.
 
