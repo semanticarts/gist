@@ -60,7 +60,7 @@ gist:Actuator
 gist:Address
 	a owl:Class ;
 	rdfs:subClassOf gist:Content ;
-	skos:definition "A reference to a place (real or virtual) that can be located by some routing algorithm, and where messages or things can be sent to or received from."^^xsd:string ;
+	skos:definition "A reference to a place (real or virtual) that can be located by some routing algorithm and where messages or things can be sent to or received from."^^xsd:string ;
 	skos:example "A PO Box, a URL to a PDF file."^^xsd:string ;
 	skos:prefLabel "Address"^^xsd:string ;
 	.
@@ -910,14 +910,14 @@ gist:ElectronicAddress
 	owl:disjointWith gist:PhysicalAddress ;
 	skos:altLabel "Virtual Address"^^xsd:string ;
 	skos:definition "An address referring to a locatable virtual place that does not physically exist but is made by software or electronics to appear to do so."^^xsd:string ;
-	skos:example "A path to a file in a file system, a website, an IP address, an email address, a mobile or landline telephone number."^^xsd:string ;
+	skos:example "A path to a file in a file system, a website URL, an IP address, an email address, a mobile or landline telephone number."^^xsd:string ;
 	skos:prefLabel "Electronic Address"^^xsd:string ;
 	.
 
 gist:ElectronicAddressType
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	skos:definition "A category indicating a kind of virtual electronic address. Such a category is usually based on the technology that enables routing to the address referent."^^xsd:string ;
+	skos:definition "A category indicating a kind of electronic address. Such a category is usually based on the technology that enables routing to the address referent."^^xsd:string ;
 	skos:prefLabel "Electronic Address Type"^^xsd:string ;
 	skos:example "URL, file system path, email address, mobile telephone number."^^xsd:string ;
 	.
