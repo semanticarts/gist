@@ -1,0 +1,12 @@
+# find units of measure
+# note: older versions of gist included some individuals that had units
+# to remove these, incude filter(!contains(str(?s), "gist")) 
+
+select distinct ?unit
+
+where {
+  
+  ?s gist:hasUnitOfMeasure ?unit .
+
+} 
+order by ?unit

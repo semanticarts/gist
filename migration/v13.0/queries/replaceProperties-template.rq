@@ -1,0 +1,32 @@
+# replace old properties with new properties
+# include properties identified by findAspects3
+# modify as needed if the default graph includes triple with the old properties
+
+# test
+select ?s ?oldProperty ?o ?newProperty
+
+# update graph
+# delete {graph ?g {?s ?oldProperty ?o .}} 
+# insert {graph ?g {?s ?newProperty ?o .}} 
+
+where {
+
+#  input
+
+   values (?oldProperty      ?newProperty) {
+
+          (gist:hasAltitude  gist:hasMagnitude)
+          (gist:hasPrecision gist:hasAccuracy)
+
+          (gist:unitSymbol        gist:symbol)
+          (gist:unitSymbolHtml    gist:symbol)
+          (gist:unitSymbolUnicode gist:symbol)
+          # etc
+           }
+
+# triples that include the property
+
+  {graph ?g {?s ?oldProperty ?o.}}
+
+}
+

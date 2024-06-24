@@ -17,6 +17,10 @@
 	gist:license "https://creativecommons.org/licenses/by-sa/3.0/"^^xsd:string ;
 	.
 
+gist:exponentOfKelvin
+	gist:nonConformingLabel "true"^^xsd:boolean ;
+	.
+
 gist:nonConformingLabel
 	a owl:AnnotationProperty ;
 	rdfs:domain [
@@ -30,13 +34,5 @@ gist:nonConformingLabel
 	rdfs:range xsd:boolean ;
 	skos:definition "Indicates that the annotated ontology entity is exempt from label validation rules."^^xsd:string ;
 	skos:prefLabel "non-conforming label"^^xsd:string ;
-	.
-
-gist:symbolUnicode
-	gist:nonConformingLabel "true"^^xsd:boolean ;
-	.
-
-gist:unitSymbolUnicode
-	gist:nonConformingLabel "true"^^xsd:boolean ;
 	.
 

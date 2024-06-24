@@ -1,0 +1,29 @@
+# replace old client units with new Units 
+# the new units must already be in the graph as part of the reference data
+# (note: the sequence of the clauses in the union is important)
+
+# test
+ construct {?s ?p ?oldUnit . }      # triples that include the old unit
+# construct {?oldUnit ?p2 ?o2 . }    # more triples that include the old unit
+# select ?s ?p ?newUnit ?oldUnit .   # the new unit that is replacing the old one
+
+# update graph
+# delete {?s ?p ?oldUnit .  ?oldUnit ?p2 ?o2 . }    # delete all triples that include the old unit
+# insert {graph ?g {?s ?p ?newUnit .}}              # insert the new unit
+
+where {
+
+#  input
+
+   values (?oldUnit        ?newUnit) {
+
+#         (gist:_USDollar  gistd:_UnitOfMeasure_US_dollar)  # sample values, commented out
+           }
+
+# triples that include the old unit
+
+   {?oldUnit ?p2 ?o2 . }
+   union
+   {graph ?g {?s ?p ?oldUnit .}}
+}
+

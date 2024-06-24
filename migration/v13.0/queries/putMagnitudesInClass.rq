@@ -1,0 +1,21 @@
+# make sure every magnitude is in the Magnitude class, or in the ReferenceValue class
+# modify as needed if some of the triples are in the default graph
+
+# test
+select ?magnitude ?type
+
+# update graph
+# delete {graph ?g {?magnitude rdf:type ?type.}}
+# insert {graph ?g {?magnitude rdf:type gist:Magnitude.}}
+
+where {
+
+  graph ?g {
+        ?magnitude gist:hasUnitOfMeasure ?unit ;   # identify the magnitudes
+                   rdf:type ?type .
+
+        filter (?type != gist:Magnitude)
+        filter (?type != gist:ReferenceValue)
+        }
+  }
+

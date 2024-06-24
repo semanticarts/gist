@@ -1,0 +1,9 @@
+### Major updates
+
+- Removed previously deprecated classes and properties and made corresponding updates to axioms referencing those terms. Issue [#947](https://github.com/semanticarts/gist/issues/947).
+    - Removed `gist:isCharacterizedAs` and associated axiom on `gist:Event`. (Original issue: [#820](https://github.com/semanticarts/gist/issues/820).)
+    - Changes to contained text properties. (Original issue: [#372](https://github.com/semanticarts/gist/issues/372).)
+      - Removed property `gist:tagText`.
+      - Changed restriction on `gist:Tag` to reference `gist:containedText` rather than `gist:tagText`.
+      - Made `gist:uniqueText` a subproperty of `gist:containedText`.
+    - Removed `gist:unitSymbol`, `gist:unitSymbolHtml`, and `gist:UnitSymbolUnicode`. The former is replaced with `gist:symbol` and the latter are removed with no replacement. (Original issue: [#531](https://github.com/semanticarts/gist/issues/531).)

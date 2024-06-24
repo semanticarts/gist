@@ -1,0 +1,66 @@
+# find existing Aspects that are represented as either:
+#
+#   - a property of a Thing with a Magnitude or
+#   - the value of the property
+#
+# use this query iteratively as follows:
+#
+#   - run the query
+#   - pick a few lines of output
+#   - update the upper section of the query with concepts that do NOT involve an Aspect
+#   - update the lower section of the query (filter not exists) with properties and values that DO represent Aspects
+#   - repeat
+#
+# this iterative process accounts for every property and value associated with a Magnitude
+# when the query returns no results, every row of the original output has been accounted for
+
+select distinct  ?thingProperty ?thingPropertyValue
+
+where {
+  
+   ?magnitude gist:hasUnitOfMeasure ?unit .
+
+   ?thing gist:hasMagnitude ?magnitude ;
+          ?thingProperty ?thingPropertyValue ;
+          .
+                
+   filter(?thingProperty not in (         # properties that do not involve an Aspect
+           gist:conformsTo,
+           gist:containedText,
+           gist:description,
+           gist:hasGoal,
+           gist:hasMagnitude,
+           gist:hasPart,
+           gist:hasPhysicalLocation,
+           gist:isAffectedBy,
+           gist:isConnectedTo,
+           gist:isDirectPartOf,
+           gist:isPartOf,
+           gist:name,
+           gist:plannedEndDate,
+           gist:plannedStartDate,
+           rdfs:comment,
+           rdfs:isDefinedBy,
+           skos:altLabel,
+           skos:definition,
+           skos:scopeNote,
+           skos:prefLabel
+           )) 
+              
+   filter(?thingPropertyValue not in (         # values that do not represent Aspects
+
+           owl:NamedIndividual,
+           owl:Thing
+
+           ))
+
+  filter not exists {
+
+     values (?thingProperty        ?thingPropertyValue) {    # property/value pairs with a property or value that represents an Aspect
+       
+#           (gist:isCategorizedBy   ex:_Category_area)    # sample value, commented out
+
+            }
+  }
+}
+order by ?thingProperty ?thingPropertyValue
