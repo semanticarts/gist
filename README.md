@@ -8,7 +8,7 @@ We maintain an active gist community forum where developers and users of gist co
 
 You can also contribute to gist by adding your comments to [issue discussion threads](https://github.com/semanticarts/gist/issues) and submitting new issues and pull requests (see [guidelines for contributions](https://github.com/semanticarts/gist/blob/master/docs/Contributing.md)). You can view [minutes](https://github.com/semanticarts/gist/wiki/gist-Development-Team-Meeting-Notes) from our bi-monthly review sessions to find out what we've been discussing and get a preview of upcoming changes to gist.
 
-gist is free and open to the public under the [Creative Commons 3.0](http://creativecommons.org/licenses/by-sa/3.0/) attribution share-alike license. In addition to the conditions of this license, we require that any concepts used from gist remain in the gist namespace, and that you do not define your own term definitions in the gist namespace.
+gist is free and open to the public under the [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/) license. In addition to the conditions of this license, we require that any concepts used from gist remain in the gist namespace, and that you do not define your own term definitions in the gist namespace.
 
 [Download the latest version of gist](https://w3id.org/semanticarts/ontology/gistCore).
 
