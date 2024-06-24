@@ -1,0 +1,49 @@
+# insert Aspects represented by a property or property value of a Thing with a Magnitude
+#
+# copy the values statements from the lower section of findAspects2 (the filter-not-exists)
+
+# test
+select distinct ?magnitude  ?aspect ?newAspect
+
+# update graph
+# insert {graph ?g {?magnitude gist:hasAspect ?newAspect .}}
+
+
+where {
+
+   graph ?g {
+  
+         ?magnitude gist:hasUnitOfMeasure ?unit .
+
+         ?thing gist:hasMagnitude ?magnitude ;
+                ?thingProperty ?thingPropertyValue ;
+                .
+
+         filter not exists {?magnitude gist:hasAspect ?anything . }   # to prevent duplicates (idempotent)
+         }
+                
+   {
+    ################ copy values from findAspects2 #################
+    values (?thingPropertyValue   ?newAspect) { 
+       
+#          (gist:Duration            gistd:_Aspect_duration)  # sample value, commented out
+
+           }
+
+    bind(?thingPropertyValue as ?aspect)
+   }
+
+   union
+   {
+    ################ copy from findAspects2 #################
+     values ?thingProperty  { 
+       
+
+            }
+
+    bind(?thingProperty as ?aspect)
+   }
+
+}
+# order by ?magnitude ?newAspect
+

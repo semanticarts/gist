@@ -36,7 +36,7 @@ skos:scopeNote
 gistd:_Aspect_altitude
 	a gist:Aspect ;
 	skos:definition "The aspect altitude."^^xsd:string ;
-skos:editorialNote "This instance has been duplicated from reference data so it can be used in restrictions."^^xsd:string ;
+	skos:editorialNote "This instance has been duplicated from reference data so it can be used in restrictions."^^xsd:string ;
 	skos:prefLabel "area"^^xsd:string ;
 	.
 
@@ -572,6 +572,14 @@ gist:DegreeOfCommitment
 	skos:prefLabel "Degree Of Commitment"^^xsd:string ;
 	.
 
+gist:Determination
+	a owl:Class ;
+	rdfs:subClassOf gist:Event ;
+	skos:definition "An event whose purpose is to establish a specific result, value, or outcome, usually by research, measuring, evaluating, or calculating."^^xsd:string ;
+	skos:example "Measuring the sulphur content of crude oil. Evaluating a loan application for approval. Estimating the price of gas for the next three months. Determining whether and by how much an interest rate should change. Classifying something."^^xsd:string ;
+	skos:prefLabel "Determination"^^xsd:string ;
+	.
+
 gist:Discipline
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
@@ -621,11 +629,6 @@ gist:EquipmentType
 
 gist:Event
 	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Restriction ;
-		owl:onProperty gist:isCharacterizedAs ;
-		owl:someValuesFrom gist:Behavior ;
-	] ;
 	skos:definition "Something that occurs over a period of time, often characterized as an activity being carried out by some person, organization, or software application or brought about by natural forces."^^xsd:string ;
 	skos:editorialNote "See guidance on removing the term in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1679565100."^^xsd:string ;
 	skos:example "A transaction, conference, baseball game, earthquake."^^xsd:string ;
@@ -634,6 +637,15 @@ gist:Event
 		"An event does not necessarily have either planned or actual start or end datetimes. For example, a conference can be in the planning phase without any dates selected, but is nevertheless an (unscheduled) event. The subclasses of Event state particular restrictions on planned and actual start and end dates."^^xsd:string ,
 		"An event occurs during a time interval, which is distinct from the event."^^xsd:string
 		;
+	.
+
+gist:EventSpecification
+	a owl:Class ;
+	rdfs:subClassOf gist:Specification ;
+	skos:definition "A characterization of an event that might happen."^^xsd:string ;
+	skos:example "An insurance company defines the characteristics of a weather event that must be satisfied for it to qualify as a hail storm covered in its homeowner's policy. Defaulting on a loan."^^xsd:string ;
+	skos:prefLabel "Event Specification"^^xsd:string ;
+	skos:scopeNote "This concept is useful for risk assessment and insurance policies."^^xsd:string ;
 	.
 
 gist:FormattedContent
@@ -1070,10 +1082,19 @@ gist:Magnitude
 
 gist:MediaType
 	a owl:Class ;
-	rdfs:subClassOf gist:Category ;
+	rdfs:subClassOf
+		gist:Category ,
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:uniqueText ;
+			owl:someValuesFrom xsd:string ;
+		]
+		;
 	rdfs:seeAlso <https://www.iana.org/assignments/media-types/media-types.xhtml> ;
 	skos:definition "A digitized type that computer applications can recognize."^^xsd:string ;
+	skos:example "application/sparql-results+xml"^^xsd:string ;
 	skos:prefLabel "Media Type"^^xsd:string ;
+	skos:scopeNote "The unique text for an IANA media type is the concatenation of the 'Type name', a slash '/', and the 'Subtype name' as provided on the page displayed when you resolve the URI of the media type."^^xsd:string ;
 	.
 
 gist:Medium
@@ -1638,7 +1659,7 @@ gist:RenderedContent
 gist:Requirement
 	a owl:Class ;
 	rdfs:subClassOf gist:Intention ;
-	skos:definition "A documented physical or functional need that a particular design, product, or process must be able to perform.  Alternately, the obligation of a person or organization to behave in a certain way (i.e., drive on the right side of the road)."^^xsd:string ;
+	skos:definition "The obligation of a person or organization to behave in a certain way (e.g., drive on the right side of the road)."^^xsd:string ;
 	skos:prefLabel "Requirement"^^xsd:string ;
 	.
 
@@ -1726,9 +1747,11 @@ gist:ServiceSpecification
 
 gist:Specification
 	a owl:Class ;
-	rdfs:subClassOf gist:Requirement ;
-	skos:definition "One or more requirements to be satisfied by a material, design, product, or service."^^xsd:string ;
+	rdfs:subClassOf gist:Intention ;
+	skos:definition "One or more characteristics that specify what it means to be a particular type of thing, such as a material, product, service or event. A specification is sufficiently precise to allow evaluating conformance to the specification."^^xsd:string ;
+	skos:example "The specification of the iPhone 14; hypothetical events covered by a homeowner's insurance policy."^^xsd:string ;
 	skos:prefLabel "Specification"^^xsd:string ;
+	skos:scopeNote "Although a characterization of how to do something is often called a specification, the intended meaning here is limited to specifying what something is. The focus is on the what, not the how. Use the TaskTemplate class for specifying the how, such as a plan or process specification."^^xsd:string ;
 	.
 
 gist:StreetAddress
@@ -1796,14 +1819,14 @@ gist:Tag
 			gist:Category
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:tagText ;
+				owl:onProperty gist:containedText ;
 				owl:someValuesFrom xsd:string ;
 			]
 		) ;
 	] ;
 	skos:definition "A term in a folksonomy used to categorize things. Tags can be made up on the fly by users."^^xsd:string ;
-	skos:editorialNote "See guidance on removing tagText property in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1780220876."^^xsd:string ;
 	skos:prefLabel "Tag"^^xsd:string ;
+	skos:scopeNote "Whether to use gist:containedText or gist:uniqueText on tags is an implementation decision."^^xsd:string ;
 	.
 
 gist:Task
@@ -2963,15 +2986,6 @@ gist:isCategorizedBy
 	gist:rangeIncludes gist:Category ;
 	.
 
-gist:isCharacterizedAs
-	a owl:ObjectProperty ;
-	rdfs:domain gist:Event ;
-	rdfs:range gist:Behavior ;
-	owl:deprecated "true"^^xsd:boolean ;
-	skos:definition "A way to categorize a behavior."^^xsd:string ;
-	skos:prefLabel "is characterized as"^^xsd:string ;
-	.
-
 gist:isConnectedTo
 	a
 		owl:ObjectProperty ,
@@ -3024,30 +3038,8 @@ gist:isGeoContainedIn
 
 gist:isGovernedBy
 	a owl:ObjectProperty ;
-	rdfs:domain [
-		a owl:Class ;
-		owl:unionOf (
-			gist:Category
-			gist:Content
-			gist:GeoRegion
-			gist:IntellectualProperty
-			gist:Intention
-			gist:Organization
-			gist:Person
-			gist:PhysicalIdentifiableItem
-			gist:PhysicalSubstance
-		) ;
-	] ;
-	rdfs:range [
-		a owl:Class ;
-		owl:unionOf (
-			gist:Intention
-			gist:Organization
-			gist:Person
-			gist:Template
-		) ;
-	] ;
-	skos:definition "A reference from the thing being governed to the governor"^^xsd:string ;
+	skos:definition "Relates a thing governed to the governor."^^xsd:string ;
+	skos:example "A country geo-region is governed by a country government."^^xsd:string ;
 	skos:prefLabel "is governed by"^^xsd:string ;
 	.
 
@@ -3463,13 +3455,16 @@ gist:uniqueText
 		owl:DatatypeProperty ,
 		owl:FunctionalProperty
 		;
+	rdfs:subPropertyOf gist:containedText ;
 	rdfs:range xsd:string ;
-	skos:definition "The unique string value of some content object; i.e., there is no possibility of having more than one value."^^xsd:string ;
+	skos:definition "The unique string value of some content object, to be used when there is no possibility of having more than one value."^^xsd:string ;
 	skos:example "The unique string for a vehicle identification number."^^xsd:string ;
 	skos:prefLabel "unique text"^^xsd:string ;
-	skos:scopeNote "The uniqueness only goes in one direction. A product catalog number might also be an employee identifier."^^xsd:string ;
+	skos:scopeNote "Note that the uniqueness only goes in one direction: a product catalog number might also be an employee ID."^^xsd:string ;
 	gist:domainIncludes
 		gist:ID ,
+		gist:MediaType ,
+		gist:Tag ,
 		gist:Text
 		;
 	.
