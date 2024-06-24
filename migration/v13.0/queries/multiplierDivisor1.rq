@@ -1,0 +1,34 @@
+# replace hasMultiplicand and hasNumerator with hasMultiplier
+# replace hasDenominator with hasDivisor
+
+# test
+  construct {?s ?p ?o . }  # before
+# construct {?s ?newPredicate ?o . }  # after 
+
+# update graph
+# delete and insert
+# delete {?s ?p ?o . }
+# insert {graph ?g {?s ?newPredicate ?o . }}
+
+where {
+  {
+   bind(gist:hasMultiplier as ?newPredicate)
+
+   graph ?g {
+         ?s (gist:hasMultiplicand|gist:hasNumerator) ?o ;
+            ?p ?o 
+            .
+         }
+  }
+  union
+  {
+   bind(gist:hasDivisor as ?newPredicate)
+
+   graph ?g {
+         ?s gist:hasDenominator ?o ;
+            ?p ?o 
+            .
+         }
+  }
+}
+

@@ -1,0 +1,6 @@
+### Patch Updates
+
+- Updated build process:
+  - Update to latest version of EDM Council serializer (version 2.0 of rdf-toolkit.jar). Issue [#1082](https://github.com/semanticarts/gist/issues/1082).
+  - Combine two bundle actions into one. Issue [#1058](https://github.com/semanticarts/gist/issues/1058).
+  - Change filename of generated RDFS annotations from `rdfsAnnotations` to `gistRdfsAnnotations`. Issue [#1041](https://github.com/semanticarts/gist/issues/1041).

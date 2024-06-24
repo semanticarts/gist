@@ -1,0 +1,71 @@
+# find Aspects that are represented within the name of a Magnitude or Thing with a Magnitude
+# 
+# fill in the upper section with values from the previous 4 queries
+#
+# the use this query iteratively as follows:
+#
+#   - run the query
+#   - pick a few lines of output
+#   - update the lower section of the query with strings embedded in Magnitude IRI or Thing IRI that represent an Aspect
+#   - repeat
+#
+# this iterative process accounts for every Magnitude and Thing with a Magnitude
+# when the query returns no results, every row of the original output has been accounted for
+
+select distinct ?magnitude ?thing
+
+where {
+  
+   ?magnitude gist:hasUnitOfMeasure ?unit .
+  
+   optional {?thing gist:hasMagnitude ?magnitude . }
+              
+  filter not exists {
+    
+     ?magnitude  ?magnitudeProperty ?magnitudePropertyValue .
+
+     ############# copy values from findAspects1.rq ###################
+     values (?magnitudeProperty     ?magnitudePropertyValue) {        # pairs where the property or the value represents a Magnitude
+       
+            (rdf:type               gist:Balance)            # sample value
+            }
+     }
+    
+  filter not exists {              # filter out things for which an Aspect has been identified
+
+     ?thing ?thingProperty ?thingPropertyValue .
+
+     ############## copy values from findAspects2.rq ###################
+     values (?thingProperty     ?thingPropertyValue) {      # more pairs with a property or value that represents an Aspect
+       
+            (rdf:type               gist:Balance)       # sample value  
+            }
+            
+    }
+
+  filter not exists {  # filter out properties that represent an Aspect and have a Magnitude as object
+
+     ?thing ?thingToMagnitudeProperty ?magnitude .
+
+     ############## copy values from findAspects3.rq ###################
+     values ?thingToMagnitudeProperty {
+
+#           ex:hasArea    # sample value, commented out
+
+            }
+             
+     }
+
+  filter not exists {         # filter out cases where an Aspect has the property gist:isAspectOf
+
+     {?aspect gist:isAspectOf ?magnitude .} union {?aspect gist:isAspectOf ?thing.}
+
+     }
+  
+
+####### in this section, include substrings of a Magnitude IRI or Thing IRI that represent an Aspect ####
+
+#  filter(!contains(str(?magnitude), "/BillingRate/"))             # sample value, commented out
+
+}
+order by ?magnitude ?thing

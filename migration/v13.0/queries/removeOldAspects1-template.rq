@@ -1,0 +1,23 @@
+# remove references to older Aspects that were found with findAspects1
+# copy values from the lower section of findAspects1 (the filter-not-exists)
+
+# test
+select ?magnitude ?magnitudeProperty ?magnitudePropertyValue
+
+# update graph
+# delete {?magnitude ?magnitudeProperty ?magnitudePropertyValue .}
+
+where {
+  
+     ############# copy values from lower section of findAspects1 #################
+     values (?magnitudeProperty     ?magnitudePropertyValue) {    # property or value represents an Aspect
+       
+#           (rdf:type               gist:Duration)             # sample value, commented out
+
+            }
+
+     ?magnitude gist:hasUnitOfMeasure ?unit ;
+                ?magnitudeProperty ?magnitudePropertyValue ;
+                .
+}
+

@@ -1,0 +1,12 @@
+# find Magnitudes with no gist:hasAspect
+
+select ?magnitude
+
+where {
+  
+  ?magnitude gist:hasUnitOfMeasure ?unit .   # to identify magnitudes
+
+  filter not exists {?magnitude gist:hasAspect ?anything .}
+
+  }
+order by ?magnitude
