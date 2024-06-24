@@ -71,6 +71,7 @@ gist:AddressUsageType
 	skos:definition "A category indicating the context or manner in which an address may be used."^^xsd:string ;
 	skos:example "Billing, business, personal, postal, residence."^^xsd:string ;
 	skos:prefLabel "Address Usage Type"^^xsd:string ;
+	skos:scopeNote "If you are using temporal relations involving the address, this category should be used on the temporal relation rather than the address itself. For example, a person's use of a specific street address as their residence address - that is, their relation with that address - will have a discrete start (and possibly end) date."^^xsd:string ;
 	.
 
 gist:Agreement
