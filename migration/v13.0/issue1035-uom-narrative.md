@@ -31,7 +31,7 @@ Each of these simpler statements can be represented as a triple; the gist proper
 - has magnitude
 - has aspect (new)
 - has unit of measure
-- numericValue
+- numeric value
 
 ## Main concepts
 
@@ -39,8 +39,8 @@ Building on this example, the new concepts for units of measure in gist 13 are:
 
 - every magnitude is directly related to a measurable characteristic (called an aspect)
 - aspects and units of measure are treated as reference data and are not part of the ontology
-- groups of units can be established, where all the units in the group measure the same aspect (for example bit, kilobit, and megabit all measure a quantity of data)
-- the units of measure in a group are all multiples of the same product of powers of base units, given as exponent of ampere, exponent of bit, exponent of candela, etc.
+- groups of units can be established, where all the units in the group measure the same aspect (for example foot, meter and kilometer all measure distance)
+- the units of measure in a group are all multiples of the same product of powers of base units, given as exponent of kilogram, exponent of meter, exponent of second, etc.
 - as before, every unit of measure has a conversion factor and a conversion offset that can be used to convert from one unit of measure to another (e.g. from liters to gallons)
 - there is a simple way to represent units of measure and aspects in terms of component parts, e.g. ‘profit = revenue – expenses’ or ‘watt hour per mile = watt x hour / mile’
 - aspects can be categorized by discipline
@@ -52,8 +52,8 @@ To draw a comparison with gist 12:
 - it is no longer necessary to change the ontology to add new aspects and units of measure, because they are treated as reference data instead of as classes
 - it is no longer necessary to figure out if a unit is a coherent unit, a simple unit, a product unit, etc.
 - because of the two items above, gist now has 25% fewer classes
-- there is now one standard way to represent things that previously could be represented multiple ways
-- there is now a simple way to validate that a unit of measure is applicable for measuring a given aspect
+- there is now one standard way to represent magnitudes and aspects
+- there is now a simple way to validate that a unit of measure is applicable for measuring a given aspect (i.e. the unit of measure belongs to a unit group related to the aspect)
 - calculations can now be done in SPARQL that would be far more complex in gist 12
 
 ## Relationship to the International System of Units
@@ -70,11 +70,11 @@ In terms of the ontology:
 - the exponent of second is -2
 - all other exponents are zero
 
-Every member of a unit group containing watt-hour must be a multiple of kilogram meter squared per second squared. The unit group containing watt-hour would also contain kilowatt-hour, for example.
+Every member of a unit group containing watt-hour must be a multiple of kilogram meter squared per second squared.
 
 ## Working with exponents
 
-Reminder: calculations involving the exponents can be done as follows:
+Calculations involving the exponents can be done as follows:
 
 2 meters squared x 3 meters = 
 = 2 x 3 (meter with exponent 2) x (meter with exponent 1)
@@ -88,7 +88,7 @@ Calculations involving exponents can be done in SPARQL queries. A more complex e
 Therefore:
 
 1 watt-hour per mile
-= watt x hour x mile^-1
+= 1 x watt x hour x mile^-1
 = (1 x kilogram x meter^2 x second^-3) x (3600 x second) x (1609.344 meter)^-1
 = (1 x 3600 x 1609.344^-1)  x kilogram x (meter^2 x meter^-1) x (second^-3 x second)
 = 2.237 x kilogram x meter x second^-2
@@ -110,13 +110,13 @@ For more information, see the following items in the gist ontology:
 
 - hasUnitGroup
 - isMemberOf
+- hasAccuracy
 - hasAspect
 - hasUnitOfMeasure
 - hasMultiplier
 - hasDivisor
 - hasAddend
 - hasSubtrahend
-- hasPrecision
 
 ### Datatype properties:
 
