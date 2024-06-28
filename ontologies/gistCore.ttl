@@ -2306,8 +2306,7 @@ gist:endDateTime
 	skos:definition "The date and time that something ends."^^xsd:string ;
 	skos:prefLabel "end date time"^^xsd:string ;
 	skos:scopeNote
-		"One use case for asserting this predicate directly is with time intervals. Time intervals have their start and end datetimes eternally, independent of whether they are in the past or future."^^xsd:string ,
-		"This property is neutral along two dimensions: precision of time (e.g., day, second, millisecond) and perspective on actual vs. planned. For this reason, it is not expected to be asserted directly except in special cases."^^xsd:string ,
+		"This property is neutral along two dimensions: time precision (e.g., day, second, millisecond) and perspective on actual vs. planned. As such, it will generally not be asserted directly except in special cases (e.g. for time intervals)."^^xsd:string ,
 		"Values with different precisions can be compared since they all have the same format."^^xsd:string ,
 		"We have looked at some extreme edge cases (e.g., did this meeting end before or after the trade was posted?) and we couldn't find any use case that required special processing. Those who have such use cases can implement them (and feel free to let us know)."^^xsd:string
 		;
