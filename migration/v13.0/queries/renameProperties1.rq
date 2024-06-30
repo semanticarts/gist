@@ -1,0 +1,27 @@
+# rename properties in named graphs
+
+# test
+select ?g ?s ?o  ?oldProperty ?newProperty
+
+# update graph
+# delete {graph ?g {?s ?oldProperty ?o .}} 
+# insert {graph ?g {?s ?newProperty ?o .}} 
+
+where {
+
+#  input
+
+   values (?oldProperty                           ?newProperty) {
+
+          (gist:isGeographicallyContainedIn       gist:isGeoContainedIn)
+          (gist:occupiesGeographically            gist:hasPhysicalLocation)
+          (gist:occupiesGeographicallyPermanently gist:hasPhysicalLocation)
+
+           }
+
+# triples in named graphs that include the property 
+
+  {graph ?g {?s ?oldProperty ?o.}}
+
+}
+

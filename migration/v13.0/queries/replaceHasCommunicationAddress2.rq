@@ -1,0 +1,27 @@
+# replace gist:hasCommunicationAddress in the default graph with gist:hasAddress
+# CAUTION: complete all replacements in named graphs before doing this
+
+# test
+select ?s ?o  ?oldProperty ?newProperty
+
+# update graph
+# delete {?s ?oldProperty ?o .}
+# insert {?s ?newProperty ?o .}
+
+where {
+
+#  input
+
+   values (?oldProperty                 ?newProperty) {
+
+          (gist:hasCommunicationAddress gist:hasAddress)
+
+           }
+
+# triples in the default graph that include the property, and are not duplicated in a named graph
+
+  {?s ?oldProperty ?o.}
+  minus
+  {graph ?g {?s ?oldProperty ?o.}}
+
+}
