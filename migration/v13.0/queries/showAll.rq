@@ -1,0 +1,11 @@
+select distinct ?s ?p ?o ?g
+where {
+  
+  {graph ?g {?s ?p ?o .}}
+  
+  union
+  
+  {?s ?p ?o.}    # to include triples from default graph
+}
+  
+order by ?s ?p ?o

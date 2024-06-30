@@ -1,0 +1,28 @@
+# replace properties with their inverses in named graphs
+
+# test
+select ?g ?s ?o  ?property ?inverse
+
+# update graph
+# delete {graph ?g {?s ?property ?o .}} 
+# insert {graph ?g {?o ?inverse  ?s .}} 
+
+where {
+
+#  input
+
+   values (?property          ?inverse) {
+
+          (gist:hasPart        gist:isPartOf)
+          (gist:hasDirectPart  gist:isDirectPartOf)
+
+          (gist:hasMember      gist:isMemberOf)
+          (gist:hasFirstMember gist:isFirstMemberOf)
+           }
+
+# triples in named graphs that include the property 
+
+  {graph ?g {?s ?property ?o.}}
+
+}
+

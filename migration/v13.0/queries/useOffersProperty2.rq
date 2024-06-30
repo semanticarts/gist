@@ -1,0 +1,34 @@
+# use gist:offers in the default graph to relate an offer to the thing being offered
+# in this script, gist:offers will replace gist:hasPart  
+# be sure all instances returned by test relate an offer to the THING OFFERED
+# CAUTION: complete all replacements in named graphs before doing this
+
+# test
+select ?offer ?thingOffered
+
+# update graph
+# delete {?offer gist:hasPart ?thingOffered .}
+# insert {?offer gist:offers  ?thingOffered .}
+
+where {
+
+# triples in in the default graph that relate an offer to the thing offered, and are not duplicated in a named graph
+# filters out "sub-offers"
+
+  {
+   ?offer rdf:type/rdfs:subClassOf*  gist:Offer ;
+          gist:hasPart ?offerPart .
+
+   filter not exists {?offerPart rdf:type/rdfs:subClassOf*  gist:Offer .}
+  }
+  minus
+
+  {graph ?g {
+
+         ?offer rdf:type/rdfs:subClassOf* gist:Offer ;
+                gist:hasPart ?offerPart .  
+         }}
+
+  bind(?offerPart as ?thingOffered)
+}
+
