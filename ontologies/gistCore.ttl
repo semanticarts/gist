@@ -2315,8 +2315,7 @@ gist:endDateTime
 	skos:prefLabel "end date time"^^xsd:string ;
 	skos:scopeNote
 		"This property is neutral along two dimensions: precision (e.g., day, second, millisecond) and actual vs. planned. As such, it will generally not be asserted directly except in special cases (e.g., for time intervals)."^^xsd:string ,
-		"Values with different precisions can be compared since they all have the same format."^^xsd:string ,
-		"We have looked at some extreme edge cases (e.g., did this meeting end before or after the trade was posted?) and we couldn't find any use case that required special processing. Those who have such use cases can implement them (and feel free to let us know)."^^xsd:string
+		"Values with different precisions can be compared since they all have the same format."^^xsd:string
 		;
 	.
 
@@ -3370,8 +3369,7 @@ gist:startDateTime
 	skos:prefLabel "start date time"^^xsd:string ;
 	skos:scopeNote
 		"This property is neutral along two dimensions: precision (e.g., day, second, millisecond) and actual vs. planned. As such, it will generally not be asserted directly except in special cases (e.g., for time intervals)."^^xsd:string ,
-		"Values of predicates with different precisions can be compared since they are all formally xsd:datetimes."^^xsd:string ,
-		"We have looked at some extreme edge cases (e.g., did this meeting end before or after the trade was posted?) and we couldn't find any use case that required special processing. Those who have such use cases can implement them (and feel free to let us know)."^^xsd:string
+		"Values of predicates with different precisions can be compared since they are all formally xsd:datetimes."^^xsd:string
 		;
 	.
 
