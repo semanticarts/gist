@@ -17,6 +17,7 @@ where {
           (gist:occupiesGeographically            gist:hasPhysicalLocation)
           (gist:occupiesGeographicallyPermanently gist:hasPhysicalLocation)
 
+          (gist:hasCommunicationAddress           gist:hasAddress)
            }
 
 # triples in named graphs that include the property 

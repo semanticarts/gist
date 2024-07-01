@@ -18,6 +18,7 @@ where {
           (gist:occupiesGeographically            gist:hasPhysicalLocation)
           (gist:occupiesGeographicallyPermanently gist:hasPhysicalLocation)
 
+          (gist:hasCommunicationAddress           gist:hasAddress)
            }
 
 # triples in the default graph that include the property, and are not in any named graph
