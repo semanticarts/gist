@@ -25,7 +25,7 @@ With gist v13.0.0, we reduced gist:Address down to two disjoint subclasses:
 - gist:Address
   - gist:ElectronicAddress
   - gist:PhysicalAddress .
-And we removed `gist:hasCommunicationAddress` and we added a new object property, `gist:refersTo`.
+We removed `gist:hasCommunicationAddress` and added a new object property, `gist:refersTo`.
 
 The formal restriction definition for `gist:PhysicalAddress` is:
 - "gist:Address and (gist:refersTo some gist:Place)". 
@@ -118,19 +118,19 @@ In our experience, the combination of these four categories should cover most ad
 
 ## Temporal Addresses
 
-Rather than assigning an Address instance directly to a person or organization, it is almost certainly more correct to model addresses in a temporal relation with other things and assign the usage and precedence categories to the relationship instance. For example, a particular address might start out being used as _both_ a residence and a postal address. But at some point, the addressee decides to rent a PO Box to use for their postal address instead. In other cases, one single address may be used as a billing address by one person, and as a residence address for another person.
+Rather than assigning an Address instance directly to a person or organization, it is often more useful to model addresses in a temporal relation with other things and assign the usage and precedence categories to the relationship instance. For example, a particular address might start out being used as _both_ a residence and a postal address. But at some point, the addressee decides to rent a PO Box to use for their postal address instead. In other cases, one single address may be used as a billing address by one person, and as a residence address for another person.
 
 ## Other Considerations
 
 ### Use of gist:refersTo
 
-Because `gist:Address` and its subclasses are subclasses of `gist:Content`, it does not make semantic sense to say that an address "is contained in a georegion". However, it does make sense to say that the address "refers to something". That "something" can be a geo-point (with a very specific latitude & longitude), a city, state, or country, a postal zone, or some custom-defined area. Hence, we do not assign a range to the gist:refersTo property (and it can be used outside the context of addresses as well).
+Because `gist:Address` and its subclasses are subclasses of `gist:Content`, it does not make semantic sense to say that an address "is contained in a geo-region". However, it does make sense to say that the address "refers to something." That "something" can be a geo-point (with a specific latitude & longitude), a city, state, or country, a postal zone, or some custom-defined area. Hence, we do not assign a range to the `gist:refersTo` property (and it can be used outside the context of addresses as well).
 
 Also, an address can refer to multiple things, using multiple triples. This is perhaps what people really have in mind when they want an address string split into its component parts. But parsing a string just results in multiple strings. Determining what _actual things_ an address refers to, and using the IRIs for those things, results in much more useful information. So, let the address instance refer to the IRIs for as many things as are useful in the domain's context.
 
-An important point to bear in mind is that an address string might not _explicitly_ refer to a country (e.g., "1313 Mockingbird Ln, Munster, IN"). But it _implicitly_ refers to it. In the example, the address implies the USA because Indiana is part of the US. So, it is perfectly acceptable to have a triple asserting that the address refers to the IRI for the country, even when the address string lacks it.
+An important point to bear in mind is that an address string might not _explicitly_ refer to a country (e.g., "1313 Mockingbird Ln, Munster, IN"). But it _implicitly_ refers to it. In the example, the address implies the USA because Indiana is part of the US. So, it is perfectly acceptable to have a triple asserting that the address refers to the IRI for the country even when the address string lacks it.
 
-In the case of some electronic address types (e.g., email addresses), one might choose not to use the `gist:refersTo property`, at all.
+In the case of some electronic address types (e.g., email addresses), one might choose not to use the `gist:refersTo` property at all. And, of course, your use cases need not require the `gist:refersTo` assertions for physical ddresses, either.
 
 ### Address Segments
 
@@ -142,4 +142,4 @@ If, however, the situation calls for such parsed address strings within the know
 
 ### Ex uno, multi? (Out of one, many?)
 
-There are arguments for and against treating typographical variants of an address (e.g., _"Street"_ vs _"St"_, _"Avenue"_ vs _"Ave"_) as different individuals and assigning them different IRIs, or perhaps using the same `Address` object with multiple `containedText` values. The decision of which paradigm to employ must be decided with each new ontology and knowledge graph. Semantic Arts makes no recommendation.
+There are arguments for and against treating typographical variants of an address (e.g., _"Street"_ vs _"St"_, _"Avenue"_ vs _"Ave"_) as different individuals and assigning them different IRIs, or using the same `Address` object with multiple `containedText` values. This decision should be made based on your use cases. Semantic Arts makes no recommendation.
