@@ -2694,7 +2694,7 @@ gist:hasDirectBroader
 	rdfs:subPropertyOf gist:hasBroader ;
 	skos:definition "Relates a thing to another thing with a broader meaning, when there is no intermediate between them."^^xsd:string ;
 	skos:prefLabel "has direct broader"^^xsd:string ;
-	skos:scopeNote "Unlike gist:hasBroader, this property is not transitive. It is safest to use this property when semantic directness is inherent in the relationship. Otherwise, there is a risk of making a hasDirectBroader assertion and then later inserting an intermediate part; this will result in making an asserted triple false even though there was no change in the world. When in doubt, use the transitive version gist:isBroader."^^xsd:string ;
+	skos:scopeNote "Unlike gist:hasBroader, this property is not transitive. It is safest to use this property when semantic directness is inherent in the relationship. Otherwise, there is a risk of making a hasDirectBroader assertion and then later inserting an intermediate part; this will result in making an asserted triple false even though there was no change in the world. When in doubt, use the transitive version gist:hasBroader."^^xsd:string ;
 	.
 
 gist:hasDivisor
