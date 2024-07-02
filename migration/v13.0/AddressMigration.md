@@ -2,7 +2,7 @@
 
 ## Overview
 
-gist 13.0.0 introduces a new model of physical and electronic addresses (see [full documentation of the model](docs/model_documentation/AddressGuidance.md)). Because the new model shifts a large part of the semantics from classes to user-defined categories, the migration can be only partially automated. This guide documents the steps required to migrate your data and ontology extensions into the new model without loss of meaning.
+gist 13.0.0 introduces a new model of physical and electronic addresses (see [full documentation of the model](/docs/model_documentation/AddressGuidance.md)). Because the new model shifts a large part of the semantics from classes to user-defined categories, the migration can be only partially automated. This guide documents the steps required to migrate your data and ontology extensions into the new model without loss of meaning.
 
 ## Automated Steps
 
