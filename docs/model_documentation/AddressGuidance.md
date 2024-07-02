@@ -1,6 +1,6 @@
 # New Patterns for Using gist:Address
 
-In gist v13.0.0, we introduced a new paradigm for modeling addresses. The new method is simpler and should result in more consistent instance data.
+In gist v13.0.0, we introduced a new paradigm for modeling addresses. The new method is simpler and more accurate and expressive.
 
 ## Background
 
@@ -31,7 +31,7 @@ The formal restriction definition for `gist:PhysicalAddress` is:
 - "gist:Address and (gist:refersTo some gist:Place)". 
 In other words, a physical address exists in the real, physical world. It is possible for someone to go there and touch the address's referent.
 
-The `gist:ElectronicAddress` class has no formal restriction definition. But it does have a text definition: _"_ _Content referring to a locatable virtual place not physically existing, as such, but made by software or electronics to appear to do so."_ From a practical perspective, it is an address which is not tangible. One cannot touch it. (One might touch the WI-FI router associated with an IP Address. But that is _not_ the address itself.)
+`gist:ElectronicAddress` is disjoint with `gist:PhysicalAddress` and therefore encompasses all addresses that do not have a physical referent. It is _"_ _Content referring to a locatable virtual place not physically existing, as such, but made by software or electronics to appear to do so."_ 
 
 ### Using the new model
 
