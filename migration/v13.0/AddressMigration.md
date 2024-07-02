@@ -51,4 +51,4 @@ Sample extension ontology changes:
 
 gist 12 and earlier defined a general relationship `gist:hasAddress` between address-holder and address, with one more specific subproperty `gist:hasCommunicationAddress` to distinguish an address used, say, for personal communications from one used for, e.g., receiving packages. gist 13 transfers this distinction to a new category class `gist:AddressUsageType`. You might define `my:_AddressUsageType_personal` and `my:_AddressUsageType_receiving` to make this distinction.
 
-The new model provides flexibility to express more nuanced types of address usage and communication preferences than has previously been available. Consult the [full documentation of the model](docs/model_documentation/AddressGuidance.md) to learn how to take advantage of these options.
+The new model provides flexibility to express more nuanced types of address usage and communication preferences than has previously been available. Consult the [full documentation of the model](/docs/model_documentation/AddressGuidance.md) to learn how to take advantage of these options.
