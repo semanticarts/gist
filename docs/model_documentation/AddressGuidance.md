@@ -1,19 +1,21 @@
 # New Patterns for Using gist:Address
 
-In gist v13.0.0, we introduced a new paradigm for modeling addresses. The new method is both more accurate and more expressive.
+In gist v13.0.0, we introduced a new paradigm for modeling addresses. The new model is both more accurate and more expressive.
 
 ## Background
 
-As recently as gist 12.1.0, we had five subclasses of gist:Address: 
-- gist:ElectronicMessageAddress
-- gist:EmailAddress
-- gist:PostalAddress
-- gist:StreetAddress
-- gist:TelephoneNumber .
+As recently as gist 12.1.0, we had five subclasses of gist:Address:
+
+- `gist:ElectronicMessageAddress`
+- `gist:EmailAddress`
+- `gist:PostalAddress`
+- `gist:StreetAddress`
+- `gist:TelephoneNumber`
 
 And we had two properties specifically aimed at addresses:
-- gist:hasAddress
-- gist:hasCommunicationAddress
+
+- `gist:hasAddress`
+- `gist:hasCommunicationAddress`
 
 But these classes and properties pre-dated our adoption of the "category" paradigm. Further, it is not always possible to know at the time of minting the instances what _kind_ of address is being represented. Is it a Postal Address or a Street Address? If it is both, with what midfix should the IRI be minted?
 
@@ -21,17 +23,19 @@ Upon analysis, we decided these classes were not semantically dissimilar enough 
 
 ## The New Model
 
-With gist v13.0.0, we reduced gist:Address down to two disjoint subclasses:
+With gist v13.0.0, we reduced `gist:Address` down to two disjoint subclasses:
+
 - gist:Address
   - gist:ElectronicAddress
   - gist:PhysicalAddress .
 We removed `gist:hasCommunicationAddress` and added a new object property, `gist:refersTo`.
 
 The formal restriction definition for `gist:PhysicalAddress` is:
-- "gist:Address and (gist:refersTo some gist:Place)". 
+
+- "gist:Address and (gist:refersTo some gist:Place)".
 In other words, a physical address exists in the real, physical world. It is possible for someone to go there and touch the address's referent.
 
-`gist:ElectronicAddress` is disjoint with `gist:PhysicalAddress` and therefore encompasses all addresses that do not have a physical referent. It is _"_ _Content referring to a locatable virtual place not physically existing, as such, but made by software or electronics to appear to do so."_ 
+`gist:ElectronicAddress` is disjoint with `gist:PhysicalAddress` and therefore encompasses all addresses that do not have a physical referent. It is _"Content referring to a locatable virtual place not physically existing, as such, but made by software or electronics to appear to do so."_
 
 ### Using the new model
 
@@ -48,22 +52,22 @@ Now, our address-related triples can all conform to three basic patterns:
 | **Pattern Set 3** | gist:PhysicalAddress | gist:refersTo | gist:CountryGeoRegion |
 | **Pattern Set 3** | gist:ElectronicAddress | gist:refersTo | rdf:Resource |
 
-#### Examples:
+#### Examples
+
 | | **subject** | **predicate** | **object** |
 | -- | -- | -- | -- |
 | **Pattern Set 1** | ex:_Person_Jjones | gist:hasAddress | ex:_PhysicalAddress_11235 . |
 | **Pattern Set 1** | ex:_Person_Jjones | gist:hasAddress | ex:_ElectronicAddress_81321 . |
 | **Pattern Set 1** | ex:_Person_Jjones | gist:hasAddress | ex:_ElectronicAddress_jjones%40hotmail.com . |
 | **Pattern Set 2** | ex:_PhysicalAddress_11235 | gist:containedText | "1313 Mockingbird Ln, Munster, IN  46321" .|
-| **Pattern Set 2** | ex:_ElectronicAddress_81321 | gist:containedText | "https://example/bigwebsite.html" . |
-| **Pattern Set 2** | ex:_ElectronicAddress_jjones%40hotmail.com | gist:containedText | "jjones@hotmail.com" . |
+| **Pattern Set 2** | ex:_ElectronicAddress_81321 | gist:containedText | "<https://example.com/bigwebsite.html>" . |
+| **Pattern Set 2** | ex:_ElectronicAddress_jjones%40hotmail.com | gist:containedText | "<jjones@hotmail.com>" . |
 | **Pattern Set 3** | ex:_PhysicalAddress_11235 | gist:refersTo | ex:_GeoPoint_41.53281962240151_-87.49815865065672 . |
 | **Pattern Set 3** | ex:_PhysicalAddress_11235 | gist:refersTo | ex:_GovernedGeoRegion_MunsterIN . |
 | **Pattern Set 3** | ex:_PhysicalAddress_11235 | gist:refersTo | ex:_GovernedGeoRegion_IN . |
 | **Pattern Set 3** | ex:_PhysicalAddress_11235 | gist:refersTo | ex:_PostalZone_US_436121 . |
 | **Pattern Set 3** | ex:_PhysicalAddress_11235 | gist:refersTo | ex:_CountryGeoRegion_USA . |
-| **Pattern Set 3** | gist:ElectronicAddress | gist:refersTo | <https://example/bigwebsite.html> . |
-
+| **Pattern Set 3** | gist:ElectronicAddress | gist:refersTo | <https://example.com/bigwebsite.html> . |
 
 Especially in the case of electronic addresses, one should be careful not to confuse or conflate the _xsd:string_ object used in the "gist:containedText" triple with the _rdf:resource_ object used in the "gist:refersTo" triple.
 
@@ -72,6 +76,7 @@ Beyond the physical/electronic distinction made by the classes, other important 
 ### Address Categories & Instances
 
 gist v13.0.0 supplies three "starter" categories for distinguishing addresses.
+
 - gist:AddressUsageType
 - gist:ElectronicAddressType
 - gist:PhysicalAddressType .
@@ -118,7 +123,7 @@ In our experience, the combination of these four categories should cover most ad
 
 ## Temporal Addresses
 
-Rather than assigning an Address instance directly to a person or organization, it is often more useful to model addresses in a temporal relation with other things and assign the usage and precedence categories to the relationship instance. For example, a particular address might start out being used as _both_ a residence and a postal address. But at some point, the addressee decides to rent a PO Box to use for their postal address instead. In other cases, one single address may be used as a billing address by one person, and as a residence address for another person.
+Rather than assigning an `Address` instance directly to a person or organization, it is often more useful to model addresses in a temporal relation with other things and assign the usage and precedence categories to the relationship instance. For example, a particular address might start out being used as _both_ a residence and a postal address. But at some point, the addressee decides to rent a PO Box to use for their postal address instead. In other cases, one single address may be used as a billing address by one person, and as a residence address for another person.
 
 ## Other Considerations
 
@@ -138,7 +143,7 @@ As noted above, many data models parse physical address strings into their compo
 
 More to the point, many applications simply do not _require_ a parsed address. Consequently, much effort goes into stitching the components back together in some consistent fashion. Hence our recommendation to treat addresses as a single string, using the gist:containedText property.
 
-If, however, the situation calls for such parsed address strings within the knowledge graph, one can expand upon gist, including the necessary subclasses within the user's namespace. E.g., ex:streetText, ex:cityText, ex:regionText, ex:postalCodeText.
+If, however, the situation calls for such parsed address strings within the knowledge graph, one can expand upon gist, including the necessary subclasses within the user's namespace. E.g., `ex:streetText`, `ex:cityText`, `ex:regionText`, `ex:postalCodeText`.
 
 ### Ex uno, multi? (Out of one, many?)
 
