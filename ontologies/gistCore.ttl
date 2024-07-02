@@ -1861,13 +1861,13 @@ gist:Taxonomy
 								[
 									a owl:Restriction ;
 									owl:onProperty [
-										owl:inverseOf gist:hasSuperCategory ;
+										owl:inverseOf gist:hasBroader ;
 									] ;
 									owl:someValuesFrom gist:Category ;
 								]
 								[
 									a owl:Restriction ;
-									owl:onProperty gist:hasSuperCategory ;
+									owl:onProperty gist:hasBroader ;
 									owl:someValuesFrom gist:Category ;
 								]
 							) ;
@@ -2689,12 +2689,12 @@ gist:hasBroader
 	skos:prefLabel "has broader"^^xsd:string ;
 	.
 
-gist:hasDirectSuperCategory
+gist:hasDirectBroader
 	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:hasSuperCategory ;
-	skos:definition "The subject category is a subcategory of the object category. This property defines the direct links in a category hierarchy; no intermediate categories can exist between the direct links."^^xsd:string ;
-	skos:prefLabel "has direct supercategory"^^xsd:string ;
-	skos:scopeNote "Unlike its superproperty gist:hasSuperCategory, this property is not transitive. It is essentially the same as the non-transitive skos:broader, using gist:Category rather than skos:Concept."^^xsd:string ;
+	rdfs:subPropertyOf gist:hasBroader ;
+	skos:definition "Relates a thing to another thing with a broader meaning, when there is no intermediate between them."^^xsd:string ;
+	skos:prefLabel "has direct broader"^^xsd:string ;
+	skos:scopeNote "Unlike gist:hasBroader, this property is not transitive. It is safest to use this property when semantic directness is inherent in the relationship. Otherwise, there is a risk of making a hasDirectBroader assertion and then later inserting an intermediate part; this will result in making an asserted triple false even though there was no change in the world. When in doubt, use the transitive version gist:isBroader."^^xsd:string ;
 	.
 
 gist:hasDivisor
@@ -2806,14 +2806,14 @@ gist:hasSubtrahend
 	skos:scopeNote "Commonly used with financial metrics."^^xsd:string ;
 	.
 
-gist:hasSuperCategory
+gist:hasUniqueBroader
 	a
 		owl:ObjectProperty ,
-		owl:TransitiveProperty
+		owl:FunctionalProperty
 		;
-	skos:definition "The subject category is included by, or narrower than, the object category. Everything categorized by the subcategory can be inferred to be categorized by the supercategory."^^xsd:string ;
-	skos:prefLabel "has supercategory"^^xsd:string ;
-	skos:scopeNote "This is essentially the same as skos:broaderTransitive, using gist:Category instead of skos:Concept."^^xsd:string ;
+	rdfs:subPropertyOf gist:hasBroader ;
+	skos:definition "Relates a thing to a unique other thing with a broader meaning."^^xsd:string ;
+	skos:prefLabel "has unique broader"^^xsd:string ;
 	.
 
 gist:hasUniqueNavigationalParent
@@ -2824,16 +2824,6 @@ gist:hasUniqueNavigationalParent
 	rdfs:subPropertyOf gist:hasNavigationalParent ;
 	skos:definition "Relates a subject category to a unique parent category in an informal (e.g., faceted) hierarchy."^^xsd:string ;
 	skos:prefLabel "has unique navigational parent"^^xsd:string ;
-	.
-
-gist:hasUniqueSuperCategory
-	a
-		owl:ObjectProperty ,
-		owl:FunctionalProperty
-		;
-	rdfs:subPropertyOf gist:hasSuperCategory ;
-	skos:definition "Used for taxos that must have single parents"^^xsd:string ;
-	skos:prefLabel "has unique supercategory"^^xsd:string ;
 	.
 
 gist:hasUnitGroup
