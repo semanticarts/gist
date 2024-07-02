@@ -19,6 +19,10 @@ where {
           (gist:occupiesGeographicallyPermanently gist:hasPhysicalLocation)
 
           (gist:hasCommunicationAddress           gist:hasAddress)
+
+          (gist:hasSuperCategory                  gist:hasBroader)
+          (gist:hasDirectSuperCategory            gist:hasDirectBroader)
+          (gist:hasUniqueSuperCategory            gist:hasUniqueBroader)
            }
 
 # triples in the default graph that include the property, and are not in any named graph

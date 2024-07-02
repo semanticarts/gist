@@ -18,6 +18,10 @@ where {
           (gist:occupiesGeographicallyPermanently gist:hasPhysicalLocation)
 
           (gist:hasCommunicationAddress           gist:hasAddress)
+
+          (gist:hasSuperCategory                  gist:hasBroader)
+          (gist:hasDirectSuperCategory            gist:hasDirectBroader)
+          (gist:hasUniqueSuperCategory            gist:hasUniqueBroader)
            }
 
 # triples in named graphs that include the property 
