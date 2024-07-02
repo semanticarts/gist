@@ -1,6 +1,6 @@
 # New Patterns for Using gist:Address
 
-In gist v13.0.0, we introduced a new paradigm for modeling addresses. The new method is simpler and more accurate and expressive.
+In gist v13.0.0, we introduced a new paradigm for modeling addresses. The new method is both more accurate and more expressive.
 
 ## Background
 
@@ -130,7 +130,7 @@ Also, an address can refer to multiple things, using multiple triples. This is p
 
 An important point to bear in mind is that an address string might not _explicitly_ refer to a country (e.g., "1313 Mockingbird Ln, Munster, IN"). But it _implicitly_ refers to it. In the example, the address implies the USA because Indiana is part of the US. So, it is perfectly acceptable to have a triple asserting that the address refers to the IRI for the country even when the address string lacks it.
 
-In the case of some electronic address types (e.g., email addresses), one might choose not to use the `gist:refersTo` property at all. And, of course, your use cases need not require the `gist:refersTo` assertions for physical ddresses, either.
+In the case of some electronic address types (e.g., email addresses), one might choose not to use the `gist:refersTo` property at all. And, of course, your use cases need not require the `gist:refersTo` assertions for physical addresses either.
 
 ### Address Segments
 
