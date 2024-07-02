@@ -2089,7 +2089,7 @@ gist:actualStartDateTime
 	rdfs:range xsd:dateTime ;
 	skos:definition "The actual date and time that something started, with no implied precision."^^xsd:string ;
 	skos:prefLabel "actual start date time"^^xsd:string ;
-	skos:scopeNote "This is an abstraction over the various precisions of actual start time, and is not expected to be asserted directly. Values with different precisions can be compared since they all have the same format."^^xsd:string ;
+	skos:scopeNote "This is an abstraction over the various precisions of actual start time, and is not expected to be asserted directly. Values of predicates with different precisions can be compared since they are all formally xsd:datetimes."^^xsd:string ;
 	.
 
 gist:actualStartMicrosecond
@@ -2315,7 +2315,7 @@ gist:endDateTime
 	skos:prefLabel "end date time"^^xsd:string ;
 	skos:scopeNote
 		"This property is neutral along two dimensions: precision (e.g., day, second, millisecond) and actual vs. planned. As such, it will generally not be asserted directly except in special cases (e.g., for time intervals)."^^xsd:string ,
-		"Values with different precisions can be compared since they all have the same format."^^xsd:string
+		"Values of predicates with different precisions can be compared since they are all formally xsd:datetimes."^^xsd:string
 		;
 	.
 
