@@ -76,7 +76,7 @@ Every member of a unit group containing watt-hour must be a multiple of kilogram
 
 Calculations involving the exponents can be done as follows:
 
-2 meters squared x 3 meters = 
+2 meters squared x 3 meters
 = 2 x 3 (meter with exponent 2) x (meter with exponent 1)
 = 6 meter with exponent 3    [to get the product, add the exponents]
 
