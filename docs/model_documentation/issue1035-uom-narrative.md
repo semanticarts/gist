@@ -1,4 +1,4 @@
-# New Magnitudes and Units of Measure in gist13
+# New Magnitudes and Units of Measure in gist 13
 
 ## Overview
 
