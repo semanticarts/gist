@@ -14,7 +14,7 @@ Be sure to read the header of each data conversion script.
 - replaceAddressClasses replaces `gist:EmailAddress` with `gist:ElectronicAddress`
 - replaceAddressClasses replaces `gist:StreetAddress` with `gist:PhysicalAddress`
 
-The different types and uses of addresses can be modeled as categories.
+The different types and uses of addresses can be modeled as categories; see [the address migration documentation(AddressMigration.md) as well as the [full documentation of the new address model](/docs/model_documentation/AddressGuidance.md).
 
 - replacePropertiesWithInverses replaces `gist:hasPart` with `gist:isPartOf`
 
