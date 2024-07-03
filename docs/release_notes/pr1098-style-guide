@@ -1,6 +1,0 @@
-### Patch Updates
-
-- Updates to [gist style guide] to define best practices for:
-  - Negative examples in `skos:example`. Issue [#511](https://github.com/semanticarts/gist/issues/511).
-  - Use of ontology terms in annotations. Issue [#966](https://github.com/semanticarts/gist/issues/966)
-  - Inverse properties. Issue [#1086](https://github.com/semanticarts/gist/issues/1086).

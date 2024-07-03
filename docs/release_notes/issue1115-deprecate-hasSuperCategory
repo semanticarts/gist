@@ -1,8 +1,0 @@
-
-### Major updates
-
-- Removed `gist:hasSuperCategory` and `gist:hasDirectSuperCategory` and `gist:hasUniqueSuperCategory`
-- Added `gist:hasDirectBroader` and `gist:hasUniqueBroader`
-- `gist:hasSuperCategory` is replaced by `gist:hasBroader`
-- `gist:hasDirectSuperCategory` is replaced by `gist:hasDirectBroader`
-- `gist:hasUniqueSuperCategory` is replaced by `gist:hasUniqueBroader`
