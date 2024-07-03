@@ -9,6 +9,7 @@ assignees: ''
 
 Details are found in the [full documentation of the release process](https://semarts.atlassian.net/wiki/spaces/OF/pages/1126760539/gist+Release+Management+Ontologists).
 
+- [ ] Create an issue based on this release template and add it to the project, if it does not already exist. 
 - [ ] Create release branch (`release/X.x.x`).
 - [ ] Prepare release notes on the release branch.
 - [ ] Contact @pwin to prepare the eBook and Widoco documentation from the OWL files on the release branch.
