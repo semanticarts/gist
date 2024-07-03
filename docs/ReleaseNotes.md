@@ -2,7 +2,7 @@
 
 ## Release 13.0.0
 
-This is a major release that includes several changes which break compatibility with previous versions of gist, most notably an entirely revised model of units and magnitudes and a new address model. See the [migration guide](./MajorVersionMigration.html) for documentation on updating existing gist-based ontologies and instance data. [Migration scripts and documentation](../migration/v13.0) are provided to facilitate the upgrade process.
+This is a major release that includes several changes which break compatibility with previous versions of gist, most notably an entirely revised model of units and magnitudes and a new address model. See the [migration guide](./MajorVersionMigration.md) for documentation on updating existing gist-based ontologies and instance data. [Migration scripts and documentation](../migration/v13.0) are provided to facilitate the upgrade process.
 
 ### New Model of Units and Magnitudes
 
@@ -93,6 +93,7 @@ Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
   - `gist:exponentOfSecond`
   - `gist:exponentOfSteradian`
   - `gist:exponentOfUSDollar`
+  - `gist:symbol`
 - Added aspect instances. Note the new `gistd:` namespace `<https://w3id.org/semanticarts/ns/data/gist/>`.
   - `gistd:_Aspect_altitude`
   - `gistd:_Aspect_area`
@@ -118,7 +119,7 @@ Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
   - `gist:conversionFactor`
   - `gist:conversionOffset`
 - Added [scripts](../migration/v13.0/queries/uom_queries) for the migration of existing client ontologies and instance data.
-- Added [complete documentation](../docs/model_documentation/UnitOfMeasureModel.html) on understanding and implementing the new model.
+- Added [complete documentation](../docs/model_documentation/UnitOfMeasureModel.md) on understanding and implementing the new model.
 
 ### New Address Model
 
@@ -130,12 +131,11 @@ Issue [#1060](https://github.com/semanticarts/gist/issues/1060).
   - `gist:PostalAddress`
   - `gist:StreetAddress`
   - `gist:TelephoneNumber`
-  - `gist:hasAddress`
   - `gist:hasCommunicationAddress`
 - Added subclasses of `gist:Address`:
   - `gist:ElectronicAddress`
   - `gist:PhysicalAddress`
-- Added three subclasses of `gist:Category` for characterizing new addresses:
+- Added subclasses of `gist:Category` for characterizing new addresses:
   - `gist:AddressUsageType`
   - `gist:ElectronicAddressType`
   - `gist:PhysicalAddressType`
@@ -143,12 +143,12 @@ Issue [#1060](https://github.com/semanticarts/gist/issues/1060).
   
 ### Other Major Updates
 
-- `gist:hasSuperCategory` and subproperties. Issue [#1070](https://github.com/semanticarts/gist/issues/1070).
+- `gist:hasSuperCategory` and subproperties. Issue [#1115](https://github.com/semanticarts/gist/issues/1115).
   - Removed `gist:hasSuperCategory`, `gist:hasDirectSuperCategory` and `gist:hasUniqueSuperCategory`.
   - `gist:hasSuperCategory` is replaced by `gist:hasBroader`.
   - `gist:hasDirectSuperCategory` is replaced by `gist:hasDirectBroader`.
   - `gist:hasUniqueSuperCategory` is replaced by `gist:hasUniqueBroader`.
-- Replaced the following predicates with their semantic inverses:
+- Replaced the following predicates with their semantic inverses. Issue [#1070](https://github.com/semanticarts/gist/issues/1070).
   
     | gist 12 | gist 13 |
     | --------- | ------- |
@@ -192,7 +192,7 @@ Issue [#1060](https://github.com/semanticarts/gist/issues/1060).
     - Removed property `gist:tagText`.
     - Changed restriction on `gist:Tag` to reference `gist:containedText` rather than `gist:tagText`.
     - Made `gist:uniqueText` a subproperty of `gist:containedText`.
-  - Removed `gist:unitSymbol`, `gist:unitSymbolHtml`, and `gist:UnitSymbolUnicode`. The former is replaced with `gist:symbol` and the latter two are removed with no replacement. (Original issue: [#531](https://github.com/semanticarts/gist/issues/531).)
+  - Removed `gist:unitSymbol`, `gist:unitSymbolHtml`, and `gist:UnitSymbolUnicode`. The first is replaced with `gist:symbol` and the latter two are removed with no replacement. (Original issue: [#531](https://github.com/semanticarts/gist/issues/531).)
 - Removed domain and range constraints from `gist:allows`. Issue [#1063](https://github.com/semanticarts/gist/issues/1063).
 
 ### Minor Updates
@@ -206,20 +206,19 @@ Issue [#1060](https://github.com/semanticarts/gist/issues/1060).
 
 ### Documentation Updates
 
-  - Added section on use of `gist:nonConformingLabel` annotation to `gistStyleGuide.md`.
-  - Modified definition of a patch release to fully comply with [Semver](https://semver.org/spec/v2.0.0.html). Issue [#973](https://github.com/semanticarts/gist/issues/973).
-- Updates to [gist style guide] to define best practices for:
+- Added section to [gist Style Guide](./gistStyleGuide.html) on use of `gist:nonConformingLabel` annotation.
+- Update [gist Style Guide](./gistStyleGuide.html) to define best practices for:
   - Negative examples in `skos:example`. Issue [#511](https://github.com/semanticarts/gist/issues/511).
   - Use of ontology terms in annotations. Issue [#966](https://github.com/semanticarts/gist/issues/966)
   - Inverse properties. Issue [#1086](https://github.com/semanticarts/gist/issues/1086).
+- Modified definition of a patch release to fully comply with [Semver](https://semver.org/spec/v2.0.0.html). Issue [#973](https://github.com/semanticarts/gist/issues/973).
 
 ### Infrastructure Updates
 
-- Updated build process:
-  - Updated build configuration to materialize subclass inferences during bundling. Issue [#1051](https://github.com/semanticarts/gist/issues/1051).
-  - Updated to latest version of EDM Council serializer (version 2.0 of rdf-toolkit.jar). Issue [#1082](https://github.com/semanticarts/gist/issues/1082).
-  - Combined two bundle actions into one. Issue [#1058](https://github.com/semanticarts/gist/issues/1058).
-  - Changed filename of generated RDFS annotations from `rdfsAnnotations` to `gistRdfsAnnotations`. Issue [#1041](https://github.com/semanticarts/gist/issues/1041).
+- Updated build configuration to materialize subclass inferences during bundling. Issue [#1051](https://github.com/semanticarts/gist/issues/1051).
+- Combined two bundle actions into one. Issue [#1058](https://github.com/semanticarts/gist/issues/1058).
+- Updated to latest version of EDM Council serializer (version 2.0 of rdf-toolkit.jar). Issue [#1082](https://github.com/semanticarts/gist/issues/1082).
+- Changed filename of generated RDFS annotations from `rdfsAnnotations` to `gistRdfsAnnotations`. Issue [#1041](https://github.com/semanticarts/gist/issues/1041).
 
 Import URL: <https://w3id.org/semanticarts/ontology/gistCore13.0.0>.
 
