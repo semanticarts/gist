@@ -49,12 +49,12 @@ Building on this example, the new concepts for units of measure in gist 13 are:
 
 To draw a comparison with gist 12:
 
-- it is no longer necessary to change the ontology to add new aspects and units of measure, because they are treated as reference data instead of as classes
-- it is no longer necessary to figure out if a unit is a coherent unit, a simple unit, a product unit, etc.
-- because of the two items above, gist now has 25% fewer classes
-- there is now one standard way to represent magnitudes and aspects
-- there is now a simple way to validate that a unit of measure is applicable for measuring a given aspect (i.e. the unit of measure belongs to a unit group related to the aspect)
-- calculations can now be done in SPARQL that would be far more complex in gist 12
+- It is no longer necessary to change the ontology to add new aspects and units of measure, because they are treated as reference data instead of as classes.
+- It is no longer necessary to figure out if a unit is a coherent unit, a simple unit, a product unit, etc.
+- Because of the two items above, gist now has 25% fewer classes.
+- There is now one standard way to represent magnitudes and aspects.
+- There is now a simple way to validate that a unit of measure is applicable for measuring a given aspect (i.e. the unit of measure belongs to a unit group related to the aspect).
+- Calculations can now be done in SPARQL that would be far more complex in gist 12.
 
 ## Relationship to the International System of Units
 
