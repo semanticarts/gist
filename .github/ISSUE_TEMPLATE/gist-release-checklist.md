@@ -22,7 +22,7 @@ Details are found in the [full documentation of the release process](https://sem
 - [ ] Email the release package to the developers.
 - [ ] Add a new GitHub project for the next minor release if it does not already exist.
 - [ ] Add a new GitHub project for the next major release if it does not already exist.
-- [ ] Create an issue from this template and add it to each of the above two projects, if it does not already exist. Modify the title to include the version number.
+- [ ] Create an issue from this template and add it to each of the above two projects, if they do not already exist. Modify the title to include the version number.
 - [ ] Create a GitHub release.
 
 Once the release has been posted to the website:
