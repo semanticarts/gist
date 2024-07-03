@@ -37,13 +37,13 @@ Each of these simpler statements can be represented as a triple; the gist proper
 
 Building on this example, the new concepts for units of measure in gist 13 are:
 
-- every magnitude is directly related to a measurable characteristic (called an aspect)
-- aspects and units of measure are treated as reference data and are not part of the ontology
-- groups of units can be established, where all the units in the group measure the same aspect (for example foot, meter and kilometer all measure distance)
-- the units of measure in a group are all multiples of the same product of powers of base units, given as exponent of kilogram, exponent of meter, exponent of second, etc.
-- as before, every unit of measure has a conversion factor and a conversion offset that can be used to convert from one unit of measure to another (e.g. from liters to gallons)
-- there is a simple way to represent units of measure and aspects in terms of component parts, e.g. ‘profit = revenue – expenses’ or ‘watt hour per mile = watt x hour / mile’
-- aspects can be categorized by discipline
+- Every magnitude is directly related to a measurable characteristic (called an aspect).
+- Aspects and units of measure are treated as reference data and are not part of the ontology.
+- Groups of units can be established, where all the units in the group measure the same aspect (for example foot, meter and kilometer all measure distance).
+- The units of measure in a group are all multiples of the same product of powers of base units, given as exponent of kilogram, exponent of meter, exponent of second, etc.
+- As before, every unit of measure has a conversion factor and a conversion offset that can be used to convert from one unit of measure to another (e.g. from liters to gallons).
+- There is a simple way to represent units of measure and aspects in terms of component parts, e.g. ‘profit = revenue – expenses’ or ‘watt hour per mile = watt x hour / mile’.
+- Aspects can be categorized by discipline.
 
 ## What's new and different
 
