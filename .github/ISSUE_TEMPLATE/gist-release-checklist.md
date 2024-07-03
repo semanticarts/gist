@@ -15,7 +15,7 @@ Details are found in the [full documentation of the release process](https://sem
 - [ ] Contact @pwin to prepare the eBook and Widoco documentation from the OWL files on the release branch.
 - [ ] Update `skos:historyNote` for new release.
 - [ ] Test logical consistency.
-- [ ] Review the bundle configuration file.
+- [ ] Review the bundle configuration file and make any updates needed, noting especially if there are new documentation files.
 - [ ] Submit a PR from the release branch to `develop`.
 - [ ] Submit a PR from the release branch to `main`.
 - [ ] Build the release package using `onto_tool` and inspect for correctness.
