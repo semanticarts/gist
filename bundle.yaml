@@ -192,16 +192,12 @@ actions:
   source: "{input}/LICENSE.txt"
   target: "{output}"
 - action: "copy"
-  message: "Copying migration queries and scripts."
-  source: "{input}/migration"
-  target: "{output}/migration"
-- action: "copy"
   message: "Copying documentation and patching local links."
   source: "{input}/docs"
   target: "{output}/Documentation"
   replace:
-    from: "models\/"
-    to: "Models\/"
+    from: "\\./models"
+    to: "\\./Models"
   includes:
     - "ReleaseNotes.md"
     - "MajorVersionMigration.md"
@@ -230,16 +226,16 @@ actions:
   includes:
     - "*.md"
 - action: "move"
-  message: "Patching links in the documentation directory."
+  message: "Patching local links in the documentation directory."
   source: "{output}/Documentation/"
   target: "{output}/Documentation/"
   includes:
     - "*.html"
   replace:
-    from: "\\(./(.*)\\.md\\)"
-    to: "(./\\g<1>.html)"
+    from: "\\./(.*)\\.md"
+    to: "./\\g<1>.html"
 - action: "move"
-  message: "Patching links in the documentation models directory."
+  message: "Patching local links in the documentation models directory."
   source: "{output}/Documentation/Models/"
   target: "{output}/Documentation/Models/"
   includes:
@@ -247,24 +243,76 @@ actions:
   replace:
     from: "\\(./(.*)\\.md\\)"
     to: "(./\\g<1>.html)"
+- action: "copy"
+  message: "Copying migration queries and scripts."
+  source: "{input}/migration"
+  target: "{output}/migration"
 - action: "markdown"
-  message: "Formatting gist 11.0 migration readme."
-  source: "{output}/migration/v11.0/README.md"
-  target: "{output}/migration/v11.0/README.html"
+  message: "Formatting gist 11.0 migration documentation as HTML."
+  source: "{output}/migration/v11.0/"
+  target: "{output}/migration/v11.0/"
+  includes:
+    - "*.md"
 - action: "markdown"
-  message: "Formatting time-related changes documentation."
-  source: "{output}/migration/v11.0/TimeRelatedChanges_v11.md"
-  target: "{output}/migration/v11.0/TimeRelatedChanges_v11.html"
+  message: "Formatting gist 13.0 migration documentation as HTML."
+  source: "{output}/migration/v11.0/"
+  target: "{output}/migration/v11.0/"
+  includes:
+    - "*.md"
+- action: "move"
+  message: "Patching local links in the migration directory."
+  source: "{output}/Migration/v11.0/"
+  target: "{output}/Migration/v11.0/"
+  includes:
+    - "*.html"
+  # Replaces ./*.md local links with ./*.html
+  replace:
+    from: "./(.*)\\.md"
+    to: "./\\g<1>.html"
 - action: "markdown"
-  message: "Formatting gist 12.0 migration readme."
-  source: "{output}/migration/v12.0/README.md"
-  target: "{output}/migration/v12.0/README.html"
-# Uncomment once this file has been created
-# - action: "markdown"
-#   message: "Formatting gist 13.0 migration readme."
-#   source: "{output}/migration/v13.0/README.md"
-#   target: "{output}/migration/v13.0/README.html"
+  message: "Formatting gist 12.0 migration documentation as HTML."
+  source: "{output}/migration/v12.0/"
+  target: "{output}/migration/v12.0/"
+  includes:
+    - "*.md"
 - action: "markdown"
-  message: "Formatting address migration documentation."
-  source: "{output}/migration/v13.0/AddressMigration.md"
-  target: "{output}/migration/v13.0/AddressMigration.html"
+  message: "Formatting gist 13.0 migration documentation as HTML."
+  source: "{output}/migration/v12.0/"
+  target: "{output}/migration/v12.0/"
+  includes:
+    - "*.md"
+- action: "move"
+  message: "Patching local links in the migration directory."
+  source: "{output}/Migration/v12.0/"
+  target: "{output}/Migration/v12.0/"
+  includes:
+    - "*.html"
+  # Replaces ./*.md local links with ./*.html
+  replace:
+    from: "./(.*)\\.md"
+    to: "./\\g<1>.html"
+- action: "move"
+  message: "Patching local links in the v13.0 migration directory."
+  source: "{output}/migration/v13.0/"
+  target: "{output}/migration/v13.0/"
+  includes:
+    - "*.md"
+  replace:
+    from: "docs/models"
+    to: "Documentation/Models"
+- action: "markdown"
+  message: "Formatting gist 13.0 migration documentation as HTML."
+  source: "{output}/migration/v13.0/"
+  target: "{output}/migration/v13.0/"
+  includes:
+    - "*.md"
+- action: "move"
+  message: "Patching local links in the migration directory."
+  source: "{output}/Migration/v13.0/"
+  target: "{output}/Migration/v13.0/"
+  includes:
+    - "*.html"
+  # Replaces ./*.md local links with ./*.html
+  replace:
+    from: "./(.*)\\.md"
+    to: "./\\g<1>.html"

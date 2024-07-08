@@ -2,7 +2,7 @@
 
 ## Overview
 
-gist 13.0.0 introduces a new model of physical and electronic addresses (see [full documentation of the model](./docs/models/AddressGuidance.md)). Because the new model shifts a large part of the semantics from classes to user-defined categories, the migration can be only partially automated. This guide documents the steps required to migrate your data and ontology extensions into the new model without loss of meaning.
+gist 13.0.0 introduces a new model of physical and electronic addresses (see [full documentation of the model](../../docs/models/AddressGuidance.md)). Because the new model shifts a large part of the semantics from classes to user-defined categories, the migration can be only partially automated. This guide documents the steps required to migrate your data and ontology extensions into the new model without loss of meaning.
 
 ## Automated Steps
 
@@ -51,4 +51,4 @@ Sample extension ontology changes:
 
 gist 12 and earlier defined a general relationship `gist:hasAddress` between address-holder and address, with one more specific subproperty `gist:hasCommunicationAddress` to distinguish an address used, say, for personal communications from one used for, e.g., receiving packages. gist 13 transfers this distinction to a new category class `gist:AddressUsageType`. You might define `my:_AddressUsageType_personal` and `my:_AddressUsageType_receiving` to make this distinction.
 
-The new model provides flexibility to express more nuanced types of address usage and communication preferences than has previously been available. Consult the [full documentation of the model](/docs/models/AddressGuidance.md) to learn how to take advantage of these options.
+The new model provides flexibility to express more nuanced types of address usage and communication preferences than has previously been available. Consult the [full documentation of the model](../../docs/models/AddressGuidance.md) to learn how to take advantage of these options.
