@@ -119,7 +119,7 @@ Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
   - `gist:conversionFactor`
   - `gist:conversionOffset`
 - Added [scripts](../migration/v13.0/queries/uom_queries) for the migration of existing client ontologies and instance data.
-- Added [complete documentation](../docs/model_documentation/UnitOfMeasureModel.md) on understanding and implementing the new model.
+- Added [complete documentation](../docs/models/UnitOfMeasureModel.md) on understanding and implementing the new model.
 
 ### New Address Model
 
@@ -140,7 +140,7 @@ Issue [#1060](https://github.com/semanticarts/gist/issues/1060).
   - `gist:ElectronicAddressType`
   - `gist:PhysicalAddressType`
 - Added the object property `gist:refersTo`.
-  
+
 ### Other Major Updates
 
 - `gist:hasSuperCategory` and subproperties. Issue [#1115](https://github.com/semanticarts/gist/issues/1115).
@@ -149,7 +149,7 @@ Issue [#1060](https://github.com/semanticarts/gist/issues/1060).
   - `gist:hasDirectSuperCategory` is replaced by `gist:hasDirectBroader`.
   - `gist:hasUniqueSuperCategory` is replaced by `gist:hasUniqueBroader`.
 - Replaced the following predicates with their semantic inverses. Issue [#1070](https://github.com/semanticarts/gist/issues/1070).
-  
+
     | gist 12 | gist 13 |
     | --------- | ------- |
     |`hasDirectPart` | `isDirectPartOf`|
@@ -244,7 +244,7 @@ Import URL: <https://w3id.org/semanticarts/ontology/gistCore13.0.0>.
   - `gist:Magnitude`. Issue [#965](https://github.com/semanticarts/gist/issues/965).
   - `gist:Message`. Issue [#396](https://github.com/semanticarts/gist/issues/396).
   - `gist:MonetaryPerDuration`. Issue [#912](https://github.com/semanticarts/gist/issues/912).
-  - `gist:Specification`. Issue [#431](https://github.com/semanticarts/gist/issues/431).  
+  - `gist:Specification`. Issue [#431](https://github.com/semanticarts/gist/issues/431).
   - `gist:Transaction`. Issue [#521](https://github.com/semanticarts/gist/issues/521).
   - `gist:containedText`, `gist:Tag`, and `gist:Text`. Issue [#372](https://github.com/semanticarts/gist/issues/372).
   - `gist:description`. Issue [#1015](https://github.com/semanticarts/gist/issues/1015).
@@ -298,7 +298,7 @@ This is a major release which includes several changes which break compatibility
   - The gist namespace has changed from `https://ontologies.semanticarts.com/gist/` to `https://w3id.org/semanticarts/ns/ontology/gist/`.
 - Deleted all inverse properties. Issue [#506](<https://github.com/semanticarts/gist/issues/506>).
   - For each pair of inverses, the property deemed clearest, simplest, and/or most useful was retained.
-  - Axioms referring to the deleted properties were reformulated using `owl:inverseOf`.  
+  - Axioms referring to the deleted properties were reformulated using `owl:inverseOf`.
   - Breakdown:
 
       | Properties retained in gist | Inverse properties removed from gist |
@@ -442,7 +442,7 @@ Import URL: <https://ontologies.semanticarts.com/o/gistCore11.1.0>.
 - Improved textual definition of `gist:Task`, per issue [#625](https://github.com/semanticarts/gist/issues/625).
 - Change predicate `hasJurisdictionOver` to `isUnderJurisdictionOf` (bug fix). Issue [#637](https://github.com/semanticarts/gist/issues/637).
 - Clarified restrictions on `gist:OrderedMember`. Issue [#574](https://github.com/semanticarts/gist/issues/574).
-  
+
 Import URL: <https://ontologies.semanticarts.com/o/gistCore11.0.0>.
 
 ## Release 10.0.0
