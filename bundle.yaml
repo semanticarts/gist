@@ -249,14 +249,8 @@ actions:
   target: "{output}/migration/v11.0/"
   includes:
     - "*.md"
-- action: "markdown"
-  message: "Formatting gist 13.0 migration documentation as HTML."
-  source: "{output}/migration/v13.0/"
-  target: "{output}/migration/v13.0/"
-  includes:
-    - "*.md"
 - action: "move"
-  message: "Patching local links in gist 11.0 migration documentation."
+  message: "Patching local links in gist 11.0 HTML migration documentation."
   source: "{output}/migration/v11.0/"
   target: "{output}/migration/v11.0/"
   includes:
@@ -271,14 +265,8 @@ actions:
   target: "{output}/migration/v12.0/"
   includes:
     - "*.md"
-- action: "markdown"
-  message: "Formatting gist 13.0 migration documentation as HTML."
-  source: "{output}/migration/v13.0/"
-  target: "{output}/migration/v13.0/"
-  includes:
-    - "*.md"
 - action: "move"
-  message: "Patching local links in gist 12.0 migration documentation."
+  message: "Patching local links in gist 12.0 HTML migration documentation."
   source: "{output}/migration/v12.0/"
   target: "{output}/migration/v12.0/"
   includes:
@@ -303,7 +291,7 @@ actions:
   includes:
     - "*.md"
 - action: "move"
-  message: "Patching local links in gist 13.0 migration documentation."
+  message: "Patching local links in gist 13.0 HTML migration documentation."
   source: "{output}/migration/v13.0/"
   target: "{output}/migration/v13.0/"
   includes:
