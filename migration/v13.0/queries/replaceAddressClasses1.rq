@@ -1,0 +1,28 @@
+# replace address classes in named graphs
+# note: also create your own categories for the different types and uses of addresses
+
+# test
+select ?g ?s ?oldClass ?newClass
+
+# update graph
+# delete {graph ?g {?s rdf:type ?oldClass .}}
+# insert {graph ?g {?s rdf:type ?newClass .}}
+
+
+where {
+
+    values (?oldClass                      ?newClass) {
+           (gist:ElectronicMessageAddress  gist:ElectronicAddress)
+           (gist:EmailAddress              gist:ElectronicAddress)
+           (gist:TelephoneNumber           gist:ElectronicAddress)
+           (gist:StreetAddress             gist:PhysicalAddress)
+           (gist:PostalAddress             gist:PhysicalAddress)
+           }
+
+# triples in named graphs
+
+    graph ?g {?s rdf:type ?oldClass}
+
+}
+
+
