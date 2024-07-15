@@ -2,7 +2,7 @@
 
 ## Release 13.0.0
 
-This is a major release that includes several changes which break compatibility with previous versions of gist, most notably an entirely revised model of units and magnitudes and a new address model. See the [migration guide](./MajorVersionMigration.md) for documentation on updating existing gist-based ontologies and instance data. [Migration scripts and documentation](../migration/v13.0) are provided to facilitate the upgrade process.
+This is a major release that includes several changes which break compatibility with previous versions of gist, most notably an entirely rearchitected model of units of measure and magnitudes and a new address model. See the [migration guide](./MajorVersionMigration.md) for documentation on updating existing gist-based ontologies and instance data. [Migration scripts and documentation](../migration/v13.0) are provided to facilitate the upgrade process.
 
 ### New Model of Units and Magnitudes
 
@@ -188,6 +188,7 @@ Issue [#1060](https://github.com/semanticarts/gist/issues/1060).
 - Shortened local name of `gist:isGeographicallyContainedin` to `isGeoContainedin`. Issue [#812](https://github.com/semanticarts/gist/issues/812).
 - Removed classes and properties deprecated since the last major release and made corresponding updates to axioms referencing those terms. Issue [#947](https://github.com/semanticarts/gist/issues/947).
   - Removed `gist:isCharacterizedAs` and associated axiom on `gist:Event`. (Original issue: [#820](https://github.com/semanticarts/gist/issues/820).)
+  - Removed `gist:isRecognizedDirectlyBy`.
   - Changes to contained text properties. (Original issue: [#372](https://github.com/semanticarts/gist/issues/372).)
     - Removed property `gist:tagText`.
     - Changed restriction on `gist:Tag` to reference `gist:containedText` rather than `gist:tagText`.
