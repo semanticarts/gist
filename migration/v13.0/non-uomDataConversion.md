@@ -1,5 +1,7 @@
 # data migration scripts
+
 ## Overview
+
 The following scripts come in pairs; one to convert data that resides in named graphs and one to convert data in the default graph.
 
 Each pair should be used in sequence; first convert data in the named graphs using script 1 and then convert the data in the default graph using script 2.
@@ -8,9 +10,9 @@ In the case of useOffersProperty, script 3 converts data in the named graphs and
 
 Be sure to read the header of each data conversion script.
 
-## Examples:
-- renameProperties replaces `gist:isGeographicallyContainedIn` with `gist:isGeoContainedIn`
+## Examples
 
+- renameProperties replaces `gist:isGeographicallyContainedIn` with `gist:isGeoContainedIn`
 - replaceAddressClasses replaces `gist:EmailAddress` with `gist:ElectronicAddress`
 - replaceAddressClasses replaces `gist:StreetAddress` with `gist:PhysicalAddress`
 

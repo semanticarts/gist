@@ -9,7 +9,7 @@ gist 13.0.0 introduces a new model of physical and electronic addresses (see [fu
 The following replacements can be automated by running the migration scripts provided:
 
 | gist 12 | gist 13 |
-| ------- | ------- |
+| :------- | :------- |
 | `gist:hasCommunicationAddress`  |`gist:hasAddress` |
 | `gist:StreetAddress`  |`gist:PhysicalAddress` |
 | `gist:PostalAddress`  |`gist:PhysicalAddress` |
@@ -26,7 +26,7 @@ In gist 13.0.0 there are only two subclasses of `gist:Address`, `gist:Electronic
 In particular (using sample namespace prefix `my:` for your namespace):
 
 | gist 12 Class | gist 13 Category |
-| --------------| ---------------- |
+| :--------------| :---------------- |
 | `gist:StreetAddress` | `my:_PhysicalAddressType_street_address` |
 | `gist:PostalAddress` | `my:_PhysicalAddressType_postal_address` |
 | `gist:EmailAddress` | `my:_ElectronicAddressType_email_address` |
@@ -38,13 +38,13 @@ And of course you can define additional categories as needed to model your use c
 Sample instance data changes:
 
 | gist 12 | gist 13  |
-| ------- | -------- |
+| :------- | :-------- |
 | `my:toms_email a gist:EmailAddress .` | `my:toms_email a gist:ElectronicAddress ; gist:isCategorizedBy my:_ElectronicAddressType_email .`|
 
 Sample extension ontology changes:
 
 | gist 12 | gist 13  |
-| ------- | -------- |
+| :------- | :-------- |
 | `ex:MobilePhoneNumber rdfs:subClassOf gist:TelephoneNumber .` | `ex:_AddressType_mobile_phone a gist:AddressType .` |
 
 ### Address Usage Types
