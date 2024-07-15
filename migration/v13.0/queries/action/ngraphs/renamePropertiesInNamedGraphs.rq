@@ -1,0 +1,34 @@
+# rename properties in named graphs
+
+prefix gist:  <https://w3id.org/semanticarts/ns/ontology/gist/>
+
+# test
+select ?g ?s ?o  ?oldProperty ?newProperty
+
+# update graph
+# delete {graph ?g {?s ?oldProperty ?o .}} 
+# insert {graph ?g {?s ?newProperty ?o .}} 
+
+where {
+
+#  input
+
+   values (?oldProperty                           ?newProperty) {
+
+          (gist:isGeographicallyContainedIn       gist:isGeoContainedIn)
+          (gist:occupiesGeographically            gist:hasPhysicalLocation)
+          (gist:occupiesGeographicallyPermanently gist:hasPhysicalLocation)
+
+          (gist:hasCommunicationAddress           gist:hasAddress)
+
+          (gist:hasSuperCategory                  gist:hasBroader)
+          (gist:hasDirectSuperCategory            gist:hasDirectBroader)
+          (gist:hasUniqueSuperCategory            gist:hasUniqueBroader)
+           }
+
+# triples in named graphs that include the property 
+
+  {graph ?g {?s ?oldProperty ?o.}}
+
+}
+
