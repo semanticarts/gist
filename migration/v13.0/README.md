@@ -85,17 +85,17 @@ program. Information about onto_tool and how to install it, is available at
 3. `onto_tool` will output to STDOUT, you should see something like the following (this is the output from the sample data included in the `./input/` directory):
 
    ```
-   INFO:root:Rename properties in default graph.
-   INFO:root:Replace address classes in default graph.
-   INFO:root:Replace properties with inverses in default graph.
-   INFO:root:Use new gist:offers property in default graph (script 1).
-   INFO:root:Use new gist:offers property in default graph (script 2).
    INFO:root:Rename properties in named graphs.
    INFO:root:Replace address classes in named graphs.
    INFO:root:Replace properties with inverses in named graphs.
    INFO:root:Use new gist:offers property in named graphs (script 1).
    INFO:root:Use new gist:offers property in named graphs (script 2).
-   INFO:root:Check the default graph for other items that should be reviewed.
+   INFO:root:Rename properties in named graphs.
+   INFO:root:Replace address classes in named graphs.
+   INFO:root:Replace properties with inverses in named graphs.
+   INFO:root:Use new gist:offers property in named graphs (script 1).
+   INFO:root:Use new gist:offers property in named graphs (script 2).
+   INFO:root:Check the named graphs for other items that should be reviewed.
    INFO:root:Check named graphs for other items that should be reviewed.
    ```
 
