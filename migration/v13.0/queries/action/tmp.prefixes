@@ -1,4 +1,0 @@
-prefix sh: <http://www.w3.org/ns/shacl#>
-prefix gist:  <https://w3id.org/semanticarts/ns/ontology/gist/>
-prefix gistd: <https://w3id.org/semanticarts/ns/data/gist/>
-
