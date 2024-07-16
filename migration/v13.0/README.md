@@ -53,7 +53,7 @@ The action and report directories each contain the following two directories:
 
 - `default/` : These queries only work on the default graph`*`
 
-  > `*` the handling of these queries will be dependent upon which Triplestore you are using and how it was configured. Some Triplestores will only use
+  > `*` the handling of these queries will be dependent upon which triplestore you are using and how it was configured. Some triplestores will only use
   > triples in the default graph, some will use all triples in all named graphs.
 
 - `ngraphs/` : These queries only work on named graphs

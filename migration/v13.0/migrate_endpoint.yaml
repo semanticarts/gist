@@ -1,4 +1,4 @@
-jbundle: gist-v13.0-migration
+bundle: gist-v13.0-migration
 variables:
   action_queries_path_default: "./queries/action/default"
   action_queries_path_ngraphs: "./queries/action/ngraphs"
