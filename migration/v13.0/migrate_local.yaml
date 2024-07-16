@@ -18,10 +18,10 @@ tools:
     query: "{action_queries_path}/replacePropertiesWithInversesInDefaultGraph.rq"
   - name: "use-offers-property-script1"
     type: "sparql"
-    query: "{action_queries_path}/UseOffersPropertyInDefaultGraph1.rq"
+    query: "{action_queries_path}/useOffersPropertyInDefaultGraph1.rq"
   - name: "use-offers-property-script2"
     type: "sparql"
-    query: "{action_queries_path}/UseOffersPropertyInDefaultGraph2.rq"
+    query: "{action_queries_path}/useOffersPropertyInDefaultGraph2.rq"
 
 actions:
   # transform actions
