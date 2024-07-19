@@ -291,6 +291,16 @@ actions:
   includes:
     - "*.md"
 - action: "move"
+  message: "Patching documentation links in gist 13.0 HTML migration documentation."
+  source: "{output}/migration/v13.0/"
+  target: "{output}/migration/v13.0/"
+  includes:
+    - "*.html"
+  # Replaces ./*.md local links with ./*.html
+  replace:
+    from: "(?:docs|documentation)/(.*)\\.md"
+    to: "../../documentation/\\g<1>.html"
+- action: "move"
   message: "Patching local links in gist 13.0 HTML migration documentation."
   source: "{output}/migration/v13.0/"
   target: "{output}/migration/v13.0/"
@@ -298,5 +308,6 @@ actions:
     - "*.html"
   # Replaces ./*.md local links with ./*.html
   replace:
-    from: "./(.*)\\.md"
-    to: "./\\g<1>.html"
+    from: "\\./(\\w*)\\.md"
+    to: "\\g<1>.html"
+
