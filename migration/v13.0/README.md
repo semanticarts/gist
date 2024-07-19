@@ -3,7 +3,7 @@
 This file gives a quick overview of using the migration utilities provided
 by the gist team to help migrate from the previous version of gist.
 
-> See also additional documentation in the [Major Version Migration](docs/MajorVersionMigration.md).
+> See also additional documentation in the [Major Version Migration](../../docs/MajorVersionMigration.md).
 
 ## Important Remarks
 
@@ -126,7 +126,7 @@ onto_tool bundle -v user <USER> -v password <PWD>
 - replaceAddressClasses replaces `gist:EmailAddress` with `gist:ElectronicAddress`
 - replaceAddressClasses replaces `gist:StreetAddress` with `gist:PhysicalAddress`
 
-The different types and uses of addresses can be modeled as categories; see [the address migration documentation](./AddressMigration.md) as well as the [full documentation of the new address model](docs/models/AddressGuidance.md).
+The different types and uses of addresses can be modeled as categories; see [the address migration documentation](./AddressMigration.md) as well as the [full documentation of the new address model](../../docs/models/AddressGuidance.md).
 
 - replacePropertiesWithInverses replaces `gist:hasPart` with `gist:isPartOf`
 - useOffersProperty (scripts 1 and 2) replaces `gist:hasPart` with `gist:offers` in the context of an offer
