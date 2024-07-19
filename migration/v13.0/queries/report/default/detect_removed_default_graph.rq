@@ -1,0 +1,47 @@
+prefix sh: <http://www.w3.org/ns/shacl#>
+prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/>
+
+CONSTRUCT {
+?report a sh:ValidationReport ;
+  sh:conforms false ;
+  sh:result
+    [
+      a sh:ValidationResult ;
+      sh:focusNode ?deleted ;
+      sh:resultMessage ?error ;
+      sh:resultSeverity sh:Warning ;
+      sh:sourceConstraintComponent <urn:constraint:removed-entity>
+    ] .
+}
+WHERE {
+  VALUES ?deleted {
+
+    # Issue 462-Remove-Sensor-Related-Items
+    gist:Actuator
+    gist:Controller
+    gist:ControllerType
+    gist:MessageDefinition
+    gist:PhenomenaType
+    gist:Sensor
+    gist:directs
+    gist:hasViableRange
+
+    # Issue 947
+    gist:unitSymbolHtml
+    gist:unitSymbolUnicode
+
+    # Issue 947
+    gist:isCharacterizedAs
+  }
+  {
+      ?s ?deleted ?o
+  } UNION {
+      ?s ?p ?deleted
+  } UNION {
+      ?deleted ?p ?o
+  }
+  BIND(<urn:deleted-entity-validation-report> as ?report)
+  BIND(CONCAT("Removed entity gist:",
+      REPLACE(STR(?deleted), '^.*[/#]', ''), " referenced in data. ",
+      "Review release notes for information about the changes.") as ?error)
+}

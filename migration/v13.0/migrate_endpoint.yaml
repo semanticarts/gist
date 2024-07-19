@@ -1,0 +1,140 @@
+bundle: gist-v13.0-migration
+variables:
+  action_queries_path_default: "./queries/action/default"
+  action_queries_path_ngraphs: "./queries/action/ngraphs"
+  reporting_queries_path_default: "./queries/report/default"
+  reporting_queries_path_ngraphs: "./queries/report/ngraphs"
+  endpoint: "<SPARQL_UPDATE_URI>"
+  update_endpoint: "{endpoint}"
+  user: "UPDATE_USER"
+  password: "UPDATE_PASSWORD"
+  report: "./reports"
+
+actions:
+  # default
+  - action: "sparql"
+    message: "Rename properties in default graph."
+    query: "{action_queries_path_default}/renamePropertiesInDefaultGraph.rq"
+    endpoint:
+      query_uri: "{endpoint}"
+      update_uri: "{update_endpoint}"
+      user: "{user}"
+      password: "{password}"
+
+  - action: "sparql"
+    message: "Replace address classes in default graph."
+    query: "{action_queries_path_default}/replaceAddressClassesInDefaultGraph.rq" 
+    endpoint:
+      query_uri: "{endpoint}"
+      update_uri: "{update_endpoint}"
+      user: "{user}"
+      password: "{password}"
+
+  - action: "sparql"
+    message: "Replace properties with inverses in default graph."
+    query: "{action_queries_path_default}/replacePropertiesWithInversesInDefaultGraph.rq"
+    endpoint:
+      query_uri: "{endpoint}"
+      update_uri: "{update_endpoint}"
+      user: "{user}"
+      password: "{password}"
+
+  - action: "sparql"
+    message: "Use new gist:offers property in default graph (script 1)."
+    query: "{action_queries_path_default}/useOffersPropertyInDefaultGraph1.rq"
+    endpoint:
+      query_uri: "{endpoint}"
+      update_uri: "{update_endpoint}"
+      user: "{user}"
+      password: "{password}"
+
+  - action: "sparql"
+    message: "Use new gist:offers property in default graph (script 2)."
+    query: "{action_queries_path_default}/useOffersPropertyInDefaultGraph2.rq"
+    endpoint:
+      query_uri: "{endpoint}"
+      update_uri: "{update_endpoint}"
+      user: "{user}"
+      password: "{password}"
+
+  # ngraphs
+  - action: "sparql"
+    message: "Rename properties in named graphs."
+    query: "{action_queries_path_ngraphs}/renamePropertiesInNamedGraphs.rq"
+    endpoint:
+      query_uri: "{endpoint}"
+      update_uri: "{update_endpoint}"
+      user: "{user}"
+      password: "{password}"
+
+  - action: "sparql"
+    message: "Replace address classes in named graphs."
+    query: "{action_queries_path_ngraphs}/replaceAddressClassesInNamedGraphs.rq"
+    endpoint:
+      query_uri: "{endpoint}"
+      update_uri: "{update_endpoint}"
+      user: "{user}"
+      password: "{password}"
+
+  - action: "sparql"
+    message: "Replace properties with inverses in named graphs."
+    query: "{action_queries_path_ngraphs}/replacePropertiesWithInversesInNamedGraphs.rq"
+    endpoint:
+      query_uri: "{endpoint}"
+      update_uri: "{update_endpoint}"
+      user: "{user}"
+      password: "{password}"
+
+  - action: "sparql"
+    message: "Use new gist:offers property in named graphs (script 1)."
+    query: "{action_queries_path_ngraphs}/useOffersPropertyInNamedGraphs1.rq"
+    endpoint:
+      query_uri: "{endpoint}"
+      update_uri: "{update_endpoint}"
+      user: "{user}"
+      password: "{password}"
+
+  - action: "sparql"
+    message: "Use new gist:offers property in named graphs (script 2)."
+    query: "{action_queries_path_ngraphs}/useOffersPropertyInNamedGraphs2.rq"
+    endpoint:
+      query_uri: "{endpoint}"
+      update_uri: "{update_endpoint}"
+      user: "{user}"
+      password: "{password}"
+
+  # validation
+  # default
+  - action: "verify"
+    message: "Check the default graph for other items that should be reviewed."
+    type: "construct"
+    inference: "none"
+    stopOnFail: false
+    target: "{report}"
+    endpoint:
+      query_uri: "{endpoint}"
+      user: "{user}"
+      password: "{password}"
+    queries:
+      source: "{reporting_queries_path_default}/"
+      includes:
+        - "detect_removed_default_graph.rq"
+        - "detect_renamed_default_graph.rq"
+
+  # ngraphs
+  - action: "verify"
+    message: "Check named graphs for other items that should be reviewed."
+    type: "construct"
+    inference: "none"
+    stopOnFail: false
+    target: "{report}"
+    endpoint:
+      query_uri: "{endpoint}"
+      user: "{user}"
+      password: "{password}"
+    queries:
+      source: "{reporting_queries_path_ngraphs}/"
+      includes:
+        - "detect_removed_named_graphs.rq"
+        - "detect_renamed_named_graphs.rq"
+

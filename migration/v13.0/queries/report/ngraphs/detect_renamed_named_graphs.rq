@@ -1,0 +1,65 @@
+prefix sh: <http://www.w3.org/ns/shacl#>
+prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/>
+
+CONSTRUCT {
+  ?report a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result
+      [
+        a sh:ValidationResult ;
+        sh:focusNode ?renamed ;
+        sh:resultMessage ?error ;
+        sh:resultSeverity sh:Warning ;
+        sh:sourceConstraintComponent <urn:constraint:renamed-entity>
+      ]
+  .
+}
+WHERE {
+  {
+    select distinct ?renamed ?newName where {
+      values (?renamed ?newName) {
+
+              # Issue 1070 inverses
+              (gist:hasDirectPart  gist:isDirectPartOf) 
+              (gist:hasFirstMember gist:isFirstMemberOf) 
+              (gist:hasMember      gist:isMemberOf) 
+              (gist:hasPart        gist:isPartOf) 
+
+              # Issue 1115 deprecate hasSuperCategory
+              (gist:hasSuperCategory       gist:hasBroader)
+              (gist:hasDirectSuperCategory gist:hasDirectBroader)
+              (gist:hasUniqueSuperCategory gist:hasUniqueBroader)
+
+              # Issues 809 and 812 geo properties
+              (gist:occupiesGeographically            gist:hasPhysicalLocation)
+              (gist:occupiesGeographicallyPermanently gist:hasPhysicalLocation)
+              (gist:isGeographicallyContainedIn       gist:isGeoContainedIn)
+
+
+              # Issue 947 deprecated in previous release
+              (gist:tagText    gist:containedText)
+              (gist:unitSymbol gist:symbol)
+
+              # PR 1106 refactor addresses
+              (gist:ElectronicMessageAddress gist:ElectronicAddress)
+              (gist:EmailAddress             gist:ElectronicAddress)
+              (gist:TelephoneNumber          gist:ElectronicAddress)
+              (gist:PostalAddress            gist:PhysicalAddress)
+              (gist:StreetAddress            gist:PhysicalAddress)
+              (gist:hasCommunicationAddress gist:hasAddress)
+      }
+      {
+          graph ?g { ?s ?renamed ?o }
+      } UNION {
+          graph ?g { ?s ?p ?renamed }
+      } UNION {
+          graph ?g { ?renamed ?p ?o }
+      }
+    }
+  }
+  BIND(<urn:renamed-entity-validation-report> as ?report)
+  BIND(CONCAT("WARNING: detected use of a class name that has changed - gist:",
+      REPLACE(STR(?renamed), '^.*[/#]', ''), " was changed to gist:", 
+      REPLACE(STR(?newName), '^.*[/#]', '')
+      ) as ?error)
+}

@@ -1,0 +1,40 @@
+# use gist:offers in the default graph to relate an offer to the thing being offered
+# in this script, gist:offers will replace gist:isPartOf
+# be sure all instances returned by test relate an offer to the THING OFFERED
+# CAUTION: complete all replacements in named graphs before doing this
+
+prefix gist:  <https://w3id.org/semanticarts/ns/ontology/gist/>
+
+# test
+select ?g ?offer ?thingOffered 
+
+# update graph
+# delete {?thingOffered gist:isPartOf ?offer .}
+# insert {?offer gist:offers  ?thingOffered .}
+
+where {
+
+# triples in the default graph that relate an offer to the thing offered, and are not duplicated in a named graph
+# filters out "sub-offers"
+
+  {
+   ?offer rdf:type/rdfs:subClassOf* gist:Offer .
+
+   ?offerPart gist:isPartOf ?offer .
+
+   filter not exists {?offerPart rdf:type/rdfs:subClassOf* gist:Offer .}
+  }
+
+  minus 
+
+  {graph ?g {
+
+         ?offer rdf:type/rdfs:subClassOf* gist:Offer .
+
+         ?offerPart gist:isPartOf ?offer .
+         }}
+
+  bind(?offerPart as ?thingOffered)
+
+}
+
