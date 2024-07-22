@@ -99,14 +99,14 @@ This calculation relates the unit ‘watt-hour per mile’ to the base units kil
 
 For more information, see the following items in the gist ontology:
 
-### Classes:
+### Classes
 
 - Aspect
 - UnitGroup
 - UnitOfMeasure
 - Magnitude
 
-### Object properties:
+### Object properties
 
 - hasUnitGroup
 - isMemberOf
@@ -118,14 +118,13 @@ For more information, see the following items in the gist ontology:
 - hasAddend
 - hasSubtrahend
 
-### Datatype properties:
+### Datatype properties
 
 - numericValue
 - conversionFactor
 - conversionOffset
 - hasExponentOfAmpere, hasExponentOfBit, etc.
 
-### Also see:
+### Also see
 
-- Section 2.3.4 of the Brochure of the International System of Units at https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf
-
+- Section 2.3.4 of the Brochure of the International System of Units at <https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf>.
