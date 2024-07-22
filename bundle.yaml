@@ -193,47 +193,47 @@ actions:
 - action: "copy"
   message: "Copying documentation."
   source: "{input}/docs"
-  target: "{output}/documentation"
+  target: "{output}/docs"
   includes:
     - "ReleaseNotes.md"
     - "MajorVersionMigration.md"
     - "Namespace.md"
 - action: "copy"
-  message: "Copying readme and gist logo to documentation directory."
+  message: "Copying readme and gist logo to docs directory."
   source: "{input}"
-  target: "{output}/documentation/"
+  target: "{output}/docs/"
   includes:
     - "README.md"
     - "gist-logo.png"
 - action: "copy"
   message: "Copying model documentation."
   source: "{input}/docs/models"
-  target: "{output}/documentation/models"
+  target: "{output}/docs/models"
 - action: "markdown"
   message: "Formatting documentation as HTML."
-  source: "{output}/documentation/"
-  target: "{output}/documentation/"
+  source: "{output}/docs/"
+  target: "{output}/docs/"
   includes:
     - "*.md"
 - action: "markdown"
   message: "Formatting model documentation as HTML."
-  source: "{output}/documentation/models/"
-  target: "{output}/documentation/models/"
+  source: "{output}/docs/models/"
+  target: "{output}/docs/models/"
   includes:
     - "*.md"
 - action: "move"
-  message: "Patching local links in the documentation directory."
-  source: "{output}/documentation/"
-  target: "{output}/documentation/"
+  message: "Patching local links in the docs directory."
+  source: "{output}/docs/"
+  target: "{output}/docs/"
   includes:
     - "*.html"
   replace:
     from: "\\./(.*)\\.md"
     to: "./\\g<1>.html"
 - action: "move"
-  message: "Patching local links in the documentation models directory."
-  source: "{output}/documentation/models/"
-  target: "{output}/documentation/models/"
+  message: "Patching local links in the model documentation directory."
+  source: "{output}/docs/models/"
+  target: "{output}/docs/models/"
   includes:
     - "*.html"
   replace:
@@ -275,15 +275,6 @@ actions:
   replace:
     from: "./(.*)\\.md"
     to: "./\\g<1>.html"
-- action: "move"
-  message: "Patching local links in gist 13.0 migration documentation."
-  source: "{output}/migration/v13.0/"
-  target: "{output}/migration/v13.0/"
-  includes:
-    - "*.md"
-  replace:
-    from: "docs/models"
-    to: "documentation/models"
 - action: "markdown"
   message: "Formatting gist 13.0 migration documentation as HTML."
   source: "{output}/migration/v13.0/"
@@ -291,15 +282,15 @@ actions:
   includes:
     - "*.md"
 - action: "move"
-  message: "Patching documentation links in gist 13.0 HTML migration documentation."
+  message: "Patching links in gist 13.0 HTML migration documentation."
   source: "{output}/migration/v13.0/"
   target: "{output}/migration/v13.0/"
   includes:
     - "*.html"
   # Replaces ./*.md local links with ./*.html
   replace:
-    from: "(?:docs|documentation)/(.*)\\.md"
-    to: "../../documentation/\\g<1>.html"
+    from: "(?:docs)/(.*)\\.md"
+    to: "../../docs/\\g<1>.html"
 - action: "move"
   message: "Patching local links in gist 13.0 HTML migration documentation."
   source: "{output}/migration/v13.0/"
@@ -310,4 +301,3 @@ actions:
   replace:
     from: "\\./(\\w*)\\.md"
     to: "\\g<1>.html"
-
