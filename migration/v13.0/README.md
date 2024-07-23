@@ -58,7 +58,6 @@ The action and report directories each contain the following two directories:
 
 - `ngraphs/` : These queries only work on named graphs
 
-
 ## Requirements
 
 These migration scripts are meant to be run using the open source `onto_tool`
@@ -71,8 +70,8 @@ program. Information about onto_tool and how to install it, is available at
 
 1. Starting in this directory, either place source data files in the `./input/` directory or point the script at the location of your data via `-v input` flag (see example below). See the onto_tool documentation for which file formats are supported.
 
-   > * The `migrate_local.yaml` file currently looks in the input directory for `*.owl` and `*.ttl` files. If other formats are supported and you plan to use them, you will need to update the yaml.
-   > * The script will only transform RDF data files at the top level of the input directory, and will not recursively descend into sub-directories. Invoke the script multiple times with different directories specified via the `-v input` flag as needed.
+   > - The `migrate_local.yaml` file currently looks in the input directory for `*.owl` and `*.ttl` files. If other formats are supported and you plan to use them, you will need to update the yaml.
+   > - The script will only transform RDF data files at the top level of the input directory, and will not recursively descend into sub-directories. Invoke the script multiple times with different directories specified via the `-v input` flag as needed.
 
 2. Execute the following command for the default `./input` director:
 
@@ -103,7 +102,7 @@ program. Information about onto_tool and how to install it, is available at
 
    - Output files will be created in the `./output/` directory. The location can be overriden by specifying `-v output <existing directory for output>`.
 
-   - Report files will be created in the `./reports/` directory. The location can be overriden by specifying `-v report <existing directory for report>`. 
+   - Report files will be created in the `./reports/` directory. The location can be overriden by specifying `-v report <existing directory for report>`.
 
 ## Run Against SPARQL Endpoint
 
@@ -120,7 +119,7 @@ onto_tool bundle -v user <USER> -v password <PWD>
                  -v report <REPORT-DIR> migrate_endpoint.yaml
 ```
 
-## Examples:
+## Examples
 
 - renameProperties replaces `gist:isGeographicallyContainedIn` with `gist:isGeoContainedIn`
 - replaceAddressClasses replaces `gist:EmailAddress` with `gist:ElectronicAddress`
