@@ -45,22 +45,22 @@ Now, our address-related triples can all conform to three basic patterns:
 
 ##### Pattern 1: gist:hasAddress
 
-| **subject class** | **predicate** | **object class/datatype** |
-| :---------------- | :------------ | :------------------------ |
+| **subject class** | **predicate** | **object class** |
+| :---------------- | :------------ | :--------------- |
 | `owl:Thing` | `gist:hasAddress` | `gist:PhysicalAddress` |
 | `owl:Thing` | `gist:hasAddress` | `gist:ElectronicAddress` |
 
 ##### Pattern 2: gist:containedText
 
-| **subject class** | **predicate** | **object class/datatype** |
-| :---------------- | :------------ | :------------------------ |
+| **subject class** | **predicate** | **object datatype** |
+| :---------------- | :------------ | :------------------ |
 | `gist:PhysicalAddress` | `gist:containedText` | `xsd:string` |
 | `gist:ElectronicAddress` | `gist:containedText` | `xsd:string` |
 
 ##### Pattern 3: gist:refersTo
 
-| **subject class** | **predicate** | **object class/datatype** |
-| :---------------- | :------------ | :------------------------ |
+| **subject class** | **predicate** | **object class** |
+| :---------------- | :------------ | :--------------- |
 | `gist:PhysicalAddress` | `gist:refersTo` | `gist:Place` |
 | `gist:PhysicalAddress` | `gist:refersTo` | `gist:GeoPoint` |
 | `gist:PhysicalAddress` | `gist:refersTo` | `gist:GovernedGeoRegion` |
@@ -85,7 +85,7 @@ Now, our address-related triples can all conform to three basic patterns:
 | `ex:_ElectronicAddress_81321` | `gist:containedText` | "<https://example.com/bigwebsite.html>"  |
 | `ex:_ElectronicAddress_jjones%40hotmail.com` | `gist:containedText` | "<jjones@hotmail.com>"  |
 
-##### Pattern 3 
+##### Pattern 3
 
 | **subject** | **predicate** | **object** |
 | :---------- | :------------ | :--------- |
