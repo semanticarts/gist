@@ -211,6 +211,18 @@ actions:
   target: "{output}/docs/"
   includes:
     - "*.md"
+- action: "move"
+  message: "Patching local links in documentation."
+  source: "{output}/docs/"
+  target: "{output}/docs/"
+  includes:
+    - "*.html"
+  # Replace .md with .html in local links of HTML files.
+  # PCRE2 version of regex replace:
+  # ((\.\/|(?:\.\.\/)+).+)\.md => $1.html
+  replace:
+    from: "((\\./|(?:\\.\\./)+).+)\\.md"
+    to: "\\g<1>.html"
 - action: "copy"
   message: "Copying model documentation."
   source: "{input}/docs/models"
@@ -222,19 +234,7 @@ actions:
   includes:
     - "*.md"
 - action: "move"
-  message: "Patching local links in the documentation."
-  source: "{output}/docs/"
-  target: "{output}/docs/"
-  includes:
-    - "*.html"
-  # Replace .md with .html in local links of HTML files.
-  # PCRE2 version of regex replace:
-  # ((\.\/|(?:\.\.\/)+).+)\.md => $1.html
-  replace:
-    from: "((\\./|(?:\\.\\./)+).+)\\.md"
-    to: "\\g<1>.html"
-- action: "move"
-  message: "Patching local links in the HTML model documentation."
+  message: "Patching local links in HTML model documentation."
   source: "{output}/docs/models/"
   target: "{output}/docs/models/"
   includes:
