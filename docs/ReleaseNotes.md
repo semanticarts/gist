@@ -208,11 +208,12 @@ Issue [#1060](https://github.com/semanticarts/gist/issues/1060).
 ### Documentation Updates
 
 - Added section to [gist Style Guide](./gistStyleGuide.html) on use of `gist:nonConformingLabel` annotation.
-- Update [gist Style Guide](./gistStyleGuide.html) to define best practices for:
+- Updated [gist Style Guide](./gistStyleGuide.html) to define best practices for:
   - Negative examples in `skos:example`. Issue [#511](https://github.com/semanticarts/gist/issues/511).
   - Use of ontology terms in annotations. Issue [#966](https://github.com/semanticarts/gist/issues/966)
   - Inverse properties. Issue [#1086](https://github.com/semanticarts/gist/issues/1086).
 - Modified definition of a patch release to fully comply with [Semver](https://semver.org/spec/v2.0.0.html). Issue [#973](https://github.com/semanticarts/gist/issues/973).
+- Changed name of documentation directory in release package from `Documentation` to `docs`. Added `models` subdirectory for documentation of specific models.
 
 ### Infrastructure Updates
 
