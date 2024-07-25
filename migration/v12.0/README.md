@@ -3,7 +3,7 @@
 This file gives a quick overview of using the migration utilities provided
 by the gist team to help migrate from the previous version of gist.
 
-> See also additional documentation in the file `docs/MajorVersionMigration.md`.
+> See also additional documentation in the [Major Version Migration](../../docs/MajorVersionMigration.md).
 
 ## Important Remarks
 

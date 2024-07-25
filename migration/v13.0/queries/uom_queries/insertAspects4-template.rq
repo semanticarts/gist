@@ -1,0 +1,29 @@
+# insert Aspects that are the subject of gist:isAspectOf
+# use the insert scripts in order to prioritize which new Aspect to use (when there is duplication)
+
+# test
+select distinct ?aspect ?newAspect
+
+# update graph
+# insert {graph ?g {?magnitude gist:hasAspect ?newAspect .}}
+
+where { 
+
+  ######## include values returned by findAspects4 along with new aspect #########
+  values (?aspect ?newAspect) {
+         }
+
+  graph ?g {
+        ?magnitude gist:hasUnitOfMeasure ?unit .
+
+        filter not exists {?magnitude gist:hasAspect ?anything . }   # to prevent duplicates (idempotent)
+        }
+
+  { ?aspect gist:isAspectOf ?magnitude  .  }
+  union
+  { 
+   ?aspect gist:isAspectOf ?thing .
+   ?thing gist:hasMagnitude ?magnitude . 
+  }
+} 
+

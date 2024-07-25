@@ -1,0 +1,88 @@
+bundle: gist-v13.0-migration
+variables:
+  action_queries_path: "./queries/action/default"
+  reporting_queries_path: "./queries/report/default"
+  input: "./input"
+  output: "./output"
+  report: "./reports"
+
+tools:
+  - name: "rename-properties"
+    type: "sparql"
+    query: "{action_queries_path}/renamePropertiesInDefaultGraph.rq"
+  - name: "replace-address-classes"
+    type: "sparql"
+    query: "{action_queries_path}/replaceAddressClassesInDefaultGraph.rq"
+  - name: "replace-properties-with-inverses"
+    type: "sparql"
+    query: "{action_queries_path}/replacePropertiesWithInversesInDefaultGraph.rq"
+  - name: "use-offers-property-script1"
+    type: "sparql"
+    query: "{action_queries_path}/useOffersPropertyInDefaultGraph1.rq"
+  - name: "use-offers-property-script2"
+    type: "sparql"
+    query: "{action_queries_path}/useOffersPropertyInDefaultGraph2.rq"
+
+actions:
+  # transform actions
+  # note: first transform is input -> output
+  #   following are output -> output
+  - action: "transform"
+    message: "Rename properties in default graph."
+    tool: "rename-properties"
+    source: "{input}"
+    target: "{output}"
+    includes:
+      - "*.ttl"
+      - "*.owl"
+  - action: "transform"
+    message: "Replace address classes in default graph."
+    tool: "replace-address-classes"
+    source: "{output}"
+    target: "{output}"
+    includes:
+      - "*.ttl"
+      - "*.owl"
+  - action: "transform"
+    message: "Replace properties with inverses in default graph."
+    tool: "replace-properties-with-inverses"
+    source: "{output}"
+    target: "{output}"
+    includes:
+      - "*.ttl"
+      - "*.owl"
+
+  - action: "transform"
+    message: "Use new gist:offers property in default graph (script 1)."
+    tool: "use-offers-property-script1"
+    source: "{output}"
+    target: "{output}"
+    includes:
+      - "*.ttl"
+      - "*.owl"
+
+  - action: "transform"
+    message: "Use new gist:offers property in default graph (script 2)."
+    tool: "use-offers-property-script2"
+    source: "{output}"
+    target: "{output}"
+    includes:
+      - "*.ttl"
+      - "*.owl"
+
+  # validation
+  - action: "verify"
+    message: "Check for issues that should be reviewed."
+    type: "construct"
+    inference: "none"
+    stopOnFail: false
+    source: "{output}"
+    target: "{report}"
+    includes:
+      - "*.ttl"
+      - "*.owl"
+    queries:
+      source: "{reporting_queries_path}/"
+      includes:
+        - "detect_removed_default_graph.rq"
+        - "detect_renamed_default_graph.rq"

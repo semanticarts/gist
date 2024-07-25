@@ -1,0 +1,35 @@
+# rename properties in the default graph
+# CAUTION: complete all replacements in named graphs before doing this
+
+# test
+select ?g ?s ?o  ?oldProperty ?newProperty
+
+# update graph
+# delete {?s ?oldProperty ?o .}
+# insert {?s ?newProperty ?o .}
+
+where {
+
+#  input
+
+   values (?oldProperty                           ?newProperty) {
+
+          (gist:isGeographicallyContainedIn       gist:isGeoContainedIn)
+          (gist:occupiesGeographically            gist:hasPhysicalLocation)
+          (gist:occupiesGeographicallyPermanently gist:hasPhysicalLocation)
+
+          (gist:hasCommunicationAddress           gist:hasAddress)
+
+          (gist:hasSuperCategory                  gist:hasBroader)
+          (gist:hasDirectSuperCategory            gist:hasDirectBroader)
+          (gist:hasUniqueSuperCategory            gist:hasUniqueBroader)
+           }
+
+# triples in the default graph that include the property, and are not in any named graph
+
+  {?s ?oldProperty ?o.}
+  minus
+  {graph ?g {?s ?oldProperty ?o.}}
+
+}
+

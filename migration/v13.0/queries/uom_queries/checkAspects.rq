@@ -1,0 +1,22 @@
+# sanity check: see if you have found all of the Aspects returned by this query
+# 
+# some possibilities: 
+#
+#    - Aspect defined but never used
+#    - Aspect used by pattern not included in the queries (investigate and write custom queries)
+
+select ?possibleAspect
+where {
+
+  {
+    ?possibleAspect  (rdfs:subClassOf|(owl:equivalentClass/owl:intersectionOf/rdf:first))+ gist:Magnitude .
+
+    filter(?possibleAspect != gist:ReferenceValue)
+  }
+  union
+  {
+   ?possibleAspect rdfs:subClassOf+ gist:Aspect .
+  }
+
+  }
+order by ?possibleAspect

@@ -1,0 +1,7 @@
+# find Aspects that are the subject of gist:isAspectOf
+
+select ?aspect
+
+where { ?aspect gist:isAspectOf ?x .}
+
+order by ?aspect

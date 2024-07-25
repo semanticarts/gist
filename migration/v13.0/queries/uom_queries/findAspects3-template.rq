@@ -1,0 +1,17 @@
+# find existing Aspects that are represented as a property with a Magnitude as object
+# (e.g. hasArea)
+#
+
+select distinct ?thingToMagnitudeProperty
+
+where {
+  
+  ?magnitude gist:hasUnitOfMeasure ?unit .
+  
+  ?thing ?thingToMagnitudeProperty ?magnitude .
+
+  filter (?thingToMagnitudeProperty != gist:hasMagnitude)
+  
+  } 
+order by ?thingToMagnitudeProperty
+

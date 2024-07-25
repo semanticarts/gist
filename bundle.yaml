@@ -6,6 +6,15 @@ variables:
   rdf-toolkit: "{input}/tools/serializer/rdf-toolkit.jar"
   output: "{name}{version}_webDownload"
 tools:
+- name: "subclassMaterializer"
+  type: "shell"
+  arguments:
+    - "python"
+    - "{input}/tools/subclass_inferences/materialize_subclass_inferences.py"
+    - "--version"
+    - "{version}"
+    - "{outputFile}"
+    - "{inputFile}"
 - name: "serializer"
   type: "Java"
   jar: "{rdf-toolkit}"
@@ -58,7 +67,6 @@ tools:
     - "-t"
     - "{outputFile}"
 actions:
-# Validate ontology
 - action: "verify"
   message: "Validating ontology via SHACL."
   type: "shacl"
@@ -69,7 +77,7 @@ actions:
   shapes:
     source: "{input}/validation/shapes/ontologyShapes.ttl"
 - action: "verify"
-  message: "Verifying ontology via queries."
+  message: "Validating ontology via queries."
   type: "construct"
   inference: "none"
   source: "{input}/ontologies"
@@ -106,7 +114,7 @@ actions:
 - action: "sparql"
   message: "Generating rdfs:label and rdfs:comment for backward compatibility."
   source: "{output}/ontologies"
-  target: "{output}/ontologies/rdfsAnnotations.ttl"
+  target: "{output}/ontologies/gistRdfsAnnotations{version}.ttl"
   format: "turtle"
   includes:
     - "*.ttl"
@@ -135,6 +143,11 @@ actions:
         BIND(CONCAT(?prefix, ?text) as ?comment)
       }}
     }}
+- action: "transform"
+  message: "Materializing subclass inferences."
+  tool: "subclassMaterializer"
+  source: "{output}/ontologies/gistCore{version}.ttl"
+  target: "{output}/ontologies/gistSubClassAssertions{version}.ttl"
 - action: "transform"
   message: "Turtle serialization."
   tool: "serializer"
@@ -178,58 +191,117 @@ actions:
   source: "{input}/LICENSE.txt"
   target: "{output}"
 - action: "copy"
-  message: "Copying migration queries and scripts."
-  source: "{input}/migration"
-  target: "{output}/migration"
-- action: "copy"
-  message: "Copying documentation and patching local links."
+  message: "Copying documentation."
   source: "{input}/docs"
-  target: "{output}/Documentation"
-  replace:
-    from: "\\(./(\\w+)\\.md\\)"
-    to: "(./\\g<1>.html)"
+  target: "{output}/docs"
   includes:
     - "ReleaseNotes.md"
     - "MajorVersionMigration.md"
+    - "Namespace.md"
 - action: "copy"
-  message: "Copying readme to Documentation directory and patching local links."
-  source: "README.md"
-  target: "{output}/Documentation/README.md"
+  message: "Copying readme and gist logo to docs directory."
+  source: "{input}"
+  target: "{output}/docs/"
+  includes:
+    - "README.md"
+    - "gist-logo.png"
+- action: "markdown"
+  message: "Formatting documentation as HTML."
+  source: "{output}/docs/"
+  target: "{output}/docs/"
+  includes:
+    - "*.md"
+- action: "move"
+  message: "Patching local links in documentation."
+  source: "{output}/docs/"
+  target: "{output}/docs/"
+  includes:
+    - "*.html"
+  # Replace .md with .html in local links of HTML files.
+  # PCRE2 version of regex replace:
+  # ((\.\/|(?:\.\.\/)+).+)\.md => $1.html
   replace:
-    from: "\\(./(\\w+)\\.md\\)"
-    to: "(./\\g<1>.html)"
+    from: "((\\./|(?:\\.\\./)+).+)\\.md"
+    to: "\\g<1>.html"
 - action: "copy"
-  message: "Copying namespace document to Documentation directory and patching local links."
-  source: "{input}/docs/Namespace.md"
-  target: "{output}/Documentation/Namespace.md"
+  message: "Copying model documentation."
+  source: "{input}/docs/models"
+  target: "{output}/docs/models"
+- action: "markdown"
+  message: "Formatting model documentation as HTML."
+  source: "{output}/docs/models/"
+  target: "{output}/docs/models/"
+  includes:
+    - "*.md"
+- action: "move"
+  message: "Patching local links in HTML model documentation."
+  source: "{output}/docs/models/"
+  target: "{output}/docs/models/"
+  includes:
+    - "*.html"
+  # Replace .md with .html in local links of HTML files
   replace:
-    from: "\\(./(\\w+)\\.md\\)"
-    to: "(./\\g<1>.html)"
+    from: "((\\./|(?:\\.\\./)+).+)\\.md"
+    to: "\\g<1>.html"
 - action: "copy"
-  message: "Copying gist logo to Documentation directory."
-  source: "gist-logo.png"
-  target: "{output}/Documentation/gist-logo.png"
+  message: "Copying migration queries, scripts, and documentation."
+  source: "{input}/migration"
+  target: "{output}/migration"
 - action: "markdown"
-  message: "Formatting readme."
-  source: "{output}/Documentation/README.md"
-  target: "{output}/Documentation/README.html"
+  message: "Formatting gist 11.0 migration documentation as HTML."
+  source: "{output}/migration/v11.0/"
+  target: "{output}/migration/v11.0/"
+  includes:
+    - "*.md"
+- action: "move"
+  message: "Patching local links in gist 11.0 HTML migration documentation."
+  source: "{output}/migration/v11.0/"
+  target: "{output}/migration/v11.0/"
+  includes:
+    - "*.html"
+  # Replace .md with .html in local links of HTML files
+  replace:
+    from: "((\\./|(?:\\.\\./)+).+)\\.md"
+    to: "\\g<1>.html"
 - action: "markdown"
-  message: "Formatting release notes."
-  source: "{output}/Documentation/ReleaseNotes.md"
-  target: "{output}/Documentation/ReleaseNotes.html"
+  message: "Formatting gist 12.0 migration documentation as HTML."
+  source: "{output}/migration/v12.0/"
+  target: "{output}/migration/v12.0/"
+  includes:
+    - "*.md"
+- action: "move"
+  message: "Patching local links in gist 12.0 HTML migration documentation."
+  source: "{output}/migration/v12.0/"
+  target: "{output}/migration/v12.0/"
+  includes:
+    - "*.html"
+  # Replace .md with .html in local links of HTML files
+  replace:
+    from: "((\\./|(?:\\.\\./)+).+)\\.md"
+    to: "\\g<1>.html"
 - action: "markdown"
-  message: "Formatting migration instructions."
-  source: "{output}/Documentation/MajorVersionMigration.md"
-  target: "{output}/Documentation/MajorVersionMigration.html"
-- action: "markdown"
-  message: "Formatting namespace document."
-  source: "{output}/Documentation/Namespace.md"
-  target: "{output}/Documentation/Namespace.html"
-- action: "markdown"
-  message: "Formatting migration readme."
-  source: "{output}/migration/v11.0/README.md"
-  target: "{output}/migration/v11.0/README.html"
-- action: "markdown"
-  message: "Formatting time-related changes documentation."
-  source: "{output}/migration/v11.0/TimeRelatedChanges_v11.md"
-  target: "{output}/migration/v11.0/TimeRelatedChanges_v11.html"
+  message: "Formatting gist 13.0 migration documentation as HTML."
+  source: "{output}/migration/v13.0/"
+  target: "{output}/migration/v13.0/"
+  includes:
+    - "*.md"
+- action: "move"
+  message: "Patching links in gist 13.0 HTML migration documentation."
+  source: "{output}/migration/v13.0/"
+  target: "{output}/migration/v13.0/"
+  includes:
+    - "*.html"
+  # Replace .md with .html in local links of HTML files
+  replace:
+    from: "((\\./|(?:\\.\\./)+).+)\\.md"
+    to: "\\g<1>.html"
+- action: "move"
+  message: "Patching local links in gist 13.0 HTML migration documentation."
+  source: "{output}/migration/v13.0/"
+  target: "{output}/migration/v13.0/"
+  includes:
+    - "*.html"
+  # Replace .md with .html in local links of HTML files
+  replace:
+    from: "((\\./|(?:\\.\\./)+).+)\\.md"
+    to: "\\g<1>.html"

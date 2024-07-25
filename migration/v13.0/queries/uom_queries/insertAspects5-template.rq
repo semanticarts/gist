@@ -1,0 +1,39 @@
+# insert Aspects represented within the name of a Magnitude or the name of a Thing with a Magnitude
+# the union statement has one clause per text string to be interpreted as an aspect of a magnitude or thing
+
+# test
+select distinct ?aspect ?newAspect
+
+# update graph
+# insert {graph ?g {?magnitude gist:hasAspect ?newAspect .}}
+
+where {
+
+   values (?aspect               ?newAspect) {
+#         ("/BillingRate/"       gistd:_Aspect_billing_rate)  # sample value, commented out
+          }
+   
+   filter not exists {?magnitude gist:hasAspect ?anything . }   # to prevent duplicates (idempotent)
+              
+   ############ copy text strings from findAspects5 ##################
+   {
+#   bind("/BillingRate/" as ?aspect)     # sample union clause for a magnitude, commented out
+
+#   graph ?g {
+#         ?magnitude gist:hasUnitOfMeasure ?unit .       # used to identify magnitudes
+#         filter(contains(str(?magnitude), ?aspect))
+#         }
+   }
+
+
+   union
+   {
+#   bind("/ProjectBillingRateAssignment/" as ?aspect)   # sample union clause for a thing, commented out
+
+#   graph ?g {?magnitude gist:hasUnitOfMeasure ?unit .}
+
+#   ?thing gist:hasMagnitude ?magnitude .
+#   filter(contains(str(?thing), ?aspect))
+   }
+}
+
