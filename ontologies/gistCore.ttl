@@ -1,4 +1,3 @@
-@prefix : <https://w3id.org/semanticarts/ontology/gistCore#> .
 @prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
 @prefix gistd: <https://w3id.org/semanticarts/ns/data/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -14,7 +13,7 @@
 	owl:versionIRI <https://w3id.org/semanticarts/ontology/gistCoreX.x.x> ;
 	skos:definition "gist is a minimalist upper ontology created by Semantic Arts."^^xsd:string ;
 	skos:historyNote """
-        gist 13.0.0 released 2024-Jul-03.
+        gist 13.0.0 released 2024-Jul-24.
         gist 12.1.0 released 2024-Feb-27.
         gist 12.0.1 released 2023-Jul-28.
         gist 12.0.0 released 2023-Jul-05.
@@ -1970,7 +1969,7 @@ gist:TimeInterval
 		]
 		;
 	skos:definition "A span of time with a known start time, end time, and duration. As long as two of the three are known, the third can be inferred."^^xsd:string ;
-	skos:example "7pm to 9pm on Jan 1, 2001; fiscal year 2023; the week starting at midnight of January 12, 2023 and lasting exactly 168 hours."^^xsd:string ;
+	skos:example "7pm to 9pm on Jan 1, 2001; fiscal year 2023 (according to some particular definition of fiscal year); the week starting at midnight of January 12, 2023 and lasting exactly 168 hours."^^xsd:string ;
 	skos:prefLabel "Time Interval"^^xsd:string ;
 	skos:scopeNote
 		"An ongoing state of affairs with an unknown end time in the future cannot be a time interval; e.g. the lifespan of a living person cannot be a time interval, as the end time is unknown."^^xsd:string ,
@@ -3021,14 +3020,6 @@ gist:isRecognizedBy
 	skos:prefLabel "is recognized by"^^xsd:string ;
 	.
 
-gist:isRecognizedDirectlyBy
-	a owl:ObjectProperty ;
-	rdfs:subPropertyOf gist:isRecognizedBy ;
-	owl:deprecated "true"^^xsd:boolean ;
-	skos:definition "The party doing the recognition"^^xsd:string ;
-	skos:prefLabel "is recognized directly by"^^xsd:string ;
-	.
-
 gist:isRecordedAt
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf gist:atDateTime ;
@@ -3370,14 +3361,6 @@ gist:symbol
 	skos:example "The ASCII symbol for square meter is m^2."^^xsd:string ;
 	skos:prefLabel "symbol"^^xsd:string ;
 	gist:domainIncludes gist:UnitOfMeasure ;
-	.
-
-gist:tagText
-	a owl:DatatypeProperty ;
-	owl:deprecated "true"^^xsd:boolean ;
-	skos:definition "Used for folksonomy style categories (non controlled vocabulary)"^^xsd:string ;
-	skos:editorialNote "See guidance on removing tagText property in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1780220876."^^xsd:string ;
-	skos:prefLabel "tag text"^^xsd:string ;
 	.
 
 gist:uniqueText

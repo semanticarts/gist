@@ -17,7 +17,7 @@ And we had two properties specifically aimed at addresses:
 - `gist:hasAddress`
 - `gist:hasCommunicationAddress`
 
-But these classes and properties pre-dated our adoption of the "category" paradigm. Further, it is not always possible to know at the time of minting the instances what _kind_ of address is being represented. Is it a Postal Address or a Street Address? If it is both, with what midfix should the IRI be minted?
+But these classes and properties pre-dated our adoption of the "category" paradigm. Further, it is not always possible to know at the time of minting the instances what _kind_ of address is being represented. Is it a postal address or a street address? If it is both, with what midfix should the IRI be minted?
 
 Upon analysis, we decided these classes were not semantically dissimilar enough to warrant their existence as classes.
 
@@ -25,9 +25,9 @@ Upon analysis, we decided these classes were not semantically dissimilar enough 
 
 With gist v13.0.0, we reduced `gist:Address` down to two disjoint subclasses:
 
-- gist:Address
-  - gist:ElectronicAddress
-  - gist:PhysicalAddress .
+- `gist:Address`
+  - `gist:ElectronicAddress`
+  - `gist:PhysicalAddress` .
 We removed `gist:hasCommunicationAddress` and added a new object property, `gist:refersTo`.
 
 The formal restriction definition for `gist:PhysicalAddress` is:
@@ -39,37 +39,64 @@ In other words, a physical address exists in the real, physical world. It is pos
 
 ### Using the new model
 
+#### Address triple patterns
+
 Now, our address-related triples can all conform to three basic patterns:
-| | **subject class** | **predicate** | **object class/datatype** |
-| -- | -- | -- | -- |
-| **Pattern Set 1** | owl:Thing | gist:hasAddress | gist:PhysicalAddress |
-| **Pattern Set 1** | owl:Thing | gist:hasAddress | gist:ElectronicAddress |
-| **Pattern Set 2** | gist:PhysicalAddress | gist:containedText | xsd:string |
-| **Pattern Set 2** | gist:ElectronicAddress | gist:containedText | xsd:string |
-| **Pattern Set 3** | gist:PhysicalAddress | gist:refersTo | gist:Place |
-| **Pattern Set 3** | gist:PhysicalAddress | gist:refersTo | gist:GeoPoint |
-| **Pattern Set 3** | gist:PhysicalAddress | gist:refersTo | gist:GovernedGeoRegion |
-| **Pattern Set 3** | gist:PhysicalAddress | gist:refersTo | gist:CountryGeoRegion |
-| **Pattern Set 3** | gist:ElectronicAddress | gist:refersTo | rdf:Resource |
+
+##### Pattern 1: gist:hasAddress
+
+| **subject class** | **predicate** | **object class** |
+| :---------------- | :------------ | :--------------- |
+| `owl:Thing` | `gist:hasAddress` | `gist:PhysicalAddress` |
+| `owl:Thing` | `gist:hasAddress` | `gist:ElectronicAddress` |
+
+##### Pattern 2: gist:containedText
+
+| **subject class** | **predicate** | **object datatype** |
+| :---------------- | :------------ | :------------------ |
+| `gist:PhysicalAddress` | `gist:containedText` | `xsd:string` |
+| `gist:ElectronicAddress` | `gist:containedText` | `xsd:string` |
+
+##### Pattern 3: gist:refersTo
+
+| **subject class** | **predicate** | **object class** |
+| :---------------- | :------------ | :--------------- |
+| `gist:PhysicalAddress` | `gist:refersTo` | `gist:Place` |
+| `gist:PhysicalAddress` | `gist:refersTo` | `gist:GeoPoint` |
+| `gist:PhysicalAddress` | `gist:refersTo` | `gist:GovernedGeoRegion` |
+| `gist:PhysicalAddress` | `gist:refersTo` | `gist:CountryGeoRegion` |
+| `gist:ElectronicAddress` | `gist:refersTo` | `rdf:Resource` |
 
 #### Examples
 
-| | **subject** | **predicate** | **object** |
-| -- | -- | -- | -- |
-| **Pattern Set 1** | ex:_Person_Jjones | gist:hasAddress | ex:_PhysicalAddress_11235 . |
-| **Pattern Set 1** | ex:_Person_Jjones | gist:hasAddress | ex:_ElectronicAddress_81321 . |
-| **Pattern Set 1** | ex:_Person_Jjones | gist:hasAddress | ex:_ElectronicAddress_jjones%40hotmail.com . |
-| **Pattern Set 2** | ex:_PhysicalAddress_11235 | gist:containedText | "1313 Mockingbird Ln, Munster, IN  46321" .|
-| **Pattern Set 2** | ex:_ElectronicAddress_81321 | gist:containedText | "<https://example.com/bigwebsite.html>" . |
-| **Pattern Set 2** | ex:_ElectronicAddress_jjones%40hotmail.com | gist:containedText | "<jjones@hotmail.com>" . |
-| **Pattern Set 3** | ex:_PhysicalAddress_11235 | gist:refersTo | ex:_GeoPoint_41.53281962240151_-87.49815865065672 . |
-| **Pattern Set 3** | ex:_PhysicalAddress_11235 | gist:refersTo | ex:_GovernedGeoRegion_MunsterIN . |
-| **Pattern Set 3** | ex:_PhysicalAddress_11235 | gist:refersTo | ex:_GovernedGeoRegion_IN . |
-| **Pattern Set 3** | ex:_PhysicalAddress_11235 | gist:refersTo | ex:_PostalZone_US_436121 . |
-| **Pattern Set 3** | ex:_PhysicalAddress_11235 | gist:refersTo | ex:_CountryGeoRegion_USA . |
-| **Pattern Set 3** | gist:ElectronicAddress | gist:refersTo | <https://example.com/bigwebsite.html> . |
+##### Pattern 1
 
-Especially in the case of electronic addresses, one should be careful not to confuse or conflate the _xsd:string_ object used in the "gist:containedText" triple with the _rdf:resource_ object used in the "gist:refersTo" triple.
+| **subject** | **predicate** | **object** |
+| :---------- | :------------ | :--------- |
+| `ex:_Person_Jjones` | `gist:hasAddress` | `ex:_PhysicalAddress_11235` |
+| `ex:_Person_Jjones` | `gist:hasAddress` | `ex:_ElectronicAddress_81321` |
+| `ex:_Person_Jjones` | `gist:hasAddress` | `ex:_ElectronicAddress_jjones%40hotmail.com` |
+
+##### Pattern 2
+
+| **subject** | **predicate** | **object** |
+| :---------- | :------------ | :--------- |
+| `ex:_PhysicalAddress_11235` | `gist:containedText` | "1313 Mockingbird Ln, Munster, IN  46321"  |
+| `ex:_ElectronicAddress_81321` | `gist:containedText` | "<https://example.com/bigwebsite.html>"  |
+| `ex:_ElectronicAddress_jjones%40hotmail.com` | `gist:containedText` | "<jjones@hotmail.com>"  |
+
+##### Pattern 3
+
+| **subject** | **predicate** | **object** |
+| :---------- | :------------ | :--------- |
+| `ex:_PhysicalAddress_11235` | `gist:refersTo` | `ex:_GeoPoint_41.53281962240151_-87.49815865065672` |
+| `ex:_PhysicalAddress_11235` | `gist:refersTo` | `ex:_GovernedGeoRegion_MunsterIN` |
+| `ex:_PhysicalAddress_11235` | `gist:refersTo` | `ex:_GovernedGeoRegion_IN` |
+| `ex:_PhysicalAddress_11235` | `gist:refersTo` | `ex:_PostalZone_US_436121` |
+| `ex:_PhysicalAddress_11235` | `gist:refersTo` | `ex:_CountryGeoRegion_USA` |
+| `ex:_ElectronicAddress_81321` | `gist:refersTo` | `<https://example.com/bigwebsite.html>` |
+
+Especially in the case of electronic addresses, one should be careful not to confuse or conflate the _xsd:string_ object used in the `gist:containedText` triple with the _rdf:resource_ object used in the `gist:refersTo` triple.
 
 Beyond the physical/electronic distinction made by the classes, other important distinctions need to be made. One reasonably might ask, "Still, what _kind_ of address are we talking about?" These additional distinctions are to be handled using categories (i.e., instances of `gist:Category`).
 
@@ -77,9 +104,9 @@ Beyond the physical/electronic distinction made by the classes, other important 
 
 gist v13.0.0 supplies three "starter" categories for distinguishing addresses.
 
-- gist:AddressUsageType
-- gist:ElectronicAddressType
-- gist:PhysicalAddressType .
+- `gist:AddressUsageType`
+- `gist:ElectronicAddressType`
+- `gist:PhysicalAddressType` .
 
 However, in keeping with our self-imposed rules around the `gistCore` ontology, we do not define member instances of those classes as part of the gist release. But fear not. This document will provide some concrete suggestions.
 
@@ -93,33 +120,33 @@ In our experience, the combination of these four categories should cover most ad
 
 #### gist:PhysicalAddressType
 
-- ex:_PhysicalAddressType_street
-- ex:_PhysicalAddressType_postal_drop (for PO Boxes, etc.)
-- ex:_PhysicalAddressType_fuzzy (e.g., "Corner of Main St & First Ave")
+- `ex:_PhysicalAddressType_street`
+- `ex:_PhysicalAddressType_postal_drop` (for PO Boxes, etc.)
+- `ex:_PhysicalAddressType_fuzzy` (e.g., "Corner of Main St & First Ave")
 
 #### gist:ElectronicAddressType
 
-- ex:_ElectronicAddressType_mobile_telephone
-- ex:_ElectronicAddressType_stationary_telephone
-- ex:_ElectronicAddressType_fax
-- ex:_ElectronicAddressType_email
-- ex:_ElectronicAddressType_web
-- ex:_ElectronicAddressType_ip (for Internet Protocol)
-- ex:_ElectronicAddressType_mac (for Medium Access Control)
+- `ex:_ElectronicAddressType_mobile_telephone`
+- `ex:_ElectronicAddressType_stationary_telephone`
+- `ex:_ElectronicAddressType_fax`
+- `ex:_ElectronicAddressType_email`
+- `ex:_ElectronicAddressType_web`
+- `ex:_ElectronicAddressType_ip` (for Internet Protocol)
+- `ex:_ElectronicAddressType_mac` (for Medium Access Control)
 
 #### gist:AddressUsageType
 
-- ex:_AddressUsageType_billing
-- ex:_AddressUsageType_business
-- ex:_AddressUsageType_personal
-- ex:_AddressUsageType_postal
-- ex:_AddressUsageType_residence
+- `ex:_AddressUsageType_billing`
+- `ex:_AddressUsageType_business`
+- `ex:_AddressUsageType_personal`
+- `ex:_AddressUsageType_postal`
+- `ex:_AddressUsageType_residence`
 
 #### ex:PrecedenceType
 
-- ex:_PrecedenceType_primary
-- ex:_PrecedenceType_secondary
-- ex:_PrecedenceType_non_primary
+- `ex:_PrecedenceType_primary`
+- `ex:_PrecedenceType_secondary`
+- `ex:_PrecedenceType_non_primary`
 
 ## Temporal Addresses
 

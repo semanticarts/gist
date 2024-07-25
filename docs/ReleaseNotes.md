@@ -1,5 +1,229 @@
 # gist Release Notes
 
+## Release 13.0.0
+
+This is a major release that includes several changes which break compatibility with previous versions of gist, most notably an entirely rearchitected model of units of measure and magnitudes and a new address model. See the [migration guide](./MajorVersionMigration.md) for documentation on updating existing gist-based ontologies and instance data. [Migration scripts and documentation](../migration/v13.0) are provided to facilitate the upgrade process.
+
+### New Model of Units and Magnitudes
+
+Issue [#1033](https://github.com/semanticarts/gist/issues/1033).
+
+- Deleted all subclasses of `gist:Magnitude` except `gist:ReferenceValue`:
+  - `gist:Area`
+  - `gist:Balance`
+  - `gist:Count`
+  - `gist:Duration`
+  - `gist:ElectricCurrent`
+  - `gist:Extent`
+  - `gist:InformationQuantity`
+  - `gist:LuminousIntensity`
+  - `gist:Mass`
+  - `gist:MolarQuantity`
+  - `gist:Monetary`
+  - `gist:MonetaryPerDuration`
+  - `gist:ProductMagnitude`
+  - `gist:RatioMagnitude`
+  - `gist:Temperature`
+  - `gist:Volume`
+- Deleted all subclasses of `gist:UnitOfMeasure`:
+  - `gist:AreaUnit`
+  - `gist:BaseUnit`
+  - `gist:CoherentRatioUnit`
+  - `gist:CoherentProductUnit`
+  - `gist:CountingUnit`
+  - `gist:CurrencyPerDurationUnit`
+  - `gist:CurrencyUnit`
+  - `gist:DataSizeUnit`
+  - `gist:DistanceUnit`
+  - `gist:ElectricalCurrentUnit`
+  - `gist:LuminousIntensityUnit`
+  - `gist:MassUnit`
+  - `gist:MoleUnit`
+  - `gist:ProductUnit`
+  - `gist:RatioUnit`
+  - `gist:SimpleUnitOfMeasure`
+  - `gist:TemperatureUnit`
+  - `gist:VolumeUnit`
+- Deleted the following predicates:
+  - `gist:hasAltitude`
+  - `gist:hasDenominator`
+  - `gist:hasMultiplicand`
+  - `gist:hasNumerator`
+  - `gist:hasPrecision`
+  - `gist:hasStandardUnit`
+  - `gist:isAspectOf`
+  - `gist:unitSymbol`
+  - `gist:unitSymbolHtml`
+  - `gist:unitSymbolUnicode`
+- Deleted all unit of measure instances:
+  - `gist:_ampere`
+  - `gist:_bit`
+  - `gist:_candela`
+  - `gist:_day`
+  - `gist:_each`
+  - `gist:_kelvin`
+  - `gist:_kilogram`
+  - `gist:_meter`
+  - `gist:_millisecond`
+  - `gist:_minute`
+  - `gist:_mole`
+  - `gist:_percent`
+  - `gist:_second`
+  - `gist:_USDollar`
+- Added classes and predicates:
+  - `gist:Discipline`
+  - `gist:UnitGroup`
+  - `gist:hasAccuracy`
+  - `gist:hasAddend`
+  - `gist:hasAspect`
+  - `gist:hasBroader`
+  - `gist:hasDivisor`
+  - `gist:hasSubtrahend`
+  - `gist:hasUnitGroup`
+  - `gist:exponentOfAmpere`
+  - `gist:exponentOfBit`
+  - `gist:exponentOfCandela`
+  - `gist:exponentOfKelvin`
+  - `gist:exponentOfKilogram`
+  - `gist:exponentOfMeter`
+  - `gist:exponentOfMole`
+  - `gist:exponentOfNumber`
+  - `gist:exponentOfOther`
+  - `gist:exponentOfRadian`
+  - `gist:exponentOfSecond`
+  - `gist:exponentOfSteradian`
+  - `gist:exponentOfUSDollar`
+  - `gist:symbol`
+- Added aspect instances. Note the new `gistd:` namespace `<https://w3id.org/semanticarts/ns/data/gist/>`.
+  - `gistd:_Aspect_altitude`
+  - `gistd:_Aspect_area`
+  - `gistd:_Aspect_balance`
+  - `gistd:_Aspect_mass`
+  - `gistd:_Aspect_probability`
+  - `gistd:_Aspect_volume`
+- Modified the class expression restrictions of:
+  - `gist:Account`
+  - `gist:ContingentEvent`
+  - `gist:GeoPoint`
+  - `gist:GeoRegion`
+  - `gist:Offer`
+  - `gist:PhysicalIdentifiableItem`
+  - `gist:PhysicalSubstance`
+- Modified the following classes and predicates:
+  - `gist:Aspect`
+  - `gist:Magnitude`
+  - `gist:UnitOfMeasure`
+  - `gist:hasMagnitude`
+  - `gist:hasMultiplier`
+  - `gist:hasPrecision`
+  - `gist:conversionFactor`
+  - `gist:conversionOffset`
+- Added [scripts](../migration/v13.0/queries/uom_queries) for the migration of existing client ontologies and instance data.
+- Added [complete documentation](../docs/models/UnitOfMeasureModel.md) on understanding and implementing the new model.
+
+### New Address Model
+
+Issue [#1060](https://github.com/semanticarts/gist/issues/1060).
+
+- Removed classes and properties:
+  - `gist:ElectronicMessageAddress`
+  - `gist:EmailAddress`
+  - `gist:PostalAddress`
+  - `gist:StreetAddress`
+  - `gist:TelephoneNumber`
+  - `gist:hasCommunicationAddress`
+- Added subclasses of `gist:Address`:
+  - `gist:ElectronicAddress`
+  - `gist:PhysicalAddress`
+- Added subclasses of `gist:Category` for characterizing new addresses:
+  - `gist:AddressUsageType`
+  - `gist:ElectronicAddressType`
+  - `gist:PhysicalAddressType`
+- Added the object property `gist:refersTo`.
+
+### Other Major Updates
+
+- `gist:hasSuperCategory` and subproperties. Issue [#1115](https://github.com/semanticarts/gist/issues/1115).
+  - Removed `gist:hasSuperCategory`, `gist:hasDirectSuperCategory` and `gist:hasUniqueSuperCategory`.
+  - `gist:hasSuperCategory` is replaced by `gist:hasBroader`.
+  - `gist:hasDirectSuperCategory` is replaced by `gist:hasDirectBroader`.
+  - `gist:hasUniqueSuperCategory` is replaced by `gist:hasUniqueBroader`.
+- Replaced the following predicates with their semantic inverses. Issue [#1070](https://github.com/semanticarts/gist/issues/1070).
+
+    | gist 12 | gist 13 |
+    | --------- | ------- |
+    |`hasDirectPart` | `isDirectPartOf`|
+    |`hasFirstMember` | `isFirstMemberOf`|
+    |`hasMember` | `isMemberOf`|
+    |`hasPart` | `isPartOf`|
+- Removed `gist:endDateTime` restriction from the formal definition of `gist:TemporalRelation`. Issue [#878](https://github.com/semanticarts/gist/issues/878).
+- Added `gist:startDateTime`, `gist:endDateTime`, and duration restrictions to the formal definition of `gist:TimeInterval`. Modified annotations for `gist:startDateTime` and `gist:endDateTime` to clarify usage. Issues [#925](https://github.com/semanticarts/gist/issues/925) and [#1112](https://github.com/semanticarts/gist/issues/1112).
+- Removed sensor-related classes and properties. Issue [#462](https://github.com/semanticarts/gist/issues/462).
+  - Classes removed:
+    - `gist:Actuator`
+    - `gist:Controller`
+    - `gist:ControllerType`
+    - `gist:MessageDefinition`
+    - `gist:PhenomenaType`
+    - `gist:Sensor`
+  - Predicates removed:
+    - `gist:directs`
+    - `gist:hasViableRange`
+    - `gist:respondsTo`
+- Updated `gist:MediaType` and `gist:uniqueText`. Issue [633](https://github.com/semanticarts/gist/issues/633).
+  - Added `gist:uniqueText` restriction to `gist:MediaType`.
+  - Added example and scope note annotations to `gist:MediaType`.
+  - Added `gist:MediaType` to `gist:domainIncludes` for `gist:uniqueText`.
+- Made `gist:Specification` a direct subclass of `gist:Intention`. Issue [#831](https://github.com/semanticarts/gist/issues/831).
+- Removed domain and range from `gist:isGovernedBy`. Issue [#899](https://github.com/semanticarts/gist/issues/899).
+- Ordered collections and ordered members:
+  - Added `gist:providesOrderFor` restriction to `gist:OrderedMember`. Issue [#944](https://github.com/semanticarts/gist/issues/944).
+  - Changed filter class for `gist:isFirstMemberOf` (formerly `gist:hasFirstMember`) restriction on `gist:OrderedCollection` from `owl:Thing` to `gist:OrderedMember`. Issue [#944](https://github.com/semanticarts/gist/issues/944).
+  - Updated `skos:scopeNote` on `gist:isFirstMemberOf` (formerly `gist:hasFirstMember`) to reflect that strict orderings *are* allowed.  Issue [#944](https://github.com/semanticarts/gist/issues/944).
+- Upgraded gist license to Creative Commons 4.0 International License. Issue [244](https://github.com/semanticarts/gist/issues/244).
+- Made changes to `gist:Offer`. Issue [#528](https://github.com/semanticarts/gist/issues/528).
+  - Added `gist:offers` predicate.
+  - Modified restriction on `gist:Offer` to refer to `gist:offers`.
+- Removed `gist:occupiesGeographically` and `gist:occupiesGeographicallyPermanently` and replaced with `gist:hasPhysicalLocation` in class restriction. Issue [#809](https://github.com/semanticarts/gist/issues/809).
+- Shortened local name of `gist:isGeographicallyContainedin` to `isGeoContainedin`. Issue [#812](https://github.com/semanticarts/gist/issues/812).
+- Removed classes and properties deprecated since the last major release and made corresponding updates to axioms referencing those terms. Issue [#947](https://github.com/semanticarts/gist/issues/947).
+  - Removed `gist:isCharacterizedAs` and associated axiom on `gist:Event`. (Original issue: [#820](https://github.com/semanticarts/gist/issues/820).)
+  - Removed `gist:isRecognizedDirectlyBy`.
+  - Changes to contained text properties. (Original issue: [#372](https://github.com/semanticarts/gist/issues/372).)
+    - Removed property `gist:tagText`.
+    - Changed restriction on `gist:Tag` to reference `gist:containedText` rather than `gist:tagText`.
+    - Made `gist:uniqueText` a subproperty of `gist:containedText`.
+  - Removed `gist:unitSymbol`, `gist:unitSymbolHtml`, and `gist:UnitSymbolUnicode`. The first is replaced with `gist:symbol` and the latter two are removed with no replacement. (Original issue: [#531](https://github.com/semanticarts/gist/issues/531).)
+- Removed domain and range constraints from `gist:allows`. Issue [#1063](https://github.com/semanticarts/gist/issues/1063).
+
+### Minor Updates
+
+- Added `gist:Determination` as a subclass of `gist:Event`. Issue [317](https://github.com/semanticarts/gist/issues/317).
+- Requirements and Specifications:
+  - Updated definition of `gist:Requirement`. Issue [#831](https://github.com/semanticarts/gist/issues/831).
+  - Added class `gist:EventSpecification`. Issue [#831](https://github.com/semanticarts/gist/issues/831).
+  - Added and updated annotations for `gist:Specification`. Issue [#831](https://github.com/semanticarts/gist/issues/831).
+- Added a `skos:historyNote` to document the dates of the most recent gist releases. Issue [#1017](https://github.com/semanticarts/gist/issues/1017).
+
+### Documentation Updates
+
+- Added section to [gist Style Guide](./gistStyleGuide.html) on use of `gist:nonConformingLabel` annotation.
+- Updated [gist Style Guide](./gistStyleGuide.html) to define best practices for:
+  - Negative examples in `skos:example`. Issue [#511](https://github.com/semanticarts/gist/issues/511).
+  - Use of ontology terms in annotations. Issue [#966](https://github.com/semanticarts/gist/issues/966)
+  - Inverse properties. Issue [#1086](https://github.com/semanticarts/gist/issues/1086).
+- Modified definition of a patch release to fully comply with [Semver](https://semver.org/spec/v2.0.0.html). Issue [#973](https://github.com/semanticarts/gist/issues/973).
+- Changed name of documentation directory in release package from `Documentation` to `docs`. Added `models` subdirectory for documentation of specific models.
+
+### Infrastructure Updates
+
+- Updated build configuration to materialize subclass inferences during bundling. Issue [#1051](https://github.com/semanticarts/gist/issues/1051).
+- Combined two bundle actions into one. Issue [#1058](https://github.com/semanticarts/gist/issues/1058).
+- Updated to latest version of EDM Council serializer (version 2.0 of rdf-toolkit.jar). Issue [#1082](https://github.com/semanticarts/gist/issues/1082).
+- Changed filename of generated RDFS annotations from `rdfsAnnotations` to `gistRdfsAnnotations`. Issue [#1041](https://github.com/semanticarts/gist/issues/1041).
+
+Import URL: <https://w3id.org/semanticarts/ontology/gistCore13.0.0>.
+
 ## Release 12.1.0
 
 ### Minor Updates
@@ -22,7 +246,7 @@
   - `gist:Magnitude`. Issue [#965](https://github.com/semanticarts/gist/issues/965).
   - `gist:Message`. Issue [#396](https://github.com/semanticarts/gist/issues/396).
   - `gist:MonetaryPerDuration`. Issue [#912](https://github.com/semanticarts/gist/issues/912).
-  - `gist:Specification`. Issue [#431](https://github.com/semanticarts/gist/issues/431).  
+  - `gist:Specification`. Issue [#431](https://github.com/semanticarts/gist/issues/431).
   - `gist:Transaction`. Issue [#521](https://github.com/semanticarts/gist/issues/521).
   - `gist:containedText`, `gist:Tag`, and `gist:Text`. Issue [#372](https://github.com/semanticarts/gist/issues/372).
   - `gist:description`. Issue [#1015](https://github.com/semanticarts/gist/issues/1015).
@@ -76,7 +300,7 @@ This is a major release which includes several changes which break compatibility
   - The gist namespace has changed from `https://ontologies.semanticarts.com/gist/` to `https://w3id.org/semanticarts/ns/ontology/gist/`.
 - Deleted all inverse properties. Issue [#506](<https://github.com/semanticarts/gist/issues/506>).
   - For each pair of inverses, the property deemed clearest, simplest, and/or most useful was retained.
-  - Axioms referring to the deleted properties were reformulated using `owl:inverseOf`.  
+  - Axioms referring to the deleted properties were reformulated using `owl:inverseOf`.
   - Breakdown:
 
       | Properties retained in gist | Inverse properties removed from gist |
@@ -220,7 +444,7 @@ Import URL: <https://ontologies.semanticarts.com/o/gistCore11.1.0>.
 - Improved textual definition of `gist:Task`, per issue [#625](https://github.com/semanticarts/gist/issues/625).
 - Change predicate `hasJurisdictionOver` to `isUnderJurisdictionOf` (bug fix). Issue [#637](https://github.com/semanticarts/gist/issues/637).
 - Clarified restrictions on `gist:OrderedMember`. Issue [#574](https://github.com/semanticarts/gist/issues/574).
-  
+
 Import URL: <https://ontologies.semanticarts.com/o/gistCore11.0.0>.
 
 ## Release 10.0.0

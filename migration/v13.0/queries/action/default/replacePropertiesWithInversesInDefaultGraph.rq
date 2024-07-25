@@ -1,0 +1,34 @@
+# replace properties with their inverses in the default graph
+# CAUTION: complete all replacements in named graphs before doing this
+
+prefix gist:  <https://w3id.org/semanticarts/ns/ontology/gist/>
+
+# test
+select ?s ?o  ?property ?inverse
+
+# update graph
+# delete {?s ?property ?o .} 
+# insert {?o ?inverse  ?s .} 
+
+where {
+
+#  input
+
+   values (?property          ?inverse) {
+
+          (gist:hasPart        gist:isPartOf)
+          (gist:hasDirectPart  gist:isDirectPartOf)
+
+          (gist:hasMember      gist:isMemberOf)
+          (gist:hasFirstMember gist:isFirstMemberOf)
+           }
+
+# triples in the default graph that include the property, and are not duplicated in a named graph
+
+  {?s ?property ?o.} 
+
+  minus
+
+  {graph ?g {?s ?property ?o.}}
+
+}
