@@ -44,7 +44,7 @@ gistd:_Aspect_altitude
 	a gist:Aspect ;
 	skos:definition "The aspect altitude."^^xsd:string ;
 	skos:editorialNote "This instance has been duplicated from reference data so it can be used in property restrictions."^^xsd:string ;
-	skos:prefLabel "area"^^xsd:string ;
+	skos:prefLabel "altitude"^^xsd:string ;
 	.
 
 gistd:_Aspect_area
