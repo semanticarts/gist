@@ -10,6 +10,11 @@ For changes that are not amenable to automatic migration, queries will be provid
 report the use of deleted or modified classes and properties so that mitigation measures
 can be initiated.
 
+Changes that need to be done manually may include:
+- domains and ranges
+- subproperty assertions
+- restrictions, when a property is replaced with its inverse.
+
 Every major version of `gist` (starting with 10.0.0) will add a sub-directory under the
 `migration` directory containing the queries and two migration scripts:
 
