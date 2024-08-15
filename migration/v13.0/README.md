@@ -17,6 +17,12 @@ by the gist team to help migrate from the previous version of gist.
   about changes that were made in gist and you will need to decide how you want
   to handle the changes.
 
+- **Manual updates for inverses:** Migration scripts do not update all class expressions in an ontology. In particular for gist 13, 'owl:onProperty gist:hasPart' needs to be changed to 'owl:onProperty [ owl:inverseOf gist:isPartOf ]'. Class expressions that include `gist:hasMember` need to be modified in a similar way.
+
+- **Update all related artifacts.** Be sure to make updates as needed to artifacts that refer to changed parts of gist, which can include ontologies, taxonomies, data ingestion pipelines, data validations, queries, forms, documention, etc.
+
+- **Patch:** comment out the statements 'minus {named graph pattern}' in migration scripts for local files.
+
 ## Migration Queries
 
 All of our migration tools are SPARQL queries.
