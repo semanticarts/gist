@@ -17,7 +17,7 @@ by the gist team to help migrate from the previous version of gist.
   about changes that were made in gist and you will need to decide how you want
   to handle the changes.
 
-- **Manual updates for inverses:** Migration scripts do not update all class expressions in an ontology. For example, if a property is deprecated in favor of its inverse, `owl:onProperty gist:property` needs to be changed to `owl:onProperty [ owl:inverseOf gist:inverseProperty ]`.
+- **Manual updates for inverses:** Migration scripts do not update all class expressions in an ontology. For example, if a property is deprecated in favor of its inverse, `owl:onProperty gist:property` needs to be changed to `owl:onProperty [ owl:inverseOf gist:inverseProperty ]`. If you have created subproperties of a property that is being deprecated, you will also have to update the subproperties.
 
 - **Update all related artifacts.** Be sure to make updates as needed to artifacts that refer to changed parts of gist, which can include ontologies, taxonomies, data ingestion pipelines, data validations, queries, forms, documention, etc.
 
