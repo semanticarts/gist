@@ -21,7 +21,7 @@
         gist 11.0.0 released 2022-Apr-11.
 	"""^^xsd:string ;
 	skos:prefLabel "gist"^^xsd:string ;
-	gist:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:string ;
+	gist:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
 	.
 
 skos:definition
