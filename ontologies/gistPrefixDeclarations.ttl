@@ -12,7 +12,7 @@
 	skos:definition "Defines prefix declarations, which pair a prefix with a namespace, used in the gist ontology."^^xsd:string ;
 	skos:prefLabel "gist Prefix Declarations"^^xsd:string ;
 	skos:scopeNote "These prefixes are provided to support applications such as visualizers. Note that importing this file breaks OWL 2 DL conformance because SHACL is not an OWL ontology."^^xsd:string ;
-	gist:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:string ;
+	gist:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
 	.
 
 gist:_PrefixDeclaration_gist
