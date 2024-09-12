@@ -24,11 +24,23 @@
 	gist:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:string ;
 	.
 
+skos:altLabel
+	a owl:AnnotationProperty ;
+	.
+
 skos:definition
 	a owl:AnnotationProperty ;
 	.
 
+skos:editorialNote
+	a owl:AnnotationProperty ;
+	.
+
 skos:example
+	a owl:AnnotationProperty ;
+	.
+
+skos:historyNote
 	a owl:AnnotationProperty ;
 	.
 
