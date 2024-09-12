@@ -1,5 +1,8 @@
+# imports: https://w3id.org/semanticarts/ontology/operators1.0.0
+
 @prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
 @prefix gistd: <https://w3id.org/semanticarts/ns/data/gist/> .
+@prefix ops: <https://w3id.org/semanticarts/ns/ontology/operators/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -10,6 +13,7 @@
 
 <https://w3id.org/semanticarts/ontology/gistCore>
 	a owl:Ontology ;
+	owl:imports <https://w3id.org/semanticarts/ontology/operators1.0.0> ;
 	owl:versionIRI <https://w3id.org/semanticarts/ontology/gistCoreX.x.x> ;
 	skos:definition "gist is a minimalist upper ontology created by Semantic Arts."^^xsd:string ;
 	skos:historyNote """
@@ -1719,6 +1723,40 @@ gist:ServiceSpecification
 	] ;
 	skos:definition "A description of something that can be done for a person or organization (which produces some form of an act)."^^xsd:string ;
 	skos:prefLabel "Service Specification"^^xsd:string ;
+	.
+
+gist:SpecEntry
+	a owl:Class ;
+	rdfs:seeAlso <https://github.com/semanticarts/operators-ontology> ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:Specification
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasAspect ;
+				owl:someValuesFrom gist:Aspect ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty ops:hasSpecifiedValue ;
+				owl:someValuesFrom [
+					a owl:Class ;
+					owl:unionOf (
+						gist:Category
+						gist:Magnitude
+					) ;
+				] ;
+			]
+		) ;
+	] ;
+	skos:definition "A specification of a set of acceptable values for a particular aspect indicating what it means to be in spec for that aspect."^^xsd:string ;
+	skos:example "The aspect, width must be greater or equal to 4 inches and less than 10 inches. In this case there would be two triples linking the Spec Entry to values using subproperties of specifiedValue - one for expressing greater or equal to 4 inches and one for expressing less than 10 inches."^^xsd:string ;
+	skos:prefLabel "Spec Entry"^^xsd:string ;
+	skos:scopeNote
+		"In addition to ordinary numerical scales, sets of acceptable values may also come from nominal or ordinal scales of measure."^^xsd:string ,
+		"Often this will be about what is required, allowed or promised, but it could also be used to specify what is not allowed."^^xsd:string
+		;
 	.
 
 gist:Specification
