@@ -1751,7 +1751,7 @@ gist:SpecEntry
 		) ;
 	] ;
 	skos:definition "A specification of a set of acceptable values for a particular aspect indicating what it means to be in spec for that aspect."^^xsd:string ;
-	skos:example "The aspect, width must be greater or equal to 4 inches and less than 10 inches. In this case there would be two triples linking the Spec Entry to values using subproperties of specifiedValue - one for expressing greater or equal to 4 inches and one for expressing less than 10 inches."^^xsd:string ;
+	skos:example "The aspect width must be greater or equal to 4 inches and less than 10 inches. In this case there would be two triples linking the Spec Entry to values using subproperties of specifiedValue - one for expressing greater or equal to 4 inches and one for expressing less than 10 inches."^^xsd:string ;
 	skos:prefLabel "Spec Entry"^^xsd:string ;
 	skos:scopeNote
 		"In addition to ordinary numerical scales, sets of acceptable values may also come from nominal or ordinal scales of measure."^^xsd:string ,
