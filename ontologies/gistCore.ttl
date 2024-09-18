@@ -751,7 +751,7 @@ gist:GeoRegion
 	skos:definition "A bounded region (or set of regions) on the surface of the Earth."^^xsd:string ;
 	skos:example "The bounded shape that defines the region occupied by Crater Lake; the bounded area known as the contiguous USA."^^xsd:string ;
 	skos:prefLabel "Geo Region"^^xsd:string ;
-	skos:scopeNote "A geographical region could be non-contiguous; e.g. the region governed by the USA is the region governed by the lower 48 states plus that of Alaska and Hawaii. Child classes in lower ontologies can make this distinction."^^xsd:string ;
+	skos:scopeNote "A geographical region could be non-contiguous; e.g. the region governed by the US federal government is the contiguous area of the lower 48 states plus Alaska and Hawaii. Child classes in lower ontologies can make this distinction."^^xsd:string ;
 	.
 
 gist:GeoRoute
