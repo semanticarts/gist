@@ -2144,7 +2144,7 @@ gist:actualStartYear
 gist:allows
 	a owl:ObjectProperty ;
 	skos:definition "Relates a permission to a particular activity or type of activity it allows."^^xsd:string ;
-	skos:example "A grant allows egress."^^xsd:string ;
+	skos:example "An easement grants a right to cross or otherwise use someone else's land for a specified purpose."^^xsd:string ;
 	skos:prefLabel "allows"^^xsd:string ;
 	.
 
