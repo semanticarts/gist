@@ -438,7 +438,7 @@ gist:ContingentObligation
 			]
 		) ;
 	] ;
-	skos:definition "An obligation that is not yet firm. There is some contingent event, the occurrence of which will cause the obligation to become firm."^^xsd:string ;
+	skos:definition "An obligation that is not yet firm. There is some contingent event whose occurrence will cause the obligation to become firm."^^xsd:string ;
 	skos:prefLabel "Contingent Obligation"^^xsd:string ;
 	skos:scopeNote "A contingent obligation might have a getter counterparty (as in the case of insurance); but it might not (as in the case of an offer)."^^xsd:string ;
 	.
