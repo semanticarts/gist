@@ -119,7 +119,7 @@ gist:Account
 			]
 		) ;
 	] ;
-	skos:definition "An agreement having a balance"^^xsd:string ;
+	skos:definition "An agreement having a balance."^^xsd:string ;
 	skos:example "A bank account, a credit card account, or an accounts receivable account."^^xsd:string ;
 	skos:prefLabel "Account"^^xsd:string ;
 	.
