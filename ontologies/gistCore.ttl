@@ -195,7 +195,7 @@ gist:Behavior
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
 	skos:definition "A way of categorizing events."^^xsd:string ;
-	skos:example: "A saw behaves such that it cuts while a drill behaves such that it drills."^^xsd:string ;
+	skos:example "A saw behaves such that it cuts while a drill behaves such that it drills."^^xsd:string ;
 	skos:prefLabel "Behavior"^^xsd:string ;
 	.
 
