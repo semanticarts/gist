@@ -2901,7 +2901,7 @@ gist:isAllocatedBy
 
 gist:isBasedOn
 	a owl:ObjectProperty ;
-	skos:definition "The object is a foundation for, a starting point for, gave rise to, or justifies the subject"^^xsd:string ;
+	skos:definition "The object is a foundation for, a starting point for, gave rise to, or justifies the subject."^^xsd:string ;
 	skos:example "A document is based on a document template; a metric computing the average income of a population is based on the metric for individual income."^^xsd:string ;
 	skos:prefLabel "is based on"^^xsd:string ;
 	.
