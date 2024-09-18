@@ -1926,7 +1926,7 @@ gist:TemporalRelation
 	skos:definition "A relationship existing for a period of time."^^xsd:string ;
 	skos:example "The relationship between a person and their employer; the relationship between a person or business and an address."^^xsd:string ;
 	skos:prefLabel "Temporal Relation"^^xsd:string ;
-	skos:scopeNote "A temporal relation must have a minimum of two participants. For example, both the employer and the employee are participants in a temporal relation representing a period of employment. Note that 'participant' does not imply agency; a non-sentient being can be participants in a temporal relation. For example, both a person and a house could be participants in a hypothetical relation 'lives at.'"^^xsd:string ;
+	skos:scopeNote "A temporal relation must have a minimum of two participants. For example, both the employer and the employee are participants in a temporal relation representing a period of employment. Note that 'participant' does not imply agency; a non-sentient being can participate in a temporal relation. For example, both a person and a house could be participants in a hypothetical relation 'lives at.'"^^xsd:string ;
 	.
 
 gist:Text
