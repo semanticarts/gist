@@ -2786,7 +2786,7 @@ gist:hasParty
 	skos:definition "The people or organizations participating in an event, agreement or obligation"^^xsd:string ;
 	skos:example "Loan agreements have lender and borrower parties."^^xsd:string ;
 	skos:prefLabel "has party"^^xsd:string ;
-	skos:scopeNote "A given scenario is likely to have subproperties to describe specific parties."^^xsd:string ;
+	skos:scopeNote "A given scenario is likely to have subproperties to describe specific parties, such as hasLender and hasBorrower."^^xsd:string ;
 	.
 
 gist:hasPhysicalLocation
