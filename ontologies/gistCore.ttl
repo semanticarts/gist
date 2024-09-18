@@ -377,7 +377,7 @@ gist:ContentExpression
 			owl:someValuesFrom gist:Language ;
 		]
 		;
-	skos:definition "Intellectual Property reduced to text, audio etc. If it contains text (written or spoken), it may be in a language."^^xsd:string ;
+	skos:definition "Intellectual property reduced to text, audio, etc. If it contains text (written or spoken), it may be in a language."^^xsd:string ;
 	skos:prefLabel "Content Expression"^^xsd:string ;
 	.
 
