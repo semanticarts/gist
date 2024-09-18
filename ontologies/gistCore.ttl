@@ -1228,7 +1228,7 @@ gist:Obligation
 		) ;
 	] ;
 	skos:definition "A future commitment from one organization or person to another."^^xsd:string ;
-	skos:example "Contracts are sets of obligations to do or forbear, or to indemnify or warrant."^^xsd:string ;
+	skos:example "Contracts are sets of obligations to do or forbear or to indemnify or warrant."^^xsd:string ;
 	skos:prefLabel "Obligation"^^xsd:string ;
 	skos:scopeNote "Obligations will often be governed by some Agreement or Offer."^^xsd:string ;
 	.
