@@ -456,7 +456,7 @@ gist:Contract
 			]
 		) ;
 	] ;
-	skos:definition "An agreement which can be enforced by law"^^xsd:string ;
+	skos:definition "An agreement which can be enforced by law."^^xsd:string ;
 	skos:prefLabel "Contract"^^xsd:string ;
 	.
 
