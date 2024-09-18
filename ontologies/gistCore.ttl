@@ -1152,7 +1152,7 @@ gist:Network
 		) ;
 	] ;
 	skos:definition "A set of nodes connected by links."^^xsd:string ;
-	skos:example "A physical network consists of connected computers or routers; a social network consists of related people and organizations."^^xsd:string ;
+	skos:example "A physical network consisting of connected computers or routers; a social network consisting of related people and organizations."^^xsd:string ;
 	skos:prefLabel "Network"^^xsd:string ;
 	.
 
