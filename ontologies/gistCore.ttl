@@ -929,7 +929,7 @@ gist:IntellectualProperty
 		gist:UnitOfMeasure
 		;
 	skos:definition "A work, invention or concept existing as tacit knowledge, know-how, or skill or expressed in text, audio, video, image, or live performance."^^xsd:string ;
-	skos:example "The 'The Old Man and The Sea' book is a work; the Page Rank algorithm is an invention; the Coca Cola brand is a concept."^^xsd:string ;
+	skos:example "The book 'The Old Man and the Sea' is a work; the Page Rank algorithm is an invention; the Coca Cola brand is a concept."^^xsd:string ;
 	skos:prefLabel "Intellectual Property"^^xsd:string ;
 	skos:scopeNote "For literature this could be called the 'work,' except that 'work' is a highly overloaded term (expenditure of energy, resource consumption, art). Often the first expression precedes our recognition of the IP, but subsequent expressions are known to be derivatives of the IP, even if they are expression-to-expression translations (or copies)."^^xsd:string ;
 	.
