@@ -1428,7 +1428,7 @@ gist:Person
 gist:PhysicalActionType
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	skos:definition "A categorization of the real world effects of an action"^^xsd:string ;
+	skos:definition "A categorization of the real-world effects of an action."^^xsd:string ;
 	skos:example "Lifting a garage door, turning off a valve, dropping cadmium rods."^^xsd:string ;
 	skos:prefLabel "Physical Action Type"^^xsd:string ;
 	.
