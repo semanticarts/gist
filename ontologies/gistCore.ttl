@@ -1904,7 +1904,7 @@ gist:Template
 	a owl:Class ;
 	owl:disjointWith gist:UnitOfMeasure ;
 	skos:definition "Something used to make objects in its own image."^^xsd:string ;
-	skos:example "A die in manufacturing is used to make stamped parts; a filled-in form has the structure of the form with data entered into some or all of the fields; a cookie cutter is a template for cookies."^^xsd:string ;
+	skos:example "A die in manufacturing is used to make stamped parts. A form provides a structure and fields to be filled in; a cookie cutter is a template for cookies."^^xsd:string ;
 	skos:prefLabel "Template"^^xsd:string ;
 	skos:scopeNote "Use gist:isBasedOn to link the object made from the template back to the template."^^xsd:string ;
 	.
