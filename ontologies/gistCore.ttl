@@ -555,7 +555,7 @@ gist:Determination
 	a owl:Class ;
 	rdfs:subClassOf gist:Event ;
 	skos:definition "An event whose purpose is to establish a specific result, value, or outcome, usually by research, measuring, evaluating, or calculating."^^xsd:string ;
-	skos:example "Measuring the sulphur content of crude oil; evaluating a loan application for approval; estimating the price of gas for the next three months; determining whether and by how much an interest rate should change."^^xsd:string ;
+	skos:example "Measuring the sulphur content of crude oil; evaluating a loan application for approval; estimating the price of gas for the next three months; determining whether and by how much an interest rate should change; classifying a purchase into a budget category."^^xsd:string ;
 	skos:prefLabel "Determination"^^xsd:string ;
 	.
 
@@ -931,7 +931,10 @@ gist:IntellectualProperty
 	skos:definition "A work, invention or concept existing as tacit knowledge, know-how, or skill or expressed in text, audio, video, image, or live performance."^^xsd:string ;
 	skos:example "The book 'The Old Man and the Sea' is a work; the Page Rank algorithm is an invention; the Coca Cola brand is a concept."^^xsd:string ;
 	skos:prefLabel "Intellectual Property"^^xsd:string ;
-	skos:scopeNote "For literature this could be called the 'work,' except that 'work' is a highly overloaded term (expenditure of energy, resource consumption, art). Often the first expression precedes our recognition of the IP, but subsequent expressions are known to be derivatives of the IP, even if they are expression-to-expression translations (or copies)."^^xsd:string ;
+	skos:scopeNote
+		"For literature this could be called the 'work,' except that 'work' is a highly overloaded term (expenditure of energy, resource consumption, art). Often the first expression precedes our recognition of the IP."^^xsd:string ,
+		"This term is not intended to mean intellectual property in a strictly legal sense. For example, a book whose copyright has expired is still intellectual property."^^xsd:string
+		;
 	.
 
 gist:Intention
