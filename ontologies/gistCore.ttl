@@ -3287,7 +3287,7 @@ gist:prevents
 	a owl:ObjectProperty ;
 	rdfs:domain gist:Intention ;
 	rdfs:range gist:Behavior ;
-	skos:definition "The intention prevents the behavior"^^xsd:string ;
+	skos:definition "Relates an intention to behavior that it prevents or prohibits."^^xsd:string ;
 	skos:example "The law prevents jay-walking."^^xsd:string ;
 	skos:prefLabel "prevents"^^xsd:string ;
 	.
