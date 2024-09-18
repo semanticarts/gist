@@ -179,7 +179,7 @@ gist:Artifact
 		owl:onProperty gist:hasGoal ;
 		owl:someValuesFrom gist:Function ;
 	] ;
-	skos:definition "An intentional, person-made thing, which could be physical or content"^^xsd:string ;
+	skos:definition "An intentional, person-made thing, which could be physical or content."^^xsd:string ;
 	skos:prefLabel "Artifact"^^xsd:string ;
 	.
 
@@ -356,7 +356,7 @@ gist:Content
 		gist:PhysicalSubstance ,
 		gist:UnitOfMeasure
 		;
-	skos:definition "Information available in some medium"^^xsd:string ;
+	skos:definition "Information available in some medium."^^xsd:string ;
 	skos:example "A document, program, or image."^^xsd:string ;
 	skos:prefLabel "Content"^^xsd:string ;
 	skos:scopeNote "Categories are not content until they are written down."^^xsd:string ;
@@ -607,7 +607,7 @@ gist:Equipment
 gist:EquipmentType
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	skos:definition "Categories of equipment"^^xsd:string ;
+	skos:definition "Categories of equipment."^^xsd:string ;
 	skos:prefLabel "Equipment Type"^^xsd:string ;
 	.
 
@@ -709,7 +709,7 @@ gist:GeoPoint
 			]
 		) ;
 	] ;
-	skos:definition "An individual point on the Earth's surface, identified by latitude, longitude and altitude. If altitude is missing, it is assumed to be at the Earth's surface. However, altitude is measured from sea level."^^xsd:string ;
+	skos:definition "An individual point on the Earth's surface, identified by latitude, longitude, and altitude. If altitude is missing, it is assumed to be at the Earth's surface. However, altitude is measured from sea level."^^xsd:string ;
 	skos:prefLabel "Geo Point"^^xsd:string ;
 	skos:scopeNote "Assume coordinate system used by Google (WGS 84 Web Mercator using the GPS decimal lat/long)."^^xsd:string ;
 	.
@@ -1530,7 +1530,7 @@ gist:PhysicalIdentifiableItem
 	skos:definition "A discrete physical object which, if subdivided, will result in parts that are distinguishable in nature from the whole and in general also from the other parts."^^xsd:string ;
 	skos:example "A computer, a book, a car."^^xsd:string ;
 	skos:prefLabel "Physical Identifiable Item"^^xsd:string ;
-	skos:scopeNote "This concept generally corresponds to count nouns in English. By contrast, instances of PhysicalSubstance, such as an amount of water, flour, or sand, are mass nouns. PhysicalIdentifiableItems are made up of PhysicalSubstances; e.g., a cake is made up of butter, flour, and sugar; a statue is made of bronze. If you divide a PhysicalSubstance such as an amount of water into parts, you have two amounts of water otherwise indistinguishable from one another; if you divide a PhysicalIdentifiableItem such as a computer into parts, each part is different from the whole."^^xsd:string ;
+	skos:scopeNote "This concept generally corresponds to count nouns in English. By contrast, physical substances, such as an amount of water, flour, or sand, are mass nouns. Physical identifiable items are made up of physical substances; e.g., a cake is made up of butter, flour, and sugar; a statue is made of bronze. If you divide a physical substance such as an amount of water into parts, you have two amounts of water otherwise indistinguishable from one another; if you divide a physical identifiable item such as a computer into parts, each part is different from the whole."^^xsd:string ;
 	.
 
 gist:PhysicalSubstance
@@ -1573,7 +1573,7 @@ gist:PhysicalSubstance
 	skos:prefLabel "Physical Substance"^^xsd:string ;
 	skos:scopeNote
 		"An instance of this class has weight and takes up space. We mean the physical gold in a ring, not the concept of gold that shows up in the periodic table."^^xsd:string ,
-		"This concept generally corresponds to mass nouns in English. By contrast, instances of PhysicalIdentifiableItem, such as a computer, book, or car, are count nouns. PhysicalIdentifiableItems are made up of PhysicalSubstances; e.g., a cake is made up of butter, flour, and sugar; a ring is made of gold. If you divide a PhysicalSubstance such as an amount of water into parts, you have different amounts of water otherwise indistinguishable from one another; if you divide a PhysicalIdentifiableItem such as a computer into parts, each part will be distinguishable from the original whole."^^xsd:string
+		"This concept generally corresponds to mass nouns in English. By contrast, instances of physical identifiable item, such as a computer, book, or car, are count nouns. Physical identifiable items are made up of physical substances; e.g., a cake is made up of butter, flour, and sugar; a ring is made of gold. If you divide a physical substance such as an amount of water into parts, you have different amounts of water otherwise indistinguishable from one another; if you divide a physical identifiable item such as a computer into parts, each part will be distinguishable from the original whole."^^xsd:string
 		;
 	.
 
@@ -1797,7 +1797,7 @@ gist:System
 			]
 		) ;
 	] ;
-	skos:definition "A system is an artifact with component parts where the parts contribute to the goal of the system"^^xsd:string ;
+	skos:definition "A system is an artifact with component parts where the parts contribute to the goal of the system."^^xsd:string ;
 	skos:prefLabel "System"^^xsd:string ;
 	.
 
@@ -1985,11 +1985,12 @@ gist:TimeInterval
 			owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 		]
 		;
-	skos:definition "A span of time with a known start time, end time, and duration. As long as two of the three are known, the third can be inferred."^^xsd:string ;
+	skos:definition "A span of time with a known start time, end time, and duration."^^xsd:string ;
 	skos:example "7pm to 9pm on Jan 1, 2001; fiscal year 2023 (according to some particular definition of fiscal year); the week starting at midnight of January 12, 2023 and lasting exactly 168 hours."^^xsd:string ;
 	skos:prefLabel "Time Interval"^^xsd:string ;
 	skos:scopeNote
 		"An ongoing state of affairs with an unknown end time in the future cannot be a time interval; e.g. the lifespan of a living person cannot be a time interval, as the end time is unknown."^^xsd:string ,
+		"As long as two of the three are known, the third can be inferred."^^xsd:string ,
 		"This is distinct from a duration, which describes how long a time interval lasts (e.g., one hour; 3 days; 22 minutes)."^^xsd:string
 		;
 	.
@@ -2194,7 +2195,7 @@ gist:comesFromAgent
 			gist:Person
 		) ;
 	] ;
-	skos:definition "The party that is the source of something (e.g. a message, shipment, etc.)"^^xsd:string ;
+	skos:definition "The party that is the source of something (e.g. a message, shipment, etc.)."^^xsd:string ;
 	skos:prefLabel "comes from agent"^^xsd:string ;
 	skos:scopeNote 'This is not the inverse of gist:goesToAgent. A message can be to someone. If we made it the inverse the person would be "from" the message'^^xsd:string ;
 	.
@@ -2208,7 +2209,7 @@ gist:comesFromPlace
 			gist:Place
 		) ;
 	] ;
-	skos:definition "Origin"^^xsd:string ;
+	skos:definition "Relates subject to its origin."^^xsd:string ;
 	skos:prefLabel "comes from place"^^xsd:string ;
 	.
 
@@ -2234,7 +2235,7 @@ gist:containedText
 
 gist:contributesTo
 	a owl:ObjectProperty ;
-	skos:definition "The parts of a system contribute to the goal/ function of the whole system"^^xsd:string ;
+	skos:definition "The parts of a system contribute to the goal/ function of the whole system."^^xsd:string ;
 	skos:prefLabel "contributes to"^^xsd:string ;
 	.
 
@@ -2319,7 +2320,7 @@ gist:encryptedText
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf gist:containedText ;
 	rdfs:range xsd:string ;
-	skos:definition "Links to the string corresponding to EncryptedText"^^xsd:string ;
+	skos:definition "Links to the string corresponding to encrypted text."^^xsd:string ;
 	skos:prefLabel "encrypted text"^^xsd:string ;
 	.
 
@@ -2629,7 +2630,7 @@ gist:goesToAgent
 			gist:Person
 		) ;
 	] ;
-	skos:definition "The party that is the recipient of something (e.g. a message, shipment, etc.)"^^xsd:string ;
+	skos:definition "The party that is the recipient of something (e.g. a message, shipment, etc.)."^^xsd:string ;
 	skos:prefLabel "goes to agent"^^xsd:string ;
 	skos:scopeNote 'This is not the inverse of gist:comesFromAgent. A message can be from someone. If we made it the inverse the person would be "to" the message'^^xsd:string ;
 	.
@@ -2643,7 +2644,7 @@ gist:goesToPlace
 			gist:Place
 		) ;
 	] ;
-	skos:definition "Destination"^^xsd:string ;
+	skos:definition "Relates the subject to its destination."^^xsd:string ;
 	skos:prefLabel "goes to place"^^xsd:string ;
 	.
 
@@ -2725,13 +2726,13 @@ gist:hasGiver
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasParticipant ;
 	owl:propertyDisjointWith gist:hasRecipient ;
-	skos:definition "The active party, the one with the obligation or the one initiating the transfer"^^xsd:string ;
+	skos:definition "The active party, i.e., the one with the obligation or the one initiating the transfer."^^xsd:string ;
 	skos:prefLabel "has giver"^^xsd:string ;
 	.
 
 gist:hasGoal
 	a owl:ObjectProperty ;
-	skos:definition "The reason for doing something"^^xsd:string ;
+	skos:definition "The reason for doing something."^^xsd:string ;
 	skos:prefLabel "has goal"^^xsd:string ;
 	.
 
@@ -2786,7 +2787,7 @@ gist:hasParty
 			gist:Person
 		) ;
 	] ;
-	skos:definition "The people or organizations participating in an event, agreement or obligation"^^xsd:string ;
+	skos:definition "Relates an event, agreement, or obligation to the participating people or organizations."^^xsd:string ;
 	skos:example "Loan agreements have lender and borrower parties."^^xsd:string ;
 	skos:prefLabel "has party"^^xsd:string ;
 	skos:scopeNote "A given scenario is likely to have subproperties to describe specific parties, such as hasLender and hasBorrower."^^xsd:string ;
@@ -2806,7 +2807,7 @@ gist:hasPhysicalLocation
 gist:hasRecipient
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasParticipant ;
-	skos:definition "The recipient"^^xsd:string ;
+	skos:definition "Relates something to its recipient."^^xsd:string ;
 	skos:prefLabel "has recipient"^^xsd:string ;
 	.
 
@@ -2878,7 +2879,7 @@ gist:isAbout
 
 gist:isAffectedBy
 	a owl:ObjectProperty ;
-	skos:definition "Where the effect came from"^^xsd:string ;
+	skos:definition "Where the effect came from."^^xsd:string ;
 	skos:prefLabel "is affected by"^^xsd:string ;
 	.
 
@@ -2938,7 +2939,7 @@ gist:isDirectPartOf
 
 gist:isExpressedIn
 	a owl:ObjectProperty ;
-	skos:definition "The language something was expressed in"^^xsd:string ;
+	skos:definition "The language something was expressed in."^^xsd:string ;
 	skos:prefLabel "is expressed in"^^xsd:string ;
 	.
 
@@ -3039,7 +3040,7 @@ gist:isRecordedAt
 
 gist:isRenderedOn
 	a owl:ObjectProperty ;
-	skos:definition "What media something was rendered On"^^xsd:string ;
+	skos:definition "What media something was rendered on."^^xsd:string ;
 	skos:prefLabel "is rendered on"^^xsd:string ;
 	.
 
@@ -3068,13 +3069,13 @@ gist:latitude
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:GeoPoint ;
 	rdfs:range xsd:double ;
-	skos:definition "Degrees above or below equator"^^xsd:string ;
+	skos:definition "Degrees above or below equator."^^xsd:string ;
 	skos:prefLabel "latitude"^^xsd:string ;
 	.
 
 gist:license
 	a owl:AnnotationProperty ;
-	skos:definition "An annotation for providing the licensing on this or derivative ontologies"^^xsd:string ;
+	skos:definition "An annotation for providing the licensing on this or derivative ontologies."^^xsd:string ;
 	skos:prefLabel "license"^^xsd:string ;
 	.
 
@@ -3102,7 +3103,7 @@ gist:longitude
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:GeoPoint ;
 	rdfs:range xsd:double ;
-	skos:definition "Degrees from the prime meridian"^^xsd:string ;
+	skos:definition "Degrees from the prime meridian."^^xsd:string ;
 	skos:prefLabel "longitude"^^xsd:string ;
 	.
 
@@ -3144,7 +3145,7 @@ gist:numericValue
 
 gist:occursIn
 	a owl:ObjectProperty ;
-	skos:definition "The geospatial place where something happened or will happen"^^xsd:string ;
+	skos:definition "The geospatial place where something happened or will happen."^^xsd:string ;
 	skos:prefLabel "occurs in"^^xsd:string ;
 	.
 
