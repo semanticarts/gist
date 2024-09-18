@@ -3162,7 +3162,8 @@ gist:owns
 			gist:Person
 		) ;
 	] ;
-	skos:definition "Possessing and controlling. Ultimate form of ownership is the right to destroy."^^xsd:string ;
+	skos:definition "Relates something to a thing it possesses and controls."^^xsd:string ;
+	skos:scopeNote "The ultimate form of ownership is the right to destroy."^^xsd:string ;
 	skos:prefLabel "owns"^^xsd:string ;
 	skos:scopeNote "The range of this property is the union of many potential classes."^^xsd:string ;
 	.
