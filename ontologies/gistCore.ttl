@@ -3046,7 +3046,7 @@ gist:isRenderedOn
 gist:isSupersededBy
 	a owl:AnnotationProperty ;
 	skos:definition "Relates a deprecated term to a term that replaces it, which is either an exact (in the case of simple renaming) or approximate (in the case of renaming and some semantic change) semantic match."^^xsd:string ;
-	skos:example "gist:connectedTo gist:isSupersededBy gist:isConnectedTo (renaming with no semantic change)."^^xsd:string ;
+	skos:example "gist:connectedTo was superseded by gist:isConnectedTo (renaming with no semantic change)."^^xsd:string ;
 	skos:prefLabel "is superseded by"^^xsd:string ;
 	.
 
