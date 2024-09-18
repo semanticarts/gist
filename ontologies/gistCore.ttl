@@ -194,7 +194,7 @@ gist:Aspect
 gist:Behavior
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	skos:definition "A way of categorizing events."^^xsd:string ;
+	skos:definition "Categorizes the nature of what is happening during an event."^^xsd:string ;
 	skos:example "A saw behaves such that it cuts while a drill behaves such that it drills."^^xsd:string ;
 	skos:prefLabel "Behavior"^^xsd:string ;
 	.
@@ -3163,9 +3163,11 @@ gist:owns
 		) ;
 	] ;
 	skos:definition "Relates something to a thing it possesses and controls."^^xsd:string ;
-	skos:scopeNote "The ultimate form of ownership is the right to destroy."^^xsd:string ;
 	skos:prefLabel "owns"^^xsd:string ;
-	skos:scopeNote "The range of this property is the union of many potential classes."^^xsd:string ;
+	skos:scopeNote
+		"The range of this property is the union of many potential classes."^^xsd:string ,
+		"The ultimate form of ownership is the right to destroy."^^xsd:string
+		;
 	.
 
 gist:plannedEndDate
