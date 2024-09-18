@@ -1654,7 +1654,7 @@ gist:RenderedContent
 			]
 		) ;
 	] ;
-	skos:definition "Content which has been expressed."^^xsd:string ;
+	skos:definition "Content which has been physically expressed."^^xsd:string ;
 	skos:example "Words printed on paper; audio played on speakers; images displayed on monitors."^^xsd:string ;
 	skos:prefLabel "Rendered Content"^^xsd:string ;
 	.
