@@ -2140,7 +2140,7 @@ gist:actualStartYear
 
 gist:allows
 	a owl:ObjectProperty ;
-	skos:definition "The intention allows a particular kind of activity."^^xsd:string ;
+	skos:definition "Relates a permission to a particular activity or type of activity it allows."^^xsd:string ;
 	skos:example "A grant allows egress."^^xsd:string ;
 	skos:prefLabel "allows"^^xsd:string ;
 	.
