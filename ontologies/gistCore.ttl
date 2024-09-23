@@ -194,8 +194,8 @@ gist:Aspect
 gist:Behavior
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	skos:definition "Categorizes the nature of what is happening during an event."^^xsd:string ;
-	skos:example "A saw behaves such that it cuts while a drill behaves such that it drills."^^xsd:string ;
+skos:definition "A category indicating the nature of what is happening during an event."^^xsd:string ;
+skos:example "Drilling and cutting are two different kinds of manufacturing event."^^xsd:string ;
 	skos:prefLabel "Behavior"^^xsd:string ;
 	.
 
@@ -317,7 +317,7 @@ gist:Component
 			]
 		) ;
 	] ;
-	skos:definition "A component is an artifact that contributes to a system."^^xsd:string ;
+	skos:definition "An artifact that contributes to a system."^^xsd:string ;
 	skos:example "A simple mechanical component, such as the float contributing to the toilet tank maintaining a constant level; a complex technological component, such as an internet of things device."^^xsd:string ;
 	skos:prefLabel "Component"^^xsd:string ;
 	.
@@ -377,7 +377,7 @@ gist:ContentExpression
 			owl:someValuesFrom gist:Language ;
 		]
 		;
-	skos:definition "Intellectual property reduced to text, audio, etc. If it contains text (written or spoken), it may be in a language."^^xsd:string ;
+	skos:definition "Content that has been reduced to text, audio, etc. If it contains text (written or spoken), it may be in a language."^^xsd:string ;
 	skos:prefLabel "Content Expression"^^xsd:string ;
 	.
 
@@ -410,7 +410,7 @@ gist:ContingentEvent
 		) ;
 	] ;
 	skos:definition "An event with a probability of happening in the future, and usually dependent upon some other event or condition."^^xsd:string ;
-	skos:example "Fire insurance is contingent on a particular building burning down; selling 20 shares of stock in a given company when the price drops below $200/share; the death benefit payout on a life insurance policy following the death of a specific person."^^xsd:string ;
+skos:example "A fire insurance payout is contingent on a particular building burning down; selling 20 shares of stock in a given company is contingent on the price dropping below $200/share; the death benefit payout on a life insurance policy is contingent on the death of a specific person."^^xsd:string ;
 	skos:prefLabel "Contingent Event"^^xsd:string ;
 	.
 
@@ -538,7 +538,7 @@ gist:CountryGovernment
 			]
 		) ;
 	] ;
-	skos:definition "A government organization which asserts both sovereignty (i.e., it is not governed by some other government organization) and governance over an entity generally recognized as a country."^^xsd:string ;
+	skos:definition "A government organization which asserts both sovereignty and governance over an entity generally recognized as a country."^^xsd:string ;
 	skos:prefLabel "Country Government"^^xsd:string ;
 	skos:scopeNote "While a country government may enter into treaties with other country governments, there are no governing relationships among the treaty members."^^xsd:string ;
 	.
@@ -607,7 +607,7 @@ gist:Equipment
 gist:EquipmentType
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	skos:definition "Categories of equipment."^^xsd:string ;
+	skos:definition "A category of equipment."^^xsd:string ;
 	skos:prefLabel "Equipment Type"^^xsd:string ;
 	.
 
@@ -618,7 +618,7 @@ gist:Event
 	skos:example "A transaction, conference, baseball game, earthquake."^^xsd:string ;
 	skos:prefLabel "Event"^^xsd:string ;
 	skos:scopeNote
-		"An event does not necessarily have either planned or actual start or end datetimes. For example, a conference can be in the planning phase without any dates selected, but is nevertheless an (unscheduled) event. The subclasses of event state particular restrictions on planned and actual start and end dates."^^xsd:string ,
+		"An event does not necessarily have either planned or actual start or end datetimes. For example, a conference can be in the planning phase without any dates selected, but is nevertheless an (unscheduled) event. The subclasses of gist:Event state particular restrictions on planned and actual start and end dates."^^xsd:string ,
 		"An event occurs during a time interval, which is distinct from the event."^^xsd:string
 		;
 	.
@@ -662,7 +662,7 @@ gist:GeneralMediaType
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
 	skos:definition "The real-world media type for content."^^xsd:string ;
-	skos:example "Audio; still image; video; textual; physical, such as a statue; performance, such as a play; oil paint."^^xsd:string ;
+	skos:example "Audio, still image, video, textual, physical (e.g., a statue), performance (e.g.,  a play, oil paint."^^xsd:string ;
 	skos:prefLabel "General Media Type"^^xsd:string ;
 	.
 
@@ -709,7 +709,7 @@ gist:GeoPoint
 			]
 		) ;
 	] ;
-	skos:definition "An individual point on the Earth's surface, identified by latitude, longitude, and altitude. If altitude is missing, it is assumed to be at the Earth's surface. However, altitude is measured from sea level."^^xsd:string ;
+	skos:definition "An individual point on the Earth's surface, identified by latitude, longitude, and altitude."^^xsd:string ;
 	skos:prefLabel "Geo Point"^^xsd:string ;
 	skos:scopeNote "Assume coordinate system used by Google (WGS 84 Web Mercator using the GPS decimal lat/long)."^^xsd:string ;
 	.
@@ -912,7 +912,7 @@ gist:ID
 		) ;
 	] ;
 	skos:definition "Content that is used to uniquely identify something or someone."^^xsd:string ;
-	skos:example "SSN for a person; serial number for a product; employee ID for an employee."^^xsd:string ;
+	skos:example "SSN for a person; serial number for a product; employee ID for a person."^^xsd:string ;
 	skos:prefLabel "ID"^^xsd:string ;
 	skos:scopeNote "This is used in conjunction with gist:isIdentifiedBy"^^xsd:string ;
 	.
@@ -948,7 +948,7 @@ gist:Intention
 		;
 	skos:definition "Goal, desire, aspiration."^^xsd:string ;
 	skos:prefLabel "Intention"^^xsd:string ;
-	skos:scopeNote "This is the 'teleologic' aspect of the system that indicates things are done with a purpose."^^xsd:string ;
+	skos:scopeNote "The 'teleological' aspect of a system that indicates things are done with a purpose."^^xsd:string ;
 	.
 
 gist:IntergovernmentalOrganization
@@ -1094,7 +1094,7 @@ gist:Medium
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
 	skos:definition "A physicality on which a work could be implemented or exposed."^^xsd:string ;
-	skos:example: "Paper, clay, a computer monitor"^^xsd:string ;
+	skos:example: "Paper, clay, a computer monitor."^^xsd:string ;
 	skos:prefLabel "Medium"^^xsd:string ;
 	.
 
@@ -1323,9 +1323,9 @@ gist:OrderedCollection
 			]
 		) ;
 	] ;
-	skos:definition "A collection in which the members are sequentially ordered."^^xsd:string ;
+	skos:definition "A collection whose members are ordered in some way."^^xsd:string ;
 	skos:prefLabel "Ordered Collection"^^xsd:string ;
-	skos:scopeNote "Includes collections in which members occupy the same position in a 'tie.' All members of an ordered collection are ordered members."^^xsd:string ;
+	skos:scopeNote "Includes partially ordered collections as well as collections in which members occupy the same position in a 'tie.' All members of an ordered collection are ordered members."^^xsd:string ;
 	.
 
 gist:OrderedMember
@@ -1431,7 +1431,7 @@ gist:Person
 gist:PhysicalActionType
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	skos:definition "A categorization of the real-world effects of an action."^^xsd:string ;
+	skos:definition "A category indicating the real-world effects of an action."^^xsd:string ;
 	skos:example "Lifting a garage door, turning off a valve, dropping cadmium rods."^^xsd:string ;
 	skos:prefLabel "Physical Action Type"^^xsd:string ;
 	.
@@ -1573,7 +1573,7 @@ gist:PhysicalSubstance
 	skos:prefLabel "Physical Substance"^^xsd:string ;
 	skos:scopeNote
 		"An instance of this class has weight and takes up space. We mean the physical gold in a ring, not the concept of gold that shows up in the periodic table."^^xsd:string ,
-		"This concept generally corresponds to mass nouns in English. By contrast, instances of physical identifiable item, such as a computer, book, or car, are count nouns. Physical identifiable items are made up of physical substances; e.g., a cake is made up of butter, flour, and sugar; a ring is made of gold. If you divide a physical substance such as an amount of water into parts, you have different amounts of water otherwise indistinguishable from one another; if you divide a physical identifiable item such as a computer into parts, each part will be distinguishable from the original whole."^^xsd:string
+		"This concept generally corresponds to mass nouns in English. By contrast, physical identifiable items, such as a computer, book, or car, correspond to count nouns. Physical identifiable items are made up of physical substances; e.g., a cake is made up of butter, flour, and sugar; a ring is made of gold. If you divide a physical substance such as an amount of water into parts, you have different amounts of water otherwise indistinguishable from one another; if you divide a physical identifiable item such as a computer into parts, each part will be distinguishable from the original whole."^^xsd:string
 		;
 	.
 
@@ -1631,7 +1631,7 @@ gist:Project
 gist:ReferenceValue
 	a owl:Class ;
 	rdfs:subClassOf gist:Magnitude ;
-	skos:definition "A measure that was neither measured nor estimated but set by fiat."^^xsd:string ;
+	skos:definition "A magnitude that was neither measured nor estimated but set by fiat."^^xsd:string ;
 	skos:example "The sales goal for a company."^^xsd:string ;
 	skos:prefLabel "Reference Value"^^xsd:string ;
 	.
@@ -1907,7 +1907,7 @@ gist:Template
 	a owl:Class ;
 	owl:disjointWith gist:UnitOfMeasure ;
 	skos:definition "Something used to make objects in its own image."^^xsd:string ;
-	skos:example "A die in manufacturing is used to make stamped parts. A form provides a structure and fields to be filled in; a cookie cutter is a template for cookies."^^xsd:string ;
+	skos:example "A die in manufacturing is used to make stamped parts;  a form provides a structure and fields to be filled in; a cookie cutter is a template for cookies."^^xsd:string ;
 	skos:prefLabel "Template"^^xsd:string ;
 	skos:scopeNote "Use gist:isBasedOn to link the object made from the template back to the template."^^xsd:string ;
 	.
@@ -2195,7 +2195,7 @@ gist:comesFromAgent
 			gist:Person
 		) ;
 	] ;
-	skos:definition "The party that is the source of something (e.g. a message, shipment, etc.)."^^xsd:string ;
+	skos:definition "The party that is the source of something (e.g. a message, a shipment)."^^xsd:string ;
 	skos:prefLabel "comes from agent"^^xsd:string ;
 	skos:scopeNote 'This is not the inverse of gist:goesToAgent. A message can be to someone. If we made it the inverse the person would be "from" the message'^^xsd:string ;
 	.
@@ -2235,7 +2235,7 @@ gist:containedText
 
 gist:contributesTo
 	a owl:ObjectProperty ;
-	skos:definition "The parts of a system contribute to the goal/ function of the whole system."^^xsd:string ;
+	skos:definition "The parts of a system contribute to the goal/function of the whole system."^^xsd:string ;
 	skos:prefLabel "contributes to"^^xsd:string ;
 	.
 
@@ -2630,7 +2630,7 @@ gist:goesToAgent
 			gist:Person
 		) ;
 	] ;
-	skos:definition "The party that is the recipient of something (e.g. a message, shipment, etc.)."^^xsd:string ;
+	skos:definition "The party that is the recipient of something (e.g. a message, a shipment)."^^xsd:string ;
 	skos:prefLabel "goes to agent"^^xsd:string ;
 	skos:scopeNote 'This is not the inverse of gist:comesFromAgent. A message can be from someone. If we made it the inverse the person would be "to" the message'^^xsd:string ;
 	.
@@ -3081,7 +3081,7 @@ gist:license
 
 gist:links
 	a owl:ObjectProperty ;
-	skos:definition "Relates a network link to a network node that it connects to another node. Used when the connections are undirected, or the direction is not known."^^xsd:string ;
+skos:definition "Relates a network link to one of the two network nodes that it connects. Used when the connections are undirected, or the direction is not known."^^xsd:string ;
 	skos:prefLabel "links"^^xsd:string ;
 	.
 
