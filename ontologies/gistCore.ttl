@@ -1029,7 +1029,7 @@ gist:LivingThing
 			]
 		) ;
 	] ;
-	skos:definition "Something that is currently, or at some point in time was or will be, alive."^^xsd:string ;
+	skos:definition "Something that is currently, or at some point in time was, alive."^^xsd:string ;
 	skos:example
 		"A cat, a mushroom, a tree."^^xsd:string ,
 		"Negative examples: fictional life forms such as unicorns or Mickey Mouse."^^xsd:string
@@ -2724,7 +2724,7 @@ gist:hasGiver
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasParticipant ;
 	owl:propertyDisjointWith gist:hasRecipient ;
-	skos:definition "Relates something to the party on the receiving end."^^xsd:string ;
+	skos:definition "Relates something to the party on the giving end."^^xsd:string ;
 	skos:prefLabel "has giver"^^xsd:string ;
 	.
 
