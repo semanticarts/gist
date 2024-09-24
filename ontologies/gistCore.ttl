@@ -207,7 +207,7 @@ gist:Building
 		;
 	skos:definition "A relatively permanent man-made structure situated on a plot of land, having a roof and walls, commonly used for dwelling, entertaining, or working."^^xsd:string ;
 	skos:example
-		"A house, school, store, factory, chicken coop."^^xsd:string ,
+		"A house, a school, a store, a factory, a chicken coop."^^xsd:string ,
 		"Negative examples: houseboats (not built on land), caves (not man-made), food trucks and RVs (not permanently situated)."^^xsd:string
 		;
 	skos:prefLabel "Building"^^xsd:string ;
@@ -357,7 +357,7 @@ gist:Content
 		gist:UnitOfMeasure
 		;
 	skos:definition "Information available in some medium."^^xsd:string ;
-	skos:example "A document, program, image."^^xsd:string ;
+	skos:example "A document, a program, an image."^^xsd:string ;
 	skos:prefLabel "Content"^^xsd:string ;
 	skos:scopeNote "Categories are not content until they are written down."^^xsd:string ;
 	.
@@ -615,7 +615,7 @@ gist:Event
 	a owl:Class ;
 	skos:definition "Something that occurs over a period of time, often characterized as an activity being carried out by some person, organization, or software application or brought about by natural forces."^^xsd:string ;
 	skos:editorialNote "See guidance on removing the term in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1679565100."^^xsd:string ;
-	skos:example "A transaction, conference, baseball game, earthquake."^^xsd:string ;
+	skos:example "A transaction, a conference, a baseball game, an earthquake."^^xsd:string ;
 	skos:prefLabel "Event"^^xsd:string ;
 	skos:scopeNote
 		"An event does not necessarily have either planned or actual start or end datetimes. For example, a conference can be in the planning phase without any dates selected, but is nevertheless an (unscheduled) event. The subclasses of gist:Event state particular restrictions on planned and actual start and end dates."^^xsd:string ,
@@ -1232,10 +1232,7 @@ gist:Obligation
 	] ;
 	skos:definition "A future commitment from one organization or person to another."^^xsd:string ;
 	skos:prefLabel "Obligation"^^xsd:string ;
-	skos:scopeNote
-		"Contracts are sets of obligations to do or forbear or to indemnify or warrant."^^xsd:string ,
-		"Obligations will often be governed by some Agreement or Offer."^^xsd:string
-		;
+	skos:scopeNote "Obligations will often be governed by some Agreement or Offer. Contracts are sets of obligations to do or forbear or to indemnify or warrant."^^xsd:string ;
 	.
 
 gist:Offer
@@ -1987,12 +1984,11 @@ gist:TimeInterval
 			owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 		]
 		;
-	skos:definition "A span of time with a known start time, end time, and duration."^^xsd:string ;
+	skos:definition "A span of time with a known start time, end time, and duration. As long as two of the three are known, the third can be inferred."^^xsd:string ;
 	skos:example "7pm to 9pm on Jan 1, 2001; fiscal year 2023 (according to some particular definition of fiscal year); the week starting at midnight of January 12, 2023 and lasting exactly 168 hours."^^xsd:string ;
 	skos:prefLabel "Time Interval"^^xsd:string ;
 	skos:scopeNote
 		"An ongoing state of affairs with an unknown end time in the future cannot be a time interval; e.g. the lifespan of a living person cannot be a time interval, as the end time is unknown."^^xsd:string ,
-		"As long as two of the three are known, the third can be inferred."^^xsd:string ,
 		"This is distinct from a duration, which describes how long a time interval lasts (e.g., one hour; 3 days; 22 minutes)."^^xsd:string
 		;
 	.
@@ -2728,7 +2724,7 @@ gist:hasGiver
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasParticipant ;
 	owl:propertyDisjointWith gist:hasRecipient ;
-	skos:definition "Relates something to the party on the giving end."^^xsd:string ;
+	skos:definition "Relates something to the party on the receiving end."^^xsd:string ;
 	skos:prefLabel "has giver"^^xsd:string ;
 	.
 
@@ -3078,7 +3074,6 @@ gist:latitude
 gist:license
 	a owl:AnnotationProperty ;
 	skos:definition "Relates something to its license."^^xsd:string ;
-	skos:example "Ontologies and software specify a URL link containing the license text"^^xsd:string ;
 	skos:prefLabel "license"^^xsd:string ;
 	.
 
@@ -3155,7 +3150,7 @@ gist:occursIn
 gist:offers
 	a owl:ObjectProperty ;
 	skos:definition "Relates something to a thing it makes available for acceptance or rejection."^^xsd:string ;
-	skos:example "A company offers an employee benefit; Honda offers vehicles for sale."^^xsd:string ;
+	skos:example "An instance of gist:Offer offers a specific product at a particular price; a company offers an employee benefit; Honda offers vehicles for sale."^^xsd:string ;
 	skos:prefLabel "offers"^^xsd:string ;
 	skos:scopeNote "An offer offers a specific product at a particular price."^^xsd:string ;
 	.
