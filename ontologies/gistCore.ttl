@@ -120,7 +120,7 @@ gist:Account
 		) ;
 	] ;
 	skos:definition "An agreement having a balance."^^xsd:string ;
-	skos:example "A bank account, a credit card account, or an accounts receivable account."^^xsd:string ;
+	skos:example "A bank account, a credit card account, an accounts receivable account."^^xsd:string ;
 	skos:prefLabel "Account"^^xsd:string ;
 	.
 
@@ -186,7 +186,7 @@ gist:Artifact
 gist:Aspect
 	a owl:Class ;
 	skos:definition "A measurable characteristic."^^xsd:string ;
-	skos:example: "Length, weight, cost, cycle time, or defect rate"^^xsd:string ;
+	skos:example: "Length, weight, cost, cycle time, defect rate"^^xsd:string ;
 	skos:prefLabel "Aspect"^^xsd:string ;
 	skos:scopeNote "Every aspect should be related to a broader aspect or to a unit group. For example, angle of incidence should be related to the broader concept of angle, which in turn is related to a unit group."^^xsd:string ;
 	.
@@ -194,8 +194,8 @@ gist:Aspect
 gist:Behavior
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-skos:definition "A category indicating the nature of what is happening during an event."^^xsd:string ;
-skos:example "Drilling and cutting are two different kinds of manufacturing event."^^xsd:string ;
+	skos:definition "A category indicating the nature of what is happening during an event."^^xsd:string ;
+	skos:example "Drilling and cutting are two different kinds of manufacturing event."^^xsd:string ;
 	skos:prefLabel "Behavior"^^xsd:string ;
 	.
 
@@ -357,7 +357,7 @@ gist:Content
 		gist:UnitOfMeasure
 		;
 	skos:definition "Information available in some medium."^^xsd:string ;
-	skos:example "A document, program, or image."^^xsd:string ;
+	skos:example "A document, program, image."^^xsd:string ;
 	skos:prefLabel "Content"^^xsd:string ;
 	skos:scopeNote "Categories are not content until they are written down."^^xsd:string ;
 	.
@@ -410,7 +410,7 @@ gist:ContingentEvent
 		) ;
 	] ;
 	skos:definition "An event with a probability of happening in the future, and usually dependent upon some other event or condition."^^xsd:string ;
-skos:example "A fire insurance payout is contingent on a particular building burning down; selling 20 shares of stock in a given company is contingent on the price dropping below $200/share; the death benefit payout on a life insurance policy is contingent on the death of a specific person."^^xsd:string ;
+	skos:example "A fire insurance payout is contingent on a particular building burning down; selling 20 shares of stock in a given company is contingent on the price dropping below $200/share; the death benefit payout on a life insurance policy is contingent on the death of a specific person."^^xsd:string ;
 	skos:prefLabel "Contingent Event"^^xsd:string ;
 	.
 
@@ -573,7 +573,7 @@ gist:ElectronicAddress
 	owl:disjointWith gist:PhysicalAddress ;
 	skos:altLabel "Virtual Address"^^xsd:string ;
 	skos:definition "An address referring to a locatable virtual place that does not physically exist but is made by software or electronics to appear to do so."^^xsd:string ;
-	skos:example "A path to a file in a file system; a website URL; an IP address; an email address; a mobile or landline telephone number."^^xsd:string ;
+	skos:example "A file system path, a website URL, an IP address, an email address, a mobile or landline telephone number."^^xsd:string ;
 	skos:prefLabel "Electronic Address"^^xsd:string ;
 	.
 
@@ -662,7 +662,7 @@ gist:GeneralMediaType
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
 	skos:definition "The real-world media type for content."^^xsd:string ;
-	skos:example "Audio, still image, video, textual, physical (e.g., a statue), performance (e.g.,  a play, oil paint."^^xsd:string ;
+	skos:example "Audio, still image, video, textual, physical (e.g., a statue), performance (e.g.,  a play, oil paint)."^^xsd:string ;
 	skos:prefLabel "General Media Type"^^xsd:string ;
 	.
 
@@ -711,7 +711,7 @@ gist:GeoPoint
 	] ;
 	skos:definition "An individual point on the Earth's surface, identified by latitude, longitude, and altitude."^^xsd:string ;
 	skos:prefLabel "Geo Point"^^xsd:string ;
-	skos:scopeNote "Assume coordinate system used by Google (WGS 84 Web Mercator using the GPS decimal lat/long)."^^xsd:string ;
+	skos:scopeNote "If altitude is missing, it is assumed to be at the Earth's surface. However, altitude is measured from sea level. Assume coordinate system used by Google (WGS 84 Web Mercator using the GPS decimal lat/long)."^^xsd:string ;
 	.
 
 gist:GeoRegion
@@ -794,7 +794,7 @@ gist:GeoSegment
 			]
 		) ;
 	] ;
-	skos:definition "A single portion of a geographical region which has been divided (i.e., segmented)."^^xsd:string ;
+	skos:definition "A single portion of a geographical route which has been divided (i.e., segmented)."^^xsd:string ;
 	skos:prefLabel "Geo Segment"^^xsd:string ;
 	.
 
@@ -1129,7 +1129,7 @@ gist:Message
 		) ;
 	] ;
 	skos:definition "A specific instance of content sent from a sender to at least one other recipient."^^xsd:string ;
-	skos:example "An email message, a phone call, a voice message, or a web service message."^^xsd:string ;
+	skos:example "An email message, a phone call, a voice message, a web service message."^^xsd:string ;
 	skos:prefLabel "Message"^^xsd:string ;
 	.
 
@@ -1231,9 +1231,11 @@ gist:Obligation
 		) ;
 	] ;
 	skos:definition "A future commitment from one organization or person to another."^^xsd:string ;
-	skos:example "Contracts are sets of obligations to do or forbear or to indemnify or warrant."^^xsd:string ;
 	skos:prefLabel "Obligation"^^xsd:string ;
-	skos:scopeNote "Obligations will often be governed by some Agreement or Offer."^^xsd:string ;
+	skos:scopeNote
+		"Contracts are sets of obligations to do or forbear or to indemnify or warrant."^^xsd:string ,
+		"Obligations will often be governed by some Agreement or Offer."^^xsd:string
+		;
 	.
 
 gist:Offer
@@ -1451,7 +1453,7 @@ gist:PhysicalAddress
 		) ;
 	] ;
 	skos:definition "An address that refers to a locatable place within the physical universe."^^xsd:string ;
-	skos:example "100 Main Street, Arlington, VA 22203; Harriet Smith, PO Box 100, Arlington, VA 22203."^^xsd:string ;
+	skos:example "1600 Pennsylvania Avenue NW, Washington, DC 20500; PO Box 7704, San Francisco, CA 94120-7704."^^xsd:string ;
 	skos:prefLabel "Physical Address"^^xsd:string ;
 	.
 
@@ -1814,9 +1816,9 @@ gist:Tag
 			]
 		) ;
 	] ;
-	skos:definition "A term in a folksonomy used to categorize things."^^xsd:string ;
+	skos:definition "A term in a folksonomy used to categorize things. Tags can be made up on the fly by users."^^xsd:string ;
 	skos:prefLabel "Tag"^^xsd:string ;
-	skos:scopeNote "Whether to use gist:containedText or gist:uniqueText on tags is an implementation decision. Tags can be made up on the fly by users."^^xsd:string ;
+	skos:scopeNote "Whether to use gist:containedText or gist:uniqueText on tags is an implementation decision."^^xsd:string ;
 	.
 
 gist:Task
@@ -1907,7 +1909,7 @@ gist:Template
 	a owl:Class ;
 	owl:disjointWith gist:UnitOfMeasure ;
 	skos:definition "Something used to make objects in its own image."^^xsd:string ;
-	skos:example "A die in manufacturing is used to make stamped parts;  a form provides a structure and fields to be filled in; a cookie cutter is a template for cookies."^^xsd:string ;
+	skos:example "A die in manufacturing is used to make stamped parts; a form provides a structure and fields to be filled in; a cookie cutter is a template for cookies."^^xsd:string ;
 	skos:prefLabel "Template"^^xsd:string ;
 	skos:scopeNote "Use gist:isBasedOn to link the object made from the template back to the template."^^xsd:string ;
 	.
@@ -1951,7 +1953,7 @@ gist:Text
 		) ;
 	] ;
 	skos:definition "Content expressed as words and numbers."^^xsd:string ;
-	skos:example "Negative example: graphic content."^^xsd:string ;
+	skos:example "Negative example: graphical content."^^xsd:string ;
 	skos:prefLabel "Text"^^xsd:string ;
 	.
 
@@ -2726,7 +2728,7 @@ gist:hasGiver
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasParticipant ;
 	owl:propertyDisjointWith gist:hasRecipient ;
-	skos:definition "The active party, i.e., the one with the obligation or the one initiating the transfer."^^xsd:string ;
+	skos:definition "Relates something to the party on the giving end."^^xsd:string ;
 	skos:prefLabel "has giver"^^xsd:string ;
 	.
 
@@ -2738,7 +2740,7 @@ gist:hasGoal
 
 gist:hasIncumbent
 	a owl:ObjectProperty ;
-	skos:definition "What equipment or person is currently in this node."^^xsd:string ;
+	skos:definition "Relates a position to the thing or person that is holding that position."^^xsd:string ;
 	skos:prefLabel "has incumbent"^^xsd:string ;
 	skos:scopeNote "To create a temporal view, make a temporal relation for this property."^^xsd:string ;
 	.
@@ -2807,7 +2809,7 @@ gist:hasPhysicalLocation
 gist:hasRecipient
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasParticipant ;
-	skos:definition "Relates something to its recipient."^^xsd:string ;
+	skos:definition "Relates something to the party on the receiving end."^^xsd:string ;
 	skos:prefLabel "has recipient"^^xsd:string ;
 	.
 
@@ -2879,7 +2881,7 @@ gist:isAbout
 
 gist:isAffectedBy
 	a owl:ObjectProperty ;
-	skos:definition "Where the effect came from."^^xsd:string ;
+	skos:definition "Relates an affected thing to the source of the effect."^^xsd:string ;
 	skos:prefLabel "is affected by"^^xsd:string ;
 	.
 
@@ -3032,7 +3034,7 @@ gist:isRecognizedBy
 gist:isRecordedAt
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf gist:atDateTime ;
-	skos:definition "Date that something was posted (which is not necessarily the date it occurred). Must be after the date of occurrence, but could be before or after the planned date."^^xsd:string ;
+	skos:definition "Relates somthing to the date that it was posted (which is not necessarily the date it occurred). Must be after the date of occurrence, but could be before or after the planned date."^^xsd:string ;
 	skos:example "Recording today that you expected to be paid last week."^^xsd:string ;
 	skos:prefLabel "is recorded at"^^xsd:string ;
 	skos:scopeNote "Precision may vary according to context."^^xsd:string ;
@@ -3040,7 +3042,7 @@ gist:isRecordedAt
 
 gist:isRenderedOn
 	a owl:ObjectProperty ;
-	skos:definition "What media something was rendered on."^^xsd:string ;
+	skos:definition "Relates something to the media on which it is rendered."^^xsd:string ;
 	skos:prefLabel "is rendered on"^^xsd:string ;
 	.
 
@@ -3054,7 +3056,7 @@ gist:isSupersededBy
 gist:isTriggeredBy
 	a owl:ObjectProperty ;
 	skos:definition "Relates a contingency, such as an event or obligation, to the event that gives rise to it."^^xsd:string ;
-	skos:example "Fire insurance is contingent on a particular building burning down; the death benefit payout on a life insurance policy is contingent on the death of a specific person."^^xsd:string ;
+	skos:example "A fire insurance is contingent on a particular building burning down; the death benefit payout on a life insurance policy is contingent on the death of a specific person."^^xsd:string ;
 	skos:prefLabel "is triggered by"^^xsd:string ;
 	skos:scopeNote "For obligations, this property describes what must happen to trigger the contingent obligation. Other uses include controls, processes, etc."^^xsd:string ;
 	.
@@ -3069,19 +3071,20 @@ gist:latitude
 	a owl:DatatypeProperty ;
 	rdfs:domain gist:GeoPoint ;
 	rdfs:range xsd:double ;
-	skos:definition "Degrees above or below equator."^^xsd:string ;
+	skos:definition "Degrees above or below the equator."^^xsd:string ;
 	skos:prefLabel "latitude"^^xsd:string ;
 	.
 
 gist:license
 	a owl:AnnotationProperty ;
-	skos:definition "An annotation for providing the licensing on this or derivative ontologies."^^xsd:string ;
+	skos:definition "Relates something to its license."^^xsd:string ;
+	skos:example "Ontologies and software specify a URL link containing the license text"^^xsd:string ;
 	skos:prefLabel "license"^^xsd:string ;
 	.
 
 gist:links
 	a owl:ObjectProperty ;
-skos:definition "Relates a network link to one of the two network nodes that it connects. Used when the connections are undirected, or the direction is not known."^^xsd:string ;
+	skos:definition "Relates a network link to one of the two network nodes that it connects. Used when the connections are undirected, or the direction is not known."^^xsd:string ;
 	skos:prefLabel "links"^^xsd:string ;
 	.
 
@@ -3166,7 +3169,7 @@ gist:owns
 			gist:Person
 		) ;
 	] ;
-	skos:definition "Relates something to a thing it possesses and controls."^^xsd:string ;
+	skos:definition "Relates a party to something that it possesses and controls."^^xsd:string ;
 	skos:prefLabel "owns"^^xsd:string ;
 	skos:scopeNote
 		"The range of this property is the union of many potential classes."^^xsd:string ,
