@@ -709,7 +709,7 @@ gist:GeoPoint
 			]
 		) ;
 	] ;
-	skos:definition "An individual point in physical space identified by latitude, longitude and altitude. If altitude is missing, the point is assumed to be at the Earth's surface, and the altitude is the distance measured from sea level."^^xsd:string ;
+	skos:definition "An individual point in physical space identified by latitude, longitude, and altitude. If altitude is missing, the point is assumed to be at the Earth's surface, and the altitude is the distance measured from sea level."^^xsd:string ;
 	skos:prefLabel "Geo Point"^^xsd:string ;
 	skos:scopeNote "Assume coordinate system used by Google (WGS 84 Web Mercator using the GPS decimal lat/long)."^^xsd:string ;
 	.
