@@ -1568,7 +1568,10 @@ gist:PhysicalSubstance
 		;
 	owl:disjointWith gist:UnitOfMeasure ;
 	skos:definition "An undifferentiated amount of physical material which, when subdivided, results in each part being indistinguishable in nature from the whole and from every other part."^^xsd:string ;
-	skos:example "An amount of water, penicillin, sand, or gold."^^xsd:string ;
+	skos:example
+		"An amount of water, penicillin, sand, or gold."^^xsd:string ,
+		"Negative example: the concept of gold."^^xsd:string
+		;
 	skos:prefLabel "Physical Substance"^^xsd:string ;
 	skos:scopeNote
 		"An instance of this class has weight and takes up space. We mean the physical gold in a ring, not the concept of gold that shows up in the periodic table."^^xsd:string ,
