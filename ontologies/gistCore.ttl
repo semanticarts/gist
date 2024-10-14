@@ -2226,9 +2226,13 @@ gist:comesFromAgent
 			gist:Person
 		) ;
 	] ;
-	skos:definition "The party that is the source of something (e.g. a message, shipment, etc.)"^^xsd:string ;
+	skos:definition "Relates something in motion to the agent that originated the motion."^^xsd:string ;
+	skos:example "A package is shipped by a person; a purchase order is sent by an organization."^^xsd:string ;
 	skos:prefLabel "comes from agent"^^xsd:string ;
-	skos:scopeNote 'This is not the inverse of gist:goesToAgent. A message can be to someone. If we made it the inverse the person would be "from" the message'^^xsd:string ;
+	skos:scopeNote
+		"In general, 'gist:comesFromAgent' is intended for when the subject is in motion. However, there is some overlap in when 'gist:hasGiver' and 'gist:comesFromAgent' can be used, such as giving a gift."^^xsd:string ,
+		'This is not the inverse of gist:goesToAgent. A message can be to someone. If we made it the inverse the person would be "from" the message'^^xsd:string
+		;
 	.
 
 gist:comesFromPlace
@@ -2240,7 +2244,8 @@ gist:comesFromPlace
 			gist:Place
 		) ;
 	] ;
-	skos:definition "Origin"^^xsd:string ;
+	skos:definition "Relates something in motion or something that enables motion to its place of origin."^^xsd:string ;
+	skos:example "A letter has a return address indicating its origin; a delivery route originates at a distribution center; a trail originates at the trailhead."^^xsd:string ;
 	skos:prefLabel "comes from place"^^xsd:string ;
 	.
 
@@ -2663,9 +2668,13 @@ gist:goesToAgent
 			gist:Person
 		) ;
 	] ;
-	skos:definition "The party that is the recipient of something (e.g. a message, shipment, etc.)"^^xsd:string ;
+	skos:definition "Relates something in motion to the agent that receives it, concluding the motion."^^xsd:string ;
+	skos:example "A package is sent to a person; a purchase order is recieved by a seller."^^xsd:string ;
 	skos:prefLabel "goes to agent"^^xsd:string ;
-	skos:scopeNote 'This is not the inverse of gist:comesFromAgent. A message can be from someone. If we made it the inverse the person would be "to" the message'^^xsd:string ;
+	skos:scopeNote
+		"In general, 'gist:goesToAgent' is intended for when the subject moves. However, there is some overlap in when 'gist:hasRecipient' and 'gist:goesToAgent' can be used, such as recieving a gift."^^xsd:string ,
+		'This is not the inverse of gist:comesFromAgent. A message can be from someone. If we made it the inverse the person would be "to" the message'^^xsd:string
+		;
 	.
 
 gist:goesToPlace
@@ -2677,7 +2686,8 @@ gist:goesToPlace
 			gist:Place
 		) ;
 	] ;
-	skos:definition "Destination"^^xsd:string ;
+	skos:definition "Relates something in motion or something that enables motion to its destination."^^xsd:string ;
+	skos:example "A letter has an address indicating its destination; a segment of a delivery route terminates at a delivery location; a trail terminates at an intersection with another trail."^^xsd:string ;
 	skos:prefLabel "goes to place"^^xsd:string ;
 	.
 
@@ -2762,8 +2772,10 @@ gist:hasGiver
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasParticipant ;
 	owl:propertyDisjointWith gist:hasRecipient ;
-	skos:definition "The active party, the one with the obligation or the one initiating the transfer"^^xsd:string ;
+	skos:definition "Relates something to the participant that originates it."^^xsd:string ;
+	skos:example "An offer is made by a giver; an obligation has a giver who is obligated to another person; a gift is presented by the giver."^^xsd:string ;
 	skos:prefLabel "has giver"^^xsd:string ;
+	skos:scopeNote "In general, 'gist:hasGiver' is intended for when the subject does not move. However, there is some overlap in when 'gist:hasGiver' and 'gist:comesFromAgent' can be used, such as giving a gift."^^xsd:string ;
 	.
 
 gist:hasGoal
@@ -2844,8 +2856,10 @@ gist:hasPhysicalLocation
 gist:hasRecipient
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasParticipant ;
-	skos:definition "The recipient"^^xsd:string ;
+	skos:definition "Relates something to the participant that receives it."^^xsd:string ;
+	skos:example "An offer is made to a recipient; an obligation has a recipient to whom another person is obligated; a gift is bestowed upon a recipient."^^xsd:string ;
 	skos:prefLabel "has recipient"^^xsd:string ;
+	skos:scopeNote "In general, 'gist:hasRecipient' is intended for when the subject does not move. However, there is some overlap in when 'gist:hasRecipient' and 'gist:goesToAgent' can be used, such as recieving a gift."^^xsd:string ;
 	.
 
 gist:hasSubtrahend
