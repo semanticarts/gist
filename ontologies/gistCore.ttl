@@ -1755,7 +1755,7 @@ gist:SpecEntry
 	skos:prefLabel "Spec Entry"^^xsd:string ;
 	skos:scopeNote
 		"In addition to ordinary numerical scales, sets of acceptable values may also come from nominal or ordinal scales of measure."^^xsd:string ,
-		"Often this will be about what is required, allowed or promised, but it could also be used to specify what is not allowed."^^xsd:string
+		"Often this will be about what is required, allowed or promised, but it could also be used to specify what is disallowed."^^xsd:string
 		;
 	.
 
