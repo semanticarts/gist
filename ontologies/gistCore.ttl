@@ -2887,8 +2887,10 @@ gist:hasValueEqualToOneOf
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf ops:hasSpecifiedValue ;
 	skos:definition "Relates a specification to a collection of values, one of which a characteristic must be equal to."^^xsd:string ;
+	skos:editorialNote "If this operator is added to the operators ontology in the future, update gist core to use the ops namespace instead of gist for the hasValueEqualToOneOf property."^^xsd:string ;
 	skos:example "The color of something must be blue or red."^^xsd:string ;
 	skos:prefLabel "has value equal to one of"^^xsd:string ;
+	skos:scopeNote "This adds to the set of operators defined in the imported operators ontology."^^xsd:string ;
 	.
 
 gist:idText
