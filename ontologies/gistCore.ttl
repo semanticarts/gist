@@ -2883,6 +2883,14 @@ gist:hasUnitOfMeasure
 	skos:prefLabel "has unit of measure"^^xsd:string ;
 	.
 
+gist:hasValueEqualToOneOf
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf ops:hasSpecifiedValue ;
+	skos:definition "Relates a specification to a collection of values, one of which a characteristic must be equal to."^^xsd:string ;
+	skos:example "The color of something must be blue or red."^^xsd:string ;
+	skos:prefLabel "has value equal to one of"^^xsd:string ;
+	.
+
 gist:idText
 	a owl:DatatypeProperty ;
 	rdfs:range xsd:string ;
