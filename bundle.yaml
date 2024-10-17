@@ -107,6 +107,7 @@ actions:
     - gistValidationAnnotations.ttl
 - action: "definedBy"
   message: "Adding rdfs:isDefinedBy."
+  versionedDefinedBy: true
   source: "{output}/ontologies"
   target: "{output}/ontologies"
   includes:
