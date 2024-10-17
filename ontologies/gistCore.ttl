@@ -2668,7 +2668,7 @@ gist:goesToAgent
 			gist:Person
 		) ;
 	] ;
-	skos:definition "Relates something the agent that receives it."^^xsd:string ;
+	skos:definition "Relates something to the agent that receives it."^^xsd:string ;
 	skos:example "A package is sent to a person; a purchase order email is received by a vendor."^^xsd:string ;
 	skos:prefLabel "goes to agent"^^xsd:string ;
 	skos:scopeNote
