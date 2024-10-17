@@ -108,7 +108,6 @@ actions:
 - action: "definedBy"
   message: "Adding rdfs:isDefinedBy."
   versionedDefinedBy: true
-  allDefinedBy: true
   source: "{output}/ontologies"
   target: "{output}/ontologies"
   includes:
