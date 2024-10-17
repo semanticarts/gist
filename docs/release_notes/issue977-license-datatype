@@ -1,1 +1,4 @@
-Change the datatype of the gist license to xsd:anyURI.
+
+### Patch Updates
+
+- Changed the datatype of the `gist:license` value to `xsd:anyURI`. Issue [#977](https://github.com/semanticarts/gist/issues/977).
