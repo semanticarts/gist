@@ -224,7 +224,7 @@ Certain RDFS annotations are recommended where there is no SKOS equivalent.
 | ---------: | ----------- |
 | `skos:prefLabel`, `skos:altLabel` | See section [Labels](#labels) above. |
 | `skos:definition`, `skos:scopeNote`, `skos:note`, `skos:editorialNote` | Full sentence(s) ending in period. It is acceptable to omit the subject at the beginning of the definition in order to avoid the vacuous "This predicate..." or "This class is..." E.g., "Relates a person to his or her spouse." or "A series of steps in a workflow." There should nevertheless be a final period. Use Oxford commas.|
-| `skos:example` | May be either a full sentence or a list. Use a final period only in the former case. E.g., "SSN, driver's license number, employee ID" or "NIH sponsors a research project." Lists with short items, such as the first example, can be delimited by either commas (include Oxford commas) or semi-colons; full-sentence examples should be semi-colon-delimited. |
+| `skos:example` | May be either a full sentence, a list, or a single value. Full sentence or list examples should end with a period, e.g., "SSN, driver's license number, employee ID." or "NIH sponsors a research project." Lists with short items, such as the first example, can be delimited by either commas (include Oxford commas) or semi-colons; full-sentence examples should be semi-colon-delimited. Single value examples include `"application/sparql-results+xml"` for `gist:MediaType` and datetime values such as `'2021-06-01T00:00:00-6:00'^^xsd:dateTime` for `gist:actualEndDate`. |
 
 ### Cardinality
 
