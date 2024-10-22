@@ -2230,8 +2230,8 @@ gist:comesFromAgent
 	skos:example "A package is shipped by a person; a purchase order is emailed to a vendor by an organization."^^xsd:string ;
 	skos:prefLabel "comes from agent"^^xsd:string ;
 	skos:scopeNote
-		"In general, this property is intended to describe the physical or electronic transfer of something, such as a package or email, from one agent to another, whereas gist:hasGiver is typically used in more abstract contexts such as agreements, obligations, contracts, etc. However, there are contexts in which either may be appropriate, such as the giving of a gift."^^xsd:string ,
-		"This is not the inverse of gist:goesToAgent, as both properties have the message or shipment as the subject."^^xsd:string
+		"This is not the inverse of gist:goesToAgent, as both properties have the message or shipment as the subject."^^xsd:string ,
+		"This property is intended to describe the physical or electronic transfer of something, such as a package or email, from one agent to another, whereas gist:hasGiver is typically used in more abstract contexts such as agreements, obligations, contracts, etc. However, there are contexts in which either may be appropriate, such as the giving of a gift."^^xsd:string
 		;
 	.
 
@@ -2672,8 +2672,8 @@ gist:goesToAgent
 	skos:example "A package is sent to a person; a purchase order email is received by a vendor."^^xsd:string ;
 	skos:prefLabel "goes to agent"^^xsd:string ;
 	skos:scopeNote
-		"In general, this property is intended to describe the physical or electronic transfer of something, such as a package or email, from one agent to another, whereas gist:hasRecipient is typically used in more abstract contexts such as agreements, obligations, contracts, etc. However, there are contexts in which either may be appropriate, such as the recieving of a gift."^^xsd:string ,
-		"This is not the inverse of gist:comesFromAgent, as both properties have the message or shipment as the subject."^^xsd:string
+		"This is not the inverse of gist:comesFromAgent, as both properties have the message or shipment as the subject."^^xsd:string ,
+		"This property is intended to describe the physical or electronic transfer of something, such as a package or email, from one agent to another, whereas gist:hasRecipient is typically used in more abstract contexts such as agreements, obligations, contracts, etc. However, there are contexts in which either may be appropriate, such as the recieving of a gift."^^xsd:string
 		;
 	.
 
@@ -2775,7 +2775,7 @@ gist:hasGiver
 	skos:definition "Relates something to the participant that originates it."^^xsd:string ;
 	skos:example "An offer is made by a giver; an obligation has a giver who is obligated to another person; a gift is presented by the giver."^^xsd:string ;
 	skos:prefLabel "has giver"^^xsd:string ;
-	skos:scopeNote "In general, this property is used in abstract contexts such as agreements, obligations, contracts, etc., whereas gist:comesFromAgent is intended to describe the physical or electronic transfer of something, such as a package or email, from one agent to another. However, there are contexts in which either may be appropriate, such as the giving of a gift."^^xsd:string ;
+	skos:scopeNote "This property is often used in abstract contexts such as agreements, obligations, contracts, etc., whereas gist:comesFromAgent is intended to describe the physical or electronic transfer of something, such as a package or email, from one agent to another. However, there are contexts in which either may be appropriate, such as the giving of a gift."^^xsd:string ;
 	.
 
 gist:hasGoal
@@ -2859,7 +2859,7 @@ gist:hasRecipient
 	skos:definition "Relates something to the participant that receives it."^^xsd:string ;
 	skos:example "An offer is made to a recipient; an obligation has a recipient to whom another person is obligated; a gift is bestowed upon a recipient."^^xsd:string ;
 	skos:prefLabel "has recipient"^^xsd:string ;
-	skos:scopeNote "In general, this property is used in abstract contexts such as agreements, obligations, contracts, etc., whereas gist:goesToAgent is intended to describe the physical or electronic transfer of something, such as a package or email, from one agent to another. However, there are contexts in which either may be appropriate, such as the giving of a gift."^^xsd:string ;
+	skos:scopeNote "This property is used in abstract contexts such as agreements, obligations, contracts, etc., whereas gist:goesToAgent is intended to describe the physical or electronic transfer of something, such as a package or email, from one agent to another. However, there are contexts in which either may be appropriate, such as the giving of a gift."^^xsd:string ;
 	.
 
 gist:hasSubtrahend
