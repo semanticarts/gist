@@ -778,6 +778,7 @@ gist:GeoRoute
 	] ;
 	skos:definition "An ordered set of GeoPoints that defines a path from starting point to ending point."^^xsd:string ;
 	skos:prefLabel "Geo Route"^^xsd:string ;
+	skos:scopeNote "Each pair of consecutive GeoPoints in a GeoRoute is a GeoSegment."^^xsd:string ;
 	.
 
 gist:GeoSegment
@@ -800,7 +801,7 @@ gist:GeoSegment
 			]
 		) ;
 	] ;
-	skos:definition "A single portion of a GeoRegion which has been divided (i.e., segmented)."^^xsd:string ;
+	skos:definition "A single portion of a GeoRoute consisting of a pair of consecutive GeoPoints which belong to it."^^xsd:string ;
 	skos:prefLabel "Geo Segment"^^xsd:string ;
 	.
 
