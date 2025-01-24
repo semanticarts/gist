@@ -781,31 +781,6 @@ gist:GeoRoute
 	skos:scopeNote "Each pair of consecutive GeoPoints in a GeoRoute is a GeoSegment."^^xsd:string ;
 	.
 
-gist:GeoSegment
-	a owl:Class ;
-	rdfs:subClassOf gist:Place ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:comesFromPlace ;
-				owl:onClass gist:GeoPoint ;
-				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:goesToPlace ;
-				owl:onClass gist:GeoPoint ;
-				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			]
-		) ;
-	] ;
-	skos:definition "A single portion of a GeoRoute consisting of a pair of consecutive GeoPoints which belong to it."^^xsd:string ;
-	skos:prefLabel "Geo Segment"^^xsd:string ;
-	skos:scopeNote "A GeoSegment is also a GeoRoute (a short one)."^^xsd:string ;
-	.
-
 gist:GeoVolume
 	a owl:Class ;
 	rdfs:subClassOf gist:Place ;
