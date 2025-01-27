@@ -1,0 +1,1 @@
+Change the class equivalence statement for GeoRoute to say it is an ordered collection whose members are geo points. Also, GeoSegment is not necessary because it is just a geo route with two geo points. Therefore the class GeoSegment is being removed from gist.
