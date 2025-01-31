@@ -1,1 +1,7 @@
-Change the class equivalence statement for GeoRoute to say it is an ordered collection whose members are geo points. Also, GeoSegment is not necessary because it is just a geo route with two geo points. Therefore the class GeoSegment is being removed from gist.
+### Minor Updates
+
+- Deprecate `gist:GeoSegment`. Issue [#1165](https://github.com/semanticarts/gist/issues/1165).
+
+### Patch Updates
+
+- Correct errors in property restriction on `gist:GeoRoute`. Issue [#1165](https://github.com/semanticarts/gist/issues/1165).
