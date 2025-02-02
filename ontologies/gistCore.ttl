@@ -802,7 +802,7 @@ gist:GeoSegment
 		) ;
 	] ;
 	skos:definition "A single portion of a GeoRoute consisting of a pair of consecutive GeoPoints which belong to it."^^xsd:string ;
-	skos:editorialNote "See guidance on removing this term in the next major release at #1181."^^xsd:string ;
+	skos:editorialNote "See guidance on removing this term in the next major release at #1182."^^xsd:string ;
 	skos:prefLabel "Geo Segment"^^xsd:string ;
 	skos:scopeNote "A GeoSegment is also a GeoRoute (a short one)."^^xsd:string ;
 	.
