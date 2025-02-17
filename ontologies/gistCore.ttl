@@ -229,7 +229,7 @@ gist:Assignment
 	skos:prefLabel "Assignment"^^xsd:string ;
 	skos:scopeNote
 		"Based on the Open World Assumption, the assigner may not be asserted or known."^^xsd:string ,
-		"For some assignments, such as the assignment of a person to a task, it may seem equally correct in ordinary speech to say it is an assignment of a task to a person. Since gist:isAssignmentTo and gist:isAssignmentOf have no formal domains or ranges, the choice which predicate to use for which is left as an implementation decision. Consistency is a key consideration."^^xsd:string
+		"For some assignments, such as the assignment of a person to a task, it may seem equally correct in ordinary speech to say it is an assignment of a task to a person. Since gist:isAssignmentTo and gist:isAssignmentOf have no formal domains or ranges, the choice of which predicate to use for which is left as an implementation decision. Consistency is a key consideration."^^xsd:string
 		;
 	.
 
