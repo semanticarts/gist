@@ -672,9 +672,16 @@ gist:GeneralMediaType
 	skos:prefLabel "General Media Type"^^xsd:string ;
 	.
 
+gist:GeoLocation
+	a owl:Class ;
+	skos:definition "A physical location, with the earth as a frame of reference."^^xsd:string ;
+	skos:prefLabel "Geo Location"^^xsd:string ;
+	skos:scopeNote "A geo-location may be a geo-point, geo-region, or geo-volume."^^xsd:string ;
+	.
+
 gist:GeoPoint
 	a owl:Class ;
-	rdfs:subClassOf gist:Place ;
+	rdfs:subClassOf gist:GeoLocation ;
 	owl:disjointWith
 		gist:IntellectualProperty ,
 		gist:Intention ,
@@ -725,7 +732,7 @@ gist:GeoRegion
 	rdfs:subClassOf [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:Place
+			gist:GeoLocation
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasMagnitude ;
@@ -757,7 +764,7 @@ gist:GeoRegion
 	skos:definition "A bounded region (or set of regions) on the surface of the Earth."^^xsd:string ;
 	skos:example "The bounded shape that defines the region occupied by Crater Lake; the bounded area known as the contiguous USA."^^xsd:string ;
 	skos:prefLabel "Geo Region"^^xsd:string ;
-	skos:scopeNote "A GeoRegion could be non-contiguous; e.g. the region governed by the USA is the region governed by the lower 48 states plus that of Alaska and Hawaii.  Child classes in lower ontologies can make this distinction."^^xsd:string ;
+	skos:scopeNote "A geo-region could be non-contiguous; e.g. the region governed by the USA is the region governed by the lower 48 states plus that of Alaska and Hawaii.  Child classes in lower ontologies can make this distinction."^^xsd:string ;
 	.
 
 gist:GeoRoute
@@ -766,7 +773,6 @@ gist:GeoRoute
 		a owl:Class ;
 		owl:intersectionOf (
 			gist:OrderedCollection
-			gist:Place
 			[
 				a owl:Restriction ;
 				owl:onProperty [
@@ -776,40 +782,14 @@ gist:GeoRoute
 			]
 		) ;
 	] ;
-	skos:definition "An ordered set of GeoPoints that defines a path from a starting point to an ending point."^^xsd:string ;
+	skos:definition "An ordered set of geo-points that defines a path from a starting point to an ending point."^^xsd:string ;
 	skos:prefLabel "Geo Route"^^xsd:string ;
-	.
-
-gist:GeoSegment
-	a owl:Class ;
-	rdfs:subClassOf gist:Place ;
-	owl:deprecated "true"^^xsd:boolean ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:comesFromPlace ;
-				owl:onClass gist:GeoPoint ;
-				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:goesToPlace ;
-				owl:onClass gist:GeoPoint ;
-				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			]
-		) ;
-	] ;
-	skos:definition "A single portion of a GeoRoute consisting of a pair of consecutive GeoPoints which belong to it."^^xsd:string ;
-	skos:editorialNote "See guidance on removing this term in the next major release at #1182."^^xsd:string ;
-	skos:prefLabel "Geo Segment"^^xsd:string ;
-	skos:scopeNote "A GeoSegment is also a GeoRoute (a short one)."^^xsd:string ;
+	skos:scopeNote "A geo-route could describe a bus route by identifying the points where the bus stops. A geo-route could describe the boundary of a polygonal geo-region (it does not have to be a travelled route."^^xsd:string ;
 	.
 
 gist:GeoVolume
 	a owl:Class ;
-	rdfs:subClassOf gist:Place ;
+	rdfs:subClassOf gist:GeoLocation ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -976,7 +956,6 @@ gist:IntergovernmentalOrganization
 
 gist:Landmark
 	a owl:Class ;
-	rdfs:subClassOf gist:Place ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -1444,7 +1423,7 @@ gist:PhysicalAddress
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:refersTo ;
-				owl:someValuesFrom gist:Place ;
+				owl:someValuesFrom gist:GeoLocation ;
 			]
 		) ;
 	] ;
@@ -1470,7 +1449,7 @@ gist:PhysicalEvent
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:occursIn ;
-				owl:someValuesFrom gist:Place ;
+				owl:someValuesFrom gist:GeoLocation ;
 			]
 		) ;
 	] ;
@@ -1573,12 +1552,6 @@ gist:PhysicalSubstance
 		"An instance of this class has weight and takes up space. We mean the physical gold in a ring, not the concept of gold that shows up in the periodic table."^^xsd:string ,
 		"This concept generally corresponds to mass nouns in English. By contrast, instances of PhysicalIdentifiableItem, such as a computer, book, or car, are count nouns. PhysicalIdentifiableItems are made up of PhysicalSubstances; e.g., a cake is made up of butter, flour, and sugar; a ring is made of gold. If you divide a PhysicalSubstance such as an amount of water into parts, you have different amounts of water otherwise indistinguishable from one another; if you divide a PhysicalIdentifiableItem such as a computer into parts, each part will be distinguishable from the original whole."^^xsd:string
 		;
-	.
-
-gist:Place
-	a owl:Class ;
-	skos:definition "Union of all the geo classes"^^xsd:string ;
-	skos:prefLabel "Place"^^xsd:string ;
 	.
 
 gist:ProductCategory
@@ -2202,7 +2175,7 @@ gist:comesFromPlace
 		a owl:Class ;
 		owl:unionOf (
 			gist:Address
-			gist:Place
+			gist:GeoLocation
 		) ;
 	] ;
 	skos:definition "Origin"^^xsd:string ;
@@ -2639,7 +2612,7 @@ gist:goesToPlace
 		a owl:Class ;
 		owl:unionOf (
 			gist:Address
-			gist:Place
+			gist:GeoLocation
 		) ;
 	] ;
 	skos:definition "Destination"^^xsd:string ;
@@ -2800,7 +2773,7 @@ gist:hasPhysicalLocation
 		owl:ObjectProperty ,
 		owl:TransitiveProperty
 		;
-	rdfs:range gist:Place ;
+	rdfs:range gist:GeoLocation ;
 	skos:definition "Relates something to its physical location."^^xsd:string ;
 	skos:prefLabel "has physical location"^^xsd:string ;
 	skos:scopeNote "This property does not distinguish between things whose locations are stable and those whose locations change over time; e.g., a fire hydrant vs. a car."^^xsd:string ;
@@ -2968,8 +2941,8 @@ gist:isGeoContainedIn
 		owl:ObjectProperty ,
 		owl:TransitiveProperty
 		;
-	rdfs:domain gist:Place ;
-	rdfs:range gist:Place ;
+	rdfs:domain gist:GeoLocation ;
+	rdfs:range gist:GeoLocation ;
 	skos:definition "Relates one place to another that contains it."^^xsd:string ;
 	skos:prefLabel "is geographically contained in"^^xsd:string ;
 	.
