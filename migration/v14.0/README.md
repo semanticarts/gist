@@ -1,4 +1,4 @@
-# Migrating to gist v13.0 from v14.0
+# Migrating to gist v14.0 from v13.0
 
 This file gives a quick overview of using the migration utilities provided
 by the gist team to help migrate from the previous version of gist.
