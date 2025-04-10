@@ -201,6 +201,38 @@ gist:Aspect
 	skos:scopeNote "Every aspect should be related to a broader aspect or to a unit group. For example, angle of incidence should be related to the broader concept of angle, which in turn is related to a unit group."^^xsd:string ;
 	.
 
+gist:Assignment
+	a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:TemporalRelation
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:isAssignmentOf ;
+				owl:someValuesFrom owl:Thing ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:isAssignmentTo ;
+				owl:someValuesFrom owl:Thing ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:isAssignedBy ;
+				owl:someValuesFrom owl:Thing ;
+			]
+		) ;
+	] ;
+	skos:definition "A temporal relationship between an assignee, the thing assigned, and the resource that made the assignment."^^xsd:string ;
+	skos:example "An employee is assigned to a task by a supervisor. A person is assigned to a position."^^xsd:string ;
+	skos:prefLabel "Assignment"^^xsd:string ;
+	skos:scopeNote
+		"Based on the Open World Assumption, the assigner may not be asserted or known."^^xsd:string ,
+		"For some assignments, such as the assignment of a person to a task, it may seem equally correct in ordinary speech to say it is an assignment of a task to a person. Since gist:isAssignmentTo and gist:isAssignmentOf have no formal domains or ranges, the choice of which predicate to use for which is left as an implementation decision. Consistency is a key consideration."^^xsd:string
+		;
+	.
+
 gist:Behavior
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
@@ -2908,6 +2940,49 @@ gist:isAllocatedBy
 		gist:Category ,
 		gist:ID
 		;
+	.
+
+gist:isAssignedBy
+	a owl:ObjectProperty ;
+	skos:definition "Relates an assignment to the assigner."^^xsd:string ;
+	skos:example "An employee is assigned to a task by a supervisor."^^xsd:string ;
+	skos:prefLabel "is assigned by"^^xsd:string ;
+	skos:scopeNote
+		"Due to the Open World Assumption, the assigner may not be known or asserted."^^xsd:string ,
+		"The assigner is typically a person, organization, or software system."^^xsd:string ,
+		"While typically this predicate will be used with gist:Assignment subjects, there may be other use cases and therefore a domain is not specified."^^xsd:string
+		;
+	gist:domainIncludes gist:Assignment ;
+	gist:rangeIncludes
+		gist:Organization ,
+		gist:Person
+		;
+	.
+
+gist:isAssignmentOf
+	a owl:ObjectProperty ;
+	skos:definition "Relates an assignment to the resource it assigns."^^xsd:string ;
+	skos:example "Assignment of a person to a project."^^xsd:string ;
+	skos:prefLabel "is assignment of"^^xsd:string ;
+	skos:scopeNote
+		"People, organizations, monetary amounts, equipment can all be assigned."^^xsd:string ,
+		"While typically this predicate will be used with assignment subjects, there may be other use cases, and therefore a domain is not specified."^^xsd:string
+		;
+	gist:domainIncludes gist:Assignment ;
+	gist:rangeIncludes
+		gist:Equipment ,
+		gist:IntellectualProperty ,
+		gist:Organization ,
+		gist:Person
+		;
+	.
+
+gist:isAssignmentTo
+	a owl:ObjectProperty ;
+	skos:definition "Relates something (typically an assignment) to the thing the resource is assigned to, such as a project, position, organization, pay rate, or billing rate."^^xsd:string ;
+	skos:prefLabel "is assignment to"^^xsd:string ;
+	skos:scopeNote "While typically this predicate will be used with gist:Assignment subjects, there may be other use cases, and therefore a domain is not specified."^^xsd:string ;
+	gist:domainIncludes gist:Assignment ;
 	.
 
 gist:isBasedOn
