@@ -1415,7 +1415,6 @@ gist:Organization
 	owl:disjointWith
 		gist:PhysicalIdentifiableItem ,
 		gist:PhysicalSubstance ,
-		gist:SchemaMetaData ,
 		gist:UnitOfMeasure
 		;
 	skos:definition "A generic organization that can be formal or informal, legal or non-legal. It can have members, or not."^^xsd:string ;
@@ -1554,7 +1553,6 @@ gist:PhysicalIdentifiableItem
 		]
 		;
 	owl:disjointWith
-		gist:SchemaMetaData ,
 		gist:UnitOfMeasure
 		;
 	skos:definition "A discrete physical object which, if subdivided, will result in parts that are distinguishable in nature from the whole and in general also from the other parts."^^xsd:string ;
@@ -1740,13 +1738,6 @@ gist:ScheduledTask
 	skos:definition "A task with a planned start datetime."^^xsd:string ;
 	skos:prefLabel "Scheduled Task"^^xsd:string ;
 	skos:scopeNote "If work on the task has already started, but has not yet ended, it will have an actual start datetime. If the task is completed, it will also have an actual end datetime. The task always retains its planned start time, and thus continues to be a scheduled task."^^xsd:string ;
-	.
-
-gist:SchemaMetaData
-	a owl:Class ;
-	owl:disjointWith gist:UnitOfMeasure ;
-	skos:definition "Superclass for all types of metadata, including owl concepts (such as class) and relational (tables, elements) and tool related (queries, R2RML maps etc etc)"^^xsd:string ;
-	skos:prefLabel "Schema Meta Data"^^xsd:string ;
 	.
 
 gist:ServiceSpecification
