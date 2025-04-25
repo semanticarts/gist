@@ -1,0 +1,5 @@
+### Patch Updates
+
+- Changes to the pre-commit hook. Issue [1214](https://github.com/semanticarts/gist/issues/1214).
+  - Prefer RDF_TOOLKIT_JAVA_HOME over JAVA_HOME, since it is the more specific name.
+  - If neither of those work, use a java executable if one is available in the PATH.
