@@ -1,6 +1,6 @@
 ### Major Updates
 
-- Changes to `gist:Commitment`, `gist:Agreement`, `gist:ContingentObligation` and removal of `gist:Obligation`. Issue [#1188](https://github.com/semanticarts/gist/issues/1188).
+- Changes to `gist:Commitment`, `gist:Agreement`, and removal of `gist:Obligation`. Issue [#1188](https://github.com/semanticarts/gist/issues/1188).
   - Deleted class `gist:Obligation`.
   - Changed the definition of `gist:Agreement` to no longer reference `gist:Obligation`. 
   - `gist:Agreement` is no longer a subclass of `gist:Commitment`. 
