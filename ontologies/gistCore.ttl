@@ -1,3 +1,4 @@
+@prefix : <https://w3id.org/semanticarts/ontology/gistCore#> .
 @prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
 @prefix gistd: <https://w3id.org/semanticarts/ns/data/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -154,10 +155,10 @@ gist:AddressUsageType
 
 gist:Agreement
 	a owl:Class ;
+	rdfs:subClassOf gist:Intention ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:Commitment
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasParty ;
@@ -174,13 +175,14 @@ gist:Agreement
 				owl:onProperty [
 					owl:inverseOf gist:isDirectPartOf ;
 				] ;
-				owl:onClass gist:Obligation ;
+				owl:onClass gist:Commitment ;
 				owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
-	skos:definition "Something which two or more People or Organizations mutually commit to do."^^xsd:string ;
+	skos:definition "A mutually understood arrangement for two or more parties to make commitments."^^xsd:string ;
 	skos:prefLabel "Agreement"^^xsd:string ;
+	skos:scopeNote "While an agreement has two or more parties, and contains commitments which bind those parties, it is not necessary to instantiate each individual constituent commitment of an agreement."^^xsd:string ;
 	.
 
 gist:Artifact
@@ -209,17 +211,17 @@ gist:Assignment
 			gist:TemporalRelation
 			[
 				a owl:Restriction ;
+				owl:onProperty gist:isAssignedBy ;
+				owl:someValuesFrom owl:Thing ;
+			]
+			[
+				a owl:Restriction ;
 				owl:onProperty gist:isAssignmentOf ;
 				owl:someValuesFrom owl:Thing ;
 			]
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:isAssignmentTo ;
-				owl:someValuesFrom owl:Thing ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isAssignedBy ;
 				owl:someValuesFrom owl:Thing ;
 			]
 		) ;
@@ -312,6 +314,7 @@ gist:Collection
 
 gist:Commitment
 	a owl:Class ;
+	rdfs:subClassOf gist:Intention ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -340,8 +343,12 @@ gist:Commitment
 			]
 		) ;
 	] ;
-	skos:definition "An obligation (possibly unilateral)."^^xsd:string ;
+	skos:definition "A binding intention for a single party to carry out, realize, or execute something."^^xsd:string ;
 	skos:prefLabel "Commitment"^^xsd:string ;
+	skos:scopeNote
+		"A commitment is strictly unilateral. While something that has been committed to might affect more than one party, the commitment is binding on only one party."^^xsd:string ,
+		"The deontic motivation which underlies a commitment's being binding may be of any kind, such as legal, moral, contractual, etc."^^xsd:string
+		;
 	.
 
 gist:Component
@@ -516,13 +523,6 @@ gist:ControlledVocabulary
 			gist:Collection
 			[
 				a owl:Restriction ;
-				owl:onProperty [
-					owl:inverseOf gist:isMemberOf ;
-				] ;
-				owl:someValuesFrom gist:Category ;
-			]
-			[
-				a owl:Restriction ;
 				owl:onProperty gist:isGovernedBy ;
 				owl:someValuesFrom [
 					a owl:Class ;
@@ -531,6 +531,13 @@ gist:ControlledVocabulary
 						gist:Person
 					) ;
 				] ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty [
+					owl:inverseOf gist:isMemberOf ;
+				] ;
+				owl:someValuesFrom gist:Category ;
 			]
 		) ;
 	] ;
@@ -1233,52 +1240,12 @@ gist:NetworkNode
 	skos:prefLabel "Network Node"^^xsd:string ;
 	.
 
-gist:Obligation
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Commitment
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasGiver ;
-				owl:someValuesFrom [
-					a owl:Class ;
-					owl:unionOf (
-						gist:Organization
-						gist:Person
-					) ;
-				] ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasRecipient ;
-				owl:someValuesFrom [
-					a owl:Class ;
-					owl:unionOf (
-						gist:Organization
-						gist:Person
-					) ;
-				] ;
-			]
-		) ;
-	] ;
-	skos:definition "A future commitment from one organization or person to another. Contracts are sets of obligations to do or forbear, or to indemnify or warrant."^^xsd:string ;
-	skos:prefLabel "Obligation"^^xsd:string ;
-	skos:scopeNote "Obligations will often be governed by some Agreement or Offer."^^xsd:string ;
-	.
-
 gist:Offer
 	a owl:Class ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
 			gist:ContingentObligation
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:offers ;
-				owl:someValuesFrom gist:CatalogItem ;
-			]
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasGiver ;
@@ -1304,6 +1271,11 @@ gist:Offer
 						]
 					) ;
 				] ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:offers ;
+				owl:someValuesFrom gist:CatalogItem ;
 			]
 			[
 				a owl:Restriction ;
@@ -1366,13 +1338,13 @@ gist:OrderedMember
 		a owl:Class ;
 		owl:intersectionOf (
 			[
-				a owl:Restriction ;
-				owl:onProperty gist:providesOrderFor ;
-				owl:someValuesFrom owl:Thing ;
-			]
-			[
 				a owl:Class ;
 				owl:unionOf (
+					[
+						a owl:Restriction ;
+						owl:onProperty gist:precedesDirectly ;
+						owl:someValuesFrom gist:OrderedMember ;
+					]
 					[
 						a owl:Restriction ;
 						owl:onProperty [
@@ -1382,15 +1354,15 @@ gist:OrderedMember
 					]
 					[
 						a owl:Restriction ;
-						owl:onProperty gist:precedesDirectly ;
-						owl:someValuesFrom gist:OrderedMember ;
-					]
-					[
-						a owl:Restriction ;
 						owl:onProperty gist:sequence ;
 						owl:someValuesFrom xsd:integer ;
 					]
 				) ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:providesOrderFor ;
+				owl:someValuesFrom owl:Thing ;
 			]
 			[
 				a owl:Restriction ;
@@ -1785,15 +1757,15 @@ gist:SubCountryGovernment
 			gist:GovernmentOrganization
 			[
 				a owl:Restriction ;
+				owl:onProperty gist:isGovernedBy ;
+				owl:someValuesFrom gist:CountryGovernment ;
+			]
+			[
+				a owl:Restriction ;
 				owl:onProperty [
 					owl:inverseOf gist:isGovernedBy ;
 				] ;
 				owl:someValuesFrom gist:GeoRegion ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isGovernedBy ;
-				owl:someValuesFrom gist:CountryGovernment ;
 			]
 		) ;
 	] ;
@@ -1906,14 +1878,14 @@ gist:Taxonomy
 							owl:unionOf (
 								[
 									a owl:Restriction ;
-									owl:onProperty [
-										owl:inverseOf gist:hasBroader ;
-									] ;
+									owl:onProperty gist:hasBroader ;
 									owl:someValuesFrom gist:Category ;
 								]
 								[
 									a owl:Restriction ;
-									owl:onProperty gist:hasBroader ;
+									owl:onProperty [
+										owl:inverseOf gist:hasBroader ;
+									] ;
 									owl:someValuesFrom gist:Category ;
 								]
 							) ;
