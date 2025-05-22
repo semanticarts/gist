@@ -1,4 +1,3 @@
-@prefix : <https://w3id.org/semanticarts/ontology/gistCore#> .
 @prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
 @prefix gistd: <https://w3id.org/semanticarts/ns/data/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -155,10 +154,10 @@ gist:AddressUsageType
 
 gist:Agreement
 	a owl:Class ;
-	rdfs:subClassOf gist:Intention ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
+			gist:Intention
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasParty ;
@@ -314,10 +313,10 @@ gist:Collection
 
 gist:Commitment
 	a owl:Class ;
-	rdfs:subClassOf gist:Intention ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
+			gist:Intention
 			[
 				a owl:Class ;
 				owl:unionOf (
