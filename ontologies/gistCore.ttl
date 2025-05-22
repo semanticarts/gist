@@ -1968,7 +1968,7 @@ gist:Text
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:Content
+			gist:ContentExpression
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:isExpressedIn ;
