@@ -180,8 +180,12 @@ gist:Agreement
 		) ;
 	] ;
 	skos:definition "A mutually understood arrangement for two or more parties to make commitments."^^xsd:string ;
+	skos:example
+		""^^xsd:integer ,
+		"A gym membership is an agreement in which the member commits to paying the gym a certain amount at a certain frequency, and the gym commits to maintaining and allowing access to their facilities."^^xsd:string
+		;
 	skos:prefLabel "Agreement"^^xsd:string ;
-	skos:scopeNote "While an agreement has two or more parties, and contains commitments which bind those parties, it is not necessary to instantiate each individual constituent commitment of an agreement."^^xsd:string ;
+	skos:scopeNote "While an agreement has two or more parties, and contains commitments which bind those parties, it will not be necessary in all contexts to instantiate each individual commitment that is part of an agreement."^^xsd:string ;
 	.
 
 gist:Artifact
@@ -342,11 +346,16 @@ gist:Commitment
 			]
 		) ;
 	] ;
-	skos:definition "A binding intention for a single party to carry out, realize, or execute something."^^xsd:string ;
+	skos:definition "A binding statement of intent for a party to do something which creates an obligation to another party."^^xsd:string ;
+	skos:example
+		"Upon selling a treasury bill, the U.S. government makes a commitment to pay the purchaser a stated amount at a stated time."^^xsd:string ,
+		"When signing an NDA, the signatory commits to keeping specified information confidential."^^xsd:string
+		;
 	skos:prefLabel "Commitment"^^xsd:string ;
 	skos:scopeNote
-		"A commitment is strictly unilateral. While something that has been committed to might affect more than one party, the commitment is binding on only one party."^^xsd:string ,
-		"The deontic motivation which underlies a commitment's being binding may be of any kind, such as legal, moral, contractual, etc."^^xsd:string
+		"A commitment is strictly unilateral; i.e., it is binding on only one party. This is in contrast to gist:Agreement, which is a composition of commitments between two or more parties, and is therefore non-unilateral."^^xsd:string ,
+		"Commitments are individuated by the actions through which they are fulfilled. For example, if a performer makes a commitment to every ticket purchaser to hold a performance, the commitment is singular because the performer fulfils their obligation with a single act (holding the performance)."^^xsd:string ,
+		"The manner in which a commitment is binding may vary. Typically in a business context, we are interested in legally binding commitments, however, it is possible for a commitment to be binding in another way, such as morally binding."^^xsd:string
 		;
 	.
 
