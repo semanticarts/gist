@@ -8,7 +8,4 @@
   
 
 ### Minor Updates
-- Changes to `gist:Commitment`, `gist:Agreement`, and removal of `gist:Obligation`. Issue [#1188](https://github.com/semanticarts/gist/issues/1188).
-  - Added `skos:scopeNote` to `gist:Commitment` which makes clear the unilateral-ness of the new definition. 
-  - Added `skos:scopeNote` to `gist:Agreement` which emphasizes that it is not necessary to instantiate every single commitment which makes up an agreement.
-  - Added `skos:scopeNote` to `gist:Commitment` which clarifies that commitments might be binding via legal, moral, contractual, or other kinds of deontic force.
+- Updated annotations on `gist:Agreement` and `gist:Commitment`. 
