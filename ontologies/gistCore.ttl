@@ -351,7 +351,7 @@ gist:Commitment
 		;
 	skos:prefLabel "Commitment"^^xsd:string ;
 	skos:scopeNote
-		"A commitment is strictly unilateral; i.e., it is binding on only one party. This is in contrast to gist:Agreement, which is a composition of commitments between two or more parties, and is therefore multi-lateral."^^xsd:string ,
+"A commitment is unilateral in that it is binding on only one party. This contrasts with gist:Agreement, which consists of commitments that bind two or more parties."^^xsd:string ,
 		"A commitment may create an obligation with multiple obligees, however, regardless of the number of obligee parties, there is only one commitment so long as there is only one obligation."^^xsd:string ,
 "The manner in which a commitment is binding may vary. In a business context, we are mostly interested commitments that are legally binding."^^xsd:string
 		;
