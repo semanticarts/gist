@@ -180,7 +180,7 @@ gist:Agreement
 		) ;
 	] ;
 	skos:definition "A mutually understood arrangement whereby two or more parties to make commitments."^^xsd:string ;
-	skos:example "A gym membership is an agreement in which the member commits to paying the gym a certain amount at a certain frequency, and the gym commits to maintaining and allowing access to their facilities."^^xsd:string ;
+        skos:example "A gym membership is an agreement in which the member commits to paying the gym a certain price, and the gym commits to allowing access to their facilities."^^xsd:string ;
 	skos:prefLabel "Agreement"^^xsd:string ;
 	skos:scopeNote "While an agreement has two or more parties, and contains commitments which bind those parties, it will not be necessary in all contexts to instantiate each individual commitment that is part of an agreement."^^xsd:string ;
 	.
