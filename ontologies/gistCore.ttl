@@ -343,7 +343,7 @@ gist:Commitment
 			]
 		) ;
 	] ;
-	skos:definition "A promise made by a single party to do something which creates a binding obligation to another party."^^xsd:string ;
+skos:definition "A promise made by a single party to do something which creates a binding obligation to one or more other parties."^^xsd:string ;
 	skos:example
 		"In the context of ticket sales, a performer makes a single commitment to hold a performance, regardless of how many ticket purchasers there are."^^xsd:string ,
 		"Upon selling a treasury bill, the U.S. government makes a commitment to pay the purchaser a stated amount at a stated time."^^xsd:string ,
