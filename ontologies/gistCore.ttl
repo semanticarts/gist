@@ -1418,7 +1418,8 @@ gist:Organization
 		gist:SchemaMetaData ,
 		gist:UnitOfMeasure
 		;
-	skos:definition "An organized body of individuals with a particular purpose, often with a structured approach and defined roles."^^xsd:string ;
+skos:definition "A structured entity formed to achieve specific goals, typically involving members with defined roles."^^xsd:string ;
+skos:scopeNote "Not all organizations have members, e.g. shell companies."^^xsd:string ; 
 	skos:example "Legal entities like companies; non-legal entities like clubs, committees, or departments."^^xsd:string ;
 	skos:prefLabel "Organization"^^xsd:string ;
 	skos:scopeNote "While typically the members of organizations are people, in some cases they are other organizations; e.g., the members of the United Nations are country governments."^^xsd:string ;
