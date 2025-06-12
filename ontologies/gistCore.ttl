@@ -1418,10 +1418,10 @@ gist:Organization
 		gist:SchemaMetaData ,
 		gist:UnitOfMeasure
 		;
-	skos:definition "A generic organization that can be formal or informal, legal or non-legal. It can have members, or not."^^xsd:string ;
+	skos:definition "An organized body of individuals with a particular purpose, often with a structured approach and defined roles."^^xsd:string ;
 	skos:example "Legal entities like companies; non-legal entities like clubs, committees, or departments."^^xsd:string ;
 	skos:prefLabel "Organization"^^xsd:string ;
-	skos:scopeNote "There are a plethora of different kinds of organizations that differ along many facets, including members, structure, purpose, legal vs. non-legal, etc."^^xsd:string ;
+	skos:scopeNote "While typically the members of organizations are people, in some cases they are other organizations; e.g., the members of the United Nations are country governments."^^xsd:string ;
 	.
 
 gist:Permission
