@@ -118,8 +118,7 @@ The pre-commit hook does several things when you run `git commit`:
     - Several small issues such as typo corrections, definition fixes, or documentation updates can be submitted in a single PR.
     - Issues that are tightly related can be addressed in a single PR.
 - The PR should address the entirety of an issue. If it does not, either the PR should be modified or the issue should be broken up into parts.
-- The description of the PR should contain the keywords "Closes #nnn" (or another of the [GitHub keywords](https://docs.github.com/en/enterprise/2.21/user/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)) where nnn is the issue number. This automatically closes the related issue(s) when the PR is merged, and creates a link which allows readers and reviewers to easily reference the issue.
-  - Example: "Correct cardinality restriction on class gist:Room. Closes #98."
+- The description of the PR should contain the keywords "Closes #nnn" where "nnn" is the issue number. This automatically closes the related issue(s) when the PR is merged, and creates a link which allows readers and reviewers to easily reference the issue. See [GitHub keywords](https://docs.github.com/en/enterprise/2.21/user/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword).
   - Note that if the PR fixes multiple issues, each issue number must be prefixed by the keyword. E.g., "Closes #98, closes #102", rather than "Closes #98, #102" or "Closes #98 and #102".
 - The PR should include an update to the release notes. See [_Release Notes_](#release-notes).
 - Refer to the [_Deprecation and Deletion Policy_](DeprecationAndDeletionPolicy.md) if you are deprecating or deleting terms.
@@ -176,7 +175,7 @@ The pre-commit hook does several things when you run `git commit`:
 - The name of the release note file has no significance, though it is helpful to name it according to the PR or issue number being addressed.
 - Reviewers will reject a PR without a well-formed release note.
 - Before building the release package, the release manager will review the release notes for content and formatting, revising as necessary; copy them into the [_ReleaseNotes.md_](ReleaseNotes) file, using sections for major, minor, and patch changes; and delete the individual files.
-  
+
 #### Formatting
 
 - The final release notes will be divided into three sections, for major, minor, and patch changes, as relevant.
