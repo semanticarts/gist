@@ -1748,7 +1748,7 @@ gist:SchemaMetaData
 	owl:disjointWith gist:UnitOfMeasure ;
 	skos:definition "Superclass for all types of metadata, including owl concepts (such as class) and relational (tables, elements) and tool related (queries, R2RML maps etc etc)"^^xsd:string ;
 	skos:prefLabel "Schema Meta Data"^^xsd:string ;
-skos:scopeNote "The definition of this class needs additional work."^^xsd:string
+	skos:scopeNote "The definition of this class needs additional work."^^xsd:string ;
 	.
 
 gist:ServiceSpecification
