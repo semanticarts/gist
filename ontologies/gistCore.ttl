@@ -755,8 +755,6 @@ gist:GeoPoint
 gist:GeoRegion
 	a owl:Class ;
 	rdfs:subClassOf [
-		a owl:Class ;
-		owl:intersectionOf (
 			gist:Place
 			[
 				a owl:Restriction ;
@@ -773,7 +771,6 @@ gist:GeoRegion
 					) ;
 				] ;
 			]
-		) ;
 	] ;
 	owl:disjointWith
 		gist:IntellectualProperty ,
@@ -2037,8 +2034,6 @@ gist:Transaction
 gist:UnitGroup
 	a owl:Class ;
 	rdfs:subClassOf [
-		a owl:Class ;
-		owl:intersectionOf (
 			gist:Collection
 			[
 				a owl:Restriction ;
@@ -2047,7 +2042,6 @@ gist:UnitGroup
 				] ;
 				owl:someValuesFrom gist:UnitOfMeasure ;
 			]
-		) ;
 	] ;
 	owl:disjointWith gist:UnitOfMeasure ;
 	skos:definition "A collection of units of measure that can all be used to measure the same aspects."^^xsd:string ;
