@@ -352,7 +352,7 @@ skos:definition "A promise made by a single party to do something which creates 
 	skos:prefLabel "Commitment"^^xsd:string ;
 	skos:scopeNote
 "A commitment is unilateral in that it is binding on only one party. This contrasts with gist:Agreement, which consists of commitments that bind two or more parties."^^xsd:string ,
-"A commitment may create an obligation with multiple obligee parties. However, regardless of the number of obligees, there is only one commitment so long as there is only one obligation."^^xsd:string ,
+"A single commitment may be made to multiple parties at once; it is a single commitment rather than multiple commitments if the same action would fulfill the obligation to all the parties simultaneously. For example, a performer makes a single commitment to hold a performance to all ticket purchasers; by holding the performance, the commitment to all parties is fulfilled in a single action."^^xsd:string ,
 "The manner in which a commitment is binding may vary. In a business context, we are typically interested in commitments that are legally binding."^^xsd:string
 		;
 	.
