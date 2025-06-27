@@ -17,11 +17,11 @@ To get gist:
 
 For more information on gist and to download previous versions, see the [Semantic Arts website](https://www.semanticarts.com/gist).
 
-# Documentation
+## Documentation
 
 We provide a number of resources for learning more about gist.
 
-## The gist-doc Repository
+### The gist-doc Repository
 
 Extensive documentation of gist is available in the [gist-doc repository](https://github.com/semanticarts/gist-doc). This repository contains documentation of the [Semantic Arts gist minimalist upper ontology](https://github.com/semanticarts/gist/tree/master) in three formats: narrative, graphical, and Widoco-style.
 
@@ -32,7 +32,7 @@ Extensive documentation of gist is available in the [gist-doc repository](https:
   * A collection of PNG images built using the [Turtle Editor Viewer](http://semantechs.co.uk/turtle-editor-viewer/).  Each image is made up of a single 'constellation' of classes as described above and shows the classes and their relationships, the literal annotations, and any anonymous classes used in class definitions.
 * **[Widoco](https://github.com/dgarijo/Widoco) documentation**
 
-## Additional Documentation
+### Additional Documentation
 
 * **Videos:** We maintain a library of videos containing gist tutorials and recordings of our monthly gist Council meetings. You can find links to these videos on the [Semantic Arts website](https://www.semanticarts.com/gist/videos/), or directly access the entire catalog on [our YouTube channel](https://www.youtube.com/playlist?list=PLk2kJrehubb4dc3e5Db5Lvv9WMaOhV3V7).
 * The [Semantic Arts gist web page](https://www.semanticarts.com/gist/).
