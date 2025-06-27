@@ -180,9 +180,9 @@ gist:Agreement
 		) ;
 	] ;
 	skos:definition "A mutually understood arrangement in which two or more parties make commitments to one another."^^xsd:string ;
-        skos:example "A gym membership is an agreement in which the member commits to paying the gym a certain price, and the gym commits to allowing access to their facilities."^^xsd:string ;
+	skos:example "A gym membership is an agreement in which the member commits to paying the gym a certain price, and the gym commits to allowing access to their facilities."^^xsd:string ;
 	skos:prefLabel "Agreement"^^xsd:string ;
-skos:scopeNote "While an agreement has two or more parties, and contains commitments which bind those parties, it will not always be necessary to instantiate each individual commitment."^^xsd:string ;
+	skos:scopeNote "While an agreement has two or more parties, and contains commitments which bind those parties, it will not always be necessary to instantiate each individual commitment."^^xsd:string ;
 	.
 
 gist:Artifact
@@ -343,17 +343,16 @@ gist:Commitment
 			]
 		) ;
 	] ;
-skos:definition "A promise made by a single party to do something which creates a binding obligation to one or more other parties."^^xsd:string ;
+	skos:definition "A promise made by a single party to one or more parties to do, or not do, something or act in a particular way."^^xsd:string ;
 	skos:example
-		"In the context of ticket sales, a performer makes a single commitment to hold a performance, regardless of how many ticket purchasers there are."^^xsd:string ,
 		"Upon selling a treasury bill, the U.S. government makes a commitment to pay the purchaser a stated amount at a stated time."^^xsd:string ,
 		"When signing an NDA, the signatory commits to keeping specified information confidential."^^xsd:string
 		;
 	skos:prefLabel "Commitment"^^xsd:string ;
 	skos:scopeNote
-"A commitment is unilateral in that it is binding on only one party. This contrasts with gist:Agreement, which consists of commitments that bind two or more parties."^^xsd:string ,
-"A single commitment may be made to multiple parties at once; it is a single commitment rather than multiple commitments if the same action would fulfill the obligation to all the parties simultaneously. For example, a performer makes a single commitment to hold a performance to all ticket purchasers; by holding the performance, the commitment to all parties is fulfilled in a single action."^^xsd:string ,
-"The manner in which a commitment is binding may vary. In a business context, we are typically interested in commitments that are legally binding."^^xsd:string
+		"A commitment is unilateral in that it is binding on only one party. This contrasts with gist:Agreement, which consists of commitments that bind two or more parties."^^xsd:string ,
+		"A single commitment may be made to multiple parties at once; it is a single commitment rather than multiple commitments if the same action would fulfill the obligation to all the parties simultaneously. For example, a performer makes a single commitment to hold a performance to all ticket purchasers; by holding the performance, the commitment to all parties is fulfilled in a single action."^^xsd:string ,
+		"The manner in which a commitment is binding may vary. In a business context, we are typically interested in commitments that are legally binding."^^xsd:string
 		;
 	.
 
