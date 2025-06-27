@@ -38,16 +38,11 @@ function findJava() {
 
   java_home=""
 
-  if [ "${RDF_TOOLKIT_JAVA_HOME}" != "" ] ; then
-    java_home="${RDF_TOOLKIT_JAVA_HOME}"
-  fi
   if [ "${JAVA_HOME}" != "" ] ; then
     java_home="${JAVA_HOME}"
   fi
-  if [ "${java_home}" == "" ] ; then
-    log_error A-$JAVA_HOME
-    log_error "Please set RDF_TOOLKIT_JAVA_HOME or JAVA_HOME to point to a Java ${min_java} or later installation."
-    return 1
+  if [ "${RDF_TOOLKIT_JAVA_HOME}" != "" ] ; then
+    java_home="${RDF_TOOLKIT_JAVA_HOME}"
   fi
   java_home=${java_home/C:\\/\/c\/}
   java_home=${java_home//\\/\/}
@@ -55,6 +50,8 @@ function findJava() {
 
   if [ -x "${java_home}/bin/java" ] ; then
     whichJava="${java_home}/bin/java"
+  elif [ -x `which java` ] ; then
+    whichJava=`which java`
   else
     log_error "Could not find java in your RDF_TOOLKIT_JAVA_HOME or JAVA_HOME: ${java_home}."
     log_error "Please set RDF_TOOLKIT_JAVA_HOME or JAVA_HOME to point to a Java ${min_java} or later installation."
@@ -146,13 +143,13 @@ function serialize() {
     esac
 
     log "Target format is $tfmt"
-    
-    if [[ $file =~ .*About.* ]] ;  then 
+
+    if [[ $file =~ .*About.* ]] ;  then
         log "Skipping unsupported file $file"
         return 0
     fi
 
-    if [[ $file =~ .*OWL.* ]] ;  then 
+    if [[ $file =~ .*OWL.* ]] ;  then
         log "Skipping unsupported file $file"
         return 0
     fi
@@ -185,7 +182,7 @@ __log_config__
       --use-dtd-subset \
       --string-data-typing explicit \
       --suppress-named-individuals \
-      --inline-blank-nodes 
+      --inline-blank-nodes
     rc=$?
     set +x
 

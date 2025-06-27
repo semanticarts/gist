@@ -3,7 +3,6 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -1418,10 +1417,13 @@ gist:Organization
 		gist:SchemaMetaData ,
 		gist:UnitOfMeasure
 		;
-	skos:definition "An organized body of individuals with a particular purpose, often with a structured approach and defined roles."^^xsd:string ;
+	skos:definition "A structured entity formed to achieve specific goals, typically involving members with defined roles."^^xsd:string ;
 	skos:example "Legal entities like companies; non-legal entities like clubs, committees, or departments."^^xsd:string ;
 	skos:prefLabel "Organization"^^xsd:string ;
-	skos:scopeNote "While typically the members of organizations are people, in some cases they are other organizations; e.g., the members of the United Nations are country governments."^^xsd:string ;
+	skos:scopeNote
+		"Not all organizations have members, e.g. shell companies."^^xsd:string ,
+		"While typically the members of organizations are people, in some cases they are other organizations; e.g., the members of the United Nations are country governments."^^xsd:string
+		;
 	.
 
 gist:Permission
@@ -1747,6 +1749,7 @@ gist:SchemaMetaData
 	owl:disjointWith gist:UnitOfMeasure ;
 	skos:definition "Superclass for all types of metadata, including owl concepts (such as class) and relational (tables, elements) and tool related (queries, R2RML maps etc etc)"^^xsd:string ;
 	skos:prefLabel "Schema Meta Data"^^xsd:string ;
+	skos:scopeNote "The definition of this class needs additional work."^^xsd:string ;
 	.
 
 gist:ServiceSpecification
@@ -1959,7 +1962,7 @@ gist:TemporalRelation
 	skos:prefLabel "Temporal Relation"^^xsd:string ;
 	skos:scopeNote
 		"A temporal relation must have a minimum of two participants. For example, both the employer and the employee are participants in a temporal relation representing a period of employment."^^xsd:string ,
-		"Note that 'participant' does not imply agency; a non-sentient being can be participate in a temporal relation. For example, both a person and a house could be participants in a hypothetical relation 'lives at.'"^^xsd:string
+		"Note that 'participant' does not imply agency; a non-sentient being can participate in a temporal relation. For example, both a person and a house could be participants in a hypothetical relation 'lives at.'"^^xsd:string
 		;
 	.
 
