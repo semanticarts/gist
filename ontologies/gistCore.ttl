@@ -343,7 +343,7 @@ gist:Commitment
 			]
 		) ;
 	] ;
-	skos:definition "A promise made by a single party to one or more parties to do, or not do, something or act in a particular way."^^xsd:string ;
+	skos:definition "A promise made by a single party to one or more parties to do or not do something or act in a particular way."^^xsd:string ;
 	skos:example
 		"Upon selling a treasury bill, the U.S. government makes a commitment to pay the purchaser a stated amount of money at a stated time."^^xsd:string ,
 		"When signing an NDA, the signatory commits to keeping specified information confidential."^^xsd:string
