@@ -768,24 +768,24 @@ gist:GeoPoint
 
 gist:GeoRegion
 	a owl:Class ;
-	rdfs:subClassOf [
-			gist:Place
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMagnitude ;
-				owl:someValuesFrom [
-					a owl:Class ;
-					owl:intersectionOf (
-						gist:Magnitude
-						[
-							a owl:Restriction ;
-							owl:onProperty gist:hasAspect ;
-							owl:hasValue gistd:_Aspect_area ;
-						]
-					) ;
-				] ;
-			]
-	] ;
+	rdfs:subClassOf
+		gist:Place ,
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:hasMagnitude ;
+			owl:someValuesFrom [
+				a owl:Class ;
+				owl:intersectionOf (
+					gist:Magnitude
+					[
+						a owl:Restriction ;
+						owl:onProperty gist:hasAspect ;
+						owl:hasValue gistd:_Aspect_area ;
+					]
+				) ;
+			] ;
+		]
+		;
 	owl:disjointWith
 		gist:IntellectualProperty ,
 		gist:Intention ,
@@ -1987,16 +1987,16 @@ gist:Transaction
 
 gist:UnitGroup
 	a owl:Class ;
-	rdfs:subClassOf [
-			gist:Collection
-			[
-				a owl:Restriction ;
-				owl:onProperty [
-					owl:inverseOf gist:isMemberOf ;
-				] ;
-				owl:someValuesFrom gist:UnitOfMeasure ;
-			]
-	] ;
+	rdfs:subClassOf
+		gist:Collection ,
+		[
+			a owl:Restriction ;
+			owl:onProperty [
+				owl:inverseOf gist:isMemberOf ;
+			] ;
+			owl:someValuesFrom gist:UnitOfMeasure ;
+		]
+		;
 	owl:disjointWith gist:UnitOfMeasure ;
 	skos:definition "A collection of units of measure that can all be used to measure the same aspects."^^xsd:string ;
 	skos:example "The units of measure bit, byte, kilobit, kilobyte, etc. are all in the same unit group because they can all be used to measure an amount of data."^^xsd:string ;
