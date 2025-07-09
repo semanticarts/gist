@@ -1672,12 +1672,7 @@ gist:RenderedContent
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:ContentExpression
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isExpressedIn ;
-				owl:someValuesFrom gist:MediaType ;
-			]
+			gist:FormattedContent
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:isRenderedOn ;
