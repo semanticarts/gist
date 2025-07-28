@@ -2,7 +2,7 @@
 @prefix gistd: <https://w3id.org/semanticarts/ns/data/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -1316,8 +1316,10 @@ gist:Offer
 			]
 		) ;
 	] ;
-	skos:definition "A commitment to buy or sell a described or identified part or service."^^xsd:string ;
+	skos:definition "A contingent commitment to buy, sell, swap or provide one described or identified good or service in exchange for another."^^xsd:string ;
+	skos:example "An offer to sell a book for a given price. An offer to purchase real estate for a particular price.  An offer to swap a sea kayak for a mountain bike. Currency exchange. A donation may be modeled as an offer to receive money typically in exchange for $0.00, but sometimes for items of value such at coffee mugs or tee shirts."^^xsd:string ;
 	skos:prefLabel "Offer"^^xsd:string ;
+	skos:scopeNote "This definition is designed to handle a wide ariety of scenarios. An offer usually involves a specific amount of money."^^xsd:string ;
 	.
 
 gist:OrderedCollection
@@ -1417,11 +1419,13 @@ gist:Organization
 		gist:SchemaMetaData ,
 		gist:UnitOfMeasure
 		;
-skos:definition "A structured entity formed to achieve specific goals, typically involving members with defined roles."^^xsd:string ;
-skos:scopeNote "Not all organizations have members, e.g. shell companies."^^xsd:string ; 
+	skos:definition "A structured entity formed to achieve specific goals, typically involving members with defined roles."^^xsd:string ;
 	skos:example "Legal entities like companies; non-legal entities like clubs, committees, or departments."^^xsd:string ;
 	skos:prefLabel "Organization"^^xsd:string ;
-	skos:scopeNote "While typically the members of organizations are people, in some cases they are other organizations; e.g., the members of the United Nations are country governments."^^xsd:string ;
+	skos:scopeNote
+		"Not all organizations have members, e.g. shell companies."^^xsd:string ,
+		"While typically the members of organizations are people, in some cases they are other organizations; e.g., the members of the United Nations are country governments."^^xsd:string
+		;
 	.
 
 gist:Permission
