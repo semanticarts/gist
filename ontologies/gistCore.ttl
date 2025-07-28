@@ -3238,11 +3238,22 @@ gist:occursIn
 	skos:prefLabel "occurs in"^^xsd:string ;
 	.
 
-gist:offers
+gist:offersToProvide
 	a owl:ObjectProperty ;
-	skos:definition "Relates something to a thing that is being made available for acceptance or rejection."^^xsd:string ;
-	skos:example "An instance of gist:Offer offers a specific product at a particular price; a company offers an employee benefit; Honda offers vehicles for sale."^^xsd:string ;
-	skos:prefLabel "offers"^^xsd:string ;
+	skos:definition "Relates an offer to the thing being made available for exchange."^^xsd:string ;
+	skos:example "An instance of gist:Offer offers to provide a specific product in exchange for an amount of money. An offer to pay a certain price for a home that is for sale."^^xsd:string ;
+	skos:prefLabel "offers to provide"^^xsd:string ;
+	skos:scopeNote "This will most often be a good or service, but could be an amount of money, e.g. for currency exchange."^^xsd:string ;
+	gist:domainIncludes gist:Offer ;
+	.
+
+gist:offersToReceive
+	a owl:ObjectProperty ;
+	skos:definition "Relates an offer to the thing expected in return for the offered item.."^^xsd:string ;
+	skos:example "An instance of gist:Offer offers to receive a particular amount of money in exchange for the offered product. An offer to receive a home in exchange for an offered amount of money."^^xsd:string ;
+	skos:prefLabel "offers to receive"^^xsd:string ;
+	skos:scopeNote "This will most often be an amount of money, but could be anything of value e.g. for swaps."^^xsd:string ;
+	gist:domainIncludes gist:Offer ;
 	.
 
 gist:owns
