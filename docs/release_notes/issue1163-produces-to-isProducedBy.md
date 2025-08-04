@@ -1,3 +1,3 @@
 # Major Updates
 
-- No longer using `gist:produces`. It has been replaced by its logical inverse: `gist:isProducedBy`. Issue [1163](https://github.com/semanticarts/gist/issues/1163).
+- Replaced `gist:produces` with its logical inverse, `gist:isProducedBy`. Issue [1163](https://github.com/semanticarts/gist/issues/1163).
