@@ -3102,7 +3102,7 @@ gist:isPartOf
 
 gist:isProducedBy
 	a owl:ObjectProperty ;
-	skos:definition "The relation from something created to the thing creating it."^^xsd:string ;
+	skos:definition "Relates something to the thing that created, composed, or brought it into existence."^^xsd:string ;
 	skos:example
 		"A deliverable is produces by a task."^^xsd:string ,
 		"A measurement is produced by a sensor."^^xsd:string ,
