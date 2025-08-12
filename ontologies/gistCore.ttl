@@ -2,7 +2,7 @@
 @prefix gistd: <https://w3id.org/semanticarts/ns/data/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -535,6 +535,7 @@ gist:ControlledVocabulary
 	] ;
 	skos:definition "A collection of terms approved and managed by some organization or person."^^xsd:string ;
 	skos:prefLabel "Controlled Vocabulary"^^xsd:string ;
+	skos:scopeNote "A Controlled Vocabulary is similar to a skos:ConceptScheme, but it could also be used for things that are not concepts, such as organizations, US presidents, georegions, etc..  Hierarchical relationships between instances of the controlled vocabulary are possible."^^xsd:string ;
 	.
 
 gist:CountryGeoRegion
@@ -1417,11 +1418,13 @@ gist:Organization
 		gist:SchemaMetaData ,
 		gist:UnitOfMeasure
 		;
-skos:definition "A structured entity formed to achieve specific goals, typically involving members with defined roles."^^xsd:string ;
-skos:scopeNote "Not all organizations have members, e.g. shell companies."^^xsd:string ; 
+	skos:definition "A structured entity formed to achieve specific goals, typically involving members with defined roles."^^xsd:string ;
 	skos:example "Legal entities like companies; non-legal entities like clubs, committees, or departments."^^xsd:string ;
 	skos:prefLabel "Organization"^^xsd:string ;
-	skos:scopeNote "While typically the members of organizations are people, in some cases they are other organizations; e.g., the members of the United Nations are country governments."^^xsd:string ;
+	skos:scopeNote
+		"Not all organizations have members, e.g. shell companies."^^xsd:string ,
+		"While typically the members of organizations are people, in some cases they are other organizations; e.g., the members of the United Nations are country governments."^^xsd:string
+		;
 	.
 
 gist:Permission
@@ -1885,47 +1888,6 @@ gist:TaskTemplate
 		"A task template may define a single activity or a series of activities; the level of granularity can be varied according to use case. For example, in a new employee onboarding process, signing up for benefits might be one activity, or it might be broken down into signing up for health insurance, signing up for dental insurance, etc."^^xsd:string ,
 		"Use the property isBasedOn to link the Task back to the TaskTemplate."^^xsd:string
 		;
-	.
-
-gist:Taxonomy
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:ControlledVocabulary
-			[
-				a owl:Restriction ;
-				owl:onProperty [
-					owl:inverseOf gist:isMemberOf ;
-				] ;
-				owl:someValuesFrom [
-					a owl:Class ;
-					owl:intersectionOf (
-						gist:Category
-						[
-							a owl:Class ;
-							owl:unionOf (
-								[
-									a owl:Restriction ;
-									owl:onProperty [
-										owl:inverseOf gist:hasBroader ;
-									] ;
-									owl:someValuesFrom gist:Category ;
-								]
-								[
-									a owl:Restriction ;
-									owl:onProperty gist:hasBroader ;
-									owl:someValuesFrom gist:Category ;
-								]
-							) ;
-						]
-					) ;
-				] ;
-			]
-		) ;
-	] ;
-	skos:definition "A controlled vocabulary arranged as a hierarchy of concepts."^^xsd:string ;
-	skos:prefLabel "Taxonomy"^^xsd:string ;
 	.
 
 gist:Template
