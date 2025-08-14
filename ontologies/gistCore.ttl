@@ -4,7 +4,6 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -3085,6 +3084,17 @@ gist:isPartOf
 		;
 	.
 
+gist:isProducedBy
+	a owl:ObjectProperty ;
+	skos:definition "Relates something to the thing that created, composed, or brought it into existence."^^xsd:string ;
+	skos:example
+		"A deliverable is produces by a task."^^xsd:string ,
+		"A measurement is produced by a sensor."^^xsd:string ,
+		"A painting is produced by a person."^^xsd:string
+		;
+	skos:prefLabel "is produced by"^^xsd:string ;
+	.
+
 gist:isRecognizedBy
 	a owl:ObjectProperty ;
 	rdfs:range [
@@ -3363,13 +3373,6 @@ gist:prevents
 	rdfs:range gist:Behavior ;
 	skos:definition "The intention (say a law) is intended to prevent this kind of behavior (say jay-walking)"^^xsd:string ;
 	skos:prefLabel "prevents"^^xsd:string ;
-	.
-
-gist:produces
-	a owl:ObjectProperty ;
-	skos:definition "The subject creates the object."^^xsd:string ;
-	skos:example "A task produces a deliverable."^^xsd:string ;
-	skos:prefLabel "produces"^^xsd:string ;
 	.
 
 gist:providesOrderFor
