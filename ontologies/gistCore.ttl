@@ -535,7 +535,7 @@ gist:ControlledVocabulary
 	] ;
 	skos:definition "A collection of terms approved and managed by some organization or person."^^xsd:string ;
 	skos:prefLabel "Controlled Vocabulary"^^xsd:string ;
-	skos:scopeNote "A Controlled Vocabulary is similar to a skos:ConceptScheme, but it could also be used for things that are not concepts, such as organizations, US presidents, georegions, etc..  Hierarchical relationships between instances of the controlled vocabulary are possible."^^xsd:string ;
+	skos:scopeNote "A controlled vocabulary is similar to a skos:ConceptScheme, but it could also be used for things that are not concepts, such as organizations, US presidents, geo-regions, etc. Hierarchical relationships between instances of the controlled vocabulary are possible."^^xsd:string ;
 	.
 
 gist:CountryGeoRegion
