@@ -241,10 +241,7 @@ gist:Behavior
 
 gist:Building
 	a owl:Class ;
-	rdfs:subClassOf
-		gist:Artifact ,
-		gist:Landmark
-		;
+	rdfs:subClassOf gist:Landmark ;
 	skos:definition "A relatively permanent man-made structure situated on a plot of land, having a roof and walls, commonly used for dwelling, entertaining, or working."^^xsd:string ;
 	skos:example
 		"A house, school, store, factory, chicken coop."^^xsd:string ,
@@ -629,7 +626,6 @@ gist:Equipment
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:Artifact
 			gist:PhysicalIdentifiableItem
 			[
 				a owl:Restriction ;
