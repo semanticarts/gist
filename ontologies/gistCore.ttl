@@ -1164,7 +1164,7 @@ gist:Network
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:Artifact
+			gist:Collection
 			[
 				a owl:Restriction ;
 				owl:onProperty [
@@ -1808,7 +1808,7 @@ gist:System
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:Artifact
+			gist:Collection
 			[
 				a owl:Restriction ;
 				owl:onProperty [
