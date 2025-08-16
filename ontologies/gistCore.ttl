@@ -385,7 +385,6 @@ gist:ContemporaryEvent
 
 gist:Content
 	a owl:Class ;
-	rdfs:subClassOf gist:Artifact ;
 	owl:disjointWith
 		gist:GeoPoint ,
 		gist:GeoRegion ,
@@ -956,7 +955,6 @@ gist:ID
 
 gist:IntellectualProperty
 	a owl:Class ;
-	rdfs:subClassOf gist:Artifact ;
 	owl:disjointWith
 		gist:Intention ,
 		gist:Magnitude ,
