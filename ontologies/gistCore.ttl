@@ -1778,7 +1778,7 @@ gist:SubCountryGovernment
 gist:System
 	a owl:Class ;
 	rdfs:subClassOf gist:Collection ;
-	skos:definition "A system is an artifact with component parts where the parts contribute to the goal of the system"^^xsd:string ;
+	skos:definition "A system is a collection of parts where the parts contribute to the goal of the system"^^xsd:string ;
 	skos:prefLabel "System"^^xsd:string ;
 	.
 
