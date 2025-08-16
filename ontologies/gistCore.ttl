@@ -182,17 +182,6 @@ gist:Agreement
 	skos:prefLabel "Agreement"^^xsd:string ;
 	.
 
-gist:Artifact
-	a owl:Class ;
-	rdfs:subClassOf [
-		a owl:Restriction ;
-		owl:onProperty gist:hasGoal ;
-		owl:someValuesFrom gist:Function ;
-	] ;
-	skos:definition "An intentional, person-made thing, which could be physical or content"^^xsd:string ;
-	skos:prefLabel "Artifact"^^xsd:string ;
-	.
-
 gist:Aspect
 	a owl:Class ;
 	skos:definition "A measurable characteristic such as length, weight, cost, cycle time, or defect rate."^^xsd:string ;
@@ -338,23 +327,6 @@ gist:Commitment
 	] ;
 	skos:definition "An obligation (possibly unilateral)."^^xsd:string ;
 	skos:prefLabel "Commitment"^^xsd:string ;
-	.
-
-gist:Component
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Artifact
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:contributesTo ;
-				owl:someValuesFrom gist:System ;
-			]
-		) ;
-	] ;
-	skos:definition "A component is an artifact that contributes to a system.  Could be a simple mechanical component, such as the float contributing to the toilet tank maintaining a constant level, or much more complex as in the internet of things."^^xsd:string ;
-	skos:prefLabel "Component"^^xsd:string ;
 	.
 
 gist:ContemporaryEvent
@@ -1805,19 +1777,7 @@ gist:SubCountryGovernment
 
 gist:System
 	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Collection
-			[
-				a owl:Restriction ;
-				owl:onProperty [
-					owl:inverseOf gist:isDirectPartOf ;
-				] ;
-				owl:someValuesFrom gist:Component ;
-			]
-		) ;
-	] ;
+	rdfs:subClassOf gist:Collection ;
 	skos:definition "A system is an artifact with component parts where the parts contribute to the goal of the system"^^xsd:string ;
 	skos:prefLabel "System"^^xsd:string ;
 	.
