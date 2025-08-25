@@ -1,3 +1,4 @@
+@prefix : <https://w3id.org/semanticarts/ontology/gistCore#> .
 @prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
 @prefix gistd: <https://w3id.org/semanticarts/ns/data/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -208,17 +209,17 @@ gist:Assignment
 			gist:TemporalRelation
 			[
 				a owl:Restriction ;
+				owl:onProperty gist:isAssignedBy ;
+				owl:someValuesFrom owl:Thing ;
+			]
+			[
+				a owl:Restriction ;
 				owl:onProperty gist:isAssignmentOf ;
 				owl:someValuesFrom owl:Thing ;
 			]
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:isAssignmentTo ;
-				owl:someValuesFrom owl:Thing ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isAssignedBy ;
 				owl:someValuesFrom owl:Thing ;
 			]
 		) ;
@@ -515,13 +516,6 @@ gist:ControlledVocabulary
 			gist:Collection
 			[
 				a owl:Restriction ;
-				owl:onProperty [
-					owl:inverseOf gist:isMemberOf ;
-				] ;
-				owl:someValuesFrom gist:Category ;
-			]
-			[
-				a owl:Restriction ;
 				owl:onProperty gist:isGovernedBy ;
 				owl:someValuesFrom [
 					a owl:Class ;
@@ -530,6 +524,13 @@ gist:ControlledVocabulary
 						gist:Person
 					) ;
 				] ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty [
+					owl:inverseOf gist:isMemberOf ;
+				] ;
+				owl:someValuesFrom gist:Category ;
 			]
 		) ;
 	] ;
@@ -958,7 +959,6 @@ gist:IntellectualProperty
 	a owl:Class ;
 	rdfs:subClassOf gist:Artifact ;
 	owl:disjointWith
-		gist:Intention ,
 		gist:Magnitude ,
 		gist:Organization ,
 		gist:PhysicalIdentifiableItem ,
@@ -1275,11 +1275,6 @@ gist:Offer
 			gist:ContingentObligation
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:offers ;
-				owl:someValuesFrom gist:CatalogItem ;
-			]
-			[
-				a owl:Restriction ;
 				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
@@ -1303,6 +1298,11 @@ gist:Offer
 						]
 					) ;
 				] ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:offers ;
+				owl:someValuesFrom gist:CatalogItem ;
 			]
 			[
 				a owl:Restriction ;
@@ -1365,13 +1365,13 @@ gist:OrderedMember
 		a owl:Class ;
 		owl:intersectionOf (
 			[
-				a owl:Restriction ;
-				owl:onProperty gist:providesOrderFor ;
-				owl:someValuesFrom owl:Thing ;
-			]
-			[
 				a owl:Class ;
 				owl:unionOf (
+					[
+						a owl:Restriction ;
+						owl:onProperty gist:precedesDirectly ;
+						owl:someValuesFrom gist:OrderedMember ;
+					]
 					[
 						a owl:Restriction ;
 						owl:onProperty [
@@ -1381,15 +1381,15 @@ gist:OrderedMember
 					]
 					[
 						a owl:Restriction ;
-						owl:onProperty gist:precedesDirectly ;
-						owl:someValuesFrom gist:OrderedMember ;
-					]
-					[
-						a owl:Restriction ;
 						owl:onProperty gist:sequence ;
 						owl:someValuesFrom xsd:integer ;
 					]
 				) ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:providesOrderFor ;
+				owl:someValuesFrom owl:Thing ;
 			]
 			[
 				a owl:Restriction ;
@@ -1788,15 +1788,15 @@ gist:SubCountryGovernment
 			gist:GovernmentOrganization
 			[
 				a owl:Restriction ;
+				owl:onProperty gist:isGovernedBy ;
+				owl:someValuesFrom gist:CountryGovernment ;
+			]
+			[
+				a owl:Restriction ;
 				owl:onProperty [
 					owl:inverseOf gist:isGovernedBy ;
 				] ;
 				owl:someValuesFrom gist:GeoRegion ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isGovernedBy ;
-				owl:someValuesFrom gist:CountryGovernment ;
 			]
 		) ;
 	] ;
@@ -1909,14 +1909,14 @@ gist:Taxonomy
 							owl:unionOf (
 								[
 									a owl:Restriction ;
-									owl:onProperty [
-										owl:inverseOf gist:hasBroader ;
-									] ;
+									owl:onProperty gist:hasBroader ;
 									owl:someValuesFrom gist:Category ;
 								]
 								[
 									a owl:Restriction ;
-									owl:onProperty gist:hasBroader ;
+									owl:onProperty [
+										owl:inverseOf gist:hasBroader ;
+									] ;
 									owl:someValuesFrom gist:Category ;
 								]
 							) ;
