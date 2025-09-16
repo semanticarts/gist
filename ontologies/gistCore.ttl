@@ -1,9 +1,9 @@
+@prefix : <https://w3id.org/semanticarts/ontology/gistCore#> .
 @prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
 @prefix gistd: <https://w3id.org/semanticarts/ns/data/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -199,6 +199,38 @@ gist:Aspect
 	skos:definition "A measurable characteristic such as length, weight, cost, cycle time, or defect rate."^^xsd:string ;
 	skos:prefLabel "Aspect"^^xsd:string ;
 	skos:scopeNote "Every aspect should be related to a broader aspect or to a unit group. For example, angle of incidence should be related to the broader concept of angle, which in turn is related to a unit group."^^xsd:string ;
+	.
+
+gist:Assignment
+	a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:TemporalRelation
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:isAssignedBy ;
+				owl:someValuesFrom owl:Thing ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:isAssignmentOf ;
+				owl:someValuesFrom owl:Thing ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:isAssignmentTo ;
+				owl:someValuesFrom owl:Thing ;
+			]
+		) ;
+	] ;
+	skos:definition "A temporal relationship between an assignee, the thing assigned, and the resource that made the assignment."^^xsd:string ;
+	skos:example "An employee is assigned to a task by a supervisor. A person is assigned to a position."^^xsd:string ;
+	skos:prefLabel "Assignment"^^xsd:string ;
+	skos:scopeNote
+		"Based on the Open World Assumption, the assigner may not be asserted or known."^^xsd:string ,
+		"For some assignments, such as the assignment of a person to a task, it may seem equally correct in ordinary speech to say it is an assignment of a task to a person. Since gist:isAssignmentTo and gist:isAssignmentOf have no formal domains or ranges, the choice of which predicate to use for which is left as an implementation decision. Consistency is a key consideration."^^xsd:string
+		;
 	.
 
 gist:Behavior
@@ -484,13 +516,6 @@ gist:ControlledVocabulary
 			gist:Collection
 			[
 				a owl:Restriction ;
-				owl:onProperty [
-					owl:inverseOf gist:isMemberOf ;
-				] ;
-				owl:someValuesFrom gist:Category ;
-			]
-			[
-				a owl:Restriction ;
 				owl:onProperty gist:isGovernedBy ;
 				owl:someValuesFrom [
 					a owl:Class ;
@@ -499,6 +524,13 @@ gist:ControlledVocabulary
 						gist:Person
 					) ;
 				] ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty [
+					owl:inverseOf gist:isMemberOf ;
+				] ;
+				owl:someValuesFrom gist:Category ;
 			]
 		) ;
 	] ;
@@ -927,7 +959,6 @@ gist:IntellectualProperty
 	a owl:Class ;
 	rdfs:subClassOf gist:Artifact ;
 	owl:disjointWith
-		gist:Intention ,
 		gist:Magnitude ,
 		gist:Organization ,
 		gist:PhysicalIdentifiableItem ,
@@ -1244,11 +1275,6 @@ gist:Offer
 			gist:ContingentObligation
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:offers ;
-				owl:someValuesFrom gist:CatalogItem ;
-			]
-			[
-				a owl:Restriction ;
 				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
@@ -1272,6 +1298,11 @@ gist:Offer
 						]
 					) ;
 				] ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:offers ;
+				owl:someValuesFrom gist:CatalogItem ;
 			]
 			[
 				a owl:Restriction ;
@@ -1334,13 +1365,13 @@ gist:OrderedMember
 		a owl:Class ;
 		owl:intersectionOf (
 			[
-				a owl:Restriction ;
-				owl:onProperty gist:providesOrderFor ;
-				owl:someValuesFrom owl:Thing ;
-			]
-			[
 				a owl:Class ;
 				owl:unionOf (
+					[
+						a owl:Restriction ;
+						owl:onProperty gist:precedesDirectly ;
+						owl:someValuesFrom gist:OrderedMember ;
+					]
 					[
 						a owl:Restriction ;
 						owl:onProperty [
@@ -1350,15 +1381,15 @@ gist:OrderedMember
 					]
 					[
 						a owl:Restriction ;
-						owl:onProperty gist:precedesDirectly ;
-						owl:someValuesFrom gist:OrderedMember ;
-					]
-					[
-						a owl:Restriction ;
 						owl:onProperty gist:sequence ;
 						owl:someValuesFrom xsd:integer ;
 					]
 				) ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:providesOrderFor ;
+				owl:someValuesFrom owl:Thing ;
 			]
 			[
 				a owl:Restriction ;
@@ -1386,10 +1417,13 @@ gist:Organization
 		gist:SchemaMetaData ,
 		gist:UnitOfMeasure
 		;
-	skos:definition "A generic organization that can be formal or informal, legal or non-legal. It can have members, or not."^^xsd:string ;
+	skos:definition "A structured entity formed to achieve specific goals, typically involving members with defined roles."^^xsd:string ;
 	skos:example "Legal entities like companies; non-legal entities like clubs, committees, or departments."^^xsd:string ;
 	skos:prefLabel "Organization"^^xsd:string ;
-	skos:scopeNote "There are a plethora of different kinds of organizations that differ along many facets, including members, structure, purpose, legal vs. non-legal, etc."^^xsd:string ;
+	skos:scopeNote
+		"Not all organizations have members, e.g. shell companies."^^xsd:string ,
+		"While typically the members of organizations are people, in some cases they are other organizations; e.g., the members of the United Nations are country governments."^^xsd:string
+		;
 	.
 
 gist:Permission
@@ -1715,6 +1749,7 @@ gist:SchemaMetaData
 	owl:disjointWith gist:UnitOfMeasure ;
 	skos:definition "Superclass for all types of metadata, including owl concepts (such as class) and relational (tables, elements) and tool related (queries, R2RML maps etc etc)"^^xsd:string ;
 	skos:prefLabel "Schema Meta Data"^^xsd:string ;
+	skos:scopeNote "The definition of this class needs additional work."^^xsd:string ;
 	.
 
 gist:ServiceSpecification
@@ -1753,15 +1788,15 @@ gist:SubCountryGovernment
 			gist:GovernmentOrganization
 			[
 				a owl:Restriction ;
+				owl:onProperty gist:isGovernedBy ;
+				owl:someValuesFrom gist:CountryGovernment ;
+			]
+			[
+				a owl:Restriction ;
 				owl:onProperty [
 					owl:inverseOf gist:isGovernedBy ;
 				] ;
 				owl:someValuesFrom gist:GeoRegion ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isGovernedBy ;
-				owl:someValuesFrom gist:CountryGovernment ;
 			]
 		) ;
 	] ;
@@ -1874,14 +1909,14 @@ gist:Taxonomy
 							owl:unionOf (
 								[
 									a owl:Restriction ;
-									owl:onProperty [
-										owl:inverseOf gist:hasBroader ;
-									] ;
+									owl:onProperty gist:hasBroader ;
 									owl:someValuesFrom gist:Category ;
 								]
 								[
 									a owl:Restriction ;
-									owl:onProperty gist:hasBroader ;
+									owl:onProperty [
+										owl:inverseOf gist:hasBroader ;
+									] ;
 									owl:someValuesFrom gist:Category ;
 								]
 							) ;
@@ -1927,7 +1962,7 @@ gist:TemporalRelation
 	skos:prefLabel "Temporal Relation"^^xsd:string ;
 	skos:scopeNote
 		"A temporal relation must have a minimum of two participants. For example, both the employer and the employee are participants in a temporal relation representing a period of employment."^^xsd:string ,
-		"Note that 'participant' does not imply agency; a non-sentient being can be participate in a temporal relation. For example, both a person and a house could be participants in a hypothetical relation 'lives at.'"^^xsd:string
+		"Note that 'participant' does not imply agency; a non-sentient being can participate in a temporal relation. For example, both a person and a house could be participants in a hypothetical relation 'lives at.'"^^xsd:string
 		;
 	.
 
@@ -1936,7 +1971,7 @@ gist:Text
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:Content
+			gist:ContentExpression
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:isExpressedIn ;
@@ -2910,6 +2945,49 @@ gist:isAllocatedBy
 		;
 	.
 
+gist:isAssignedBy
+	a owl:ObjectProperty ;
+	skos:definition "Relates an assignment to the assigner."^^xsd:string ;
+	skos:example "An employee is assigned to a task by a supervisor."^^xsd:string ;
+	skos:prefLabel "is assigned by"^^xsd:string ;
+	skos:scopeNote
+		"Due to the Open World Assumption, the assigner may not be known or asserted."^^xsd:string ,
+		"The assigner is typically a person, organization, or software system."^^xsd:string ,
+		"While typically this predicate will be used with gist:Assignment subjects, there may be other use cases and therefore a domain is not specified."^^xsd:string
+		;
+	gist:domainIncludes gist:Assignment ;
+	gist:rangeIncludes
+		gist:Organization ,
+		gist:Person
+		;
+	.
+
+gist:isAssignmentOf
+	a owl:ObjectProperty ;
+	skos:definition "Relates an assignment to the resource it assigns."^^xsd:string ;
+	skos:example "Assignment of a person to a project."^^xsd:string ;
+	skos:prefLabel "is assignment of"^^xsd:string ;
+	skos:scopeNote
+		"People, organizations, monetary amounts, equipment can all be assigned."^^xsd:string ,
+		"While typically this predicate will be used with assignment subjects, there may be other use cases, and therefore a domain is not specified."^^xsd:string
+		;
+	gist:domainIncludes gist:Assignment ;
+	gist:rangeIncludes
+		gist:Equipment ,
+		gist:IntellectualProperty ,
+		gist:Organization ,
+		gist:Person
+		;
+	.
+
+gist:isAssignmentTo
+	a owl:ObjectProperty ;
+	skos:definition "Relates something (typically an assignment) to the thing the resource is assigned to, such as a project, position, organization, pay rate, or billing rate."^^xsd:string ;
+	skos:prefLabel "is assignment to"^^xsd:string ;
+	skos:scopeNote "While typically this predicate will be used with gist:Assignment subjects, there may be other use cases, and therefore a domain is not specified."^^xsd:string ;
+	gist:domainIncludes gist:Assignment ;
+	.
+
 gist:isBasedOn
 	a owl:ObjectProperty ;
 	skos:definition "The Object is a foundation for, a starting point for, gave rise to or justifies the Subject"^^xsd:string ;
@@ -3020,6 +3098,17 @@ gist:isPartOf
 		"Because the part has independent existence, there is no cascading delete."^^xsd:string ,
 		"The transitive version of gist:isDirectPartOf."^^xsd:string
 		;
+	.
+
+gist:isProducedBy
+	a owl:ObjectProperty ;
+	skos:definition "Relates something to the thing that created, composed, or brought it into existence."^^xsd:string ;
+	skos:example
+		"A deliverable is produces by a task."^^xsd:string ,
+		"A measurement is produced by a sensor."^^xsd:string ,
+		"A painting is produced by a person."^^xsd:string
+		;
+	skos:prefLabel "is produced by"^^xsd:string ;
 	.
 
 gist:isRecognizedBy
@@ -3300,13 +3389,6 @@ gist:prevents
 	rdfs:range gist:Behavior ;
 	skos:definition "The intention (say a law) is intended to prevent this kind of behavior (say jay-walking)"^^xsd:string ;
 	skos:prefLabel "prevents"^^xsd:string ;
-	.
-
-gist:produces
-	a owl:ObjectProperty ;
-	skos:definition "The subject creates the object."^^xsd:string ;
-	skos:example "A task produces a deliverable."^^xsd:string ;
-	skos:prefLabel "produces"^^xsd:string ;
 	.
 
 gist:providesOrderFor

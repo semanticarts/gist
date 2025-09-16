@@ -38,7 +38,7 @@ def _add_ontology_declaration(output_graph: Graph, version: str):
                                  "direct subclass assertions derived using an OWL DL reasoner and "
                                  "(2) the subclass assertions that are already explicit in gistCore.",
                                  datatype=XSD.string)),
-        (GIST.license, Literal("https://creativecommons.org/licenses/by-sa/3.0/",
+        (GIST.license, Literal("https://creativecommons.org/licenses/by/4.0/",
                                datatype=XSD.string))
     ]
 
