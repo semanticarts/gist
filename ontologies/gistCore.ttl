@@ -2064,12 +2064,6 @@ gist:UnitOfMeasure
 	skos:prefLabel "Unit of Measure"^^xsd:string ;
 	.
 
-gist:accepts
-	a owl:ObjectProperty ;
-	skos:definition "The types of input messages that will be allowed."^^xsd:string ;
-	skos:prefLabel "accepts"^^xsd:string ;
-	.
-
 gist:actualEndDate
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf gist:actualEndDateTime ;
