@@ -1,3 +1,4 @@
+@prefix : <https://w3id.org/semanticarts/ontology/gistCore#> .
 @prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
 @prefix gistd: <https://w3id.org/semanticarts/ns/data/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -484,13 +485,6 @@ gist:ControlledVocabulary
 			gist:Collection
 			[
 				a owl:Restriction ;
-				owl:onProperty [
-					owl:inverseOf gist:isMemberOf ;
-				] ;
-				owl:someValuesFrom gist:Category ;
-			]
-			[
-				a owl:Restriction ;
 				owl:onProperty gist:isGovernedBy ;
 				owl:someValuesFrom [
 					a owl:Class ;
@@ -499,6 +493,13 @@ gist:ControlledVocabulary
 						gist:Person
 					) ;
 				] ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty [
+					owl:inverseOf gist:isMemberOf ;
+				] ;
+				owl:someValuesFrom gist:Category ;
 			]
 		) ;
 	] ;
@@ -521,7 +522,7 @@ gist:CountryGeoRegion
 		) ;
 	] ;
 	skos:definition "A defined geographical area (or areas) governed by exactly one country government."^^xsd:string ;
-	skos:prefLabel "Country Geo-Region"^^xsd:string ;
+	skos:prefLabel "Country Geographical Region"^^xsd:string ;
 	.
 
 gist:CountryGovernment
@@ -675,8 +676,8 @@ gist:GeneralMediaType
 gist:GeoLocation
 	a owl:Class ;
 	skos:definition "A physical location, with the earth as a frame of reference."^^xsd:string ;
-	skos:prefLabel "Geo Location"^^xsd:string ;
-	skos:scopeNote "A geo-location may be a geo-point, geo-region, or geo-volume."^^xsd:string ;
+	skos:prefLabel "Geographical Location"^^xsd:string ;
+	skos:scopeNote "A geographical location may be a point, region, or volume."^^xsd:string ;
 	.
 
 gist:GeoPoint
@@ -722,9 +723,9 @@ gist:GeoPoint
 			]
 		) ;
 	] ;
-	skos:definition "An individual point on the Earth's surface, identified by latitude, longitude and altitude. If altitude is missing, it is assumed to be at the Earth's surface.  However, altitude is measured from sea level.  these points are to the WGS-84 coordinate system using the GPS decimal lat/long"^^xsd:string ;
-	skos:prefLabel "Geo Point"^^xsd:string ;
-	skos:scopeNote "Assume coordinate system used by Google (WGS 84 Web Mercator)."^^xsd:string ;
+	skos:definition "An individual point on or above the Earth's surface, identified by latitude, longitude and altitude. If the altitude is missing, it is assumed to be at the Earth's surface.  However, altitude is measured from sea level.  These points are described using decimal latitude/longitude."^^xsd:string ;
+	skos:prefLabel "Geographical Point"^^xsd:string ;
+	skos:scopeNote "Assumes the use of the WGS Web Mercator coordinate system, which is used by Google."^^xsd:string ;
 	.
 
 gist:GeoRegion
@@ -763,8 +764,8 @@ gist:GeoRegion
 		;
 	skos:definition "A bounded region (or set of regions) on the surface of the Earth."^^xsd:string ;
 	skos:example "The bounded shape that defines the region occupied by Crater Lake; the bounded area known as the contiguous USA."^^xsd:string ;
-	skos:prefLabel "Geo Region"^^xsd:string ;
-	skos:scopeNote "A geo-region could be non-contiguous; e.g. the region governed by the USA is the region governed by the lower 48 states plus that of Alaska and Hawaii.  Child classes in lower ontologies can make this distinction."^^xsd:string ;
+	skos:prefLabel "Geographical Region"^^xsd:string ;
+	skos:scopeNote "A geographical region could be non-contiguous; e.g. the region governed by the USA is the region governed by the lower 48 states plus that of Alaska and Hawaii.  Child classes in lower ontologies can make this distinction."^^xsd:string ;
 	.
 
 gist:GeoRoute
@@ -782,9 +783,9 @@ gist:GeoRoute
 			]
 		) ;
 	] ;
-	skos:definition "An ordered set of geo-points that defines a path from a starting point to an ending point."^^xsd:string ;
-	skos:prefLabel "Geo Route"^^xsd:string ;
-	skos:scopeNote "A geo-route could describe a bus route by identifying the points where the bus stops. A geo-route could describe the boundary of a polygonal geo-region (it does not have to be a travelled route."^^xsd:string ;
+	skos:definition "An ordered set of geographical points that defines a path from a starting point to an ending point."^^xsd:string ;
+	skos:prefLabel "Geographical Route"^^xsd:string ;
+	skos:scopeNote "A geographical route could describe a bus route by identifying the points where the bus stops. A geographical route could describe the boundary of a polygonal geographical region (it does not have to be a travelled route)."^^xsd:string ;
 	.
 
 gist:GeoVolume
@@ -818,7 +819,7 @@ gist:GeoVolume
 		) ;
 	] ;
 	skos:definition "A three-dimensional space on or near the surface of the Earth, such as an oil reservoir, the body of a lake, or an airspace."^^xsd:string ;
-	skos:prefLabel "Geo Volume"^^xsd:string ;
+	skos:prefLabel "Geographical Volume"^^xsd:string ;
 	.
 
 gist:GovernedGeoRegion
@@ -836,8 +837,8 @@ gist:GovernedGeoRegion
 		) ;
 	] ;
 	skos:definition "A defined geographic area or areas governed by at least one government organization."^^xsd:string ;
-	skos:prefLabel "Governed Geo-Region"^^xsd:string ;
-	skos:scopeNote "Geographic regions do not need not be physically contiguous in order to constitute a governed geo-region; e.g., Alaska and Hawaii."^^xsd:string ;
+	skos:prefLabel "Governed Geographical Region"^^xsd:string ;
+	skos:scopeNote "Geographic regions do not need not be physically contiguous in order to constitute a governed geographical region; e.g., Alaska and Hawaii are part of the region governed by the United States."^^xsd:string ;
 	.
 
 gist:GovernmentOrganization
@@ -956,7 +957,7 @@ gist:IntergovernmentalOrganization
 
 gist:Landmark
 	a owl:Class ;
-	owl:equivalentClass [
+	rdfs:subClassOf [
 		a owl:Class ;
 		owl:intersectionOf (
 			gist:PhysicalIdentifiableItem
@@ -1223,11 +1224,6 @@ gist:Offer
 			gist:ContingentObligation
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:offers ;
-				owl:someValuesFrom gist:CatalogItem ;
-			]
-			[
-				a owl:Restriction ;
 				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
@@ -1251,6 +1247,11 @@ gist:Offer
 						]
 					) ;
 				] ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:offers ;
+				owl:someValuesFrom gist:CatalogItem ;
 			]
 			[
 				a owl:Restriction ;
@@ -1313,13 +1314,13 @@ gist:OrderedMember
 		a owl:Class ;
 		owl:intersectionOf (
 			[
-				a owl:Restriction ;
-				owl:onProperty gist:providesOrderFor ;
-				owl:someValuesFrom owl:Thing ;
-			]
-			[
 				a owl:Class ;
 				owl:unionOf (
+					[
+						a owl:Restriction ;
+						owl:onProperty gist:precedesDirectly ;
+						owl:someValuesFrom gist:OrderedMember ;
+					]
 					[
 						a owl:Restriction ;
 						owl:onProperty [
@@ -1329,15 +1330,15 @@ gist:OrderedMember
 					]
 					[
 						a owl:Restriction ;
-						owl:onProperty gist:precedesDirectly ;
-						owl:someValuesFrom gist:OrderedMember ;
-					]
-					[
-						a owl:Restriction ;
 						owl:onProperty gist:sequence ;
 						owl:someValuesFrom xsd:integer ;
 					]
 				) ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:providesOrderFor ;
+				owl:someValuesFrom owl:Thing ;
 			]
 			[
 				a owl:Restriction ;
@@ -1726,15 +1727,15 @@ gist:SubCountryGovernment
 			gist:GovernmentOrganization
 			[
 				a owl:Restriction ;
+				owl:onProperty gist:isGovernedBy ;
+				owl:someValuesFrom gist:CountryGovernment ;
+			]
+			[
+				a owl:Restriction ;
 				owl:onProperty [
 					owl:inverseOf gist:isGovernedBy ;
 				] ;
 				owl:someValuesFrom gist:GeoRegion ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isGovernedBy ;
-				owl:someValuesFrom gist:CountryGovernment ;
 			]
 		) ;
 	] ;
@@ -1847,14 +1848,14 @@ gist:Taxonomy
 							owl:unionOf (
 								[
 									a owl:Restriction ;
-									owl:onProperty [
-										owl:inverseOf gist:hasBroader ;
-									] ;
+									owl:onProperty gist:hasBroader ;
 									owl:someValuesFrom gist:Category ;
 								]
 								[
 									a owl:Restriction ;
-									owl:onProperty gist:hasBroader ;
+									owl:onProperty [
+										owl:inverseOf gist:hasBroader ;
+									] ;
 									owl:someValuesFrom gist:Category ;
 								]
 							) ;
