@@ -8,7 +8,7 @@
 
 - Updated annotations for subclasses of `gist:GeoLocation`. Issue [#1197](https://github.com/semanticarts/gist/issues/1197).
 
-- Used terms like "geographical area" instead of "geo-area". Issue [#1084](https://github.com/semanticarts/gist/issues/1084).
+- Used terms like "geographic area" instead of "geo-area". Issue [#1084](https://github.com/semanticarts/gist/issues/1084).
 
 - `gist:GeoRoute` is now a subclass of `gist:OrderedCollection`. Issue [#1197](https://github.com/semanticarts/gist/issues/1197).
 
@@ -17,6 +17,4 @@
 - Changed EquivalentClass to SubclassOf for class expression describing `gist:Landmark`. Issue [#1197](https://github.com/semanticarts/gist/issues/1197).
 
 - Removed class `gist:GeoSegment`. Issue [#1182](https://github.com/semanticarts/gist/issues/1182).
-
-- Updated annotations for subclasses of `gist:GeoLocation`. Issue [#1197](https://github.com/semanticarts/gist/issues/1197).
 
