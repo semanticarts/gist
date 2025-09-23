@@ -14,6 +14,8 @@
 
 - `gist:Landmark` is now a subclass of `gist:PhysicalIdentifiableItem`. Issue [#1197](https://github.com/semanticarts/gist/issues/1197).
 
+- Changed EquivalentClass to SubclassOf for class expression describing `gist:Landmark`. Issue [#1197](https://github.com/semanticarts/gist/issues/1197).
+
 - Removed class `gist:GeoSegment`. Issue [#1182](https://github.com/semanticarts/gist/issues/1182).
 
 - Updated annotations for subclasses of `gist:GeoLocation`. Issue [#1197](https://github.com/semanticarts/gist/issues/1197).
