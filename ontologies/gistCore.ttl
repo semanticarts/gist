@@ -876,7 +876,7 @@ gist:GovernmentOrganization
 	a owl:Class ;
 	rdfs:subClassOf gist:Organization ;
 	owl:disjointWith gist:IntergovernmentalOrganization ;
-	skos:definition "An organization which exercises political and/or regulatory authority over a political unit, people, geo-region, etc., as well as performing certain functions for this unit or body. Differs from a corporation in that it cannot be owned."^^xsd:string ;
+	skos:definition "An organization which exercises political and/or regulatory authority over a political unit, people, geographic region, etc., as well as performing certain functions for this unit or body. Differs from a corporation in that it cannot be owned."^^xsd:string ;
 	skos:example "The State of Washington Office of Financial Management; the Food and Drug Administration; the Scottish Parliament."^^xsd:string ;
 	skos:prefLabel "Government Organization"^^xsd:string ;
 	skos:scopeNote "Includes administrative, regulatory, and enforcement organizations created or sanctioned by Country or SubCountry Governments."^^xsd:string ;
@@ -1773,12 +1773,12 @@ gist:SubCountryGovernment
 			]
 		) ;
 	] ;
-	skos:definition "A government of a governed geo-region other than a country, which is under the direct or indirect control of a country government."^^xsd:string ;
+	skos:definition "A government of a governed geographic region other than a country, which is under the direct or indirect control of a country government."^^xsd:string ;
 	skos:prefLabel "Sub-Country Government"^^xsd:string ;
 	skos:scopeNote
 		"Across the world, there are a variety of types of subsections of a country and the governments thereof (as well as different terms, like 'province' and 'state', which refer to essentially the same type of thing). We should not automatically assume 'state', 'county', and 'city'.  It is more future-proof just to mint the instances using the generic SubCountryGovernment and, where greater specificity is needed, define categories or subclasses."^^xsd:string ,
-		"Note that the predicate 'governs' is used both for the relationship a government has to a governed geo-region, and for the relationship one government has to the governments of its sub-regions."^^xsd:string ,
-		"This class applies only to organizations governing geo-regions. Regulatory and bureaucratic organizations are members of the more generic GovernmentOrganization class."^^xsd:string
+		"Note that the predicate 'governs' is used both for the relationship a government has to a governed geographic region, and for the relationship one government has to the governments of its sub-regions."^^xsd:string ,
+		"This class applies only to organizations governing geographic regions. Regulatory and bureaucratic organizations are members of the more generic GovernmentOrganization class."^^xsd:string
 		;
 	.
 
@@ -3021,14 +3021,14 @@ gist:isGeoContainedIn
 		;
 	rdfs:domain gist:GeoLocation ;
 	rdfs:range gist:GeoLocation ;
-	skos:definition "Relates one place to another that contains it."^^xsd:string ;
+	skos:definition "Relates one geographic location to another that contains it."^^xsd:string ;
 	skos:prefLabel "is geographically contained in"^^xsd:string ;
 	.
 
 gist:isGovernedBy
 	a owl:ObjectProperty ;
 	skos:definition "Relates a thing governed to the governor."^^xsd:string ;
-	skos:example "A country geo-region is governed by a country government."^^xsd:string ;
+	skos:example "A country geographic region is governed by a country government."^^xsd:string ;
 	skos:prefLabel "is governed by"^^xsd:string ;
 	.
 
@@ -3216,7 +3216,7 @@ gist:numericValue
 
 gist:occursIn
 	a owl:ObjectProperty ;
-	skos:definition "The geospatial place where something happened or will happen"^^xsd:string ;
+	skos:definition "The geographic location where something happened or will happen"^^xsd:string ;
 	skos:prefLabel "occurs in"^^xsd:string ;
 	.
 
