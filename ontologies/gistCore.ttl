@@ -558,6 +558,12 @@ gist:CountryGeoRegion
 
 gist:CountryGovernment
 	a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty gist:isGovernedBy ;
+		owl:onClass gist:GovernmentOrganization ;
+		owl:maxQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+	] ;
 	owl:disjointWith gist:SubCountryGovernment ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -568,14 +574,7 @@ gist:CountryGovernment
 				owl:onProperty [
 					owl:inverseOf gist:isGovernedBy ;
 				] ;
-				owl:onClass gist:CountryGeoRegion ;
-				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isGovernedBy ;
-				owl:onClass gist:GovernmentOrganization ;
-				owl:maxQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom gist:CountryGeoRegion ;
 			]
 		) ;
 	] ;
@@ -882,8 +881,7 @@ gist:GovernedGeoRegion
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:isGovernedBy ;
-				owl:onClass gist:GovernmentOrganization ;
-				owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom gist:GovernmentOrganization ;
 			]
 		) ;
 	] ;
@@ -911,12 +909,12 @@ gist:HistoricalEvent
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:actualEndDateTime ;
-				owl:cardinality "1"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom xsd:dateTime ;
 			]
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:actualStartDateTime ;
-				owl:cardinality "1"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom xsd:dateTime ;
 			]
 		) ;
 	] ;
@@ -1193,6 +1191,19 @@ gist:Network
 
 gist:NetworkLink
 	a owl:Class ;
+	rdfs:subClassOf
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:links ;
+			owl:allValuesFrom gist:NetworkNode ;
+		] ,
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:links ;
+			owl:onClass gist:NetworkNode ;
+			owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+		]
+		;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -1204,13 +1215,7 @@ gist:NetworkLink
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:links ;
-				owl:allValuesFrom gist:NetworkNode ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:links ;
-				owl:onClass gist:NetworkNode ;
-				owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom gist:NetworkNode ;
 			]
 		) ;
 	] ;
@@ -1307,12 +1312,12 @@ gist:Offer
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:plannedEndDateTime ;
-				owl:cardinality "1"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom xsd:dateTime ;
 			]
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:plannedStartDateTime ;
-				owl:cardinality "1"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom xsd:dateTime ;
 			]
 		) ;
 	] ;
@@ -1445,6 +1450,11 @@ gist:Permission
 
 gist:Person
 	a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty gist:hasBiologicalParent ;
+		owl:allValuesFrom gist:Person ;
+	] ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -1452,12 +1462,12 @@ gist:Person
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBiologicalParent ;
-				owl:allValuesFrom gist:Person ;
+				owl:someValuesFrom gist:Person ;
 			]
 		) ;
 	] ;
 	skos:definition "A human being that may or may not still be alive."^^xsd:string ;
-	skos:example "Negative example:fictional characters."^^xsd:string ;
+	skos:example "Negative example: fictional characters."^^xsd:string ;
 	skos:prefLabel "Person"^^xsd:string ;
 	.
 
@@ -1721,7 +1731,7 @@ gist:ScheduledEvent
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:plannedStartDateTime ;
-				owl:cardinality "1"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom xsd:dateTime ;
 			]
 		) ;
 	] ;
