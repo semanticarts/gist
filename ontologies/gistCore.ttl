@@ -972,10 +972,13 @@ gist:IntellectualProperty
 		gist:PhysicalSubstance ,
 		gist:UnitOfMeasure
 		;
-	skos:definition "A work, invention or concept, independent of its being expressed in text, audio, video, image, or live performance.  IP can also be tacit knowledge, know-how, or skill. Also includes Brands."^^xsd:string ;
-	skos:example "The Old Man and The Sea; the Page Rank algorithm; Coca Cola"^^xsd:string ;
+	skos:definition "A work, invention or concept, independent of its being expressed in text, audio, video, image, or live performance.  IP can also be tacit knowledge, know-how, or skill."^^xsd:string ;
+	skos:example "The Old Man and The Sea; the Page Rank algorithm; the brand Coca Cola."^^xsd:string ;
 	skos:prefLabel "Intellectual Property"^^xsd:string ;
-	skos:scopeNote "For literature this could be called the ?Work?, except that ?work? is a highly overloaded term (expenditure of energy, resource consumption, art).  Often the first expression precedes our recognition of the IP, but subsequent expressions are known to be derivatives of the IP, even if they are expression-to-expression translations (or copies)."^^xsd:string ;
+	skos:scopeNote
+		"For literature this could be called the 'Work', except that 'work' is a highly overloaded term (expenditure of energy, resource consumption, art).  Often the first expression precedes our recognition of the IP, but subsequent expressions are known to be derivatives of the IP, even if they are expression-to-expression translations (or copies)."^^xsd:string ,
+		"This concept includes works that are out of copyright or were never formally registered; the defining feature is not that it is legally protected but that it is an intangible creation of the human mind."^^xsd:string
+		;
 	.
 
 gist:Intention
