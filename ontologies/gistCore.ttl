@@ -3054,8 +3054,8 @@ gist:isGeoContainedIn
 
 gist:isGovernedBy
 	a owl:ObjectProperty ;
-	skos:definition "Relates a thing governed to the governor."^^xsd:string ;
-	skos:example "A country geo-region is governed by a country government."^^xsd:string ;
+	skos:definition "Relates an entity to another entity that controls, directs, determines or has a guiding influence or authority over it."^^xsd:string ;
+	skos:example "A country geo-region is governed by a country government; the installation and use of software is governed by a license."^^xsd:string ;
 	skos:prefLabel "is governed by"^^xsd:string ;
 	.
 
