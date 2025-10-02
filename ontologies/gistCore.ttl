@@ -1859,11 +1859,12 @@ gist:Task
 			]
 		) ;
 	] ;
-	skos:definition "A piece of work that is either proposed, planned, scheduled, underway, or completed."^^xsd:string ;
+	skos:definition "A piece of work or activity that is either proposed, planned, scheduled, underway, or completed."^^xsd:string ;
 	skos:prefLabel "Task"^^xsd:string ;
 	skos:scopeNote
 		"Something that could potentially be executed, which is merely described but not proposed in any specific way, such as a business process for onboarding a new employee, or the steps in a recipe for making polyethylene from ethylene, is not a task but rather a task template."^^xsd:string ,
-		"Use the property isBasedOn to link a Task back to the TaskTemplate."^^xsd:string
+		"This term is broader than the English word 'task,' which implies assignment, responsibility, or duty. In ordinary English going to a concert has a goal but is (generally) done for pleasure rather than out of obligation, and would not be considered a task, while according to the gist definition it is a task. The expansion of meaning is deliberate, so that anything that has a goal and can be specified by a task template is a task."^^xsd:string ,
+		"Use the property gist:isBasedOn to link a task back to the task template."^^xsd:string
 		;
 	.
 
