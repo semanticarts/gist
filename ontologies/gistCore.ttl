@@ -653,6 +653,15 @@ gist:EquipmentType
 
 gist:Event
 	a owl:Class ;
+	owl:disjointWith
+		gist:Aspect ,
+		gist:Category ,
+		gist:Language ,
+		gist:Magnitude ,
+		gist:SchemaMetaData ,
+		gist:TimeInterval ,
+		gist:UnitOfMeasure
+		;
 	skos:definition "Something that occurs over a period of time, often characterized as an activity being carried out by some person, organization, or software application or brought about by natural forces."^^xsd:string ;
 	skos:editorialNote "See guidance on removing the term in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1679565100."^^xsd:string ;
 	skos:example "A transaction, conference, baseball game, earthquake."^^xsd:string ;
