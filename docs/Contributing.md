@@ -21,7 +21,8 @@
   - [Merging the PR](#merging-the-pr)
   - [Multi-Developer Projects](#multi-developer-projects)
   - [Release Notes](#release-notes)
-    - [General](#general)
+    - [Requirements](#requirements)
+    - [Organization of Release Notes](#organization-of-release-notes)
     - [Formatting](#formatting)
 
 ## Contributing to gist
@@ -166,34 +167,31 @@ The pre-commit hook does several things when you run `git commit`:
 
 ### Release Notes
 
-#### General
+#### Requirements
 
 - All PRs must include an update to the release notes, except in the rare cases where the change is too trivial to mention; e.g., correcting a single typo. If you deliberately do not include a release note, please indicate this in the PR description so reviewers are aware, though they may disagree and request one.
-- Small fixes of a similar nature, such as correcting several typos and/or revising the wording of several annotations, may be gathered into a single release note, even if they were submitted for separate issues or as separate PRs.
-- Changes that are closely related, even if merged in separate PRs, should be combined into a single release note. They should be added to the section appropriate to the most impactful change (major, minor, or patch). For example, adding an automatically-generated file and the script that generates it should be included in the same release note, in this case to the Minor Updates section.
 - PRs containing no user-facing changes, or changes to files not included in the release package, will still include a release note in the Patch section. Examples: changes to this document; modification of the pre-commit hook; update version of rdf-toolkit.jar.
-- Do _not_ add your release note directly to the file `/doc/ReleaseNotes.md`. Rather, create a separate Markdown file for the release note in `/docs/release_notes`. This avoids messy merge conflicts when multiple issues are being worked on simultaneously. Be sure to include a heading in the file indicating whether it will go into the major, minor, or patch section of the release notes. The individual release notes will be compiled into the _ReleaseNotes.md_ file by the release manager before the release package is built.
-- The name of the release note file has no significance, though it is helpful to name it according to the PR or issue number being addressed.
-- Reviewers will reject a PR without a well-formed release note.
+- Reviewers will reject a PR without a well-formed release note or rationale for not including one.
+- Do _not_ add your release note directly to the file `/docs/ReleaseNotes.md`. Rather, create a separate Markdown file for the release note in the directory `/docs/release_notes`. This avoids messy merge conflicts when multiple issues are being worked on simultaneously.
 - Before building the release package, the release manager will review the release notes for content and formatting, revising as necessary; copy them into the [_ReleaseNotes.md_](ReleaseNotes) file, using sections for major, minor, and patch changes; and delete the individual files.
-  
+- The name of your release note file has no significance, though it is helpful to name it according to the PR or issue number being addressed.
+
+#### Organization of Release Notes
+
+- Include a heading in the file indicating whether it will go into the major, minor, or patch section of the release notes. See [_ChangeAndReleaseManagement.md_](ChangeAndReleaseManagement) for selection of the appropriate impact level.
+- In certain cases, multiple updates may be combined into a single note, even if they were submitted for separate issues or as separate PRs:
+  - Small fixes of a similar nature, such as correcting several typos and/or revising the wording of several annotations. It is not necessary to list the individual changes.
+  - Closely related changes. These should be added to the section for the most impactful change (major, minor, or patch). For example, adding an automatically-generated file and the script that generates it should be included in the same release note, in this case to the Minor Updates section.
+  - Use nested bullets or tables to organize the content of complex notes.
+
 #### Formatting
 
-- The final release notes will be divided into three sections, for major, minor, and patch changes, as relevant.
-- Each release note should follow these formatting conventions:
+  - You can copy the template [`release_notes/release_note_template.md`](release_notes/release_note_template) to use as a starting point.
   - Headings use the open `ATX` convention: i.e., leading hashes only and no underlining.
   - Bullet points are symbolized with dash rather than asterisk.
-  - Descriptions begin with a past tense verb or a noun; e.g., "Updated..." or "Updates to...".
-  - Ontology and other code terms are enclosed in backticks and use the `gist:` prefix; e.g., `gist:Weight`.
+  - The note begins with either a past tense verb or a noun; e.g., "Updated..." or "Modifications to...".
+  - Ontology and other code terms are enclosed in backticks and use the `gist:` prefix; e.g., `gist:Organization`.
   - Each note includes a link to the issue(s) - but not PRs - addressed. Multiple issues should be listed in ascending numeric order.
+  - The note does not need to explain the rationale or provide detail. That is the function of the link to the issue.
   - Each note ends in a period.
   - Refer to the most recent release notes for examples.
-  - Release note example:
-
-```markdown
-
-### Minor Updates
-
-- Changes to category predicates: added intransitive properties `hasDirectSubCategory` and `hasDirectSuperCategory` as subproperties of `hasSubCategory` and `hasSuperCategory`, respectively. The latter are defined as transitive. Issues [#104](https://github.com/semanticarts/gist/issues/104), [#107](https://github.com/semanticarts/gist/issues/107).
-
-```
