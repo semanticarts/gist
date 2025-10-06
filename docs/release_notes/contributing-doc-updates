@@ -1,7 +1,7 @@
 ### Patch Updates
 
 - Documentation updates:
-  - Added instructions on setting up a local gist repository to the README.
-  - Refreshed `Contributing.md` guide to contributing to gist.
+  - Added instructions on setting up a local gist repository to the `README`.
+  - Updated guide for contributing to gist.
   - Added a pull request quick reference guide.
   - Added a release note template.
