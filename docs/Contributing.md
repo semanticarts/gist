@@ -66,17 +66,20 @@
 
 - Run the script `./tools/setup.cmd`. This script will work on Windows, Linux, and Mac. It copies the `./tools/pre-commit` hook into `.git/hooks`, which means it will run before every commit you make to the repository.
 
-The pre-commit hook does several things when you run `git commit`:
+When you make a commit, the pre-commit hook:
 
-- Prevents commits to the branches `develop`, `main`, and `master` (though the latter is no longer used in the gist repository).
-- Runs the serializer. This converts files into a standard Turtle format in order to remove noise in the diffs. As the comments in the file indicate, you should use the pre-approved version of `rdf-toolkit.jar` in this directory, rather than another version that you may have elsewhere on your local drive.
+- Prevents commits to the `develop` and `main` branches.
+- Runs the serializer in `/tools/serializer`. This converts files into a standard Turtle format in order to remove noise in the diffs. As the comments in the file indicate, you should use the pre-approved version of `rdf-toolkit.jar` in this directory, rather than another version that you may have elsewhere on your local drive.
 - Note: Any PR containing unserialized commits will be returned for correction.
 
 ## Submitting a Pull Request (PR)
 
 ### Working Branch
 
-- The first step is to create a working branch from develop for your work. This branch will not be preserved after the work is merged into develop, so its name does not have to be particularly specific, accurate, or detailed. Some developers like to add the issue number to the branch. Prefix your GitHub username with a slash to the branch name so that it is easy to track who created which branch. E.g.,`rounes/documentation_updates` or `ryounes/issue546_documentation_updates`.
+- The first step is to create a working branch for your work. Usually this will branch of the `develop` branch, but if the work targets a specific release and there is a release branch it should branch off that.
+- Prefix your GitHub username + slash to the branch name so that it is easy to track branch ownership.
+- If the work addresses a single issue, start the branch name with the issue number for ease of reference.
+- Examples: `jsmith/documentation_updates` or `jsmith/546_documentation_updates`.
 
 ### Style Guide
 
@@ -85,8 +88,8 @@ The pre-commit hook does several things when you run `git commit`:
 ### Commits, Pushes, and Merges
 
 - When you start working on an issue that is included in a GitHub project, move it to the "In Progress" column of the project board.
-- Every version of gist committed to the repository must be logically consistent. You can ensure this by loading the ontology into Protégé and running a reasoner, or by running a commandline reasoner.
-- If you are working on a project that will require more than one commit, you should commit to your working branch regularly to create logical checkpoints that can be restored if necessary. Each commit should be atomic for ease of rollback or reversion. Ideally, you finish working on one sub-task and commit it before taking up another.
+- Every version of gist committed to the repository must be logically consistent. You can ensure this by loading the ontology into Protégé and running a reasoner, running a reasoner on the command line, or using a tool like [robot](https://robot.obolibrary.org/reason).
+- If you are working on a project that will require more than one commit, you should commit to your working branch regularly to create checkpoints that can be restored if necessary. Each commit should be atomic for ease of rollback or reversion. Ideally, you finish working on one sub-task and commit it before taking up another.
 - However, it is possible to go overboard and commit every little change independently. This creates clutter in the repository history.
 - As you work, it is essential that you merge or rebase regularly from develop back into your working branch. This ensures that, when it comes time to merge your work into develop, you will have resolved most merge conflicts more easily than when there are a large number all at once. Note that your PR cannot be merged to develop until all merge conflicts are resolved.
 - The commit message should be clear enough so that someone can get a basic understanding of the commit without looking at the actual changes in the files.
@@ -96,20 +99,22 @@ The pre-commit hook does several things when you run `git commit`:
 
 ### Creating the Pull Request (PR)
 
-- Once your work is ready to be merged into develop, you will [create a pull request](https://github.com/semanticarts/gist/pulls).
+- Once your work is ready to be merged into the main development line, you will [create a pull request](https://github.com/semanticarts/gist/pulls).
 - Assign the PR to yourself for tracking purposes.
 - Before submitting the PR, you should ensure that you have merged or rebased develop into your working branch, [as above during implementation](#commits-pushes-and-merges).
-- Submit the PR to develop.
-- If the issue addressed by the PR is slated for a particular release, assign the PR to the same release project, using the Project labels on the right sidebar, in order to facilitate tracking. The PR and the associated issue(s) should be moved to the "In Review" column.
+- Submit the PR to develop, or to a release branch if there is one. The release manager will inform you if there is a merge target other than develop.
+- If the issue addressed by the PR is slated for a particular release, assign the PR to the same release project, using the Project labels on the right sidebar, in order to facilitate tracking.
+- The PR and the associated issue(s) should be moved to the "In Review" column.
 - Once the PR has been submitted, check that there are no conflicts with the develop branch. If there are, merge or rebase develop into your branch and resolve the conflicts. You may need to repeat this step after making any requested changes, in case other PRs have been merged to develop in the meantime.
 - Assign one or more reviewers, as specified [below](#assigning-reviewers).
 
 ### Draft PRs
 
-- Some developers like to create a PR before work is completed or even before it has begun. Follow the steps above to create the PR, and in addition:
+- Some developers like to create a PR before work is completed. Follow the steps above to create the PR, and in addition:
   - Put it into draft state by clicking on the "Convert to draft" link below the list of reviewers.
-  - Do not assign reviewers until the PR is ready for review.
-  - When ready for review, click on the gray "Ready to review" button beneath the build checks section.
+  - If adding to a project, put it into "In Progress" status.
+  - Do not assign reviewers until the PR is ready for review, so that they are not notified prematurely.
+  - When ready for review, click on the gray "Ready to review" button beneath the build checks section. Move the PR and issue status to "In Review", as above.
   - Request reviews.
 
 ### Contents of the PR
@@ -121,8 +126,9 @@ The pre-commit hook does several things when you run `git commit`:
 - The PR should address the entirety of an issue. If it does not, either the PR should be modified or the issue should be broken up into parts.
 - The description of the PR should contain the keywords "Closes #nnn" (or another of the [GitHub keywords](https://docs.github.com/en/enterprise/2.21/user/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)) where nnn is the issue number. This automatically closes the related issue(s) when the PR is merged, and creates a link which allows readers and reviewers to easily reference the issue.
   - Example: "Correct cardinality restriction on class gist:Room. Closes #98."
-  - Note that if the PR fixes multiple issues, each issue number must be prefixed by the keyword. E.g., "Closes #98, closes #102", rather than "Closes #98, #102" or "Closes #98 and #102".
-- The PR should include an update to the release notes. See [_Release Notes_](#release-notes).
+  - Note that if the PR fixes multiple issues, each issue number must be prefixed by the keyword. E.g., "Closes #98, closes #99", rather than "Closes #98, #99" or "Closes #98 and #99".
+- The description should also include a brief description or bulleted list outlining the changes in the PR.
+- The PR should include a release note. See [_Release Notes_](#release-notes).
 - Refer to the [_Deprecation and Deletion Policy_](DeprecationAndDeletionPolicy.md) if you are deprecating or deleting terms.
 
 ### Reviewing Problems with the PR
@@ -147,7 +153,7 @@ The pre-commit hook does several things when you run `git commit`:
 - Reviewers are charged with rejecting the PR or requesting changes, if:
   - The criteria of atomicity and completeness are not met.
   - The implementation deviates from that agreed upon during the internal review.
-  - The release notes have not been updated.
+  - A release note is not included.
   - The pre-commit hook has not been run.
 - A reviewer should assign the PR to the same release project as the issue(s) it addresses if that has not been done when the PR was submitted.
 - When you correct your PR based on reviewer comments, and commit these changes, they automaticallly get added to the existing PR, so you should not create another PR.
@@ -182,7 +188,6 @@ The pre-commit hook does several things when you run `git commit`:
 - In certain cases, multiple updates may be combined into a single note, even if they were submitted for separate issues or as separate PRs:
   - Small fixes of a similar nature, such as correcting several typos and/or revising the wording of several annotations. It is not necessary to list the individual changes.
   - Closely related changes. These should be added to the section for the most impactful change (major, minor, or patch). For example, adding an automatically-generated file and the script that generates it should be included in the same release note, in this case to the Minor Updates section.
-  - Use nested bullets or tables to organize the content of complex notes.
 
 #### Formatting
 
@@ -191,7 +196,8 @@ The pre-commit hook does several things when you run `git commit`:
   - Bullet points are symbolized with dash rather than asterisk.
   - The note begins with either a past tense verb or a noun; e.g., "Updated..." or "Modifications to...".
   - Ontology and other code terms are enclosed in backticks and use the `gist:` prefix; e.g., `gist:Organization`.
+  - Use nested bullets or tables to organize the content of complex notes.
   - Each note includes a link to the issue(s) - but not PRs - addressed. Multiple issues should be listed in ascending numeric order.
   - The note does not need to explain the rationale or provide detail. That is the function of the link to the issue.
   - Each note ends in a period.
-  - Refer to the most recent release notes for examples.
+  - Refer to recent release notes for examples.
