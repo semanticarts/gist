@@ -19,9 +19,9 @@ For more information on gist and to download previous versions, see the [Semanti
 - Clone the [gist GitHub repository](https://github.com/semanticarts/gist.git).
 - Run the script `./tools/setup.cmd`.
 - To work on gist, refer to the following documents:
-  - [Pull Request Quick Reference](docs/PullRequestQuickReference.md)
   - [Contributing to gist](docs/Contributing.md)
   - [gist Style Guide](docs/gistStyleGuide.md)
+  - [Contributor Quick Reference](docs/ContributorQuickReference.md)
 
 ## gist Documentation
 
