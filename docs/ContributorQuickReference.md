@@ -1,4 +1,4 @@
-# gist Pull Request Quick Reference
+# gist Contributing Quick Reference
 
 This is a quick reference guide to submitting a pull request (PR) to the gist GitHub repository. Refer to the [contribution guidelines](Contributing.md) for full details.
 
