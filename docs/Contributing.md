@@ -76,7 +76,7 @@ When you make a commit, the pre-commit hook:
 
 ### Working Branch
 
-- The first step is to create a working branch for your work. Usually this will branch of the `develop` branch, but if the work targets a specific release and there is a release branch it should branch off that.
+- The first step is to create a working branch for your work. Usually this will branch off the `develop` branch, but if the work targets a specific release and there is a release branch it should branch off that.
 - Prefix your GitHub username + slash to the branch name so that it is easy to track branch ownership.
 - If the work addresses a single issue, start the branch name with the issue number for ease of reference.
 - Examples: `jsmith/documentation_updates` or `jsmith/546_documentation_updates`.
