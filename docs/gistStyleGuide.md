@@ -20,8 +20,10 @@
   - [Cardinality](#cardinality)
   - [Use of Ontology Terms in Annotations](#use-of-ontology-terms-in-annotations)
 - [Literals](#literals)
-- [Inverses](#inverses)
 - [Documentation](#documentation)
+- [Ontology Best Practices](#ontology-best-practices)
+  - [Inverses](#inverses)
+  - [OWL Restrictions](#owl-restrictions)
 
 ## Purpose of This Style Guide
 
@@ -58,7 +60,7 @@ Every version of gist committed to the git repository must be logically consiste
   - Examples: `AmaGuideline`, not `AMAGuideline`; `UriScheme`, not `URIScheme`
   - `ID` is an exception, because Merriam-Webster spells it in all-caps.
 - No non-standard abbreviations. E.g., `hasUoM` should be `hasUnitOfMeasure`.
-  
+
 ### Textual Standards for Property Local Names
 
 These standards involve choice of wording, which are generally more difficult to define and reach consensus on than the orthographic conventions above. The goals of defining standards are to improve the ontology along the following metrics:
@@ -129,7 +131,7 @@ The following conventions apply to `skos:prefLabel` but *not* `skos:altLabel`, w
 - Title case (see definition of title case below)
 - Normalized to natural language standards. E.g., hyphens inserted, acronyms in all caps, etc.
   - Examples: *AMA Guideline*, *ISBN-10*
-  
+
 ### Properties
 
 - Lower case
@@ -247,7 +249,13 @@ Caution: gist is not yet fully aligned with this best practice, which is aspirat
 
 - Literal values should be typed with one of the  datatypes included in the [OWL 2 Datatype Maps](https://www.w3.org/TR/owl2-syntax/#Datatype_Maps). It is not necessary to explicitly type strings as `xsd:string` because the [serializer](serialization) will add this to all untyped literals.
 
-## Inverses
+## Documentation
+
+Documentation is generally written in Markdown, and a Markdown linter should be applied to flag and fix [Markdown rule](https://github.com/DavidAnson/markdownlint/blob/v0.20.3/doc/Rules.md) violations. The Markdown config file [markdownlint.json](.markdownlint.json) configures the Markdown delinter. If using VS Code as an editor, [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) is a helpful extension that provides code hints and can be configured to automatically correct errors.
+
+## Ontology Best Practices
+
+### Inverses
 
 All inverses were removed from gist as of version `12.0.0`, with minor modifications in version `13.0.0`. We consider it a best practice not to define inverses, for several reasons:
 
@@ -268,6 +276,17 @@ In selecting which of a potential pair of inverses to define, we apply the child
 
 This principle will determine most but not all cases; e.g., `precedes` vs `follows`; in these cases an arbitrary decision is made.
 
-## Documentation
+### OWL Restrictions
 
-Documentation is generally written in Markdown, and a Markdown linter should be applied to flag and fix [Markdown rule](https://github.com/DavidAnson/markdownlint/blob/v0.20.3/doc/Rules.md) violations. The Markdown config file [markdownlint.json](.markdownlint.json) configures the Markdown delinter. If using VS Code as an editor, [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) is a helpful extension that provides code hints and can be configured to automatically correct errors.
+We have defined an in-depth set of best practices governing the use of OWL restrictions. A summary without detailed rationale is provided here. The underlying principle is that restrictions expressing what does not exist prevent inference into the class due to the Open World Assumption.
+
+1. Do not use equivalence to an `owl:allValuesFrom` restriction or an exact or maximum cardinality restriction if you want to be able to infer instances into the class.
+2. Use equivalence to an `owl:allValuesFrom` restriction or an exact or maximum cardinality restriction if you want to be able to infer instances into the _complement_ of the class.
+3. Choose between 1 and 2 according to the type of inference that you care about.
+4. _Subclassing_ to an `owl:allValuesFrom` restriction or an exact or maximum cardinality restriction will provide additional information about a class without inferencing value.
+5. Use equivalence with minimum cardinality, `owl:someValuesFrom`, `owl:hasValue` restrictions to infer an instance into the class.
+6. Use `owl:someValuesFrom` rather than minimum cardinality 1 restrictions.
+7. Use minimum cardinality with values greater than 1.
+8. Do not use minimum cardinality 0 restrictions. Use annotations to provide usage hints instead.
+9. Be sure that your restrictions express meaning rather than data integrity constraints. Consider the question "If an instance of X did not conform to Y, would it still be an X?"
+10. Express data constraints on particular data sets with SHACL.
