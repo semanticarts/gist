@@ -965,7 +965,7 @@ gist:IntellectualProperty
 		gist:PhysicalSubstance ,
 		gist:UnitOfMeasure
 		;
-	skos:definition "A work, invention or concept, independent of its being expressed in text, audio, video, image, or live performance.  IP can also be tacit knowledge, know-how, or skill."^^xsd:string ;
+	skos:definition "A work, invention or concept, independent of its being expressed in text, audio, video, image, or live performance. IP can also be tacit knowledge, know-how, or skill."^^xsd:string ;
 	skos:example "The Old Man and The Sea; the Page Rank algorithm; the brand Coca Cola."^^xsd:string ;
 	skos:prefLabel "Intellectual Property"^^xsd:string ;
 	skos:scopeNote
