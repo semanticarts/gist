@@ -9,15 +9,15 @@
   - [Textual Standards for Property Local Names](#textual-standards-for-property-local-names)
   - [Instance Local Names](#instance-local-names)
 - [Labels](#labels)
-  - [Classes](#classes)
-  - [Properties](#properties)
-  - [Valid Exceptions](#valid-exceptions)
+  - [Class Labels](#class-labels)
+  - [Property Labels](#property-labels)
+  - [Valid Exceptions to Label Conventions](#valid-exceptions-to-label-conventions)
   - [Non-Conforming Labels](#non-conforming-labels)
   - [gist Definition of Title Case](#gist-definition-of-title-case)
 - [Annotations](#annotations)
-  - [Conventions for Use](#conventions-for-use)
-  - [Formatting Conventions](#formatting-conventions)
-  - [Cardinality](#cardinality)
+  - [Conventions for Annotation Use](#conventions-for-annotation-use)
+  - [Formatting Conventions for Annotations](#formatting-conventions-for-annotations)
+  - [Annotation Cardinality](#annotation-cardinality)
   - [Use of Ontology Terms in Annotations](#use-of-ontology-terms-in-annotations)
 - [Literals](#literals)
 - [Documentation](#documentation)
@@ -39,9 +39,9 @@ gist is an OWL 2 DL ontology.
 ## Serialization
 
 - gist OWL files are serialized in RDF Turtle.
-- The [EDM Council's RDF serialization tool, `rdf-toolkit.jar`,](https://github.com/edmcouncil/rdf-toolkit) should be run before every commit in order to standardize formatting and eliminate noise in git diffs.
-- It is recommended to run this as a [pre-commit hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) in your git repository to ensure that it is done before every commit. See [*Contributing*](Contributing.md#pre-commit-hook) for instructions on setting up your repository with a pre-commit hook.
-- **Only** the `rdf-toolkit.jar` file found in `tools/` should be used, since mixing versions may result in bogus diffs.
+- The [EDM Council's RDF serialization tool, `rdf-toolkit.jar`,](https://github.com/edmcouncil/rdf-toolkit) must be run before every commit in order to standardize formatting and eliminate noise in git diffs.
+  - When you set up your local repository, you will run `tools/setup.cmd` which, among other things, installs a pre-commit hook that runs the serializer. See [*Contributing*](Contributing.md) for instructions on setting up your repository.
+  - Only the version of `rdf-toolkit.jar` file found in `tools/serializer` should be used.
 
 ## Logical Consistency
 
@@ -126,19 +126,19 @@ Note: As of version 12.0.0, gist itself does not itself follow the infix convent
 
 The following conventions apply to `skos:prefLabel` but *not* `skos:altLabel`, which by nature may be idiosyncratic.
 
-### Classes
+### Class Labels
 
-- Title case (see definition of title case below)
+- Title case (see [definition of title case](#gist-definition-of-title-case)) below
 - Normalized to natural language standards. E.g., hyphens inserted, acronyms in all caps, etc.
   - Examples: *AMA Guideline*, *ISBN-10*
 
-### Properties
+### Property Labels
 
 - Lower case
 - Normalized to natural language standards. E.g., hyphens inserted, acronyms in all caps, proper nouns capitalized, etc.
 - Examples: *has unit of measure*, *has SSN*, *Unicode symbol*, *W2*
 
-### Valid Exceptions
+### Valid Exceptions to Label Conventions
 
 There may occasionally be valid reasons to deviate from the conventions stated here:
 
@@ -146,11 +146,11 @@ There may occasionally be valid reasons to deviate from the conventions stated h
 
 ### Non-Conforming Labels
 
-- The general label conventions have been captured in SHACL shapes which are run during the ontology build and release process and the repository continuous integration script. These shapes do not allow for special cases like capitalized proper names. To prevent validation failures, add the annotation `gist:nonConformingLabel true` to the term in the `gistValidationAnnotations` ontology so that label validation will be skipped.
+The general label conventions have been captured in SHACL shapes which are run during the ontology build and release process and the repository continuous integration script. These shapes do not allow for special cases like capitalized proper names. To prevent validation failures, add the annotation `gist:nonConformingLabel true` to the term in the `gistValidationAnnotations` ontology so that label validation will be skipped.
 
 ### gist Definition of Title Case
 
-The rules of title case are not universally standardized; standardization is only at the level of house styles and individual style guides. Most English style guides agree that the first and last words should always be capitalized, while articles, short prepositions, and some conjunctions should not be. Other rules about the capitalization vary.
+The rules of title case are not universally standardized; standardization is only at the level of house styles and individual style guides. Most English style guides agree that the first and last words should always be capitalized, while articles, short prepositions, and some conjunctions should not be. Other rules about capitalization vary.
 
 This style guide defines the rules for title case as follows:
 
@@ -167,7 +167,7 @@ This style guide defines the rules for title case as follows:
 
 ## Annotations
 
-### Conventions for Use
+### Conventions for Annotation Use
 
 gist uses SKOS annotations rather than `rdfs:label` and `rdfs:comment`. The accepted annotations, intended use, and previous usage are shown in the following tables. Refer to the [SKOS ontology](http://www.w3.org/2004/02/skos/core) for formal definitions. SKOS annotations allow a more fine-grained approach to human-readable documentation. This change also aligns with emerging common practice.
 
@@ -220,7 +220,7 @@ Certain RDFS annotations are recommended where there is no SKOS equivalent.
 | `rdfs:label` | `skos:prefLabel` |
 | `rdfs:comment` | All other annotations, especially `skos:scopeNote` and `skos:example` |
 
-### Formatting Conventions
+### Formatting Conventions for Annotations
 
 | Annotation | Format |
 | ---------: | ----------- |
@@ -228,7 +228,7 @@ Certain RDFS annotations are recommended where there is no SKOS equivalent.
 | `skos:definition`, `skos:scopeNote`, `skos:note`, `skos:editorialNote` | Full sentence(s) ending in period. It is acceptable to omit the subject at the beginning of the definition in order to avoid the vacuous "This predicate..." or "This class is..." E.g., "Relates a person to his or her spouse." or "A series of steps in a workflow." There should nevertheless be a final period. Use Oxford commas.|
 | `skos:example` | May be either a full sentence or a list. Use a final period only in the former case. E.g., "SSN, driver's license number, employee ID" or "NIH sponsors a research project." Lists with short items, such as the first example, can be delimited by either commas (include Oxford commas) or semi-colons; full-sentence examples should be semi-colon-delimited. |
 
-### Cardinality
+### Annotation Cardinality
 
 | Annotation | Cardinality |
 | ---------: | ----------- |
@@ -247,11 +247,11 @@ Caution: gist is not yet fully aligned with this best practice, which is aspirat
 
 ## Literals
 
-- Literal values should be typed with one of the  datatypes included in the [OWL 2 Datatype Maps](https://www.w3.org/TR/owl2-syntax/#Datatype_Maps). It is not necessary to explicitly type strings as `xsd:string` because the [serializer](serialization) will add this to all untyped literals.
+- Literal values should be typed with one of the  datatypes included in the [OWL 2 Datatype Maps](https://www.w3.org/TR/owl2-syntax/#Datatype_Maps). It is not necessary to explicitly type strings as `xsd:string` because the [serializer](#serialization) will add this to all untyped literals.
 
 ## Documentation
 
-Documentation is generally written in Markdown, and a Markdown linter should be applied to flag and fix [Markdown rule](https://github.com/DavidAnson/markdownlint/blob/v0.20.3/doc/Rules.md) violations. The Markdown config file [markdownlint.json](.markdownlint.json) configures the Markdown delinter. If using VS Code as an editor, [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) is a helpful extension that provides code hints and can be configured to automatically correct errors.
+Documentation is generally written in Markdown, and a Markdown linter should be applied to flag and fix [Markdown rule](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md) violations. The Markdown config file [markdownlint.json](.markdownlint.json) configures the Markdown delinter. If using VS Code as an editor, [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) is a helpful extension that provides code hints and can be configured to automatically correct errors.
 
 ## Ontology Best Practices
 
@@ -278,12 +278,12 @@ This principle will determine most but not all cases; e.g., `precedes` vs `follo
 
 ### OWL Restrictions
 
-We have defined an in-depth set of best practices governing the use of OWL restrictions. A summary without detailed rationale is provided here. The underlying principle is that restrictions expressing what does not exist prevent inference into the class due to the Open World Assumption.
+We have defined an in-depth set of best practices governing the use of OWL restrictions (forthcoming). A summary without detailed rationale is provided here.
 
-1. Do not use equivalence to an `owl:allValuesFrom` restriction or an exact or maximum cardinality restriction if you want to be able to infer instances into the class.
-2. Use equivalence to an `owl:allValuesFrom` restriction or an exact or maximum cardinality restriction if you want to be able to infer instances into the _complement_ of the class.
-3. Choose between 1 and 2 according to the type of inference that you care about.
-4. _Subclassing_ to an `owl:allValuesFrom` restriction or an exact or maximum cardinality restriction will provide additional information about a class without inferencing value.
+1. Do not use equivalence to an `owl:allValuesFrom` restriction or an exact or maximum cardinality restriction if you want to be able to infer instances into the class. These restrictions express what does not exist and thus, in combination with the Open World Assumption, prevent inference into the defined class.
+2. Use equivalence to an `owl:allValuesFrom` restriction or an exact or maximum cardinality restriction if you want to be able to infer instances into the *complement* of the defined class.
+3. Choose between 1 and 2 according to the direction of inference that you care about.
+4. *Subclassing* to an `owl:allValuesFrom` restriction or an exact or maximum cardinality restriction will provide additional information about the defined class without inferencing into it.
 5. Use equivalence with minimum cardinality, `owl:someValuesFrom`, `owl:hasValue` restrictions to infer an instance into the class.
 6. Use `owl:someValuesFrom` rather than minimum cardinality 1 restrictions.
 7. Use minimum cardinality with values greater than 1.
