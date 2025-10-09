@@ -1830,20 +1830,17 @@ gist:System
 
 gist:Tag
 	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Category
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:containedText ;
-				owl:someValuesFrom xsd:string ;
-			]
-		) ;
-	] ;
+	rdfs:subClassOf
+		gist:Category ,
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:containedText ;
+			owl:someValuesFrom xsd:string ;
+		]
+		;
 	skos:definition "A term in a folksonomy used to categorize things. Tags can be made up on the fly by users."^^xsd:string ;
 	skos:prefLabel "Tag"^^xsd:string ;
-	skos:scopeNote "Whether to use gist:containedText or gist:uniqueText on tags is an implementation decision."^^xsd:string ;
+	skos:scopeNote "Whether to use gist:containedText or gist:uniqueText on tags is an implementation decision. Since the latter is a subproperty of the former, the restriction remains valid either way."^^xsd:string ;
 	.
 
 gist:Task
@@ -2062,12 +2059,6 @@ gist:UnitOfMeasure
 	skos:definition "A standard amount used to measure or specify things."^^xsd:string ;
 	skos:example "An acre is a unit for measuring area."^^xsd:string ;
 	skos:prefLabel "Unit of Measure"^^xsd:string ;
-	.
-
-gist:accepts
-	a owl:ObjectProperty ;
-	skos:definition "The types of input messages that will be allowed."^^xsd:string ;
-	skos:prefLabel "accepts"^^xsd:string ;
 	.
 
 gist:actualEndDate
@@ -3054,8 +3045,8 @@ gist:isGeoContainedIn
 
 gist:isGovernedBy
 	a owl:ObjectProperty ;
-	skos:definition "Relates a thing governed to the governor."^^xsd:string ;
-	skos:example "A country geo-region is governed by a country government."^^xsd:string ;
+	skos:definition "Relates an entity to another entity that controls, directs, determines or has a guiding influence or authority over it."^^xsd:string ;
+	skos:example "A country geo-region is governed by a country government; the installation and use of software is governed by a license."^^xsd:string ;
 	skos:prefLabel "is governed by"^^xsd:string ;
 	.
 
