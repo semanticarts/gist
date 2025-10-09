@@ -4,52 +4,64 @@
 - [OWL Version](#owl-version)
 - [Serialization](#serialization)
 - [Logical Consistency](#logical-consistency)
-- [Local Names](#local-names)
-  - [Orthographic Conventions for Class and Property Local Names](#orthographic-conventions-for-class-and-property-local-names)
-  - [Textual Standards for Property Local Names](#textual-standards-for-property-local-names)
-  - [Instance Local Names](#instance-local-names)
-- [Labels](#labels)
-  - [Class Labels](#class-labels)
-  - [Property Labels](#property-labels)
-  - [Valid Exceptions to Label Conventions](#valid-exceptions-to-label-conventions)
-  - [Non-Conforming Labels](#non-conforming-labels)
-  - [gist Definition of Title Case](#gist-definition-of-title-case)
-- [Annotations](#annotations)
-  - [Conventions for Annotation Use](#conventions-for-annotation-use)
-  - [Formatting Conventions for Annotations](#formatting-conventions-for-annotations)
-  - [Annotation Cardinality](#annotation-cardinality)
-  - [Use of Ontology Terms in Annotations](#use-of-ontology-terms-in-annotations)
-- [Literals](#literals)
-- [Documentation](#documentation)
+- [Namespaces](#namespaces)
+- [gist Stylistic Conventions](#gist-stylistic-conventions)
+  - [Local Names](#local-names)
+    - [Orthographic Conventions for Class and Property Local Names](#orthographic-conventions-for-class-and-property-local-names)
+    - [Textual Standards for Property Local Names](#textual-standards-for-property-local-names)
+    - [Instance Local Names](#instance-local-names)
+  - [Labels](#labels)
+    - [Class Labels](#class-labels)
+    - [Property Labels](#property-labels)
+    - [Valid Exceptions to Label Conventions](#valid-exceptions-to-label-conventions)
+    - [Non-Conforming Labels](#non-conforming-labels)
+    - [gist Definition of Title Case](#gist-definition-of-title-case)
+  - [Annotations](#annotations)
+    - [Conventions for Annotation Use](#conventions-for-annotation-use)
+    - [Formatting Conventions for Annotations](#formatting-conventions-for-annotations)
+    - [Annotation Cardinality](#annotation-cardinality)
+    - [Use of Ontology Terms in Annotations](#use-of-ontology-terms-in-annotations)
+  - [Literals](#literals)
+  - [Documentation](#documentation)
 - [Ontology Best Practices](#ontology-best-practices)
   - [Inverses](#inverses)
   - [OWL Restrictions](#owl-restrictions)
 
 ## Purpose of This Style Guide
 
-The purpose of this evolving document is twofold:
+The purpose of this document is twofold:
 
-- Define and implement conventions in order to standardize gist.
+- Define and implement conventions in order to standardize gist and make it as clear, coherent, and precise as possible. Although gist is the product of many minds, years, and experiences, the goal is to give it the feel of having a single author writing with a uniform style.
 - Articulate what we consider best or "better" practices for ontology design and implementation.
 
 ## OWL Version
 
-gist is an OWL 2 DL ontology.
+gist is an OWL 2 DL ontology. This means that it cannot import non-OWL ontologies or use terms from RDF ontologies (i.e., classes and properties defined only as `rdf:Property` and `rdfs:Class`, as in Dublin Core) while remaining OWL 2 DL-compliant.
 
 ## Serialization
 
 - gist OWL files are serialized in RDF Turtle.
 - The [EDM Council's RDF serialization tool, `rdf-toolkit.jar`,](https://github.com/edmcouncil/rdf-toolkit) must be run before every commit in order to standardize formatting and eliminate noise in git diffs.
-  - When you set up your local repository, you will run `tools/setup.cmd` which, among other things, installs a pre-commit hook that runs the serializer. See [*Contributing*](Contributing.md) for instructions on setting up your repository.
-  - Only the version of `rdf-toolkit.jar` file found in `tools/serializer` should be used.
+  - When you set up your local repository, you will run `tools/setup.cmd` which, among other things, installs a pre-commit hook that runs the serializer in `tools/serializer`. See [*Contributing*](Contributing.md) for further instructions on setting up your repository.
+  - To ensure consistent output, only the version of `rdf-toolkit.jar` file found in `tools/serializer` should be used.
 
 ## Logical Consistency
 
 Every version of gist committed to the git repository must be logically consistent. See [*Contributing*](Contributing.md#commits-pushes-and-merges).
 
-## Local Names
+## Namespaces
 
-### Orthographic Conventions for Class and Property Local Names
+gist defines three namespaces:
+
+* Ontology namespace: `gist: <https://w3id.org/semanticarts/ns/ontology/gist/>`
+* Taxonomy namespace: `gistx: <https://w3id.org/semanticarts/ns/taxonomy/gist/>`
+* Instance data namespace: `gistd: <https://w3id.org/semanticarts/ns/data/gist/>`
+
+## gist Stylistic Conventions
+
+### Local Names
+
+#### Orthographic Conventions for Class and Property Local Names
 
 - Camelcase
   - Classes initial uppercase
@@ -61,9 +73,9 @@ Every version of gist committed to the git repository must be logically consiste
   - `ID` is an exception, because Merriam-Webster spells it in all-caps.
 - No non-standard abbreviations. E.g., `hasUoM` should be `hasUnitOfMeasure`.
 
-### Textual Standards for Property Local Names
+#### Textual Standards for Property Local Names
 
-These standards involve choice of wording, which are generally more difficult to define and reach consensus on than the orthographic conventions above. The goals of defining standards are to improve the ontology along the following metrics:
+These standards involve wording choices, which are often more difficult to define and reach consensus on than simple orthographic conventions. The goal of defining standards are to improve the ontology along the following metrics:
 
 - Consistency: The ontology could have been written by a single person.
 - Objectivity: Two ontologists following these standards should agree on the name for a new property in most cases.
@@ -72,9 +84,8 @@ These standards involve choice of wording, which are generally more difficult to
 - Idiomaticity: Follows English natural language insofar as possible. This includes "reading well", as in `Mary isConnectedTo John` rather than `Mary connectedTo John`.
 - Accuracy: Expresses intended meaning.
 - Alignment with textual definitions. In some cases this requires a re-analysis of the intended meaning, and then perhaps a change in definition rather than local name. However, within the current scope of work, the local name was changed to match the definition, and the re-analysis will be done at a later time.
-- Loose coupling and future-proofing.
 
-Some of the examples resulted in changes to gist `10.0.0`, others are hypothetical.
+Some of the examples resulted in changes in gist `10.0.0`, others are hypothetical.
 
 | Standard | Examples |
 | ---------: | ------- |
@@ -102,7 +113,7 @@ Some of the examples resulted in changes to gist `10.0.0`, others are hypothetic
 | Word boundaries consisent across ontology rather than following natural language (exception to idiomaticity) |  `hasSubTask`, `hasSubCategory`, `hasSuperCategory`, although "subtask" and "subcategory" are words |
 ||`hasBirthDate` and `hasDeathDate`, although "birthdate" is a word |
 
-### Instance Local Names
+#### Instance Local Names
 
 These conventions apply to both data and taxonomy terms.
 
@@ -118,37 +129,36 @@ The *most specific rigid* class is the rigid class that the instance most direct
 
 For example, given the class hierarchy `Living Thing` > `Person` > `Professor`, where the first two classes are rigid and the third is not, the name for Sir Tim Berners-Lee is `_Person_Sir_Tim_Berners_Lee`.
 
-Exceptions to this guideline arise may arise in IRI minting during data transformation. Based on how the data is presented, it is often difficult or cumbersome to know the most specific type of an instance, so one can fall back on a higher-level class. E.g., when processing a table of organizations, it may not be possible to know which are governmental organizations, so the infix `_Organization_` can be used throughout.
+Exceptions to this guideline arise may arise in IRI minting during data mapping. Based on how the data is presented, it is often difficult or cumbersome to know the most specific type of an instance, so one can fall back on a higher-level class. E.g., when processing a table of organizations, it may not be possible to know which are governmental organizations, which corporations, and which non-profits, so the infix `_Organization_` can be used throughout.
 
-Note: As of version 12.0.0, gist itself does not itself follow the infix convention, though it does use the leading underscore. This is under consideration for a future update.
 
-## Labels
+### Labels
 
 The following conventions apply to `skos:prefLabel` but *not* `skos:altLabel`, which by nature may be idiosyncratic.
 
-### Class Labels
+#### Class Labels
 
 - Title case (see [definition of title case](#gist-definition-of-title-case)) below
 - Normalized to natural language standards. E.g., hyphens inserted, acronyms in all caps, etc.
   - Examples: *AMA Guideline*, *ISBN-10*
 
-### Property Labels
+#### Property Labels
 
 - Lower case
 - Normalized to natural language standards. E.g., hyphens inserted, acronyms in all caps, proper nouns capitalized, etc.
 - Examples: *has unit of measure*, *has SSN*, *Unicode symbol*, *W2*
 
-### Valid Exceptions to Label Conventions
+#### Valid Exceptions to Label Conventions
 
 There may occasionally be valid reasons to deviate from the conventions stated here:
 
 - Deviation from wording of the local name. For example, the predicate `gist:isGeoContainedIn` uses a shortened form of "geographically" for conciseness. The `skos:prefLabel` uses the fully spelled out word: "is geographically contained in."
 
-### Non-Conforming Labels
+#### Non-Conforming Labels
 
 The general label conventions have been captured in SHACL shapes which are run during the ontology build and release process and the repository continuous integration script. These shapes do not allow for special cases like capitalized proper names. To prevent validation failures, add the annotation `gist:nonConformingLabel true` to the term in the `gistValidationAnnotations` ontology so that label validation will be skipped.
 
-### gist Definition of Title Case
+#### gist Definition of Title Case
 
 The rules of title case are not universally standardized; standardization is only at the level of house styles and individual style guides. Most English style guides agree that the first and last words should always be capitalized, while articles, short prepositions, and some conjunctions should not be. Other rules about capitalization vary.
 
@@ -165,9 +175,9 @@ This style guide defines the rules for title case as follows:
 - Acronyms in all caps (e.g., *SSN*, *ISBN*)
 - Capitalize everything else
 
-## Annotations
+### Annotations
 
-### Conventions for Annotation Use
+#### Conventions for Annotation Use
 
 gist uses SKOS annotations rather than `rdfs:label` and `rdfs:comment`. The accepted annotations, intended use, and previous usage are shown in the following tables. Refer to the [SKOS ontology](http://www.w3.org/2004/02/skos/core) for formal definitions. SKOS annotations allow a more fine-grained approach to human-readable documentation. This change also aligns with emerging common practice.
 
@@ -220,7 +230,7 @@ Certain RDFS annotations are recommended where there is no SKOS equivalent.
 | `rdfs:label` | `skos:prefLabel` |
 | `rdfs:comment` | All other annotations, especially `skos:scopeNote` and `skos:example` |
 
-### Formatting Conventions for Annotations
+#### Formatting Conventions for Annotations
 
 | Annotation | Format |
 | ---------: | ----------- |
@@ -228,7 +238,7 @@ Certain RDFS annotations are recommended where there is no SKOS equivalent.
 | `skos:definition`, `skos:scopeNote`, `skos:note`, `skos:editorialNote` | Full sentence(s) ending in period. It is acceptable to omit the subject at the beginning of the definition in order to avoid the vacuous "This predicate..." or "This class is..." E.g., "Relates a person to his or her spouse." or "A series of steps in a workflow." There should nevertheless be a final period. Use Oxford commas.|
 | `skos:example` | May be either a full sentence or a list. Use a final period only in the former case. E.g., "SSN, driver's license number, employee ID" or "NIH sponsors a research project." Lists with short items, such as the first example, can be delimited by either commas (include Oxford commas) or semi-colons; full-sentence examples should be semi-colon-delimited. |
 
-### Annotation Cardinality
+#### Annotation Cardinality
 
 | Annotation | Cardinality |
 | ---------: | ----------- |
@@ -237,7 +247,7 @@ Certain RDFS annotations are recommended where there is no SKOS equivalent.
 | `skos:scopeNote`, `skos:editorialNote`, `skos:note` | At the implementer's discretion, multiple unrelated notes can be included in either a single annotation or multiple annotations. |
 | `skos:example` | Recommended practice is to combine all examples into a single annotation, especially if there is a list of short items. |
 
-### Use of Ontology Terms in Annotations
+#### Use of Ontology Terms in Annotations
 
 In general it is preferred to use natural language rather than ontology terms in annotations. For example, the definition of `gist:GovernedGeoRegion` reads "A defined geographical area (or areas) governed by exactly one country government." rather than using the ontology class names `GeoRegion` and `CountryGovernment`.
 
@@ -245,11 +255,11 @@ The exception is when a note needs to make specific reference to an ontology ter
 
 Caution: gist is not yet fully aligned with this best practice, which is aspirational.
 
-## Literals
+### Literals
 
 - Literal values should be typed with one of the  datatypes included in the [OWL 2 Datatype Maps](https://www.w3.org/TR/owl2-syntax/#Datatype_Maps). It is not necessary to explicitly type strings as `xsd:string` because the [serializer](#serialization) will add this to all untyped literals.
 
-## Documentation
+### Documentation
 
 Documentation is generally written in Markdown, and a Markdown linter should be applied to flag and fix [Markdown rule](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md) violations. The Markdown config file [markdownlint.json](.markdownlint.json) configures the Markdown delinter. If using VS Code as an editor, [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) is a helpful extension that provides code hints and can be configured to automatically correct errors.
 
@@ -280,13 +290,14 @@ This principle will determine most but not all cases; e.g., `precedes` vs `follo
 
 We have defined an in-depth set of best practices governing the use of OWL restrictions (forthcoming). A summary without detailed rationale is provided here.
 
-1. Do not use equivalence to an `owl:allValuesFrom` restriction or an exact or maximum cardinality restriction if you want to be able to infer instances into the class. These restrictions express what does not exist and thus, in combination with the Open World Assumption, prevent inference into the defined class.
+1. Do not use equivalence to an `owl:allValuesFrom` restriction or an exact or maximum cardinality restriction if you want to be able to infer instances into the defined class. Because these restrictions describe what does *not* exist, in combination with the Open World Assumption they prevent inference into the defined class.
 2. Use equivalence to an `owl:allValuesFrom` restriction or an exact or maximum cardinality restriction if you want to be able to infer instances into the *complement* of the defined class.
-3. Choose between 1 and 2 according to the direction of inference that you care about.
-4. *Subclassing* to an `owl:allValuesFrom` restriction or an exact or maximum cardinality restriction will provide additional information about the defined class without inferencing into it.
-5. Use equivalence with minimum cardinality, `owl:someValuesFrom`, `owl:hasValue` restrictions to infer an instance into the class.
-6. Use `owl:someValuesFrom` rather than minimum cardinality 1 restrictions.
-7. Use minimum cardinality with values greater than 1.
-8. Do not use minimum cardinality 0 restrictions. Use annotations to provide usage hints instead.
-9. Be sure that your restrictions express meaning rather than data integrity constraints. Consider the question "If an instance of X did not conform to Y, would it still be an X?"
-10. Express data constraints on particular data sets with SHACL.
+3. Use equivalence to an `owl:allValuesFrom` restriction to infer into the *object* of `owl:allValuesFrom`. For example, if a `:ProductId` class is the intersection of `gist:ID` with the restriction class that identifies only instances of `:Product`, then if something is identified by a product ID, we can infer that it is a product.
+4. Choose between 1, 2, and 3 according to the type of inference that you care about.
+5. *Subclassing* to an `owl:allValuesFrom` restriction or an exact or maximum cardinality restriction will provide additional information about the defined class without inferring into it.
+6. Use equivalence with minimum cardinality, `owl:someValuesFrom`, `owl:hasValue` restrictions to infer an instance into the class.
+7. Use `owl:someValuesFrom` rather than minimum cardinality 1 restrictions.
+8. Use minimum cardinality with values greater than 1.
+9. Do not use minimum cardinality 0 restrictions. Use annotations to provide usage hints instead.
+10. Be sure that your restrictions express meaning rather than data integrity constraints. Consider the question "If an instance of X did not conform to Y, would it still be an X?"
+11. Express data constraints on particular data sets with SHACL.
