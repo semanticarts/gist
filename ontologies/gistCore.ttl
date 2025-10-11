@@ -1863,7 +1863,7 @@ gist:Task
 			]
 		) ;
 	] ;
-	skos:definition "A piece of work or activity that is either proposed, planned, scheduled, underway, or completed."^^xsd:string ;
+	skos:definition "An activity or piece of work that is either proposed, planned, scheduled, underway, or completed."^^xsd:string ;
 	skos:prefLabel "Task"^^xsd:string ;
 	skos:scopeNote
 		"Something that could potentially be executed, which is merely described but not proposed in any specific way, such as a business process for onboarding a new employee, or the steps in a recipe for making polyethylene from ethylene, is not a task but rather a task template."^^xsd:string ,
