@@ -24,6 +24,7 @@
     - [Requirements](#requirements)
     - [Organization of Release Notes](#organization-of-release-notes)
     - [Formatting](#formatting)
+- [Guidelines for PR Reviewers](#guidelines-for-pr-reviewers)
 
 ## Contributing to gist
 
@@ -128,8 +129,13 @@ Some developers like to create a PR before work is completed. Follow the steps a
 - The PR should address the entirety of an issue. If it does not, either the PR should be modified or the issue should be broken up into parts.
 - The description of the PR should contain the keywords "Closes #nnn" (or another of the [GitHub keywords](https://docs.github.com/en/enterprise/2.21/user/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)) where nnn is the issue number. This automatically closes the related issue(s) when the PR is merged, and creates a link which allows readers and reviewers to easily reference the issue.
   - Example: "Correct cardinality restriction on class gist:Room. Closes #98."
-  - Note that if the PR fixes multiple issues, each issue number must be prefixed by the keyword. E.g., "Closes #98, closes #99", rather than "Closes #98, #99" or "Closes #98 and #99".
-- The description should also include a brief description or bulleted list outlining the changes in the PR.
+  - If the PR fixes multiple issues, each issue should be listed on a separate line and preceded by the word "closes." number must be prefixed by the keyword. Example:
+  ```markdown
+     Closes #98.
+     Closes #99.
+  ```
+  rather than "Closes #98, #99" or "Closes #98 and #99".
+- The description should also include a brief summary or bulleted list outlining the changes in the PR.
 - The PR should include a release note. See [_Release Notes_](#release-notes).
 - Refer to the [_Deprecation and Deletion Policy_](./DeprecationAndDeletionPolicy.md) if you are deprecating or deleting terms.
 
@@ -203,3 +209,21 @@ Some developers like to create a PR before work is completed. Follow the steps a
   - The note does not need to explain the rationale or provide detail. That is the function of the link to the issue.
   - Each note ends in a period.
   - Refer to recent release notes for examples.
+
+## Guidelines for PR Reviewers
+
+- PR reviewers should ensure that the guidelines for submitting a PR have been followed; see the section above on [submitting a PR](#submitting-a-pull-request-pr).
+- If any of the following problems exist, the reviewer may opt to fix them or return the PR to the author:
+  - The PR has not been assigned to the same project as the issue being addressed.
+  - The PR and the issue have not been assigned status "In Review."
+  - The description does not lit the issues closed by the PR, using the phrase "Closes #nnn" where nnn is the issue number. If more than one issue is closed, each should appear on a separate line preceded by the word "Closes."
+  - The PR is not submitted to the appropriate branch (usually `develop`, but in some cases there may be a release branch).
+- The PR should be returned to the author for any of the following problems:
+  - There is no release note and no explanation in the PR description of why none has been included.
+  - There are conflicts with the target branch.
+  - Some checks have not passed.
+  - The serializer has not been run or the diffs are noisy for some other reason.
+- Commenting on the PR:
+  - Review the [GitHub documentation on commenting on PRs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request) for general information.
+  - Do _not_ commit your suggestions to the PR itself. Enter comments in the comment box for the author to review.
+  - It is helpful to enter minor suggestions such as small wording changes as GitHub suggestions, allowing the author to accept and commit the suggestion with a button click. You can do this by clicking on the small +- icon to the right of the word "Preview" in the comment box. See [item 7 in the GitHub documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request#adding-comments-to-a-pull-request).
