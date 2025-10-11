@@ -75,7 +75,7 @@ gist defines three namespaces:
 
 #### Textual Standards for Property Local Names
 
-These standards involve wording choices, which are often more difficult to define and reach consensus on than simple orthographic conventions. The goal of defining standards are to improve the ontology along the following metrics:
+These standards involve wording choices, which are often more difficult to define and reach consensus on than simple orthographic conventions. The goal of defining standards is to improve the ontology along the following metrics:
 
 - Consistency: The ontology could have been written by a single person.
 - Objectivity: Two ontologists following these standards should agree on the name for a new property in most cases.
@@ -261,7 +261,7 @@ Caution: gist is not yet fully aligned with this best practice, which is aspirat
 
 ### Documentation
 
-Documentation is generally written in Markdown, and a Markdown linter should be applied to flag and fix [Markdown rule](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md) violations. The Markdown config file [markdownlint.json](.markdownlint.json) configures the Markdown delinter. If using VS Code as an editor, [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) is a helpful extension that provides code hints and can be configured to automatically correct errors.
+Documentation is generally written in Markdown, and a Markdown linter should be applied to flag and fix [Markdown rule](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md) violations. The Markdown config file [markdownlint.json](.markdownlint.json) configures the Markdown linter for use with gist. If using VS Code as an editor, [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) is a helpful extension that provides code hints and can be configured to automatically correct errors.
 
 ## Ontology Best Practices
 
