@@ -64,12 +64,13 @@
 
 - Clone the [gist GitHub repository](https://github.com/semanticarts/gist.git).
 
-- Run the script `./tools/setup.cmd`. This script will work on Windows, Linux, and Mac. It copies the `./tools/pre-commit` hook into `.git/hooks`, which means it will run before every commit you make to the repository.
+- Run the script `./tools/setup.cmd`. This script will work on Windows, Linux, and Mac. Among other things, it copies the `./tools/pre-commit` hook into `./.git/hooks`, which means it will run before every commit you make to the repository.
+- Check to make sure that the pre-commit hook has been copied to `./.git/hooks` and is executable.
 
 When you make a commit, the pre-commit hook:
 
 - Prevents commits to the `develop` and `main` branches.
-- Runs the serializer in `/tools/serializer`. This converts files into a standard Turtle format in order to remove noise in the diffs. As the comments in the file indicate, you should use the pre-approved version of `rdf-toolkit.jar` in this directory, rather than another version that you may have elsewhere on your local drive.
+- Runs the serializer in `./tools/serializer`. This converts files into a standard Turtle format in order to remove noise in the diffs. Use only the pre-approved version of `rdf-toolkit.jar` in this directory, rather than another version that you may have elsewhere on your local drive.
 - Note: Any PR containing unserialized commits will be returned for correction.
 
 ## Submitting a Pull Request (PR)
@@ -110,12 +111,13 @@ When you make a commit, the pre-commit hook:
 
 ### Draft PRs
 
-- Some developers like to create a PR before work is completed. Follow the steps above to create the PR, and in addition:
-  - Put it into draft state by clicking on the "Convert to draft" link below the list of reviewers.
-  - If adding to a project, put it into "In Progress" status.
-  - Do not assign reviewers until the PR is ready for review, so that they are not notified prematurely.
-  - When ready for review, click on the gray "Ready to review" button beneath the build checks section. Move the PR and issue status to "In Review", as above.
-  - Request reviews.
+Some developers like to create a PR before work is completed. Follow the steps above to create the PR, and in addition:
+
+- Put it into draft state by clicking on the "Convert to draft" link below the list of reviewers.
+- If adding to a project, put the PR into "In Progress" status.
+- Do not assign reviewers until the PR is ready for review, so that they are not notified prematurely.
+- When ready for review, click on the gray "Ready to review" button beneath the build checks section. Move the PR and issue status to "In Review", as above.
+- Request reviews.
 
 ### Contents of the PR
 
@@ -185,9 +187,9 @@ When you make a commit, the pre-commit hook:
 #### Organization of Release Notes
 
 - Include a heading in the file indicating whether it will go into the major, minor, or patch section of the release notes. See [_ChangeAndReleaseManagement.md_](ChangeAndReleaseManagement) for selection of the appropriate impact level.
-- In certain cases, multiple updates may be combined into a single note, even if they were submitted for separate issues or as separate PRs:
+- In certain cases, multiple updates may be combined into a single note, even if they were submitted for different issues or as separate PRs:
   - Small fixes of a similar nature, such as correcting several typos and/or revising the wording of several annotations. It is not necessary to list the individual changes.
-  - Closely related changes. These should be added to the section for the most impactful change (major, minor, or patch). For example, adding an automatically-generated file and the script that generates it should be included in the same release note, in this case to the Minor Updates section.
+  - Closely related changes. These should be added to the section for the most impactful change (major, minor, or patch). For example, adding an automatically-generated file and the script that generates it should be included in the same release note, in this case in the Minor Updates section.
 
 #### Formatting
 

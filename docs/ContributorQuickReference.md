@@ -6,6 +6,7 @@ This is a quick reference guide to submitting a pull request (PR) to the gist Gi
 
 - Clone the [gist GitHub repository](https://github.com/semanticarts/gist.git).
 - Run the script `./tools/setup.cmd`.
+- Check to make sure that `./tools/pre-commit` has been copied to `./.git/hooks` and is executable. This ensures, among other things, that the serializer `./tools/serializer/rdf-toolkit.jar` runs before each commit. The serializer converts files into a standard Turtle format in order to remove noise in the diffs. No ontology files should be committed to the repository without running the serializer.
 
 ## Create a Working Branch
 
@@ -17,6 +18,7 @@ This is a quick reference guide to submitting a pull request (PR) to the gist Gi
 - Change the status of the issue you are working on to "In Progress."
 - Work on one issue at a time unless they are closely interconnected.
 - Consult the [_gist Style Guide_](gistStyleGuide.md) to ensure you are following gist conventions and best practices during implementation.
+- The serializer `./tools/serializer/rdf-toolkit.jar` *must* be run before every commit. If you have followed the [repository setup instructions](#set-up-a-local-github-repository), this will occur automatically.
 - Add a release note as described in [_Contributing_](Contributing.md#release-notes).
 
 ## Submit a Pull Request
