@@ -347,17 +347,12 @@ gist:Commitment
 
 gist:Component
 	a owl:Class ;
-	rdfs:subClassOf [
-		a owl:Restriction ;
-		owl:onProperty gist:isPartOf ;
-		owl:someValuesFrom gist:Composite ;
-	] ;
 	skos:definition "Something that, while having an independent existence, is inherently part of or designed to be part of a larger entity, such as a system or network."^^xsd:string ;
 	skos:prefLabel "Component"^^xsd:string ;
 	skos:scopeNote
-		"A component may be designed or intended as part of a whole while not actually being so; e.g., a car steering wheel that is not installed in any car."^^xsd:string ,
+		"A component may be designed or intended as part of a whole without actually being so; e.g., a car steering wheel that is not installed in any car."^^xsd:string ,
 		"Ingredients in a cake do not meet the independent existence criterion once they are mixed into the batter, so are not components."^^xsd:string ,
-		"Many things are in a trivial sense a part of a larger thing, but are not considered components because they are not inherently part of that larger thing. For example, while a book may be part of a library (a collection of books), it is not inherently so, and thus is not a component. A playing card, on the other hand, could be considered a component of a deck of cards. This may be use case-dependent; e.g., car parts might be modeled as components in an automobile manufacturing context but not in a retail auto parts store."^^xsd:string ,
+		"Many things are in a trivial sense a part of a larger thing, but are not considered components because they are not inherently part of that larger thing. For example, while a book may be part of a library (a collection of books), it is not inherently so, and thus is not a component. A playing card, on the other hand, could be considered a component in (member of) a deck of cards. This may be use case-dependent; e.g., car parts might be modeled as components in an automobile manufacturing context but not in a retail auto parts store."^^xsd:string ,
 		"This class is not disjoint with gist:Composite, because a component may itself break down into smaller components."^^xsd:string ,
 		"This is an abstract class that is not directly instantiated. Users will define subclasses that are meaningful to their domain of interest."^^xsd:string
 		;
