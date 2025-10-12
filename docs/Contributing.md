@@ -223,6 +223,7 @@ Some developers like to create a PR before work is completed. Follow the steps a
   - There are conflicts with the target branch.
   - Some checks have not passed.
   - The serializer has not been run or the diffs are noisy for some other reason.
+  - The ontology is not logically consistent.
 - Commenting on the PR:
   - Review the [GitHub documentation on commenting on PRs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request) for general information.
   - Do _not_ commit your suggestions to the PR itself. Enter comments in the comment box for the author to review.
