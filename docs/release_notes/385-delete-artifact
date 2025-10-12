@@ -1,7 +1,0 @@
-### Major Updates
-
-- Deleted class `gist:Artifact`. Issue [#385](https://github.com/semanticarts/gist/issues/385).
-  - `gist:Content`, `gist:IntellectualProperty`, and `gist:Component` become top-level classes.
-  - `gist:Building` and `gist:Equipment` remain subclasses of `gist:PhysicalIdentifiableItem`.
-
-Note to release manager: some of this intersects with changes in PR 1289 - could perhaps combine.
