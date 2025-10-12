@@ -219,11 +219,12 @@ Some developers like to create a PR before work is completed. Follow the steps a
   - The description does not lit the issues closed by the PR, using the phrase "Closes #nnn" where nnn is the issue number. If more than one issue is closed, each should appear on a separate line preceded by the word "Closes."
   - The PR is not submitted to the appropriate branch (usually `develop`, but in some cases there may be a release branch).
 - The PR should be returned to the author for any of the following problems:
-  - There is no release note and no explanation in the PR description of why none has been included.
+  - There is no release note or explanation in the PR description of why none has been included.
+  - The release note does not adequately reflect the contents of the PR or does not conform to the [guidelines](#release-notes)  - The serializer has not been run or the diffs are noisy for some other reason.
+  - The changes do not conform to the agreed upon implementation described at the bottom of the issue.
+  - The ontology is not logically consistent.
   - There are conflicts with the target branch.
   - Some checks have not passed.
-  - The serializer has not been run or the diffs are noisy for some other reason.
-  - The ontology is not logically consistent.
 - Commenting on the PR:
   - Review the [GitHub documentation on commenting on PRs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request) for general information.
   - Do _not_ commit your suggestions to the PR itself. Enter comments in the comment box for the author to review.
