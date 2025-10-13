@@ -32,3 +32,5 @@ This is a quick reference guide to submitting a pull request (PR) to the gist Gi
 - Resolve any conflicts with the base branch.
 - Assign one or more reviewers.
 - Address reviewer comments.
+- For straightforward changes, resolve the comment when fixed.
+- Re-request reviews.

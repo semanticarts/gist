@@ -157,15 +157,12 @@ Some developers like to create a PR before work is completed. Follow the steps a
 
 ### Review Process
 
-- Reviewers are charged with rejecting the PR or requesting changes, if:
-  - The criteria of atomicity and completeness are not met.
-  - The implementation deviates from that agreed upon during the internal review.
-  - A release note is not included.
-  - The pre-commit hook has not been run.
-- A reviewer should assign the PR to the same release project as the issue(s) it addresses if that has not been done when the PR was submitted.
-- When you correct your PR based on reviewer comments, and commit these changes, they automaticallly get added to the existing PR, so you should not create another PR.
-- If a reviewer does not deem him/herself qualified to review the PR, he/she should reassign it to another reviewer.
+- Refer to [*Reviewer Guidelines*](ReviewerGuidelines.md) to see what the reviewer will be looking for.
 - The PR will automatically be moved back into the In Progress column when a reviewer requests changes.
+- Return to your PR after it has been reviewed in order to view the requested and suggested changes.
+- When you commit your corrections, they are automaticallly added to the existing PR.
+- Resolve the reviewer comment for straightforward changes. For more complex changes, leave the comment open so the reviewer can come back to it.
+- Re-request reviews from any reviewers who requested changes. If additional changes are requested, cycle back through these steps.
 
 ### Merging the PR
 
