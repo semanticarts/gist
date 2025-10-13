@@ -23,12 +23,12 @@ This is a quick reference guide to submitting a pull request (PR) to the gist Gi
 
 ## Submit a Pull Request
 
-- When implementation is complete, [create a pull request](https://github.com/semanticarts/gist/pulls) to the target branch (`develop` or a release branch, if one exists).
+- When implementation is complete, [create a pull request](https://github.com/semanticarts/gist/pulls) to the base branch (`develop` or a release branch, if one exists).
 - Add the text "Closes #nnn" (where nnn is the issue number) to the description field. (If there are multiple issues, you must use the keyword "Closes" before each one.)
 - Assign the PR to yourself.
 - Add the PR to the same project as the issue. Set its status to "In Review."
 - Set the issue status to "In Review."
 - Submit the PR.
-- Resolve any conflicts with the target branch.
+- Resolve any conflicts with the base branch.
 - Assign one or more reviewers.
 - Address reviewer comments.
