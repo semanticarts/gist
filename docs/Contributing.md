@@ -77,7 +77,7 @@ When you make a commit, the pre-commit hook:
 
 ### Working Branch
 
-- The first step is to create a working branch for your work. Usually this will branch off the `develop` branch, but if the work targets a specific release and there is a release branch it should branch off that.
+- The first step is to create a working branch for your work from the base branch. Usually the base branch is `develop`, but there may be a release branch. The release manager will inform you if there is a base branch other than develop.
 - Prefix your GitHub username + slash to the branch name so that it is easy to track branch ownership.
 - If the work addresses a single issue, start the branch name with the issue number for ease of reference.
 - Examples: `jsmith/documentation_updates` or `jsmith/546_documentation_updates`.
@@ -103,7 +103,7 @@ When you make a commit, the pre-commit hook:
 - Once your work is ready to be merged into the main development line, you will [create a pull request](https://github.com/semanticarts/gist/pulls).
 - Assign the PR to yourself for tracking purposes.
 - Before submitting the PR, you should ensure that you have merged or rebased develop into your working branch, [as above during implementation](#commits-pushes-and-merges).
-- Submit the PR to develop, or to a release branch if there is one. The release manager will inform you if there is a merge target other than develop.
+- Submit the PR to the base branch. This is usually `develop`, but there could be a release branch. The release manager will inform you if there is a base other than develop.
 - If the issue addressed by the PR is slated for a particular release, assign the PR to the same release project, using the Project labels on the right sidebar, in order to facilitate tracking.
 - The PR and the associated issue(s) should be moved to the "In Review" column.
 - Once the PR has been submitted, check that there are no conflicts with the develop branch. If there are, merge or rebase develop into your branch and resolve the conflicts. You may need to repeat this step after making any requested changes, in case other PRs have been merged to develop in the meantime.
