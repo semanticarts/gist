@@ -2631,10 +2631,10 @@ gist:hasAccuracy
 		;
 	rdfs:range gist:Magnitude ;
 	rdfs:seeAlso "https://en.wikipedia.org/wiki/Accuracy_and_precision"^^xsd:anyURI ;
-	skos:definition "The accuracy of a measurement method is the degree of closeness of its measurements to actual values. Similarly, the accuracy of an individual measurement is its likely closeness to the actual value.  gist uses the ISO definition of accuracy, which is a combination of trueness and precision."^^xsd:string ;
+	skos:definition "Relates a magnitude to another magnitude that describes its accuracy."^^xsd:string ;
 	skos:example "Temperature accurate to tenth of a degree C; length accurate to the nearest centimeter."^^xsd:string ;
 	skos:prefLabel "has accuracy"^^xsd:string ;
-	skos:scopeNote """When we say a temperature measurement is accurate to within a tenth of a degree, it typically means with a 95% probability. In gist, hasAccuracy is defined as having a 95% probability level; if another level such as 90% is required, it is best to create a separate property.
+	skos:scopeNote """gist uses the ISO-5725 definition of accuracy, which is a combination of trueness (a measure of systemic error) and precision (a measure of random error). The accuracy of a measurement method describes how close its measurements are to actual values. Similarly, the accuracy of an individual measurement is its likely closeness to the actual value. When we say a temperature measurement is accurate to within a tenth of a degree, it means with a certain probability such as 95%.
 
 Note that the unit of measure of the accuracy has to be compatible with the unit of measure of the original magnitude (e.g. something measured in meters could have a accuracy in terms of millimeters or any other unit that measures distance)."""^^xsd:string ;
 	gist:domainIncludes gist:Magnitude ;
