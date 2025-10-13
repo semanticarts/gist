@@ -11,7 +11,7 @@
   - The release note does not adequately reflect the contents of the PR or does not conform to the [guidelines](Contributing.md#release-notes)  - The serializer has not been run or the diffs are noisy for some other reason.
   - The changes do not conform to the agreed upon implementation described at the bottom of the issue.
   - The ontology is not logically consistent.
-  - There are conflicts with the base branch.
+  - There are conflicts with the base (target) branch.
   - Some checks have not passed.
   - The changes included in the PR are not all within the scope of the issue.
 - Commenting on the PR:
