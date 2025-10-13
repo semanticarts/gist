@@ -13,6 +13,7 @@
   - The ontology is not logically consistent.
   - There are conflicts with the target branch.
   - Some checks have not passed.
+  - The changes included in the PR are not all within the scope of the issue.
 - Commenting on the PR:
   - Review the [GitHub documentation on commenting on PRs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request) for general information.
   - Do _not_ commit your suggestions to the PR itself. Enter comments in the comment box for the author to review.
