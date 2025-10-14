@@ -121,7 +121,7 @@ These conventions apply to both data and taxonomy terms.
 - An infix indicating the type of the instance. As a rule of thumb, this is the *most specific rigid* class the instance belongs to, but there are exceptions where this is not viable (see below).
 - A single underscore.
 - The name of the instance, with spaces and hyphens replaced by underscores (no camelcasing) and only alphanumeric characters and underscores allowed.
-- Leave case as it is,
+- Leave case as it is.
 
 A *rigid* class is one that the instance inherently belongs; it is part of the essence of the object, which would not be the same object if it did not belong to this class. A non-rigid class may be temporary and/or express a role or relationship; for example, `Patient`, `Employee`, `Spouse`. The notion of rigid classes originates in [OntoClean](https://www.researchgate.net/publication/226934944_An_Overview_of_OntoClean).
 
@@ -133,7 +133,6 @@ Exceptions to this guideline arise may arise in IRI minting during data mapping.
 
 Exceptions to this guideline arise may arise in IRI minting during data mapping. Based on how the data is presented, it is often difficult or cumbersome to know the most specific type of an instance, so one can fall back on a higher-level class. E.g., when processing a table of organizations, it may not be possible to know which are governmental organizations, which corporations, and which non-profits, so the infix `_Organization_` can be used throughout.
 
-### Labels
 ### Labels
 
 The following conventions apply to `skos:prefLabel` but *not* `skos:altLabel`, which by nature may be idiosyncratic.
