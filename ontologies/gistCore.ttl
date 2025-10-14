@@ -1915,47 +1915,6 @@ gist:TaskTemplate
 		;
 	.
 
-gist:Taxonomy
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:ControlledVocabulary
-			[
-				a owl:Restriction ;
-				owl:onProperty [
-					owl:inverseOf gist:isMemberOf ;
-				] ;
-				owl:someValuesFrom [
-					a owl:Class ;
-					owl:intersectionOf (
-						gist:Category
-						[
-							a owl:Class ;
-							owl:unionOf (
-								[
-									a owl:Restriction ;
-									owl:onProperty gist:hasBroader ;
-									owl:someValuesFrom gist:Category ;
-								]
-								[
-									a owl:Restriction ;
-									owl:onProperty [
-										owl:inverseOf gist:hasBroader ;
-									] ;
-									owl:someValuesFrom gist:Category ;
-								]
-							) ;
-						]
-					) ;
-				] ;
-			]
-		) ;
-	] ;
-	skos:definition "A controlled vocabulary arranged as a hierarchy of concepts."^^xsd:string ;
-	skos:prefLabel "Taxonomy"^^xsd:string ;
-	.
-
 gist:Template
 	a owl:Class ;
 	owl:disjointWith gist:UnitOfMeasure ;
