@@ -1466,7 +1466,7 @@ gist:Person
 			]
 		) ;
 	] ;
-	skos:definition "A human being that may or may not still be alive."^^xsd:string ;
+	skos:definition "A human being who was or is alive."^^xsd:string ;
 	skos:example "Negative example: fictional characters."^^xsd:string ;
 	skos:prefLabel "Person"^^xsd:string ;
 	.
