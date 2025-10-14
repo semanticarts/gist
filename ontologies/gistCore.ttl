@@ -902,6 +902,11 @@ gist:GovernmentOrganization
 
 gist:HistoricalEvent
 	a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty gist:actualStartDateTime ;
+		owl:someValuesFrom xsd:dateTime ;
+	] ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -909,11 +914,6 @@ gist:HistoricalEvent
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:actualEndDateTime ;
-				owl:someValuesFrom xsd:dateTime ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:actualStartDateTime ;
 				owl:someValuesFrom xsd:dateTime ;
 			]
 		) ;
