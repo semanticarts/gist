@@ -53,9 +53,9 @@ Every version of gist committed to the git repository must be logically consiste
 
 gist defines three namespaces:
 
-* Ontology namespace: `gist: <https://w3id.org/semanticarts/ns/ontology/gist/>`
-* Taxonomy namespace: `gistx: <https://w3id.org/semanticarts/ns/taxonomy/gist/>`
-* Instance data namespace: `gistd: <https://w3id.org/semanticarts/ns/data/gist/>`
+- Ontology namespace: `gist: <https://w3id.org/semanticarts/ns/ontology/gist/>`
+- Taxonomy namespace: `gistx: <https://w3id.org/semanticarts/ns/taxonomy/gist/>`
+- Instance data namespace: `gistd: <https://w3id.org/semanticarts/ns/data/gist/>`
 
 ## gist Stylistic Conventions
 
@@ -226,6 +226,7 @@ Certain RDFS annotations are recommended where there is no SKOS equivalent.
 | `skos:note` | Use a more specific annotation whenever possible. |
 
 *Do not use*
+
 | Annotation | Instead Use |
 | ---------: | ----------- |
 | `rdfs:label` | `skos:prefLabel` |
@@ -262,7 +263,7 @@ Caution: gist is not yet fully aligned with this best practice, which is aspirat
 
 ### Documentation
 
-Documentation is generally written in Markdown, and a Markdown linter should be applied to flag and fix [Markdown rule](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md) violations. The Markdown config file [markdownlint.json](.markdownlint.json) configures the Markdown linter for use with gist. If using VS Code as an editor, [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) is a helpful extension that provides code hints and can be configured to automatically correct errors.
+Documentation is generally written in Markdown, and a Markdown linter should be applied to flag and fix [Markdown rule](https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md) violations. The Markdown config file [`../.markdownlint.json`](../.markdownlint.json) configures the Markdown linter for use in the gist repository. If using VS Code as an editor, [`markdownlint`](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) is a helpful extension that provides code hints and can be configured to automatically correct errors based on the rule configuration.
 
 ## Ontology Best Practices
 
