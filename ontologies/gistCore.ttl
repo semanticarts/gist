@@ -2863,7 +2863,7 @@ gist:hasPhysicalLocation
 gist:hasRecipient
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasParticipant ;
-	skos:definition "The recipient"^^xsd:string ;
+	skos:definition "Relates the subject (e.g. a transfer, a message, a gift) to an entity that receives or is intended to receive it."^^xsd:string ;
 	skos:prefLabel "has recipient"^^xsd:string ;
 	.
 
