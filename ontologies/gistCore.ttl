@@ -183,17 +183,6 @@ gist:Agreement
 	skos:prefLabel "Agreement"^^xsd:string ;
 	.
 
-gist:Artifact
-	a owl:Class ;
-	rdfs:subClassOf [
-		a owl:Restriction ;
-		owl:onProperty gist:hasGoal ;
-		owl:someValuesFrom gist:Function ;
-	] ;
-	skos:definition "An intentional, person-made thing, which could be physical or content"^^xsd:string ;
-	skos:prefLabel "Artifact"^^xsd:string ;
-	.
-
 gist:Aspect
 	a owl:Class ;
 	skos:definition "A measurable characteristic such as length, weight, cost, cycle time, or defect rate."^^xsd:string ;
@@ -242,10 +231,7 @@ gist:Behavior
 
 gist:Building
 	a owl:Class ;
-	rdfs:subClassOf
-		gist:Artifact ,
-		gist:Landmark
-		;
+	rdfs:subClassOf gist:Landmark ;
 	skos:definition "A relatively permanent man-made structure situated on a plot of land, having a roof and walls, commonly used for dwelling, entertaining, or working."^^xsd:string ;
 	skos:example
 		"A house, school, store, factory, chicken coop."^^xsd:string ,
@@ -304,6 +290,7 @@ gist:Category
 
 gist:Collection
 	a owl:Class ;
+	rdfs:subClassOf gist:Composite ;
 	skos:definition "A grouping of things."^^xsd:string ;
 	skos:example "A jury is a group of people, a financial ledger is a collection of transaction entries; a route is an (ordered) collection of segments."^^xsd:string ;
 	skos:prefLabel "Collection"^^xsd:string ;
@@ -346,19 +333,28 @@ gist:Commitment
 
 gist:Component
 	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Artifact
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:contributesTo ;
-				owl:someValuesFrom gist:System ;
-			]
-		) ;
-	] ;
-	skos:definition "A component is an artifact that contributes to a system.  Could be a simple mechanical component, such as the float contributing to the toilet tank maintaining a constant level, or much more complex as in the internet of things."^^xsd:string ;
+	owl:disjointWith gist:PhysicalSubstance ;
+	skos:definition "Something that, while having an independent existence, is inherently part of or designed to be part of a larger entity, such as a system or network."^^xsd:string ;
 	skos:prefLabel "Component"^^xsd:string ;
+	skos:scopeNote
+		"A component may be designed or intended as part of a whole without actually being so; e.g., a car steering wheel that is not installed in any car."^^xsd:string ,
+		"Many things are in a trivial sense a part of a larger thing, but are not considered components because they are not inherently part of that larger thing. For example, while a book may be part of a library (a collection of books), it is not inherently so, and thus is not a component. A playing card, on the other hand, could be considered a component in (member of) a deck of cards. This may be use case-dependent; e.g., car parts might be modeled as components in an automobile manufacturing context but not in a retail auto parts store."^^xsd:string ,
+		"Physical substances, such as ingredients in a cake batter, do not meet the independent existence criterion, so are not components."^^xsd:string ,
+		"This class is not disjoint with gist:Composite, because a component may itself break down into smaller components."^^xsd:string ,
+		"This is an abstract class that is not directly instantiated. Users will define subclasses that are meaningful to their domain of interest."^^xsd:string
+		;
+	.
+
+gist:Composite
+	a owl:Class ;
+	skos:definition "Something which is made up of various parts or elements that are independently identifiable."^^xsd:string ;
+	skos:example "A library (collection of books); a network of pipes and valves; a computer network of routers and computers."^^xsd:string ;
+	skos:prefLabel "Composite"^^xsd:string ;
+	skos:scopeNote
+		"Some composites, like systems, networks, and ordered collections, have internal organization, while others, such as unordered collections, typically do not."^^xsd:string ,
+		"This class is not disjoint with gist:Component, because a composite can itself be a component of a larger composite."^^xsd:string ,
+		"This is an abstract class that will not be directly instantiated."^^xsd:string
+		;
 	.
 
 gist:ContemporaryEvent
@@ -386,7 +382,6 @@ gist:ContemporaryEvent
 
 gist:Content
 	a owl:Class ;
-	rdfs:subClassOf gist:Artifact ;
 	owl:disjointWith
 		gist:GeoPoint ,
 		gist:GeoRegion ,
@@ -631,7 +626,6 @@ gist:Equipment
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:Artifact
 			gist:PhysicalIdentifiableItem
 			[
 				a owl:Restriction ;
@@ -964,7 +958,6 @@ gist:ID
 
 gist:IntellectualProperty
 	a owl:Class ;
-	rdfs:subClassOf gist:Artifact ;
 	owl:disjointWith
 		gist:Magnitude ,
 		gist:Organization ,
@@ -1197,7 +1190,7 @@ gist:Network
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:Artifact
+			gist:Composite
 			[
 				a owl:Restriction ;
 				owl:onProperty [
@@ -1213,16 +1206,29 @@ gist:Network
 			]
 		) ;
 	] ;
-	skos:definition "A network is a set of nodes connected by links."^^xsd:string ;
-	skos:example "A physical network could include connected computers or routers, whereas a social network would consist of related Person or Organization instances."^^xsd:string ;
+	skos:definition "A composite consisting of nodes connected by links."^^xsd:string ;
+	skos:example "A physical network could include connected computers or routers, whereas a social network would consist of related person or organization members (or their proxies, such as accounts)."^^xsd:string ;
 	skos:prefLabel "Network"^^xsd:string ;
 	.
 
 gist:NetworkLink
 	a owl:Class ;
+	rdfs:subClassOf
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:links ;
+			owl:allValuesFrom gist:NetworkNode ;
+		] ,
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:links ;
+			owl:cardinality "2"^^xsd:nonNegativeInteger ;
+		]
+		;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
+			gist:Component
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:isMemberOf ;
@@ -1231,31 +1237,28 @@ gist:NetworkLink
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:links ;
-				owl:allValuesFrom gist:NetworkNode ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:links ;
-				owl:onClass gist:NetworkNode ;
-				owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom gist:NetworkNode ;
 			]
 		) ;
 	] ;
 	skos:definition "An abstract representation of the connection between two or more nodes in a network."^^xsd:string ;
 	skos:example "A network link may be physical, such as pipes, wired or wireless networks, but may also be a link in a non-physical network, such as organizational structures or social networks."^^xsd:string ;
 	skos:prefLabel "Network Link"^^xsd:string ;
-	skos:scopeNote "Each NetworkLink is connected to a NetworkNode via the property 'gist:links' or one of its subproperties."^^xsd:string ;
+	skos:scopeNote "Each newtork link is connected to a network node via the property gist:links or one of its subproperties."^^xsd:string ;
 	.
 
 gist:NetworkNode
 	a owl:Class ;
-	rdfs:subClassOf [
-		a owl:Restriction ;
-		owl:onProperty gist:isMemberOf ;
-		owl:someValuesFrom gist:Network ;
-	] ;
+	rdfs:subClassOf
+		gist:Component ,
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:isMemberOf ;
+			owl:someValuesFrom gist:Network ;
+		]
+		;
 	skos:definition "A node in a network."^^xsd:string ;
-	skos:example "A person is a node in a social network; a valve is a node in a network of pipes."^^xsd:string ;
+	skos:example "A person's account is a node in a social network; a valve is a node in a network of pipes."^^xsd:string ;
 	skos:prefLabel "Network Node"^^xsd:string ;
 	.
 
@@ -1383,6 +1386,7 @@ gist:OrderedMember
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
+			gist:Component
 			[
 				a owl:Class ;
 				owl:unionOf (
@@ -1833,7 +1837,7 @@ gist:System
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:Artifact
+			gist:Composite
 			[
 				a owl:Restriction ;
 				owl:onProperty [
@@ -1843,7 +1847,7 @@ gist:System
 			]
 		) ;
 	] ;
-	skos:definition "A system is an artifact with component parts where the parts contribute to the goal of the system"^^xsd:string ;
+	skos:definition "A composite with component parts that contribute to the goal of the system."^^xsd:string ;
 	skos:prefLabel "System"^^xsd:string ;
 	.
 
@@ -2855,7 +2859,7 @@ gist:hasPhysicalLocation
 gist:hasRecipient
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasParticipant ;
-	skos:definition "The recipient"^^xsd:string ;
+	skos:definition "Relates the subject (e.g. a transfer, a message, a gift) to an entity that receives or is intended to receive it."^^xsd:string ;
 	skos:prefLabel "has recipient"^^xsd:string ;
 	.
 
@@ -3190,22 +3194,28 @@ gist:license
 
 gist:links
 	a owl:ObjectProperty ;
-	skos:definition "Relates a NetworkLink to a NetworkNode that it connects to another node. Used when the connections are undirected, or the direction is not known."^^xsd:string ;
+	skos:definition "Relates a network link to a network node that it connects to another node. Used when the connection is undirected or the direction is not known."^^xsd:string ;
 	skos:prefLabel "links"^^xsd:string ;
+	gist:domainIncludes gist:NetworkLink ;
+	gist:rangeIncludes gist:NetworkNode ;
 	.
 
 gist:linksFrom
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:links ;
-	skos:definition "Relates a NetworkLink to its origin NetworkNode. Unlike the superproperty, this represents a directed connection."^^xsd:string ;
+	skos:definition "Relates a network link to its origin network node. Unlike the superproperty, this represents a directed connection."^^xsd:string ;
 	skos:prefLabel "links from"^^xsd:string ;
+	gist:domainIncludes gist:NetworkLink ;
+	gist:rangeIncludes gist:NetworkNode ;
 	.
 
 gist:linksTo
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:links ;
-	skos:definition "Relates a NetworkLink to its destination NetworkNode. Unlike the superproperty, this represents a directed connection."^^xsd:string ;
+	skos:definition "Relates a network link to its destination network node. Unlike the superproperty, this represents a directed connection."^^xsd:string ;
 	skos:prefLabel "links to"^^xsd:string ;
+	gist:domainIncludes gist:NetworkLink ;
+	gist:rangeIncludes gist:NetworkNode ;
 	.
 
 gist:longitude
