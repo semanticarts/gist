@@ -198,7 +198,7 @@ gist:Assignment
 			gist:TemporalRelation
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isAssignedBy ;
+				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom owl:Thing ;
 			]
 			[
@@ -2957,23 +2957,6 @@ gist:isAllocatedBy
 	gist:domainIncludes
 		gist:Category ,
 		gist:ID
-		;
-	.
-
-gist:isAssignedBy
-	a owl:ObjectProperty ;
-	skos:definition "Relates an assignment to the assigner."^^xsd:string ;
-	skos:example "An employee is assigned to a task by a supervisor."^^xsd:string ;
-	skos:prefLabel "is assigned by"^^xsd:string ;
-	skos:scopeNote
-		"Due to the Open World Assumption, the assigner may not be known or asserted."^^xsd:string ,
-		"The assigner is typically a person, organization, or software system."^^xsd:string ,
-		"While typically this predicate will be used with gist:Assignment subjects, there may be other use cases and therefore a domain is not specified."^^xsd:string
-		;
-	gist:domainIncludes gist:Assignment ;
-	gist:rangeIncludes
-		gist:Organization ,
-		gist:Person
 		;
 	.
 
