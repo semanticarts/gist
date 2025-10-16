@@ -1305,6 +1305,16 @@ gist:Offer
 			gist:ContingentObligation
 			[
 				a owl:Restriction ;
+				owl:onProperty gist:offersToProvide ;
+				owl:someValuesFrom owl:Thing ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:offersToReceive ;
+				owl:someValuesFrom owl:Thing ;
+			]
+			[
+				a owl:Restriction ;
 				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
@@ -1313,26 +1323,6 @@ gist:Offer
 						gist:Person
 					) ;
 				] ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMagnitude ;
-				owl:someValuesFrom [
-					a owl:Class ;
-					owl:intersectionOf (
-						gist:Magnitude
-						[
-							a owl:Restriction ;
-							owl:onProperty gist:hasAspect ;
-							owl:hasValue gistd:_Aspect_monetary_value ;
-						]
-					) ;
-				] ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:offers ;
-				owl:someValuesFrom gist:CatalogItem ;
 			]
 			[
 				a owl:Restriction ;
@@ -1346,8 +1336,10 @@ gist:Offer
 			]
 		) ;
 	] ;
-	skos:definition "A commitment to buy or sell a described or identified part or service."^^xsd:string ;
+	skos:definition "A contingent commitment to buy, sell, swap or provide one or more described or identified goods or services in exchange for another (or others)."^^xsd:string ;
+	skos:example "An offer to sell a book for a given price; an offer to purchase real estate for a particular price; an offer to swap a sea kayak for a mountain bike; currency exchange. A donation may be modeled as an offer to receive money typically in exchange for $0.00, but sometimes for items of value such as coffee mugs or T-shirts."^^xsd:string ;
 	skos:prefLabel "Offer"^^xsd:string ;
+	skos:scopeNote "Dates on an offer represent the time period the offer is valid for, as in '25% off through October 25, 2025'."^^xsd:string ;
 	.
 
 gist:OrderedCollection
@@ -3276,11 +3268,22 @@ gist:occursIn
 	skos:prefLabel "occurs in"^^xsd:string ;
 	.
 
-gist:offers
+gist:offersToProvide
 	a owl:ObjectProperty ;
-	skos:definition "Relates something to a thing that is being made available for acceptance or rejection."^^xsd:string ;
-	skos:example "An instance of gist:Offer offers a specific product at a particular price; a company offers an employee benefit; Honda offers vehicles for sale."^^xsd:string ;
-	skos:prefLabel "offers"^^xsd:string ;
+	skos:definition "Relates an offer to the thing being made available for exchange."^^xsd:string ;
+	skos:example "An offer to provide a specific product in exchange for an amount of money or to pay a certain price for a home that is for sale."^^xsd:string ;
+	skos:prefLabel "offers to provide"^^xsd:string ;
+	skos:scopeNote "This will most often be a good or service, but could be an amount of money, e.g., for currency exchange."^^xsd:string ;
+	gist:domainIncludes gist:Offer ;
+	.
+
+gist:offersToReceive
+	a owl:ObjectProperty ;
+	skos:definition "Relates an offer to the thing expected in return for the offered item."^^xsd:string ;
+	skos:example "A vendor makes an offer to receive a particular amount of money in exchange for the offered product; an offer to receive a home in exchange for an amount of money."^^xsd:string ;
+	skos:prefLabel "offers to receive"^^xsd:string ;
+	skos:scopeNote "This will most often be an amount of money, but could be anything of value, as in swaps."^^xsd:string ;
+	gist:domainIncludes gist:Offer ;
 	.
 
 gist:owns
