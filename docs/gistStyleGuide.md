@@ -102,8 +102,8 @@ Some of the examples resulted in changes in gist `10.0.0`, others are hypothetic
 | Present tense only with minimal exceptions when the meaning is inherently in the past | `isRenderedOn`, not `wasRenderedOn`, but `wasLastModifiedBy` rather than `isLastModifiedBy` |
 || `precedes`, not `preceded` |
 || but `wasLastModifiedAt`, not `isLastModifiedAt` |
-| General idiomaticity | `hasRecipient`, not `hasGetter`
-| No non-standard abbreviations | `hasUnitOfMeasure`, not `hasUoM`
+| General idiomaticity | `hasRecipient`, not `hasGetter` |
+| No non-standard abbreviations | `hasUnitOfMeasure`, not `hasUoM` |
 | Final prepositions where appropriate | `hasJurisdictionOver`, not `hasJurisdiction` |
 | Alignment with textual definition |  `hasBiologicalParent`, not `hasParent`, where the `skos:definition` precludes non-biological relationships |
 | Loose coupling of ontology term names | `hasStart`, not `hasStartTimeInstant` |
