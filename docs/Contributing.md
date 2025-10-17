@@ -84,7 +84,7 @@ When you make a commit, the pre-commit hook:
 
 ### Style Guide
 
-- Ontologists should consult the emerging [_gist Style Guide_](gistStyleGuide.md) during implementation.
+- Ontologists should consult the emerging [_gist Style Guide_](./gistStyleGuide.md) during implementation.
 
 ### Commits, Pushes, and Merges
 
@@ -107,7 +107,7 @@ When you make a commit, the pre-commit hook:
 - If the issue addressed by the PR is slated for a particular release, assign the PR to the same release project, using the Project labels on the right sidebar, in order to facilitate tracking.
 - The PR and the associated issue(s) should be moved to the "In Review" column.
 - Once the PR has been submitted, check that there are no conflicts with the develop branch. If there are, merge or rebase develop into your branch and resolve the conflicts. You may need to repeat this step after making any requested changes, in case other PRs have been merged to develop in the meantime.
-- Assign one or more reviewers, as specified [below](#assigning-reviewers).
+- Assign one or more reviewers, as specified [below](#requesting-reviews).
 
 ### Draft PRs
 
@@ -131,7 +131,7 @@ Some developers like to create a PR before work is completed. Follow the steps a
   - Note that if the PR fixes multiple issues, each issue number must be prefixed by the keyword. E.g., "Closes #98, closes #99", rather than "Closes #98, #99" or "Closes #98 and #99".
 - The description should also include a brief description or bulleted list outlining the changes in the PR.
 - The PR should include a release note. See [_Release Notes_](#release-notes).
-- Refer to the [_Deprecation and Deletion Policy_](DeprecationAndDeletionPolicy.md) if you are deprecating or deleting terms.
+- Refer to the [_Deprecation and Deletion Policy_](./DeprecationAndDeletionPolicy.md) if you are deprecating or deleting terms.
 
 ### Reviewing Problems with the PR
 
@@ -143,7 +143,7 @@ Some developers like to create a PR before work is completed. Follow the steps a
 
 ### Requesting Reviews
 
-- Request review(s) based on the impact of the issue (major, minor, patch). This should be labeled on the issue; if not, consult [_Change and Release Management_](ChangeAndReleaseManagement.md) for guidance.
+- Request review(s) based on the impact of the issue (major, minor, patch). This should be labeled on the issue; if not, consult [_Change and Release Management_](./ChangeAndReleaseManagement.md) for guidance.
   - Major: three reviewers
   - Minor: two reviewers
   - Patch: one reviewer
@@ -181,7 +181,7 @@ Some developers like to create a PR before work is completed. Follow the steps a
 - PRs containing no user-facing changes, or changes to files not included in the release package, will still include a release note in the Patch section. Examples: changes to this document; modification of the pre-commit hook; update version of rdf-toolkit.jar.
 - Reviewers will reject a PR without a well-formed release note or rationale for not including one.
 - Do _not_ add your release note directly to the file `/docs/ReleaseNotes.md`. Rather, create a separate Markdown file for the release note in the directory `/docs/release_notes`. This avoids messy merge conflicts when multiple issues are being worked on simultaneously.
-- Before building the release package, the release manager will review the release notes for content and formatting, revising as necessary; copy them into the [_ReleaseNotes.md_](ReleaseNotes) file, using sections for major, minor, and patch changes; and delete the individual files.
+- Before building the release package, the release manager will review the release notes for content and formatting, revising as necessary; copy them into the [_ReleaseNotes.md_](./ReleaseNotes) file, using sections for major, minor, and patch changes; and delete the individual files.
 - The name of your release note file has no significance, though it is helpful to name it according to the PR or issue number being addressed.
 
 #### Organization of Release Notes
