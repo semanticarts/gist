@@ -181,7 +181,7 @@ Some developers like to create a PR before work is completed. Follow the steps a
 - PRs containing no user-facing changes, or changes to files not included in the release package, will still include a release note in the Patch section. Examples: changes to this document; modification of the pre-commit hook; update version of rdf-toolkit.jar.
 - Reviewers will reject a PR without a well-formed release note or rationale for not including one.
 - Do _not_ add your release note directly to the file `/docs/ReleaseNotes.md`. Rather, create a separate Markdown file for the release note in the directory `/docs/release_notes`. This avoids messy merge conflicts when multiple issues are being worked on simultaneously.
-- Before building the release package, the release manager will review the release notes for content and formatting, revising as necessary; copy them into the [_ReleaseNotes.md_](./ReleaseNotes) file, using sections for major, minor, and patch changes; and delete the individual files.
+- Before building the release package, the release manager will review the release notes for content and formatting, revising as necessary; copy them into the [_ReleaseNotes.md_](./ReleaseNotes.md) file, using sections for major, minor, and patch changes; and delete the individual files.
 - The name of your release note file has no significance, though it is helpful to name it according to the PR or issue number being addressed.
 
 #### Organization of Release Notes
