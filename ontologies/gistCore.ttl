@@ -1146,7 +1146,8 @@ gist:MediaType
 gist:Medium
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	skos:definition "A physicality on which a work could be implemented or exposed. E.g., paper, clay, or a computer monitor."^^xsd:string ;
+	skos:definition "A physical material on which a work can be rendered, represented, or implemented."^^xsd:string ;
+	skos:example "Paper, clay, a computer monitor"^^xsd:string ;
 	skos:prefLabel "Medium"^^xsd:string ;
 	.
 
@@ -2347,10 +2348,12 @@ gist:description
 	a owl:DatatypeProperty ;
 	rdfs:range xsd:string ;
 	skos:definition "A statement about someone or something's attributes or characteristics."^^xsd:string ;
-	skos:example "The Empire State Building is a 102-story Art Deco skyscraper in Midtown Manhattan in New York City, United States. It was designed by Shreve, Lamb & Harmon and built from 1930 to 1931."^^xsd:string ;
+	skos:example
+		"A person does not have a definition, but might be described as being 6 feet tall with brown hair and blue eyes; an ontology class or taxonomy term has a definition."^^xsd:string ,
+		"The Empire State Building is a 102-story Art Deco skyscraper in Midtown Manhattan in New York City, United States. It was designed by Shreve, Lamb & Harmon and built from 1930 to 1931."^^xsd:string
+		;
 	skos:prefLabel "description"^^xsd:string ;
 	skos:scopeNote "This property is used to describe instance data which is not part of the ontology. A definition and a description have different semantics. Use skos:definition for a statement of the meaning of a thing and gist:description to describe a thing's attributes, characteristics, or features."^^xsd:string ;
-	skos:example "A person does not have a definition, but might be described as being 6 feet tall with brown hair and blue eyes; an ontology class or taxonomy term has a definition."^^xsd:string ;
 	.
 
 gist:domainIncludes
