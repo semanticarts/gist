@@ -543,6 +543,7 @@ gist:ControlledVocabulary
 	] ;
 	skos:definition "A collection of terms approved and managed by some organization or person."^^xsd:string ;
 	skos:prefLabel "Controlled Vocabulary"^^xsd:string ;
+	skos:scopeNote "A controlled vocabulary is similar to a skos:ConceptScheme, but it could also be used for things that are not concepts, such as organizations, US presidents, geo-regions, etc. Hierarchical relationships between instances of the controlled vocabulary are possible."^^xsd:string ;
 	.
 
 gist:CountryGeoRegion
@@ -1885,47 +1886,6 @@ gist:TaskTemplate
 		"A task template may define a single activity or a series of activities; the level of granularity can be varied according to use case. For example, in a new employee onboarding process, signing up for benefits might be one activity, or it might be broken down into signing up for health insurance, signing up for dental insurance, etc."^^xsd:string ,
 		"Use the property isBasedOn to link the Task back to the TaskTemplate."^^xsd:string
 		;
-	.
-
-gist:Taxonomy
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:ControlledVocabulary
-			[
-				a owl:Restriction ;
-				owl:onProperty [
-					owl:inverseOf gist:isMemberOf ;
-				] ;
-				owl:someValuesFrom [
-					a owl:Class ;
-					owl:intersectionOf (
-						gist:Category
-						[
-							a owl:Class ;
-							owl:unionOf (
-								[
-									a owl:Restriction ;
-									owl:onProperty gist:hasBroader ;
-									owl:someValuesFrom gist:Category ;
-								]
-								[
-									a owl:Restriction ;
-									owl:onProperty [
-										owl:inverseOf gist:hasBroader ;
-									] ;
-									owl:someValuesFrom gist:Category ;
-								]
-							) ;
-						]
-					) ;
-				] ;
-			]
-		) ;
-	] ;
-	skos:definition "A controlled vocabulary arranged as a hierarchy of concepts."^^xsd:string ;
-	skos:prefLabel "Taxonomy"^^xsd:string ;
 	.
 
 gist:Template
