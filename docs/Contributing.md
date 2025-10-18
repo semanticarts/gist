@@ -129,10 +129,13 @@ Some developers like to create a PR before work is completed. Follow the steps a
 - The description of the PR should contain the keywords "Closes #nnn" (or another of the [GitHub keywords](https://docs.github.com/en/enterprise/2.21/user/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)) where nnn is the issue number. This automatically closes the related issue(s) when the PR is merged, and creates a link which allows readers and reviewers to easily reference the issue.
   - Example: "Correct cardinality restriction on class gist:Room. Closes #98."
   - If the PR fixes multiple issues, each issue should be listed on a separate line and preceded by the word "closes." number must be prefixed by the keyword. Example:
+  -
+
   ```markdown
      Closes #98.
      Closes #99.
   ```
+
   rather than "Closes #98, #99" or "Closes #98 and #99".
 - The description should also include a brief summary or bulleted list outlining the changes in the PR.
 - The PR should include a release note. See [_Release Notes_](#release-notes).
@@ -157,7 +160,7 @@ Some developers like to create a PR before work is completed. Follow the steps a
 
 ### Review Process
 
-- Refer to [*Reviewer Guidelines*](ReviewerGuidelines.md) to see what the reviewer will be looking for.
+- Refer to [_Reviewer Guidelines_](ReviewerGuidelines.md) to see what the reviewer will be looking for.
 - The PR will automatically be moved back into the In Progress column when a reviewer requests changes.
 - Return to your PR after it has been reviewed in order to view the requested and suggested changes.
 - When you commit your corrections, they are automaticallly added to the existing PR.
