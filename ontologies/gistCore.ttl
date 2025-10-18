@@ -1014,7 +1014,7 @@ gist:IntergovernmentalOrganization
 		) ;
 	] ;
 	skos:definition "An organization whose members are government organizations. This can comprise regional, municipal, state/province, or national level entities."^^xsd:string ;
-	skos:example "The United Nations, the European Union, the MTA (Metropolitan Transit Authority)"^^xsd:string ;
+	skos:example "The United Nations, the European Union, the Metropolitan Transit Authority."^^xsd:string ;
 	skos:prefLabel "Intergovernmental Organization"^^xsd:string ;
 	.
 
@@ -2273,10 +2273,12 @@ gist:description
 	a owl:DatatypeProperty ;
 	rdfs:range xsd:string ;
 	skos:definition "A statement about someone or something's attributes or characteristics."^^xsd:string ;
-	skos:example "The Empire State Building is a 102-story Art Deco skyscraper in Midtown Manhattan in New York City, United States. It was designed by Shreve, Lamb & Harmon and built from 1930 to 1931."^^xsd:string ;
+	skos:example
+		"A person does not have a definition, but might be described as being 6 feet tall with brown hair and blue eyes; an ontology class or taxonomy term has a definition."^^xsd:string ,
+		"The Empire State Building is a 102-story Art Deco skyscraper in Midtown Manhattan in New York City, United States. It was designed by Shreve, Lamb & Harmon and built from 1930 to 1931."^^xsd:string
+		;
 	skos:prefLabel "description"^^xsd:string ;
 	skos:scopeNote "This property is used to describe instance data which is not part of the ontology. A definition and a description have different semantics. Use skos:definition for a statement of the meaning of a thing and gist:description to describe a thing's attributes, characteristics, or features."^^xsd:string ;
-	skos:example "A person does not have a definition, but might be described as being 6 feet tall with brown hair and blue eyes; an ontology class or taxonomy term has a definition."^^xsd:string ;
 	.
 
 gist:domainIncludes
