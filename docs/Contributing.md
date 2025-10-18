@@ -84,7 +84,7 @@ When you make a commit, the pre-commit hook:
 
 ### Style Guide
 
-- Ontologists should consult the emerging [_gist Style Guide_](./gistStyleGuide.md) during implementation.
+- Ontologists should consult the [_gist Style Guide_](./gistStyleGuide.md) during implementation.
 
 ### Commits, Pushes, and Merges
 
