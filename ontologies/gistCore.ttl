@@ -543,6 +543,7 @@ gist:ControlledVocabulary
 	] ;
 	skos:definition "A collection of terms approved and managed by some organization or person."^^xsd:string ;
 	skos:prefLabel "Controlled Vocabulary"^^xsd:string ;
+	skos:scopeNote "A controlled vocabulary is similar to a skos:ConceptScheme, but it could also be used for things that are not concepts, such as organizations, US presidents, geo-regions, etc. Hierarchical relationships between instances of the controlled vocabulary are possible."^^xsd:string ;
 	.
 
 gist:CountryGeoRegion
@@ -767,27 +768,24 @@ gist:GeoPoint
 
 gist:GeoRegion
 	a owl:Class ;
-	rdfs:subClassOf [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Place
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMagnitude ;
-				owl:someValuesFrom [
-					a owl:Class ;
-					owl:intersectionOf (
-						gist:Magnitude
-						[
-							a owl:Restriction ;
-							owl:onProperty gist:hasAspect ;
-							owl:hasValue gistd:_Aspect_area ;
-						]
-					) ;
-				] ;
-			]
-		) ;
-	] ;
+	rdfs:subClassOf
+		gist:Place ,
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:hasMagnitude ;
+			owl:someValuesFrom [
+				a owl:Class ;
+				owl:intersectionOf (
+					gist:Magnitude
+					[
+						a owl:Restriction ;
+						owl:onProperty gist:hasAspect ;
+						owl:hasValue gistd:_Aspect_area ;
+					]
+				) ;
+			] ;
+		]
+		;
 	owl:disjointWith
 		gist:IntellectualProperty ,
 		gist:Intention ,
@@ -1671,12 +1669,7 @@ gist:RenderedContent
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:ContentExpression
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isExpressedIn ;
-				owl:someValuesFrom gist:MediaType ;
-			]
+			gist:FormattedContent
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:isRenderedOn ;
@@ -1887,47 +1880,6 @@ gist:TaskTemplate
 		;
 	.
 
-gist:Taxonomy
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:ControlledVocabulary
-			[
-				a owl:Restriction ;
-				owl:onProperty [
-					owl:inverseOf gist:isMemberOf ;
-				] ;
-				owl:someValuesFrom [
-					a owl:Class ;
-					owl:intersectionOf (
-						gist:Category
-						[
-							a owl:Class ;
-							owl:unionOf (
-								[
-									a owl:Restriction ;
-									owl:onProperty gist:hasBroader ;
-									owl:someValuesFrom gist:Category ;
-								]
-								[
-									a owl:Restriction ;
-									owl:onProperty [
-										owl:inverseOf gist:hasBroader ;
-									] ;
-									owl:someValuesFrom gist:Category ;
-								]
-							) ;
-						]
-					) ;
-				] ;
-			]
-		) ;
-	] ;
-	skos:definition "A controlled vocabulary arranged as a hierarchy of concepts."^^xsd:string ;
-	skos:prefLabel "Taxonomy"^^xsd:string ;
-	.
-
 gist:Template
 	a owl:Class ;
 	owl:disjointWith gist:UnitOfMeasure ;
@@ -2035,19 +1987,16 @@ gist:Transaction
 
 gist:UnitGroup
 	a owl:Class ;
-	rdfs:subClassOf [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Collection
-			[
-				a owl:Restriction ;
-				owl:onProperty [
-					owl:inverseOf gist:isMemberOf ;
-				] ;
-				owl:someValuesFrom gist:UnitOfMeasure ;
-			]
-		) ;
-	] ;
+	rdfs:subClassOf
+		gist:Collection ,
+		[
+			a owl:Restriction ;
+			owl:onProperty [
+				owl:inverseOf gist:isMemberOf ;
+			] ;
+			owl:someValuesFrom gist:UnitOfMeasure ;
+		]
+		;
 	owl:disjointWith gist:UnitOfMeasure ;
 	skos:definition "A collection of units of measure that can all be used to measure the same aspects."^^xsd:string ;
 	skos:example "The units of measure bit, byte, kilobit, kilobyte, etc. are all in the same unit group because they can all be used to measure an amount of data."^^xsd:string ;
