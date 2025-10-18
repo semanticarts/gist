@@ -42,12 +42,12 @@ gist is an OWL 2 DL ontology. This means that it cannot import non-OWL ontologie
 
 - gist OWL files are serialized in RDF Turtle.
 - The [EDM Council's RDF serialization tool, `rdf-toolkit.jar`,](https://github.com/edmcouncil/rdf-toolkit) must be run before every commit in order to standardize formatting and eliminate noise in git diffs.
-  - When you set up your local repository, you will run `tools/setup.cmd` which, among other things, installs a pre-commit hook that runs the serializer in `tools/serializer`. See [*Contributing*](Contributing.md) for further instructions on setting up your repository.
+  - When you set up your local repository, you will run `tools/setup.cmd` which, among other things, installs a pre-commit hook that runs the serializer in `tools/serializer`. See [*Contributing*](./Contributing.md) for further instructions on setting up your repository.
   - To ensure consistent output, only the version of `rdf-toolkit.jar` file found in `tools/serializer` should be used.
 
 ## Logical Consistency
 
-Every version of gist committed to the git repository must be logically consistent. See [*Contributing*](Contributing.md#commits-pushes-and-merges).
+Every version of gist committed to the git repository must be logically consistent. See [*Contributing*](./Contributing.md#commits-pushes-and-merges).
 
 ## Namespaces
 

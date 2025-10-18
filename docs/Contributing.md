@@ -29,7 +29,7 @@
 
 - There are a variety of ways to contribute to the ongoing evolution of gist: commenting on issue threads; upvoting issues; submitting bug reports, feature requests, and pull requests.
 - All bug reports and feature requests should be submitted via issues in this repository rather than through email, the website contact form, or other communication channels, and all discussion will be tracked through comments on the issue. These practices ensure that requests are addressed publicly, transparently, and systematically, and that all discussion is captured and preserved in a single public location.
-- External contributors may submit a pull request (PR) accompanied by an issue. These will be reviewed as part of our regular triage process, and will either be accepted and merged to develop, accepted with requested modifications, or rejected and closed. Submit only an issue if you have a request without a solution; submit a PR with the issue if you have a proposed solution that you would like to implement. External contributions should conform to the requirements for issues and PRs outlined in the following sections. See the [_Contributor Quick Reference_](ContributorQuickReference.md) for an overview.
+- External contributors may submit a pull request (PR) accompanied by an issue. These will be reviewed as part of our regular triage process, and will either be accepted and merged to develop, accepted with requested modifications, or rejected and closed. Submit only an issue if you have a request without a solution; submit a PR with the issue if you have a proposed solution that you would like to implement. External contributions should conform to the requirements for issues and PRs outlined in the following sections. See the [_Contributor Quick Reference_](./ContributorQuickReference.md) for an overview.
 
 ## Submitting an Issue
 
@@ -191,14 +191,14 @@ Some developers like to create a PR before work is completed. Follow the steps a
 
 #### Organization of Release Notes
 
-- Include a heading in the file indicating whether it will go into the major, minor, or patch section of the release notes. See [_ChangeAndReleaseManagement.md_](ChangeAndReleaseManagement) for selection of the appropriate impact level.
+- Include a heading in the file indicating whether it will go into the major, minor, or patch section of the release notes. See [_ChangeAndReleaseManagement.md_](./ChangeAndReleaseManagement) for selection of the appropriate impact level.
 - In certain cases, multiple updates may be combined into a single note, even if they were submitted for different issues or as separate PRs:
   - Small fixes of a similar nature, such as correcting several typos and/or revising the wording of several annotations. It is not necessary to list the individual changes.
   - Closely related changes. These should be added to the section for the most impactful change (major, minor, or patch). For example, adding an automatically-generated file and the script that generates it should be included in the same release note, in this case in the Minor Updates section.
 
 #### Formatting
 
-  - You can copy the template [`release_notes/release_note_template.md`](release_notes/release_note_template) to use as a starting point.
+  - You can copy the template [`release_notes/release_note_template.md`](./release_notes/release_note_template) to use as a starting point.
   - Headings use the open `ATX` convention: i.e., leading hashes only and no underlining.
   - Bullet points are symbolized with dash rather than asterisk.
   - The note begins with either a past tense verb or a noun; e.g., "Updated..." or "Modifications to...".
