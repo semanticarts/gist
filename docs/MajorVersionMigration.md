@@ -8,7 +8,7 @@ the release package will include queries to facilitate the migration of existing
 
 For changes that are not amenable to automatic migration, queries will be provided that
 report the use of deleted or modified classes and properties so that mitigation measures
-can be initiated.
+can be initiated. For example, some releases may require manual intervention when a property is being replaced by its inverse (in class expressions, restrictions, and definitions of subproperties).
 
 Every major version of `gist` (starting with 10.0.0) will add a sub-directory under the
 `migration` directory containing the queries and two migration scripts:
