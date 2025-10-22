@@ -1773,7 +1773,7 @@ gist:SubCountryGovernment
 	skos:prefLabel "Sub-Country Government"^^xsd:string ;
 	skos:scopeNote
 		"Across the world, there are a variety of types of subsections of a country and the governments thereof (as well as different terms, like 'province' and 'state', which refer to essentially the same type of thing). We should not automatically assume 'state', 'county', and 'city'.  It is more future-proof just to mint the instances using the generic SubCountryGovernment and, where greater specificity is needed, define categories or subclasses."^^xsd:string ,
-		"Note that the predicate 'governs' is used both for the relationship a government has to a governed geographic region, and for the relationship one government has to the governments of its sub-regions."^^xsd:string ,
+		"Note that the predicate 'governs' is used both for the relationship a government has to a governed geographic region and for the relationship one government has to the governments of its sub-regions."^^xsd:string ,
 		"This class applies only to organizations governing geographic regions. Regulatory and bureaucratic organizations are members of the more generic GovernmentOrganization class."^^xsd:string
 		;
 	.
