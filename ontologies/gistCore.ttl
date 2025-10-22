@@ -414,14 +414,9 @@ gist:ContentExpression
 			a owl:Restriction ;
 			owl:onProperty gist:isCategorizedBy ;
 			owl:someValuesFrom gist:GeneralMediaType ;
-		] ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:isExpressedIn ;
-			owl:someValuesFrom gist:Language ;
 		]
 		;
-	skos:definition "Intellectual Property reduced to text, audio etc.  If it contains text (written or spoken), it may be in a language."^^xsd:string ;
+	skos:definition "Intellectual property reduced to text, audio, etc.  If it contains text (written or spoken), it will be expressed in a language."^^xsd:string ;
 	skos:prefLabel "Content Expression"^^xsd:string ;
 	.
 
