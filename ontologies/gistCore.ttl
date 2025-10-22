@@ -414,14 +414,9 @@ gist:ContentExpression
 			a owl:Restriction ;
 			owl:onProperty gist:isCategorizedBy ;
 			owl:someValuesFrom gist:GeneralMediaType ;
-		] ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:isExpressedIn ;
-			owl:someValuesFrom gist:Language ;
 		]
 		;
-	skos:definition "Intellectual Property reduced to text, audio etc.  If it contains text (written or spoken), it may be in a language."^^xsd:string ;
+	skos:definition "Intellectual property reduced to text, audio, etc.  If it contains text (written or spoken), it will be expressed in a language."^^xsd:string ;
 	skos:prefLabel "Content Expression"^^xsd:string ;
 	.
 
@@ -566,6 +561,12 @@ gist:CountryGeoRegion
 
 gist:CountryGovernment
 	a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty gist:isGovernedBy ;
+		owl:onClass gist:GovernmentOrganization ;
+		owl:maxQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+	] ;
 	owl:disjointWith gist:SubCountryGovernment ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -576,14 +577,7 @@ gist:CountryGovernment
 				owl:onProperty [
 					owl:inverseOf gist:isGovernedBy ;
 				] ;
-				owl:onClass gist:CountryGeoRegion ;
-				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isGovernedBy ;
-				owl:onClass gist:GovernmentOrganization ;
-				owl:maxQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom gist:CountryGeoRegion ;
 			]
 		) ;
 	] ;
@@ -877,8 +871,7 @@ gist:GovernedGeoRegion
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:isGovernedBy ;
-				owl:onClass gist:GovernmentOrganization ;
-				owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom gist:GovernmentOrganization ;
 			]
 		) ;
 	] ;
@@ -899,6 +892,11 @@ gist:GovernmentOrganization
 
 gist:HistoricalEvent
 	a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty gist:actualStartDateTime ;
+		owl:someValuesFrom xsd:dateTime ;
+	] ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -906,12 +904,7 @@ gist:HistoricalEvent
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:actualEndDateTime ;
-				owl:cardinality "1"^^xsd:nonNegativeInteger ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:actualStartDateTime ;
-				owl:cardinality "1"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom xsd:dateTime ;
 			]
 		) ;
 	] ;
@@ -1139,7 +1132,8 @@ gist:MediaType
 gist:Medium
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	skos:definition "A physicality on which a work could be implemented or exposed. E.g., paper, clay, or a computer monitor."^^xsd:string ;
+	skos:definition "A physical material on which a work can be rendered, represented, or implemented."^^xsd:string ;
+	skos:example "Paper, clay, a computer monitor"^^xsd:string ;
 	skos:prefLabel "Medium"^^xsd:string ;
 	.
 
@@ -1285,12 +1279,12 @@ gist:Offer
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:plannedEndDateTime ;
-				owl:cardinality "1"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom xsd:dateTime ;
 			]
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:plannedStartDateTime ;
-				owl:cardinality "1"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom xsd:dateTime ;
 			]
 		) ;
 	] ;
@@ -1426,6 +1420,11 @@ gist:Permission
 
 gist:Person
 	a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty gist:hasBiologicalParent ;
+		owl:allValuesFrom gist:Person ;
+	] ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -1433,12 +1432,12 @@ gist:Person
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBiologicalParent ;
-				owl:allValuesFrom gist:Person ;
+				owl:someValuesFrom gist:Person ;
 			]
 		) ;
 	] ;
-	skos:definition "A human being that may or may not still be alive."^^xsd:string ;
-	skos:example "Negative example:fictional characters."^^xsd:string ;
+	skos:definition "A human being who was or is alive."^^xsd:string ;
+	skos:example "Negative example: fictional characters."^^xsd:string ;
 	skos:prefLabel "Person"^^xsd:string ;
 	.
 
@@ -1691,7 +1690,7 @@ gist:ScheduledEvent
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:plannedStartDateTime ;
-				owl:cardinality "1"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom xsd:dateTime ;
 			]
 		) ;
 	] ;
@@ -2144,9 +2143,13 @@ gist:comesFromAgent
 			gist:Person
 		) ;
 	] ;
-	skos:definition "The party that is the source of something (e.g. a message, shipment, etc.)"^^xsd:string ;
+	skos:definition "Relates something to the originating agent."^^xsd:string ;
+	skos:example "A package is shipped by a person; a purchase order is emailed to a vendor by an organization."^^xsd:string ;
 	skos:prefLabel "comes from agent"^^xsd:string ;
-	skos:scopeNote 'This is not the inverse of gist:goesToAgent. A message can be to someone. If we made it the inverse the person would be "from" the message'^^xsd:string ;
+	skos:scopeNote
+		"This is not the inverse of gist:goesToAgent, as both properties have the message or shipment as the subject."^^xsd:string ,
+		"This property is intended to describe the physical or electronic transfer of something, such as a package or email, from one agent to another, whereas gist:hasGiver is typically used in more abstract contexts such as agreements, obligations, contracts, etc. However, there are contexts in which either may be appropriate, such as the giving of a gift."^^xsd:string
+		;
 	.
 
 gist:comesFromPlace
@@ -2158,7 +2161,8 @@ gist:comesFromPlace
 			gist:GeoLocation
 		) ;
 	] ;
-	skos:definition "Origin"^^xsd:string ;
+	skos:definition "Relates something to its place of origin."^^xsd:string ;
+	skos:example "A letter has a return address indicating its origin; a delivery route originates at a distribution center; a trail originates at the trailhead."^^xsd:string ;
 	skos:prefLabel "comes from place"^^xsd:string ;
 	.
 
@@ -2584,9 +2588,13 @@ gist:goesToAgent
 			gist:Person
 		) ;
 	] ;
-	skos:definition "The party that is the recipient of something (e.g. a message, shipment, etc.)"^^xsd:string ;
+	skos:definition "Relates something to the agent that receives it."^^xsd:string ;
+	skos:example "A package is sent to a person; a purchase order email is received by a vendor."^^xsd:string ;
 	skos:prefLabel "goes to agent"^^xsd:string ;
-	skos:scopeNote 'This is not the inverse of gist:comesFromAgent. A message can be from someone. If we made it the inverse the person would be "to" the message'^^xsd:string ;
+	skos:scopeNote
+		"This is not the inverse of gist:comesFromAgent, as both properties have the message or shipment as the subject."^^xsd:string ,
+		"This property is intended to describe the physical or electronic transfer of something, such as a package or email, from one agent to another, whereas gist:hasRecipient is typically used in more abstract contexts such as agreements, obligations, contracts, etc. However, there are contexts in which either may be appropriate, such as the recieving of a gift."^^xsd:string
+		;
 	.
 
 gist:goesToPlace
@@ -2598,7 +2606,8 @@ gist:goesToPlace
 			gist:GeoLocation
 		) ;
 	] ;
-	skos:definition "Destination"^^xsd:string ;
+	skos:definition "Relates something to its destination place."^^xsd:string ;
+	skos:example "A letter has an address indicating its destination; a segment of a delivery route terminates at a delivery location; a trail terminates at an intersection with another trail."^^xsd:string ;
 	skos:prefLabel "goes to place"^^xsd:string ;
 	.
 
@@ -2608,12 +2617,14 @@ gist:hasAccuracy
 		owl:FunctionalProperty
 		;
 	rdfs:range gist:Magnitude ;
-	skos:definition "Relates a magnitude to the accuracy of its numeric value."^^xsd:string ;
+	rdfs:seeAlso "https://en.wikipedia.org/wiki/Accuracy_and_precision"^^xsd:anyURI ;
+	skos:definition "Relates a magnitude to another magnitude that describes its accuracy."^^xsd:string ;
 	skos:example "Temperature accurate to tenth of a degree C; length accurate to the nearest centimeter."^^xsd:string ;
 	skos:prefLabel "has accuracy"^^xsd:string ;
-	skos:scopeNote """A typical way to use accuracy is to have it represent 2 standard deviations of the distribution of measurement errors. With this convention, when the measurement method is well-calibrated (has an average error of zero) and its errors have a normal distribution, there is a 95% chance that the actual error in measurement, in either direction, is less than the accuracy.
+	skos:scopeNote """gist uses the ISO-5725 definition of accuracy, which is a combination of trueness (a measure of systemic error) and precision (a measure of random error). The accuracy of a measurement method describes how close its measurements are to actual values. Similarly, the accuracy of an individual measurement is its likely closeness to the actual value. When we say a temperature measurement is accurate to within a tenth of a degree, it means with a certain probability such as 95%.
 
 Note that the unit of measure of the accuracy has to be compatible with the unit of measure of the original magnitude (e.g. something measured in meters could have a accuracy in terms of millimeters or any other unit that measures distance)."""^^xsd:string ;
+	gist:domainIncludes gist:Magnitude ;
 	.
 
 gist:hasAddend
@@ -2683,8 +2694,10 @@ gist:hasGiver
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasParticipant ;
 	owl:propertyDisjointWith gist:hasRecipient ;
-	skos:definition "The active party, the one with the obligation or the one initiating the transfer"^^xsd:string ;
+	skos:definition "Relates something to the participant that originates it."^^xsd:string ;
+	skos:example "An offer is made by a giver; an obligation has a giver who is obligated to another person; a gift is presented by the giver."^^xsd:string ;
 	skos:prefLabel "has giver"^^xsd:string ;
+	skos:scopeNote "This property is often used in abstract contexts such as agreements, obligations, contracts, etc., whereas gist:comesFromAgent is intended to describe the physical or electronic transfer of something, such as a package or email, from one agent to another. However, there are contexts in which either may be appropriate, such as the giving of a gift."^^xsd:string ;
 	.
 
 gist:hasGoal
@@ -2765,8 +2778,10 @@ gist:hasPhysicalLocation
 gist:hasRecipient
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasParticipant ;
-	skos:definition "Relates the subject (e.g. a transfer, a message, a gift) to an entity that receives or is intended to receive it."^^xsd:string ;
+	skos:definition "Relates something to the participant that receives it or is intended to receive it."^^xsd:string ;
+	skos:example "An offer is made to a recipient; an obligation has a recipient to whom another person is obligated; a gift is bestowed upon a recipient."^^xsd:string ;
 	skos:prefLabel "has recipient"^^xsd:string ;
+	skos:scopeNote "This property is used in abstract contexts such as agreements, obligations, contracts, etc., whereas gist:goesToAgent is intended to describe the physical or electronic transfer of something, such as a package or email, from one agent to another. However, there are contexts in which either may be appropriate, such as the giving of a gift."^^xsd:string ;
 	.
 
 gist:hasSubtrahend
