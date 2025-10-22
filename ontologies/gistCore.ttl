@@ -3153,7 +3153,7 @@ gist:numericValue
 
 gist:occursIn
 	a owl:ObjectProperty ;
-	skos:definition "The geographic location where something happened or will happen"^^xsd:string ;
+	skos:definition "Relates something, such as an event, to the geographic location where it did, does, or will happen."^^xsd:string ;
 	skos:prefLabel "occurs in"^^xsd:string ;
 	.
 
