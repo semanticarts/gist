@@ -184,17 +184,6 @@ gist:Agreement
 	skos:prefLabel "Agreement"^^xsd:string ;
 	.
 
-gist:Artifact
-	a owl:Class ;
-	rdfs:subClassOf [
-		a owl:Restriction ;
-		owl:onProperty gist:hasGoal ;
-		owl:someValuesFrom gist:Function ;
-	] ;
-	skos:definition "An intentional, person-made thing, which could be physical or content."^^xsd:string ;
-	skos:prefLabel "Artifact"^^xsd:string ;
-	.
-
 gist:Aspect
 	a owl:Class ;
 	skos:definition "A measurable characteristic."^^xsd:string ;
