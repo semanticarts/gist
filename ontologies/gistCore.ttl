@@ -555,7 +555,7 @@ gist:CountryGeoRegion
 			]
 		) ;
 	] ;
-	skos:definition "A defined geographic area (or areas) governed by exactly one country government."^^xsd:string ;
+	skos:definition "A geographic region governed by exactly one country government."^^xsd:string ;
 	skos:prefLabel "Country Geographic Region"^^xsd:string ;
 	.
 
@@ -833,7 +833,7 @@ gist:GeoVolume
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-		   gist:GeoLocation
+			gist:GeoLocation
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasMagnitude ;
@@ -875,7 +875,7 @@ gist:GovernedGeoRegion
 			]
 		) ;
 	] ;
-	skos:definition "A defined geographic area or areas governed by at least one government organization."^^xsd:string ;
+	skos:definition "A geographic region governed by at least one government organization."^^xsd:string ;
 	skos:prefLabel "Governed Geographic Region"^^xsd:string ;
 	skos:scopeNote "Geographic regions do not need not be physically contiguous in order to constitute a governed geographic region; e.g., Alaska and Hawaii are part of the region governed by the United States."^^xsd:string ;
 	.
