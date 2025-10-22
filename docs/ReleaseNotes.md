@@ -156,6 +156,7 @@ Issue [#1060](https://github.com/semanticarts/gist/issues/1060).
     |`hasFirstMember` | `isFirstMemberOf`|
     |`hasMember` | `isMemberOf`|
     |`hasPart` | `isPartOf`|
+
 - Removed `gist:endDateTime` restriction from the formal definition of `gist:TemporalRelation`. Issue [#878](https://github.com/semanticarts/gist/issues/878).
 - Added `gist:startDateTime`, `gist:endDateTime`, and duration restrictions to the formal definition of `gist:TimeInterval`. Modified annotations for `gist:startDateTime` and `gist:endDateTime` to clarify usage. Issues [#925](https://github.com/semanticarts/gist/issues/925) and [#1112](https://github.com/semanticarts/gist/issues/1112).
 - Removed sensor-related classes and properties. Issue [#462](https://github.com/semanticarts/gist/issues/462).
@@ -305,25 +306,26 @@ This is a major release which includes several changes which break compatibility
 
       | Properties retained in gist | Inverse properties removed from gist |
       | ----------- | ----------- |
-      `hasDirectPart` | `isDirectPartOf`
-      `hasDirectSubTask` | `isDirectSubTaskOf`
-      `hasDirectSuperCategory` | `hasDirectSubCategory`
-      `hasMember` | `isMemberOf`
-      `hasNavigationalParent` | `hasNavigationalChild`
-      `hasPart` | `isPartOf`
-      `hasSubTask` | `isSubTaskOf`
-      `hasSuperCategory` | `hasSubCategory`
-      `isAbout` | `isDescribedIn`
-      `isAffectedBy` | `affects`
-      `isBasedOn` | `isBasisFor`
-      `isGeographicallyContainedIn` | `containsGeographically`
-      `isGovernedBy` | `governs`
-      `isIdentifiedBy` | `identifies`
-      `isRecognizedBy` | `recognizes`
-      `occupiesGeographically` | `isGeographicallyOccupiedBy`
-      `occupiesGeographicallyPermanently` | `isGeographicallyPermanentlyOccupiedBy`
-      `precedes` | `follows`
-      `precedesDirectly` | `followsDirectly`
+      | `hasDirectPart` | `isDirectPartOf` |
+      | `hasDirectSubTask` | `isDirectSubTaskOf` |
+      | `hasDirectSuperCategory` | `hasDirectSubCategory` |
+      | `hasMember` | `isMemberOf` |
+      | `hasNavigationalParent` | `hasNavigationalChild` |
+      | `hasPart` | `isPartOf` |
+      | `hasSubTask` | `isSubTaskOf` |
+      | `hasSuperCategory` | `hasSubCategory` |
+      | `isAbout` | `isDescribedIn` |
+      | `isAffectedBy` | `affects` |
+      | `isBasedOn` | `isBasisFor` |
+      | `isGeographicallyContainedIn` | `containsGeographically` |
+      | `isGovernedBy` | `governs` |
+      | `isIdentifiedBy` | `identifies` |
+      | `isRecognizedBy` | `recognizes` |
+      | `occupiesGeographically` | `isGeographicallyOccupiedBy` |
+      | `occupiesGeographicallyPermanently` | `isGeographicallyPermanentlyOccupiedBy` |
+      | `precedes` | `follows` |
+      | `precedesDirectly` | `followsDirectly` |
+
 - Changes related to tasks, projects, and events. Issue [#760](https://github.com/semanticarts/gist/issues/760).
   - Renamed `gist:TaskExecution`, `gist:ScheduledTaskExecution`, and `gist:ProjectExecution` to `gist:Task`, `gist:ScheduledTask`, and `gist:Project`, respectively.
   - These classes are no longer limited to the execution of a task or project, but include proposed and planned events as well.
@@ -596,7 +598,7 @@ Import URL: <https://ontologies.semanticarts.com/o/gistCore9.3.0>.
 - Replaced all "xs" namespace prefixes for XML Schema with "xsd". Corrects issue [#158](https://github.com/semanticarts/gist/issues/158).
 - Corrected gist:convertToBase value for gist:_minute from 1.0 to 60.0. Fixes issue [#82](https://github.com/semanticarts/gist/issues/82).
 - Added initial draft of in-progress gist style guide. Fixes issue [#163](https://github.com/semanticarts/gist/issues/163).
-- Added documentation of change and release management process. Fixes issue [#233](<https://github.com/semanticarts/gist/issues/233>>.
+- Added documentation of change and release management process. Fixes issue [#233](<https://github.com/semanticarts/gist/issues/233>).
 - Added guidelines for submission of GitHub issues and pull requests. Fixes issue [#190](https://github.com/semanticarts/gist/issues/190).
 - Remove defunct tools and documentation. Fixes issue [#193](https://github.com/semanticarts/gist/issues/193).
 - Include direct imports of all gist modules in gistCore. Fixes issue [#80](https://github.com/semanticarts/gist/issues/80).
