@@ -839,6 +839,7 @@ gist:GeoVolume
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
+		   gist:GeoLocation
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasMagnitude ;
