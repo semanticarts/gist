@@ -1156,7 +1156,8 @@ gist:MediaType
 gist:Medium
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	skos:definition "A physicality on which a work could be implemented or exposed. E.g., paper, clay, or a computer monitor."^^xsd:string ;
+	skos:definition "A physical material on which a work can be rendered, represented, or implemented."^^xsd:string ;
+	skos:example "Paper, clay, a computer monitor"^^xsd:string ;
 	skos:prefLabel "Medium"^^xsd:string ;
 	.
 
