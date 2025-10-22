@@ -77,7 +77,7 @@ When you make a commit, the pre-commit hook:
 
 ### Working Branch
 
-- The first step is to create a working branch for your work. Usually this will branch off the `develop` branch, but if the work targets a specific release and there is a release branch it should branch off that.
+- The first step is to create a working branch for your work from the base (target) branch. Usually the base branch is `develop`, but there may be a release branch. The release manager will inform you if there is a base other than develop.
 - Prefix your GitHub username + slash to the branch name so that it is easy to track branch ownership.
 - If the work addresses a single issue, start the branch name with the issue number for ease of reference.
 - Examples: `jsmith/documentation_updates` or `jsmith/546_documentation_updates`.
@@ -103,7 +103,7 @@ When you make a commit, the pre-commit hook:
 - Once your work is ready to be merged into the main development line, you will [create a pull request](https://github.com/semanticarts/gist/pulls).
 - Assign the PR to yourself for tracking purposes.
 - Before submitting the PR, you should ensure that you have merged or rebased develop into your working branch, [as above during implementation](#commits-pushes-and-merges).
-- Submit the PR to develop, or to a release branch if there is one. The release manager will inform you if there is a merge target other than develop.
+- Submit the PR to the base (target) branch. This is usually `develop`, but there could be a release branch. The release manager will inform you if there is a base other than develop.
 - If the issue addressed by the PR is slated for a particular release, assign the PR to the same release project, using the Project labels on the right sidebar, in order to facilitate tracking.
 - The PR and the associated issue(s) should be moved to the "In Review" column.
 - Once the PR has been submitted, check that there are no conflicts with the develop branch. If there are, merge or rebase develop into your branch and resolve the conflicts. You may need to repeat this step after making any requested changes, in case other PRs have been merged to develop in the meantime.
@@ -128,8 +128,16 @@ Some developers like to create a PR before work is completed. Follow the steps a
 - The PR should address the entirety of an issue. If it does not, either the PR should be modified or the issue should be broken up into parts.
 - The description of the PR should contain the keywords "Closes #nnn" (or another of the [GitHub keywords](https://docs.github.com/en/enterprise/2.21/user/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)) where nnn is the issue number. This automatically closes the related issue(s) when the PR is merged, and creates a link which allows readers and reviewers to easily reference the issue.
   - Example: "Correct cardinality restriction on class gist:Room. Closes #98."
-  - Note that if the PR fixes multiple issues, each issue number must be prefixed by the keyword. E.g., "Closes #98, closes #99", rather than "Closes #98, #99" or "Closes #98 and #99".
-- The description should also include a brief description or bulleted list outlining the changes in the PR.
+  - If the PR fixes multiple issues, each issue should be listed on a separate line and preceded by the word "closes." number must be prefixed by the keyword. Example:
+  -
+
+  ```markdown
+     Closes #98.
+     Closes #99.
+  ```
+
+  rather than "Closes #98, #99" or "Closes #98 and #99".
+- The description should also include a brief summary or bulleted list outlining the changes in the PR.
 - The PR should include a release note. See [_Release Notes_](#release-notes).
 - Refer to the [_Deprecation and Deletion Policy_](./DeprecationAndDeletionPolicy.md) if you are deprecating or deleting terms.
 
@@ -152,15 +160,12 @@ Some developers like to create a PR before work is completed. Follow the steps a
 
 ### Review Process
 
-- Reviewers are charged with rejecting the PR or requesting changes, if:
-  - The criteria of atomicity and completeness are not met.
-  - The implementation deviates from that agreed upon during the internal review.
-  - A release note is not included.
-  - The pre-commit hook has not been run.
-- A reviewer should assign the PR to the same release project as the issue(s) it addresses if that has not been done when the PR was submitted.
-- When you correct your PR based on reviewer comments, and commit these changes, they automaticallly get added to the existing PR, so you should not create another PR.
-- If a reviewer does not deem him/herself qualified to review the PR, he/she should reassign it to another reviewer.
+- Refer to [_Reviewer Guidelines_](ReviewerGuidelines.md) to see what the reviewer will be looking for.
 - The PR will automatically be moved back into the In Progress column when a reviewer requests changes.
+- Return to your PR after it has been reviewed in order to view the requested and suggested changes.
+- When you commit your corrections, they are automaticallly added to the existing PR.
+- Resolve the reviewer comment for straightforward changes. For more complex changes, leave the comment open so the reviewer can come back to it.
+- Re-request reviews from any reviewers who requested changes. If additional changes are requested, cycle back through these steps.
 
 ### Merging the PR
 
