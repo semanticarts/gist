@@ -25,7 +25,7 @@ chmod +x "${base_dir}/.git/hooks/pre-commit"
 # Ensure that the serializer pre-commit hook is executable.
 chmod +x "${base_dir}/tools/serializer/pre-commit"
 
-# Ensure that the serializer pre-commit hook is executable.
+# Ensure that check_default_prefix.py is executable.
 chmod +x "${base_dir}/tools/check_default_prefix/check_default_prefix.py"
 
 # Don't track executable flags on files in this repository (this is not a global setting).
