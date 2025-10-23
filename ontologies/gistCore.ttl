@@ -1,3 +1,4 @@
+@prefix : <https://w3id.org/semanticarts/ontology/gistCore#> .
 @prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
 @prefix gistd: <https://w3id.org/semanticarts/ns/data/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -156,7 +157,7 @@ gist:Agreement
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:Commitment
+			gist:Intention
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasParty ;
@@ -173,24 +174,15 @@ gist:Agreement
 				owl:onProperty [
 					owl:inverseOf gist:isDirectPartOf ;
 				] ;
-				owl:onClass gist:Obligation ;
+				owl:onClass gist:Commitment ;
 				owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
 			]
 		) ;
 	] ;
-	skos:definition "Something which two or more People or Organizations mutually commit to do."^^xsd:string ;
+	skos:definition "A mutually understood arrangement in which two or more parties make commitments to one another."^^xsd:string ;
+	skos:example "A gym membership is an agreement in which the member commits to paying the gym a certain price and the gym commits to allowing access to their facilities."^^xsd:string ;
 	skos:prefLabel "Agreement"^^xsd:string ;
-	.
-
-gist:Artifact
-	a owl:Class ;
-	rdfs:subClassOf [
-		a owl:Restriction ;
-		owl:onProperty gist:hasGoal ;
-		owl:someValuesFrom gist:Function ;
-	] ;
-	skos:definition "An intentional, person-made thing, which could be physical or content"^^xsd:string ;
-	skos:prefLabel "Artifact"^^xsd:string ;
+	skos:scopeNote "While an agreement has two or more parties, and contains commitments which bind those parties, it will not always be necessary to instantiate each individual commitment."^^xsd:string ;
 	.
 
 gist:Aspect
@@ -208,17 +200,17 @@ gist:Assignment
 			gist:TemporalRelation
 			[
 				a owl:Restriction ;
+				owl:onProperty gist:hasGiver ;
+				owl:someValuesFrom owl:Thing ;
+			]
+			[
+				a owl:Restriction ;
 				owl:onProperty gist:isAssignmentOf ;
 				owl:someValuesFrom owl:Thing ;
 			]
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:isAssignmentTo ;
-				owl:someValuesFrom owl:Thing ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isAssignedBy ;
 				owl:someValuesFrom owl:Thing ;
 			]
 		) ;
@@ -241,10 +233,7 @@ gist:Behavior
 
 gist:Building
 	a owl:Class ;
-	rdfs:subClassOf
-		gist:Artifact ,
-		gist:Landmark
-		;
+	rdfs:subClassOf gist:Landmark ;
 	skos:definition "A relatively permanent man-made structure situated on a plot of land, having a roof and walls, commonly used for dwelling, entertaining, or working."^^xsd:string ;
 	skos:example
 		"A house, school, store, factory, chicken coop."^^xsd:string ,
@@ -303,6 +292,7 @@ gist:Category
 
 gist:Collection
 	a owl:Class ;
+	rdfs:subClassOf gist:Composite ;
 	skos:definition "A grouping of things."^^xsd:string ;
 	skos:example "A jury is a group of people, a financial ledger is a collection of transaction entries; a route is an (ordered) collection of segments."^^xsd:string ;
 	skos:prefLabel "Collection"^^xsd:string ;
@@ -314,6 +304,7 @@ gist:Commitment
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
+			gist:Intention
 			[
 				a owl:Class ;
 				owl:unionOf (
@@ -339,25 +330,43 @@ gist:Commitment
 			]
 		) ;
 	] ;
-	skos:definition "An obligation (possibly unilateral)."^^xsd:string ;
+	skos:definition "A promise made by a single party to one or more parties to do or not do something or act in a particular way."^^xsd:string ;
+	skos:example
+		"Upon selling a treasury bill, the U.S. government makes a commitment to pay the purchaser a stated amount of money at a stated time."^^xsd:string ,
+		"When signing an NDA, the signatory commits to keeping specified information confidential."^^xsd:string
+		;
 	skos:prefLabel "Commitment"^^xsd:string ;
+	skos:scopeNote
+		"A commitment is unilateral in that it is binding on only one party. This contrasts with gist:Agreement, which consists of commitments that bind two or more parties."^^xsd:string ,
+		"A single commitment may be made to multiple parties at once; it is a single commitment rather than multiple commitments if the same action would fulfill the obligation to all the parties simultaneously. For example, a performer makes a single commitment to hold a performance to all ticket purchasers; by holding the performance, the commitment to all parties is fulfilled in a single action."^^xsd:string ,
+		"The manner in which a commitment is binding may vary. In a business context, we are typically interested in commitments that are legally binding."^^xsd:string
+		;
 	.
 
 gist:Component
 	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Artifact
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:contributesTo ;
-				owl:someValuesFrom gist:System ;
-			]
-		) ;
-	] ;
-	skos:definition "A component is an artifact that contributes to a system.  Could be a simple mechanical component, such as the float contributing to the toilet tank maintaining a constant level, or much more complex as in the internet of things."^^xsd:string ;
+	owl:disjointWith gist:PhysicalSubstance ;
+	skos:definition "Something that, while having an independent existence, is inherently part of or designed to be part of a larger entity, such as a system or network."^^xsd:string ;
 	skos:prefLabel "Component"^^xsd:string ;
+	skos:scopeNote
+		"A component may be designed or intended as part of a whole without actually being so; e.g., a car steering wheel that is not installed in any car."^^xsd:string ,
+		"Many things are in a trivial sense a part of a larger thing, but are not considered components because they are not inherently part of that larger thing. For example, while a book may be part of a library (a collection of books), it is not inherently so, and thus is not a component. A playing card, on the other hand, could be considered a component in (member of) a deck of cards. This may be use case-dependent; e.g., car parts might be modeled as components in an automobile manufacturing context but not in a retail auto parts store."^^xsd:string ,
+		"Physical substances, such as ingredients in a cake batter, do not meet the independent existence criterion, so are not components."^^xsd:string ,
+		"This class is not disjoint with gist:Composite, because a component may itself break down into smaller components."^^xsd:string ,
+		"This is an abstract class that is not directly instantiated. Users will define subclasses that are meaningful to their domain of interest."^^xsd:string
+		;
+	.
+
+gist:Composite
+	a owl:Class ;
+	skos:definition "Something which is made up of various parts or elements that are independently identifiable."^^xsd:string ;
+	skos:example "A library (collection of books); a network of pipes and valves; a computer network of routers and computers."^^xsd:string ;
+	skos:prefLabel "Composite"^^xsd:string ;
+	skos:scopeNote
+		"Some composites, like systems, networks, and ordered collections, have internal organization, while others, such as unordered collections, typically do not."^^xsd:string ,
+		"This class is not disjoint with gist:Component, because a composite can itself be a component of a larger composite."^^xsd:string ,
+		"This is an abstract class that will not be directly instantiated."^^xsd:string
+		;
 	.
 
 gist:ContemporaryEvent
@@ -385,7 +394,6 @@ gist:ContemporaryEvent
 
 gist:Content
 	a owl:Class ;
-	rdfs:subClassOf gist:Artifact ;
 	owl:disjointWith
 		gist:GeoPoint ,
 		gist:GeoRegion ,
@@ -406,14 +414,9 @@ gist:ContentExpression
 			a owl:Restriction ;
 			owl:onProperty gist:isCategorizedBy ;
 			owl:someValuesFrom gist:GeneralMediaType ;
-		] ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:isExpressedIn ;
-			owl:someValuesFrom gist:Language ;
 		]
 		;
-	skos:definition "Intellectual Property reduced to text, audio etc.  If it contains text (written or spoken), it may be in a language."^^xsd:string ;
+	skos:definition "Intellectual property reduced to text, audio, etc.  If it contains text (written or spoken), it will be expressed in a language."^^xsd:string ;
 	skos:prefLabel "Content Expression"^^xsd:string ;
 	.
 
@@ -515,13 +518,6 @@ gist:ControlledVocabulary
 			gist:Collection
 			[
 				a owl:Restriction ;
-				owl:onProperty [
-					owl:inverseOf gist:isMemberOf ;
-				] ;
-				owl:someValuesFrom gist:Category ;
-			]
-			[
-				a owl:Restriction ;
 				owl:onProperty gist:isGovernedBy ;
 				owl:someValuesFrom [
 					a owl:Class ;
@@ -531,10 +527,18 @@ gist:ControlledVocabulary
 					) ;
 				] ;
 			]
+			[
+				a owl:Restriction ;
+				owl:onProperty [
+					owl:inverseOf gist:isMemberOf ;
+				] ;
+				owl:someValuesFrom gist:Category ;
+			]
 		) ;
 	] ;
 	skos:definition "A collection of terms approved and managed by some organization or person."^^xsd:string ;
 	skos:prefLabel "Controlled Vocabulary"^^xsd:string ;
+	skos:scopeNote "A controlled vocabulary is similar to a skos:ConceptScheme, but it could also be used for things that are not concepts, such as organizations, US presidents, geo-regions, etc. Hierarchical relationships between instances of the controlled vocabulary are possible."^^xsd:string ;
 	.
 
 gist:CountryGeoRegion
@@ -557,6 +561,12 @@ gist:CountryGeoRegion
 
 gist:CountryGovernment
 	a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty gist:isGovernedBy ;
+		owl:onClass gist:GovernmentOrganization ;
+		owl:maxQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+	] ;
 	owl:disjointWith gist:SubCountryGovernment ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -567,14 +577,7 @@ gist:CountryGovernment
 				owl:onProperty [
 					owl:inverseOf gist:isGovernedBy ;
 				] ;
-				owl:onClass gist:CountryGeoRegion ;
-				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isGovernedBy ;
-				owl:onClass gist:GovernmentOrganization ;
-				owl:maxQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom gist:CountryGeoRegion ;
 			]
 		) ;
 	] ;
@@ -630,7 +633,6 @@ gist:Equipment
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:Artifact
 			gist:PhysicalIdentifiableItem
 			[
 				a owl:Restriction ;
@@ -652,8 +654,15 @@ gist:EquipmentType
 
 gist:Event
 	a owl:Class ;
+	owl:disjointWith
+		gist:Aspect ,
+		gist:Category ,
+		gist:Language ,
+		gist:Magnitude ,
+		gist:TimeInterval ,
+		gist:UnitOfMeasure
+		;
 	skos:definition "Something that occurs over a period of time, often characterized as an activity being carried out by some person, organization, or software application or brought about by natural forces."^^xsd:string ;
-	skos:editorialNote "See guidance on removing the term in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1679565100."^^xsd:string ;
 	skos:example "A transaction, conference, baseball game, earthquake."^^xsd:string ;
 	skos:prefLabel "Event"^^xsd:string ;
 	skos:scopeNote
@@ -753,27 +762,24 @@ gist:GeoPoint
 
 gist:GeoRegion
 	a owl:Class ;
-	rdfs:subClassOf [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Place
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMagnitude ;
-				owl:someValuesFrom [
-					a owl:Class ;
-					owl:intersectionOf (
-						gist:Magnitude
-						[
-							a owl:Restriction ;
-							owl:onProperty gist:hasAspect ;
-							owl:hasValue gistd:_Aspect_area ;
-						]
-					) ;
-				] ;
-			]
-		) ;
-	] ;
+	rdfs:subClassOf
+		gist:Place ,
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:hasMagnitude ;
+			owl:someValuesFrom [
+				a owl:Class ;
+				owl:intersectionOf (
+					gist:Magnitude
+					[
+						a owl:Restriction ;
+						owl:onProperty gist:hasAspect ;
+						owl:hasValue gistd:_Aspect_area ;
+					]
+				) ;
+			] ;
+		]
+		;
 	owl:disjointWith
 		gist:IntellectualProperty ,
 		gist:Intention ,
@@ -881,8 +887,7 @@ gist:GovernedGeoRegion
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:isGovernedBy ;
-				owl:onClass gist:GovernmentOrganization ;
-				owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom gist:GovernmentOrganization ;
 			]
 		) ;
 	] ;
@@ -903,6 +908,11 @@ gist:GovernmentOrganization
 
 gist:HistoricalEvent
 	a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty gist:actualStartDateTime ;
+		owl:someValuesFrom xsd:dateTime ;
+	] ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -910,12 +920,7 @@ gist:HistoricalEvent
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:actualEndDateTime ;
-				owl:cardinality "1"^^xsd:nonNegativeInteger ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:actualStartDateTime ;
-				owl:cardinality "1"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom xsd:dateTime ;
 			]
 		) ;
 	] ;
@@ -956,19 +961,20 @@ gist:ID
 
 gist:IntellectualProperty
 	a owl:Class ;
-	rdfs:subClassOf gist:Artifact ;
 	owl:disjointWith
-		gist:Intention ,
 		gist:Magnitude ,
 		gist:Organization ,
 		gist:PhysicalIdentifiableItem ,
 		gist:PhysicalSubstance ,
 		gist:UnitOfMeasure
 		;
-	skos:definition "A work, invention or concept, independent of its being expressed in text, audio, video, image, or live performance.  IP can also be tacit knowledge, know-how, or skill. Also includes Brands."^^xsd:string ;
-	skos:example "The Old Man and The Sea; the Page Rank algorithm; Coca Cola"^^xsd:string ;
+	skos:definition "An intangible work, invention or concept, independent of its being expressed in text, audio, video, image, or live performance. IP can also be tacit knowledge, know-how, or skill."^^xsd:string ;
+	skos:example "The Old Man and The Sea; the Page Rank algorithm; the brand Coca Cola."^^xsd:string ;
 	skos:prefLabel "Intellectual Property"^^xsd:string ;
-	skos:scopeNote "For literature this could be called the ?Work?, except that ?work? is a highly overloaded term (expenditure of energy, resource consumption, art).  Often the first expression precedes our recognition of the IP, but subsequent expressions are known to be derivatives of the IP, even if they are expression-to-expression translations (or copies)."^^xsd:string ;
+	skos:scopeNote
+		"For literature this could be called the 'Work', except that 'work' is a highly overloaded term (expenditure of energy, resource consumption, art).  Often the first expression precedes our recognition of the IP, but subsequent expressions are known to be derivatives of the IP, even if they are expression-to-expression translations (or copies)."^^xsd:string ,
+		"This concept includes works that are out of copyright or were never formally registered; the defining feature is not that it is legally protected but that it is an intangible creation of the human mind."^^xsd:string
+		;
 	.
 
 gist:Intention
@@ -1001,8 +1007,25 @@ gist:IntergovernmentalOrganization
 		) ;
 	] ;
 	skos:definition "An organization whose members are government organizations. This can comprise regional, municipal, state/province, or national level entities."^^xsd:string ;
-	skos:example "The United Nations, the European Union, the MTA (Metropolitan Transit Authority)"^^xsd:string ;
+	skos:example "The United Nations, the European Union, the Metropolitan Transit Authority."^^xsd:string ;
 	skos:prefLabel "Intergovernmental Organization"^^xsd:string ;
+	.
+
+gist:KnowledgeConcept
+	a owl:Class ;
+	rdfs:subClassOf gist:IntellectualProperty ;
+	skos:definition "An abstract concept that arises from the distillation of experience. It is similar to a category but, rather than being a simple tag, it has rich structure."^^xsd:string ;
+	skos:example "Most domains will define a few subclasses, such as gene, protein, chemical, disease, subject matter, industry, method."^^xsd:string ;
+	skos:prefLabel "Knowledge Concept"^^xsd:string ;
+	skos:scopeNote """Some knowledge is about specific instances that already exist in the knowledge graph. We may have knowledge that Judge Jones is more lenient on repeat offenders in the morning; we may know that the earliest killing frost in Fort Collins is the last week of September.
+
+These fit the broader definition of knowledge, the distillation of experience. But they do not require any new instances.  Judge Jones and Fort Collins already exist and have a place in our knowledge graph.
+
+But some knowledge requires that we synthesize new instances in order to have a place to consolidate the knowledge.  A disease isn't a tangible thing, like a person or a building. A disease is a prediction that a person's health will decline in a predictable way (without treatment and with treatment). The number of diseases continues to grow as we collectively learn more and more granular distinctions. Lung cancer used to be a single disease, but now we have dozens of fine-grained distinctions; e.g., non-lymphoma small cell fusiform is different from alveolar adenocarcinoma because we now know the prognosis and treatment are different.
+
+This superclass is meant as a place for subclasses that will have the instances that represent the foci of the knowledge we have acquired. Note the distinction between a particular portion of, say, gold, which instantiates gist:PhysicalSubstance, and the concept of gold, which instantiates gist:KnowledgeConcept.
+
+In some ontologies what we are calling knowledge concepts are defined as classes; e.g., non-lymphoma small cell fusiform and alveolar adenocarcinoma would be two classes rather than two instances. But using a class makes it harder to connect the concept to other instances in a knowledge graph, and furthermore such classes would lack instances."""^^xsd:string ;
 	.
 
 gist:Landmark
@@ -1126,7 +1149,8 @@ gist:MediaType
 gist:Medium
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	skos:definition "A physicality on which a work could be implemented or exposed. E.g., paper, clay, or a computer monitor."^^xsd:string ;
+	skos:definition "A physical material on which a work can be rendered, represented, or implemented."^^xsd:string ;
+	skos:example "Paper, clay, a computer monitor"^^xsd:string ;
 	skos:prefLabel "Medium"^^xsd:string ;
 	.
 
@@ -1170,7 +1194,7 @@ gist:Network
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:Artifact
+			gist:Composite
 			[
 				a owl:Restriction ;
 				owl:onProperty [
@@ -1186,16 +1210,29 @@ gist:Network
 			]
 		) ;
 	] ;
-	skos:definition "A network is a set of nodes connected by links."^^xsd:string ;
-	skos:example "A physical network could include connected computers or routers, whereas a social network would consist of related Person or Organization instances."^^xsd:string ;
+	skos:definition "A composite consisting of nodes connected by links."^^xsd:string ;
+	skos:example "A physical network could include connected computers or routers, whereas a social network would consist of related person or organization members (or their proxies, such as accounts)."^^xsd:string ;
 	skos:prefLabel "Network"^^xsd:string ;
 	.
 
 gist:NetworkLink
 	a owl:Class ;
+	rdfs:subClassOf
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:links ;
+			owl:allValuesFrom gist:NetworkNode ;
+		] ,
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:links ;
+			owl:cardinality "2"^^xsd:nonNegativeInteger ;
+		]
+		;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
+			gist:Component
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:isMemberOf ;
@@ -1204,67 +1241,29 @@ gist:NetworkLink
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:links ;
-				owl:allValuesFrom gist:NetworkNode ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:links ;
-				owl:onClass gist:NetworkNode ;
-				owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom gist:NetworkNode ;
 			]
 		) ;
 	] ;
 	skos:definition "An abstract representation of the connection between two or more nodes in a network."^^xsd:string ;
 	skos:example "A network link may be physical, such as pipes, wired or wireless networks, but may also be a link in a non-physical network, such as organizational structures or social networks."^^xsd:string ;
 	skos:prefLabel "Network Link"^^xsd:string ;
-	skos:scopeNote "Each NetworkLink is connected to a NetworkNode via the property 'gist:links' or one of its subproperties."^^xsd:string ;
+	skos:scopeNote "Each newtork link is connected to a network node via the property gist:links or one of its subproperties."^^xsd:string ;
 	.
 
 gist:NetworkNode
 	a owl:Class ;
-	rdfs:subClassOf [
-		a owl:Restriction ;
-		owl:onProperty gist:isMemberOf ;
-		owl:someValuesFrom gist:Network ;
-	] ;
+	rdfs:subClassOf
+		gist:Component ,
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:isMemberOf ;
+			owl:someValuesFrom gist:Network ;
+		]
+		;
 	skos:definition "A node in a network."^^xsd:string ;
-	skos:example "A person is a node in a social network; a valve is a node in a network of pipes."^^xsd:string ;
+	skos:example "A person's account is a node in a social network; a valve is a node in a network of pipes."^^xsd:string ;
 	skos:prefLabel "Network Node"^^xsd:string ;
-	.
-
-gist:Obligation
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Commitment
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasGiver ;
-				owl:someValuesFrom [
-					a owl:Class ;
-					owl:unionOf (
-						gist:Organization
-						gist:Person
-					) ;
-				] ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasRecipient ;
-				owl:someValuesFrom [
-					a owl:Class ;
-					owl:unionOf (
-						gist:Organization
-						gist:Person
-					) ;
-				] ;
-			]
-		) ;
-	] ;
-	skos:definition "A future commitment from one organization or person to another. Contracts are sets of obligations to do or forbear, or to indemnify or warrant."^^xsd:string ;
-	skos:prefLabel "Obligation"^^xsd:string ;
-	skos:scopeNote "Obligations will often be governed by some Agreement or Offer."^^xsd:string ;
 	.
 
 gist:Offer
@@ -1275,8 +1274,13 @@ gist:Offer
 			gist:ContingentObligation
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:offers ;
-				owl:someValuesFrom gist:CatalogItem ;
+				owl:onProperty gist:offersToProvide ;
+				owl:someValuesFrom owl:Thing ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:offersToReceive ;
+				owl:someValuesFrom owl:Thing ;
 			]
 			[
 				a owl:Restriction ;
@@ -1291,33 +1295,20 @@ gist:Offer
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasMagnitude ;
-				owl:someValuesFrom [
-					a owl:Class ;
-					owl:intersectionOf (
-						gist:Magnitude
-						[
-							a owl:Restriction ;
-							owl:onProperty gist:hasAspect ;
-							owl:hasValue gistd:_Aspect_monetary_value ;
-						]
-					) ;
-				] ;
-			]
-			[
-				a owl:Restriction ;
 				owl:onProperty gist:plannedEndDateTime ;
-				owl:cardinality "1"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom xsd:dateTime ;
 			]
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:plannedStartDateTime ;
-				owl:cardinality "1"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom xsd:dateTime ;
 			]
 		) ;
 	] ;
-	skos:definition "A commitment to buy or sell a described or identified part or service."^^xsd:string ;
+	skos:definition "A contingent commitment to buy, sell, swap or provide one or more described or identified goods or services in exchange for another (or others)."^^xsd:string ;
+	skos:example "An offer to sell a book for a given price; an offer to purchase real estate for a particular price; an offer to swap a sea kayak for a mountain bike; currency exchange. A donation may be modeled as an offer to receive money typically in exchange for $0.00, but sometimes for items of value such as coffee mugs or T-shirts."^^xsd:string ;
 	skos:prefLabel "Offer"^^xsd:string ;
+	skos:scopeNote "Dates on an offer represent the time period the offer is valid for, as in '25% off through October 25, 2025'."^^xsd:string ;
 	.
 
 gist:OrderedCollection
@@ -1364,14 +1355,15 @@ gist:OrderedMember
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:providesOrderFor ;
-				owl:someValuesFrom owl:Thing ;
-			]
+			gist:Component
 			[
 				a owl:Class ;
 				owl:unionOf (
+					[
+						a owl:Restriction ;
+						owl:onProperty gist:precedesDirectly ;
+						owl:someValuesFrom gist:OrderedMember ;
+					]
 					[
 						a owl:Restriction ;
 						owl:onProperty [
@@ -1381,15 +1373,15 @@ gist:OrderedMember
 					]
 					[
 						a owl:Restriction ;
-						owl:onProperty gist:precedesDirectly ;
-						owl:someValuesFrom gist:OrderedMember ;
-					]
-					[
-						a owl:Restriction ;
 						owl:onProperty gist:sequence ;
 						owl:someValuesFrom xsd:integer ;
 					]
 				) ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:providesOrderFor ;
+				owl:someValuesFrom owl:Thing ;
 			]
 			[
 				a owl:Restriction ;
@@ -1445,6 +1437,11 @@ gist:Permission
 
 gist:Person
 	a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty gist:hasBiologicalParent ;
+		owl:allValuesFrom gist:Person ;
+	] ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -1452,12 +1449,12 @@ gist:Person
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasBiologicalParent ;
-				owl:allValuesFrom gist:Person ;
+				owl:someValuesFrom gist:Person ;
 			]
 		) ;
 	] ;
-	skos:definition "A human being that may or may not still be alive."^^xsd:string ;
-	skos:example "Negative example:fictional characters."^^xsd:string ;
+	skos:definition "A human being who was or is alive."^^xsd:string ;
+	skos:example "Negative example: fictional characters."^^xsd:string ;
 	skos:prefLabel "Person"^^xsd:string ;
 	.
 
@@ -1604,7 +1601,7 @@ gist:PhysicalSubstance
 	skos:example "An amount of water, penicillin, sand, gold: an actual piece of gold, not the concept of gold."^^xsd:string ;
 	skos:prefLabel "Physical Substance"^^xsd:string ;
 	skos:scopeNote
-		"An instance of this class has weight and takes up space. We mean the physical gold in a ring, not the concept of gold that shows up in the periodic table."^^xsd:string ,
+		"An instance of this class has weight and takes up space. We mean the physical gold in a ring, not the concept of gold that shows up in the periodic table. The latter would be an instance of gist:KnowledgeConcept."^^xsd:string ,
 		"This concept generally corresponds to mass nouns in English. By contrast, instances of PhysicalIdentifiableItem, such as a computer, book, or car, are count nouns. PhysicalIdentifiableItems are made up of PhysicalSubstances; e.g., a cake is made up of butter, flour, and sugar; a ring is made of gold. If you divide a PhysicalSubstance such as an amount of water into parts, you have different amounts of water otherwise indistinguishable from one another; if you divide a PhysicalIdentifiableItem such as a computer into parts, each part will be distinguishable from the original whole."^^xsd:string
 		;
 	.
@@ -1671,12 +1668,7 @@ gist:RenderedContent
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:ContentExpression
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isExpressedIn ;
-				owl:someValuesFrom gist:MediaType ;
-			]
+			gist:FormattedContent
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:isRenderedOn ;
@@ -1721,7 +1713,7 @@ gist:ScheduledEvent
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:plannedStartDateTime ;
-				owl:cardinality "1"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom xsd:dateTime ;
 			]
 		) ;
 	] ;
@@ -1788,15 +1780,15 @@ gist:SubCountryGovernment
 			gist:GovernmentOrganization
 			[
 				a owl:Restriction ;
+				owl:onProperty gist:isGovernedBy ;
+				owl:someValuesFrom gist:CountryGovernment ;
+			]
+			[
+				a owl:Restriction ;
 				owl:onProperty [
 					owl:inverseOf gist:isGovernedBy ;
 				] ;
 				owl:someValuesFrom gist:GeoRegion ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isGovernedBy ;
-				owl:someValuesFrom gist:CountryGovernment ;
 			]
 		) ;
 	] ;
@@ -1814,7 +1806,7 @@ gist:System
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:Artifact
+			gist:Composite
 			[
 				a owl:Restriction ;
 				owl:onProperty [
@@ -1824,26 +1816,23 @@ gist:System
 			]
 		) ;
 	] ;
-	skos:definition "A system is an artifact with component parts where the parts contribute to the goal of the system"^^xsd:string ;
+	skos:definition "A composite with component parts that contribute to the goal of the system."^^xsd:string ;
 	skos:prefLabel "System"^^xsd:string ;
 	.
 
 gist:Tag
 	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Category
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:containedText ;
-				owl:someValuesFrom xsd:string ;
-			]
-		) ;
-	] ;
+	rdfs:subClassOf
+		gist:Category ,
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:containedText ;
+			owl:someValuesFrom xsd:string ;
+		]
+		;
 	skos:definition "A term in a folksonomy used to categorize things. Tags can be made up on the fly by users."^^xsd:string ;
 	skos:prefLabel "Tag"^^xsd:string ;
-	skos:scopeNote "Whether to use gist:containedText or gist:uniqueText on tags is an implementation decision."^^xsd:string ;
+	skos:scopeNote "Whether to use gist:containedText or gist:uniqueText on tags is an implementation decision. Since the latter is a subproperty of the former, the restriction remains valid either way."^^xsd:string ;
 	.
 
 gist:Task
@@ -1859,11 +1848,12 @@ gist:Task
 			]
 		) ;
 	] ;
-	skos:definition "A piece of work that is either proposed, planned, scheduled, underway, or completed."^^xsd:string ;
+	skos:definition "An activity or piece of work that is either proposed, planned, scheduled, underway, or completed."^^xsd:string ;
 	skos:prefLabel "Task"^^xsd:string ;
 	skos:scopeNote
 		"Something that could potentially be executed, which is merely described but not proposed in any specific way, such as a business process for onboarding a new employee, or the steps in a recipe for making polyethylene from ethylene, is not a task but rather a task template."^^xsd:string ,
-		"Use the property isBasedOn to link a Task back to the TaskTemplate."^^xsd:string
+		"This term is broader than the English word 'task,' which implies assignment, responsibility, or duty. In ordinary English going to a concert has a goal but is (generally) done for pleasure rather than out of obligation, and would not be considered a task, while according to the gist definition it is a task. The expansion of meaning is deliberate, so that anything that has a goal and can be specified by a task template is a task."^^xsd:string ,
+		"Use the property gist:isBasedOn to link a task back to the task template."^^xsd:string
 		;
 	.
 
@@ -1887,47 +1877,6 @@ gist:TaskTemplate
 		"A task template may define a single activity or a series of activities; the level of granularity can be varied according to use case. For example, in a new employee onboarding process, signing up for benefits might be one activity, or it might be broken down into signing up for health insurance, signing up for dental insurance, etc."^^xsd:string ,
 		"Use the property isBasedOn to link the Task back to the TaskTemplate."^^xsd:string
 		;
-	.
-
-gist:Taxonomy
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:ControlledVocabulary
-			[
-				a owl:Restriction ;
-				owl:onProperty [
-					owl:inverseOf gist:isMemberOf ;
-				] ;
-				owl:someValuesFrom [
-					a owl:Class ;
-					owl:intersectionOf (
-						gist:Category
-						[
-							a owl:Class ;
-							owl:unionOf (
-								[
-									a owl:Restriction ;
-									owl:onProperty [
-										owl:inverseOf gist:hasBroader ;
-									] ;
-									owl:someValuesFrom gist:Category ;
-								]
-								[
-									a owl:Restriction ;
-									owl:onProperty gist:hasBroader ;
-									owl:someValuesFrom gist:Category ;
-								]
-							) ;
-						]
-					) ;
-				] ;
-			]
-		) ;
-	] ;
-	skos:definition "A controlled vocabulary arranged as a hierarchy of concepts."^^xsd:string ;
-	skos:prefLabel "Taxonomy"^^xsd:string ;
 	.
 
 gist:Template
@@ -2037,19 +1986,16 @@ gist:Transaction
 
 gist:UnitGroup
 	a owl:Class ;
-	rdfs:subClassOf [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Collection
-			[
-				a owl:Restriction ;
-				owl:onProperty [
-					owl:inverseOf gist:isMemberOf ;
-				] ;
-				owl:someValuesFrom gist:UnitOfMeasure ;
-			]
-		) ;
-	] ;
+	rdfs:subClassOf
+		gist:Collection ,
+		[
+			a owl:Restriction ;
+			owl:onProperty [
+				owl:inverseOf gist:isMemberOf ;
+			] ;
+			owl:someValuesFrom gist:UnitOfMeasure ;
+		]
+		;
 	owl:disjointWith gist:UnitOfMeasure ;
 	skos:definition "A collection of units of measure that can all be used to measure the same aspects."^^xsd:string ;
 	skos:example "The units of measure bit, byte, kilobit, kilobyte, etc. are all in the same unit group because they can all be used to measure an amount of data."^^xsd:string ;
@@ -2062,12 +2008,6 @@ gist:UnitOfMeasure
 	skos:definition "A standard amount used to measure or specify things."^^xsd:string ;
 	skos:example "An acre is a unit for measuring area."^^xsd:string ;
 	skos:prefLabel "Unit of Measure"^^xsd:string ;
-	.
-
-gist:accepts
-	a owl:ObjectProperty ;
-	skos:definition "The types of input messages that will be allowed."^^xsd:string ;
-	skos:prefLabel "accepts"^^xsd:string ;
 	.
 
 gist:actualEndDate
@@ -2226,9 +2166,13 @@ gist:comesFromAgent
 			gist:Person
 		) ;
 	] ;
-	skos:definition "The party that is the source of something (e.g. a message, shipment, etc.)"^^xsd:string ;
+	skos:definition "Relates something to the originating agent."^^xsd:string ;
+	skos:example "A package is shipped by a person; a purchase order is emailed to a vendor by an organization."^^xsd:string ;
 	skos:prefLabel "comes from agent"^^xsd:string ;
-	skos:scopeNote 'This is not the inverse of gist:goesToAgent. A message can be to someone. If we made it the inverse the person would be "from" the message'^^xsd:string ;
+	skos:scopeNote
+		"This is not the inverse of gist:goesToAgent, as both properties have the message or shipment as the subject."^^xsd:string ,
+		"This property is intended to describe the physical or electronic transfer of something, such as a package or email, from one agent to another, whereas gist:hasGiver is typically used in more abstract contexts such as agreements, obligations, contracts, etc. However, there are contexts in which either may be appropriate, such as the giving of a gift."^^xsd:string
+		;
 	.
 
 gist:comesFromPlace
@@ -2240,7 +2184,8 @@ gist:comesFromPlace
 			gist:Place
 		) ;
 	] ;
-	skos:definition "Origin"^^xsd:string ;
+	skos:definition "Relates something to its place of origin."^^xsd:string ;
+	skos:example "A letter has a return address indicating its origin; a delivery route originates at a distribution center; a trail originates at the trailhead."^^xsd:string ;
 	skos:prefLabel "comes from place"^^xsd:string ;
 	.
 
@@ -2332,9 +2277,12 @@ gist:description
 	a owl:DatatypeProperty ;
 	rdfs:range xsd:string ;
 	skos:definition "A statement about someone or something's attributes or characteristics."^^xsd:string ;
-	skos:example "The Empire State Building is a 102-story Art Deco skyscraper in Midtown Manhattan in New York City, United States. It was designed by Shreve, Lamb & Harmon and built from 1930 to 1931."^^xsd:string ;
+	skos:example
+		"'The Empire State Building is a 102-story Art Deco skyscraper in midtown Manhattan in New York City. It was designed by Shreve, Lamb & Harmon and built from 1930 to 1931.'"^^xsd:string ,
+		"A person does not have a definition, but might be described as being six feet tall with brown hair and blue eyes; an ontology class or taxonomy term has a definition."^^xsd:string
+		;
 	skos:prefLabel "description"^^xsd:string ;
-	skos:scopeNote "This property is used to provide a description of an individual in greater detail than a label."^^xsd:string ;
+	skos:scopeNote "This property is used to describe instance data which is not part of the ontology. A definition and a description have different semantics. Use skos:definition for a statement of the meaning of a thing and gist:description to describe a thing's attributes, characteristics, or features."^^xsd:string ;
 	.
 
 gist:domainIncludes
@@ -2663,9 +2611,13 @@ gist:goesToAgent
 			gist:Person
 		) ;
 	] ;
-	skos:definition "The party that is the recipient of something (e.g. a message, shipment, etc.)"^^xsd:string ;
+	skos:definition "Relates something to the agent that receives it."^^xsd:string ;
+	skos:example "A package is sent to a person; a purchase order email is received by a vendor."^^xsd:string ;
 	skos:prefLabel "goes to agent"^^xsd:string ;
-	skos:scopeNote 'This is not the inverse of gist:comesFromAgent. A message can be from someone. If we made it the inverse the person would be "to" the message'^^xsd:string ;
+	skos:scopeNote
+		"This is not the inverse of gist:comesFromAgent, as both properties have the message or shipment as the subject."^^xsd:string ,
+		"This property is intended to describe the physical or electronic transfer of something, such as a package or email, from one agent to another, whereas gist:hasRecipient is typically used in more abstract contexts such as agreements, obligations, contracts, etc. However, there are contexts in which either may be appropriate, such as the recieving of a gift."^^xsd:string
+		;
 	.
 
 gist:goesToPlace
@@ -2677,7 +2629,8 @@ gist:goesToPlace
 			gist:Place
 		) ;
 	] ;
-	skos:definition "Destination"^^xsd:string ;
+	skos:definition "Relates something to its destination place."^^xsd:string ;
+	skos:example "A letter has an address indicating its destination; a segment of a delivery route terminates at a delivery location; a trail terminates at an intersection with another trail."^^xsd:string ;
 	skos:prefLabel "goes to place"^^xsd:string ;
 	.
 
@@ -2687,12 +2640,14 @@ gist:hasAccuracy
 		owl:FunctionalProperty
 		;
 	rdfs:range gist:Magnitude ;
-	skos:definition "Relates a magnitude to the accuracy of its numeric value."^^xsd:string ;
+	rdfs:seeAlso "https://en.wikipedia.org/wiki/Accuracy_and_precision"^^xsd:anyURI ;
+	skos:definition "Relates a magnitude to another magnitude that describes its accuracy."^^xsd:string ;
 	skos:example "Temperature accurate to tenth of a degree C; length accurate to the nearest centimeter."^^xsd:string ;
 	skos:prefLabel "has accuracy"^^xsd:string ;
-	skos:scopeNote """A typical way to use accuracy is to have it represent 2 standard deviations of the distribution of measurement errors. With this convention, when the measurement method is well-calibrated (has an average error of zero) and its errors have a normal distribution, there is a 95% chance that the actual error in measurement, in either direction, is less than the accuracy.
+	skos:scopeNote """gist uses the ISO-5725 definition of accuracy, which is a combination of trueness (a measure of systemic error) and precision (a measure of random error). The accuracy of a measurement method describes how close its measurements are to actual values. Similarly, the accuracy of an individual measurement is its likely closeness to the actual value. When we say a temperature measurement is accurate to within a tenth of a degree, it means with a certain probability such as 95%.
 
 Note that the unit of measure of the accuracy has to be compatible with the unit of measure of the original magnitude (e.g. something measured in meters could have a accuracy in terms of millimeters or any other unit that measures distance)."""^^xsd:string ;
+	gist:domainIncludes gist:Magnitude ;
 	.
 
 gist:hasAddend
@@ -2762,8 +2717,10 @@ gist:hasGiver
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasParticipant ;
 	owl:propertyDisjointWith gist:hasRecipient ;
-	skos:definition "The active party, the one with the obligation or the one initiating the transfer"^^xsd:string ;
+	skos:definition "Relates something to the participant that originates it."^^xsd:string ;
+	skos:example "An offer is made by a giver; an obligation has a giver who is obligated to another person; a gift is presented by the giver."^^xsd:string ;
 	skos:prefLabel "has giver"^^xsd:string ;
+	skos:scopeNote "This property is often used in abstract contexts such as agreements, obligations, contracts, etc., whereas gist:comesFromAgent is intended to describe the physical or electronic transfer of something, such as a package or email, from one agent to another. However, there are contexts in which either may be appropriate, such as the giving of a gift."^^xsd:string ;
 	.
 
 gist:hasGoal
@@ -2844,8 +2801,10 @@ gist:hasPhysicalLocation
 gist:hasRecipient
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:hasParticipant ;
-	skos:definition "The recipient"^^xsd:string ;
+	skos:definition "Relates something to the participant that receives it or is intended to receive it."^^xsd:string ;
+	skos:example "An offer is made to a recipient; an obligation has a recipient to whom another person is obligated; a gift is bestowed upon a recipient."^^xsd:string ;
 	skos:prefLabel "has recipient"^^xsd:string ;
+	skos:scopeNote "This property is used in abstract contexts such as agreements, obligations, contracts, etc., whereas gist:goesToAgent is intended to describe the physical or electronic transfer of something, such as a package or email, from one agent to another. However, there are contexts in which either may be appropriate, such as the giving of a gift."^^xsd:string ;
 	.
 
 gist:hasSubtrahend
@@ -2945,23 +2904,6 @@ gist:isAllocatedBy
 		;
 	.
 
-gist:isAssignedBy
-	a owl:ObjectProperty ;
-	skos:definition "Relates an assignment to the assigner."^^xsd:string ;
-	skos:example "An employee is assigned to a task by a supervisor."^^xsd:string ;
-	skos:prefLabel "is assigned by"^^xsd:string ;
-	skos:scopeNote
-		"Due to the Open World Assumption, the assigner may not be known or asserted."^^xsd:string ,
-		"The assigner is typically a person, organization, or software system."^^xsd:string ,
-		"While typically this predicate will be used with gist:Assignment subjects, there may be other use cases and therefore a domain is not specified."^^xsd:string
-		;
-	gist:domainIncludes gist:Assignment ;
-	gist:rangeIncludes
-		gist:Organization ,
-		gist:Person
-		;
-	.
-
 gist:isAssignmentOf
 	a owl:ObjectProperty ;
 	skos:definition "Relates an assignment to the resource it assigns."^^xsd:string ;
@@ -3054,8 +2996,8 @@ gist:isGeoContainedIn
 
 gist:isGovernedBy
 	a owl:ObjectProperty ;
-	skos:definition "Relates a thing governed to the governor."^^xsd:string ;
-	skos:example "A country geo-region is governed by a country government."^^xsd:string ;
+	skos:definition "Relates an entity to another entity that controls, directs, determines or has a guiding influence or authority over it."^^xsd:string ;
+	skos:example "A country geo-region is governed by a country government; the installation and use of software is governed by a license."^^xsd:string ;
 	skos:prefLabel "is governed by"^^xsd:string ;
 	.
 
@@ -3179,22 +3121,28 @@ gist:license
 
 gist:links
 	a owl:ObjectProperty ;
-	skos:definition "Relates a NetworkLink to a NetworkNode that it connects to another node. Used when the connections are undirected, or the direction is not known."^^xsd:string ;
+	skos:definition "Relates a network link to a network node that it connects to another node. Used when the connection is undirected or the direction is not known."^^xsd:string ;
 	skos:prefLabel "links"^^xsd:string ;
+	gist:domainIncludes gist:NetworkLink ;
+	gist:rangeIncludes gist:NetworkNode ;
 	.
 
 gist:linksFrom
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:links ;
-	skos:definition "Relates a NetworkLink to its origin NetworkNode. Unlike the superproperty, this represents a directed connection."^^xsd:string ;
+	skos:definition "Relates a network link to its origin network node. Unlike the superproperty, this represents a directed connection."^^xsd:string ;
 	skos:prefLabel "links from"^^xsd:string ;
+	gist:domainIncludes gist:NetworkLink ;
+	gist:rangeIncludes gist:NetworkNode ;
 	.
 
 gist:linksTo
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:links ;
-	skos:definition "Relates a NetworkLink to its destination NetworkNode. Unlike the superproperty, this represents a directed connection."^^xsd:string ;
+	skos:definition "Relates a network link to its destination network node. Unlike the superproperty, this represents a directed connection."^^xsd:string ;
 	skos:prefLabel "links to"^^xsd:string ;
+	gist:domainIncludes gist:NetworkLink ;
+	gist:rangeIncludes gist:NetworkNode ;
 	.
 
 gist:longitude
@@ -3247,11 +3195,22 @@ gist:occursIn
 	skos:prefLabel "occurs in"^^xsd:string ;
 	.
 
-gist:offers
+gist:offersToProvide
 	a owl:ObjectProperty ;
-	skos:definition "Relates something to a thing that is being made available for acceptance or rejection."^^xsd:string ;
-	skos:example "An instance of gist:Offer offers a specific product at a particular price; a company offers an employee benefit; Honda offers vehicles for sale."^^xsd:string ;
-	skos:prefLabel "offers"^^xsd:string ;
+	skos:definition "Relates an offer to the thing being made available for exchange."^^xsd:string ;
+	skos:example "An offer to provide a specific product in exchange for an amount of money or to pay a certain price for a home that is for sale."^^xsd:string ;
+	skos:prefLabel "offers to provide"^^xsd:string ;
+	skos:scopeNote "This will most often be a good or service, but could be an amount of money, e.g., for currency exchange."^^xsd:string ;
+	gist:domainIncludes gist:Offer ;
+	.
+
+gist:offersToReceive
+	a owl:ObjectProperty ;
+	skos:definition "Relates an offer to the thing expected in return for the offered item."^^xsd:string ;
+	skos:example "A vendor makes an offer to receive a particular amount of money in exchange for the offered product; an offer to receive a home in exchange for an amount of money."^^xsd:string ;
+	skos:prefLabel "offers to receive"^^xsd:string ;
+	skos:scopeNote "This will most often be an amount of money, but could be anything of value, as in swaps."^^xsd:string ;
+	gist:domainIncludes gist:Offer ;
 	.
 
 gist:owns
