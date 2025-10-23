@@ -11,8 +11,9 @@ You can also contribute to gist by adding your comments to [issue discussion thr
 gist is free and open to the public under the [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/) license. In addition to the conditions of this license, we require that any concepts used from gist remain in the gist namespace, and that you do not define your own term definitions in the gist namespace.
 
 To get gist:
-- Download the [latest released version of gist](https://w3id.org/semanticarts/ontology/gistCore_Latest_Download.zip).
-- Import into Protégé with the link: https://w3id.org/semanticarts/ontology/gistCore.
+
+- Download the [latest released version of gist](https://downloads.semanticarts.com/gistCore_Current_Version.zip) or from the zip file available on the [GitHub repository releases page](https://github.com/semanticarts/gist/releases).
+- Import into Protégé with the link: <https://w3id.org/semanticarts/ontology/gistCore>.
 - Clone or download gist from the [GitHub repository](https://github.com/semanticarts/gist/).
 
 For more information on gist and to download previous versions, see the [Semantic Arts website](https://www.semanticarts.com/gist).
@@ -25,14 +26,14 @@ We provide a number of resources for learning more about gist.
 
 Extensive documentation of gist is available in the [gist-doc repository](https://github.com/semanticarts/gist-doc). This repository contains documentation of the [Semantic Arts gist minimalist upper ontology](https://github.com/semanticarts/gist/tree/master) in three formats: narrative, graphical, and Widoco-style.
 
-* **gist Constellations (eBook)**
-  * The organization of the eBook is based around the idea of 'constellations' of classes and predicates that deal with related concepts.
-  * epub and mobi formats
-* **gist Constellations (visualizations)**
-  * A collection of PNG images built using the [Turtle Editor Viewer](http://semantechs.co.uk/turtle-editor-viewer/).  Each image is made up of a single 'constellation' of classes as described above and shows the classes and their relationships, the literal annotations, and any anonymous classes used in class definitions.
-* **[Widoco](https://github.com/dgarijo/Widoco) documentation**
+- **gist Constellations (eBook)**
+  - The organization of the eBook is based around the idea of 'constellations' of classes and predicates that deal with related concepts.
+  - epub and mobi formats
+- **gist Constellations (visualizations)**
+  - A collection of PNG images built using the [Turtle Editor Viewer](http://semantechs.co.uk/turtle-editor-viewer/).  Each image is made up of a single 'constellation' of classes as described above and shows the classes and their relationships, the literal annotations, and any anonymous classes used in class definitions.
+- **[Widoco](https://github.com/dgarijo/Widoco) documentation**
 
 ### Additional Documentation
 
-* **Videos:** We maintain a library of videos containing gist tutorials and recordings of our monthly gist Council meetings. You can find links to these videos on the [Semantic Arts website](https://www.semanticarts.com/gist/videos/), or directly access the entire catalog on [our YouTube channel](https://www.youtube.com/playlist?list=PLk2kJrehubb4dc3e5Db5Lvv9WMaOhV3V7).
-* The [Semantic Arts gist web page](https://www.semanticarts.com/gist/).
+- **Videos:** We maintain a library of videos containing gist tutorials and recordings of our monthly gist Council meetings. You can find links to these videos on the [Semantic Arts website](https://www.semanticarts.com/gist/videos/), or directly access the entire catalog on [our YouTube channel](https://www.youtube.com/playlist?list=PLk2kJrehubb4dc3e5Db5Lvv9WMaOhV3V7).
+- The [Semantic Arts gist web page](https://www.semanticarts.com/gist/).
