@@ -9,14 +9,6 @@
 # Get root directory of this git repository
 base_dir=$(git rev-parse --show-toplevel)
 
-# Verify that the currently executing script is up to date.
-file1="$0" # The current script
-file2="$base_dir/tools/pre-commit"
-if ! cmp -s "$file1" "$file2"; then
-    echo "ABORTED: the pre-commit hook is not up to date. Run ./tools/setup.cmd to fix."
-    exit 1
-fi
-
 # Stops accidental commits to branches master, main, or develop.
 BRANCH=`git rev-parse --abbrev-ref HEAD`
 
