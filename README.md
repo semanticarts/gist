@@ -18,7 +18,16 @@ To get gist:
 
 For more information on gist and to download previous versions, see the [Semantic Arts website](https://www.semanticarts.com/gist).
 
-## Documentation
+## Setting up a Local gist Repository
+
+- Clone the [gist GitHub repository](https://github.com/semanticarts/gist.git).
+- Run the script `./tools/setup.cmd`.
+- To work on gist, refer to the following documents:
+  - [Contributing to gist](docs/Contributing.md)
+  - [gist Style Guide](docs/gistStyleGuide.md)
+  - [Contributor Quick Reference](docs/ContributorQuickReference.md)
+
+## gist Documentation
 
 We provide a number of resources for learning more about gist.
 

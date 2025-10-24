@@ -1,4 +1,4 @@
-# Migrating to gist v12.0 from v11.0
+# Migrating to gist v14.0 from v13.0
 
 This file gives a quick overview of using the migration utilities provided
 by the gist team to help migrate from the previous version of gist.
@@ -17,11 +17,6 @@ by the gist team to help migrate from the previous version of gist.
   about changes that were made in gist and you will need to decide how you want
   to handle the changes.
 
-- **Manual updates for inverses:** Migration scripts do not update all class expressions in an ontology. For example, if a property is deprecated in favor of its inverse, `owl:onProperty gist:property` needs to be changed to `owl:onProperty [ owl:inverseOf gist:inverseProperty ]`. If you have created subproperties of a property that is being deprecated, you will also have to update the subproperties.
-
-- **Update all related artifacts.** Be sure to make updates as needed to artifacts that refer to changed parts of gist, which can include ontologies, taxonomies, data ingestion pipelines, data validations, queries, forms, documention, etc.
-
-
 ## Migration Queries
 
 All of our migration tools are SPARQL queries.
@@ -39,22 +34,16 @@ The following directory structure holds the migration scripts:
     └── report/
         ├── README
         ├── default/
-        │   ├── old_namespace/
-        │   │   └── *.rq
-        │   └── new_namespace/
-        │       └── *.rq
+    │       └── *.rq
         └── ngraphs/
-            ├── old_namespace/
-            │   └── *.rq
-            └── new_namespace/
-                └── *.rq
+    │       └── *.rq
 ```
 
 The `./queries/` directory contains the following two directories:
 
-- `./queries/action/` : Update queries for migrating from Gist v11.0 to v12.0
+- `./queries/action/` : Update queries for migrating from Gist v13.0 to v14.0
 
-- `./queries/report/` : Validation queries that return SHACL validation reports for data that does not comply with Gist v12.0
+- `./queries/report/` : Validation queries that return SHACL validation reports for data that does not comply with Gist v14.0
 
 Each of the above directories contains the following two directories:
 
@@ -64,14 +53,6 @@ Each of the above directories contains the following two directories:
   > triples in the default graph, some will use all triples in all named graphs.
 
 - `ngraphs/` : These queries only work on named graphs
-
-In the `default/` and `ngraphs/` directory of `./queries/report/` is two directories:
-
-- `./queries/report/default|ngraphs/old_namespace/` : Queries with the old Gist namespace
-
-- `./queries/report/default|ngraphs/old_namespace/` : Queries with the new Gist namespace
-
-> See also additional documentation in the file `./queries/report/README.md`.
 
 ## Requirements
 
