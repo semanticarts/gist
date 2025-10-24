@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
-# This file should be copied into the .git/hooks directory of the project.
+# This file performs all the actual git pre-commit checks.
+# It should be called by .git/hooks/pre-commit, which should be a copy of tools/pre-commit-hook.
 
 # Stops accidental commits to branches master, main, or develop.
 BRANCH=`git rev-parse --abbrev-ref HEAD`

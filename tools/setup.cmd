@@ -16,11 +16,14 @@ base_dir=$(git rev-parse --show-toplevel)
 # Print out commands so user can see what is being done
 set -x
 
-# Copy pre-commit to the git hooks directory
-cp "${base_dir}/tools/pre-commit" "${base_dir}/.git/hooks/"
+# Copy pre-commit-hook to the git hooks directory
+cp "${base_dir}/tools/pre-commit-hook" "${base_dir}/.git/hooks/pre-commit"
 
 # Make pre-commit hook executable.
 chmod +x "${base_dir}/.git/hooks/pre-commit"
+
+# Ensure that tools/pre-commit-code is executable.
+chmod +x "${base_dir}/tools/pre-commit-code"
 
 # Ensure that the serializer pre-commit hook is executable.
 chmod +x "${base_dir}/tools/serializer/pre-commit"
@@ -38,8 +41,8 @@ exit
 :WINDOWS
 CHDIR "%~dp0"
 IF EXIST "tools" chdir tools
-IF EXIST "pre-commit" (
-  copy "pre-commit" ..\.git\hooks\
+IF EXIST "pre-commit-hook" (
+  copy "pre-commit-hook" ..\.git\hooks\pre-commit
 ) ELSE (
-  echo Could not find the "pre-commit" file in %cd%.
+  echo ERROR: Could not find the "pre-commit-hook" file in %cd%.
 )
