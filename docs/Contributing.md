@@ -129,7 +129,6 @@ Some developers like to create a PR before work is completed. Follow the steps a
 - The description of the PR should contain the keywords "Closes #nnn" (or another of the [GitHub keywords](https://docs.github.com/en/enterprise/2.21/user/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)) where nnn is the issue number. This automatically closes the related issue(s) when the PR is merged, and creates a link which allows readers and reviewers to easily reference the issue.
   - Example: "Correct cardinality restriction on class gist:Room. Closes #98."
   - If the PR fixes multiple issues, each issue should be listed on a separate line and preceded by the word "closes." number must be prefixed by the keyword. Example:
-  -
 
   ```markdown
      Closes #98.
