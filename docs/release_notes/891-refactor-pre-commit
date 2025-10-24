@@ -1,6 +1,6 @@
 ### Patch Updates
 
-- Refactored the git pre-commit to make sure the latest version is always used.
+- Refactored the git pre-commit to make sure the latest version is always used. Issue [#891](https://github.com/semanticarts/gist/issues/891)
   - Updated setup.cmd to install tools/pre-commit-hook as .git/hooks/pre-commit
   - New file tools/pre-commit-hook which just calls ./tools/pre-commit-code.
   - Renamed tools/pre-commit to tools/pre-commit-code
