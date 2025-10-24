@@ -2214,7 +2214,6 @@ gist:conformsTo
 
 gist:containedText
 	a owl:DatatypeProperty ;
-	rdfs:range xsd:string ;
 	skos:definition "A string that is closely associated with an individual."^^xsd:string ;
 	skos:example "The string associated with a tag or with text content."^^xsd:string ;
 	skos:prefLabel "contained text"^^xsd:string ;
@@ -2289,7 +2288,6 @@ gist:deathDate
 
 gist:description
 	a owl:DatatypeProperty ;
-	rdfs:range xsd:string ;
 	skos:definition "A statement about someone or something's attributes or characteristics."^^xsd:string ;
 	skos:example
 		"'The Empire State Building is a 102-story Art Deco skyscraper in midtown Manhattan in New York City. It was designed by Shreve, Lamb & Harmon and built from 1930 to 1931.'"^^xsd:string ,
@@ -3165,7 +3163,6 @@ gist:longitude
 
 gist:name
 	a owl:DatatypeProperty ;
-	rdfs:range xsd:string ;
 	skos:definition "Relates an individual to (one of) its name(s)."^^xsd:string ;
 	skos:prefLabel "name"^^xsd:string ;
 	.
@@ -3428,7 +3425,6 @@ gist:startDateTime
 
 gist:symbol
 	a owl:DatatypeProperty ;
-	rdfs:range xsd:string ;
 	skos:definition "A symbol for something using only ASCII characters."^^xsd:string ;
 	skos:example "The ASCII symbol for square meter is m^2."^^xsd:string ;
 	skos:prefLabel "symbol"^^xsd:string ;
@@ -3441,7 +3437,6 @@ gist:uniqueText
 		owl:FunctionalProperty
 		;
 	rdfs:subPropertyOf gist:containedText ;
-	rdfs:range xsd:string ;
 	skos:definition "The unique string value of some content object, to be used when there is no possibility of having more than one value."^^xsd:string ;
 	skos:example "The unique string for a vehicle identification number."^^xsd:string ;
 	skos:prefLabel "unique text"^^xsd:string ;
