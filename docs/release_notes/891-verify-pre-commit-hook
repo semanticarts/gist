@@ -1,4 +1,0 @@
-### Patch Updates
-
-- Added a test in the git pre-commit to verify that it is identical to the version in the ./tools directory.
-  If not, it instructs the user to run the setup.cmd command to update the git pre-commit hook.
