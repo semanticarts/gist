@@ -817,33 +817,6 @@ gist:GeoRoute
 	skos:prefLabel "Geo Route"^^xsd:string ;
 	.
 
-gist:GeoSegment
-	a owl:Class ;
-	rdfs:subClassOf gist:Place ;
-	owl:deprecated "true"^^xsd:boolean ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:comesFromPlace ;
-				owl:onClass gist:GeoPoint ;
-				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:goesToPlace ;
-				owl:onClass gist:GeoPoint ;
-				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			]
-		) ;
-	] ;
-	skos:definition "A single portion of a GeoRoute consisting of a pair of consecutive GeoPoints which belong to it."^^xsd:string ;
-	skos:editorialNote "See guidance on removing this term in the next major release at #1182."^^xsd:string ;
-	skos:prefLabel "Geo Segment"^^xsd:string ;
-	skos:scopeNote "A GeoSegment is also a GeoRoute (a short one)."^^xsd:string ;
-	.
-
 gist:GeoVolume
 	a owl:Class ;
 	rdfs:subClassOf gist:Place ;

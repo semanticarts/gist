@@ -1,6 +1,6 @@
-### Minor Updates
+### Major Updates
 
-- Deprecate `gist:GeoSegment`. Issue [#1165](https://github.com/semanticarts/gist/issues/1165).
+- Remove `gist:GeoSegment`. Issue [#1165](https://github.com/semanticarts/gist/issues/1165).
 
 ### Patch Updates
 
