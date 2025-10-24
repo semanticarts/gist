@@ -229,7 +229,7 @@ gist:Assignment
 gist:Behavior
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	skos:definition "A category indicating the nature of what is happening during an event."^^xsd:string ;
+	skos:definition "A category indicating the nature of an activity."^^xsd:string ;
 	skos:example "Drilling and cutting are two different kinds of manufacturing event."^^xsd:string ;
 	skos:prefLabel "Behavior"^^xsd:string ;
 	.
@@ -1159,7 +1159,7 @@ gist:Medium
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
 	skos:definition "A physical material on which a work can be rendered, represented, or implemented."^^xsd:string ;
-	skos:example "Paper, clay, a computer monitor"^^xsd:string ;
+	skos:example "Paper, clay, a computer monitor."^^xsd:string ;
 	skos:prefLabel "Medium"^^xsd:string ;
 	.
 
