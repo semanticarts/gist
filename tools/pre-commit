@@ -2,6 +2,21 @@
 
 # This file should be copied into the .git/hooks directory of the project.
 
+# Get absolute path to this script
+# SCRIPT=$(readlink -f "$0")
+# SCRIPTPATH=$(dirname "$SCRIPT")
+
+# Get root directory of this git repository
+base_dir=$(git rev-parse --show-toplevel)
+
+# Verify that the currently executing script is up to date.
+file1="$0" # The current script
+file2="$base_dir/tools/pre-commit"
+if ! cmp -s "$file1" "$file2"; then
+    echo "ABORTED: the pre-commit hook is not up to date. Run ./tools/setup.cmd to fix."
+    exit 1
+fi
+
 # Stops accidental commits to branches master, main, or develop.
 BRANCH=`git rev-parse --abbrev-ref HEAD`
 
@@ -10,13 +25,6 @@ then
   >&2 echo "You are on branch $BRANCH. You should not commit to this branch directly!"
   exit 1
 fi
-
-# Get absolute path to this script
-# SCRIPT=$(readlink -f "$0")
-# SCRIPTPATH=$(dirname "$SCRIPT")
-
-# Get root directory of this git repository
-base_dir=$(git rev-parse --show-toplevel)
 
 # Verify that there are no default PREFIX statements in the ontology files
 "${base_dir}/tools/check_default_prefix/check_default_prefix.py" "${base_dir}/ontologies/"
@@ -43,3 +51,4 @@ if [ ! ${rc} -eq 0 ] ; then
 fi
 
 exit 0
+
