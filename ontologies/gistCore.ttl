@@ -843,7 +843,7 @@ gist:GeoSegment
 			]
 		) ;
 	] ;
-	skos:definition "A single portion of a geographical route which has been divided (i.e., segmented)."^^xsd:string ;
+	skos:definition "A single portion of a GeoRoute consisting of a pair of consecutive GeoPoints which belong to it."^^xsd:string ;
 	skos:editorialNote "See guidance on removing this term in the next major release at #1182."^^xsd:string ;
 	skos:prefLabel "Geo Segment"^^xsd:string ;
 	skos:scopeNote "A GeoSegment is also a GeoRoute (a short one)."^^xsd:string ;
@@ -964,7 +964,7 @@ gist:ID
 	skos:definition "Content that is used to uniquely identify something or someone."^^xsd:string ;
 	skos:example "SSN for a person; serial number for a product; employee ID for a person."^^xsd:string ;
 	skos:prefLabel "ID"^^xsd:string ;
-	skos:scopeNote "This is used in conjunction with gist:isIdentifiedBy"^^xsd:string ;
+	skos:scopeNote "Used in conjunction with gist:isIdentifiedBy."^^xsd:string ;
 	.
 
 gist:IntellectualProperty
@@ -1441,7 +1441,7 @@ gist:Permission
 		) ;
 	] ;
 	skos:definition "A description of things one is permitted to do."^^xsd:string ;
-	skos:example "Permission could be broad, such as free speech, but more often is very specific, such as the right of egress through a particular property."^^xsd:string ;
+	skos:example "Permission could be broad, such as free speech, but more often is very specific, such as the right to enter a particular property."^^xsd:string ;
 	skos:prefLabel "Permission"^^xsd:string ;
 	.
 
@@ -1471,7 +1471,7 @@ gist:Person
 gist:PhysicalActionType
 	a owl:Class ;
 	rdfs:subClassOf gist:Category ;
-	skos:definition "A category indicating the real-world effects of an action."^^xsd:string ;
+	skos:definition "A category indicating the type of an action in terms of its effect in the physical world."^^xsd:string ;
 	skos:example "Lifting a garage door, turning off a valve, dropping cadmium rods."^^xsd:string ;
 	skos:prefLabel "Physical Action Type"^^xsd:string ;
 	.
@@ -1491,7 +1491,7 @@ gist:PhysicalAddress
 		) ;
 	] ;
 	skos:definition "An address that refers to a locatable place within the physical universe."^^xsd:string ;
-	skos:example "1600 Pennsylvania Avenue NW, Washington, DC 20500; PO Box 7704, San Francisco, CA 94120-7704."^^xsd:string ;
+	skos:example "1600 Pennsylvania Avenue NW, Washington, DC 20500; PO Box 7704, San Francisco, CA 94120-7704; Room 317 in the Louvre Museum."^^xsd:string ;
 	skos:prefLabel "Physical Address"^^xsd:string ;
 	.
 
@@ -2206,7 +2206,7 @@ gist:comesFromPlace
 
 gist:conformsTo
 	a owl:ObjectProperty ;
-	skos:definition "The subject is consistent with or satisfies the requirements, rules, or expectations etablished by the object."^^xsd:string ;
+	skos:definition "The subject is consistent with or satisfies the requirements, rules, or expectations established by the object."^^xsd:string ;
 	skos:example: "Meet an obligation; adhere to a specification or standard; meet terms and conditions of an offer; comply with a regulation."^^xsd:string ;
 	skos:prefLabel "conforms to"^^xsd:string ;
 	gist:rangeIncludes gist:Intention ;
@@ -2757,7 +2757,7 @@ gist:hasMagnitude
 gist:hasMultiplier
 	a owl:ObjectProperty ;
 	skos:definition "Relates a unit of measure to another unit of measure that is a factor, or relates an aspect to another aspect that is a factor."^^xsd:string ;
-	skos:example "Miles per hour has miles as a multiplier and hour as a divisor; speed has distance as a multiplier and duration as a divisor."^^xsd:string ;
+	skos:example "Miles per hour has miles as a multiplier and hours as a divisor; speed has distance as a multiplier and duration as a divisor."^^xsd:string ;
 	skos:prefLabel "has multiplier"^^xsd:string ;
 	skos:scopeNote "Provides a supplemental method of decomposing a unit of measure or aspect into component factors. Enables dimensional analysis such as miles per hour x hours = miles."^^xsd:string ;
 	.
@@ -2790,7 +2790,7 @@ gist:hasParty
 			gist:Person
 		) ;
 	] ;
-	skos:definition "Relates an event, agreement, or obligation to the participating people or organizations."^^xsd:string ;
+	skos:definition "Relates an event, agreement, or obligation to a participating person or organization."^^xsd:string ;
 	skos:example "Loan agreements have lender and borrower parties."^^xsd:string ;
 	skos:prefLabel "has party"^^xsd:string ;
 	skos:scopeNote "Subproperties may be defined to describe specific parties, such as hasLender and hasBorrower for a loan."^^xsd:string ;
@@ -2943,7 +2943,7 @@ gist:isBasedOn
 
 gist:isCategorizedBy
 	a owl:ObjectProperty ;
-	skos:definition "Relates something to a taxonomy term or other less formally defined class."^^xsd:string ;
+	skos:definition "Relates something to a taxonomy term or other less formally defined classification."^^xsd:string ;
 	skos:prefLabel "is categorized by"^^xsd:string ;
 	gist:rangeIncludes gist:Category ;
 	.
