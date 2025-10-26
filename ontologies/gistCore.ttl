@@ -643,8 +643,8 @@ gist:Equipment
 			]
 		) ;
 	] ;
-	skos:definition "Tangible property other than land or buildings."^^xsd:string ;
-	skos:example "A machine, a router, a car."^^xsd:string ;
+	skos:definition "Human-made, tangible property other than land or buildings used to perform a task or activity."^^xsd:string ;
+	skos:example "A machine, a router, a car, a baseball bat."^^xsd:string ;
 	skos:prefLabel "Equipment"^^xsd:string ;
 	.
 
