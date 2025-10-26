@@ -557,8 +557,8 @@ gist:CountryGeoRegion
 			]
 		) ;
 	] ;
-	skos:definition "A defined geographical area (or areas) governed by exactly one country government."^^xsd:string ;
-	skos:prefLabel "Country Geo-Region"^^xsd:string ;
+	skos:definition "A geographic region governed by exactly one country government."^^xsd:string ;
+	skos:prefLabel "Country Geographic Region"^^xsd:string ;
 	.
 
 gist:CountryGovernment
@@ -717,9 +717,16 @@ gist:GeneralMediaType
 	skos:prefLabel "General Media Type"^^xsd:string ;
 	.
 
+gist:GeoLocation
+	a owl:Class ;
+	skos:definition "A physical location, with the earth as a frame of reference."^^xsd:string ;
+	skos:prefLabel "Geographic Location"^^xsd:string ;
+	skos:scopeNote "A geographic location may be a point, region, or volume."^^xsd:string ;
+	.
+
 gist:GeoPoint
 	a owl:Class ;
-	rdfs:subClassOf gist:Place ;
+	rdfs:subClassOf gist:GeoLocation ;
 	owl:disjointWith
 		gist:IntellectualProperty ,
 		gist:Intention ,
@@ -760,31 +767,33 @@ gist:GeoPoint
 			]
 		) ;
 	] ;
-	skos:definition "An individual point in physical space identified by latitude, longitude, and altitude. Altitude is the distance measured from sea level. If altitude is missing, the point is assumed to be at the Earth's surface."^^xsd:string ;
-	skos:prefLabel "Geo Point"^^xsd:string ;
-	skos:scopeNote "Assume coordinate system used by Google (WGS 84 Web Mercator using the GPS decimal lat/long)."^^xsd:string ;
+	skos:definition "An individual point on or above the Earth's surface, identified by latitude, longitude and altitude. Altitude is the distance measured from sea level. If altitude is missing, the point is assumed to be at the Earth's surface. These points are described using decimal latitude/longitude."^^xsd:string ;
+	skos:prefLabel "Geographic Point"^^xsd:string ;
 	.
 
 gist:GeoRegion
 	a owl:Class ;
-	rdfs:subClassOf
-		gist:Place ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:hasMagnitude ;
-			owl:someValuesFrom [
-				a owl:Class ;
-				owl:intersectionOf (
-					gist:Magnitude
-					[
-						a owl:Restriction ;
-						owl:onProperty gist:hasAspect ;
-						owl:hasValue gistd:_Aspect_area ;
-					]
-				) ;
-			] ;
-		]
-		;
+	rdfs:subClassOf [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:GeoLocation
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:hasMagnitude ;
+				owl:someValuesFrom [
+					a owl:Class ;
+					owl:intersectionOf (
+						gist:Magnitude
+						[
+							a owl:Restriction ;
+							owl:onProperty gist:hasAspect ;
+							owl:hasValue gistd:_Aspect_area ;
+						]
+					) ;
+				] ;
+			]
+		) ;
+	] ;
 	owl:disjointWith
 		gist:IntellectualProperty ,
 		gist:Intention ,
@@ -798,8 +807,8 @@ gist:GeoRegion
 		;
 	skos:definition "A bounded region (or set of regions) on the surface of the Earth."^^xsd:string ;
 	skos:example "The bounded shape that defines the region occupied by Crater Lake; the bounded area known as the contiguous USA."^^xsd:string ;
-	skos:prefLabel "Geo Region"^^xsd:string ;
-	skos:scopeNote "A geographical region could be non-contiguous; e.g., the region governed by the US federal government is the contiguous area of the lower 48 states plus Alaska, Hawaii, and overseas territories. Child classes in lower ontologies can make this distinction."^^xsd:string ;
+	skos:prefLabel "Geographic Region"^^xsd:string ;
+	skos:scopeNote "A geographic region could be non-contiguous; e.g., the region governed by the US federal government is the contiguous area of the lower 48 states plus Alaska, Hawaii, and overseas territories. Child classes in lower ontologies can make this distinction."^^xsd:string ;
 	.
 
 gist:GeoRoute
@@ -808,7 +817,6 @@ gist:GeoRoute
 		a owl:Class ;
 		owl:intersectionOf (
 			gist:OrderedCollection
-			gist:Place
 			[
 				a owl:Restriction ;
 				owl:onProperty [
@@ -818,43 +826,17 @@ gist:GeoRoute
 			]
 		) ;
 	] ;
-	skos:definition "An ordered set of geographical points that defines a path from starting point to ending point."^^xsd:string ;
-	skos:prefLabel "Geo Route"^^xsd:string ;
-	.
-
-gist:GeoSegment
-	a owl:Class ;
-	rdfs:subClassOf gist:Place ;
-	owl:deprecated "true"^^xsd:boolean ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:comesFromPlace ;
-				owl:onClass gist:GeoPoint ;
-				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:goesToPlace ;
-				owl:onClass gist:GeoPoint ;
-				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-			]
-		) ;
-	] ;
-	skos:definition "A single portion of a GeoRoute consisting of a pair of consecutive GeoPoints which belong to it."^^xsd:string ;
-	skos:editorialNote "See guidance on removing this term in the next major release at #1182."^^xsd:string ;
-	skos:prefLabel "Geo Segment"^^xsd:string ;
-	skos:scopeNote "A GeoSegment is also a GeoRoute (a short one)."^^xsd:string ;
+	skos:definition "An ordered set of geographic points that defines a path from a starting point to an ending point."^^xsd:string ;
+	skos:prefLabel "Geographic Route"^^xsd:string ;
+	skos:scopeNote "A geographic route could describe a bus route by identifying the points where the bus stops. A geographic route could describe the boundary of a polygonal geographic region (it does not have to be a travelled route)."^^xsd:string ;
 	.
 
 gist:GeoVolume
 	a owl:Class ;
-	rdfs:subClassOf gist:Place ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
+			gist:GeoLocation
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasMagnitude ;
@@ -880,7 +862,7 @@ gist:GeoVolume
 		) ;
 	] ;
 	skos:definition "A three-dimensional space on or near the surface of the Earth, such as an oil reservoir, the body of a lake, or an airspace."^^xsd:string ;
-	skos:prefLabel "Geo Volume"^^xsd:string ;
+	skos:prefLabel "Geographic Volume"^^xsd:string ;
 	.
 
 gist:GovernedGeoRegion
@@ -896,9 +878,9 @@ gist:GovernedGeoRegion
 			]
 		) ;
 	] ;
-	skos:definition "A defined geographic area or areas governed by at least one government organization."^^xsd:string ;
-	skos:prefLabel "Governed Geo-Region"^^xsd:string ;
-	skos:scopeNote "Geographic regions do not need not be physically contiguous in order to constitute a governed geo-region; e.g., Alaska and Hawaii."^^xsd:string ;
+	skos:definition "A geographic region governed by at least one government organization."^^xsd:string ;
+	skos:prefLabel "Governed Geographic Region"^^xsd:string ;
+	skos:scopeNote "Geographic regions do not need not be physically contiguous in order to constitute a governed geographic region; e.g., Alaska and Hawaii are part of the region governed by the United States."^^xsd:string ;
 	.
 
 gist:GovernmentOrganization
@@ -1039,24 +1021,20 @@ In some ontologies what we are calling knowledge concepts are defined as classes
 
 gist:Landmark
 	a owl:Class ;
-	rdfs:subClassOf gist:Place ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:PhysicalIdentifiableItem
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasPhysicalLocation ;
-				owl:someValuesFrom [
-					a owl:Class ;
-					owl:unionOf (
-						gist:GeoRegion
-						gist:GeoVolume
-					) ;
-				] ;
-			]
-		) ;
-	] ;
+	rdfs:subClassOf
+		gist:PhysicalIdentifiableItem ,
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:hasPhysicalLocation ;
+			owl:someValuesFrom [
+				a owl:Class ;
+				owl:unionOf (
+					gist:GeoRegion
+					gist:GeoVolume
+				) ;
+			] ;
+		]
+		;
 	skos:definition "Something permanently attached to the Earth."^^xsd:string ;
 	skos:editorialNote "See guidance on removing the term in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1679566885."^^xsd:string ;
 	skos:prefLabel "Landmark"^^xsd:string ;
@@ -1486,7 +1464,7 @@ gist:PhysicalAddress
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:refersTo ;
-				owl:someValuesFrom gist:Place ;
+				owl:someValuesFrom gist:GeoLocation ;
 			]
 		) ;
 	] ;
@@ -1512,7 +1490,7 @@ gist:PhysicalEvent
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:occursIn ;
-				owl:someValuesFrom gist:Place ;
+				owl:someValuesFrom gist:GeoLocation ;
 			]
 		) ;
 	] ;
@@ -1618,12 +1596,6 @@ gist:PhysicalSubstance
 		"An instance of this class has weight and takes up space. We mean the physical gold in a ring, not the concept of gold that shows up in the periodic table. The latter would be an instance of gist:KnowledgeConcept."^^xsd:string ,
 		"This concept generally corresponds to mass nouns in English. By contrast, instances of PhysicalIdentifiableItem, such as a computer, book, or car, are count nouns. PhysicalIdentifiableItems are made up of PhysicalSubstances; e.g., a cake is made up of butter, flour, and sugar; a ring is made of gold. If you divide a PhysicalSubstance such as an amount of water into parts, you have different amounts of water otherwise indistinguishable from one another; if you divide a PhysicalIdentifiableItem such as a computer into parts, each part will be distinguishable from the original whole."^^xsd:string
 		;
-	.
-
-gist:Place
-	a owl:Class ;
-	skos:definition "Union of all the geo classes."^^xsd:string ;
-	skos:prefLabel "Place"^^xsd:string ;
 	.
 
 gist:ProductCategory
@@ -1812,12 +1784,12 @@ gist:SubCountryGovernment
 			]
 		) ;
 	] ;
-	skos:definition "A government of a governed geo-region other than a country, which is under the direct or indirect control of a country government."^^xsd:string ;
+	skos:definition "A government of a governed geographic region other than a country, which is under the direct or indirect control of a country government."^^xsd:string ;
 	skos:prefLabel "Sub-Country Government"^^xsd:string ;
 	skos:scopeNote
-		"Across the world there are a variety of types of subsections of a country and the governments thereof (as well as different terms, like 'province' and 'state,' which refer to essentially the same type of thing). We should not automatically assume 'state,' 'county,' and 'city.' It is more future-proof just to mint the instances using the generic sub-country government and, where greater specificity is needed, define categories or subclasses."^^xsd:string ,
-		"Note that the predicate 'governs' is used both for the relationship a government has to a governed geo-region, and for the relationship one government has to the governments of its sub-regions."^^xsd:string ,
-		"This class applies only to organizations governing geographical regions, and excludes regulatory and bureaucratic government agencies."^^xsd:string
+		"Across the world, there are a variety of types of subsections of a country and the governments thereof (as well as different terms, like 'province' and 'state', which refer to essentially the same type of thing). We should not automatically assume 'state', 'county', and 'city'.  It is more future-proof just to mint the instances using the generic SubCountryGovernment and, where greater specificity is needed, define categories or subclasses."^^xsd:string ,
+		"Note that the predicate 'governs' is used both for the relationship a government has to a governed geographic region and for the relationship one government has to the governments of its sub-regions."^^xsd:string ,
+		"This class applies only to organizations governing geographic regions. Regulatory and bureaucratic organizations are members of the more generic GovernmentOrganization class."^^xsd:string
 		;
 	.
 
@@ -2196,7 +2168,7 @@ gist:comesFromPlace
 		a owl:Class ;
 		owl:unionOf (
 			gist:Address
-			gist:Place
+			gist:GeoLocation
 		) ;
 	] ;
 	skos:definition "Relates something to its place of origin."^^xsd:string ;
@@ -2638,7 +2610,7 @@ gist:goesToPlace
 		a owl:Class ;
 		owl:unionOf (
 			gist:Address
-			gist:Place
+			gist:GeoLocation
 		) ;
 	] ;
 	skos:definition "Relates something to its destination place."^^xsd:string ;
@@ -2801,7 +2773,7 @@ gist:hasPhysicalLocation
 		owl:ObjectProperty ,
 		owl:TransitiveProperty
 		;
-	rdfs:range gist:Place ;
+	rdfs:range gist:GeoLocation ;
 	skos:definition "Relates something to its physical location."^^xsd:string ;
 	skos:prefLabel "has physical location"^^xsd:string ;
 	skos:scopeNote "This property does not distinguish between things whose locations are stable and those whose locations change over time; e.g., a fire hydrant vs. a car."^^xsd:string ;
@@ -2994,9 +2966,9 @@ gist:isGeoContainedIn
 		owl:ObjectProperty ,
 		owl:TransitiveProperty
 		;
-	rdfs:domain gist:Place ;
-	rdfs:range gist:Place ;
-	skos:definition "Relates one place to another that contains it."^^xsd:string ;
+	rdfs:domain gist:GeoLocation ;
+	rdfs:range gist:GeoLocation ;
+	skos:definition "Relates one geographic location to another that contains it."^^xsd:string ;
 	skos:prefLabel "is geographically contained in"^^xsd:string ;
 	.
 
@@ -3198,7 +3170,7 @@ gist:numericValue
 
 gist:occursIn
 	a owl:ObjectProperty ;
-	skos:definition "The location where something happened or will happen."^^xsd:string ;
+	skos:definition "Relates something, such as an event, to the geographic location where it did, does, or will happen."^^xsd:string ;
 	skos:prefLabel "occurs in"^^xsd:string ;
 	.
 
