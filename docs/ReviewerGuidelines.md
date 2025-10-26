@@ -6,7 +6,7 @@
   - The PR and the issue have not been assigned status "In Review."
   - The description does not list the issues closed by the PR, using the phrase "Closes #nnn" where nnn is the issue number. If more than one issue is closed, each should appear on a separate line preceded by the word "Closes."
   - The PR is not submitted to the appropriate branch (usually `develop`, but in some cases there may be a release branch).
-- The PR should be returned to the author for any of the following problems:
+- The PR should be returned to the author (i.e., the review should be finalized with changes requested) for any of the following problems:
   - There is no release note or explanation in the PR description of why none has been included.
   - The release note does not adequately reflect the contents of the PR or does not conform to the [guidelines](./Contributing.md#release-notes)
   - The serializer has not been run or the diffs are noisy for some other reason.
@@ -19,3 +19,6 @@
   - Review the [GitHub documentation on commenting on PRs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request) for general information.
   - Do _not_ commit your suggestions to the PR itself. Enter comments in the comment box for the author to review.
   - It is helpful to enter minor suggestions such as small wording changes as GitHub suggestions, allowing the author to accept and commit the suggestion with a button click. You can do this by clicking on the small +- icon to the right of the word "Preview" in the comment box. See [item 7 in the GitHub documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request#adding-comments-to-a-pull-request).
+- Submitting the review:
+  - If you have entered comments by clicking on the "Start a review" or "Add to review" button rather than "Add single comment," remember that your comments will not be submitted and visible to others until you submit the review from the "Review changes" button at the top right of the page.
+  - It is preferable to request changes rather than simply commenting, as it is easier to track the status of the PR that way.
