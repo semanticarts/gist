@@ -833,7 +833,6 @@ gist:GeoRoute
 
 gist:GeoVolume
 	a owl:Class ;
-	rdfs:subClassOf gist:GeoLocation ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -1022,23 +1021,20 @@ In some ontologies what we are calling knowledge concepts are defined as classes
 
 gist:Landmark
 	a owl:Class ;
-	rdfs:subClassOf [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:PhysicalIdentifiableItem
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasPhysicalLocation ;
-				owl:someValuesFrom [
-					a owl:Class ;
-					owl:unionOf (
-						gist:GeoRegion
-						gist:GeoVolume
-					) ;
-				] ;
-			]
-		) ;
-	] ;
+	rdfs:subClassOf
+		gist:PhysicalIdentifiableItem ,
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:hasPhysicalLocation ;
+			owl:someValuesFrom [
+				a owl:Class ;
+				owl:unionOf (
+					gist:GeoRegion
+					gist:GeoVolume
+				) ;
+			] ;
+		]
+		;
 	skos:definition "Something permanently attached to the Earth."^^xsd:string ;
 	skos:editorialNote "See guidance on removing the term in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1679566885."^^xsd:string ;
 	skos:prefLabel "Landmark"^^xsd:string ;
