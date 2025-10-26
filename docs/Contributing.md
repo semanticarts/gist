@@ -129,7 +129,6 @@ Some developers like to create a PR before work is completed. Follow the steps a
 - The description of the PR should contain the keywords "Closes #nnn" (or another of the [GitHub keywords](https://docs.github.com/en/enterprise/2.21/user/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)) where nnn is the issue number. This automatically closes the related issue(s) when the PR is merged, and creates a link which allows readers and reviewers to easily reference the issue.
   - Example: "Correct cardinality restriction on class gist:Room. Closes #98."
   - If the PR fixes multiple issues, each issue should be listed on a separate line and preceded by the word "closes." number must be prefixed by the keyword. Example:
-  -
 
   ```markdown
      Closes #98.
@@ -165,11 +164,13 @@ Some developers like to create a PR before work is completed. Follow the steps a
 - Return to your PR after it has been reviewed in order to view the requested and suggested changes.
 - When you commit your corrections, they are automaticallly added to the existing PR.
 - Resolve the reviewer comment for straightforward changes. For more complex changes, leave the comment open so the reviewer can come back to it.
-- Re-request reviews from any reviewers who requested changes. If additional changes are requested, cycle back through these steps.
+- Re-request reviews from any reviewers who requested changes. If you do not do this explicitly, reviewers will not be notified of the need to re-review.
+- If additional changes are requested, cycle back through these steps.
 
 ### Merging the PR
 
-- The repository is configured to do rebase and merge by default, but there are some cases where a rebase is not possible and merge commit must be selected.
+- Only authorized users may merge into the protected branches `develop` and `main`.
+- A rebase and merge is preferred, but there are some cases where a rebase is not possible and merge commit must be selected.
 - The GitHub project board is configured to automatically move a merged PR and its associated issue(s) to the Done column, assuming you have linked the PR to the issue(s).
 - The repository is configured to automatically delete the remote branch on merge.
 
