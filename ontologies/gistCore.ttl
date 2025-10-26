@@ -191,7 +191,7 @@ gist:Aspect
 	skos:definition "A measurable characteristic."^^xsd:string ;
 	skos:example "Length, weight, cost, cycle time, defect rate."^^xsd:string ;
 	skos:prefLabel "Aspect"^^xsd:string ;
-	skos:scopeNote "Depending on implementation, every aspect should be related to a unit group either directly or through a broader aspect. For example, angle of incidence can be related to the broader concept of angle, which in turn is related to a unit group, or it could be related directly to the unit group without the hierarchical relationship."^^xsd:string ;
+	skos:scopeNote "Depending on implementation, every aspect should be related to a unit group either directly or through a broader aspect. For example, angle of incidence could be related to the broader concept of angle, which in turn is related to a unit group, or it could be related directly to the unit group without the hierarchical relationship."^^xsd:string ;
 	.
 
 gist:Assignment
@@ -760,7 +760,7 @@ gist:GeoPoint
 			]
 		) ;
 	] ;
-	skos:definition "An individual point in physical space identified by latitude, longitude, and altitude. If altitude is missing, the point is assumed to be at the Earth's surface, and the altitude is the distance measured from sea level."^^xsd:string ;
+	skos:definition "An individual point in physical space identified by latitude, longitude, and altitude. Altitude is the distance measured from sea level. If altitude is missing, the point is assumed to be at the Earth's surface."^^xsd:string ;
 	skos:prefLabel "Geo Point"^^xsd:string ;
 	skos:scopeNote "Assume coordinate system used by Google (WGS 84 Web Mercator using the GPS decimal lat/long)."^^xsd:string ;
 	.
@@ -799,7 +799,7 @@ gist:GeoRegion
 	skos:definition "A bounded region (or set of regions) on the surface of the Earth."^^xsd:string ;
 	skos:example "The bounded shape that defines the region occupied by Crater Lake; the bounded area known as the contiguous USA."^^xsd:string ;
 	skos:prefLabel "Geo Region"^^xsd:string ;
-	skos:scopeNote "A geographical region could be non-contiguous; e.g., the region governed by the US federal government is the contiguous area of the lower 48 states plus Alaska and Hawaii. Child classes in lower ontologies can make this distinction."^^xsd:string ;
+	skos:scopeNote "A geographical region could be non-contiguous; e.g., the region governed by the US federal government is the contiguous area of the lower 48 states plus Alaska, Hawaii, and overseas territories. Child classes in lower ontologies can make this distinction."^^xsd:string ;
 	.
 
 gist:GeoRoute
