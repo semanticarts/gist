@@ -1801,7 +1801,7 @@ gist:SubCountryGovernment
 	skos:definition "The government of a governed geographic region other than a country which is under the direct or indirect control of a country government."^^xsd:string ;
 	skos:prefLabel "Sub-Country Government"^^xsd:string ;
 	skos:scopeNote
-		"Note that the predicate gist:governs is used both for the relationship a government has to a governed geographic region and for the relationship one government has to the governments of its sub-regions."^^xsd:string ,
+		"Note that the predicate gist:isGovernedBy is used both for the relationship a governed geographic region has to its government and for the relationship a sub-region government has to the government of the s larger region."^^xsd:string ,
 		"There are many types of sub-regions of a country and the governments thereof (as well as different terms, like 'province' and 'state,' which refer to essentially the same type of thing). We should not automatically assume 'state,' 'county,' and 'city.' Subclasses or categories can be defined if greater specificity is needed."^^xsd:string ,
 		"This class applies only to organizations governing geographic regions. Regulatory and bureaucratic organizations are members of the more generic gist:GovernmentOrganization class."^^xsd:string
 		;
