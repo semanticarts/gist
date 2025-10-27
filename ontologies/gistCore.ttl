@@ -570,16 +570,17 @@ gist:CountryGovernment
 	rdfs:subClassOf
 		[
 			a owl:Restriction ;
-			owl:onProperty [
-				owl:inverseOf gist:isGovernedBy ;
-			] ;
-			owl:cardinality "1"^^xsd:nonNegativeInteger ;
-		] ,
-		[
-			a owl:Restriction ;
 			owl:onProperty gist:isGovernedBy ;
 			owl:onClass gist:GovernmentOrganization ;
 			owl:maxQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+		] ,
+		[
+			a owl:Restriction ;
+			owl:onProperty [
+				owl:inverseOf gist:isGovernedBy ;
+			] ;
+			owl:onClass gist:CountryGeoRegion ;
+			owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 		]
 		;
 	owl:disjointWith gist:SubCountryGovernment ;
