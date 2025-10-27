@@ -56,9 +56,11 @@ def _run_reasoner(inputs: list[str], output_ttl: str, version: str):
         input_graph.parse(one_input)
 
     # owlready2 does not accept TTL files. Convert to N-Triples.
-    with tempfile.NamedTemporaryFile('w', suffix='.nt') as temp_file:
+    with tempfile.NamedTemporaryFile('w', suffix='.nt', delete=False) as temp_file:
         input_graph_str = input_graph.serialize(format='nt')
         temp_file.write(input_graph_str)
+        temp_file.flush()
+        temp_file.close()
 
         ontology = get_ontology(f'file://{temp_file.name}').load()
 
