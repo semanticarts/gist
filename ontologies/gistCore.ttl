@@ -540,11 +540,16 @@ gist:ControlledVocabulary
 	] ;
 	skos:definition "A collection of terms approved and managed by some organization or person."^^xsd:string ;
 	skos:prefLabel "Controlled Vocabulary"^^xsd:string ;
-	skos:scopeNote "A controlled vocabulary is similar to a skos:ConceptScheme, but it could also be used for things that are not concepts, such as organizations, US presidents, geo-regions, etc. Hierarchical relationships between instances of the controlled vocabulary are possible."^^xsd:string ;
+	skos:scopeNote "A controlled vocabulary is similar to a skos:ConceptScheme, but it could also be used for things that are not concepts, such as organizations, US presidents, geographic regions, etc. Hierarchical relationships between instances of the controlled vocabulary are possible."^^xsd:string ;
 	.
 
 gist:CountryGeoRegion
 	a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty gist:isGovernedBy ;
+		owl:cardinality "1"^^xsd:nonNegativeInteger ;
+	] ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -552,8 +557,7 @@ gist:CountryGeoRegion
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:isGovernedBy ;
-				owl:onClass gist:CountryGovernment ;
-				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom gist:CountryGovernment ;
 			]
 		) ;
 	] ;
@@ -563,12 +567,22 @@ gist:CountryGeoRegion
 
 gist:CountryGovernment
 	a owl:Class ;
-	rdfs:subClassOf [
-		a owl:Restriction ;
-		owl:onProperty gist:isGovernedBy ;
-		owl:onClass gist:GovernmentOrganization ;
-		owl:maxQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
-	] ;
+	rdfs:subClassOf
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:isGovernedBy ;
+			owl:onClass gist:GovernmentOrganization ;
+			owl:maxQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+		] ,
+		[
+			a owl:Restriction ;
+			owl:onProperty [
+				owl:inverseOf gist:isGovernedBy ;
+			] ;
+			owl:onClass gist:CountryGeoRegion ;
+			owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+		]
+		;
 	owl:disjointWith gist:SubCountryGovernment ;
 	owl:equivalentClass [
 		a owl:Class ;
@@ -583,7 +597,7 @@ gist:CountryGovernment
 			]
 		) ;
 	] ;
-	skos:definition "A government organization which asserts both sovereignty and governance over an entity generally recognized as a country."^^xsd:string ;
+	skos:definition "A government organization which asserts both sovereignty (i.e., it is not governed by some other government organization) and governance over an entity generally recognized as a country."^^xsd:string ;
 	skos:prefLabel "Country Government"^^xsd:string ;
 	skos:scopeNote "While a country government may enter into treaties with other country governments, there are no governing relationships among the treaty members."^^xsd:string ;
 	.
@@ -1784,12 +1798,12 @@ gist:SubCountryGovernment
 			]
 		) ;
 	] ;
-	skos:definition "A government of a governed geographic region other than a country, which is under the direct or indirect control of a country government."^^xsd:string ;
+	skos:definition "The government of a governed geographic region other than a country which is under the direct or indirect control of a country government."^^xsd:string ;
 	skos:prefLabel "Sub-Country Government"^^xsd:string ;
 	skos:scopeNote
-		"Across the world, there are a variety of types of subsections of a country and the governments thereof (as well as different terms, like 'province' and 'state', which refer to essentially the same type of thing). We should not automatically assume 'state', 'county', and 'city'.  It is more future-proof just to mint the instances using the generic SubCountryGovernment and, where greater specificity is needed, define categories or subclasses."^^xsd:string ,
-		"Note that the predicate 'governs' is used both for the relationship a government has to a governed geographic region and for the relationship one government has to the governments of its sub-regions."^^xsd:string ,
-		"This class applies only to organizations governing geographic regions. Regulatory and bureaucratic organizations are members of the more generic GovernmentOrganization class."^^xsd:string
+		"Note that the predicate gist:isGovernedBy is used both for the relationship a governed geographic region has to its government and for the relationship a sub-region government has to the government of the larger region."^^xsd:string ,
+		"There are many types of sub-regions of a country and the governments thereof (as well as different terms, like 'province' and 'state,' which refer to essentially the same type of thing). We should not automatically assume 'state,' 'county,' and 'city.' Subclasses or categories can be defined if greater specificity is needed."^^xsd:string ,
+		"This class applies only to organizations governing geographic regions. Regulatory and bureaucratic organizations are members of the more generic gist:GovernmentOrganization class."^^xsd:string
 		;
 	.
 
@@ -2975,7 +2989,7 @@ gist:isGeoContainedIn
 gist:isGovernedBy
 	a owl:ObjectProperty ;
 	skos:definition "Relates an entity to another entity that controls, directs, determines or has a guiding influence or authority over it."^^xsd:string ;
-	skos:example "A country geo-region is governed by a country government; the installation and use of software is governed by a license."^^xsd:string ;
+	skos:example "A country geographic region is governed by a country government; the installation and use of software is governed by a license."^^xsd:string ;
 	skos:prefLabel "is governed by"^^xsd:string ;
 	.
 
