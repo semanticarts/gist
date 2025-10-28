@@ -1,0 +1,3 @@
+### Major Updates
+
+- Added disjointness axioms for `gist:Event`, making it formally disjoint with six other top-level classes. Issue [#1212](https://github.com/semanticarts/gist/issues/1212).
