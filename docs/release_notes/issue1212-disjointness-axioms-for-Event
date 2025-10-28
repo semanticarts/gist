@@ -1,0 +1,9 @@
+### Major Updates
+
+- Added disjointness axioms for `gist:Event`, making it formally disjoint with the classes below. Issue [#1212](https://github.com/semanticarts/gist/issues/1212).
+  - `gist:Aspect`
+  - `gist:Category`
+  - `gist:Language`
+  - `gist:Magnitude`
+  - `gist:TimeInterval`
+  - `gistUnitOfMeasure`
