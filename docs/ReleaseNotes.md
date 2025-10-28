@@ -15,9 +15,10 @@ This is a major release that includes several changes which break compatibility 
   - `gist:Landmark` is now a subclass only of `gist:PhysicalIdentifiableItem`. Issue [#1197](https://github.com/semanticarts/gist/issues/1197).
   - Changed class expression in definition of `gist:Landmark` from an equivalence to a subclass. Issue [#1197](https://github.com/semanticarts/gist/issues/1197).
   - Removed class `gist:GeoSegment`. Issue [#1182](https://github.com/semanticarts/gist/issues/1182).
-- Deleted `gist:Artifact`. Issue [#385](https://github.com/semanticarts/gist/issues/385).
+- Removed class `gist:Artifact`. Issue [#385](https://github.com/semanticarts/gist/issues/385).
   - `gist:Content`, `gist:Component`, and `gist:IntellectualProperty` became top-level classes.
   - `gist:Building` and `gist:Equipment` remain within the `gist:PhysicalIdentifiableItem` hierarchy.
+- Removed class `gist:Obligation`. Issue [#1188](https://github.com/semanticarts/gist/issues/1188).
 - Redesigned composites and components. Issue [#1194](https://github.com/semanticarts/gist/issues/1194).
   - Added abstract class `gist:Composite` as the superclass of existing classes `gist:Collection`, `gist:Network`, and `gist:System`.
   - Made `gist:NetworkLink`, `gist:NetworkNode`, and `gist:OrderedMember` subclasses of `gist:Component`.
