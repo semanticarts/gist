@@ -1,3 +1,0 @@
-### Major Updates
-
-- Changed the formal definition of `gist:Tag` to prevent unwanted inferences. Issue [#1227](https://github.com/semanticarts/gist/issues/1227).
