@@ -12,7 +12,7 @@
 - Deleted `gist:Artifact`. Issue [#385](https://github.com/semanticarts/gist/issues/385).
   - `gist:Content`, `gist:Component`, and `gist:IntellectualProperty` became top-level classes.
   - `gist:Building` and `gist:Equipment` remain within the `gist:PhysicalIdentifiableItem` hierarchy.
-- Composites and components. Issue [#1194](https://github.com/semanticarts/gist/issues/1194).
+- Redesigned composites and components. Issue [#1194](https://github.com/semanticarts/gist/issues/1194).
   - Added abstract class `gist:Composite` as the superclass of existing classes `gist:Collection`, `gist:Network`, and `gist:System`.
   - Made `gist:NetworkLink`, `gist:NetworkNode`, and `gist:OrderedMember` subclasses of `gist:Component`.
   - Updated formal definitions and annotations of some of the existing classes.
@@ -28,7 +28,7 @@
   - `gist:Magnitude`
   - `gist:TimeInterval`
   - `gist:UnitOfMeasure`
-  - Replaced `gist:produces` with its logical inverse, `gist:isProducedBy`. Issue [1163](https://github.com/semanticarts/gist/issues/1163).
+- Replaced `gist:produces` with its logical inverse, `gist:isProducedBy`. Issue [1163](https://github.com/semanticarts/gist/issues/1163).
 - Changed the formal definition of `gist:Tag` to prevent unwanted inferences. Issue [#1227](https://github.com/semanticarts/gist/issues/1227).
 - Removed property `gist:accepts`. Issue [#1247](https://github.com/semanticarts/gist/issues/1247).
 - Removed `rdfs:range xsd:string` from gist datatype properties `gist:containedText`, `gist:encryptedText`, `gist:name`, `gist:symbol`, and `gist:uniqueText`. Issue [#1300](https://github.com/semanticarts/gist/issues/1300).
@@ -46,33 +46,22 @@
 
 ### Patch Updates
 
-- Updated annotations for `gist:Task` to clarify the scope of the concept. Issue [#1183](https://github.com/semanticarts/gist/issues/1183).
-- Updated the definition of `gist:isGovernedBy` to eliminate circularity. Issue [#1198](https://github.com/semanticarts/gist/issues/1198).
 - Changed the values of `rdfs:isDefinedBy` from the unversioned to the versioned gist IRI; e.g., to `https://w3id.org/semanticarts/ontology/gistCore14.0.0`. Issue [#383](https://github.com/semanticarts/gist/issues/383).
 - Changed the datatype of the `gist:license` value to `xsd:anyURI`. Issue [#977](https://github.com/semanticarts/gist/issues/977).
-- Change prefLabel of altitude from "area" to "altitude". Issue [#1139](https://github.com/semanticarts/gist/issues/1139).
-- Updated annotations for `gist:hasAccuracy`. Issue [#1146](https://github.com/semanticarts/gist/issues/1146).
 - Added missing stubs for SKOS annotations. Issue [#1151](https://github.com/semanticarts/gist/issues/1151).
-- Updated the definition of `gist:Medium` for clarity and added examples. Issue [#1162](https://github.com/semanticarts/gist/issues/1162).
-- Updated the definition of `gist:Organization` to eliminate circularity. Issue [#1172](https://github.com/semanticarts/gist/issues/1172).
-- Added annotations to `gist:IntellectualProperty`. Issue [#1192](https://github.com/semanticarts/gist/issues/1192).
-- Minor grammar change to TemporalRelation scopeNote. Issue [#1229](https://github.com/semanticarts/gist/issues/1229).
-- Added a clearer scope note to `gist:description`. Issue [#1234](https://github.com/semanticarts/gist/issues/1234).
-- Improved the definition of `gist:hasRecipient`. Issue [#1239](https://github.com/semanticarts/gist/issues/1239).
-- Updated annotations to differentiate `gist:hasRecipient`/`gist:goesToAgent` and `gist:hasGiver`/`gist:comesFromAgent` and align definitions of `gist:goesToPlace`/`gist:goesToAgent` and `gist:comesFromPlace`/`gist:comesFromAgent`. Issue [#1024](https://github.com/semanticarts/gist/issues/1024).
-- Updated annotations on `gist:Agreement` and `gist:Commitment`. Issue [#1188](https://github.com/semanticarts/gist/issues/1188).
+- Updated several annotations for accuracy, clarity, and grammar. Issues [#1183](https://github.com/semanticarts/gist/issues/1183), [#1198](https://github.com/semanticarts/gist/issues/1198), [#1139](https://github.com/semanticarts/gist/issues/1139), [#1234](https://github.com/semanticarts/gist/issues/1234), [#1146](https://github.com/semanticarts/gist/issues/1146), [#1162](https://github.com/semanticarts/gist/issues/1162), [#1172](https://github.com/semanticarts/gist/issues/1172), [#1192](https://github.com/semanticarts/gist/issues/1192), [#1229](https://github.com/semanticarts/gist/issues/1229), [#1239](https://github.com/semanticarts/gist/issues/1239), [#1188](https://github.com/semanticarts/gist/issues/1188), and [#1024](https://github.com/semanticarts/gist/issues/1024).
 
 ### Documentation Updates
 
-- Added instructions to the `README` on setting up a local gist repository.
-- Fixed link to gist download in the README. Issue [#1184](https://github.com/semanticarts/gist/issues/1184).
-- Updated contributing guidelines.
-- Added a contributor quick reference guide.
-- Created guidelines for pull request reviewers (*ReviewerGuidelines*). Issue [#1285](https://github.com/semanticarts/gist/issues/1285).
-- Added a release note template.
-- Added a summary of best practices for the use of OWL restrictions to the gist style guide. Issue [#1257](https://github.com/semanticarts/gist/issues/1257).
-- Fixed broken links in documentation files. Issue [#1295](https://github.com/semanticarts/gist/issues/1295).
 - Modified migration documentation to describe manual work needed when a property is being replaced by its inverse. Issue [#1140](https://github.com/semanticarts/gist/issues/1140).
+- Updated documentation for contributing to gist. Issues [#1244](https://github.com/semanticarts/gist/issues/1244), [#1258](https://github.com/semanticarts/gist/issues/1258), and [#1280](https://github.com/semanticarts/gist/issues/1280).
+    - Added a contributor quick reference guide.
+    - Added instructions to the `README` on setting up a local gist repository.
+    - Updated contributing guidelines.
+- Added a summary of best practices for the use of OWL restrictions to the gist style guide. Issue [#1257](https://github.com/semanticarts/gist/issues/1257).
+- Created guidelines for pull request reviewers (*ReviewerGuidelines*). Issue [#1285](https://github.com/semanticarts/gist/issues/1285).
+- Added a release note template. Issue [#1280](https://github.com/semanticarts/gist/issues/1280).
+- Fixed broken links in documentation files. Issues [#1295](https://github.com/semanticarts/gist/issues/1295), [#1272](https://github.com/semanticarts/gist/issues/1272), and [#1184](https://github.com/semanticarts/gist/issues/1184).
 
 ### Infrastructure Updates
 
