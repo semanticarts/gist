@@ -42,12 +42,11 @@
 ### Minor Updates
 
 - Added the class `gist:KnowledgeConcept`. Issue [#1198](https://github.com/semanticarts/gist/issues/1198).
-- Updated annotations to differentiate `gist:hasRecipient`/`gist:goesToAgent` and `gist:hasGiver`/`gist:comesFromAgent` and align definitions of `gist:goesToPlace`/`gist:goesToAgent` and `gist:comesFromPlace`/`gist:comesFromAgent`. Issue [#1024](https://github.com/semanticarts/gist/issues/1024).
 - Added range `xsd:string` to `gist:description`. Issue [#1093](https://github.com/semanticarts/gist/issues/1093).
 - Updated annotations on `gist:Agreement` and `gist:Commitment`. Issue [#1188](https://github.com/semanticarts/gist/issues/1188).
 - Added `gist:Assignment` class and corresponding object properties `gist:isAssignmentOf` and `gist:isAssignmentTo`. Issues [#1191](https://github.com/semanticarts/gist/issues/1191), [#1223](https://github.com/semanticarts/gist/issues/1223).
 - Simplified formal definitions of `gist:GeoRegion` and `gist:UnitGroup`. Changes are purely syntactic and do not change inferencing. Issue [#1225](https://github.com/semanticarts/gist/issues/1225).
-- Explicitly defined `gist:RenderedContent` to be a subclass of `gist:FormattedContent`. (This is not a major change, since reasoners would already infer this.) Issue [#1242](https://github.com/semanticarts/gist/issues/1242).
+- Explicitly defined `gist:RenderedContent` to be a subclass of `gist:FormattedContent`. (This is not a major change, since reasoners would already infer this.) Issue [#1228](https://github.com/semanticarts/gist/issues/1228).
 - Removed disjointness axiom between `gist:IntellectualProperty` and `gist:Intention`. Issue [#1251](https://github.com/semanticarts/gist/issues/1251).
 
 ### Patch Updates
@@ -75,3 +74,4 @@
 - Minor grammar change to TemporalRelation scopeNote. Issue [#1229](https://github.com/semanticarts/gist/issues/1229).
 - Added a clearer scope note to `gist:description`. Issue [#1234](https://github.com/semanticarts/gist/issues/1234).
 - Improved the definition of `gist:hasRecipient`. Issue [#1239](https://github.com/semanticarts/gist/issues/1239).
+- Updated annotations to differentiate `gist:hasRecipient`/`gist:goesToAgent` and `gist:hasGiver`/`gist:comesFromAgent` and align definitions of `gist:goesToPlace`/`gist:goesToAgent` and `gist:comesFromPlace`/`gist:comesFromAgent`. Issue [#1024](https://github.com/semanticarts/gist/issues/1024).
