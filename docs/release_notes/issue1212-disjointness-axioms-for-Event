@@ -6,4 +6,4 @@
   - `gist:Language`
   - `gist:Magnitude`
   - `gist:TimeInterval`
-  - `gistUnitOfMeasure`
+  - `gist:UnitOfMeasure`
