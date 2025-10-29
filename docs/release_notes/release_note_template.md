@@ -9,7 +9,7 @@
   - Small fixes of a similar nature, such as correcting several typos and/or revising the wording of several annotations. It is not necessary to list the individual changes.
   - Closely related changes. These should be added to the section for the most impactful change (major, minor, or patch). For example, adding an automatically-generated file and the script that generates it should be included in the same release note, in this case to the Minor Updates section.
 - Bullet points are symbolized with dash rather than asterisk.
-- The note begins with either a past tense verb or a noun; e.g., "Updated..." or "Modifications to...".
+- The note begins with either a past tense verb or a noun; e.g., "Updated..." or "Modifications to...". Present tense verbs may be used in subsequent sentences or bullet points to describe the state resulting from the change. Example: "Removed class `gist:Artifact`. `gist:Content` is now a top-level class."
 - Ontology and other code terms are enclosed in backticks and use the `gist:` prefix; e.g., `gist:Organization`.
 - Use nested bullets or tables to organize the content of complex notes.
 - Each note includes a link to the issue(s) - but not PRs - addressed. Multiple issues should be listed in ascending numeric order.
