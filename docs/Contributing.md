@@ -202,7 +202,7 @@ Some developers like to create a PR before work is completed. Follow the steps a
   - You can copy the template [`release_notes/release_note_template.md`](./release_notes/release_note_template.md) to use as a starting point.
   - Headings use the open `ATX` convention: i.e., leading hashes only and no underlining.
   - Bullet points are symbolized with dash rather than asterisk.
-  - The note begins with either a past tense verb or a noun; e.g., "Updated..." or "Modifications to...".
+  - The note begins with either a past tense verb or a noun; e.g., "Updated..." or "Modifications to...". Present tense verbs may be used in subsequent sentences or bullet points to describe the state resulting from the change. Example: "Removed class `gist:Artifact`. `gist:Content` is now a top-level class."
   - Ontology and other code terms are enclosed in backticks and use the `gist:` prefix; e.g., `gist:Organization`.
   - Use nested bullets or tables to organize the content of complex notes.
   - Each note includes a link to the issue(s) - but not PRs - addressed. Multiple issues should be listed in ascending numeric order.
