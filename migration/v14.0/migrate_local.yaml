@@ -1,6 +1,6 @@
 bundle: gist-v14.0-migration
 variables:
-  action_queries_path: "./queries/action/default"
+  action_queries_path: "./queries/action/local"
   reporting_queries_path: "./queries/report/default"
   input: "./input"
   output: "./output"
@@ -52,3 +52,4 @@ actions:
         - "detect_removed_default_graph.rq"
         - "detect_produces_default_graph.rq"
         - "detect_offers_default_graph.rq"
+        - "detect_event_disjoint_default_graph.rq"

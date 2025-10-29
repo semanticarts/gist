@@ -67,6 +67,7 @@ actions:
         - "detect_removed_default_graph.rq"
         - "detect_produces_default_graph.rq"
         - "detect_offers_default_graph.rq"
+        - "detect_event_disjoint_default_graph.rq"
 
   # ngraphs
   - action: "verify"
@@ -85,4 +86,6 @@ actions:
         - "detect_removed_named_graphs.rq"
         - "detect_produces_named_graph.rq"
         - "detect_offers_named_graph.rq"
+        - "detect_event_disjoint_named_graph.rq"
+
 
