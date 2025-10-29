@@ -31,7 +31,7 @@ This is a major release that includes several changes which break compatibility 
 - Replaced `gist:produces` with its logical inverse, `gist:isProducedBy`. Issue [1163](https://github.com/semanticarts/gist/issues/1163).
 - Changed the formal definition of `gist:Tag` to prevent unwanted inferences. Issue [#1227](https://github.com/semanticarts/gist/issues/1227).
 - Removed property `gist:accepts`. Issue [#1247](https://github.com/semanticarts/gist/issues/1247).
-- Removed `rdfs:range xsd:string` from gist datatype properties `gist:containedText`, `gist:encryptedText`, `gist:name`, `gist:symbol`, and `gist:uniqueText`. Issue [#1300](https://github.com/semanticarts/gist/issues/1300).
+- Removed `rdfs:range xsd:string` from gist datatype properties `gist:containedText`, `gist:encryptedText`, `gist:name`, `gist:symbol`, and `gist:uniqueText` to allow for `rdfs:langString` values. Issue [#1300](https://github.com/semanticarts/gist/issues/1300).
 - Removed restriction from `gist:ContentExpression` and updated the definition. Issue [#1154](https://github.com/semanticarts/gist/issues/1154).
 - Updated OWL restrictions to align with Semantic Arts best practices. [#1062](https://github.com/semanticarts/gist/issues/1062).
 
