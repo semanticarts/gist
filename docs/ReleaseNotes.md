@@ -42,7 +42,6 @@ This is a major release that includes several changes which break compatibility 
 - Removed disjointness axiom between `gist:IntellectualProperty` and `gist:Intention`. Issue [#1251](https://github.com/semanticarts/gist/issues/1251).
 - Explicitly defined `gist:RenderedContent` to be a subclass of `gist:FormattedContent`. (This is not a major change, since reasoners would already infer this.) Issue [#1228](https://github.com/semanticarts/gist/issues/1228).
 - Simplified formal definitions of `gist:GeoRegion` and `gist:UnitGroup`. Changes are purely syntactic and do not change inferencing. Issue [#1225](https://github.com/semanticarts/gist/issues/1225).
-- Added range `xsd:string` to `gist:description`. Issue [#1093](https://github.com/semanticarts/gist/issues/1093).
 
 ### Patch Updates
 
