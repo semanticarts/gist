@@ -17,10 +17,9 @@ WHERE {
   # Uses of gist:produces as a property will be automatically inverted
   # Uses as object/subject should be reported
   {
-      ?offer a gist:Offer; gist:offers []
+      ?offer gist:offers []
   }
   BIND(<urn:deprecated-use-validation-report> as ?report)
-  BIND(CONCAT("Deprecated use of gist:offers on an instance of ",
-      " gist:Offer in data. ",
+  BIND(CONCAT("Deprecated use of gist:offers in data. ",
       "Review release notes for information about the changes.") as ?error)
 }

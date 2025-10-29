@@ -1,4 +1,4 @@
-# replace address classes in the default graph
+# replace classes in the default graph
 # note: also create your own categories for the different types and uses of gist:Place
 
 prefix gist:  <https://w3id.org/semanticarts/ns/ontology/gist/>
@@ -15,6 +15,7 @@ where {
 
     values (?oldClass   ?newClass) {
         (gist:Place  gist:GeoLocation)
+        (gist:Taxonomy  gist:ControlledVocabulary)
     }
 
 # triples in the default graph that have old class as type, and are not duplicated in a named graph

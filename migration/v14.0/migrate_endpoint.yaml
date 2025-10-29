@@ -11,25 +11,6 @@ variables:
   report: "./reports"
 
 actions:
-  # default
-  - action: "sparql"
-    message: "Replace classes in default graph."
-    query: "{action_queries_path_default}/replaceClassesInDefaultGraph.rq" 
-    endpoint:
-      query_uri: "{endpoint}"
-      update_uri: "{update_endpoint}"
-      user: "{user}"
-      password: "{password}"
-
-  - action: "sparql"
-    message: "Replace properties with inverses in default graph."
-    query: "{action_queries_path_default}/replacePropertiesWithInversesInDefaultGraph.rq"
-    endpoint:
-      query_uri: "{endpoint}"
-      update_uri: "{update_endpoint}"
-      user: "{user}"
-      password: "{password}"
-
   # ngraphs
   - action: "sparql"
     message: "Replace classes in named graphs."
@@ -43,6 +24,25 @@ actions:
   - action: "sparql"
     message: "Replace properties with inverses in named graphs."
     query: "{action_queries_path_ngraphs}/replacePropertiesWithInversesInNamedGraphs.rq"
+    endpoint:
+      query_uri: "{endpoint}"
+      update_uri: "{update_endpoint}"
+      user: "{user}"
+      password: "{password}"
+
+  # default
+  - action: "sparql"
+    message: "Replace classes in default graph."
+    query: "{action_queries_path_default}/replaceClassesInDefaultGraph.rq" 
+    endpoint:
+      query_uri: "{endpoint}"
+      update_uri: "{update_endpoint}"
+      user: "{user}"
+      password: "{password}"
+
+  - action: "sparql"
+    message: "Replace properties with inverses in default graph."
+    query: "{action_queries_path_default}/replacePropertiesWithInversesInDefaultGraph.rq"
     endpoint:
       query_uri: "{endpoint}"
       update_uri: "{update_endpoint}"
