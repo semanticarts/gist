@@ -46,7 +46,7 @@ This is a major release that includes several changes which break compatibility 
 ### Patch Updates
 
 - Changed the values of `rdfs:isDefinedBy` from the unversioned to the versioned gist IRI; e.g., to `https://w3id.org/semanticarts/ontology/gistCore14.0.0`. Issue [#383](https://github.com/semanticarts/gist/issues/383).
-- Changed the datatype of the `gist:license` value to `xsd:anyURI`. Issue [#977](https://github.com/semanticarts/gist/issues/977).
+- Changed the range of `gist:license` to `xsd:anyURI`. Issue [#977](https://github.com/semanticarts/gist/issues/977).
 - Added missing stubs for SKOS annotations to preserve OWL 2 DL compliance. Issue [#1151](https://github.com/semanticarts/gist/issues/1151).
 - Updated several annotations for accuracy, clarity, and grammar. Issues [#1183](https://github.com/semanticarts/gist/issues/1183), [#1198](https://github.com/semanticarts/gist/issues/1198), [#1139](https://github.com/semanticarts/gist/issues/1139), [#1234](https://github.com/semanticarts/gist/issues/1234), [#1146](https://github.com/semanticarts/gist/issues/1146), [#1162](https://github.com/semanticarts/gist/issues/1162), [#1172](https://github.com/semanticarts/gist/issues/1172), [#1192](https://github.com/semanticarts/gist/issues/1192), [#1229](https://github.com/semanticarts/gist/issues/1229), [#1239](https://github.com/semanticarts/gist/issues/1239), [#1188](https://github.com/semanticarts/gist/issues/1188), and [#1024](https://github.com/semanticarts/gist/issues/1024).
 
