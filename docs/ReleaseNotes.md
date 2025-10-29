@@ -27,7 +27,8 @@ This is a major release that includes several changes which break compatibility 
 - Updated `gist:Offer` so it supports offers to buy and swap as well as offers to sell. Issue [#1177](https://github.com/semanticarts/gist/issues/1177).
   - Replaced `gist:offers` with `gist:offersToProvide` and `gist:offersToReceive`.
   - Updated restrictions and annotations.
-- Added disjointness axioms for `gist:Event`, making it formally disjoint with six other top-level classes. Issue [#1212](https://github.com/semanticarts/gist/issues/1212).- Replaced `gist:produces` with its logical inverse, `gist:isProducedBy`. Issue [1163](https://github.com/semanticarts/gist/issues/1163).
+- Added disjointness axioms for `gist:Event`, making it formally disjoint with six other top-level classes. Issue [#1212](https://github.com/semanticarts/gist/issues/1212).
+- Replaced `gist:produces` with its logical inverse, `gist:isProducedBy`. Issue [1163](https://github.com/semanticarts/gist/issues/1163).
 - Changed the formal definition of `gist:Tag` to prevent unwanted inferences. Issue [#1227](https://github.com/semanticarts/gist/issues/1227).
 - Removed property `gist:accepts`. Issue [#1247](https://github.com/semanticarts/gist/issues/1247).
 - Removed `rdfs:range xsd:string` from gist datatype properties `gist:containedText`, `gist:encryptedText`, `gist:name`, `gist:symbol`, and `gist:uniqueText`. Issue [#1300](https://github.com/semanticarts/gist/issues/1300).
