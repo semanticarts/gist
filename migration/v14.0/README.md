@@ -23,7 +23,7 @@ All of our migration tools are SPARQL queries.
 
 The following directory structure holds the migration scripts:
 
-```
+```text
 .
 └── queries/
     ├── action/
@@ -36,9 +36,9 @@ The following directory structure holds the migration scripts:
     └── report/
         ├── README
         ├── default/
-    │       └── *.rq
+        │   └── *.rq
         └── ngraphs/
-    │       └── *.rq
+            └── *.rq
 ```
 
 The `./queries/` directory contains the following two directories:
@@ -58,11 +58,11 @@ Each of the above directories contains the following two directories:
 
 - `local/` : These queries are used with `migrate_local.yaml`
 
-
 Additionally, the `./queries/action/` directory contains a `local/` directory for transforming RDF data in local files. The `report` queries do not require a `local` version.
 
 All the `action` queries are provided in a safe form, with the update clauses commented out, e.g.
-```
+
+```text
 # test
 select ?g ?s ?oldClass ?newClass
 
@@ -70,6 +70,7 @@ select ?g ?s ?oldClass ?newClass
 # delete {graph ?g {?s rdf:type ?oldClass .}}
 # insert {graph ?g {?s rdf:type ?newClass .}}
 ```
+
 Once you have reviewed the queries, uncomment the `DELETE`/`INSERT` clauses and comment out the `SELECT` clause prior to execution.
 
 ## Requirements
@@ -94,7 +95,7 @@ program. Information about onto_tool and how to install it, is available at
 
 3. `onto_tool` will output to STDOUT, you should see something like the following (this is the output from the sample data included in the `./input/` directory):
 
-   ```
+   ```text
    INFO:root:Replace classes in default graph.
    INFO:root:Replace properties with inverses in default graph.
    INFO:root:Check for issues that should be reviewed.
