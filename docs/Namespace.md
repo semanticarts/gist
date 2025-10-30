@@ -85,19 +85,17 @@ in this namespace.
 To cement the idea that the ontology need not have a 1:1 correspondence to
 its namespace, consider the following legitimate ontology.
 
-```bash
- 1  @prefix sa: <https://ontologies.semanticarts.com/SemArts/> .
- 2  @prefix dbr: <http://dbpedia.org/resource> .
- 3  @prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
- 4  @prefix owl: <http://www.w3.org/2002/07/owl#> .
- 5  @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
- 6  @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
- 7  @prefix xml: <http://www.w3.org/XML/1998/namespace> .
- 8  @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
- 9  
-10  <https://data.semanticarts.com/example> rdf:type owl:Ontology .
-11  sa:mccomb gist:owns dbr:semanticarts .
-```
+    1  @prefix sa: <https://ontologies.semanticarts.com/SemArts/> .
+    2  @prefix dbr: <http://dbpedia.org/resource> .
+    3  @prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
+    4  @prefix owl: <http://www.w3.org/2002/07/owl#> .
+    5  @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+    6  @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    7  @prefix xml: <http://www.w3.org/XML/1998/namespace> .
+    8  @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+    9
+    10  <https://data.semanticarts.com/example> rdf:type owl:Ontology .
+    11  sa:mccomb gist:owns dbr:semanticarts .
 
 The first 8 lines declare namespace prefixes. Strictly speaking they are
 just conveniences (abbreviations), so that line 11 doesn't get too long
