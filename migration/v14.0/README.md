@@ -54,7 +54,10 @@ Each of the above directories contains the following two directories:
   > `*` the handling of these queries will be dependent upon which Triplestore you are using and how it was configured. Some Triplestores will only use
   > triples in the default graph, some will use all triples in all named graphs.
 
-- `ngraphs/` : These queries only work on named graphs
+- `ngraphs/` : These queries are used with `migrate_endpoint.yaml` and only work on named graphs
+
+- `local/` : These queries are used with `migrate_local.yaml`
+
 
 Additionally, the `./queries/action/` directory contains a `local/` directory for transforming RDF data in local files. The `report` queries do not require a `local` version.
 
