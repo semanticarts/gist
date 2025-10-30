@@ -82,7 +82,7 @@ in this namespace.
 
 ## An ontology needn't have any IRIs minted it its "own" namespace
 
-To cement the idea that the ontology need not have a 1:1 coorespondence to
+To cement the idea that the ontology need not have a 1:1 correspondence to
 its namespace, consider the following legitimate ontology.
 
 ```bash
