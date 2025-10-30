@@ -1,0 +1,25 @@
+prefix sh: <http://www.w3.org/ns/shacl#>
+prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/>
+
+CONSTRUCT {
+?report a sh:ValidationReport ;
+  sh:conforms false ;
+  sh:result
+    [
+      a sh:ValidationResult ;
+      sh:focusNode ?offer ;
+      sh:resultMessage ?error ;
+      sh:resultSeverity sh:Warning ;
+      sh:sourceConstraintComponent <urn:constraint:deprecated-use>
+    ] .
+}
+WHERE {
+  # Uses of gist:produces as a property will be automatically inverted
+  # Uses as object/subject should be reported
+  {
+      ?offer gist:offers []
+  }
+  BIND(<urn:deprecated-use-validation-report> as ?report)
+  BIND(CONCAT("Deprecated use of gist:offers in data. ",
+      "Review release notes for information about the changes.") as ?error)
+}

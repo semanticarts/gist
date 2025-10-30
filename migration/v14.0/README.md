@@ -29,6 +29,8 @@ The following directory structure holds the migration scripts:
     ├── action/
     │   ├── default/
     │   │   └── *.rq
+    │   ├── local/
+    │   │   └── *.rq
     │   └── ngraphs/
     │       └── *.rq
     └── report/
@@ -52,7 +54,23 @@ Each of the above directories contains the following two directories:
   > `*` the handling of these queries will be dependent upon which Triplestore you are using and how it was configured. Some Triplestores will only use
   > triples in the default graph, some will use all triples in all named graphs.
 
-- `ngraphs/` : These queries only work on named graphs
+- `ngraphs/` : These queries are used with `migrate_endpoint.yaml` and only work on named graphs
+
+- `local/` : These queries are used with `migrate_local.yaml`
+
+
+Additionally, the `./queries/action/` directory contains a `local/` directory for transforming RDF data in local files. The `report` queries do not require a `local` version.
+
+All the `action` queries are provided in a safe form, with the update clauses commented out, e.g.
+```
+# test
+select ?g ?s ?oldClass ?newClass
+
+# update graph
+# delete {graph ?g {?s rdf:type ?oldClass .}}
+# insert {graph ?g {?s rdf:type ?newClass .}}
+```
+Once you have reviewed the queries, uncomment the `DELETE`/`INSERT` clauses and comment out the `SELECT` clause prior to execution.
 
 ## Requirements
 
@@ -77,30 +95,13 @@ program. Information about onto_tool and how to install it, is available at
 3. `onto_tool` will output to STDOUT, you should see something like the following (this is the output from the sample data included in the `./input/` directory):
 
    ```
-   INFO:root:Replace inverse properties.
-   INFO:root:Migrate renamed terms.
-   INFO:root:Replace use of gist:Percentage.
+   INFO:root:Replace classes in default graph.
+   INFO:root:Replace properties with inverses in default graph.
    INFO:root:Check for issues that should be reviewed.
-   WARNING:root:Verification query ./queries/report/default/new_namespace/detect_removed.rq produced non-empty results:
+   WARNING:root:Verification query ./queries/report/default/detect_removed_default_graph.rq produced non-empty results:
    Focus                     Path                            Value Severity   Message
-   gist:Percentage           <urn:constraint:removed-entity>       sh:Warning Removed entity gist:Percentage referenced in da...
-   gist:Percentage           <urn:constraint:removed-entity>       sh:Warning Removed entity gist:Percentage referenced in da...
-   gist:Percentage           <urn:constraint:removed-entity>       sh:Warning Removed entity gist:Percentage referenced in da...
-   gist:TimeZone             <urn:constraint:removed-entity>       sh:Warning Removed entity gist:TimeZone referenced in data...
-   gist:TimeZone             <urn:constraint:removed-entity>       sh:Warning Removed entity gist:TimeZone referenced in data...
-   gist:TimeZone             <urn:constraint:removed-entity>       sh:Warning Removed entity gist:TimeZone referenced in data...
-   gist:TimeZoneStandard     <urn:constraint:removed-entity>       sh:Warning Removed entity gist:TimeZoneStandard referenced...
-   gist:TimeZoneStandard     <urn:constraint:removed-entity>       sh:Warning Removed entity gist:TimeZoneStandard referenced...
-   gist:TimeZoneStandard     <urn:constraint:removed-entity>       sh:Warning Removed entity gist:TimeZoneStandard referenced...
-   gist:TreatyOrganization   <urn:constraint:removed-entity>       sh:Warning Removed entity gist:TreatyOrganization referenc...
-   gist:TreatyOrganization   <urn:constraint:removed-entity>       sh:Warning Removed entity gist:TreatyOrganization referenc...
-   gist:TreatyOrganization   <urn:constraint:removed-entity>       sh:Warning Removed entity gist:TreatyOrganization referenc...
-   gist:hasOffsetToUniversal <urn:constraint:removed-entity>       sh:Warning Removed entity gist:hasOffsetToUniversal refere...
-   gist:hasOffsetToUniversal <urn:constraint:removed-entity>       sh:Warning Removed entity gist:hasOffsetToUniversal refere...
-   gist:hasOffsetToUniversal <urn:constraint:removed-entity>       sh:Warning Removed entity gist:hasOffsetToUniversal refere...
-   gist:usesTimeZoneStandard <urn:constraint:removed-entity>       sh:Warning Removed entity gist:usesTimeZoneStandard refere...
-   gist:usesTimeZoneStandard <urn:constraint:removed-entity>       sh:Warning Removed entity gist:usesTimeZoneStandard refere...
-   gist:usesTimeZoneStandard <urn:constraint:removed-entity>       sh:Warning Removed entity gist:usesTimeZoneStandard refere...
+   gist:GeoSegment           <urn:constraint:removed-entity>       sh:Warning Removed entity gist:GeoSegment referenced in da...
+   gist:Obligation           <urn:constraint:removed-entity>       sh:Warning Removed entity gist:Obligation referenced in da...
    ```
 
    - Output files will be created in the `./output/` directory.
