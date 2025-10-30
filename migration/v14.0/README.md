@@ -29,6 +29,8 @@ The following directory structure holds the migration scripts:
     ├── action/
     │   ├── default/
     │   │   └── *.rq
+    │   ├── local/
+    │   │   └── *.rq
     │   └── ngraphs/
     │       └── *.rq
     └── report/
@@ -53,6 +55,8 @@ Each of the above directories contains the following two directories:
   > triples in the default graph, some will use all triples in all named graphs.
 
 - `ngraphs/` : These queries only work on named graphs
+
+Additionally, the `./queries/action/` directory contains a `local/` directory for transforming RDF data in local files. The `report` queries do not require a `local` version.
 
 All the `action` queries are provided in a safe form, with the update clauses commented out, e.g.
 ```
