@@ -107,6 +107,7 @@ actions:
     - gistValidationAnnotations.ttl
 - action: "definedBy"
   message: "Adding rdfs:isDefinedBy."
+  versionedDefinedBy: true
   source: "{output}/ontologies"
   target: "{output}/ontologies"
   includes:
@@ -295,13 +296,20 @@ actions:
   replace:
     from: "((\\./|(?:\\.\\./)+).+)\\.md"
     to: "\\g<1>.html"
+- action: "markdown"
+  message: "Formatting gist 14.0 migration documentation as HTML."
+  source: "{output}/migration/v14.0/"
+  target: "{output}/migration/v14.0/"
+  includes:
+    - "*.md"
 - action: "move"
-  message: "Patching local links in gist 13.0 HTML migration documentation."
-  source: "{output}/migration/v13.0/"
-  target: "{output}/migration/v13.0/"
+  message: "Patching links in gist 14.0 HTML migration documentation."
+  source: "{output}/migration/v14.0/"
+  target: "{output}/migration/v14.0/"
   includes:
     - "*.html"
   # Replace .md with .html in local links of HTML files
   replace:
     from: "((\\./|(?:\\.\\./)+).+)\\.md"
     to: "\\g<1>.html"
+

@@ -1,5 +1,77 @@
 # gist Release Notes
 
+## Release 14.0.0
+
+This is a major release that includes several changes which break compatibility with previous versions of gist. See the [migration guide](./MajorVersionMigration.md) for documentation on updating existing gist-based ontologies and instance data. [Migration scripts and documentation](../migration/v14.0) are provided to facilitate the upgrade process.
+
+### Major Updates
+
+- Removed class `gist:Artifact`. Issue [#385](https://github.com/semanticarts/gist/issues/385).
+  - `gist:Content`, `gist:Component`, and `gist:IntellectualProperty` are now top-level classes.
+  - `gist:Building` and `gist:Equipment` remain within the `gist:PhysicalIdentifiableItem` hierarchy.
+- Changes to `gist:Commitment`, `gist:Agreement`, and `gist:Obligation`. Issue [#1188](https://github.com/semanticarts/gist/issues/1188).
+  - Deleted class `gist:Obligation`.
+  - Changed the definition of `gist:Agreement` to reference `gist:Commitment` rather than `gist:Obligation`.
+  - Changed definition of `gist:Commitment` to a unilateral commitment. Thus, `gist:Agreement` is no longer a subclass of `gist:Commitment`.
+  - `gist:Agreement` and `gist:Commitment` are now direct subclasses of `gist:Intention`.
+- Removed class `gist:Taxonomy` and updated `gist:ControlledVocabulary` annotations to indicate that it can be used for taxonomies. Issue [#1235](https://github.com/semanticarts/gist/issues/1235).
+- Changed classes related to geographic location.
+  - Renamed `gist:Place` to `gist:GeoLocation`. Issue [#1197](https://github.com/semanticarts/gist/issues/1197).
+  - Updated annotations for `gist:GeoLocation` and its subclasses. Issues [#939](https://github.com/semanticarts/gist/issues/939), [#1197](https://github.com/semanticarts/gist/issues/1197).
+  - Used terms like "geographic area" instead of "geo-area". Issue [#1084](https://github.com/semanticarts/gist/issues/1084).
+  - `gist:GeoRoute` is now a subclass of `gist:OrderedCollection`. Issue [#1197](https://github.com/semanticarts/gist/issues/1197).
+  - `gist:Landmark` is now a subclass only of `gist:PhysicalIdentifiableItem`. Issue [#1197](https://github.com/semanticarts/gist/issues/1197).
+  - Changed class expression in definition of `gist:Landmark` from an equivalence to a subclass. Issue [#1197](https://github.com/semanticarts/gist/issues/1197).
+  - Removed class `gist:GeoSegment`. Issue [#1182](https://github.com/semanticarts/gist/issues/1182).
+- Replaced `gist:produces` with its logical inverse, `gist:isProducedBy`. Issue [1163](https://github.com/semanticarts/gist/issues/1163).
+- Removed property `gist:accepts`. Issue [#1247](https://github.com/semanticarts/gist/issues/1247).
+- Redesigned composites and components. Issue [#1194](https://github.com/semanticarts/gist/issues/1194).
+  - Added abstract class `gist:Composite` as the superclass of existing classes `gist:Collection`, `gist:Network`, and `gist:System`.
+  - Made `gist:NetworkLink`, `gist:NetworkNode`, and `gist:OrderedMember` subclasses of `gist:Component`.
+  - Updated formal definitions and annotations of some of the existing classes.
+- Updated `gist:Offer` so it supports offers to buy and swap as well as offers to sell. Issue [#1177](https://github.com/semanticarts/gist/issues/1177).
+  - Replaced `gist:offers` with `gist:offersToProvide` and `gist:offersToReceive`.
+  - Updated restrictions and annotations.
+- Added disjointness axioms for `gist:Event`, making it formally disjoint with six other top-level classes. Issue [#1212](https://github.com/semanticarts/gist/issues/1212).
+- Changed `gist:Text` to be a subclass of `gist:ContentExpression` rather than `gist:Content`. Issue [1186](https://github.com/semanticarts/gist/issues/1186).
+- Changed the formal definition of `gist:Tag` to prevent unwanted inferences. Issue [#1227](https://github.com/semanticarts/gist/issues/1227).
+- Removed restriction from `gist:ContentExpression` and updated the definition. Issue [#1154](https://github.com/semanticarts/gist/issues/1154).
+- Changed the range of `gist:license` to `xsd:anyURI`. Issue [#977](https://github.com/semanticarts/gist/issues/977).
+- Removed `rdfs:range xsd:string` from gist datatype properties `gist:containedText`, `gist:encryptedText`, `gist:name`, `gist:symbol`, and `gist:uniqueText` to allow for `rdfs:langString` values. Issue [#1300](https://github.com/semanticarts/gist/issues/1300).
+- Updated OWL restrictions to align with Semantic Arts best practices. [#1062](https://github.com/semanticarts/gist/issues/1062).
+
+### Minor Updates
+
+- Added `gist:KnowledgeConcept` class. Issue [#1198](https://github.com/semanticarts/gist/issues/1198).
+- Added `gist:Assignment` class and associated object properties `gist:isAssignmentOf` and `gist:isAssignmentTo`. Issues [#1191](https://github.com/semanticarts/gist/issues/1191), [#1223](https://github.com/semanticarts/gist/issues/1223).
+- Removed disjointness axiom between `gist:IntellectualProperty` and `gist:Intention`. Issue [#1251](https://github.com/semanticarts/gist/issues/1251).
+- Explicitly defined `gist:RenderedContent` to be a subclass of `gist:FormattedContent`. (This is not a major change, since reasoners would already infer this.) Issue [#1228](https://github.com/semanticarts/gist/issues/1228).
+- Simplified formal definitions of `gist:GeoRegion` and `gist:UnitGroup`. Changes are purely syntactic and do not change inferencing. Issue [#1225](https://github.com/semanticarts/gist/issues/1225).
+- Changed the values of `rdfs:isDefinedBy` from the unversioned to the versioned gist IRI; e.g., to `https://w3id.org/semanticarts/ontology/gistCore14.0.0`. Issue [#383](https://github.com/semanticarts/gist/issues/383).
+
+### Patch Updates
+
+- Added missing stubs for SKOS annotations to preserve OWL 2 DL compliance. Issue [#1151](https://github.com/semanticarts/gist/issues/1151).
+- Updated several annotations for accuracy, clarity, and grammar. Issues [#1183](https://github.com/semanticarts/gist/issues/1183), [#1198](https://github.com/semanticarts/gist/issues/1198), [#1139](https://github.com/semanticarts/gist/issues/1139), [#1234](https://github.com/semanticarts/gist/issues/1234), [#1146](https://github.com/semanticarts/gist/issues/1146), [#1162](https://github.com/semanticarts/gist/issues/1162), [#1172](https://github.com/semanticarts/gist/issues/1172), [#1192](https://github.com/semanticarts/gist/issues/1192), [#1229](https://github.com/semanticarts/gist/issues/1229), [#1239](https://github.com/semanticarts/gist/issues/1239), [#1188](https://github.com/semanticarts/gist/issues/1188), and [#1024](https://github.com/semanticarts/gist/issues/1024).
+
+### Documentation Updates
+
+- Modified migration documentation to describe manual work needed when a property is being replaced by its inverse. Issue [#1140](https://github.com/semanticarts/gist/issues/1140).
+- Updated documentation for contributing to gist. Issues [#1244](https://github.com/semanticarts/gist/issues/1244), [#1258](https://github.com/semanticarts/gist/issues/1258), [#1280](https://github.com/semanticarts/gist/issues/1280), and [#1285](https://github.com/semanticarts/gist/issues/1285).
+    - Added a contributor quick reference guide.
+    - Added instructions to the `README` on setting up a local gist repository.
+    - Updated contributing guidelines.
+    - Created guidelines for pull request reviewers (*ReviewerGuidelines*).
+- Added a summary of best practices for the use of OWL restrictions to the gist style guide. Issue [#1257](https://github.com/semanticarts/gist/issues/1257).
+- Added a release note template. Issue [#1280](https://github.com/semanticarts/gist/issues/1280).
+- Fixed broken links in documentation files. Issues [#1295](https://github.com/semanticarts/gist/issues/1295), [#1272](https://github.com/semanticarts/gist/issues/1272), and [#1184](https://github.com/semanticarts/gist/issues/1184).
+
+### Infrastructure Updates
+
+- Made changes to the pre-commit hook. Issue [#1214](https://github.com/semanticarts/gist/issues/1214).
+  - Prefer RDF_TOOLKIT_JAVA_HOME over JAVA_HOME, since it is the more specific name.
+  - If neither of those work, use a Java executable if one is available in the PATH.
+
 ## Release 13.0.0
 
 This is a major release that includes several changes which break compatibility with previous versions of gist, most notably an entirely rearchitected model of units of measure and magnitudes and a new address model. See the [migration guide](./MajorVersionMigration.md) for documentation on updating existing gist-based ontologies and instance data. [Migration scripts and documentation](../migration/v13.0) are provided to facilitate the upgrade process.
@@ -156,6 +228,7 @@ Issue [#1060](https://github.com/semanticarts/gist/issues/1060).
     |`hasFirstMember` | `isFirstMemberOf`|
     |`hasMember` | `isMemberOf`|
     |`hasPart` | `isPartOf`|
+
 - Removed `gist:endDateTime` restriction from the formal definition of `gist:TemporalRelation`. Issue [#878](https://github.com/semanticarts/gist/issues/878).
 - Added `gist:startDateTime`, `gist:endDateTime`, and duration restrictions to the formal definition of `gist:TimeInterval`. Modified annotations for `gist:startDateTime` and `gist:endDateTime` to clarify usage. Issues [#925](https://github.com/semanticarts/gist/issues/925) and [#1112](https://github.com/semanticarts/gist/issues/1112).
 - Removed sensor-related classes and properties. Issue [#462](https://github.com/semanticarts/gist/issues/462).
@@ -305,25 +378,26 @@ This is a major release which includes several changes which break compatibility
 
       | Properties retained in gist | Inverse properties removed from gist |
       | ----------- | ----------- |
-      `hasDirectPart` | `isDirectPartOf`
-      `hasDirectSubTask` | `isDirectSubTaskOf`
-      `hasDirectSuperCategory` | `hasDirectSubCategory`
-      `hasMember` | `isMemberOf`
-      `hasNavigationalParent` | `hasNavigationalChild`
-      `hasPart` | `isPartOf`
-      `hasSubTask` | `isSubTaskOf`
-      `hasSuperCategory` | `hasSubCategory`
-      `isAbout` | `isDescribedIn`
-      `isAffectedBy` | `affects`
-      `isBasedOn` | `isBasisFor`
-      `isGeographicallyContainedIn` | `containsGeographically`
-      `isGovernedBy` | `governs`
-      `isIdentifiedBy` | `identifies`
-      `isRecognizedBy` | `recognizes`
-      `occupiesGeographically` | `isGeographicallyOccupiedBy`
-      `occupiesGeographicallyPermanently` | `isGeographicallyPermanentlyOccupiedBy`
-      `precedes` | `follows`
-      `precedesDirectly` | `followsDirectly`
+      | `hasDirectPart` | `isDirectPartOf` |
+      | `hasDirectSubTask` | `isDirectSubTaskOf` |
+      | `hasDirectSuperCategory` | `hasDirectSubCategory` |
+      | `hasMember` | `isMemberOf` |
+      | `hasNavigationalParent` | `hasNavigationalChild` |
+      | `hasPart` | `isPartOf` |
+      | `hasSubTask` | `isSubTaskOf` |
+      | `hasSuperCategory` | `hasSubCategory` |
+      | `isAbout` | `isDescribedIn` |
+      | `isAffectedBy` | `affects` |
+      | `isBasedOn` | `isBasisFor` |
+      | `isGeographicallyContainedIn` | `containsGeographically` |
+      | `isGovernedBy` | `governs` |
+      | `isIdentifiedBy` | `identifies` |
+      | `isRecognizedBy` | `recognizes` |
+      | `occupiesGeographically` | `isGeographicallyOccupiedBy` |
+      | `occupiesGeographicallyPermanently` | `isGeographicallyPermanentlyOccupiedBy` |
+      | `precedes` | `follows` |
+      | `precedesDirectly` | `followsDirectly` |
+
 - Changes related to tasks, projects, and events. Issue [#760](https://github.com/semanticarts/gist/issues/760).
   - Renamed `gist:TaskExecution`, `gist:ScheduledTaskExecution`, and `gist:ProjectExecution` to `gist:Task`, `gist:ScheduledTask`, and `gist:Project`, respectively.
   - These classes are no longer limited to the execution of a task or project, but include proposed and planned events as well.
@@ -596,7 +670,7 @@ Import URL: <https://ontologies.semanticarts.com/o/gistCore9.3.0>.
 - Replaced all "xs" namespace prefixes for XML Schema with "xsd". Corrects issue [#158](https://github.com/semanticarts/gist/issues/158).
 - Corrected gist:convertToBase value for gist:_minute from 1.0 to 60.0. Fixes issue [#82](https://github.com/semanticarts/gist/issues/82).
 - Added initial draft of in-progress gist style guide. Fixes issue [#163](https://github.com/semanticarts/gist/issues/163).
-- Added documentation of change and release management process. Fixes issue [#233](<https://github.com/semanticarts/gist/issues/233>>.
+- Added documentation of change and release management process. Fixes issue [#233](<https://github.com/semanticarts/gist/issues/233>).
 - Added guidelines for submission of GitHub issues and pull requests. Fixes issue [#190](https://github.com/semanticarts/gist/issues/190).
 - Remove defunct tools and documentation. Fixes issue [#193](https://github.com/semanticarts/gist/issues/193).
 - Include direct imports of all gist modules in gistCore. Fixes issue [#80](https://github.com/semanticarts/gist/issues/80).

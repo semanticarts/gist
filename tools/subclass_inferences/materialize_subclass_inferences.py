@@ -38,7 +38,7 @@ def _add_ontology_declaration(output_graph: Graph, version: str):
                                  "direct subclass assertions derived using an OWL DL reasoner and "
                                  "(2) the subclass assertions that are already explicit in gistCore.",
                                  datatype=XSD.string)),
-        (GIST.license, Literal("https://creativecommons.org/licenses/by-sa/3.0/",
+        (GIST.license, Literal("https://creativecommons.org/licenses/by/4.0/",
                                datatype=XSD.string))
     ]
 
@@ -56,9 +56,12 @@ def _run_reasoner(inputs: list[str], output_ttl: str, version: str):
         input_graph.parse(one_input)
 
     # owlready2 does not accept TTL files. Convert to N-Triples.
-    with tempfile.NamedTemporaryFile('w', suffix='.nt') as temp_file:
+    with tempfile.NamedTemporaryFile('wb', suffix='.nt', delete=False) as temp_file:
         input_graph_str = input_graph.serialize(format='nt')
-        temp_file.write(input_graph_str)
+        temp_file.write(input_graph_str if isinstance(input_graph_str, bytes)
+                        else input_graph_str.encode('utf-8'))
+        temp_file.flush()
+        temp_file.close()
 
         ontology = get_ontology(f'file://{temp_file.name}').load()
 
