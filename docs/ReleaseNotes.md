@@ -9,7 +9,11 @@ This is a major release that includes several changes which break compatibility 
 - Removed class `gist:Artifact`. Issue [#385](https://github.com/semanticarts/gist/issues/385).
   - `gist:Content`, `gist:Component`, and `gist:IntellectualProperty` are now top-level classes.
   - `gist:Building` and `gist:Equipment` remain within the `gist:PhysicalIdentifiableItem` hierarchy.
-- Removed class `gist:Obligation`. Issue [#1188](https://github.com/semanticarts/gist/issues/1188).
+- Changes to `gist:Commitment`, `gist:Agreement`, and `gist:Obligation`. Issue [#1188](https://github.com/semanticarts/gist/issues/1188).
+  - Deleted class `gist:Obligation`.
+  - Changed the definition of `gist:Agreement` to reference `gist:Commitment` rather than `gist:Obligation`.
+  - Changed definition of `gist:Commitment` to a unilateral commitment. Thus, `gist:Agreement` is no longer a subclass of `gist:Commitment`.
+  - `gist:Agreement` and `gist:Commitment` are now direct subclasses of `gist:Intention`.
 - Removed class `gist:Taxonomy` and updated `gist:ControlledVocabulary` annotations to indicate that it can be used for taxonomies. Issue [#1235](https://github.com/semanticarts/gist/issues/1235).
 - Changed classes related to geographic location.
   - Renamed `gist:Place` to `gist:GeoLocation`. Issue [#1197](https://github.com/semanticarts/gist/issues/1197).
