@@ -95,10 +95,10 @@ program. Information about onto_tool and how to install it, is available at
 3. `onto_tool` will output to STDOUT, you should see something like the following (this is the output from the sample data included in the `./input/` directory):
 
    ```
-INFO:root:Replace classes in default graph.
-INFO:root:Replace properties with inverses in default graph.
-INFO:root:Check for issues that should be reviewed.
-WARNING:root:Verification query ./queries/report/default/detect_removed_default_graph.rq produced non-empty results:
+   INFO:root:Replace classes in default graph.
+   INFO:root:Replace properties with inverses in default graph.
+   INFO:root:Check for issues that should be reviewed.
+   WARNING:root:Verification query ./queries/report/default/detect_removed_default_graph.rq produced non-empty results:
    Focus                     Path                            Value Severity   Message
    gist:GeoSegment           <urn:constraint:removed-entity>       sh:Warning Removed entity gist:GeoSegment referenced in da...
    gist:Obligation           <urn:constraint:removed-entity>       sh:Warning Removed entity gist:Obligation referenced in da...
