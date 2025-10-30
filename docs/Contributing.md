@@ -130,10 +130,10 @@ Some developers like to create a PR before work is completed. Follow the steps a
   - Example: "Correct cardinality restriction on class gist:Room. Closes #98."
   - If the PR fixes multiple issues, each issue should be listed on a separate line and preceded by the word "closes." number must be prefixed by the keyword. Example:
 
-      Closes #98.
-      Closes #99.
+            Closes #98.
+            Closes #99.
 
-  rather than "Closes #98, #99" or "Closes #98 and #99".
+    rather than "Closes #98, #99" or "Closes #98 and #99".
 - The description should also include a brief summary or bulleted list outlining the changes in the PR.
 - The PR should include a release note. See [_Release Notes_](#release-notes).
 - Refer to the [_Deprecation and Deletion Policy_](./DeprecationAndDeletionPolicy.md) if you are deprecating or deleting terms.
