@@ -196,7 +196,6 @@ actions:
   source: "{input}/docs"
   target: "{output}/docs"
   includes:
-    - "Contributing.md"
     - "ReleaseNotes.md"
     - "MajorVersionMigration.md"
     - "Namespace.md"
