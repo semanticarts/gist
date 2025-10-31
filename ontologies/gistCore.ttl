@@ -2194,7 +2194,7 @@ gist:comesFromPlace
 gist:conformsTo
 	a owl:ObjectProperty ;
 	skos:definition "The subject is consistent with or satisfies the requirements, rules, or expectations established by the object."^^xsd:string ;
-	skos:example: "Meet an obligation; adhere to a specification or standard; meet terms and conditions of an offer; comply with a regulation."^^xsd:string ;
+	skos:example "Meet an obligation; adhere to a specification or standard; meet terms and conditions of an offer; comply with a regulation."^^xsd:string ;
 	skos:prefLabel "conforms to"^^xsd:string ;
 	gist:rangeIncludes gist:Intention ;
 	.
