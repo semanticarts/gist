@@ -13,7 +13,7 @@
 	owl:versionIRI <https://w3id.org/semanticarts/ontology/gistCoreX.x.x> ;
 	skos:definition "gist is a minimalist upper ontology created by Semantic Arts."^^xsd:string ;
 	skos:historyNote """
-		gist 14.0.0 released 2025-Oct-30.
+		gist 14.0.0 released 2025-Oct-31.
 		gist 13.0.0 released 2024-Jul-24.
         gist 12.1.0 released 2024-Feb-27.
         gist 12.0.1 released 2023-Jul-28.
@@ -2194,7 +2194,7 @@ gist:comesFromPlace
 gist:conformsTo
 	a owl:ObjectProperty ;
 	skos:definition "The subject is consistent with or satisfies the requirements, rules, or expectations established by the object."^^xsd:string ;
-	skos:example: "Meet an obligation; adhere to a specification or standard; meet terms and conditions of an offer; comply with a regulation."^^xsd:string ;
+	skos:example "Meet an obligation; adhere to a specification or standard; meet terms and conditions of an offer; comply with a regulation."^^xsd:string ;
 	skos:prefLabel "conforms to"^^xsd:string ;
 	gist:rangeIncludes gist:Intention ;
 	.
