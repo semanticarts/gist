@@ -23,23 +23,21 @@ All of our migration tools are SPARQL queries.
 
 The following directory structure holds the migration scripts:
 
-```text
-.
-└── queries/
-    ├── action/
-    │   ├── default/
-    │   │   └── *.rq
-    │   ├── local/
-    │   │   └── *.rq
-    │   └── ngraphs/
-    │       └── *.rq
-    └── report/
-        ├── README
-        ├── default/
-        │   └── *.rq
-        └── ngraphs/
-            └── *.rq
-```
+    .
+    └── queries/
+        ├── action/
+        │   ├── default/
+        │   │   └── *.rq
+        │   ├── local/
+        │   │   └── *.rq
+        │   └── ngraphs/
+        │       └── *.rq
+        └── report/
+            ├── README
+            ├── default/
+            │   └── *.rq
+            └── ngraphs/
+                └── *.rq
 
 The `./queries/` directory contains the following two directories:
 
@@ -62,14 +60,12 @@ Additionally, the `./queries/action/` directory contains a `local/` directory fo
 
 All the `action` queries are provided in a safe form, with the update clauses commented out, e.g.
 
-```text
-# test
-select ?g ?s ?oldClass ?newClass
+    # test
+    select ?g ?s ?oldClass ?newClass
 
-# update graph
-# delete {graph ?g {?s rdf:type ?oldClass .}}
-# insert {graph ?g {?s rdf:type ?newClass .}}
-```
+    # update graph
+    # delete {graph ?g {?s rdf:type ?oldClass .}}
+    # insert {graph ?g {?s rdf:type ?newClass .}}
 
 Once you have reviewed the queries, uncomment the `DELETE`/`INSERT` clauses and comment out the `SELECT` clause prior to execution.
 
@@ -89,21 +85,17 @@ program. Information about onto_tool and how to install it, is available at
 
 2. Execute the following command:
 
-   ```shell
-   onto_tool bundle migrate_local.yaml
-   ```
+        onto_tool bundle migrate_local.yaml
 
 3. `onto_tool` will output to STDOUT, you should see something like the following (this is the output from the sample data included in the `./input/` directory):
 
-   ```text
-   INFO:root:Replace classes in default graph.
-   INFO:root:Replace properties with inverses in default graph.
-   INFO:root:Check for issues that should be reviewed.
-   WARNING:root:Verification query ./queries/report/default/detect_removed_default_graph.rq produced non-empty results:
-   Focus                     Path                            Value Severity   Message
-   gist:GeoSegment           <urn:constraint:removed-entity>       sh:Warning Removed entity gist:GeoSegment referenced in da...
-   gist:Obligation           <urn:constraint:removed-entity>       sh:Warning Removed entity gist:Obligation referenced in da...
-   ```
+        INFO:root:Replace classes in default graph.
+        INFO:root:Replace properties with inverses in default graph.
+        INFO:root:Check for issues that should be reviewed.
+        WARNING:root:Verification query ./queries/report/default/detect_removed_default_graph.rq produced non-empty results:
+        Focus                     Path                            Value Severity   Message
+        gist:GeoSegment           <urn:constraint:removed-entity>       sh:Warning Removed entity gist:GeoSegment referenced in da...
+        gist:Obligation           <urn:constraint:removed-entity>       sh:Warning Removed entity gist:Obligation referenced in da...
 
    - Output files will be created in the `./output/` directory.
 
@@ -117,9 +109,7 @@ line execution like this:
 
 > Note: Use your own values in place of `<...>`
 
-```shell
-onto_tool bundle -v user <USER> -v password <PWD>
-                 -v endpoint <ENDPOINT-URI>
-                 [ -v update_endpoint <UPDATE-URI> ]
-                 -v report <REPORT-DIR> migrate_endpoint.yaml
-```
+        onto_tool bundle -v user <USER> -v password <PWD>
+                        -v endpoint <ENDPOINT-URI>
+                        [ -v update_endpoint <UPDATE-URI> ]
+                        -v report <REPORT-DIR> migrate_endpoint.yaml
