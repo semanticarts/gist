@@ -1,0 +1,47 @@
+#!/usr/bin/env sh
+
+# This file performs all the actual git pre-commit checks.
+# It should be called by .git/hooks/pre-commit, which should be a copy of tools/pre-commit-hook.
+
+# Get absolute path to this script
+# SCRIPT=$(readlink -f "$0")
+# SCRIPTPATH=$(dirname "$SCRIPT")
+
+# Get root directory of this git repository
+base_dir=$(git rev-parse --show-toplevel)
+
+# Stops accidental commits to branches master, main, or develop.
+BRANCH=`git rev-parse --abbrev-ref HEAD`
+
+if { [ "$BRANCH" = "develop" ] || [ "$BRANCH" = "master" ] || [ "$BRANCH" = "main" ]; }
+then
+  >&2 echo "You are on branch $BRANCH. You should not commit to this branch directly!"
+  exit 1
+fi
+
+# Verify that there are no default PREFIX statements in the ontology files
+"${base_dir}/tools/check_default_prefix/check_default_prefix.py" "${base_dir}/ontologies/"
+rc=$?
+if [ ! ${rc} -eq 0 ] ; then
+  exit 1
+fi
+
+# For repositories that have their ontology files in the project root directory
+"${base_dir}/tools/check_default_prefix/check_default_prefix.py" "${base_dir}/"
+rc=$?
+if [ ! ${rc} -eq 0 ] ; then
+  exit 1
+fi
+
+# Run the serializer
+"${base_dir}/tools/serializer/pre-commit"
+
+rc=$?
+
+# echo "RESULT == ${rc}"
+if [ ! ${rc} -eq 0 ] ; then
+  exit 1
+fi
+
+exit 0
+

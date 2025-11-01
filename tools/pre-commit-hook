@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+
+# This file should be copied into the .git/hooks directory of the project.
+# All it does is call ./tools/pre-commit-code
+
+# Get root directory of this git repository
+base_dir=$(git rev-parse --show-toplevel)
+
+# Run the pre-commit code from the ./tools/ directory
+"${base_dir}/tools/pre-commit-code"
+rc=$?
+
+# Return the response code from previous command
+if [ ! ${rc} -eq 0 ] ; then
+  exit 1
+fi
+
+exit 0
