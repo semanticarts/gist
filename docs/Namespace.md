@@ -9,7 +9,7 @@ You may have been looking for the gist ontology; if so, you can find it at
 (which you can click on or copy and paste into your ontology editing
 tool).
 
-gistCore is the set of 140 or so classes and roughly the same number
+gistCore is the set of 100 or so classes and roughly the same number
 of properties that define our minimalist enterprise upper ontology.
 We have other ontologies in house, that may eventually become publicly
 available, that cover extensions to this core, both horizontally (HR and
