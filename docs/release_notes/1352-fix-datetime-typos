@@ -1,3 +1,3 @@
 ### Patch Updates
 
-- Fixed incorrect xsd:dateTime examples in skos:example annoations. Issue [#1352](https://github.com/semanticarts/gist/issues/1352).
+- Fixed incorrect xsd:dateTime examples in skos:example annotations. Issue [#1352](https://github.com/semanticarts/gist/issues/1352).
