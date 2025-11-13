@@ -1311,7 +1311,7 @@ gist:Offer
 	skos:definition "A contingent commitment to buy, sell, swap or provide one or more described or identified goods or services in exchange for another (or others)."^^xsd:string ;
 	skos:example "An offer to sell a book for a given price; an offer to purchase real estate for a particular price; an offer to swap a sea kayak for a mountain bike; currency exchange. A donation may be modeled as an offer to receive money typically in exchange for $0.00, but sometimes for items of value such as coffee mugs or T-shirts."^^xsd:string ;
 	skos:prefLabel "Offer"^^xsd:string ;
-	skos:scopeNote "Dates on an offer represent the time period the offer is valid for, as in '25% off through October 25, 2025'."^^xsd:string ;
+	skos:scopeNote "Dates on an offer represent the time period the offer is valid for, as in '25% off through October 25, 2025.'"^^xsd:string ;
 	.
 
 gist:OrderedCollection
