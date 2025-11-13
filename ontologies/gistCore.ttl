@@ -876,7 +876,8 @@ gist:GeoVolume
 			]
 		) ;
 	] ;
-	skos:definition "A three-dimensional space on or near the surface of the Earth, such as an oil reservoir, the body of a lake, or an airspace."^^xsd:string ;
+	skos:definition "A three-dimensional space on or near the surface of the Earth."^^xsd:string ;
+	skos:example "An oil reservoir, the body of a lake, or an airspace."^^xsd:string ;
 	skos:prefLabel "Geographic Volume"^^xsd:string ;
 	.
 
