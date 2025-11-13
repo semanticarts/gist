@@ -2017,7 +2017,7 @@ gist:actualEndDate
 	rdfs:subPropertyOf gist:actualEndDateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "The actual date that something ended, with precision of one day."^^xsd:string ;
-	skos:example "'2021-06-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:example "'2021-06-01T00:00:00-06:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "actual end date"^^xsd:string ;
 	skos:scopeNote "Used for things where the precision of a date is sufficient, such as most projects, tasks, and the like. Recommended usage is to zero out the hours through microseconds to avoid spurious precision."^^xsd:string ;
 	.
@@ -2046,7 +2046,7 @@ gist:actualEndMinute
 	rdfs:subPropertyOf gist:actualEndDateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "The actual date and time that something ended, with precision of one minute."^^xsd:string ;
-	skos:example "'2021-06-01T08:32:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:example "'2021-06-01T08:32:00-06:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "actual end minute"^^xsd:string ;
 	skos:scopeNote "Used for things like meetings and time card entries, where the hour and minute are important. Recommended usage is to zero out the seconds and microseconds to avoid spurious precision."^^xsd:string ;
 	.
@@ -2057,7 +2057,7 @@ gist:actualEndYear
 	rdfs:range xsd:dateTime ;
 	skos:definition "The actual date that something ended, with precision of one year."^^xsd:string ;
 	skos:example
-		"'2021-01-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ,
+		"'2021-01-01T00:00:00-06:00'^^xsd:dateTime"^^xsd:string ,
 		"The tenure of the previous chairman of the board ended in 2021."^^xsd:string
 		;
 	skos:prefLabel "actual end year"^^xsd:string ;
@@ -2069,7 +2069,7 @@ gist:actualStartDate
 	rdfs:subPropertyOf gist:actualStartDateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "The actual date that something started, with precision of one day."^^xsd:string ;
-	skos:example "'2021-06-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:example "'2021-06-01T00:00:00-06:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "actual start date"^^xsd:string ;
 	skos:scopeNote "Used for things where the precision of a date is sufficient, such as most projects, tasks, and the like. Recommended usage is to zero out the hours through microseconds to avoid spurious precision."^^xsd:string ;
 	.
@@ -2098,7 +2098,7 @@ gist:actualStartMinute
 	rdfs:subPropertyOf gist:actualStartDateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "The actual date and time that something started, with precision of one minute."^^xsd:string ;
-	skos:example "'2021-06-01T08:32:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:example "'2021-06-01T08:32:00-06:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "actual start minute"^^xsd:string ;
 	skos:scopeNote "Used for things like meetings and time card entries, where the hour and minute are important. Recommended usage is to zero out the seconds and microseconds to avoid spurious precision."^^xsd:string ;
 	.
@@ -2109,7 +2109,7 @@ gist:actualStartYear
 	rdfs:range xsd:dateTime ;
 	skos:definition "The actual date that something started, with precision of one year."^^xsd:string ;
 	skos:example
-		"'2021-01-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ,
+		"'2021-01-01T00:00:00-06:00'^^xsd:dateTime"^^xsd:string ,
 		"The tenure of the current chairman of the board began in 2021."^^xsd:string
 		;
 	skos:prefLabel "actual start year"^^xsd:string ;
@@ -2154,7 +2154,7 @@ gist:birthDate
 	rdfs:subPropertyOf gist:startDateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "The date some living thing was or will be born, with precision of one day."^^xsd:string ;
-	skos:example "'2021-06-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:example "'2021-06-01T00:00:00-06:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "birth date"^^xsd:string ;
 	skos:scopeNote "This is a subproperty of gist:startDateTime rather than gist:actualStartDate because some living things have yet to be born. This property refers to a calendar date and is assumed to precision of one day (time zone offset is allowed). It is recommended to zero out the hours through microseconds to avoid spurious precision. Implementations requiring a birthdate to the minute can define a subproperty."^^xsd:string ;
 	.
@@ -2269,7 +2269,7 @@ gist:deathDate
 	rdfs:subPropertyOf gist:actualEndDate ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "The date some living thing died."^^xsd:string ;
-	skos:example "'2021-06-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:example "'2021-06-01T00:00:00-06:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "death date"^^xsd:string ;
 	skos:scopeNote "Refers to a calendar date and is assumed to have precision of one day (time zone offset is allowed). Recommended usage is to zero out the hours through microseconds to avoid spurious precision. Implementations requiring a death date to the minute can define a subproperty."^^xsd:string ;
 	.
@@ -3230,7 +3230,7 @@ gist:plannedEndDate
 	rdfs:subPropertyOf gist:plannedEndDateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "The date that something is or was planned to end, with precision of one day."^^xsd:string ;
-	skos:example "'2021-06-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:example "'2021-06-01T00:00:00-06:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "planned end date"^^xsd:string ;
 	skos:scopeNote "Used for anything with a planned end date, such as when a lease will expire, when an offer is no longer available, etc. Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual. Recommended usage is to zero out the hours through microseconds to avoid spurious precision."^^xsd:string ;
 	.
@@ -3252,7 +3252,7 @@ gist:plannedEndMinute
 	rdfs:subPropertyOf gist:plannedEndDateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "The date and time that something is or was planned to end, with precision of one minute."^^xsd:string ;
-	skos:example "'2021-06-01T08:32:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:example "'2021-06-01T08:32:00-06:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "planned end minute"^^xsd:string ;
 	skos:scopeNote "Used for things like meetings and time card entries, where the hour and minute are important. Recommended usage is to zero out the seconds and microseconds to avoid spurious precision.Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual."^^xsd:string ;
 	.
@@ -3263,7 +3263,7 @@ gist:plannedEndYear
 	rdfs:range xsd:dateTime ;
 	skos:definition "The date that something is or was planned to end, with precision of one year."^^xsd:string ;
 	skos:example
-		"'2021-01-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ,
+		"'2021-01-01T00:00:00-06:00'^^xsd:dateTime"^^xsd:string ,
 		"The automobile manufacturer announced that it will stop producing gas-powered vehicles in 2035."^^xsd:string
 		;
 	skos:prefLabel "planned end year"^^xsd:string ;
@@ -3275,7 +3275,7 @@ gist:plannedStartDate
 	rdfs:subPropertyOf gist:plannedStartDateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "The date that something is or was planned to start, with precision of one day."^^xsd:string ;
-	skos:example "'2021-06-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:example "'2021-06-01T00:00:00-06:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "planned start date"^^xsd:string ;
 	skos:scopeNote "Used for anything with a planned start date, such as when a lease will start, when a configuration becomes available, etc. Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual. Recommended usage is to zero out the hours through microseconds to avoid spurious precision."^^xsd:string ;
 	.
@@ -3297,7 +3297,7 @@ gist:plannedStartMinute
 	rdfs:subPropertyOf gist:plannedStartDateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "The date and time that something is or was planned to start, with precision of one minute."^^xsd:string ;
-	skos:example "'2021-06-01T08:32:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:example "'2021-06-01T08:32:00-06:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "planned start minute"^^xsd:string ;
 	skos:scopeNote "Used for things like meetings and time card entries, where the hour and minute are important. Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual. Recommended usage is to zero out the seconds and microseconds to avoid spurious precision."^^xsd:string ;
 	.
@@ -3308,7 +3308,7 @@ gist:plannedStartYear
 	rdfs:range xsd:dateTime ;
 	skos:definition "The date that something is or was planned to start, with precision of one year."^^xsd:string ;
 	skos:example
-		"'2021-01-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ,
+		"'2021-01-01T00:00:00-06:00'^^xsd:dateTime"^^xsd:string ,
 		"The automobile manufacturer announced that its full line-up will include only electric cars starting in 2035."^^xsd:string
 		;
 	skos:prefLabel "planned start year"^^xsd:string ;
