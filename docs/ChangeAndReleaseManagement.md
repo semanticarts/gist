@@ -54,5 +54,5 @@ A minor or patch version should require only that the user update the version nu
 ## Release Schedule
 
 - **Major versions** are released on an ad hoc basis when there is a major update, but no more than once every six months.
-- **Minor versions** are released approximately once per quarter.
-- **Patch versions** are released for urgent bug fixes.
+- **Minor versions** are released approximately twice per year.
+- **Patch versions** are released only for urgent bug fixes.
