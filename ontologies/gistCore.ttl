@@ -1281,12 +1281,12 @@ gist:Offer
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:offersToProvide ;
-				owl:someValuesFrom gist:DeliverableSpecification ;
+				owl:someValuesFrom owl:Thing ;
 			]
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:offersToReceive ;
-				owl:someValuesFrom gist:DeliverableSpecification ;
+				owl:someValuesFrom owl:Thing ;
 			]
 			[
 				a owl:Restriction ;
@@ -1308,6 +1308,21 @@ gist:Offer
 				a owl:Restriction ;
 				owl:onProperty gist:plannedStartDateTime ;
 				owl:someValuesFrom xsd:dateTime ;
+			]
+			[
+				a owl:Class ;
+				owl:unionOf (
+					[
+						a owl:Restriction ;
+						owl:onProperty gist:offersToProvide ;
+						owl:someValuesFrom gist:DeliverableSpecification ;
+					]
+					[
+						a owl:Restriction ;
+						owl:onProperty gist:offersToReceive ;
+						owl:someValuesFrom gist:DeliverableSpecification ;
+					]
+				) ;
 			]
 		) ;
 	] ;
