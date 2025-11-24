@@ -44,8 +44,9 @@ Version numbers are of the form `X.x.x` (major.minor.patch). We follow [Semantic
   - Large changes, such as introducing a new module, are not in and of themselves major changes; they are major updates only if they impact the semantics of existing terms.
 - **Minor:** New, backward-compatible functionality. Includes *any* non-major addition to the ontology, even annotation properties.
   - Examples: adding a class or property; adding a `domainIncludes` annotation; deprecation of a term. - See the [*Deprecation and Deletion Policy*](./DeprecationAndDeletionPolicy.md).
-- **Patch:** Backward-compatible bug fixes, documentation, and infrastructure changes that affect the gist release process but not the ontology itself. 
+- **Patch:** Backward-compatible bug fixes; documentation and infrastructure changes that affect the gist release process but not the ontology itself.
   - Examples: Fixing a typo in an annotation; rewording an annotation without changing its meaning; modifying the bundle configuration; adding documentation on version numbering.
+  - The SemVer specification does not explicitly address changes to documentation or infrastructure. This guidance is based on Semantic Arts' interpretation of SemVer.
 
 A minor or patch version should require only that the user update the version number in the extension ontology's import statement; no other changes are required to retain existing functionality.
 
