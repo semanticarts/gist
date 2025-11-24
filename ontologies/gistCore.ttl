@@ -189,6 +189,7 @@ gist:Agreement
 
 gist:Aspect
 	a owl:Class ;
+	owl:disjointWith gist:Event ;
 	skos:definition "A measurable characteristic."^^xsd:string ;
 	skos:example "Length, weight, cost, cycle time, defect rate."^^xsd:string ;
 	skos:prefLabel "Aspect"^^xsd:string ;
@@ -289,6 +290,7 @@ gist:Category
 			) ;
 		] ;
 	] ;
+	owl:disjointWith gist:Event ;
 	skos:definition "A concept or label used to categorize other instances without specifying any formal semantics."^^xsd:string ;
 	skos:example "Tags used in folksonomies; formal definitions from other systems."^^xsd:string ;
 	skos:prefLabel "Category"^^xsd:string ;
@@ -673,8 +675,6 @@ gist:EquipmentType
 gist:Event
 	a owl:Class ;
 	owl:disjointWith
-		gist:Aspect ,
-		gist:Category ,
 		gist:Language ,
 		gist:Magnitude ,
 		gist:TimeInterval ,
