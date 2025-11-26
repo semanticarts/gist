@@ -1,0 +1,6 @@
+### {Minor} Updates
+-  Change `gist:prevents` to `gist:prohibits`. Issue [#1305](https://github.com/semanticarts/gist/issues/1305).
+    - Added property `gist:prohibits`. 
+    - Deprecated property `gist:prevents`.
+
+
