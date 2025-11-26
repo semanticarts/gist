@@ -1702,7 +1702,7 @@ gist:Restriction
 			gist:Intention
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:prevents ;
+				owl:onProperty gist:prohibits ;
 				owl:someValuesFrom gist:Behavior ;
 			]
 		) ;
@@ -3347,9 +3347,24 @@ gist:prevents
 	a owl:ObjectProperty ;
 	rdfs:domain gist:Intention ;
 	rdfs:range gist:Behavior ;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "Relates an intention to behavior that it prohibits."^^xsd:string ;
 	skos:example "A city ordinance prohibits jaywalking."^^xsd:string ;
 	skos:prefLabel "prevents"^^xsd:string ;
+	gist:isSupersededBy gist:prohibits ;
+	.
+
+gist:prohibits
+	a owl:ObjectProperty ;
+	rdfs:domain gist:Intention ;
+	rdfs:range gist:Behavior ;
+	skos:definition "Relates an intention to behavior that it seeks to prevent, discourage, or forbid."^^xsd:string ;
+	skos:example
+		"A city ordinance intends to prevent jaywalking."^^xsd:string ,
+		'Private property laws prohibit someone from entering private land marked with a "No Tresspassing" sign.'^^xsd:string
+		;
+	skos:prefLabel "prohibits"^^xsd:string ;
+	skos:scopeNote "Because intentions prohibit behavior, for a behavior to be prohibited should not be interpreted as that behavior being physically prevented or otherwise made impossible. Intentions cannot physically prevent behaviors, and instead can only seek to make certain behaviors undesirable as a means of prevention."^^xsd:string ;
 	.
 
 gist:providesOrderFor
