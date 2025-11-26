@@ -1,0 +1,36 @@
+prefix sh: <http://www.w3.org/ns/shacl#>
+prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/>
+
+CONSTRUCT {
+?report a sh:ValidationReport ;
+  sh:conforms false ;
+  sh:result
+    [
+      a sh:ValidationResult ;
+      sh:focusNode ?event ;
+      sh:resultMessage ?error ;
+      sh:resultSeverity sh:Warning ;
+      sh:sourceConstraintComponent <urn:constraint:violates-disjoint>
+    ] .
+}
+WHERE {
+  # Uses of gist:produces as a property will be automatically inverted
+  # Uses as object/subject should be reported
+  {
+    VALUES ?disjoint {
+      gist:Aspect
+      gist:Category
+      gist:Language
+      gist:Magnitude
+      gist:TimeInterval
+      gist:UnitOfMeasure
+    }
+    ?event a gist:Event
+    FILTER EXISTS { ?event a ?disjoint }
+  }
+  BIND(<urn:violates-disjoint-validation-report> as ?report)
+  BIND(CONCAT("An instance of ",
+      REPLACE(STR(?disjoint), '^.*[/#]', ''),
+      " violates the definition of gist:Event. ",
+      "Review release notes for information about the changes.") as ?error)
+}

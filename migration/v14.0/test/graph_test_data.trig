@@ -1,0 +1,28 @@
+@prefix : <https://example.org/test/> .
+@prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+:v14_Test_Data {
+    :AnArtifact a gist:Artifact .
+
+    :AGeoSegment a gist:GeoSegment .
+
+    :SomePlace a gist:Place; skos:prefLabel "Some Place" .
+
+    :myProducedProp rdfs:subPropertyOf gist:produces .
+
+    :AnObligation a gist:Obligation .
+
+    :Receiver gist:accepts :AGift .
+
+    :ACow gist:produces :SomeMilk .
+
+    :Vendor gist:offers :PetRock .
+
+    :Conflicted a gist:Event, gist:Category .
+
+    :AnimalKingdom a gist:Taxonomy .
+}
+
+:Conflicted a gist:Magnitude .

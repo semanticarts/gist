@@ -25,11 +25,9 @@ to be installed.
 Once you have the Ontology Toolkit installed, issue the following command from the directory where
 you [cloned](https://github.com/semanticarts/gist) or downloaded gist:
 
-```shell
-onto_tool bundle -v input INPUT-DIR 
-                 -v output OUTPUT-DIR
-                 -v report REPORT-DIR migration/v10.0/migrate_local.yaml
-```
+    onto_tool bundle -v input INPUT-DIR 
+                    -v output OUTPUT-DIR
+                    -v report REPORT-DIR migration/v10.0/migrate_local.yaml
 
 where _INPUT-DIR_ is the directory in which your RDF data is located, _OUTPUT-DIR_ is the directory where
 updated RDF should be written, and REPORT-DIR is a directory where reports regarding any issues found
@@ -44,12 +42,10 @@ subdirectories are traversed, and those would require additional tool invocation
 Once you have the Ontology Toolkit installed, issue the following command from the directory where
 you [cloned](https://github.com/semanticarts/gist) or downloaded gist:
 
-```shell
-onto_tool bundle -v user USER -v password PWD 
-                 -v endpoint ENDPOINT-URI 
-                 [ -v update_endpoint UPDATE-URI ] 
-                 -v report REPORT-DIR migration/v10.0/migrate_endpoint.yaml
-```
+    onto_tool bundle -v user USER -v password PWD 
+                    -v endpoint ENDPOINT-URI 
+                    [ -v update_endpoint UPDATE-URI ] 
+                    -v report REPORT-DIR migration/v10.0/migrate_endpoint.yaml
 
 where _ENDPOINT-URI_ is the address of your SPARQL endpoint, and _USER_ and _PWD_ are the credentials
 required to access it. Only Basic HTTP authentication is handled at this time. If your triple store has

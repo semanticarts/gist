@@ -1,0 +1,24 @@
+# replace classes in the default graph
+# note: also create your own categories for the different types and uses of gist:Place
+
+prefix gist:  <https://w3id.org/semanticarts/ns/ontology/gist/>
+
+# test
+select ?s ?oldClass ?newClass ?g   # ?g should be empty
+
+# update graph
+# delete {?s rdf:type ?oldClass .}
+# insert {?s rdf:type ?newClass .}
+
+
+where {
+
+    values (?oldClass   ?newClass) {
+        (gist:Place  gist:GeoLocation)
+        (gist:Taxonomy  gist:ControlledVocabulary)
+    }
+
+    {?s rdf:type ?oldClass .}
+}
+
+

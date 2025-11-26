@@ -130,12 +130,10 @@ Some developers like to create a PR before work is completed. Follow the steps a
   - Example: "Correct cardinality restriction on class gist:Room. Closes #98."
   - If the PR fixes multiple issues, each issue should be listed on a separate line and preceded by the word "closes." number must be prefixed by the keyword. Example:
 
-  ```markdown
-     Closes #98.
-     Closes #99.
-  ```
+            Closes #98.
+            Closes #99.
 
-  rather than "Closes #98, #99" or "Closes #98 and #99".
+    rather than "Closes #98, #99" or "Closes #98 and #99".
 - The description should also include a brief summary or bulleted list outlining the changes in the PR.
 - The PR should include a release note. See [_Release Notes_](#release-notes).
 - Refer to the [_Deprecation and Deletion Policy_](./DeprecationAndDeletionPolicy.md) if you are deprecating or deleting terms.
@@ -164,11 +162,13 @@ Some developers like to create a PR before work is completed. Follow the steps a
 - Return to your PR after it has been reviewed in order to view the requested and suggested changes.
 - When you commit your corrections, they are automaticallly added to the existing PR.
 - Resolve the reviewer comment for straightforward changes. For more complex changes, leave the comment open so the reviewer can come back to it.
-- Re-request reviews from any reviewers who requested changes. If additional changes are requested, cycle back through these steps.
+- Re-request reviews from any reviewers who requested changes. If you do not do this explicitly, reviewers will not be notified of the need to re-review.
+- If additional changes are requested, cycle back through these steps.
 
 ### Merging the PR
 
-- The repository is configured to do rebase and merge by default, but there are some cases where a rebase is not possible and merge commit must be selected.
+- Only authorized users may merge into the protected branches `develop` and `main`.
+- A rebase and merge is preferred, but there are some cases where a rebase is not possible and merge commit must be selected.
 - The GitHub project board is configured to automatically move a merged PR and its associated issue(s) to the Done column, assuming you have linked the PR to the issue(s).
 - The repository is configured to automatically delete the remote branch on merge.
 
@@ -200,7 +200,7 @@ Some developers like to create a PR before work is completed. Follow the steps a
   - You can copy the template [`release_notes/release_note_template.md`](./release_notes/release_note_template.md) to use as a starting point.
   - Headings use the open `ATX` convention: i.e., leading hashes only and no underlining.
   - Bullet points are symbolized with dash rather than asterisk.
-  - The note begins with either a past tense verb or a noun; e.g., "Updated..." or "Modifications to...".
+  - The note begins with either a past tense verb or a noun; e.g., "Updated..." or "Modifications to...". Present tense verbs may be used in subsequent sentences or bullet points to describe the state resulting from the change. Example: "Removed class `gist:Artifact`. `gist:Content` is now a top-level class."
   - Ontology and other code terms are enclosed in backticks and use the `gist:` prefix; e.g., `gist:Organization`.
   - Use nested bullets or tables to organize the content of complex notes.
   - Each note includes a link to the issue(s) - but not PRs - addressed. Multiple issues should be listed in ascending numeric order.
