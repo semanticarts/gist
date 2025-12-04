@@ -1635,7 +1635,7 @@ gist:ProductSpecification
 			]
 		) ;
 	] ;
-	skos:definition "Offering something which could be physically warehoused or digitally stored."^^xsd:string ;
+	skos:definition "A description of something that could be physically warehoused or digitally stored and physically or digitally delivered."^^xsd:string ;
 	skos:prefLabel "Product Specification"^^xsd:string ;
 	.
 
