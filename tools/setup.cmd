@@ -3,20 +3,20 @@
 : # Be careful trying to modify it unless you understand how it really works.
 
 : # Currently, this is very minimal:
-: # - install a git pre-commit hook to enforce certain expectations prior to making a commit
+: # - Install a git pre-commit hook to enforce certain expectations prior to making a commit.
 
 :; if [ -z 0 ]; then
   @echo off
   goto :WINDOWS
 fi
 
-# Get root directory of this git repository
+# Get root directory of this git repository.
 base_dir=$(git rev-parse --show-toplevel)
 
-# Print out commands so user can see what is being done
+# Print out commands so user can see what is being done.
 set -x
 
-# Copy pre-commit-hook to the git hooks directory
+# Copy pre-commit-hook to the git hooks directory.
 cp "${base_dir}/tools/pre-commit-hook" "${base_dir}/.git/hooks/pre-commit"
 
 # Make pre-commit hook executable.
@@ -31,7 +31,7 @@ chmod +x "${base_dir}/tools/serializer/pre-commit"
 # Don't track executable flags on files in this repository (this is not a global setting).
 git config core.filemode false
 
-# Exit linux shell
+# Exit linux shell.
 exit
 
 
