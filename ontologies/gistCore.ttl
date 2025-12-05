@@ -3362,7 +3362,7 @@ gist:prohibits
 		'Private property laws prohibit someone from entering private land marked with a "No Tresspassing" sign.'^^xsd:string
 		;
 	skos:prefLabel "prohibits"^^xsd:string ;
-	skos:scopeNote "Because intentions prohibit behavior, for a behavior to be prohibited should not be interpreted as that behavior being physically prevented or otherwise made impossible. Intentions cannot physically prevent behaviors, and instead can only seek to make certain behaviors undesirable as a means of prevention."^^xsd:string ;
+	skos:scopeNote "A behavior can be prohibited without being prevented. For example, a speed limit may prohibit driving faster than a stated speed but don't always succeed in preventing drivers from exceeding that speed."^^xsd:string ;
 	.
 
 gist:providesOrderFor
