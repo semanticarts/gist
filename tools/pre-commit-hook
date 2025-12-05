@@ -1,7 +1,8 @@
 #!/usr/bin/env sh
 
 # This file should be copied into the .git/hooks directory of the project.
-# All it does is call ./tools/pre-commit-code
+# When the setup.cmd script is executed it will make the copy for you.
+# All this script does is call ./tools/pre-commit-code.
 
 # Get root directory of this git repository.
 base_dir=$(git rev-parse --show-toplevel)
