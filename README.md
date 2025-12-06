@@ -45,9 +45,13 @@ gist uses domain and range specifications sparingly in order to make properties 
 
 We provide a number of resources for learning more about gist.
 
-### The gist Periodic Table
+### The Periodic Table of gist
 
-The gist periodic table is a graphical representation of gist coverage organized into abstract conceptual clusters.
+The Periodic Table of gist is a graphical representation of gist coverage organized into abstract conceptual clusters.
+
+[![gist periodic table](docs/gist-periodic-table-thumb.png)](docs/gist-periodic-table.png)
+
+(click image to enlarge)
 
 ### The gist-doc Repository
 
