@@ -1935,7 +1935,7 @@ gist:Text
 			]
 		) ;
 	] ;
-	skos:definition "Content expressed as words and numbers."^^xsd:string ;
+	skos:definition "Written content expressed as words and numbers."^^xsd:string ;
 	skos:example "Negative example: graphical content."^^xsd:string ;
 	skos:prefLabel "Text"^^xsd:string ;
 	.
