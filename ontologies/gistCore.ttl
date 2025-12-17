@@ -3395,7 +3395,7 @@ gist:requires
 gist:sequence
 	a owl:DatatypeProperty ;
 	rdfs:range xsd:integer ;
-	skos:definition "A number that specifies the position of an element within an ordered collection or series."^^xsd:string ;
+	skos:definition "A number that specifies the position of an element within a series."^^xsd:string ;
 	skos:prefLabel "sequence"^^xsd:string ;
 	gist:domainIncludes gist:OrderedMember ;
 	.
