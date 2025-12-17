@@ -47,11 +47,7 @@ We provide a number of resources for learning more about gist.
 
 ### The Periodic Table of gist
 
-The Periodic Table of gist is a graphical representation of gist coverage organized into abstract conceptual clusters.
-
-[![gist periodic table](gist-periodic-table-thumb.png)](gist-periodic-table.png)
-
-(click image to enlarge)
+[The Periodic Table of gist](https://www.semanticarts.com/gist/) is a graphical representation of gist coverage organized into abstract conceptual clusters.
 
 ### The gist-doc Repository
 
