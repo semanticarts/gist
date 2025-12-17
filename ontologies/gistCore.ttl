@@ -2213,7 +2213,7 @@ gist:containedText
 
 gist:contributesTo
 	a owl:ObjectProperty ;
-	skos:definition "Relates a part of a system to the system whose goals or function it contributes to."^^xsd:string ;
+	skos:definition "Relates one thing to another thing whose goals or functions it helps to achieve or fulfill."^^xsd:string ;
 	skos:prefLabel "contributes to"^^xsd:string ;
 	.
 
