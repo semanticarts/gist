@@ -1278,16 +1278,6 @@ gist:Offer
 			gist:ContingentObligation
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:offersToProvide ;
-				owl:someValuesFrom owl:Thing ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:offersToReceive ;
-				owl:someValuesFrom owl:Thing ;
-			]
-			[
-				a owl:Restriction ;
 				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
@@ -1296,6 +1286,16 @@ gist:Offer
 						gist:Person
 					) ;
 				] ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:offersToProvide ;
+				owl:someValuesFrom owl:Thing ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:offersToReceive ;
+				owl:someValuesFrom owl:Thing ;
 			]
 			[
 				a owl:Restriction ;
@@ -1935,9 +1935,10 @@ gist:Text
 			]
 		) ;
 	] ;
-	skos:definition "Written content expressed as words and numbers."^^xsd:string ;
-	skos:example "Negative example: graphical content."^^xsd:string ;
+	skos:definition "Content expressed as a written sequence of characters."^^xsd:string ;
+	skos:example "Negative example: photographs or scans of text are not text. These instead depict a subject, which happens to be text."^^xsd:string ;
 	skos:prefLabel "Text"^^xsd:string ;
+	skos:scopeNote "Text is expressed in a language (human or computer) and may but need not specify an encoding."^^xsd:string ;
 	.
 
 gist:TimeInterval
