@@ -1277,16 +1277,6 @@ gist:Offer
 			gist:ContingentObligation
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:offersToProvide ;
-				owl:someValuesFrom owl:Thing ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:offersToReceive ;
-				owl:someValuesFrom owl:Thing ;
-			]
-			[
-				a owl:Restriction ;
 				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
@@ -1295,6 +1285,16 @@ gist:Offer
 						gist:Person
 					) ;
 				] ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:offersToProvide ;
+				owl:someValuesFrom owl:Thing ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:offersToReceive ;
+				owl:someValuesFrom owl:Thing ;
 			]
 			[
 				a owl:Restriction ;
@@ -1824,8 +1824,9 @@ gist:System
 			]
 		) ;
 	] ;
-	skos:definition "A composite with component parts that contribute to the goal of the system."^^xsd:string ;
+	skos:definition "A composite made up of component parts."^^xsd:string ;
 	skos:prefLabel "System"^^xsd:string ;
+	skos:scopeNote "May be used to refer to either man-made or natural systems."^^xsd:string ;
 	.
 
 gist:Tag
