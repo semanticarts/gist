@@ -119,15 +119,9 @@ gist:Account
 				a owl:Restriction ;
 				owl:onProperty gist:hasMagnitude ;
 				owl:someValuesFrom [
-					a owl:Class ;
-					owl:intersectionOf (
-						gist:Magnitude
-						[
-							a owl:Restriction ;
-							owl:onProperty gist:hasAspect ;
-							owl:hasValue gistd:_Aspect_financial_balance ;
-						]
-					) ;
+					a owl:Restriction ;
+					owl:onProperty gist:hasAspect ;
+					owl:hasValue gistd:_Aspect_financial_balance ;
 				] ;
 			]
 		) ;
@@ -439,15 +433,9 @@ gist:ContingentEvent
 				a owl:Restriction ;
 				owl:onProperty gist:hasMagnitude ;
 				owl:someValuesFrom [
-					a owl:Class ;
-					owl:intersectionOf (
-						gist:Magnitude
-						[
-							a owl:Restriction ;
-							owl:onProperty gist:hasAspect ;
-							owl:hasValue gistd:_Aspect_probability ;
-						]
-					) ;
+					a owl:Restriction ;
+					owl:onProperty gist:hasAspect ;
+					owl:hasValue gistd:_Aspect_probability ;
 				] ;
 			]
 			[
@@ -759,15 +747,9 @@ gist:GeoPoint
 				a owl:Restriction ;
 				owl:onProperty gist:hasMagnitude ;
 				owl:someValuesFrom [
-					a owl:Class ;
-					owl:intersectionOf (
-						gist:Magnitude
-						[
-							a owl:Restriction ;
-							owl:onProperty gist:hasAspect ;
-							owl:hasValue gistd:_Aspect_altitude ;
-						]
-					) ;
+					a owl:Restriction ;
+					owl:onProperty gist:hasAspect ;
+					owl:hasValue gistd:_Aspect_altitude ;
 				] ;
 			]
 			[
@@ -796,15 +778,9 @@ gist:GeoRegion
 				a owl:Restriction ;
 				owl:onProperty gist:hasMagnitude ;
 				owl:someValuesFrom [
-					a owl:Class ;
-					owl:intersectionOf (
-						gist:Magnitude
-						[
-							a owl:Restriction ;
-							owl:onProperty gist:hasAspect ;
-							owl:hasValue gistd:_Aspect_area ;
-						]
-					) ;
+					a owl:Restriction ;
+					owl:onProperty gist:hasAspect ;
+					owl:hasValue gistd:_Aspect_area ;
 				] ;
 			]
 		) ;
@@ -856,15 +832,9 @@ gist:GeoVolume
 				a owl:Restriction ;
 				owl:onProperty gist:hasMagnitude ;
 				owl:someValuesFrom [
-					a owl:Class ;
-					owl:intersectionOf (
-						gist:Magnitude
-						[
-							a owl:Restriction ;
-							owl:onProperty gist:hasAspect ;
-							owl:hasValue gistd:_Aspect_volume ;
-						]
-					) ;
+					a owl:Restriction ;
+					owl:onProperty gist:hasAspect ;
+					owl:hasValue gistd:_Aspect_volume ;
 				] ;
 			]
 			[
@@ -1525,30 +1495,18 @@ gist:PhysicalIdentifiableItem
 			a owl:Restriction ;
 			owl:onProperty gist:hasMagnitude ;
 			owl:someValuesFrom [
-				a owl:Class ;
-				owl:intersectionOf (
-					gist:Magnitude
-					[
-						a owl:Restriction ;
-						owl:onProperty gist:hasAspect ;
-						owl:hasValue gistd:_Aspect_mass ;
-					]
-				) ;
+				a owl:Restriction ;
+				owl:onProperty gist:hasAspect ;
+				owl:hasValue gistd:_Aspect_mass ;
 			] ;
 		] ,
 		[
 			a owl:Restriction ;
 			owl:onProperty gist:hasMagnitude ;
 			owl:someValuesFrom [
-				a owl:Class ;
-				owl:intersectionOf (
-					gist:Magnitude
-					[
-						a owl:Restriction ;
-						owl:onProperty gist:hasAspect ;
-						owl:hasValue gistd:_Aspect_volume ;
-					]
-				) ;
+				a owl:Restriction ;
+				owl:onProperty gist:hasAspect ;
+				owl:hasValue gistd:_Aspect_volume ;
 			] ;
 		] ,
 		[
@@ -1574,30 +1532,18 @@ gist:PhysicalSubstance
 			a owl:Restriction ;
 			owl:onProperty gist:hasMagnitude ;
 			owl:someValuesFrom [
-				a owl:Class ;
-				owl:intersectionOf (
-					gist:Magnitude
-					[
-						a owl:Restriction ;
-						owl:onProperty gist:hasAspect ;
-						owl:hasValue gistd:_Aspect_mass ;
-					]
-				) ;
+				a owl:Restriction ;
+				owl:onProperty gist:hasAspect ;
+				owl:hasValue gistd:_Aspect_mass ;
 			] ;
 		] ,
 		[
 			a owl:Restriction ;
 			owl:onProperty gist:hasMagnitude ;
 			owl:someValuesFrom [
-				a owl:Class ;
-				owl:intersectionOf (
-					gist:Magnitude
-					[
-						a owl:Restriction ;
-						owl:onProperty gist:hasAspect ;
-						owl:hasValue gistd:_Aspect_volume ;
-					]
-				) ;
+				a owl:Restriction ;
+				owl:onProperty gist:hasAspect ;
+				owl:hasValue gistd:_Aspect_volume ;
 			] ;
 		]
 		;
@@ -1956,15 +1902,9 @@ gist:TimeInterval
 			a owl:Restriction ;
 			owl:onProperty gist:hasMagnitude ;
 			owl:onClass [
-				a owl:Class ;
-				owl:intersectionOf (
-					gist:Magnitude
-					[
-						a owl:Restriction ;
-						owl:onProperty gist:hasAspect ;
-						owl:hasValue gistd:_Aspect_duration ;
-					]
-				) ;
+				a owl:Restriction ;
+				owl:onProperty gist:hasAspect ;
+				owl:hasValue gistd:_Aspect_duration ;
 			] ;
 			owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 		]
