@@ -955,7 +955,7 @@ gist:ID
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:uniqueText ;
-				owl:someValuesFrom xsd:string ;
+				owl:someValuesFrom rdf:PlainLiteral ;
 			]
 		) ;
 	] ;
@@ -1930,7 +1930,7 @@ gist:Text
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:containedText ;
-				owl:someValuesFrom xsd:string ;
+				owl:someValuesFrom rdf:PlainLiteral ;
 			]
 		) ;
 	] ;
