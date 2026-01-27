@@ -615,8 +615,8 @@ gist:DegreeOfCommitment
 
 gist:Determination
 	a owl:Class ;
-	rdfs:subClassOf gist:Event ;
-	skos:definition "An event whose purpose is to establish a specific result, value, or outcome, usually by research, measuring, evaluating, or calculating."^^xsd:string ;
+	rdfs:subClassOf gist:Task ;
+	skos:definition "An activity whose purpose is to establish a specific result, value, or outcome, usually by research, measuring, evaluating, or calculating."^^xsd:string ;
 	skos:example "Measuring the sulphur content of crude oil; evaluating a loan application for approval; estimating the price of gas for the next three months; determining whether and by how much an interest rate should change; classifying a purchase into a budget category."^^xsd:string ;
 	skos:prefLabel "Determination"^^xsd:string ;
 	.
@@ -3398,8 +3398,9 @@ gist:requires
 gist:sequence
 	a owl:DatatypeProperty ;
 	rdfs:range xsd:integer ;
-	skos:definition "For ordering ordered lists."^^xsd:string ;
+	skos:definition "A number that specifies the position of an element within a series."^^xsd:string ;
 	skos:prefLabel "sequence"^^xsd:string ;
+	gist:domainIncludes gist:OrderedMember ;
 	.
 
 gist:startDateTime
