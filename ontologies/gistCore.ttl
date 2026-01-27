@@ -1139,7 +1139,7 @@ gist:MediaType
 		[
 			a owl:Restriction ;
 			owl:onProperty gist:uniqueText ;
-			owl:someValuesFrom xsd:string ;
+			owl:someValuesFrom rdf:PlainLiteral ;
 		]
 		;
 	rdfs:seeAlso <https://www.iana.org/assignments/media-types/media-types.xhtml> ;
@@ -1835,7 +1835,7 @@ gist:Tag
 		[
 			a owl:Restriction ;
 			owl:onProperty gist:containedText ;
-			owl:someValuesFrom xsd:string ;
+			owl:someValuesFrom rdf:PlainLiteral ;
 		]
 		;
 	skos:definition "A term in a folksonomy used to categorize things. Tags can be made up on the fly by users."^^xsd:string ;
@@ -2302,7 +2302,7 @@ gist:domainIncludes
 gist:encryptedText
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf gist:containedText ;
-	rdfs:range rdf:PlainLiteral ;
+	rdfs:range xsd:string ;
 	skos:definition "Encoded text produced from readable data by an algorithm so that it can only be understood or restored with a decryption key."^^xsd:string ;
 	skos:prefLabel "encrypted text"^^xsd:string ;
 	.
