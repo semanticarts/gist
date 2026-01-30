@@ -1058,6 +1058,7 @@ gist:Landmark
 
 gist:Language
 	a owl:Class ;
+	owl:deprecated "true"^^xsd:boolean ;
 	owl:disjointWith
 		gist:Magnitude ,
 		gist:Organization ,
