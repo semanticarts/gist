@@ -3368,7 +3368,7 @@ gist:recordedDateTime
 	rdfs:subPropertyOf gist:atDateTime ;
 	skos:definition "The date that something was posted (which is not necessarily the date it occurred). It must be after the date of occurrence, but could be before or after the planned date."^^xsd:string ;
 	skos:example "The date and time a customer payment or stock purchase was posted."^^xsd:string ;
-	skos:prefLabel "is recorded at"^^xsd:string ;
+	skos:prefLabel "recorded date time"^^xsd:string ;
 	skos:scopeNote "Precision may vary according to context."^^xsd:string ;
 	.
 
