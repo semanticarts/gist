@@ -200,7 +200,7 @@ actions:
     - "MajorVersionMigration.md"
     - "Namespace.md"
 - action: "copy"
-  message: "Copying readme, gist logo, and periodic table images to docs directory."
+  message: "Copying readme and gist logo to docs directory."
   source: "{input}"
   target: "{output}/docs/"
   includes:
