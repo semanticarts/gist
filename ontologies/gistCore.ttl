@@ -1277,16 +1277,6 @@ gist:Offer
 			gist:ContingentObligation
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:offersToProvide ;
-				owl:someValuesFrom owl:Thing ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:offersToReceive ;
-				owl:someValuesFrom owl:Thing ;
-			]
-			[
-				a owl:Restriction ;
 				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
@@ -1295,6 +1285,16 @@ gist:Offer
 						gist:Person
 					) ;
 				] ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:offersToProvide ;
+				owl:someValuesFrom owl:Thing ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:offersToReceive ;
+				owl:someValuesFrom owl:Thing ;
 			]
 			[
 				a owl:Restriction ;
@@ -3062,15 +3062,6 @@ gist:isRecognizedBy
 	skos:prefLabel "is recognized by"^^xsd:string ;
 	.
 
-gist:isRecordedAt
-	a owl:DatatypeProperty ;
-	rdfs:subPropertyOf gist:atDateTime ;
-	skos:definition "The date that something was posted (which is not necessarily the date it occurred). It must be after the date of occurrence, but could be before or after the planned date."^^xsd:string ;
-	skos:example "The date and time a customer payment or stock purchase was posted."^^xsd:string ;
-	skos:prefLabel "is recorded at"^^xsd:string ;
-	skos:scopeNote "Precision may vary according to context."^^xsd:string ;
-	.
-
 gist:isRenderedOn
 	a owl:ObjectProperty ;
 	skos:definition "Relates content to the media on which it is rendered."^^xsd:string ;
@@ -3370,6 +3361,15 @@ gist:rangeIncludes
 		"There may be multiple rangeIncludes assertions on a single property."^^xsd:string ,
 		"This property is used to guide the ontology user; like all annotation properties, it does not play a role in inference."^^xsd:string
 		;
+	.
+
+gist:recordedDateTime
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:atDateTime ;
+	skos:definition "The date that something was posted (which is not necessarily the date it occurred). It must be after the date of occurrence, but could be before or after the planned date."^^xsd:string ;
+	skos:example "The date and time a customer payment or stock purchase was posted."^^xsd:string ;
+	skos:prefLabel "recorded date time"^^xsd:string ;
+	skos:scopeNote "Precision may vary according to context."^^xsd:string ;
 	.
 
 gist:refersTo
