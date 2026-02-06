@@ -1058,6 +1058,7 @@ gist:Landmark
 
 gist:Language
 	a owl:Class ;
+	owl:deprecated "true"^^xsd:boolean ;
 	owl:disjointWith
 		gist:Magnitude ,
 		gist:Organization ,
@@ -1277,16 +1278,6 @@ gist:Offer
 			gist:ContingentObligation
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:offersToProvide ;
-				owl:someValuesFrom owl:Thing ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:offersToReceive ;
-				owl:someValuesFrom owl:Thing ;
-			]
-			[
-				a owl:Restriction ;
 				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
@@ -1295,6 +1286,16 @@ gist:Offer
 						gist:Person
 					) ;
 				] ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:offersToProvide ;
+				owl:someValuesFrom owl:Thing ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:offersToReceive ;
+				owl:someValuesFrom owl:Thing ;
 			]
 			[
 				a owl:Restriction ;
@@ -1635,7 +1636,7 @@ gist:ProductSpecification
 			]
 		) ;
 	] ;
-	skos:definition "Offering something which could be physically warehoused or digitally stored."^^xsd:string ;
+	skos:definition "A description of something that could be physically warehoused or digitally stored and physically or digitally delivered."^^xsd:string ;
 	skos:prefLabel "Product Specification"^^xsd:string ;
 	.
 
@@ -1934,9 +1935,10 @@ gist:Text
 			]
 		) ;
 	] ;
-	skos:definition "Content expressed as words and numbers."^^xsd:string ;
-	skos:example "Negative example: graphical content."^^xsd:string ;
+	skos:definition "Content expressed as a written sequence of characters."^^xsd:string ;
+	skos:example "Negative example: photographs or scans of text are not text. These instead depict a subject, which happens to be text."^^xsd:string ;
 	skos:prefLabel "Text"^^xsd:string ;
+	skos:scopeNote "Text is expressed in a language (human or computer) and may but need not specify an encoding."^^xsd:string ;
 	.
 
 gist:TimeInterval
@@ -3412,8 +3414,9 @@ gist:requires
 gist:sequence
 	a owl:DatatypeProperty ;
 	rdfs:range xsd:integer ;
-	skos:definition "For ordering ordered lists."^^xsd:string ;
+	skos:definition "A number that specifies the position of an element within a series."^^xsd:string ;
 	skos:prefLabel "sequence"^^xsd:string ;
+	gist:domainIncludes gist:OrderedMember ;
 	.
 
 gist:startDateTime
