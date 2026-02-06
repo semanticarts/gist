@@ -1824,7 +1824,7 @@ gist:System
 			]
 		) ;
 	] ;
-	skos:definition "A composite made up of interacting or interdependent component parts that together function as a whole."^^xsd:string ;
+	skos:definition "A composite made up of interacting or interdependent components that together operate as a whole."^^xsd:string ;
 	skos:prefLabel "System"^^xsd:string ;
 	skos:scopeNote "May be used to refer to either man-made or natural systems."^^xsd:string ;
 	.
