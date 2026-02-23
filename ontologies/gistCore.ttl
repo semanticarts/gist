@@ -191,9 +191,12 @@ gist:Aspect
 	a owl:Class ;
 	owl:disjointWith gist:Event ;
 	skos:definition "A measurable characteristic."^^xsd:string ;
-	skos:example "Length, weight, cost, cycle time, defect rate."^^xsd:string ;
+	skos:example "Length, weight, cost, cycle time, defect rate, wheelbase, billing rate."^^xsd:string ;
 	skos:prefLabel "Aspect"^^xsd:string ;
-	skos:scopeNote "Depending on implementation, every aspect should be related to a unit group either directly or through a broader aspect. For example, angle of incidence could be related to the broader concept of angle, which in turn is related to a unit group, or it could be related directly to the unit group without the hierarchical relationship."^^xsd:string ;
+	skos:scopeNote
+		"Depending on implementation, every aspect should be related to a unit group either directly or through a broader aspect. For example, angle of incidence could be related to the broader concept of angle, which in turn is related to a unit group, or it could be related directly to the unit group without the hierarchical relationship."^^xsd:string ,
+		"Rule of thumb: use the least specific aspect that serves the intended purpose, increasing specificity only when required (e.g., to distinguish between two magnitudes attached to the same object)."^^xsd:string
+		;
 	.
 
 gist:Assignment
