@@ -1,0 +1,8 @@
+## Major Updates
+
+- Deprecated classes `gist:Landmark` and `gist:Building`. Issue [#1205](https://github.com/semanticarts/gist/issues/1205).
+
+## Minor Updates
+
+- Changed examples of `gist:PhysicalIdentifiableItem` to include a landmark and building.
+- Modified existing examples of `gist:PhysicalIdentifiableItem` to be more specific.
