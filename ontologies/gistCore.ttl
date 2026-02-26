@@ -1565,7 +1565,7 @@ gist:PhysicalIdentifiableItem
 		gist:UnitOfMeasure
 		;
 	skos:definition "A discrete physical object which, if subdivided, will result in parts that are distinguishable in nature from the whole and in general also from the other parts."^^xsd:string ;
-	skos:example "A laptop, a physical book, a car, a building, a landmark."^^xsd:string ;
+	skos:example "A laptop, a physical book, a car, a building, a landmark (such as a tree stump with an etched marking to denote a campsite)."^^xsd:string ;
 	skos:prefLabel "Physical Identifiable Item"^^xsd:string ;
 	skos:scopeNote "This concept generally corresponds to count nouns in English. By contrast, physical substances, such as an amount of water, flour, or sand, are mass nouns. Physical identifiable items are made up of physical substances; e.g., a cake is made up of butter, flour, and sugar; a statue is made of bronze. If you divide a physical substance such as an amount of water into parts, you have two amounts of water otherwise indistinguishable from one another; if you divide a physical identifiable item such as a computer into parts, each part is different from the whole."^^xsd:string ;
 	.
