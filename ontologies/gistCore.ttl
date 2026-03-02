@@ -607,11 +607,11 @@ gist:DegreeOfCommitment
 gist:DeliverableSpecification
 	a owl:Class ;
 	rdfs:subClassOf gist:Specification ;
-	skos:definition "A description of a product or service to be delivered, given in a sufficient level of detail that a receiver could determine whether delivery constituted discharge of the obligation to deliver."^^xsd:string ;
+	skos:definition "A description of a product or service to be delivered, given in a sufficient level of detail that a receiver can determine whether delivery constituted discharge of the obligation to deliver."^^xsd:string ;
 	skos:prefLabel "Deliverable Specification"^^xsd:string ;
 	skos:scopeNote
 		"May be identified by a Stock Keeping Unit (SKU)."^^xsd:string ,
-		"In short, an unambiguous characterization of what it is that a potential consumer is receiving."^^xsd:string
+		"In short, an unambiguous characterization of what it is that a potential consumer is entitled to receive."^^xsd:string
 		;
 	.
 
