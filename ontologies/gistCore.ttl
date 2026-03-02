@@ -610,7 +610,7 @@ gist:DeliverableSpecification
 	skos:definition "A description of a product or service to be delivered, given in a sufficient level of detail that a receiver could determine whether delivery constituted discharge of the obligation to deliver."^^xsd:string ;
 	skos:prefLabel "Deliverable Specification"^^xsd:string ;
 	skos:scopeNote
-		"Identified by a Stock Keeping Unit (SKU)."^^xsd:string ,
+		"May be identified by a Stock Keeping Unit (SKU)."^^xsd:string ,
 		"In short, an unambiguous characterization of what it is that a potential consumer is receiving."^^xsd:string
 		;
 	.
