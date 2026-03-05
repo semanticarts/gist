@@ -4,5 +4,4 @@
 
 ## Minor Updates
 
-- Changed examples of `gist:PhysicalIdentifiableItem` to include a landmark and building.
-- Modified existing examples of `gist:PhysicalIdentifiableItem` to be more specific.
+- Updated examples of `gist:PhysicalIdentifiableItem`.
