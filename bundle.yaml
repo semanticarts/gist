@@ -206,7 +206,7 @@ actions:
   includes:
     - "README.md"
     - "gist-logo.png"
- - action: "markdown"
+- action: "markdown"
   message: "Formatting documentation as HTML."
   source: "{output}/docs/"
   target: "{output}/docs/"
