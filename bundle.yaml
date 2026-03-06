@@ -206,9 +206,7 @@ actions:
   includes:
     - "README.md"
     - "gist-logo.png"
-    - "gist-periodic-table.png"
-    - "gist-periodic-table-thumb.png"
-- action: "markdown"
+ - action: "markdown"
   message: "Formatting documentation as HTML."
   source: "{output}/docs/"
   target: "{output}/docs/"
