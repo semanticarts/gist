@@ -2151,10 +2151,13 @@ gist:conformsTo
 
 gist:containedText
 	a owl:DatatypeProperty ;
-	skos:definition "A string that is closely associated with an individual."^^xsd:string ;
+	skos:definition "Relates an entity containing textual information to the literal character sequence constituting that textual information."^^xsd:string ;
 	skos:example "The string associated with a tag or with text content."^^xsd:string ;
 	skos:prefLabel "contained text"^^xsd:string ;
+	skos:scopeNote "An entity may have multiple `gist:containedText` assertions. Whether or not to use multiple assertions is an implementation decision."^^xsd:string ;
 	gist:domainIncludes
+		gist:Content ,
+		gist:ContentExpression ,
 		gist:Tag ,
 		gist:Text
 		;
