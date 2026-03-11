@@ -28,9 +28,6 @@ chmod +x "${base_dir}/tools/pre-commit-code"
 # Ensure that the serializer pre-commit hook is executable.
 chmod +x "${base_dir}/tools/serializer/pre-commit"
 
-# Don't track executable flags on files in this repository (this is not a global setting).
-git config core.filemode false
-
 # Exit linux shell.
 exit
 
