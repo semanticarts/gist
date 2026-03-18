@@ -1736,7 +1736,7 @@ gist:ServiceSpecification
 gist:Specification
 	a owl:Class ;
 	rdfs:subClassOf gist:Intention ;
-	skos:definition "The set of characteristics and constraints on their values that represents what expectations a particular type of thing, such as a material, product, service or event, must satisfy. A specification is sufficiently precise to allow evaluating conformance to the specification."^^xsd:string ;
+	skos:definition "The set of characteristics and constraints on their values that represents what expectations a particular type of thing, such as a material, product, service or event, must satisfy to conform. A specification is sufficiently precise to allow evaluating conformance to the specification."^^xsd:string ;
 	skos:example "The specification of the iPhone 14; hypothetical events covered by a homeowner's insurance policy; product quality specification that a specific can of peas at the supermarket may conform to to be allowed on the shelf."^^xsd:string ;
 	skos:prefLabel "Specification"^^xsd:string ;
 	skos:scopeNote "Although a characterization of how to do something is often called a specification, the intended meaning here is limited to specifying what something is. The focus is on the what, not the how. Use gist:TaskTemplate for specifying the how, such as a plan or process specification. Use gist:conformsTo to assert that something conforms to a specification. To represent a definition of a particular type of thing that is not sufficiently precise to be a gist:Specification, consider using gist:KnowledgeConcept."^^xsd:string ;
