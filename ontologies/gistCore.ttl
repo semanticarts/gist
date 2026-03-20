@@ -2162,7 +2162,7 @@ gist:containedText
 
 gist:contributesTo
 	a owl:ObjectProperty ;
-	skos:definition "Relates one thing to another thing whose goals or functions it helps to achieve or fulfill."^^xsd:string ;
+	skos:definition "The subject helps achieve or fulfill the goals or functions of the object."^^xsd:string ;
 	skos:prefLabel "contributes to"^^xsd:string ;
 	.
 
