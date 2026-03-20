@@ -1217,7 +1217,7 @@ gist:NetworkLink
 			]
 		) ;
 	] ;
-	skos:definition "An abstract representation of the connection between one or more nodes in a network."^^xsd:string ;
+	skos:definition "An abstract representation of a connection between nodes in a network."^^xsd:string ;
 	skos:example "A network link may be physical, such as pipes, wired or wireless networks, but may also be a link in a non-physical network, such as organizational structures or social networks."^^xsd:string ;
 	skos:prefLabel "Network Link"^^xsd:string ;
 	skos:scopeNote
