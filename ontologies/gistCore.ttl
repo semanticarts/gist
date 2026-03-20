@@ -1217,10 +1217,13 @@ gist:NetworkLink
 			]
 		) ;
 	] ;
-	skos:definition "An abstract representation of the connection between two or more nodes in a network."^^xsd:string ;
+	skos:definition "An abstract representation of the connection between one or more nodes in a network."^^xsd:string ;
 	skos:example "A network link may be physical, such as pipes, wired or wireless networks, but may also be a link in a non-physical network, such as organizational structures or social networks."^^xsd:string ;
 	skos:prefLabel "Network Link"^^xsd:string ;
-	skos:scopeNote "Each network link is connected to a network node via the property gist:links or one of its subproperties."^^xsd:string ;
+	skos:scopeNote
+		"A network link may connect a node to itself (e.g., a computer broadcasting and receiving its own messages) or may connect more than two nodes (e.g., a T-pipe)."^^xsd:string ,
+		"Each network link is connected to a network node via the property gist:links or one of its subproperties."^^xsd:string
+		;
 	.
 
 gist:NetworkNode
