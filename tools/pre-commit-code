@@ -19,6 +19,15 @@ fi
 # Get root directory of this git repository
 base_dir=$(git rev-parse --show-toplevel)
 
+# Restore executable bit in Git's index for files marked in .gitattributes.
+# This is needed because Windows does not preserve the executable bit when files are edited.
+git ls-files | git check-attr executable --stdin | grep ": executable: set$" | cut -d: -f1 | while read file; do
+  current_mode=$(git ls-files --stage "$file" | cut -d' ' -f1)
+  if [ "$current_mode" = "100644" ]; then
+    git update-index --chmod=+x "$file"
+  fi
+done
+
 # Run the serializer
 set -x
 

@@ -1,0 +1,5 @@
+# Mark shell scripts as executable.
+# The pre-commit hook restores the executable bit in Git's index
+# for these files, even when edited on Windows.
+*.sh executable
+tools/serializer/pre-commit executable
