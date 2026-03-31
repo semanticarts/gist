@@ -2,4 +2,5 @@
 # The pre-commit hook restores the executable bit in Git's index
 # for these files, even when edited on Windows.
 *.sh executable
+tools/pre-commit-code executable
 tools/serializer/pre-commit executable
