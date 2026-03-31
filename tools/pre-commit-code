@@ -2,7 +2,6 @@
 
 # This file performs all the actual git pre-commit checks.
 # It should be called by .git/hooks/pre-commit, which should be a copy of tools/pre-commit-hook.
-# This is a test
 
 # Stops accidental commits to branches master, main, or develop.
 BRANCH=`git rev-parse --abbrev-ref HEAD`
