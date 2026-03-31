@@ -706,7 +706,7 @@ gist:FormattedContent
 	skos:definition "Content encoded in a specific format, existing as data independent of any particular physical medium."^^xsd:string ;
 	skos:example "A PDF file stored on a server; an HTML document in memory; a JPEG file on disk."^^xsd:string ;
 	skos:prefLabel "Formatted Content"^^xsd:string ;
-	skos:scopeNote "Different instances of the same content in the same format are considered distinct."^^xsd:string ;
+	skos:scopeNote "Two copies of the same PDF file on different servers are separate instances of formatted content.z"^^xsd:string ;
 	.
 
 gist:Function
@@ -1633,7 +1633,7 @@ gist:RenderedContent
 			]
 		) ;
 	] ;
-	skos:definition "A specific expression of content in some physical medium."^^xsd:string ;
+	skos:definition "Content expressed in some physical medium."^^xsd:string ;
 	skos:example "Words printed on paper; audio played on speakers; an image displayed on a monitor; an original painting."^^xsd:string ;
 	skos:prefLabel "Rendered Content"^^xsd:string ;
 	skos:scopeNote "Renderings of the same file on two different monitors are separate instances of rendered content."^^xsd:string ;
