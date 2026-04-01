@@ -609,7 +609,7 @@ gist:Determination
 	a owl:Class ;
 	rdfs:subClassOf gist:Event ;
 	skos:definition "An event whose purpose is to establish a specific result, value, or outcome, usually by research, measuring, evaluating, or calculating."^^xsd:string ;
-	skos:example "Measuring the sulphur content of crude oil; evaluating a loan application for approval; estimating the price of gas for the next three months; determining whether and by how much an interest rate should change; classifying a purchase into a budget category."^^xsd:string ;
+	skos:example "Measuring the sulfur content of crude oil; evaluating a loan application for approval; estimating the price of gas for the next three months; determining whether and by how much an interest rate should change; classifying a purchase into a budget category."^^xsd:string ;
 	skos:prefLabel "Determination"^^xsd:string ;
 	.
 
@@ -823,7 +823,7 @@ gist:GeoRoute
 	] ;
 	skos:definition "An ordered set of geographic points that defines a path from a starting point to an ending point."^^xsd:string ;
 	skos:prefLabel "Geographic Route"^^xsd:string ;
-	skos:scopeNote "A geographic route could describe a bus route by identifying the points where the bus stops. A geographic route could describe the boundary of a polygonal geographic region (it does not have to be a travelled route)."^^xsd:string ;
+	skos:scopeNote "A geographic route could describe a bus route by identifying the points where the bus stops. A geographic route could describe the boundary of a polygonal geographic region (it does not have to be a traveled route)."^^xsd:string ;
 	.
 
 gist:GeoVolume
@@ -2565,7 +2565,7 @@ gist:goesToAgent
 	skos:prefLabel "goes to agent"^^xsd:string ;
 	skos:scopeNote
 		"This is not the inverse of gist:comesFromAgent, as both properties have the message or shipment as the subject."^^xsd:string ,
-		"This property is intended to describe the physical or electronic transfer of something, such as a package or email, from one agent to another, whereas gist:hasRecipient is typically used in more abstract contexts such as agreements, obligations, contracts, etc. However, there are contexts in which either may be appropriate, such as the recieving of a gift."^^xsd:string
+		"This property is intended to describe the physical or electronic transfer of something, such as a package or email, from one agent to another, whereas gist:hasRecipient is typically used in more abstract contexts such as agreements, obligations, contracts, etc. However, there are contexts in which either may be appropriate, such as the receiving of a gift."^^xsd:string
 		;
 	.
 
@@ -3274,7 +3274,7 @@ gist:precedes
 	skos:scopeNote
 		"The less-than symbol is often used to represent this relation."^^xsd:string ,
 		"This is the transitive version of gist:precedesDirectly."^^xsd:string ,
-		"Typically this predicate would be used asymmetricallly and irreflexively, but the ontology does not formalize this."^^xsd:string
+		"Typically this predicate would be used asymmetrically and irreflexively, but the ontology does not formalize this."^^xsd:string
 		;
 	.
 
@@ -3286,7 +3286,7 @@ gist:precedesDirectly
 	skos:scopeNote
 		"If two items in an ordered collection share the same position, they both directly precede the following element."^^xsd:string ,
 		"It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ,
-		"Typically this predicate would be used asymmetricallly and irreflexively, but the ontology does not formalize this."^^xsd:string
+		"Typically this predicate would be used asymmetrically and irreflexively, but the ontology does not formalize this."^^xsd:string
 		;
 	.
 
