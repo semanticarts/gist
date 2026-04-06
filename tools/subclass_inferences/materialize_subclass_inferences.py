@@ -1,7 +1,7 @@
 """Materialize rdfs:subClassOf inferences to help OWL-RL reasoners."""
 
+import io
 import sys
-import tempfile
 
 from argparse import ArgumentParser
 
@@ -55,37 +55,33 @@ def _run_reasoner(inputs: list[str], output_ttl: str, version: str):
         # Format will be guessed from the name suffix
         input_graph.parse(one_input)
 
-    # owlready2 does not accept TTL files. Convert to N-Triples.
-    with tempfile.NamedTemporaryFile('wb', suffix='.nt', delete=False) as temp_file:
-        input_graph_str = input_graph.serialize(format='nt')
-        temp_file.write(input_graph_str if isinstance(input_graph_str, bytes)
-                        else input_graph_str.encode('utf-8'))
-        temp_file.flush()
-        temp_file.close()
+    # owlready2 does not accept TTL files. Serialize to N-Triples and stream in memory.
+    nt_data = input_graph.serialize(format='nt')
+    nt_stream = io.BytesIO(nt_data if isinstance(nt_data, bytes) else nt_data.encode('utf-8'))
 
-        ontology = get_ontology(f'file://{temp_file.name}').load()
+    ontology = get_ontology().load(fileobj=nt_stream)
 
-        # Run OWL DL reasoner (HermiT reasoner is used by default in owlready2).
-        with ontology:
-            sync_reasoner()
+    # Run OWL DL reasoner (HermiT reasoner is used by default in owlready2).
+    with ontology:
+        sync_reasoner()
 
-        raw_output_graph = Graph().parse(
-            data=default_world.as_rdflib_graph().serialize(format='turtle'),
-            format='turtle')
+    raw_output_graph = Graph().parse(
+        data=default_world.as_rdflib_graph().serialize(format='turtle'),
+        format='turtle')
 
-        output_graph = Graph()
+    output_graph = Graph()
 
-        # Add subclass assertions to output graph.
-        for s, p, o in raw_output_graph:
-            if p == RDFS.subClassOf and not isinstance(o, BNode):
-                output_graph.add((s, p, o))
+    # Add subclass assertions to output graph.
+    for s, p, o in raw_output_graph:
+        if p == RDFS.subClassOf and not isinstance(o, BNode):
+            output_graph.add((s, p, o))
 
-        _add_ontology_declaration(output_graph, version)
+    _add_ontology_declaration(output_graph, version)
 
-        for prefix, namespace in input_graph.namespaces():
-            output_graph.bind(prefix, namespace)
+    for prefix, namespace in input_graph.namespaces():
+        output_graph.bind(prefix, namespace)
 
-        output_graph.serialize(destination=output_ttl, format='turtle')
+    output_graph.serialize(destination=output_ttl, format='turtle')
 
 def _materialize_subclasses(argv: list[str]):
     parser = ArgumentParser(
