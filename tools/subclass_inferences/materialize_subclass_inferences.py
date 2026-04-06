@@ -56,8 +56,8 @@ def _run_reasoner(inputs: list[str], output_ttl: str, version: str):
         input_graph.parse(one_input)
 
     # owlready2 does not accept TTL files. Serialize to N-Triples and stream in memory.
-    nt_data = input_graph.serialize(format='nt')
-    nt_stream = io.BytesIO(nt_data if isinstance(nt_data, bytes) else nt_data.encode('utf-8'))
+    nt_data = input_graph.serialize(format='nt', encoding='utf-8')
+    nt_stream = io.BytesIO(nt_data)
 
     ontology = get_ontology('file:///tmp/placeholder.nt').load(fileobj=nt_stream)
 
