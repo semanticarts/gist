@@ -59,7 +59,7 @@ def _run_reasoner(inputs: list[str], output_ttl: str, version: str):
     nt_data = input_graph.serialize(format='nt')
     nt_stream = io.BytesIO(nt_data if isinstance(nt_data, bytes) else nt_data.encode('utf-8'))
 
-    ontology = get_ontology().load(fileobj=nt_stream)
+    ontology = get_ontology('file:///tmp/placeholder.nt').load(fileobj=nt_stream)
 
     # Run OWL DL reasoner (HermiT reasoner is used by default in owlready2).
     with ontology:
