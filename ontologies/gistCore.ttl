@@ -2806,7 +2806,7 @@ gist:idText
 	skos:example "The id text for a car is '4Y1SL65848Z411439'; the id text for the HR department of some company is H31415."^^xsd:string ;
 	skos:prefLabel "id text"^^xsd:string ;
 	skos:scopeNote
-		"A common use case would be for pre-existing internal company identifiers."^^xsd:string ,
+		"A common use case would be for preexisting internal company identifiers."^^xsd:string ,
 		"Often, there will be just one identifying text string. More would be appropriate if the individual had different identifiers, such as employee number and social security number. A good way to model that would be to have functional subproperties of idText, such as departmentNumber."^^xsd:string ,
 		"This property is an alternative to using the property gist:isIdentifiedBy in conjunction with instances of the class gist:ID."^^xsd:string
 		;
