@@ -1,0 +1,27 @@
+# replace classes in named graphs
+# note: also create your own categories for the different types and uses of addresses
+
+prefix gist:  <https://w3id.org/semanticarts/ns/ontology/gist/>
+
+# test
+select ?g ?s ?oldClass ?newClass
+
+# update graph
+# delete {graph ?g {?s rdf:type ?oldClass .}}
+# insert {graph ?g {?s rdf:type ?newClass .}}
+
+
+where {
+
+    values (?oldClass   ?newClass) {
+        (gist:Place  gist:GeoLocation)
+        (gist:Taxonomy  gist:ControlledVocabulary)
+    }
+
+# triples in named graphs
+
+    graph ?g {?s rdf:type ?oldClass}
+
+}
+
+

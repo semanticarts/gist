@@ -2,7 +2,7 @@
 
 ## The Deprecation-Deletion Cycle
 
-- Any ontology modification resulting in a change in reasoning is a major change; see [_Change and Release Management_](ChangeAndReleaseManagement.md).
+- Any ontology modification resulting in a change in reasoning is a major change; see [_Change and Release Management_](./ChangeAndReleaseManagement.md).
 - Changing a local name constitutes a removal plus an addition and is therefore a major change.
 - Deprecation is a minor change, since the deprecated term is still available for use.
 - A patch release may not contain deprecations other than bug fixes (e.g., misspelling of a local name).
