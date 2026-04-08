@@ -35,6 +35,20 @@ gist has extensive and fine-grained disjointness at the highest level in order t
 
 gist uses domain and range specifications sparingly in order to make properties more broadly applicable. To eliminate redundancy and reduce cognitive load, inverse properties are not defined. Subclasses are typically defined using a pattern that specifies how they specialize the superclass.
 
+## Versioning and Migration
+
+gist follows [Semantic Versioning](https://semver.org/), adapted for ontology development. Version numbers are of the form `Major.Minor.Patch`:
+
+- **Major** — Non-backward-compatible, breaking changes (approximately annual releases)
+- **Minor** — New, backward-compatible functionality such as new classes or properties (1-2 per major release)
+- **Patch** — Bug fixes, documentation, and infrastructure changes
+
+A minor or patch upgrade should require only updating the version number in your import statement.
+
+For major version upgrades, migration guides with SPARQL queries are provided in the [`migration/`](migration/) directory. See also [Major Version Migration](docs/MajorVersionMigration.md) for guidance on the upgrade process.
+
+For full details, see [Change and Release Management](docs/ChangeAndReleaseManagement.md) and [Release Notes](docs/ReleaseNotes.md).
+
 ## gist Documentation
 
 We provide a number of resources for learning more about gist.
