@@ -35,29 +35,6 @@ gist has extensive and fine-grained disjointness at the highest level in order t
 
 gist uses domain and range specifications sparingly in order to make properties more broadly applicable. To eliminate redundancy and reduce cognitive load, inverse properties are not defined. Subclasses are typically defined using a pattern that specifies how they specialize the superclass.
 
-## Prerequisites and Technology
-
-gist is an [OWL 2 DL](https://www.w3.org/TR/owl2-overview/) ontology serialized in [Turtle](https://www.w3.org/TR/turtle/) (.ttl) format. The build pipeline also produces RDF/XML and JSON-LD serializations.
-
-To work with gist, you can use any OWL-compatible tool such as [Protégé](https://protege.stanford.edu/), or edit the Turtle files directly in a text editor or IDE such as [VSCode](https://code.visualstudio.com/) (with a Turtle language extension for syntax highlighting).
-
-Contributors building and validating gist locally will need:
-
-- **Python** 3.10+
-- **Java** 11+ (required by the RDF serializer)
-- **[onto-tool](https://pypi.org/project/onto-tool/)** >= 1.8.0
-
-The repository includes a pre-commit hook that runs the RDF serializer on all commits to enforce a consistent Turtle format. This is installed automatically by `./tools/setup.cmd`.
-
-## Setting up a Local gist Repository
-
-- Clone the [gist GitHub repository](https://github.com/semanticarts/gist.git).
-- Run the script `./tools/setup.cmd`.
-- To work on gist, refer to the following documents:
-  - [Contributing to gist](docs/Contributing.md)
-  - [gist Style Guide](docs/gistStyleGuide.md)
-  - [Contributor Quick Reference](docs/ContributorQuickReference.md)
-
 ## gist Documentation
 
 We provide a number of resources for learning more about gist.
@@ -81,3 +58,35 @@ Extensive documentation of gist is available in the [gist-doc repository](https:
 
 - **Videos:** We maintain a library of videos containing gist tutorials and recordings of our monthly gist Council meetings. You can find links to these videos on the [Semantic Arts website](https://www.semanticarts.com/gist/videos/), or directly access the entire catalog on [our YouTube channel](https://www.youtube.com/playlist?list=PLk2kJrehubb4dc3e5Db5Lvv9WMaOhV3V7).
 - The [Semantic Arts gist web page](https://www.semanticarts.com/gist/).
+
+## Prerequisites and Technology
+
+gist is an [OWL 2 DL](https://www.w3.org/TR/owl2-overview/) ontology serialized in [Turtle](https://www.w3.org/TR/turtle/) (.ttl) format. The build pipeline also produces RDF/XML and JSON-LD serializations.
+
+To work with gist, you can use any OWL-compatible tool such as [Protégé](https://protege.stanford.edu/), or edit the Turtle files directly in a text editor or IDE such as [VSCode](https://code.visualstudio.com/) (with a Turtle language extension for syntax highlighting).
+
+Contributors building and validating gist locally will need:
+
+- **Python** 3.10+
+- **Java** 11+ (required by the RDF serializer)
+- **[onto-tool](https://pypi.org/project/onto-tool/)** >= 1.8.0
+
+The repository includes a pre-commit hook that runs the RDF serializer on all commits to enforce a consistent Turtle format. This is installed automatically by `./tools/setup.cmd`.
+
+## Setting up a Local gist Repository
+
+- Clone the [gist GitHub repository](https://github.com/semanticarts/gist.git).
+- Run the script `./tools/setup.cmd`.
+- To work on gist, refer to the following documents:
+  - [Contributing to gist](docs/Contributing.md)
+  - [gist Style Guide](docs/gistStyleGuide.md)
+  - [Contributor Quick Reference](docs/ContributorQuickReference.md)
+
+## Repository Structure
+
+- **`ontologies/`** — Core ontology files in Turtle format (`gistCore.ttl`, `gistMediaTypes.ttl`, `gistPrefixDeclarations.ttl`, `gistValidationAnnotations.ttl`)
+- **`validation/`** — SHACL shapes and SPARQL queries used to validate the ontology
+- **`migration/`** — SPARQL queries and documentation for upgrading between major versions of gist
+- **`tools/`** — Build and development tooling, including the RDF serializer and pre-commit hooks
+- **`docs/`** — Contributing guidelines, style guide, release notes, and other documentation
+- **`bundle.yaml`** — Build configuration for [onto-tool](https://pypi.org/project/onto-tool/), which produces multi-format release artifacts
