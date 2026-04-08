@@ -1,5 +1,8 @@
 ![gist logo](./gist-logo.png)
 
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![Latest Release](https://img.shields.io/github/v/release/semanticarts/gist)](https://github.com/semanticarts/gist/releases)
+
 # About gist
 
 gist is Semantic Arts' minimalist upper ontology for the enterprise. It is designed to provide the maximum coverage of typical business ontology concepts with the fewest number of primitives and the least amount of ambiguity. The gist ontology defines around 100 classes and about the same number of attributes and relationships and serves as a foundation for building more specialized ontologies.
@@ -31,6 +34,20 @@ gist defines a small number of top-level concepts on which everything else is ba
 gist has extensive and fine-grained disjointness at the highest level in order to help you avoid making certain types of logical errors in your ontologies or data that are based on gist. Because we explicity state, for example, that governmental organizations (such as the US federal government) can’t be intergovernmental organizations (such as the UN), a reasoner will complain of logical inconsistency if something has been typed as both. Without disjointness, such inconsistencies will not be surfaced.
 
 gist uses domain and range specifications sparingly in order to make properties more broadly applicable. To eliminate redundancy and reduce cognitive load, inverse properties are not defined. Subclasses are typically defined using a pattern that specifies how they specialize the superclass.
+
+## Prerequisites and Technology
+
+gist is an [OWL 2 DL](https://www.w3.org/TR/owl2-overview/) ontology serialized in [Turtle](https://www.w3.org/TR/turtle/) (.ttl) format. The build pipeline also produces RDF/XML and JSON-LD serializations.
+
+To work with gist, you can use any OWL-compatible tool such as [Protégé](https://protege.stanford.edu/), or edit the Turtle files directly in a text editor or IDE such as [VSCode](https://code.visualstudio.com/) (with a Turtle language extension for syntax highlighting).
+
+Contributors building and validating gist locally will need:
+
+- **Python** 3.10+
+- **Java** 11+ (required by the RDF serializer)
+- **[onto-tool](https://pypi.org/project/onto-tool/)** >= 1.8.0
+
+The repository includes a pre-commit hook that runs the RDF serializer on all commits to enforce a consistent Turtle format. This is installed automatically by `./tools/setup.cmd`.
 
 ## Setting up a Local gist Repository
 
