@@ -4,4 +4,3 @@
   - Updated setup.cmd to install tools/pre-commit-hook as .git/hooks/pre-commit
   - New file tools/pre-commit-hook which just calls ./tools/pre-commit-code.
   - Renamed tools/pre-commit to tools/pre-commit-code
-
