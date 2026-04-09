@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """
-Removes @prefix / PREFIX declaration lines from staged .ttl files.
+Removes default @prefix / PREFIX declaration lines from staged .ttl files.
 
-Operates entirely on the git index — the working tree is never modified,
-so no stash is needed and the user's unstaged changes are never at risk.
+Updates both the git index and the working tree file.
 """
 
 import re
@@ -38,6 +37,8 @@ def _strip_prefixes_in_index(path):
     if len(filtered) == len(lines):
         return False  # Nothing to strip
 
+    print(f"Removing default @prefix from file: {path}")
+
     # Persist the new content as a git blob object
     new_hash = (
         _run(["git", "hash-object", "-w", "--stdin"], data=b"".join(filtered))
@@ -51,6 +52,11 @@ def _strip_prefixes_in_index(path):
 
     # Atomically replace the index entry with the new blob
     _run(["git", "update-index", "--cacheinfo", f"{mode},{new_hash},{path}"])
+
+    # Mirror the change to the working tree file
+    with open(path, "wb") as fh:
+        fh.write(b"".join(filtered))
+
     return True
 
 
