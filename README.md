@@ -52,14 +52,14 @@ Bundled releases include the following modules:
 
 In a release bundle, each module file name includes the version number (e.g., `gistCore14.1.0.ttl`) and is provided in three serializations: Turtle (.ttl), RDF/XML (.rdf), and JSON-LD (.jsonld).
 
-## Using gist in Your Projects
+# Using gist in Your Projects
 
-### Getting gist
+## Getting gist
 
 - Download the [latest released version of gist](https://downloads.semanticarts.com/gistCore_Current_Version.zip) or the zip file available on the [GitHub repository releases page](https://github.com/semanticarts/gist/releases); or
 - Import into Protégé with the link: <https://w3id.org/semanticarts/ontology/gistCore>.
 
-### Versioning and Migration
+## Versioning and Migration
 
 gist follows [Semantic Versioning](https://semver.org/), adapted for ontology development. Version numbers are of the form `Major.Minor.Patch`:
 
@@ -73,15 +73,15 @@ For major version upgrades, migration guides with SPARQL queries are provided in
 
 For full details, see [Change and Release Management](docs/ChangeAndReleaseManagement.md) and [Release Notes](docs/ReleaseNotes.md).
 
-### gist Documentation
+## gist Documentation
 
 We provide a number of resources for learning more about gist.
 
-#### The Periodic Table of gist
+### The Periodic Table of gist
 
 [The Periodic Table of gist](https://www.semanticarts.com/gist/) is a graphical representation of gist coverage organized into abstract conceptual clusters.
 
-#### The gist-doc Repository
+### The gist-doc Repository
 
 Extensive documentation of gist is available in the [gist-doc repository](https://github.com/semanticarts/gist-doc). This repository contains documentation of the [Semantic Arts gist minimalist upper ontology](https://github.com/semanticarts/gist/tree/master) in three formats: narrative, graphical, and Widoco-style.
 
@@ -92,20 +92,20 @@ Extensive documentation of gist is available in the [gist-doc repository](https:
   - A collection of PNG images built using the [Turtle Editor Viewer](http://semantechs.co.uk/turtle-editor-viewer/).  Each image is made up of a single 'constellation' of classes as described above and shows the classes and their relationships, the literal annotations, and any anonymous classes used in class definitions.
 - **[Widoco](https://github.com/dgarijo/Widoco) documentation**
 
-#### Additional Documentation
+### Additional Documentation
 
 - **Videos:** We maintain a library of videos containing gist tutorials and recordings of our monthly gist Council meetings. You can find links to these videos on the [Semantic Arts website](https://www.semanticarts.com/gist/videos/), or directly access the entire catalog on [our YouTube channel](https://www.youtube.com/playlist?list=PLk2kJrehubb4dc3e5Db5Lvv9WMaOhV3V7).
 - The [Semantic Arts gist web page](https://www.semanticarts.com/gist/).
 
-### Citing gist
+## Citing gist
 
 If you use gist in academic work or publications, please cite it as follows:
 
 > Semantic Arts, Inc. *gist: A Minimalist Upper Ontology for the Enterprise.* Available at: <https://github.com/semanticarts/gist>
 
-## Contributing to gist Development
+# Contributing to gist Development
 
-### Prerequisites and Technology
+## Prerequisites and Technology
 
 To work with gist, you can use an OWL-compatible tool such as [Protégé](https://protege.stanford.edu/), or edit the Turtle files directly in a text editor or IDE such as [VSCode](https://code.visualstudio.com/) (with a Turtle language extension for syntax highlighting).
 
@@ -117,7 +117,7 @@ Contributors building and validating gist locally will need:
 
 The repository includes a pre-commit hook that runs the RDF serializer on all commits to enforce a consistent Turtle format. This is installed automatically by `./tools/setup.cmd`.
 
-### Build and Validation
+## Build and Validation
 
 The gist build pipeline is defined in [`bundle.yaml`](bundle.yaml) and run using [onto-tool](https://pypi.org/project/onto-tool/). The build validates the ontology, generates additional modules (`gistRdfsAnnotations` and `gistSubClassAssertions`), serializes all modules in multiple formats, and packages the result into a versioned release bundle.
 
@@ -129,7 +129,7 @@ onto_tool bundle bundle.yaml
 
 Validation includes [SHACL](https://www.w3.org/TR/shacl/) shape checking (defined in [`validation/shapes/`](validation/shapes/)) and [SPARQL](https://www.w3.org/TR/sparql11-query/) construct queries (in [`validation/queries/`](validation/queries/)).
 
-### Setting up a Local gist Repository
+## Setting up a Local gist Repository
 
 - Clone the [gist GitHub repository](https://github.com/semanticarts/gist.git).
 - Run the script `./tools/setup.cmd`.
@@ -138,7 +138,7 @@ Validation includes [SHACL](https://www.w3.org/TR/shacl/) shape checking (define
   - [gist Style Guide](docs/gistStyleGuide.md)
   - [Contributor Quick Reference](docs/ContributorQuickReference.md)
 
-### Repository Structure
+## Repository Structure
 
 - **`ontologies/`** — Core ontology files in Turtle format (`gistCore.ttl`, `gistMediaTypes.ttl`, `gistPrefixDeclarations.ttl`, `gistValidationAnnotations.ttl`)
 - **`validation/`** — SHACL shapes and SPARQL queries used to validate the ontology
