@@ -19,17 +19,17 @@ then
   exit 1
 fi
 
-# Run the serializer
-"${base_dir}/tools/serializer/pre-commit"
+# Verify that there are no default PREFIX statements in the ontology files
+"${base_dir}/tools/remove_default_prefix/remove_default_prefix.py"
 rc=$?
-# echo "RESULT == ${rc}"
 if [ ! ${rc} -eq 0 ] ; then
   exit 1
 fi
 
-# Verify that there are no default PREFIX statements in the ontology files
-"${base_dir}/tools/remove_default_prefix/remove_default_prefix.py"
+# Run the serializer
+"${base_dir}/tools/serializer/pre-commit"
 rc=$?
+# echo "RESULT == ${rc}"
 if [ ! ${rc} -eq 0 ] ; then
   exit 1
 fi
