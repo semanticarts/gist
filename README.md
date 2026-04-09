@@ -15,7 +15,7 @@ gist is an [OWL 2 DL](https://www.w3.org/TR/owl2-overview/) ontology serialized 
 
 ## gist Community
 
-We maintain an active gist community forum where developers and users of gist come together to discuss the gist model, implementation best practices, and the evolution of gist. Meetings occur virtually on the first Thursday of every other month, starting in January. Please send email to [community@semanticarts.com](mailto:community@semanticarts.com) if you would like to become involved.
+We maintain an active gist community forum where developers and users of gist come together to discuss the gist model, implementation best practices, and the evolution of gist. Meetings occur virtually on the first Thursdays of January, March, May, July, September, and November. Please send email to [community@semanticarts.com](mailto:community@semanticarts.com) if you would like to become involved.
 
 You can also contribute to gist by adding your comments to [issue discussion threads](https://github.com/semanticarts/gist/issues) and submitting new issues and pull requests (see [guidelines for contributions](https://github.com/semanticarts/gist/blob/master/docs/Contributing.md)). You can view [minutes](https://github.com/semanticarts/gist/wiki/gist-Development-Team-Meeting-Notes) from our bi-monthly review sessions to find out what we've been discussing and get a preview of upcoming changes to gist.
 
@@ -28,6 +28,11 @@ gist defines a small number of top-level concepts on which everything else is ba
 gist has extensive and fine-grained disjointness at the highest level in order to help you avoid making certain types of logical errors in your ontologies or data that are based on gist. Because we explicity state, for example, that governmental organizations (such as the US federal government) can’t be intergovernmental organizations (such as the UN), a reasoner will complain of logical inconsistency if something has been typed as both. Without disjointness, such inconsistencies will not be surfaced.
 
 gist uses domain and range specifications sparingly in order to make properties more broadly applicable. To eliminate redundancy and reduce cognitive load, inverse properties are not defined. Subclasses are typically defined using a pattern that specifies how they specialize the superclass.
+
+## Getting gist
+
+- Download the [latest released version of gist](https://downloads.semanticarts.com/gistCore_Current_Version.zip) or the zip file available on the [GitHub repository releases page](https://github.com/semanticarts/gist/releases); or
+- Import into Protégé with the link: <https://w3id.org/semanticarts/ontology/gistCore>.
 
 ## Namespaces
 
@@ -51,13 +56,6 @@ Bundled releases include the following modules:
 - **`gistSubClassAssertions`** — Materialized subclass inferences for use in environments without a reasoner
 
 In a release bundle, each module file name includes the version number (e.g., `gistCore14.1.0.ttl`) and is provided in three serializations: Turtle (.ttl), RDF/XML (.rdf), and JSON-LD (.jsonld).
-
-# Using gist in Your Projects
-
-## Getting gist
-
-- Download the [latest released version of gist](https://downloads.semanticarts.com/gistCore_Current_Version.zip) or the zip file available on the [GitHub repository releases page](https://github.com/semanticarts/gist/releases); or
-- Import into Protégé with the link: <https://w3id.org/semanticarts/ontology/gistCore>.
 
 ## Versioning and Migration
 
@@ -96,6 +94,9 @@ Extensive documentation of gist is available in the [gist-doc repository](https:
 
 - **Videos:** We maintain a library of videos containing gist tutorials and recordings of our monthly gist Council meetings. You can find links to these videos on the [Semantic Arts website](https://www.semanticarts.com/gist/videos/), or directly access the entire catalog on [our YouTube channel](https://www.youtube.com/playlist?list=PLk2kJrehubb4dc3e5Db5Lvv9WMaOhV3V7).
 - The [Semantic Arts gist web page](https://www.semanticarts.com/gist/).
+- [Deprecation and Deletion Policy](docs/DeprecationAndDeletionPolicy.md)
+- [A Brief Introduction to the gist Semantic Model](https://www.semanticarts.com/a-brief-introduction-to-the-gist-semantic-model/) (blog post)
+- [Introduction to Gist](https://iaoa.org/isc2014/uploads/Whitepaper-Uschold-IntroductionToGist.pdf) (IAOA whitepaper by Michael Uschold, PDF)
 
 ## Citing gist
 
@@ -104,6 +105,13 @@ If you use gist in academic work or publications, please cite it as follows:
 > Semantic Arts, Inc. *gist: A Minimalist Upper Ontology for the Enterprise.* Available at: <https://github.com/semanticarts/gist>
 
 # Contributing to gist Development
+
+If you plan to contribute to gist development, please refer to the following documents:
+
+- [Contributor Quick Reference](docs/ContributorQuickReference.md)
+- [Contributing to gist](docs/Contributing.md)
+- [Reviewer Guidelines](docs/ReviewerGuidelines.md)
+- [gist Style Guide](docs/gistStyleGuide.md)
 
 ## Prerequisites and Technology
 
@@ -117,6 +125,20 @@ Contributors building and validating gist locally will need:
 
 The repository includes a pre-commit hook that runs the RDF serializer on all commits to enforce a consistent Turtle format. This is installed automatically by `./tools/setup.cmd`.
 
+## Setting up a Local gist Repository
+
+- Clone the [gist GitHub repository](https://github.com/semanticarts/gist.git).
+- Run the script `./tools/setup.cmd`.
+
+## Repository Structure
+
+- **`ontologies/`** — Core ontology files in Turtle format (`gistCore.ttl`, `gistMediaTypes.ttl`, `gistPrefixDeclarations.ttl`, `gistValidationAnnotations.ttl`)
+- **`validation/`** — SHACL shapes and SPARQL queries used to validate the ontology
+- **`migration/`** — SPARQL queries and documentation for upgrading between major versions of gist
+- **`tools/`** — Build and development tooling, including the RDF serializer and pre-commit hooks
+- **`docs/`** — Contributing guidelines, style guide, release notes, and other documentation
+- **`bundle.yaml`** — Build configuration for [onto-tool](https://pypi.org/project/onto-tool/), which produces multi-format release artifacts
+
 ## Build and Validation
 
 The gist build pipeline is defined in [`bundle.yaml`](bundle.yaml) and run using [onto-tool](https://pypi.org/project/onto-tool/). The build validates the ontology, generates additional modules (`gistRdfsAnnotations` and `gistSubClassAssertions`), serializes all modules in multiple formats, and packages the result into a versioned release bundle.
@@ -129,20 +151,6 @@ onto_tool bundle bundle.yaml
 
 Validation includes [SHACL](https://www.w3.org/TR/shacl/) shape checking (defined in [`validation/shapes/`](validation/shapes/)) and [SPARQL](https://www.w3.org/TR/sparql11-query/) construct queries (in [`validation/queries/`](validation/queries/)).
 
-## Setting up a Local gist Repository
+# Acknowledgments
 
-- Clone the [gist GitHub repository](https://github.com/semanticarts/gist.git).
-- Run the script `./tools/setup.cmd`.
-- To work on gist, refer to the following documents:
-  - [Contributing to gist](docs/Contributing.md)
-  - [gist Style Guide](docs/gistStyleGuide.md)
-  - [Contributor Quick Reference](docs/ContributorQuickReference.md)
-
-## Repository Structure
-
-- **`ontologies/`** — Core ontology files in Turtle format (`gistCore.ttl`, `gistMediaTypes.ttl`, `gistPrefixDeclarations.ttl`, `gistValidationAnnotations.ttl`)
-- **`validation/`** — SHACL shapes and SPARQL queries used to validate the ontology
-- **`migration/`** — SPARQL queries and documentation for upgrading between major versions of gist
-- **`tools/`** — Build and development tooling, including the RDF serializer and pre-commit hooks
-- **`docs/`** — Contributing guidelines, style guide, release notes, and other documentation
-- **`bundle.yaml`** — Build configuration for [onto-tool](https://pypi.org/project/onto-tool/), which produces multi-format release artifacts
+gist is developed and maintained by [Semantic Arts](https://www.semanticarts.com/) with contributions from the gist community. See the [full list of contributors](https://github.com/semanticarts/gist/graphs/contributors).
