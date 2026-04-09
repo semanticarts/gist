@@ -189,6 +189,7 @@ gist:Agreement
 
 gist:Aspect
 	a owl:Class ;
+	owl:disjointWith gist:Event ;
 	skos:definition "A measurable characteristic."^^xsd:string ;
 	skos:example "Length, weight, cost, cycle time, defect rate."^^xsd:string ;
 	skos:prefLabel "Aspect"^^xsd:string ;
@@ -282,6 +283,7 @@ gist:Category
 			) ;
 		] ;
 	] ;
+	owl:disjointWith gist:Event ;
 	skos:definition "A concept or label used to categorize other instances without specifying any formal semantics."^^xsd:string ;
 	skos:example "Tags used in folksonomies; formal definitions from other systems."^^xsd:string ;
 	skos:prefLabel "Category"^^xsd:string ;
@@ -617,8 +619,8 @@ gist:DeliverableSpecification
 
 gist:Determination
 	a owl:Class ;
-	rdfs:subClassOf gist:Event ;
-	skos:definition "An event whose purpose is to establish a specific result, value, or outcome, usually by research, measuring, evaluating, or calculating."^^xsd:string ;
+	rdfs:subClassOf gist:Task ;
+	skos:definition "An activity whose purpose is to establish a specific result, value, or outcome, usually by research, measuring, evaluating, or calculating."^^xsd:string ;
 	skos:example "Measuring the sulphur content of crude oil; evaluating a loan application for approval; estimating the price of gas for the next three months; determining whether and by how much an interest rate should change; classifying a purchase into a budget category."^^xsd:string ;
 	skos:prefLabel "Determination"^^xsd:string ;
 	.
@@ -677,8 +679,6 @@ gist:EquipmentType
 gist:Event
 	a owl:Class ;
 	owl:disjointWith
-		gist:Aspect ,
-		gist:Category ,
 		gist:Language ,
 		gist:Magnitude ,
 		gist:TimeInterval ,
@@ -880,7 +880,8 @@ gist:GeoVolume
 			]
 		) ;
 	] ;
-	skos:definition "A three-dimensional space on or near the surface of the Earth, such as an oil reservoir, the body of a lake, or an airspace."^^xsd:string ;
+	skos:definition "A three-dimensional space on or near the surface of the Earth."^^xsd:string ;
+	skos:example "An oil reservoir, the body of a lake, or an airspace."^^xsd:string ;
 	skos:prefLabel "Geographic Volume"^^xsd:string ;
 	.
 
@@ -958,7 +959,7 @@ gist:ID
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:uniqueText ;
-				owl:someValuesFrom xsd:string ;
+				owl:someValuesFrom rdf:PlainLiteral ;
 			]
 		) ;
 	] ;
@@ -1142,7 +1143,7 @@ gist:MediaType
 		[
 			a owl:Restriction ;
 			owl:onProperty gist:uniqueText ;
-			owl:someValuesFrom xsd:string ;
+			owl:someValuesFrom rdf:PlainLiteral ;
 		]
 		;
 	rdfs:seeAlso <https://www.iana.org/assignments/media-types/media-types.xhtml> ;
@@ -1254,7 +1255,7 @@ gist:NetworkLink
 	skos:definition "An abstract representation of the connection between two or more nodes in a network."^^xsd:string ;
 	skos:example "A network link may be physical, such as pipes, wired or wireless networks, but may also be a link in a non-physical network, such as organizational structures or social networks."^^xsd:string ;
 	skos:prefLabel "Network Link"^^xsd:string ;
-	skos:scopeNote "Each newtork link is connected to a network node via the property gist:links or one of its subproperties."^^xsd:string ;
+	skos:scopeNote "Each network link is connected to a network node via the property gist:links or one of its subproperties."^^xsd:string ;
 	.
 
 gist:NetworkNode
@@ -1280,16 +1281,6 @@ gist:Offer
 			gist:ContingentObligation
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:offersToProvide ;
-				owl:someValuesFrom owl:Thing ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:offersToReceive ;
-				owl:someValuesFrom owl:Thing ;
-			]
-			[
-				a owl:Restriction ;
 				owl:onProperty gist:hasGiver ;
 				owl:someValuesFrom [
 					a owl:Class ;
@@ -1298,6 +1289,16 @@ gist:Offer
 						gist:Person
 					) ;
 				] ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:offersToProvide ;
+				owl:someValuesFrom owl:Thing ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:offersToReceive ;
+				owl:someValuesFrom owl:Thing ;
 			]
 			[
 				a owl:Restriction ;
@@ -1329,7 +1330,7 @@ gist:Offer
 	skos:definition "A contingent commitment to buy, sell, swap or provide one or more described or identified goods or services in exchange for another (or others)."^^xsd:string ;
 	skos:example "An offer to sell a book for a given price; an offer to purchase real estate for a particular price; an offer to swap a sea kayak for a mountain bike; currency exchange. A donation may be modeled as an offer to receive money typically in exchange for $0.00, but sometimes for items of value such as coffee mugs or T-shirts."^^xsd:string ;
 	skos:prefLabel "Offer"^^xsd:string ;
-	skos:scopeNote "Dates on an offer represent the time period the offer is valid for, as in '25% off through October 25, 2025'."^^xsd:string ;
+	skos:scopeNote "Dates on an offer represent the time period the offer is valid for, as in '25% off through October 25, 2025.'"^^xsd:string ;
 	.
 
 gist:OrderedCollection
@@ -1628,7 +1629,7 @@ gist:PhysicalSubstance
 	skos:prefLabel "Physical Substance"^^xsd:string ;
 	skos:scopeNote
 		"An instance of this class has weight and takes up space. We mean the physical gold in a ring, not the concept of gold that shows up in the periodic table. The latter would be an instance of gist:KnowledgeConcept."^^xsd:string ,
-		"This concept generally corresponds to mass nouns in English. By contrast, instances of PhysicalIdentifiableItem, such as a computer, book, or car, are count nouns. PhysicalIdentifiableItems are made up of PhysicalSubstances; e.g., a cake is made up of butter, flour, and sugar; a ring is made of gold. If you divide a PhysicalSubstance such as an amount of water into parts, you have different amounts of water otherwise indistinguishable from one another; if you divide a PhysicalIdentifiableItem such as a computer into parts, each part will be distinguishable from the original whole."^^xsd:string
+		"This concept generally corresponds to mass nouns in English. By contrast, instances of gist:PhysicalIdentifiableItem, such as a computer, book, or car, are count nouns. Physical identifiable items are made up of physical substances; e.g., a cake is made up of butter, flour, and sugar; a ring is made of gold. If you divide a physical substance such as an amount of water into parts, you have different amounts of water otherwise indistinguishable from one another; if you divide a physical identifiable item such as a computer into parts, each part will be distinguishable from the original whole."^^xsd:string
 		;
 	.
 
@@ -1653,7 +1654,7 @@ gist:ProductSpecification
 			]
 		) ;
 	] ;
-	skos:definition "Offering something which could be physically warehoused or digitally stored."^^xsd:string ;
+	skos:definition "A description of something that could be physically warehoused or digitally stored and physically or digitally delivered."^^xsd:string ;
 	skos:prefLabel "Product Specification"^^xsd:string ;
 	.
 
@@ -1854,7 +1855,7 @@ gist:Tag
 		[
 			a owl:Restriction ;
 			owl:onProperty gist:containedText ;
-			owl:someValuesFrom xsd:string ;
+			owl:someValuesFrom rdf:PlainLiteral ;
 		]
 		;
 	skos:definition "A term in a folksonomy used to categorize things. Tags can be made up on the fly by users."^^xsd:string ;
@@ -1949,7 +1950,7 @@ gist:Text
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:containedText ;
-				owl:someValuesFrom xsd:string ;
+				owl:someValuesFrom rdf:PlainLiteral ;
 			]
 		) ;
 	] ;
@@ -2036,7 +2037,7 @@ gist:actualEndDate
 	rdfs:subPropertyOf gist:actualEndDateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "The actual date that something ended, with precision of one day."^^xsd:string ;
-	skos:example "'2021-06-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:example "'2021-06-01T00:00:00-06:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "actual end date"^^xsd:string ;
 	skos:scopeNote "Used for things where the precision of a date is sufficient, such as most projects, tasks, and the like. Recommended usage is to zero out the hours through microseconds to avoid spurious precision."^^xsd:string ;
 	.
@@ -2065,7 +2066,7 @@ gist:actualEndMinute
 	rdfs:subPropertyOf gist:actualEndDateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "The actual date and time that something ended, with precision of one minute."^^xsd:string ;
-	skos:example "'2021-06-01T08:32:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:example "'2021-06-01T08:32:00-06:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "actual end minute"^^xsd:string ;
 	skos:scopeNote "Used for things like meetings and time card entries, where the hour and minute are important. Recommended usage is to zero out the seconds and microseconds to avoid spurious precision."^^xsd:string ;
 	.
@@ -2076,7 +2077,7 @@ gist:actualEndYear
 	rdfs:range xsd:dateTime ;
 	skos:definition "The actual date that something ended, with precision of one year."^^xsd:string ;
 	skos:example
-		"'2021-01-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ,
+		"'2021-01-01T00:00:00-06:00'^^xsd:dateTime"^^xsd:string ,
 		"The tenure of the previous chairman of the board ended in 2021."^^xsd:string
 		;
 	skos:prefLabel "actual end year"^^xsd:string ;
@@ -2088,7 +2089,7 @@ gist:actualStartDate
 	rdfs:subPropertyOf gist:actualStartDateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "The actual date that something started, with precision of one day."^^xsd:string ;
-	skos:example "'2021-06-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:example "'2021-06-01T00:00:00-06:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "actual start date"^^xsd:string ;
 	skos:scopeNote "Used for things where the precision of a date is sufficient, such as most projects, tasks, and the like. Recommended usage is to zero out the hours through microseconds to avoid spurious precision."^^xsd:string ;
 	.
@@ -2117,7 +2118,7 @@ gist:actualStartMinute
 	rdfs:subPropertyOf gist:actualStartDateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "The actual date and time that something started, with precision of one minute."^^xsd:string ;
-	skos:example "'2021-06-01T08:32:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:example "'2021-06-01T08:32:00-06:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "actual start minute"^^xsd:string ;
 	skos:scopeNote "Used for things like meetings and time card entries, where the hour and minute are important. Recommended usage is to zero out the seconds and microseconds to avoid spurious precision."^^xsd:string ;
 	.
@@ -2128,7 +2129,7 @@ gist:actualStartYear
 	rdfs:range xsd:dateTime ;
 	skos:definition "The actual date that something started, with precision of one year."^^xsd:string ;
 	skos:example
-		"'2021-01-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ,
+		"'2021-01-01T00:00:00-06:00'^^xsd:dateTime"^^xsd:string ,
 		"The tenure of the current chairman of the board began in 2021."^^xsd:string
 		;
 	skos:prefLabel "actual start year"^^xsd:string ;
@@ -2173,7 +2174,7 @@ gist:birthDate
 	rdfs:subPropertyOf gist:startDateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "The date some living thing was or will be born, with precision of one day."^^xsd:string ;
-	skos:example "'2021-06-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:example "'2021-06-01T00:00:00-06:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "birth date"^^xsd:string ;
 	skos:scopeNote "This is a subproperty of gist:startDateTime rather than gist:actualStartDate because some living things have yet to be born. This property refers to a calendar date and is assumed to precision of one day (time zone offset is allowed). It is recommended to zero out the hours through microseconds to avoid spurious precision. Implementations requiring a birthdate to the minute can define a subproperty."^^xsd:string ;
 	.
@@ -2221,6 +2222,7 @@ gist:conformsTo
 
 gist:containedText
 	a owl:DatatypeProperty ;
+	rdfs:range rdf:PlainLiteral ;
 	skos:definition "A string that is closely associated with an individual."^^xsd:string ;
 	skos:example "The string associated with a tag or with text content."^^xsd:string ;
 	skos:prefLabel "contained text"^^xsd:string ;
@@ -2288,13 +2290,14 @@ gist:deathDate
 	rdfs:subPropertyOf gist:actualEndDate ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "The date some living thing died."^^xsd:string ;
-	skos:example "'2021-06-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:example "'2021-06-01T00:00:00-06:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "death date"^^xsd:string ;
 	skos:scopeNote "Refers to a calendar date and is assumed to have precision of one day (time zone offset is allowed). Recommended usage is to zero out the hours through microseconds to avoid spurious precision. Implementations requiring a death date to the minute can define a subproperty."^^xsd:string ;
 	.
 
 gist:description
 	a owl:DatatypeProperty ;
+	rdfs:range rdf:PlainLiteral ;
 	skos:definition "A statement about someone or something's attributes or characteristics."^^xsd:string ;
 	skos:example
 		"'The Empire State Building is a 102-story Art Deco skyscraper in midtown Manhattan in New York City. It was designed by Shreve, Lamb & Harmon and built from 1930 to 1931.'"^^xsd:string ,
@@ -3081,15 +3084,6 @@ gist:isRecognizedBy
 	skos:prefLabel "is recognized by"^^xsd:string ;
 	.
 
-gist:isRecordedAt
-	a owl:DatatypeProperty ;
-	rdfs:subPropertyOf gist:atDateTime ;
-	skos:definition "The date that something was posted (which is not necessarily the date it occurred). It must be after the date of occurrence, but could be before or after the planned date."^^xsd:string ;
-	skos:example "The date and time a customer payment or stock purchase was posted."^^xsd:string ;
-	skos:prefLabel "is recorded at"^^xsd:string ;
-	skos:scopeNote "Precision may vary according to context."^^xsd:string ;
-	.
-
 gist:isRenderedOn
 	a owl:ObjectProperty ;
 	skos:definition "Relates content to the media on which it is rendered."^^xsd:string ;
@@ -3170,6 +3164,7 @@ gist:longitude
 
 gist:name
 	a owl:DatatypeProperty ;
+	rdfs:range rdf:PlainLiteral ;
 	skos:definition "Relates an individual to (one of) its name(s)."^^xsd:string ;
 	skos:prefLabel "name"^^xsd:string ;
 	.
@@ -3249,7 +3244,7 @@ gist:plannedEndDate
 	rdfs:subPropertyOf gist:plannedEndDateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "The date that something is or was planned to end, with precision of one day."^^xsd:string ;
-	skos:example "'2021-06-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:example "'2021-06-01T00:00:00-06:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "planned end date"^^xsd:string ;
 	skos:scopeNote "Used for anything with a planned end date, such as when a lease will expire, when an offer is no longer available, etc. Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual. Recommended usage is to zero out the hours through microseconds to avoid spurious precision."^^xsd:string ;
 	.
@@ -3271,7 +3266,7 @@ gist:plannedEndMinute
 	rdfs:subPropertyOf gist:plannedEndDateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "The date and time that something is or was planned to end, with precision of one minute."^^xsd:string ;
-	skos:example "'2021-06-01T08:32:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:example "'2021-06-01T08:32:00-06:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "planned end minute"^^xsd:string ;
 	skos:scopeNote "Used for things like meetings and time card entries, where the hour and minute are important. Recommended usage is to zero out the seconds and microseconds to avoid spurious precision.Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual."^^xsd:string ;
 	.
@@ -3282,7 +3277,7 @@ gist:plannedEndYear
 	rdfs:range xsd:dateTime ;
 	skos:definition "The date that something is or was planned to end, with precision of one year."^^xsd:string ;
 	skos:example
-		"'2021-01-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ,
+		"'2021-01-01T00:00:00-06:00'^^xsd:dateTime"^^xsd:string ,
 		"The automobile manufacturer announced that it will stop producing gas-powered vehicles in 2035."^^xsd:string
 		;
 	skos:prefLabel "planned end year"^^xsd:string ;
@@ -3294,7 +3289,7 @@ gist:plannedStartDate
 	rdfs:subPropertyOf gist:plannedStartDateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "The date that something is or was planned to start, with precision of one day."^^xsd:string ;
-	skos:example "'2021-06-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:example "'2021-06-01T00:00:00-06:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "planned start date"^^xsd:string ;
 	skos:scopeNote "Used for anything with a planned start date, such as when a lease will start, when a configuration becomes available, etc. Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual. Recommended usage is to zero out the hours through microseconds to avoid spurious precision."^^xsd:string ;
 	.
@@ -3316,7 +3311,7 @@ gist:plannedStartMinute
 	rdfs:subPropertyOf gist:plannedStartDateTime ;
 	rdfs:range xsd:dateTime ;
 	skos:definition "The date and time that something is or was planned to start, with precision of one minute."^^xsd:string ;
-	skos:example "'2021-06-01T08:32:00-6:00'^^xsd:dateTime"^^xsd:string ;
+	skos:example "'2021-06-01T08:32:00-06:00'^^xsd:dateTime"^^xsd:string ;
 	skos:prefLabel "planned start minute"^^xsd:string ;
 	skos:scopeNote "Used for things like meetings and time card entries, where the hour and minute are important. Typically a planned date is in the future when first captured, but when tasks run late, we leave the plan where it was and compare it to the actual. Recommended usage is to zero out the seconds and microseconds to avoid spurious precision."^^xsd:string ;
 	.
@@ -3327,7 +3322,7 @@ gist:plannedStartYear
 	rdfs:range xsd:dateTime ;
 	skos:definition "The date that something is or was planned to start, with precision of one year."^^xsd:string ;
 	skos:example
-		"'2021-01-01T00:00:00-6:00'^^xsd:dateTime"^^xsd:string ,
+		"'2021-01-01T00:00:00-06:00'^^xsd:dateTime"^^xsd:string ,
 		"The automobile manufacturer announced that its full line-up will include only electric cars starting in 2035."^^xsd:string
 		;
 	skos:prefLabel "planned start year"^^xsd:string ;
@@ -3391,6 +3386,15 @@ gist:rangeIncludes
 		;
 	.
 
+gist:recordedDateTime
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:atDateTime ;
+	skos:definition "The date that something was posted (which is not necessarily the date it occurred). It must be after the date of occurrence, but could be before or after the planned date."^^xsd:string ;
+	skos:example "The date and time a customer payment or stock purchase was posted."^^xsd:string ;
+	skos:prefLabel "recorded date time"^^xsd:string ;
+	skos:scopeNote "Precision may vary according to context."^^xsd:string ;
+	.
+
 gist:refersTo
 	a owl:ObjectProperty ;
 	skos:definition "Relates something to another resource that it points to, indicates, or references."^^xsd:string ;
@@ -3414,8 +3418,9 @@ gist:requires
 gist:sequence
 	a owl:DatatypeProperty ;
 	rdfs:range xsd:integer ;
-	skos:definition "For ordering ordered lists."^^xsd:string ;
+	skos:definition "A number that specifies the position of an element within a series."^^xsd:string ;
 	skos:prefLabel "sequence"^^xsd:string ;
+	gist:domainIncludes gist:OrderedMember ;
 	.
 
 gist:startDateTime
@@ -3432,6 +3437,7 @@ gist:startDateTime
 
 gist:symbol
 	a owl:DatatypeProperty ;
+	rdfs:range rdf:PlainLiteral ;
 	skos:definition "A symbol for something using only ASCII characters."^^xsd:string ;
 	skos:example "The ASCII symbol for square meter is m^2."^^xsd:string ;
 	skos:prefLabel "symbol"^^xsd:string ;
@@ -3444,6 +3450,7 @@ gist:uniqueText
 		owl:FunctionalProperty
 		;
 	rdfs:subPropertyOf gist:containedText ;
+	rdfs:range rdf:PlainLiteral ;
 	skos:definition "The unique string value of some content object, to be used when there is no possibility of having more than one value."^^xsd:string ;
 	skos:example "The unique string for a vehicle identification number."^^xsd:string ;
 	skos:prefLabel "unique text"^^xsd:string ;
