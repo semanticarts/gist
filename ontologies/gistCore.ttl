@@ -1197,11 +1197,18 @@ gist:Network
 
 gist:NetworkLink
 	a owl:Class ;
-	rdfs:subClassOf [
-		a owl:Restriction ;
-		owl:onProperty gist:links ;
-		owl:allValuesFrom gist:NetworkNode ;
-	] ;
+	rdfs:subClassOf
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:links ;
+			owl:allValuesFrom gist:NetworkNode ;
+		] ,
+		[
+			a owl:Restriction ;
+			owl:onProperty gist:links ;
+			owl:cardinality "2"^^xsd:nonNegativeInteger ;
+		]
+		;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (

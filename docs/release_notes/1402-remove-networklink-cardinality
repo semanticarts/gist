@@ -1,3 +1,0 @@
-### Major Updates
-
-- Removed cardinality restriction from `gist:NetworkLink` to account for cases where a link may connect more or less than two nodes (e.g. a t-pipe, a computer broadcasting and receiving its own messages). Modified definition to reflect change and added scope note including aforementioned cases. Issue [#1402](https://github.com/semanticarts/gist/issues/1402).
