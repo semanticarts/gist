@@ -88,7 +88,8 @@ Extensive documentation of gist is available in the [gist-doc repository](https:
   - epub and mobi formats
 - **gist Constellations (visualizations)**
   - A collection of PNG images built using the [Turtle Editor Viewer](http://semantechs.co.uk/turtle-editor-viewer/).  Each image is made up of a single 'constellation' of classes as described above and shows the classes and their relationships, the literal annotations, and any anonymous classes used in class definitions.
-- **[Widoco](https://github.com/dgarijo/Widoco) documentation**
+- **WIDOCO documentation**
+  - The gist documentation produced using the [WIDOCO](https://github.com/dgarijo/Widoco) tool is a compact, easily-searched presentation of gist in HTML format.
 
 ### Additional Documentation
 
@@ -97,6 +98,17 @@ Extensive documentation of gist is available in the [gist-doc repository](https:
 - [Deprecation and Deletion Policy](docs/DeprecationAndDeletionPolicy.md)
 - [A Brief Introduction to the gist Semantic Model](https://www.semanticarts.com/a-brief-introduction-to-the-gist-semantic-model/) (blog post)
 - [Introduction to Gist](https://iaoa.org/isc2014/uploads/Whitepaper-Uschold-IntroductionToGist.pdf) (IAOA whitepaper by Michael Uschold, PDF)
+
+## FAQ
+
+**What does "gist" stand for?**
+gist is not an acronym. It is the common English word meaning "the essence or general meaning of something," reflecting the ontology's goal of capturing the essential concepts of the enterprise.
+
+**How does gist compare to other upper ontologies?**
+Unlike ontologies such as BFO, SUMO, or DOLCE, gist is deliberately minimalist and uses everyday language rather than philosophical abstractions. This makes it more accessible and practical for enterprise use.
+
+**Can I extend gist?**
+Yes. gist is designed as a foundation for building domain-specific ontologies. Define your extensions in your own namespace; gist terms must remain in the gist namespace.
 
 ## Citing gist
 
