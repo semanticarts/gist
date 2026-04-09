@@ -11,6 +11,30 @@ gist represents the fundamental concepts and relationships that exist across mos
 
 gist is free and open to the public under the [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/) license. You can use it as you see fit for any purpose, as long as you give us attribution. In addition to the conditions of this license, we require that any terms used from gist remain in the gist namespace, and that you do not define your own terms in the gist namespace.
 
+gist is an [OWL 2 DL](https://www.w3.org/TR/owl2-overview/) ontology serialized in [Turtle](https://www.w3.org/TR/turtle/) (.ttl) format. The released version also includes RDF/XML and JSON-LD serializations.
+
+gist uses three namespaces:
+
+- **Ontology:** `https://w3id.org/semanticarts/ns/ontology/gist/` (prefix `gist:`)
+- **Taxonomy:** `https://w3id.org/semanticarts/ns/taxonomy/gist/` (prefix `gistx:`)
+- **Instance data:** `https://w3id.org/semanticarts/ns/data/gist/` (prefix `gistd:`)
+
+gist uses namespaces in the w3id.org domain so that its term IRIs remain stable and persistent independent of any particular website or hosting arrangement.
+
+The development repository contains the following ontology modules in Turtle (.ttl) format:
+
+- **`gistCore`** — The main ontology, containing all classes, properties, and restrictions
+- **`gistMediaTypes`** — Defines instances for common internet media types
+- **`gistPrefixDeclarations`** — Prefix declarations for use in SPARQL queries
+- **`gistValidationAnnotations`** — Annotations used by SHACL validation shapes
+
+Bundled releases include these same modules plus two additional modules generated during the build:
+
+- **`gistRdfsAnnotations`** — `rdfs:label` and `rdfs:comment` annotations generated for backward compatibility with tools that rely on RDFS
+- **`gistSubClassAssertions`** — Materialized subclass inferences for use in environments without a reasoner
+
+In a release bundle, each module file name includes the version number (e.g., `gistCore14.1.0.ttl`) and is provided in three serializations: Turtle (.ttl), RDF/XML (.rdf), and JSON-LD (.jsonld).
+
 ## gist Community
 
 We maintain an active gist community forum where developers and users of gist come together to discuss the gist model, implementation best practices, and the evolution of gist. Meetings occur virtually on the first Thursday of every other month, starting in January. Please send email to [community@semanticarts.com](mailto:community@semanticarts.com) if you would like to become involved.
@@ -27,15 +51,12 @@ gist has extensive and fine-grained disjointness at the highest level in order t
 
 gist uses domain and range specifications sparingly in order to make properties more broadly applicable. To eliminate redundancy and reduce cognitive load, inverse properties are not defined. Subclasses are typically defined using a pattern that specifies how they specialize the superclass.
 
-## Using gist
+## Using gist in Your Projects
 
 ### Getting gist
 
-- Download the [latest released version of gist](https://downloads.semanticarts.com/gistCore_Current_Version.zip) or the zip file available on the [GitHub repository releases page](https://github.com/semanticarts/gist/releases).
+- Download the [latest released version of gist](https://downloads.semanticarts.com/gistCore_Current_Version.zip) or the zip file available on the [GitHub repository releases page](https://github.com/semanticarts/gist/releases); or
 - Import into Protégé with the link: <https://w3id.org/semanticarts/ontology/gistCore>.
-- Clone or download gist from the [GitHub repository](https://github.com/semanticarts/gist/).
-
-For more information on gist and to download previous versions, see the [Semantic Arts website](https://www.semanticarts.com/gist).
 
 ### Versioning and Migration
 
@@ -79,9 +100,7 @@ Extensive documentation of gist is available in the [gist-doc repository](https:
 
 ### Prerequisites and Technology
 
-gist is an [OWL 2 DL](https://www.w3.org/TR/owl2-overview/) ontology serialized in [Turtle](https://www.w3.org/TR/turtle/) (.ttl) format. The build pipeline also produces RDF/XML and JSON-LD serializations.
-
-To work with gist, you can use any OWL-compatible tool such as [Protégé](https://protege.stanford.edu/), or edit the Turtle files directly in a text editor or IDE such as [VSCode](https://code.visualstudio.com/) (with a Turtle language extension for syntax highlighting).
+To work with gist, you can use an OWL-compatible tool such as [Protégé](https://protege.stanford.edu/), or edit the Turtle files directly in a text editor or IDE such as [VSCode](https://code.visualstudio.com/) (with a Turtle language extension for syntax highlighting).
 
 Contributors building and validating gist locally will need:
 
@@ -90,6 +109,18 @@ Contributors building and validating gist locally will need:
 - **[onto-tool](https://pypi.org/project/onto-tool/)** >= 1.8.0
 
 The repository includes a pre-commit hook that runs the RDF serializer on all commits to enforce a consistent Turtle format. This is installed automatically by `./tools/setup.cmd`.
+
+### Build and Validation
+
+The gist build pipeline is defined in [`bundle.yaml`](bundle.yaml) and run using [onto-tool](https://pypi.org/project/onto-tool/). The build validates the ontology, generates additional modules (`gistRdfsAnnotations` and `gistSubClassAssertions`), serializes all modules in multiple formats, and packages the result into a versioned release bundle.
+
+To run the build locally:
+
+```bash
+onto_tool bundle bundle.yaml
+```
+
+Validation includes [SHACL](https://www.w3.org/TR/shacl/) shape checking (defined in [`validation/shapes/`](validation/shapes/)) and [SPARQL](https://www.w3.org/TR/sparql11-query/) construct queries (in [`validation/queries/`](validation/queries/)).
 
 ### Setting up a Local gist Repository
 
