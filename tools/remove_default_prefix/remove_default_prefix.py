@@ -12,7 +12,7 @@ import sys
 
 # Compiled as a bytes pattern because `git show` returns raw bytes,
 # avoiding an encode/decode round-trip on every line.
-_PREFIX_LINE = re.compile(rb"^(@prefix\s|PREFIX\s)")
+_PREFIX_LINE = re.compile(rb"^(\s*@prefix\s+:|\s*PREFIX\s+:)")
 
 
 def _run(args, *, data=None, check=True):
