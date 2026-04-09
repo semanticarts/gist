@@ -248,32 +248,25 @@ gist:Building
 	skos:scopeNote "User discretion can be applied to edge cases: e.g., is a traditional yurt 'relatively permanently situated' although it is portable and has a tent-like construction?"^^xsd:string ;
 	.
 
-gist:BundledCatalogItem
+gist:BundledDeliverableSpecification
 	a owl:Class ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:CatalogItem
+			gist:DeliverableSpecification
+			gist:Collection
 			[
 				a owl:Restriction ;
 				owl:onProperty [
 					owl:inverseOf gist:isDirectPartOf ;
 				] ;
-				owl:someValuesFrom gist:CatalogItem ;
+				owl:someValuesFrom gist:DeliverableSpecification ;
 			]
 		) ;
 	] ;
 	skos:definition "Any combination of descriptions of things offered together."^^xsd:string ;
 	skos:example "A kit containing several parts offered together; a product plus a warranty."^^xsd:string ;
-	skos:prefLabel "Bundled Catalog Item"^^xsd:string ;
-	.
-
-gist:CatalogItem
-	a owl:Class ;
-	rdfs:subClassOf gist:Specification ;
-	skos:definition "A description of a product or service to be delivered, given in a sufficient level of detail that a receiver could determine whether delivery constituted discharge of the obligation to deliver."^^xsd:string ;
-	skos:prefLabel "Catalog Item"^^xsd:string ;
-	skos:scopeNote "In short, an unambiguous characterization of what it is that a potential buyer is paying for."^^xsd:string ;
+	skos:prefLabel "Bundled Deliverable Specification"^^xsd:string ;
 	.
 
 gist:Category
@@ -611,6 +604,17 @@ gist:DegreeOfCommitment
 	skos:definition "The difficulty of reversing a commitment."^^xsd:string ;
 	skos:example "A car rental typically has a lower degree of commitment than an airfare reservation."^^xsd:string ;
 	skos:prefLabel "Degree Of Commitment"^^xsd:string ;
+	.
+
+gist:DeliverableSpecification
+	a owl:Class ;
+	rdfs:subClassOf gist:Specification ;
+	skos:definition "A description of a product or service to be delivered, given in a sufficient level of detail that a receiver can determine whether delivery constituted discharge of the obligation to deliver."^^xsd:string ;
+	skos:prefLabel "Deliverable Specification"^^xsd:string ;
+	skos:scopeNote
+		"May be identified by a Stock Keeping Unit (SKU)."^^xsd:string ,
+		"In short, an unambiguous characterization of what it is that a potential consumer is entitled to receive."^^xsd:string
+		;
 	.
 
 gist:Determination
@@ -1306,6 +1310,21 @@ gist:Offer
 				owl:onProperty gist:plannedStartDateTime ;
 				owl:someValuesFrom xsd:dateTime ;
 			]
+			[
+				a owl:Class ;
+				owl:unionOf (
+					[
+						a owl:Restriction ;
+						owl:onProperty gist:offersToProvide ;
+						owl:someValuesFrom gist:DeliverableSpecification ;
+					]
+					[
+						a owl:Restriction ;
+						owl:onProperty gist:offersToReceive ;
+						owl:someValuesFrom gist:DeliverableSpecification ;
+					]
+				) ;
+			]
 		) ;
 	] ;
 	skos:definition "A contingent commitment to buy, sell, swap or provide one or more described or identified goods or services in exchange for another (or others)."^^xsd:string ;
@@ -1627,7 +1646,7 @@ gist:ProductSpecification
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:CatalogItem
+			gist:DeliverableSpecification
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:isCategorizedBy ;
@@ -1757,7 +1776,8 @@ gist:ServiceSpecification
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:CatalogItem
+			gist:DeliverableSpecification
+			gist:EventSpecification
 			[
 				a owl:Restriction ;
 				owl:onProperty [
