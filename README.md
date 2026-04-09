@@ -13,28 +13,6 @@ gist is free and open to the public under the [Creative Commons Attribution 4.0 
 
 gist is an [OWL 2 DL](https://www.w3.org/TR/owl2-overview/) ontology serialized in [Turtle](https://www.w3.org/TR/turtle/) (.ttl) format. The released version also includes RDF/XML and JSON-LD serializations.
 
-gist uses three namespaces:
-
-- **Ontology:** `https://w3id.org/semanticarts/ns/ontology/gist/` (prefix `gist:`)
-- **Taxonomy:** `https://w3id.org/semanticarts/ns/taxonomy/gist/` (prefix `gistx:`)
-- **Instance data:** `https://w3id.org/semanticarts/ns/data/gist/` (prefix `gistd:`)
-
-gist uses namespaces in the w3id.org domain so that its term IRIs remain stable and persistent independent of any particular website or hosting arrangement.
-
-The development repository contains the following ontology modules in Turtle (.ttl) format:
-
-- **`gistCore`** — The main ontology, containing all classes, properties, and restrictions
-- **`gistMediaTypes`** — Defines instances for common internet media types
-- **`gistPrefixDeclarations`** — Prefix declarations for use in SPARQL queries
-- **`gistValidationAnnotations`** — Annotations used by SHACL validation shapes
-
-Bundled releases include these same modules plus two additional modules generated during the build:
-
-- **`gistRdfsAnnotations`** — `rdfs:label` and `rdfs:comment` annotations generated for backward compatibility with tools that rely on RDFS
-- **`gistSubClassAssertions`** — Materialized subclass inferences for use in environments without a reasoner
-
-In a release bundle, each module file name includes the version number (e.g., `gistCore14.1.0.ttl`) and is provided in three serializations: Turtle (.ttl), RDF/XML (.rdf), and JSON-LD (.jsonld).
-
 ## gist Community
 
 We maintain an active gist community forum where developers and users of gist come together to discuss the gist model, implementation best practices, and the evolution of gist. Meetings occur virtually on the first Thursday of every other month, starting in January. Please send email to [community@semanticarts.com](mailto:community@semanticarts.com) if you would like to become involved.
@@ -50,6 +28,29 @@ gist defines a small number of top-level concepts on which everything else is ba
 gist has extensive and fine-grained disjointness at the highest level in order to help you avoid making certain types of logical errors in your ontologies or data that are based on gist. Because we explicity state, for example, that governmental organizations (such as the US federal government) can’t be intergovernmental organizations (such as the UN), a reasoner will complain of logical inconsistency if something has been typed as both. Without disjointness, such inconsistencies will not be surfaced.
 
 gist uses domain and range specifications sparingly in order to make properties more broadly applicable. To eliminate redundancy and reduce cognitive load, inverse properties are not defined. Subclasses are typically defined using a pattern that specifies how they specialize the superclass.
+
+## Namespaces
+
+gist uses three namespaces:
+
+- **Ontology:** `https://w3id.org/semanticarts/ns/ontology/gist/` (prefix `gist:`)
+- **Taxonomy:** `https://w3id.org/semanticarts/ns/taxonomy/gist/` (prefix `gistx:`)
+- **Instance data:** `https://w3id.org/semanticarts/ns/data/gist/` (prefix `gistd:`)
+
+gist uses namespaces in the w3id.org domain so that its term IRIs remain stable and persistent independent of any particular website or hosting arrangement.
+
+## Modules
+
+Bundled releases include the following modules:
+
+- **`gistCore`** — The main ontology, containing all classes, properties, and restrictions
+- **`gistMediaTypes`** — Defines instances for common internet media types
+- **`gistPrefixDeclarations`** — Prefix declarations for use in SPARQL queries
+- **`gistValidationAnnotations`** — Annotations used by SHACL validation shapes
+- **`gistRdfsAnnotations`** — `rdfs:label` and `rdfs:comment` annotations generated for backward compatibility with tools that rely on RDFS
+- **`gistSubClassAssertions`** — Materialized subclass inferences for use in environments without a reasoner
+
+In a release bundle, each module file name includes the version number (e.g., `gistCore14.1.0.ttl`) and is provided in three serializations: Turtle (.ttl), RDF/XML (.rdf), and JSON-LD (.jsonld).
 
 ## Using gist in Your Projects
 
@@ -95,6 +96,12 @@ Extensive documentation of gist is available in the [gist-doc repository](https:
 
 - **Videos:** We maintain a library of videos containing gist tutorials and recordings of our monthly gist Council meetings. You can find links to these videos on the [Semantic Arts website](https://www.semanticarts.com/gist/videos/), or directly access the entire catalog on [our YouTube channel](https://www.youtube.com/playlist?list=PLk2kJrehubb4dc3e5Db5Lvv9WMaOhV3V7).
 - The [Semantic Arts gist web page](https://www.semanticarts.com/gist/).
+
+### Citing gist
+
+If you use gist in academic work or publications, please cite it as follows:
+
+> Semantic Arts, Inc. *gist: A Minimalist Upper Ontology for the Enterprise.* Available at: <https://github.com/semanticarts/gist>
 
 ## Contributing to gist Development
 
