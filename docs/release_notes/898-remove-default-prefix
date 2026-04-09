@@ -1,4 +1,5 @@
 ### Patch Updates
 
-- Added a test in the git pre-commit hook to check for default PREFIX declarations in ontology files and cause the commit to fail if it finds one. For this to work, the setup.cmd command needs to be re-run to update the git hook. Issue [#898](https://github.com/semanticarts/gist/issues/898).
+- Add a script to the git pre-commit hook to removed default PREFIX declarations from ontology files that are in the commit.
+  Issue [#898](https://github.com/semanticarts/gist/issues/898).
 
