@@ -22,12 +22,9 @@ fi
 # We want to run a couple of scripts against the files that will be committed.
 # Unfortunately we have to jump through some hoops in case there are additional
 # changes to the files on the file system but that are not in the commit.
-# - Save exactly what is to be committed
-git commit --allow-empty-message
+
 # - Stash any other changes made to files
-git stash
-# - Undo the commit, but leave the changes in the staging area (the git index)
-git reset --soft HEAD~1
+git stash push --keep-index -m strip-ttl-prefixes-tmp
 # - Now, make any changes to the files in the index
 # - Don't forget to pop the stash entry before exiting
 
