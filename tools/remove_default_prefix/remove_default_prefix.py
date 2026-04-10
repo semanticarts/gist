@@ -57,9 +57,6 @@ def _strip_prefixes_in_index(path):
     with open(path, "wb") as fh:
         fh.write(b"".join(filtered))
 
-    # Add the change to the staged files
-    # _run(["git", "add", f"{path}"])
-
     return True
 
 

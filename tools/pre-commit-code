@@ -3,10 +3,6 @@
 # This file performs all the actual git pre-commit checks.
 # It should be called by .git/hooks/pre-commit, which should be a copy of tools/pre-commit-hook.
 
-# Get absolute path to this script
-# SCRIPT=$(readlink -f "$0")
-# SCRIPTPATH=$(dirname "$SCRIPT")
-
 # Get root directory of this git repository
 base_dir=$(git rev-parse --show-toplevel)
 
@@ -21,7 +17,7 @@ fi
 
 # We want to run a couple of scripts against the files that will be committed.
 # They may change the files, this causes problems with git if you have additional
-# changes in your working director for the same files that are in the commit.
+# changes in your working directory for the same files that are in the commit.
 
 # Run the serializer
 "${base_dir}/tools/serializer/pre-commit"
