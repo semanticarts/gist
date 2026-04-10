@@ -6,4 +6,4 @@ tools/pre-commit-code executable
 tools/pre-commit-hook executable
 tools/remove_default_prefix/remove_default_prefix.py executable
 tools/serializer/pre-commit executable
-tools/setup.cmd
+tools/setup.cmd executable
