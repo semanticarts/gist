@@ -608,7 +608,7 @@ gist:Determination
 	a owl:Class ;
 	rdfs:subClassOf gist:Event ;
 	skos:definition "An event whose purpose is to establish a specific result, value, or outcome, usually by research, measuring, evaluating, or calculating."^^xsd:string ;
-	skos:example "Measuring the sulphur content of crude oil; evaluating a loan application for approval; estimating the price of gas for the next three months; determining whether and by how much an interest rate should change; classifying a purchase into a budget category."^^xsd:string ;
+	skos:example "Measuring the sulfur content of crude oil; evaluating a loan application for approval; estimating the price of gas for the next three months; determining whether and by how much an interest rate should change; classifying a purchase into a budget category."^^xsd:string ;
 	skos:prefLabel "Determination"^^xsd:string ;
 	.
 
@@ -702,9 +702,10 @@ gist:FormattedContent
 			]
 		) ;
 	] ;
-	skos:definition "Content which is in a particular format."^^xsd:string ;
-	skos:example "An HTML website, a PDF document, a JPG image."^^xsd:string ;
+	skos:definition "Content encoded in a specific format, but existing as data independent of any particular physical medium."^^xsd:string ;
+	skos:example "A document in PDF format; an image in JPEG format."^^xsd:string ;
 	skos:prefLabel "Formatted Content"^^xsd:string ;
+	skos:scopeNote "Each instance of formatted content is a distinct formatting of some Content. Thus, a PDF-formatted version and an HTML-formatted version of the same content are separate instances of formatted content."^^xsd:string ;
 	.
 
 gist:Function
@@ -822,7 +823,7 @@ gist:GeoRoute
 	] ;
 	skos:definition "An ordered set of geographic points that defines a path from a starting point to an ending point."^^xsd:string ;
 	skos:prefLabel "Geographic Route"^^xsd:string ;
-	skos:scopeNote "A geographic route could describe a bus route by identifying the points where the bus stops. A geographic route could describe the boundary of a polygonal geographic region (it does not have to be a travelled route)."^^xsd:string ;
+	skos:scopeNote "A geographic route could describe a bus route by identifying the points where the bus stops. A geographic route could describe the boundary of a polygonal geographic region (it does not have to be a traveled route)."^^xsd:string ;
 	.
 
 gist:GeoVolume
@@ -1631,9 +1632,10 @@ gist:RenderedContent
 			]
 		) ;
 	] ;
-	skos:definition "Content which has been physically expressed."^^xsd:string ;
-	skos:example "Words printed on paper; audio played on speakers; images displayed on monitors."^^xsd:string ;
+	skos:definition "Content expressed via some physical medium."^^xsd:string ;
+	skos:example "Words printed on paper; audio played on speakers; an image displayed on a monitor; an original painting."^^xsd:string ;
 	skos:prefLabel "Rendered Content"^^xsd:string ;
+	skos:scopeNote "Renderings of the same file on two different monitors are separate instances of rendered content."^^xsd:string ;
 	.
 
 gist:Requirement
@@ -2150,10 +2152,13 @@ gist:conformsTo
 
 gist:containedText
 	a owl:DatatypeProperty ;
-	skos:definition "A string that is closely associated with an individual."^^xsd:string ;
+	skos:definition "Relates an entity containing textual information to the string constituting that textual information."^^xsd:string ;
 	skos:example "The string associated with a tag or with text content."^^xsd:string ;
 	skos:prefLabel "contained text"^^xsd:string ;
+	skos:scopeNote "If there are multiple strings associated with an entity, it is an implementation decision whether to combine them into a single contained text value or to use multiple contained text assertions."^^xsd:string ;
 	gist:domainIncludes
+		gist:Content ,
+		gist:ContentExpression ,
 		gist:Tag ,
 		gist:Text
 		;
@@ -2564,7 +2569,7 @@ gist:goesToAgent
 	skos:prefLabel "goes to agent"^^xsd:string ;
 	skos:scopeNote
 		"This is not the inverse of gist:comesFromAgent, as both properties have the message or shipment as the subject."^^xsd:string ,
-		"This property is intended to describe the physical or electronic transfer of something, such as a package or email, from one agent to another, whereas gist:hasRecipient is typically used in more abstract contexts such as agreements, obligations, contracts, etc. However, there are contexts in which either may be appropriate, such as the recieving of a gift."^^xsd:string
+		"This property is intended to describe the physical or electronic transfer of something, such as a package or email, from one agent to another, whereas gist:hasRecipient is typically used in more abstract contexts such as agreements, obligations, contracts, etc. However, there are contexts in which either may be appropriate, such as the receiving of a gift."^^xsd:string
 		;
 	.
 
@@ -2594,7 +2599,7 @@ gist:hasAccuracy
 	skos:prefLabel "has accuracy"^^xsd:string ;
 	skos:scopeNote """gist uses the ISO-5725 definition of accuracy, which is a combination of trueness (a measure of systemic error) and precision (a measure of random error). The accuracy of a measurement method describes how close its measurements are to actual values. Similarly, the accuracy of an individual measurement is its likely closeness to the actual value. When we say a temperature measurement is accurate to within a tenth of a degree, it means with a certain probability such as 95%.
 
-Note that the unit of measure of the accuracy has to be compatible with the unit of measure of the original magnitude (e.g. something measured in meters could have a accuracy in terms of millimeters or any other unit that measures distance)."""^^xsd:string ;
+Note that the unit of measure of the accuracy has to be compatible with the unit of measure of the original magnitude (e.g. something measured in meters could have an accuracy in terms of millimeters or any other unit that measures distance)."""^^xsd:string ;
 	gist:domainIncludes gist:Magnitude ;
 	.
 
@@ -2805,7 +2810,7 @@ gist:idText
 	skos:example "The id text for a car is '4Y1SL65848Z411439'; the id text for the HR department of some company is H31415."^^xsd:string ;
 	skos:prefLabel "id text"^^xsd:string ;
 	skos:scopeNote
-		"A common use case would be for pre-existing internal company identifiers."^^xsd:string ,
+		"A common use case would be for preexisting internal company identifiers."^^xsd:string ,
 		"Often, there will be just one identifying text string. More would be appropriate if the individual had different identifiers, such as employee number and social security number. A good way to model that would be to have functional subproperties of idText, such as departmentNumber."^^xsd:string ,
 		"This property is an alternative to using the property gist:isIdentifiedBy in conjunction with instances of the class gist:ID."^^xsd:string
 		;
@@ -3273,7 +3278,7 @@ gist:precedes
 	skos:scopeNote
 		"The less-than symbol is often used to represent this relation."^^xsd:string ,
 		"This is the transitive version of gist:precedesDirectly."^^xsd:string ,
-		"Typically this predicate would be used asymmetricallly and irreflexively, but the ontology does not formalize this."^^xsd:string
+		"Typically this predicate would be used asymmetrically and irreflexively, but the ontology does not formalize this."^^xsd:string
 		;
 	.
 
@@ -3285,7 +3290,7 @@ gist:precedesDirectly
 	skos:scopeNote
 		"If two items in an ordered collection share the same position, they both directly precede the following element."^^xsd:string ,
 		"It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ,
-		"Typically this predicate would be used asymmetricallly and irreflexively, but the ontology does not formalize this."^^xsd:string
+		"Typically this predicate would be used asymmetrically and irreflexively, but the ontology does not formalize this."^^xsd:string
 		;
 	.
 
