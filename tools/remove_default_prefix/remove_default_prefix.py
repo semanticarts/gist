@@ -40,22 +40,25 @@ def _strip_prefixes_in_index(path):
     print(f"Removing default @prefix from file: {path}")
 
     # Persist the new content as a git blob object
-    new_hash = (
-        _run(["git", "hash-object", "-w", "--stdin"], data=b"".join(filtered))
-        .stdout.decode()
-        .strip()
-    )
+    #new_hash = (
+    #    _run(["git", "hash-object", "-w", "--stdin"], data=b"".join(filtered))
+    #    .stdout.decode()
+    #    .strip()
+    #)
 
     # Preserve the existing index mode (e.g. "100644") for the entry
-    ls_out = _run(["git", "ls-files", "--stage", "--", path]).stdout.decode()
-    mode = ls_out.split()[0]
+    #ls_out = _run(["git", "ls-files", "--stage", "--", path]).stdout.decode()
+    #mode = ls_out.split()[0]
 
     # Atomically replace the index entry with the new blob
-    _run(["git", "update-index", "--cacheinfo", f"{mode},{new_hash},{path}"])
+    #_run(["git", "update-index", "--cacheinfo", f"{mode},{new_hash},{path}"])
 
     # Mirror the change to the working tree file
     with open(path, "wb") as fh:
         fh.write(b"".join(filtered))
+
+    # Add the change to the staged files
+    _run(["git", "add", f"{path}"])
 
     return True
 

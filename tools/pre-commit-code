@@ -31,8 +31,8 @@ git stash push --keep-index -m strip-ttl-prefixes-tmp
 # Run the serializer
 "${base_dir}/tools/serializer/pre-commit"
 rc=$?
-# echo "RESULT == ${rc}"
 if [ ! ${rc} -eq 0 ] ; then
+  echo "FAILURE: serializer; RESULT == ${rc}"
   # Put the user's changes back
   git stash pop
   exit 1
@@ -42,6 +42,7 @@ fi
 "${base_dir}/tools/remove_default_prefix/remove_default_prefix.py"
 rc=$?
 if [ ! ${rc} -eq 0 ] ; then
+  echo "FAILURE: remove_default_prefix.py; RESULT == ${rc}"
   # Put the user's changes back
   git stash pop
   exit 1
