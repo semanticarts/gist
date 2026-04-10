@@ -3,4 +3,7 @@
 # for these files, even when edited on Windows.
 *.sh executable
 tools/pre-commit-code executable
+tools/pre-commit-hook executable
+tools/remove_default_prefix/remove_default_prefix.py
 tools/serializer/pre-commit executable
+tools/setup.cmd
