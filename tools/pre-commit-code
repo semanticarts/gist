@@ -32,7 +32,6 @@ if [ ! ${rc} -eq 0 ] ; then
 fi
 
 # Remove any default PREFIX statements in the ontology files
-chmod +x "${base_dir}/tools/remove_default_prefix/remove_default_prefix.py"
 "${base_dir}/tools/remove_default_prefix/remove_default_prefix.py"
 rc=$?
 if [ ! ${rc} -eq 0 ] ; then
