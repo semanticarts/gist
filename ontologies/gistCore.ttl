@@ -9,7 +9,7 @@
 
 <https://w3id.org/semanticarts/ontology/gistCore>
 	a owl:Ontology ;
-	owl:versionIRI <https://w3id.org/semanticarts/ontology/gistCoreX.x.0> ;
+	owl:versionIRI <https://w3id.org/semanticarts/ontology/gistCoreX.x.x> ;
 	skos:definition "gist is a minimalist upper ontology created by Semantic Arts."^^xsd:string ;
 	skos:historyNote """
 		gist 14.0.0 released 2025-Oct-31.
