@@ -87,7 +87,7 @@ We provide a number of resources for learning more about gist.
 
 ### The gist-doc Repository
 
-Extensive documentation of gist is available in the [gist-doc repository](https://github.com/semanticarts/gist-doc). This repository contains documentation of the [Semantic Arts gist minimalist upper ontology](https://github.com/semanticarts/gist/tree/master) in three formats: narrative, graphical, and Widoco-style.
+Extensive documentation of gist is available in the [gist-doc repository](https://github.com/semanticarts/gist-doc). This repository contains documentation of the [Semantic Arts gist minimalist upper ontology](https://github.com/semanticarts/gist/tree/master) in three formats: narrative, graphical, and WIDOCO-style.
 
 - **gist Constellations (eBook)**
   - The organization of the eBook is based around the idea of 'constellations' of classes and predicates that deal with related concepts.
