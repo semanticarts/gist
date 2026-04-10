@@ -20,35 +20,25 @@ then
 fi
 
 # We want to run a couple of scripts against the files that will be committed.
-# Unfortunately we have to jump through some hoops in case there are additional
-# changes to the files on the file system but that are not in the commit.
-
-# - Stash any other changes made to files
-git stash push --keep-index -m strip-ttl-prefixes-tmp
-# - Now, make any changes to the files in the index
-# - Don't forget to pop the stash entry before exiting
+# They may change the files, this causes problems with git if you have additional
+# changes in your working director for the same files that are in the commit.
 
 # Run the serializer
 "${base_dir}/tools/serializer/pre-commit"
 rc=$?
 if [ ! ${rc} -eq 0 ] ; then
   echo "FAILURE: serializer; RESULT == ${rc}"
-  # Put the user's changes back
-  git stash pop
   exit 1
 fi
 
 # Remove any default PREFIX statements in the ontology files
+chmod +x "${base_dir}/tools/remove_default_prefix/remove_default_prefix.py"
 "${base_dir}/tools/remove_default_prefix/remove_default_prefix.py"
 rc=$?
 if [ ! ${rc} -eq 0 ] ; then
   echo "FAILURE: remove_default_prefix.py; RESULT == ${rc}"
-  # Put the user's changes back
-  git stash pop
   exit 1
 fi
 
-# Put the user's changes back
-git stash pop
 exit 0
 
