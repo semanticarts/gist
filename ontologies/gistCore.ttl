@@ -407,9 +407,12 @@ gist:Content
 		gist:UnitOfMeasure
 		;
 	skos:definition "Information available in some medium."^^xsd:string ;
-	skos:example "A document, program, image."^^xsd:string ;
+	skos:example "The literary work 'The Adventures of Huckleberry Finn' by Mark Twain, independent of any particular edition."^^xsd:string ;
 	skos:prefLabel "Content"^^xsd:string ;
-	skos:scopeNote "Categories are not content until they are written down."^^xsd:string ;
+	skos:scopeNote
+		"Categories are not content until they are written down."^^xsd:string ,
+		"This class includes both abstract content and its expression, but it must have at least one expression in order to be content. For example, the idea a writer has for a book is not content until it is expressed in some form, but a single content object may have multiple expressions - e.g., the particular print and audio editions."^^xsd:string
+		;
 	.
 
 gist:ContentExpression
@@ -422,8 +425,13 @@ gist:ContentExpression
 			owl:someValuesFrom gist:GeneralMediaType ;
 		]
 		;
-	skos:definition "Intellectual property reduced to text, audio, etc.  If it contains text (written or spoken), it will be expressed in a language."^^xsd:string ;
+	skos:definition "Content reduced to text, audio, etc."^^xsd:string ;
+	skos:example "A specific print or audio edition of 'The Adventures of Huckleberry Finn,' such as the one identified by ISBN-13 978-1953649805."^^xsd:string ;
 	skos:prefLabel "Content Expression"^^xsd:string ;
+	skos:scopeNote
+		"If it contains text (written or spoken), it will be expressed in a language."^^xsd:string ,
+		"While the content expression is less abstract than a 'Work,' it is more abstract than the specific physical items that render the expression. For example, any physical or electronic book with ISBN-13 978-1953649805 is associated with the same content expression."^^xsd:string
+		;
 	.
 
 gist:ContingentEvent
