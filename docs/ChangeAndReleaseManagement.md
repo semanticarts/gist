@@ -19,7 +19,7 @@ This document describes the Semantic Arts change and release management process 
       - Assign or re-assign priority, impact level, and effort level.
       - Tentatively assign to a release project. May be reassigned to a later release project as needed. The assigned issue should be added to the "To Do (Assigned)" column of the project board.
       - Determine and document the resolution to be implemented and apply the label `status: implementation specified`.
-      - The assigneee implements as specified and submits a PR. See [*Contributing*](./Contributing.md#submitting-a-pull-request-pr) for details.
+      - The assignee implements as specified and submits a PR. See [*Contributing*](./Contributing.md#submitting-a-pull-request-pr) for details.
     - To address larger, major, or broader issues (e.g., rewriting a portion of the ontology, revising all annotations), a small, ad hoc working group of volunteers will be formed.
       - The issue is moved into the "To Do (Assigned)" column.
       - A group leader should be selected and assigned to the issue.

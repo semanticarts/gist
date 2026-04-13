@@ -726,7 +726,7 @@ Import URL: <https://ontologies.semanticarts.com/o/gistCore9.0.0>.
 
 ### Intention
 
-- A `ServiceSpecifictation` no longer produced a behavior. Rather, it is the basis for an `Event` (replaced a restriction)
+- A `ServiceSpecification` no longer produced a behavior. Rather, it is the basis for an `Event` (replaced a restriction)
 - New property: `basisFor`, inverse of `basedOn` which is defined in gistTop.
 
 ### IoT
@@ -869,6 +869,6 @@ gist 7.0 is a major upgrade from our last released version (6.7.1). The main dif
 
 For documentation and OWL files regarding terms that were deprecated when moving from version 6.7.1 to 7.0, please see the sub-folder called "Deprecated terms from gist6.7.1".
 
-In addition to using the OWL files locally, you can import these files via URL directly into your ontology editor of choice(Protegé, Topbraid, etc.) The import will take care of the dependencies.
+In addition to using the OWL files locally, you can import these files via URL directly into your ontology editor of choice(Protégé, Topbraid, etc.) The import will take care of the dependencies.
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.0.owl>.
