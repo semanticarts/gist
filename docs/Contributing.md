@@ -19,7 +19,7 @@
   - [Requesting Reviews](#requesting-reviews)
   - [Review Process](#review-process)
   - [Merging the PR](#merging-the-pr)
-  - [Multi-Developer Projects](#multi-developer-projects)
+  - [Multi-Developer Issues](#multi-developer-issues)
   - [Release Notes](#release-notes)
     - [Requirements](#requirements)
     - [Organization of Release Notes](#organization-of-release-notes)
@@ -101,11 +101,10 @@ When you make a commit, the pre-commit hook:
 ### Creating the Pull Request (PR)
 
 - Once your work is ready to be merged into the main development line, you will [create a pull request](https://github.com/semanticarts/gist/pulls).
-- Assign the PR to yourself for tracking purposes.
+- The PR should not be added to the project board.
 - Before submitting the PR, you should ensure that you have merged or rebased develop into your working branch, [as above during implementation](#commits-pushes-and-merges).
 - Submit the PR to the base (target) branch. This is usually `develop`, but there could be a release branch. The release manager will inform you if there is a base other than develop.
-- If the issue addressed by the PR is slated for a particular release, assign the PR to the same release project, using the Project labels on the right sidebar, in order to facilitate tracking.
-- The PR and the associated issue(s) should be moved to the "In Review" column.
+- The associated issue(s) should be moved to the "In Review" column.
 - Once the PR has been submitted, check that there are no conflicts with the develop branch. If there are, merge or rebase develop into your branch and resolve the conflicts. You may need to repeat this step after making any requested changes, in case other PRs have been merged to develop in the meantime.
 - Assign one or more reviewers, as specified [below](#requesting-reviews).
 
@@ -114,7 +113,6 @@ When you make a commit, the pre-commit hook:
 Some developers like to create a PR before work is completed. Follow the steps above to create the PR, and in addition:
 
 - Put it into draft state by clicking on the "Convert to draft" link below the list of reviewers.
-- If adding to a project, put the PR into "In Progress" status.
 - Do not assign reviewers until the PR is ready for review, so that they are not notified prematurely.
 - When ready for review, click on the gray "Ready to review" button beneath the build checks section. Move the PR and issue status to "In Review", as above.
 - Request reviews.
@@ -169,12 +167,12 @@ Some developers like to create a PR before work is completed. Follow the steps a
 
 - Only authorized users may merge into the protected branches `develop` and `main`.
 - A rebase and merge is preferred, but there are some cases where a rebase is not possible and merge commit must be selected.
-- The GitHub project board is configured to automatically move a merged PR and its associated issue(s) to the Done column, assuming you have linked the PR to the issue(s).
+- The GitHub project board is configured to automatically the associated issue(s) to the Done column, assuming you have linked the PR to the issue(s).
 - The repository is configured to automatically delete the remote branch on merge.
 
-### Multi-Developer Projects
+### Multi-Developer Issues
 
-- Some large projects are implemented by more than one person. In this case, a shared development branch is first cut from develop, and then each developer cuts his/her own branch off of this one. Merges will first take place from these individual working branches into the shared development branch, and finally the shared branch is merged into develop.
+- Some complex issues are implemented by more than one person. In this case, a shared development branch is first cut from develop, and then each developer cuts his/her own branch off of this one. Merges will first take place from these individual working branches into the shared development branch, and finally the shared branch is merged into develop.
 - The process of branching, submitting PRs, and merging is otherwise the same. Each developer should ensure that the shared branch is merged regularly into his/her working branch to avoid merge conflicts, and the same steps should be followed when submitting a PR to the shared branch and later from the shared branch to develop.
 
 ### Release Notes
