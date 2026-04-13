@@ -167,7 +167,7 @@ Some developers like to create a PR before work is completed. Follow the steps a
 
 - Only authorized users may merge into the protected branches `develop` and `main`.
 - A rebase and merge is preferred, but there are some cases where a rebase is not possible and merge commit must be selected.
-- The GitHub project board is configured to automatically the associated issue(s) to the Done column, assuming you have linked the PR to the issue(s).
+- The GitHub project board is configured to automatically move the associated issue(s) to the Done column, assuming you have linked the PR to the issue(s).
 - The repository is configured to automatically delete the remote branch on merge.
 
 ### Multi-Developer Issues
