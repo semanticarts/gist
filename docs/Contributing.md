@@ -160,7 +160,7 @@ Some developers like to create a PR before work is completed. Follow the steps a
 - Refer to [_Reviewer Guidelines_](ReviewerGuidelines.md) to see what the reviewer will be looking for.
 - The PR will automatically be moved back into the In Progress column when a reviewer requests changes.
 - Return to your PR after it has been reviewed in order to view the requested and suggested changes.
-- When you commit your corrections, they are automaticallly added to the existing PR.
+- When you commit your corrections, they are automatically added to the existing PR.
 - Resolve the reviewer comment for straightforward changes. For more complex changes, leave the comment open so the reviewer can come back to it.
 - Re-request reviews from any reviewers who requested changes. If you do not do this explicitly, reviewers will not be notified of the need to re-review.
 - If additional changes are requested, cycle back through these steps.
