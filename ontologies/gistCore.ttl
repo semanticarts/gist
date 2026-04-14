@@ -1699,6 +1699,7 @@ gist:ScheduledTask
 gist:SchemaMetaData
 	a owl:Class ;
 	owl:disjointWith gist:UnitOfMeasure ;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "Superclass for all types of metadata."^^xsd:string ;
 	skos:example "Relational concepts, such as tables and columns; tool inputs, such as queries and R2RML maps."^^xsd:string ;
 	skos:prefLabel "Schema Meta Data"^^xsd:string ;
