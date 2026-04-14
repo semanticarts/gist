@@ -46,11 +46,11 @@ gist uses namespaces in the w3id.org domain so that its term IRIs remain stable 
 
 gist uses three namespaces:
 
-| Namespace | IRI | Prefix |
-| --- | --- | --- |
-| Ontology | `https://w3id.org/semanticarts/ns/ontology/gist/` | `gist:` |
-| Taxonomy | `https://w3id.org/semanticarts/ns/taxonomy/gist/` | `gistx:` |
-| Instance data | `https://w3id.org/semanticarts/ns/data/gist/` | `gistd:` |
+| Namespace | IRI | Prefix | Example |
+| --- | --- | --- | --- |
+| Ontology | `https://w3id.org/semanticarts/ns/ontology/gist/` | `gist:` | `gist:Organization` |
+| Instance data | `https://w3id.org/semanticarts/ns/data/gist/` | `gistd:` | `gistd:_Aspect_altitude` |
+| Taxonomy | `https://w3id.org/semanticarts/ns/taxonomy/gist/` | `gistx:` | _Not used in gistCore_ |
 
 ## Modules
 
