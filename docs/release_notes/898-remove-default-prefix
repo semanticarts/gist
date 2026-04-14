@@ -1,0 +1,5 @@
+### Patch Updates
+
+- Add a script to the git pre-commit hook to remove default PREFIX declarations from ontology files that are in the commit.
+  Issue [#898](https://github.com/semanticarts/gist/issues/898).
+
