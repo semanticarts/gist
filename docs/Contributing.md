@@ -101,7 +101,6 @@ When you make a commit, the pre-commit hook:
 ### Creating the Pull Request (PR)
 
 - Once your work is ready to be merged into the main development line, you will [create a pull request](https://github.com/semanticarts/gist/pulls).
-- The PR should not be added to the project board.
 - Before submitting the PR, you should ensure that you have merged or rebased develop into your working branch, [as above during implementation](#commits-pushes-and-merges).
 - Submit the PR to the base (target) branch. This is usually `develop`, but there could be a release branch. The release manager will inform you if there is a base other than develop.
 - The associated issue(s) should be moved to the "In Review" column.
@@ -124,7 +123,7 @@ Some developers like to create a PR before work is completed. Follow the steps a
     - Several small issues such as typo corrections, definition fixes, or documentation updates can be submitted in a single PR.
     - Issues that are tightly related can be addressed in a single PR.
 - The PR should address the entirety of an issue. If it does not, either the PR should be modified or the issue should be broken up into parts.
-- The description of the PR should contain the keywords "Closes #nnn" (or another of the [GitHub keywords](https://docs.github.com/en/enterprise/2.21/user/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)) where nnn is the issue number. This automatically closes the related issue(s) when the PR is merged, and creates a link which allows readers and reviewers to easily reference the issue.
+- The description of the PR should contain the keywords "Closes #nnn" (or another of the [GitHub keywords](https://docs.github.com/en/enterprise/2.21/user/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)) where nnn is the issue number. This creates a link from the PR to the issue so that the PR is easily accessible from the issue in the project board, it is easy to reference the issue from the PR during a review, and the issue is automatically closed when the PR is merged.
   - Example: "Correct cardinality restriction on class gist:Room. Closes #98."
   - If the PR fixes multiple issues, each issue should be listed on a separate line and preceded by the word "closes." number must be prefixed by the keyword. Example:
 
@@ -167,13 +166,8 @@ Some developers like to create a PR before work is completed. Follow the steps a
 
 - Only authorized users may merge into the protected branches `develop` and `main`.
 - A rebase and merge is preferred, but there are some cases where a rebase is not possible and merge commit must be selected.
-- The GitHub project board is configured to automatically move the associated issue(s) to the Done column, assuming you have linked the PR to the issue(s).
+- The GitHub project board is configured to automatically move the associated issue(s) to the Done column, assuming you have linked the PR to the issue(s) as described [above](#contents-of-the-pr).
 - The repository is configured to automatically delete the remote branch on merge.
-
-### Multi-Developer Issues
-
-- Some complex issues are implemented by more than one person. In this case, a shared development branch is first cut from develop, and then each developer cuts his/her own branch off of this one. Merges will first take place from these individual working branches into the shared development branch, and finally the shared branch is merged into develop.
-- The process of branching, submitting PRs, and merging is otherwise the same. Each developer should ensure that the shared branch is merged regularly into his/her working branch to avoid merge conflicts, and the same steps should be followed when submitting a PR to the shared branch and later from the shared branch to develop.
 
 ### Release Notes
 
