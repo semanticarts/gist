@@ -1,4 +1,3 @@
-@prefix : <https://w3id.org/semanticarts/ontology/gistCore#> .
 @prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
 @prefix gistd: <https://w3id.org/semanticarts/ns/data/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -408,9 +407,12 @@ gist:Content
 		gist:UnitOfMeasure
 		;
 	skos:definition "Information available in some medium."^^xsd:string ;
-	skos:example "A document, program, image."^^xsd:string ;
+	skos:example "The literary work 'The Adventures of Huckleberry Finn' by Mark Twain, independent of any particular edition."^^xsd:string ;
 	skos:prefLabel "Content"^^xsd:string ;
-	skos:scopeNote "Categories are not content until they are written down."^^xsd:string ;
+	skos:scopeNote
+		"Categories are not content until they are written down."^^xsd:string ,
+		"This class includes both abstract content and its expression, but it must have at least one expression in order to be content. For example, the idea a writer has for a book is not content until it is expressed in some form, but a single content object may have multiple expressions - e.g., the particular print and audio editions."^^xsd:string
+		;
 	.
 
 gist:ContentExpression
@@ -423,8 +425,13 @@ gist:ContentExpression
 			owl:someValuesFrom gist:GeneralMediaType ;
 		]
 		;
-	skos:definition "Intellectual property reduced to text, audio, etc.  If it contains text (written or spoken), it will be expressed in a language."^^xsd:string ;
+	skos:definition "Content reduced to text, audio, etc."^^xsd:string ;
+	skos:example "A specific print or audio edition of 'The Adventures of Huckleberry Finn,' such as the one identified by ISBN-13 978-1953649805."^^xsd:string ;
 	skos:prefLabel "Content Expression"^^xsd:string ;
+	skos:scopeNote
+		"If it contains text (written or spoken), it will be expressed in a language."^^xsd:string ,
+		"While the content expression is less abstract than a 'Work,' it is more abstract than the specific physical items that render the expression. For example, any physical or electronic book with ISBN-13 978-1953649805 is associated with the same content expression."^^xsd:string
+		;
 	.
 
 gist:ContingentEvent
@@ -953,7 +960,7 @@ gist:IntellectualProperty
 	skos:example "The Old Man and The Sea; the Page Rank algorithm; the brand Coca Cola."^^xsd:string ;
 	skos:prefLabel "Intellectual Property"^^xsd:string ;
 	skos:scopeNote
-		"For literature this could be called the 'Work', except that 'work' is a highly overloaded term (expenditure of energy, resource consumption, art).  Often the first expression precedes our recognition of the IP, but subsequent expressions are known to be derivatives of the IP, even if they are expression-to-expression translations (or copies)."^^xsd:string ,
+		"For literature this could be called the 'Work,' except that 'work' is a highly overloaded term (expenditure of energy, resource consumption, art). Often the first expression precedes our recognition of the IP, but subsequent expressions are known to be derivatives of the IP, even if they are expression-to-expression translations (or copies)."^^xsd:string ,
 		"This concept includes works that are out of copyright or were never formally registered; the defining feature is not that it is legally protected but that it is an intangible creation of the human mind."^^xsd:string
 		;
 	.
@@ -1001,9 +1008,9 @@ gist:KnowledgeConcept
 	skos:prefLabel "Knowledge Concept"^^xsd:string ;
 	skos:scopeNote """Some knowledge is about specific instances that already exist in the knowledge graph. We may have knowledge that Judge Jones is more lenient on repeat offenders in the morning; we may know that the earliest killing frost in Fort Collins is the last week of September.
 
-These fit the broader definition of knowledge, the distillation of experience. But they do not require any new instances.  Judge Jones and Fort Collins already exist and have a place in our knowledge graph.
+These fit the broader definition of knowledge, the distillation of experience. But they do not require any new instances. Judge Jones and Fort Collins already exist and have a place in our knowledge graph.
 
-But some knowledge requires that we synthesize new instances in order to have a place to consolidate the knowledge.  A disease isn't a tangible thing, like a person or a building. A disease is a prediction that a person's health will decline in a predictable way (without treatment and with treatment). The number of diseases continues to grow as we collectively learn more and more granular distinctions. Lung cancer used to be a single disease, but now we have dozens of fine-grained distinctions; e.g., non-lymphoma small cell fusiform is different from alveolar adenocarcinoma because we now know the prognosis and treatment are different.
+But some knowledge requires that we synthesize new instances in order to have a place to consolidate the knowledge. A disease isn't a tangible thing, like a person or a building. A disease is a prediction that a person's health will decline in a predictable way (without treatment and with treatment). The number of diseases continues to grow as we collectively learn more and more granular distinctions. Lung cancer used to be a single disease, but now we have dozens of fine-grained distinctions; e.g., non-lymphoma small cell fusiform is different from alveolar adenocarcinoma because we now know the prognosis and treatment are different.
 
 This superclass is meant as a place for subclasses that will have the instances that represent the foci of the knowledge we have acquired. Note the distinction between a particular portion of, say, gold, which instantiates gist:PhysicalSubstance, and the concept of gold, which instantiates gist:KnowledgeConcept.
 
@@ -1700,6 +1707,7 @@ gist:ScheduledTask
 gist:SchemaMetaData
 	a owl:Class ;
 	owl:disjointWith gist:UnitOfMeasure ;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "Superclass for all types of metadata."^^xsd:string ;
 	skos:example "Relational concepts, such as tables and columns; tool inputs, such as queries and R2RML maps."^^xsd:string ;
 	skos:prefLabel "Schema Meta Data"^^xsd:string ;
@@ -1728,10 +1736,10 @@ gist:ServiceSpecification
 gist:Specification
 	a owl:Class ;
 	rdfs:subClassOf gist:Intention ;
-	skos:definition "One or more characteristics that specify what it means to be a particular type of thing, such as a material, product, service or event. A specification is sufficiently precise to allow evaluating conformance to the specification."^^xsd:string ;
-	skos:example "The specification of the iPhone 14; hypothetical events covered by a homeowner's insurance policy."^^xsd:string ;
+	skos:definition "The set of characteristics and constraints on their values that specify what it means to be a particular type of thing, such as a material, product, service or event. A specification is sufficiently precise to allow evaluating conformance to the specification."^^xsd:string ;
+	skos:example "The specification of the iPhone 14; hypothetical events covered by a homeowner's insurance policy; a drug quality specification - a set of acceptance criteria for quality characteristics that must be controlled to ensure a drug is fit for its intended use."^^xsd:string ;
 	skos:prefLabel "Specification"^^xsd:string ;
-	skos:scopeNote "Although a characterization of how to do something is often called a specification, the intended meaning here is limited to specifying what something is. The focus is on the what, not the how. Use gist:TaskTemplate for specifying the how, such as a plan or process specification."^^xsd:string ;
+	skos:scopeNote "Although a characterization of how to do something is often called a specification, the intended meaning here is limited to specifying what something is. The focus is on the what, not the how. Use gist:TaskTemplate for specifying the how, such as a plan or process specification. Use gist:conformsTo to assert that something conforms to a specification. To represent a definition of a particular type of thing that is not sufficiently precise to be a gist:Specification, consider using gist:KnowledgeConcept."^^xsd:string ;
 	.
 
 gist:SubCountryGovernment

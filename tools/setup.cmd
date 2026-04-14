@@ -28,6 +28,9 @@ chmod +x "${base_dir}/tools/pre-commit-code"
 # Ensure that the serializer pre-commit hook is executable.
 chmod +x "${base_dir}/tools/serializer/pre-commit"
 
+# Ensure that remove_default_prefix.py is executable.
+chmod +x "${base_dir}/tools/remove_default_prefix/remove_default_prefix.py"
+
 # Exit linux shell.
 exit
 
