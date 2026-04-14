@@ -11,13 +11,13 @@ gist represents the fundamental concepts and relationships that exist across mos
 
 gist is free and open to the public under the [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/) license. You can use it as you see fit for any purpose, as long as you give us attribution. In addition to the conditions of this license, we require that any terms used from gist remain in the gist namespace, and that you do not define your own terms in the gist namespace.
 
-gist is an [OWL 2 DL](https://www.w3.org/TR/owl2-overview/) ontology serialized in [Turtle](https://www.w3.org/TR/turtle/) (.ttl) format. The released version also includes RDF/XML and JSON-LD serializations.
+gist is an [OWL 2 DL](https://www.w3.org/TR/owl2-overview/) ontology. Our repository files are serialized in [Turtle](https://www.w3.org/TR/turtle/) (.ttl) format. The released version also includes RDF/XML and JSON-LD serializations.
 
 For a visual overview of gist's coverage, see [The Periodic Table of gist](https://www.semanticarts.com/gist/).
 
 ## gist Community
 
-We maintain an active gist community forum where developers and users of gist come together to discuss the gist model, implementation best practices, and the evolution of gist. Meetings occur virtually on the first Thursday of January, March, May, July, September, and November. Please send email to [community@semanticarts.com](mailto:community@semanticarts.com) if you would like to become involved.
+We maintain an active gist community forum where developers and users of gist come together to discuss the gist model, implementation best practices, and the evolution of gist. Meetings occur virtually on the third Tuesday of January, March, May, July, September, and November. Please send email to [community@semanticarts.com](mailto:community@semanticarts.com) if you would like to become involved.
 
 You can also contribute to gist by adding your comments to [issue discussion threads](https://github.com/semanticarts/gist/issues) and submitting new issues and pull requests (see [guidelines for contributions](docs/Contributing.md)). You can view [minutes](https://github.com/semanticarts/gist/wiki/gist-Development-Team-Meeting-Notes) from our bi-monthly review sessions to find out what we've been discussing and get a preview of upcoming changes to gist.
 
@@ -61,9 +61,8 @@ Bundled releases include the following modules:
 | `gistCore` | The main ontology, containing all classes, properties, and restrictions |
 | `gistMediaTypes` | Defines instances for common internet media types |
 | `gistPrefixDeclarations` | Prefix declarations for use in SPARQL queries |
-| `gistValidationAnnotations` | Annotations used by SHACL validation shapes |
-| `gistRdfsAnnotations` | `rdfs:label` and `rdfs:comment` annotations generated for backward compatibility with tools that rely on RDFS |
-| `gistSubClassAssertions` | Materialized subclass inferences for use in environments without a reasoner |
+| `gistRdfsAnnotations` | `rdfs:label` and `rdfs:comment` annotations generated for compatibility with tools that rely on RDFS |
+| `gistSubClassAssertions` | Materialized subclass inferences for use in environments without a DL reasoner |
 
 In a release bundle, each module file name includes the version number (e.g., `gistCore14.1.0.ttl`). Modules are provided in three serializations: Turtle (.ttl), RDF/XML (.rdf), and JSON-LD (.jsonld).
 
@@ -103,9 +102,9 @@ Extensive documentation of gist is available in the [gist-doc repository](https:
 - The [Semantic Arts gist web page](https://www.semanticarts.com/gist/).
 - [Deprecation and Deletion Policy](docs/DeprecationAndDeletionPolicy.md)
 - [A Brief Introduction to the gist Semantic Model](https://www.semanticarts.com/a-brief-introduction-to-the-gist-semantic-model/) (2020 blog post)
-- [Introduction to Gist](https://iaoa.org/isc2014/uploads/Whitepaper-Uschold-IntroductionToGist.pdf) (2013 IAOA whitepaper by Michael Uschold & Dave McComb, PDF)
+- [Introduction to gist](https://iaoa.org/isc2014/uploads/Whitepaper-Uschold-IntroductionToGist.pdf) (2013 IAOA whitepaper by Michael Uschold & Dave McComb, PDF)
 
-## Frequently-Asked Questions
+## Frequently Asked Questions
 
 **What does "gist" stand for?**
 
@@ -117,7 +116,7 @@ Unlike ontologies such as BFO, SUMO, or DOLCE, gist is deliberately minimalist a
 
 **Can I extend gist?**
 
-Yes. gist is designed as a foundation for building domain-specific ontologies. Define your extensions in your own namespace; gist terms must remain in the gist namespace.
+Yes. gist is designed as a foundation for building domain-specific ontologies. The gist license requires that you define your extensions in your own namespace and that gist terms must remain in the gist namespace.
 
 ## Citing gist
 
@@ -125,55 +124,13 @@ If you use gist in academic work or publications, please cite it as follows:
 
 > Semantic Arts, Inc. *gist: A Minimalist Upper Ontology for the Enterprise.* Available at: <https://github.com/semanticarts/gist>
 
-## Contributing to gist Development
-
-If you plan to contribute to gist development, please refer to the following documents:
-
-- [Contributor Quick Reference](docs/ContributorQuickReference.md)
-- [Contributing to gist](docs/Contributing.md)
-- [Reviewer Guidelines](docs/ReviewerGuidelines.md)
-- [gist Style Guide](docs/gistStyleGuide.md)
-
-### Prerequisites and Technology
-
-To work with gist, you can use an OWL-compatible tool such as [Protégé](https://protege.stanford.edu/), or edit the Turtle files directly in a text editor or IDE such as [VSCode](https://code.visualstudio.com/) (with a Turtle language extension for syntax highlighting).
-
-Contributors building and validating gist locally will need:
-
-- **Python** 3.10+
-- **Java** 11+ (required by the RDF serializer)
-- **[onto-tool](https://pypi.org/project/onto-tool/)** >= 1.8.0
-
-The repository includes a pre-commit hook that runs the RDF serializer on all commits to enforce a consistent Turtle format. This is installed automatically by `./tools/setup.cmd`.
-
-### Setting up a Local gist Repository
+## Setting up a Local gist Repository
 
 - Clone the [gist GitHub repository](https://github.com/semanticarts/gist.git).
 - Run the script `./tools/setup.cmd`.
 
-### Repository Structure
-
-| Path | Description |
-| --- | --- |
-| `ontologies/` | Core ontology files in Turtle format (`gistCore.ttl`, `gistMediaTypes.ttl`, `gistPrefixDeclarations.ttl`, `gistValidationAnnotations.ttl`) |
-| `validation/` | SHACL shapes and SPARQL queries used to validate the ontology |
-| `migration/` | SPARQL queries and documentation for upgrading between major versions of gist |
-| `tools/` | Build and development tooling, including the RDF serializer and pre-commit hooks |
-| `docs/` | Contributing guidelines, style guide, release notes, and other documentation |
-| `bundle.yaml` | Build configuration for [onto-tool](https://pypi.org/project/onto-tool/), which produces multi-format release artifacts |
-
-### Build and Validation
-
-The gist build pipeline is defined in [`bundle.yaml`](bundle.yaml) and run using [onto-tool](https://pypi.org/project/onto-tool/). The build validates the ontology, generates additional modules (`gistRdfsAnnotations` and `gistSubClassAssertions`), serializes all modules in multiple formats, and packages the result into a versioned release bundle.
-
-To run the build locally:
-
-```bash
-onto_tool bundle bundle.yaml
-```
-
-Validation includes [SHACL](https://www.w3.org/TR/shacl/) shape checking (defined in [`validation/shapes/`](validation/shapes/)) and [SPARQL](https://www.w3.org/TR/sparql11-query/) construct queries (in [`validation/queries/`](validation/queries/)).
-
 ## Acknowledgments
 
-gist is developed and maintained by [Semantic Arts](https://www.semanticarts.com/) with contributions from the gist community. See the [full list of contributors](https://github.com/semanticarts/gist/graphs/contributors).
+gist is developed and maintained by [Semantic Arts](https://www.semanticarts.com/) with contributions from the gist community. See the [full list of contributors](https://github.com/semanticarts/gist/wiki/Semantic-Arts-gist-Team).
+
+Notes from our twice-monthly development team meetings are available [here](https://github.com/semanticarts/gist/wiki/gist-Development-Team-Meeting-Notes).
