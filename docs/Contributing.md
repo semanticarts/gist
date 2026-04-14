@@ -19,7 +19,6 @@
   - [Requesting Reviews](#requesting-reviews)
   - [Review Process](#review-process)
   - [Merging the PR](#merging-the-pr)
-  - [Multi-Developer Issues](#multi-developer-issues)
   - [Release Notes](#release-notes)
     - [Requirements](#requirements)
     - [Organization of Release Notes](#organization-of-release-notes)
