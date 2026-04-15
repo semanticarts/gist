@@ -1,5 +1,45 @@
 # gist Release Notes
 
+## Release 14.1.0
+
+### Minor Updates
+
+- Deprecated classes `gist:Building`, `gist:Landmark`, `gist:Language`, and `gist:SchemaMetaData`. Issues [#1205](https://github.com/semanticarts/gist/issues/1205), [#1379](https://github.com/semanticarts/gist/issues/1379), and [#1382](https://gitHub.com/gist/issues/1382).
+- Deprecated `gist:prevents` and added `gist:prohibits`, which will replace it in the next major version. Issue [#1305](https://github.com/semanticarts/gist/issues/1305).
+- Added media types `media-img:jpg` and `media-img:png`. Issue [#1130](https://github.com/semanticarts/gist/issues/1130).
+- Added `gist:rangeIncludes` annotation to `gist:isUnderJurisdictionOf`. Issue [#1236](https://github.com/semanticarts/gist/issues/1236).
+- Simplified syntax of class restrictions on property `gist:hasMagnitude`. There is no change to formal semantics. Issue [#1209](https://github.com/semanticarts/gist/issues/1209).
+- Rewrote `gist:Event` disjointness assertions so that subject is alphabetically prior to object per prior practice. Issue [#1364](https://github.com/semanticarts/gist/issues/1364).
+- Changed text definition, example, and scope note of `gist:Specification` to explicitly specify common ways of using the class and to distinguish from `gist:KnowledgeConcept`. Issue [#1404](https://github.com/semanticarts/gist/issues/1404).
+- Changed text definition of `gist:Text` to specify that text is a written sequence of characters. Changed negative example to clarify that images of text are not text. Added scope note. Issue [#1019](https://github.com/semanticarts/gist/issues/1019).
+- Changed text definition of `gist:System` to remove reference to goals. Added scope note that states `gist:System` may be used for either natural or man-made systems. Issue [#1288](https://github.com/semanticarts/gist/issues/1288).
+- Added examples of `gist:Aspect` with varying degrees of specificity. Added scope note clarifying intended levels of specificity. Issue [#1393](https://github.com/semanticarts/gist/issues/1393).
+- Changed annotations on `gist:Content`, `gist:ContentExpression`, `gist:FormattedContent`, `gist:RenderedContent`, `gist:GeoVolume`, `gist:PhysicalIdentifiableItem`, `gist:ProductSpecification`, `gist:containedText`, `gist:contributesTo`, and `gist:sequence`. Issues [#1312](https://github.com/semanticarts/gist/issues/1312), [#1025](https://github.com/semanticarts/gist/issues/1025), [#1341](https://github.com/semanticarts/gist/issues/1341), [#1205](https://github.com/semanticarts/gist/issues/1205), [#1344](https://github.com/semanticarts/gist/issues/1344), [#1043](https://github.com/semanticarts/gist/issues/1043), [#572](https://github.com/semanticarts/gist/issues/572), and [#1268](https://github.com/semanticarts/gist/issues/1268).
+
+### Patch Updates
+
+- Updated annotations to uniformly use double quotes for outer quotes and single quotes for inner quotes. Issue [#1246](https://github.com/semanticarts/gist/issues/1246).
+- Fixed incorrect date format in `xsd:dateTime` examples for `skos:example` annotations. Issue [#1352](https://github.com/semanticarts/gist/issues/1352).
+- Fixed typos in annotations. Issues [#1342](https://github.com/semanticarts/gist/issues/1342), [#1343](https://github.com/semanticarts/gist/issues/1315), [#1415](https://github.com/semanticarts/gist/issues/1415), [#1426](https://github.com/semanticarts/gist/issues/1426), [#1432](https://github.com/semanticarts/gist/issues/1432), and [#1365](https://github.com/semanticarts/gist/issues/1365).
+
+### Documentation Updates
+
+- Expanded `README.md` to provide additional information about gist and its design features. Issue [#1349](https://github.com/semanticarts/gist/issues/1349).
+- Updated numbers of gist classes and properties in `Namespace.md`. Issue [1348](https://github.com/semanticarts/gist/issues/1348).
+- Revised documentation of versions and release schedule in `ChangeAndReleaseManagement.md`. Issue [#1350](https://github.com/semanticarts/gist/issues/1350).
+
+### Infrastructure Updates
+
+- Updated the bundling process to split ontology and documentation files into format-specific directories in the release package. Issue [#1347](https://github.com/semanticarts/gist/issues/1347).
+- Removed line in `setup.cmd` that prevented tracking of the execuable flag. Issues [#1383](https://github.com/semanticarts/gist/issues/1383), [#1345](https://github.com/semanticarts/gist/issues/1345).
+- Refactored the git pre-commit to make sure the latest version is always used. Issues [#891](https://github.com/semanticarts/gist/issues/891), [#1425](https://github.com/semanticarts/gist/issues/1425).
+  - Renamed `tools/pre-commit` to `tools/pre-commit-code`.
+  - Added new file `tools/pre-commit-hook` which just calls `./tools/pre-commit-code`.
+  - Updated `setup.cmd` to install `tools/pre-commit-hook` as `.git/hooks/pre-commit`.
+- Add a script to the git pre-commit hook to remove default PREFIX declarations from ontology files that are in the commit.
+  Issue [#898](https://github.com/semanticarts/gist/issues/898).
+- Updated `materialize_subclass_inferences.py` to stream the ontology to `owlready2` for reasoning rather than using a temp file. Issue [#1318](https://github.com/semanticarts/gist/issues/1318).
+
 ## Release 14.0.0
 
 This is a major release that includes several changes which break compatibility with previous versions of gist. See the [migration guide](./MajorVersionMigration.md) for documentation on updating existing gist-based ontologies and instance data. [Migration scripts and documentation](../migration/v14.0) are provided to facilitate the upgrade process.

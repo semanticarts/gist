@@ -1,3 +1,0 @@
-# Patch Updates
-
-- Updated annotations to uniformly use double quotes for outer quotes and single quotes for inner quotes. Issue [#1246](https://github.com/semanticarts/gist/issues/1246).
