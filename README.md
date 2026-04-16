@@ -76,7 +76,7 @@ gist follows [Semantic Versioning](https://semver.org/), adapted for ontology de
 
 A minor or patch upgrade should require only updating the version number in your import statement.
 
-For major version upgrades, migration guides with SPARQL queries are provided in the [`migration/`](migration/) directory. See also [Major Version Migration](docs/MajorVersionMigration.md) for guidance on the upgrade process.
+For major version upgrades, migration guides with SPARQL queries are provided in the [`migration/`](./migration/) directory. See also [Major Version Migration](docs/MajorVersionMigration.md) for guidance on the upgrade process.
 
 ## gist Documentation
 

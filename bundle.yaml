@@ -228,6 +228,15 @@ actions:
     from: "\\./gist-logo.png"
     to: "../gist-logo.png"
 - action: "move"
+  message: "Replace './migration/' with '../migration/' in README."
+  source: "{output}/docs/"
+  target: "{output}/docs/"
+  includes:
+    - "README.md"
+  replace:
+    from: "\\./migration/"
+    to: "../../migration/"
+- action: "move"
   message: "Replace '../docs/' with './' in ReleaseNotes."
   source: "{output}/docs/"
   target: "{output}/docs/"
