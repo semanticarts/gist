@@ -67,28 +67,28 @@ tools:
     - "-t"
     - "{outputFile}"
 actions:
-# - action: "verify"
-#   message: "Validating ontology via SHACL."
-#   type: "shacl"
-#   inference: "none"
-#   source: "{input}/ontologies"
-#   includes:
-#     - "*.ttl"
-#   shapes:
-#     source: "{input}/validation/shapes/ontologyShapes.ttl"
-# - action: "verify"
-#   message: "Validating ontology via queries."
-#   type: "construct"
-#   inference: "none"
-#   source: "{input}/ontologies"
-#   includes:
-#     - gistCore.ttl
-#   stopOnFail: false
-#   target: "{input}/validation"
-#   queries:
-#     source: "{input}/validation/queries"
-#     includes:
-#       - "*_construct.rq"
+- action: "verify"
+  message: "Validating ontology via SHACL."
+  type: "shacl"
+  inference: "none"
+  source: "{input}/ontologies"
+  includes:
+    - "*.ttl"
+  shapes:
+    source: "{input}/validation/shapes/ontologyShapes.ttl"
+- action: "verify"
+  message: "Validating ontology via queries."
+  type: "construct"
+  inference: "none"
+  source: "{input}/ontologies"
+  includes:
+    - gistCore.ttl
+  stopOnFail: false
+  target: "{input}/validation"
+  queries:
+    source: "{input}/validation/queries"
+    includes:
+      - "*_construct.rq"
 - action: "mkdir"
   directory: "{output}"
 - action: "copy"
