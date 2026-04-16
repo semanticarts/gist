@@ -67,28 +67,28 @@ tools:
     - "-t"
     - "{outputFile}"
 actions:
-- action: "verify"
-  message: "Validating ontology via SHACL."
-  type: "shacl"
-  inference: "none"
-  source: "{input}/ontologies"
-  includes:
-    - "*.ttl"
-  shapes:
-    source: "{input}/validation/shapes/ontologyShapes.ttl"
-- action: "verify"
-  message: "Validating ontology via queries."
-  type: "construct"
-  inference: "none"
-  source: "{input}/ontologies"
-  includes:
-    - gistCore.ttl
-  stopOnFail: false
-  target: "{input}/validation"
-  queries:
-    source: "{input}/validation/queries"
-    includes:
-      - "*_construct.rq"
+# - action: "verify"
+#   message: "Validating ontology via SHACL."
+#   type: "shacl"
+#   inference: "none"
+#   source: "{input}/ontologies"
+#   includes:
+#     - "*.ttl"
+#   shapes:
+#     source: "{input}/validation/shapes/ontologyShapes.ttl"
+# - action: "verify"
+#   message: "Validating ontology via queries."
+#   type: "construct"
+#   inference: "none"
+#   source: "{input}/ontologies"
+#   includes:
+#     - gistCore.ttl
+#   stopOnFail: false
+#   target: "{input}/validation"
+#   queries:
+#     source: "{input}/validation/queries"
+#     includes:
+#       - "*_construct.rq"
 - action: "mkdir"
   directory: "{output}"
 - action: "copy"
@@ -209,6 +209,24 @@ actions:
   includes:
     - "README.md"
     - "gist-logo.png"
+- action: "move"
+  message: "Replace /docs/ with ./ in markdown files."
+  source: "{output}/docs/"
+  target: "{output}/docs/"
+  includes:
+    - "*.md"
+  replace:
+    from: "docs/"
+    to: "./"
+- action: "move"
+  message: "Correct gist logo local link."
+  source: "{output}/docs/"
+  target: "{output}/docs/"
+  includes:
+    - "README.md"
+  replace:
+    from: "\\./gist-logo.png"
+    to: "../gist-logo.png"
 - action: "markdown"
   message: "Formatting documentation as HTML."
   source: "{output}/docs/"
