@@ -210,16 +210,16 @@ actions:
     - "README.md"
     - "gist-logo.png"
 - action: "move"
-  message: "Replace /docs/ with ./ in markdown files."
+  message: "Replace 'docs/' with './' in README."
   source: "{output}/docs/"
   target: "{output}/docs/"
   includes:
-    - "*.md"
+    - "README.md"
   replace:
     from: "docs/"
     to: "./"
 - action: "move"
-  message: "Correct gist logo local link."
+  message: "Correct gist logo local link in README."
   source: "{output}/docs/"
   target: "{output}/docs/"
   includes:
@@ -227,6 +227,15 @@ actions:
   replace:
     from: "\\./gist-logo.png"
     to: "../gist-logo.png"
+- action: "move"
+  message: "Replace '../docs/' with './' in ReleaseNotes."
+  source: "{output}/docs/"
+  target: "{output}/docs/"
+  includes:
+    - "ReleaseNotes.md"
+  replace:
+    from: "\\.\\./docs/"
+    to: "./"
 - action: "markdown"
   message: "Formatting documentation as HTML."
   source: "{output}/docs/"
