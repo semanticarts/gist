@@ -14,7 +14,7 @@
 - Changed text definition of `gist:Text` to specify that text is a written sequence of characters. Changed negative example to clarify that images of text are not text. Added scope note. Issue [#1019](https://github.com/semanticarts/gist/issues/1019).
 - Changed text definition of `gist:System` to remove reference to goals. Added scope note that states `gist:System` may be used for either natural or man-made systems. Issue [#1288](https://github.com/semanticarts/gist/issues/1288).
 - Added examples of `gist:Aspect` with varying degrees of specificity. Added scope note clarifying intended levels of specificity. Issue [#1393](https://github.com/semanticarts/gist/issues/1393).
-- Changed annotations on `gist:Content`, `gist:ContentExpression`, `gist:FormattedContent`, `gist:RenderedContent`, `gist:GeoVolume`, `gist:PhysicalIdentifiableItem`, `gist:ProductSpecification`, `gist:containedText`, `gist:contributesTo`, and `gist:sequence`. Issues [#1312](https://github.com/semanticarts/gist/issues/1312), [#1025](https://github.com/semanticarts/gist/issues/1025), [#1341](https://github.com/semanticarts/gist/issues/1341), [#1205](https://github.com/semanticarts/gist/issues/1205), [#1344](https://github.com/semanticarts/gist/issues/1344), [#1043](https://github.com/semanticarts/gist/issues/1043), [#572](https://github.com/semanticarts/gist/issues/572), and [#1268](https://github.com/semanticarts/gist/issues/1268).
+- Updated annotations on `gist:Content`, `gist:ContentExpression`, `gist:FormattedContent`, `gist:RenderedContent`, `gist:GeoVolume`, `gist:PhysicalIdentifiableItem`, `gist:ProductSpecification`, `gist:containedText`, `gist:contributesTo`, and `gist:sequence` for increased clarity. Issues [#1312](https://github.com/semanticarts/gist/issues/1312), [#1025](https://github.com/semanticarts/gist/issues/1025), [#1341](https://github.com/semanticarts/gist/issues/1341), [#1205](https://github.com/semanticarts/gist/issues/1205), [#1344](https://github.com/semanticarts/gist/issues/1344), [#1043](https://github.com/semanticarts/gist/issues/1043), [#572](https://github.com/semanticarts/gist/issues/572), and [#1268](https://github.com/semanticarts/gist/issues/1268).
 
 ### Patch Updates
 
@@ -36,7 +36,7 @@
   - Renamed `tools/pre-commit` to `tools/pre-commit-code`.
   - Added new file `tools/pre-commit-hook` which just calls `./tools/pre-commit-code`.
   - Updated `setup.cmd` to install `tools/pre-commit-hook` as `.git/hooks/pre-commit`.
-- Add a script to the git pre-commit hook to remove default PREFIX declarations from ontology files that are in the commit.
+- Added a script to the git pre-commit hook to remove default PREFIX declarations from ontology files that are in the commit.
   Issue [#898](https://github.com/semanticarts/gist/issues/898).
 - Updated `materialize_subclass_inferences.py` to stream the ontology to `owlready2` for reasoning rather than using a temp file. Issue [#1318](https://github.com/semanticarts/gist/issues/1318).
 
