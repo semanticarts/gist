@@ -1,6 +1,6 @@
 # Unit of Measure data migration queries
 
-Follow the guidance in the slide deck uomDataMigration.pptx in the migration/v13.0 directory.
+Follow the guidance in the slide deck uomDataConversion.pptx in the migration/v13.0 directory.
 
 There is a set of queries to explore the existing data, and other queries to perform the migration.
 

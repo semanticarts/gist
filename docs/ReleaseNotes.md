@@ -320,8 +320,8 @@ Issue [#1060](https://github.com/semanticarts/gist/issues/1060).
 
 ### Documentation Updates
 
-- Added section to [gist Style Guide](./gistStyleGuide.html) on use of `gist:nonConformingLabel` annotation.
-- Updated [gist Style Guide](./gistStyleGuide.html) to define best practices for:
+- Added section to [gist Style Guide](https://github.com/semanticarts/gist/blob/v13.0.0/docs/gistStyleGuide.md) on use of `gist:nonConformingLabel` annotation.
+- Updated [gist Style Guide](https://github.com/semanticarts/gist/blob/v13.0.0/docs/gistStyleGuide.md) to define best practices for:
   - Negative examples in `skos:example`. Issue [#511](https://github.com/semanticarts/gist/issues/511).
   - Use of ontology terms in annotations. Issue [#966](https://github.com/semanticarts/gist/issues/966)
   - Inverse properties. Issue [#1086](https://github.com/semanticarts/gist/issues/1086).
@@ -404,7 +404,7 @@ Import URL: <https://w3id.org/semanticarts/ontology/gistCore12.0.1>.
 
 ## Release 12.0.0
 
-This is a major release which includes several changes which break compatibility with previous versions of gist. See the [migration guide](./MajorVersionMigration.html) for documentation on updating existing gist-based ontologies and instance data. Migration scripts are included to facilitate the upgrade process.
+This is a major release which includes several changes which break compatibility with previous versions of gist. See the [migration guide](./MajorVersionMigration.md) for documentation on updating existing gist-based ontologies and instance data. Migration scripts are included to facilitate the upgrade process.
 
 ### Major Updates
 
@@ -469,7 +469,7 @@ This is a major release which includes several changes which break compatibility
 
 ### Patch Updates
 
-- Deleted the `gistDeprecated` ontology based on [updated deprecation and deletion policy](DeprecationAndDeletionPolicy.md). Issues [#817](https://github.com/semanticarts/gist/issues/817), [#835](https://github.com/semanticarts/gist/issues/835).
+- Deleted the `gistDeprecated` ontology based on [updated deprecation and deletion policy](https://github.com/semanticarts/gist/blob/v12.0.0/docs/DeprecationAndDeletionPolicy.md). Issues [#817](https://github.com/semanticarts/gist/issues/817), [#835](https://github.com/semanticarts/gist/issues/835).
   - Moving forward, terms deprecated in minor releases will be retained in `gistCore`.
   - Added annotation property `gist:isSupersededBy` to link a deprecated term to its replacement, if there is one.
 - Upgraded to version `1.14.2` of the [EDM RDF serializer](https://github.com/edmcouncil/rdf-toolkit) which is applied in a pre-commit hook during development. Issue [#774](https://github.com/semanticarts/gist/issues/774).

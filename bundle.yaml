@@ -270,7 +270,7 @@ actions:
   # PCRE2 version of regex replace:
   # ((\.\/|(?:\.\.\/)+).+)\.md => $1.html
   replace:
-    from: "((\\./|(?:\\.\\./)+).+)\\.md"
+    from: "((\\./|(?:\\.\\./)+).+?)\\.md"
     to: "\\g<1>.html"
 - action: "move"
   source: "{output}/docs/"
@@ -297,7 +297,7 @@ actions:
     - "*.html"
   # Replace .md with .html in local links of HTML files
   replace:
-    from: "((\\./|(?:\\.\\./)+).+)\\.md"
+    from: "((\\./|(?:\\.\\./)+).+?)\\.md"
     to: "\\g<1>.html"
 - action: "copy"
   message: "Copying migration queries, scripts, and documentation."
@@ -310,6 +310,15 @@ actions:
   includes:
     - "*.md"
 - action: "move"
+  message: "Rewriting ../../docs/ paths in gist 11.0 HTML migration documentation."
+  source: "{output}/migration/v11.0/"
+  target: "{output}/migration/v11.0/"
+  includes:
+    - "*.html"
+  replace:
+    from: "\\.\\./\\.\\./docs/"
+    to: "../../../docs/html/"
+- action: "move"
   message: "Patching local links in gist 11.0 HTML migration documentation."
   source: "{output}/migration/v11.0/"
   target: "{output}/migration/v11.0/html-doc/"
@@ -317,8 +326,17 @@ actions:
     - "*.html"
   # Replace .md with .html in local links of HTML files
   replace:
-    from: "((\\./|(?:\\.\\./)+).+)\\.md"
+    from: "((\\./|(?:\\.\\./)+).+?)\\.md"
     to: "\\g<1>.html"
+- action: "move"
+  message: "Rewriting ../../docs/ paths in gist 11.0 markdown migration documentation."
+  source: "{output}/migration/v11.0/"
+  target: "{output}/migration/v11.0/"
+  includes:
+    - "*.md"
+  replace:
+    from: "\\.\\./\\.\\./docs/"
+    to: "../../../docs/markdown/"
 - action: "move"
   source: "{output}/migration/v11.0/"
   target: "{output}/migration/v11.0/markdown-doc/"
@@ -331,6 +349,15 @@ actions:
   includes:
     - "*.md"
 - action: "move"
+  message: "Rewriting ../../docs/ paths in gist 12.0 HTML migration documentation."
+  source: "{output}/migration/v12.0/"
+  target: "{output}/migration/v12.0/"
+  includes:
+    - "*.html"
+  replace:
+    from: "\\.\\./\\.\\./docs/"
+    to: "../../../docs/html/"
+- action: "move"
   message: "Patching local links in gist 12.0 HTML migration documentation."
   source: "{output}/migration/v12.0/"
   target: "{output}/migration/v12.0/html-doc/"
@@ -338,8 +365,17 @@ actions:
     - "*.html"
   # Replace .md with .html in local links of HTML files
   replace:
-    from: "((\\./|(?:\\.\\./)+).+)\\.md"
+    from: "((\\./|(?:\\.\\./)+).+?)\\.md"
     to: "\\g<1>.html"
+- action: "move"
+  message: "Rewriting ../../docs/ paths in gist 12.0 markdown migration documentation."
+  source: "{output}/migration/v12.0/"
+  target: "{output}/migration/v12.0/"
+  includes:
+    - "*.md"
+  replace:
+    from: "\\.\\./\\.\\./docs/"
+    to: "../../../docs/markdown/"
 - action: "move"
   source: "{output}/migration/v12.0/"
   target: "{output}/migration/v12.0/markdown-doc/"
@@ -352,6 +388,15 @@ actions:
   includes:
     - "*.md"
 - action: "move"
+  message: "Rewriting ../../docs/ paths in gist 13.0 HTML migration documentation."
+  source: "{output}/migration/v13.0/"
+  target: "{output}/migration/v13.0/"
+  includes:
+    - "*.html"
+  replace:
+    from: "\\.\\./\\.\\./docs/"
+    to: "../../../docs/html/"
+- action: "move"
   message: "Patching links in gist 13.0 HTML migration documentation."
   source: "{output}/migration/v13.0/"
   target: "{output}/migration/v13.0/html-doc/"
@@ -359,8 +404,17 @@ actions:
     - "*.html"
   # Replace .md with .html in local links of HTML files
   replace:
-    from: "((\\./|(?:\\.\\./)+).+)\\.md"
+    from: "((\\./|(?:\\.\\./)+).+?)\\.md"
     to: "\\g<1>.html"
+- action: "move"
+  message: "Rewriting ../../docs/ paths in gist 13.0 markdown migration documentation."
+  source: "{output}/migration/v13.0/"
+  target: "{output}/migration/v13.0/"
+  includes:
+    - "*.md"
+  replace:
+    from: "\\.\\./\\.\\./docs/"
+    to: "../../../docs/markdown/"
 - action: "move"
   source: "{output}/migration/v13.0/"
   target: "{output}/migration/v13.0/markdown-doc/"
@@ -373,18 +427,36 @@ actions:
   includes:
     - "*.md"
 - action: "move"
+  message: "Rewriting ../../docs/ paths in gist 14.0 HTML migration documentation."
+  source: "{output}/migration/v14.0/"
+  target: "{output}/migration/v14.0/"
+  includes:
+    - "*.html"
+  replace:
+    from: "\\.\\./\\.\\./docs/"
+    to: "../../../docs/html/"
+- action: "move"
   message: "Patching links in gist 14.0 HTML migration documentation."
   source: "{output}/migration/v14.0/"
   target: "{output}/migration/v14.0/html-doc/"
   includes:
     - "*.html"
+  # Replace .md with .html in local links of HTML files
+  replace:
+    from: "((\\./|(?:\\.\\./)+).+?)\\.md"
+    to: "\\g<1>.html"
+- action: "move"
+  message: "Rewriting ../../docs/ paths in gist 14.0 markdown migration documentation."
+  source: "{output}/migration/v14.0/"
+  target: "{output}/migration/v14.0/"
+  includes:
+    - "*.md"
+  replace:
+    from: "\\.\\./\\.\\./docs/"
+    to: "../../../docs/markdown/"
 - action: "move"
   source: "{output}/migration/v14.0/"
   target: "{output}/migration/v14.0/markdown-doc/"
   includes:
     - "*.md"
-  # Replace .md with .html in local links of HTML files
-  replace:
-    from: "((\\./|(?:\\.\\./)+).+)\\.md"
-    to: "\\g<1>.html"
 

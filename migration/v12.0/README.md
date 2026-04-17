@@ -71,7 +71,7 @@ In the `default/` and `ngraphs/` directory of `./queries/report/` is two directo
 
 - `./queries/report/default|ngraphs/old_namespace/` : Queries with the new Gist namespace
 
-> See also additional documentation in the file `./queries/report/README.md`.
+> See also additional documentation in the file `../queries/report/README.md`.
 
 ## Requirements
 
