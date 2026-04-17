@@ -1,5 +1,45 @@
 # gist Release Notes
 
+## Release 14.1.0
+
+### Minor Updates
+
+- Deprecated classes `gist:Building`, `gist:Landmark`, `gist:Language`, and `gist:SchemaMetaData`. Issues [#1205](https://github.com/semanticarts/gist/issues/1205), [#1379](https://github.com/semanticarts/gist/issues/1379), and [#1382](https://gitHub.com/gist/issues/1382).
+- Deprecated `gist:prevents` and added `gist:prohibits`, which will replace it in the next major version. Issue [#1305](https://github.com/semanticarts/gist/issues/1305).
+- Added media types `media-img:jpg` and `media-img:png`. Issue [#1130](https://github.com/semanticarts/gist/issues/1130).
+- Added `gist:rangeIncludes` annotation to `gist:isUnderJurisdictionOf`. Issue [#1236](https://github.com/semanticarts/gist/issues/1236).
+- Simplified syntax of class restrictions on property `gist:hasMagnitude`. There is no change to formal semantics. Issue [#1209](https://github.com/semanticarts/gist/issues/1209).
+- Rewrote `gist:Event` disjointness assertions so that subject is alphabetically prior to object per prior practice. Issue [#1364](https://github.com/semanticarts/gist/issues/1364).
+- Changed text definition, example, and scope note of `gist:Specification` to explicitly specify common ways of using the class and to distinguish from `gist:KnowledgeConcept`. Issue [#1404](https://github.com/semanticarts/gist/issues/1404).
+- Changed text definition of `gist:Text` to specify that text is a written sequence of characters. Changed negative example to clarify that images of text are not text. Added scope note. Issue [#1019](https://github.com/semanticarts/gist/issues/1019).
+- Changed text definition of `gist:System` to remove reference to goals. Added scope note that states `gist:System` may be used for either natural or man-made systems. Issue [#1288](https://github.com/semanticarts/gist/issues/1288).
+- Added examples of `gist:Aspect` with varying degrees of specificity. Added scope note clarifying intended levels of specificity. Issue [#1393](https://github.com/semanticarts/gist/issues/1393).
+- Updated annotations on `gist:Content`, `gist:ContentExpression`, `gist:FormattedContent`, `gist:RenderedContent`, `gist:GeoVolume`, `gist:PhysicalIdentifiableItem`, `gist:ProductSpecification`, `gist:containedText`, `gist:contributesTo`, and `gist:sequence` for increased clarity. Issues [#1312](https://github.com/semanticarts/gist/issues/1312), [#1025](https://github.com/semanticarts/gist/issues/1025), [#1341](https://github.com/semanticarts/gist/issues/1341), [#1205](https://github.com/semanticarts/gist/issues/1205), [#1344](https://github.com/semanticarts/gist/issues/1344), [#1043](https://github.com/semanticarts/gist/issues/1043), [#572](https://github.com/semanticarts/gist/issues/572), and [#1268](https://github.com/semanticarts/gist/issues/1268).
+
+### Patch Updates
+
+- Updated annotations to uniformly use double quotes for outer quotes and single quotes for inner quotes. Issue [#1246](https://github.com/semanticarts/gist/issues/1246).
+- Fixed incorrect date format in `xsd:dateTime` examples for `skos:example` annotations. Issue [#1352](https://github.com/semanticarts/gist/issues/1352).
+- Fixed typos in annotations. Issues [#1342](https://github.com/semanticarts/gist/issues/1342), [#1343](https://github.com/semanticarts/gist/issues/1315), [#1415](https://github.com/semanticarts/gist/issues/1415), [#1426](https://github.com/semanticarts/gist/issues/1426), [#1432](https://github.com/semanticarts/gist/issues/1432), and [#1365](https://github.com/semanticarts/gist/issues/1365).
+
+### Documentation Updates
+
+- Expanded `README.md` to provide additional information about gist and its design features. Issue [#1349](https://github.com/semanticarts/gist/issues/1349).
+- Updated numbers of gist classes and properties in `Namespace.md`. Issue [1348](https://github.com/semanticarts/gist/issues/1348).
+- Revised documentation of versions and release schedule in `ChangeAndReleaseManagement.md`. Issue [#1350](https://github.com/semanticarts/gist/issues/1350).
+
+### Infrastructure Updates
+
+- Updated the bundling process to split ontology and documentation files into format-specific directories in the release package. Issue [#1347](https://github.com/semanticarts/gist/issues/1347).
+- Removed line in `setup.cmd` that prevented tracking of the execuable flag. Issues [#1383](https://github.com/semanticarts/gist/issues/1383), [#1345](https://github.com/semanticarts/gist/issues/1345).
+- Refactored the git pre-commit to make sure the latest version is always used. Issues [#891](https://github.com/semanticarts/gist/issues/891), [#1425](https://github.com/semanticarts/gist/issues/1425).
+  - Renamed `tools/pre-commit` to `tools/pre-commit-code`.
+  - Added new file `tools/pre-commit-hook` which just calls `./tools/pre-commit-code`.
+  - Updated `setup.cmd` to install `tools/pre-commit-hook` as `.git/hooks/pre-commit`.
+- Added a script to the git pre-commit hook to remove default PREFIX declarations from ontology files that are in the commit.
+  Issue [#898](https://github.com/semanticarts/gist/issues/898).
+- Updated `materialize_subclass_inferences.py` to stream the ontology to `owlready2` for reasoning rather than using a temp file. Issue [#1318](https://github.com/semanticarts/gist/issues/1318).
+
 ## Release 14.0.0
 
 This is a major release that includes several changes which break compatibility with previous versions of gist. See the [migration guide](./MajorVersionMigration.md) for documentation on updating existing gist-based ontologies and instance data. [Migration scripts and documentation](../migration/v14.0) are provided to facilitate the upgrade process.
@@ -258,7 +298,7 @@ Issue [#1060](https://github.com/semanticarts/gist/issues/1060).
   - Added `gist:offers` predicate.
   - Modified restriction on `gist:Offer` to refer to `gist:offers`.
 - Removed `gist:occupiesGeographically` and `gist:occupiesGeographicallyPermanently` and replaced with `gist:hasPhysicalLocation` in class restriction. Issue [#809](https://github.com/semanticarts/gist/issues/809).
-- Shortened local name of `gist:isGeographicallyContainedin` to `isGeoContainedin`. Issue [#812](https://github.com/semanticarts/gist/issues/812).
+- Shortened local name of `gist:isGeographicallyContainedIn` to `isGeoContainedIn`. Issue [#812](https://github.com/semanticarts/gist/issues/812).
 - Removed classes and properties deprecated since the last major release and made corresponding updates to axioms referencing those terms. Issue [#947](https://github.com/semanticarts/gist/issues/947).
   - Removed `gist:isCharacterizedAs` and associated axiom on `gist:Event`. (Original issue: [#820](https://github.com/semanticarts/gist/issues/820).)
   - Removed `gist:isRecognizedDirectlyBy`.
@@ -620,7 +660,7 @@ Import URL: <https://ontologies.semanticarts.com/o/gistCore9.6.0>.
 - Converted RDFS annotations to SKOS annotations. See [gist style guide](https://github.com/semanticarts/gist/blob/v9.5.0/docs/gistStyleGuide.md) for usage details. A file containing legacy RDFS annotations is included in the release package for those who wish to continue using them for existing terms. Issues [#351](https://github.com/semanticarts/gist/issues/351), [#379](https://github.com/semanticarts/gist/issues/379).
 - Deprecated `gist:geoDirectlyContains` and `gist:geoDirectlyContainedIn`. Issue [#328](https://github.com/semanticarts/gist/issues/328).
 - Removed `gist:Address` from range of `gist:toAgent` and `gist:fromAgent`. Issue [#391](https://github.com/semanticarts/gist/issues/391).
-- Added label validation rules for classes and properties. Created `gist:nonCoformingLabel` annotation property to tag exceptions to the rule. Issue [#227](https://github.com/semanticarts/gist/issues/227).
+- Added label validation rules for classes and properties. Created `gist:nonConformingLabel` annotation property to tag exceptions to the rule. Issue [#227](https://github.com/semanticarts/gist/issues/227).
 
 ### Patch Updates
 
@@ -719,14 +759,14 @@ Import URL: <https://ontologies.semanticarts.com/o/gistCore9.0.0>.
 ### Event
 
 - Renamed `occurredAt` to `occursAt`.
-- Changed restriction on `gist:Event` to be `(occursAt gist:Place)` rather than `(occuredAt gist:GeoRegion)`.
+- Changed restriction on `gist:Event` to be `(occursAt gist:Place)` rather than `(occurredAt gist:GeoRegion)`.
 - Renamed `TemplateTask` to `TaskTemplate` because it is a template related to tasks, not a task related to templates.
 - Moved `gist;characterizedAs` to gistTop.
 - Removed `TimeInterval`. A number of restrictions with filter class `(TimeInstant or TimeInterval)` changed to be just `TimeInstant`.
 
 ### Intention
 
-- A `ServiceSpecifictation` no longer produced a behavior. Rather, it is the basis for an `Event` (replaced a restriction)
+- A `ServiceSpecification` no longer produced a behavior. Rather, it is the basis for an `Event` (replaced a restriction)
 - New property: `basisFor`, inverse of `basedOn` which is defined in gistTop.
 
 ### IoT
@@ -835,7 +875,7 @@ Import URL: <http://ontologies.semanticarts.com/o/gistCore7.2.owl>.
 - Fix an erroneous disjoint statement on the class gist:Magnitude.
 If you previously downloaded gist 7.1 you may have experienced an inference error if you attempted to run inference using Hermit.
 The gist 7.1.1 release has eliminated the cause of this error.
-- In addition to using the OWL files locally, you can import these files via URL directly into your ontology editor of choice(Protegé, Topbraid, etc.) The import will take care of the dependencies.
+- In addition to using the OWL files locally, you can import these files via URL directly into your ontology editor of choice(Protégé, TopBraid, etc.) The import will take care of the dependencies.
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.1.1.owl>.
 
@@ -855,7 +895,7 @@ Below is a brief summary of the changes that have semantic import from an infere
 - Added `gist:IntellectualProperty` and `gist:PhysicalThing` to the range of `gist:governs`.
 - In the definition of `gist:Requirement`, removed `gist:Conformance` from the range of `gist:requires`.
 
-In addition to using the OWL files locally, you can import these files via URL directly into your ontology editor of choice(Protegé, Topbraid, etc.) The import will take care of the dependencies.
+In addition to using the OWL files locally, you can import these files via URL directly into your ontology editor of choice(Protégé, TopBraid, etc.) The import will take care of the dependencies.
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.1.owl>.
 
@@ -869,6 +909,6 @@ gist 7.0 is a major upgrade from our last released version (6.7.1). The main dif
 
 For documentation and OWL files regarding terms that were deprecated when moving from version 6.7.1 to 7.0, please see the sub-folder called "Deprecated terms from gist6.7.1".
 
-In addition to using the OWL files locally, you can import these files via URL directly into your ontology editor of choice(Protegé, Topbraid, etc.) The import will take care of the dependencies.
+In addition to using the OWL files locally, you can import these files via URL directly into your ontology editor of choice(Protégé, TopBraid, etc.) The import will take care of the dependencies.
 
 Import URL: <http://ontologies.semanticarts.com/o/gistCore7.0.owl>.

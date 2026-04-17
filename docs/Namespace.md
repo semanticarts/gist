@@ -9,7 +9,7 @@ You may have been looking for the gist ontology; if so, you can find it at
 (which you can click on or copy and paste into your ontology editing
 tool).
 
-gistCore is the set of 140 or so classes and roughly the same number
+gistCore is the set of 100 or so classes and roughly the same number
 of properties that define our minimalist enterprise upper ontology.
 We have other ontologies in house, that may eventually become publicly
 available, that cover extensions to this core, both horizontally (HR and
@@ -103,7 +103,7 @@ to read. The name of the ontology is in line 10. The entire ontology is
 in line 11, and doesn't refer to anything that was minted in this ontology.
 It just says that someone named mccomb (as per the Semantic Arts
 namespace) owns (as per gist's definition of ownership) something
-that dbPedia will soon recognize as Semantic Arts.
+that DBpedia will soon recognize as Semantic Arts.
 
 This ontology does not have any IRIs minted in either its namespace
 (which isn't even declared; I took out the default declaration) or
