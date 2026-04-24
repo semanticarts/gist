@@ -236,18 +236,6 @@ gist:Behavior
 	skos:prefLabel "Behavior"^^xsd:string ;
 	.
 
-gist:Building
-	a owl:Class ;
-	rdfs:subClassOf gist:Landmark ;
-	skos:definition "A relatively permanent man-made structure situated on a plot of land, having a roof and walls, commonly used for dwelling, entertaining, or working."^^xsd:string ;
-	skos:example
-		"A house, school, store, factory, chicken coop."^^xsd:string ,
-		"Negative examples: houseboats (not built on land), caves (not man-made), food trucks and RVs (not permanently situated)."^^xsd:string
-		;
-	skos:prefLabel "Building"^^xsd:string ;
-	skos:scopeNote "User discretion can be applied to edge cases: e.g., is a traditional yurt 'relatively permanently situated' although it is portable and has a tent-like construction?"^^xsd:string ;
-	.
-
 gist:BundledDeliverableSpecification
 	a owl:Class ;
 	owl:equivalentClass [
@@ -612,8 +600,8 @@ gist:DeliverableSpecification
 	skos:definition "A description of a product or service to be delivered, given in a sufficient level of detail that a receiver can determine whether delivery constituted discharge of the obligation to deliver."^^xsd:string ;
 	skos:prefLabel "Deliverable Specification"^^xsd:string ;
 	skos:scopeNote
-		"May be identified by a Stock Keeping Unit (SKU)."^^xsd:string ,
-		"In short, an unambiguous characterization of what it is that a potential consumer is entitled to receive."^^xsd:string
+		"In short, an unambiguous characterization of what it is that a potential consumer is entitled to receive."^^xsd:string ,
+		"May be identified by a Stock Keeping Unit (SKU)."^^xsd:string
 		;
 	.
 
@@ -679,7 +667,6 @@ gist:EquipmentType
 gist:Event
 	a owl:Class ;
 	owl:disjointWith
-		gist:Language ,
 		gist:Magnitude ,
 		gist:TimeInterval ,
 		gist:UnitOfMeasure
@@ -749,7 +736,6 @@ gist:GeoPoint
 	owl:disjointWith
 		gist:IntellectualProperty ,
 		gist:Intention ,
-		gist:Language ,
 		gist:Magnitude ,
 		gist:Organization ,
 		gist:PhysicalIdentifiableItem ,
@@ -816,7 +802,6 @@ gist:GeoRegion
 	owl:disjointWith
 		gist:IntellectualProperty ,
 		gist:Intention ,
-		gist:Language ,
 		gist:Magnitude ,
 		gist:Organization ,
 		gist:PhysicalIdentifiableItem ,
@@ -1037,41 +1022,6 @@ But some knowledge requires that we synthesize new instances in order to have a 
 This superclass is meant as a place for subclasses that will have the instances that represent the foci of the knowledge we have acquired. Note the distinction between a particular portion of, say, gold, which instantiates gist:PhysicalSubstance, and the concept of gold, which instantiates gist:KnowledgeConcept.
 
 In some ontologies what we are calling knowledge concepts are defined as classes; e.g., non-lymphoma small cell fusiform and alveolar adenocarcinoma would be two classes rather than two instances. But using a class makes it harder to connect the concept to other instances in a knowledge graph, and furthermore such classes would lack instances."""^^xsd:string ;
-	.
-
-gist:Landmark
-	a owl:Class ;
-	rdfs:subClassOf
-		gist:PhysicalIdentifiableItem ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:hasPhysicalLocation ;
-			owl:someValuesFrom [
-				a owl:Class ;
-				owl:unionOf (
-					gist:GeoRegion
-					gist:GeoVolume
-				) ;
-			] ;
-		]
-		;
-	skos:definition "Something permanently attached to the Earth."^^xsd:string ;
-	skos:editorialNote "See guidance on removing the term in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1679566885."^^xsd:string ;
-	skos:prefLabel "Landmark"^^xsd:string ;
-	.
-
-gist:Language
-	a owl:Class ;
-	owl:disjointWith
-		gist:Magnitude ,
-		gist:Organization ,
-		gist:PhysicalIdentifiableItem ,
-		gist:PhysicalSubstance ,
-		gist:UnitOfMeasure
-		;
-	skos:definition "A recognized, organized set of symbols and grammar."^^xsd:string ;
-	skos:example "Natural languages such as English and Spanish; computer languages such as OWL, Python, and XML."^^xsd:string ;
-	skos:prefLabel "Language"^^xsd:string ;
 	.
 
 gist:LivingThing
@@ -1424,7 +1374,6 @@ gist:Organization
 	owl:disjointWith
 		gist:PhysicalIdentifiableItem ,
 		gist:PhysicalSubstance ,
-		gist:SchemaMetaData ,
 		gist:UnitOfMeasure
 		;
 	skos:definition "A structured entity formed to achieve specific goals, typically involving members with defined roles."^^xsd:string ;
@@ -1572,10 +1521,7 @@ gist:PhysicalIdentifiableItem
 			owl:someValuesFrom gist:PhysicalSubstance ;
 		]
 		;
-	owl:disjointWith
-		gist:SchemaMetaData ,
-		gist:UnitOfMeasure
-		;
+	owl:disjointWith gist:UnitOfMeasure ;
 	skos:definition "A discrete physical object which, if subdivided, will result in parts that are distinguishable in nature from the whole and in general also from the other parts."^^xsd:string ;
 	skos:example "A computer, a book, a car."^^xsd:string ;
 	skos:prefLabel "Physical Identifiable Item"^^xsd:string ;
@@ -1716,7 +1662,7 @@ gist:Restriction
 			gist:Intention
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:prevents ;
+				owl:onProperty gist:prohibits ;
 				owl:someValuesFrom gist:Behavior ;
 			]
 		) ;
@@ -1756,15 +1702,6 @@ gist:ScheduledTask
 	skos:definition "A task with a planned start datetime."^^xsd:string ;
 	skos:prefLabel "Scheduled Task"^^xsd:string ;
 	skos:scopeNote "If work on the task has already started, but has not yet ended, it will have an actual start datetime. If the task is completed, it will also have an actual end datetime. The task always retains its planned start time, and thus continues to be a scheduled task."^^xsd:string ;
-	.
-
-gist:SchemaMetaData
-	a owl:Class ;
-	owl:disjointWith gist:UnitOfMeasure ;
-	skos:definition "Superclass for all types of metadata."^^xsd:string ;
-	skos:example "Relational concepts, such as tables and columns; tool inputs, such as queries and R2RML maps."^^xsd:string ;
-	skos:prefLabel "Schema Meta Data"^^xsd:string ;
-	skos:scopeNote "The definition of this class needs additional work."^^xsd:string ;
 	.
 
 gist:ServiceSpecification
@@ -1938,11 +1875,6 @@ gist:Text
 		a owl:Class ;
 		owl:intersectionOf (
 			gist:ContentExpression
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isExpressedIn ;
-				owl:someValuesFrom gist:Language ;
-			]
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:containedText ;
@@ -2979,7 +2911,6 @@ gist:isExpressedIn
 	skos:definition "Relates something to the language it is expressed in."^^xsd:string ;
 	skos:prefLabel "is expressed in"^^xsd:string ;
 	gist:domainIncludes gist:Text ;
-	gist:rangeIncludes gist:Language ;
 	.
 
 gist:isFirstMemberOf
@@ -3349,15 +3280,6 @@ gist:precedesDirectly
 		"It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ,
 		"Typically this predicate would be used asymmetricallly and irreflexively, but the ontology does not formalize this."^^xsd:string
 		;
-	.
-
-gist:prevents
-	a owl:ObjectProperty ;
-	rdfs:domain gist:Intention ;
-	rdfs:range gist:Behavior ;
-	skos:definition "Relates an intention to behavior that it prohibits."^^xsd:string ;
-	skos:example "A city ordinance prohibits jaywalking."^^xsd:string ;
-	skos:prefLabel "prevents"^^xsd:string ;
 	.
 
 gist:providesOrderFor
