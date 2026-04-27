@@ -103,7 +103,7 @@ to read. The name of the ontology is in line 10. The entire ontology is
 in line 11, and doesn't refer to anything that was minted in this ontology.
 It just says that someone named mccomb (as per the Semantic Arts
 namespace) owns (as per gist's definition of ownership) something
-that dbPedia will soon recognize as Semantic Arts.
+that DBpedia will soon recognize as Semantic Arts.
 
 This ontology does not have any IRIs minted in either its namespace
 (which isn't even declared; I took out the default declaration) or
