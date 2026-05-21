@@ -2,6 +2,7 @@
 
 @prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
 @prefix media-app: <https://www.iana.org/assignments/media-types/application/> .
+@prefix media-img: <https://www.iana.org/assignments/media-types/image/> .
 @prefix media-txt: <https://www.iana.org/assignments/media-types/text/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -65,6 +66,18 @@ media-app:trig
 	a gist:MediaType ;
 	skos:prefLabel "TriG"^^xsd:string ;
 	gist:uniqueText "application/trig"^^xsd:string ;
+	.
+
+media-img:jpg
+	a gist:MediaType ;
+	skos:prefLabel "JPG"^^xsd:string ;
+	gist:uniqueText "image/jpg"^^xsd:string ;
+	.
+
+media-img:png
+	a gist:MediaType ;
+	skos:prefLabel "PNG"^^xsd:string ;
+	gist:uniqueText "image/png"^^xsd:string ;
 	.
 
 media-txt:csv
