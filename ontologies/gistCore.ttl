@@ -246,32 +246,25 @@ gist:Building
 	skos:scopeNote "User discretion can be applied to edge cases: e.g., is a traditional yurt 'relatively permanently situated' although it is portable and has a tent-like construction?"^^xsd:string ;
 	.
 
-gist:BundledCatalogItem
+gist:BundledDeliverableSpecification
 	a owl:Class ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:CatalogItem
+			gist:DeliverableSpecification
+			gist:Collection
 			[
 				a owl:Restriction ;
 				owl:onProperty [
 					owl:inverseOf gist:isDirectPartOf ;
 				] ;
-				owl:someValuesFrom gist:CatalogItem ;
+				owl:someValuesFrom gist:DeliverableSpecification ;
 			]
 		) ;
 	] ;
 	skos:definition "Any combination of descriptions of things offered together."^^xsd:string ;
 	skos:example "A kit containing several parts offered together; a product plus a warranty."^^xsd:string ;
-	skos:prefLabel "Bundled Catalog Item"^^xsd:string ;
-	.
-
-gist:CatalogItem
-	a owl:Class ;
-	rdfs:subClassOf gist:Specification ;
-	skos:definition "A description of a product or service to be delivered, given in a sufficient level of detail that a receiver could determine whether delivery constituted discharge of the obligation to deliver."^^xsd:string ;
-	skos:prefLabel "Catalog Item"^^xsd:string ;
-	skos:scopeNote "In short, an unambiguous characterization of what it is that a potential buyer is paying for."^^xsd:string ;
+	skos:prefLabel "Bundled Deliverable Specification"^^xsd:string ;
 	.
 
 gist:Category
@@ -613,10 +606,21 @@ gist:DegreeOfCommitment
 	skos:prefLabel "Degree Of Commitment"^^xsd:string ;
 	.
 
+gist:DeliverableSpecification
+	a owl:Class ;
+	rdfs:subClassOf gist:Specification ;
+	skos:definition "A description of a product or service to be delivered, given in a sufficient level of detail that a receiver can determine whether delivery constituted discharge of the obligation to deliver."^^xsd:string ;
+	skos:prefLabel "Deliverable Specification"^^xsd:string ;
+	skos:scopeNote
+		"In short, an unambiguous characterization of what it is that a potential consumer is entitled to receive."^^xsd:string ,
+		"May be identified by a Stock Keeping Unit (SKU)."^^xsd:string
+		;
+	.
+
 gist:Determination
 	a owl:Class ;
-	rdfs:subClassOf gist:Event ;
-	skos:definition "An event whose purpose is to establish a specific result, value, or outcome, usually by research, measuring, evaluating, or calculating."^^xsd:string ;
+	rdfs:subClassOf gist:Task ;
+	skos:definition "An activity whose purpose is to establish a specific result, value, or outcome, usually by research, measuring, evaluating, or calculating."^^xsd:string ;
 	skos:example "Measuring the sulfur content of crude oil; evaluating a loan application for approval; estimating the price of gas for the next three months; determining whether and by how much an interest rate should change; classifying a purchase into a budget category."^^xsd:string ;
 	skos:prefLabel "Determination"^^xsd:string ;
 	.
@@ -938,7 +942,7 @@ gist:ID
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:uniqueText ;
-				owl:someValuesFrom xsd:string ;
+				owl:someValuesFrom rdf:PlainLiteral ;
 			]
 		) ;
 	] ;
@@ -1124,7 +1128,7 @@ gist:MediaType
 		[
 			a owl:Restriction ;
 			owl:onProperty gist:uniqueText ;
-			owl:someValuesFrom xsd:string ;
+			owl:someValuesFrom rdf:PlainLiteral ;
 		]
 		;
 	rdfs:seeAlso <https://www.iana.org/assignments/media-types/media-types.xhtml> ;
@@ -1205,18 +1209,11 @@ gist:Network
 
 gist:NetworkLink
 	a owl:Class ;
-	rdfs:subClassOf
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:links ;
-			owl:allValuesFrom gist:NetworkNode ;
-		] ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:links ;
-			owl:cardinality "2"^^xsd:nonNegativeInteger ;
-		]
-		;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		owl:onProperty gist:links ;
+		owl:allValuesFrom gist:NetworkNode ;
+	] ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -1233,10 +1230,13 @@ gist:NetworkLink
 			]
 		) ;
 	] ;
-	skos:definition "An abstract representation of the connection between two or more nodes in a network."^^xsd:string ;
+	skos:definition "An abstract representation of a connection between nodes in a network."^^xsd:string ;
 	skos:example "A network link may be physical, such as pipes, wired or wireless networks, but may also be a link in a non-physical network, such as organizational structures or social networks."^^xsd:string ;
 	skos:prefLabel "Network Link"^^xsd:string ;
-	skos:scopeNote "Each network link is connected to a network node via the property gist:links or one of its subproperties."^^xsd:string ;
+	skos:scopeNote
+		"A network link typically connects two nodes, but may connect a node to itself (e.g., a computer broadcasting and receiving its own messages) or connect more than two nodes (e.g., a T-pipe)."^^xsd:string ,
+		"Each network link is connected to a network node via the property gist:links or one of its subproperties."^^xsd:string
+		;
 	.
 
 gist:NetworkNode
@@ -1290,6 +1290,21 @@ gist:Offer
 				a owl:Restriction ;
 				owl:onProperty gist:plannedStartDateTime ;
 				owl:someValuesFrom xsd:dateTime ;
+			]
+			[
+				a owl:Class ;
+				owl:unionOf (
+					[
+						a owl:Restriction ;
+						owl:onProperty gist:offersToProvide ;
+						owl:someValuesFrom gist:DeliverableSpecification ;
+					]
+					[
+						a owl:Restriction ;
+						owl:onProperty gist:offersToReceive ;
+						owl:someValuesFrom gist:DeliverableSpecification ;
+					]
+				) ;
 			]
 		) ;
 	] ;
@@ -1588,7 +1603,7 @@ gist:ProductSpecification
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:CatalogItem
+			gist:DeliverableSpecification
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:isCategorizedBy ;
@@ -1720,7 +1735,8 @@ gist:ServiceSpecification
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:CatalogItem
+			gist:DeliverableSpecification
+			gist:EventSpecification
 			[
 				a owl:Restriction ;
 				owl:onProperty [
@@ -1800,7 +1816,7 @@ gist:Tag
 		[
 			a owl:Restriction ;
 			owl:onProperty gist:containedText ;
-			owl:someValuesFrom xsd:string ;
+			owl:someValuesFrom rdf:PlainLiteral ;
 		]
 		;
 	skos:definition "A term in a folksonomy used to categorize things. Tags can be made up on the fly by users."^^xsd:string ;
@@ -1895,7 +1911,7 @@ gist:Text
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:containedText ;
-				owl:someValuesFrom xsd:string ;
+				owl:someValuesFrom rdf:PlainLiteral ;
 			]
 		) ;
 	] ;
@@ -2162,6 +2178,7 @@ gist:conformsTo
 
 gist:containedText
 	a owl:DatatypeProperty ;
+	rdfs:range rdf:PlainLiteral ;
 	skos:definition "Relates an entity containing textual information to the string constituting that textual information."^^xsd:string ;
 	skos:example "The string associated with a tag or with text content."^^xsd:string ;
 	skos:prefLabel "contained text"^^xsd:string ;
@@ -2239,6 +2256,7 @@ gist:deathDate
 
 gist:description
 	a owl:DatatypeProperty ;
+	rdfs:range rdf:PlainLiteral ;
 	skos:definition "A statement about someone or something's attributes or characteristics."^^xsd:string ;
 	skos:example
 		"'The Empire State Building is a 102-story Art Deco skyscraper in midtown Manhattan in New York City. It was designed by Shreve, Lamb & Harmon and built from 1930 to 1931.'"^^xsd:string ,
@@ -3025,15 +3043,6 @@ gist:isRecognizedBy
 	skos:prefLabel "is recognized by"^^xsd:string ;
 	.
 
-gist:isRecordedAt
-	a owl:DatatypeProperty ;
-	rdfs:subPropertyOf gist:atDateTime ;
-	skos:definition "The date that something was posted (which is not necessarily the date it occurred). It must be after the date of occurrence, but could be before or after the planned date."^^xsd:string ;
-	skos:example "The date and time a customer payment or stock purchase was posted."^^xsd:string ;
-	skos:prefLabel "is recorded at"^^xsd:string ;
-	skos:scopeNote "Precision may vary according to context."^^xsd:string ;
-	.
-
 gist:isRenderedOn
 	a owl:ObjectProperty ;
 	skos:definition "Relates content to the media on which it is rendered."^^xsd:string ;
@@ -3115,6 +3124,7 @@ gist:longitude
 
 gist:name
 	a owl:DatatypeProperty ;
+	rdfs:range rdf:PlainLiteral ;
 	skos:definition "Relates an individual to (one of) its name(s)."^^xsd:string ;
 	skos:prefLabel "name"^^xsd:string ;
 	.
@@ -3354,6 +3364,15 @@ gist:rangeIncludes
 		;
 	.
 
+gist:recordedDateTime
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf gist:atDateTime ;
+	skos:definition "The date that something was posted (which is not necessarily the date it occurred). It must be after the date of occurrence, but could be before or after the planned date."^^xsd:string ;
+	skos:example "The date and time a customer payment or stock purchase was posted."^^xsd:string ;
+	skos:prefLabel "recorded date time"^^xsd:string ;
+	skos:scopeNote "Precision may vary according to context."^^xsd:string ;
+	.
+
 gist:refersTo
 	a owl:ObjectProperty ;
 	skos:definition "Relates something to another resource that it points to, indicates, or references."^^xsd:string ;
@@ -3396,6 +3415,7 @@ gist:startDateTime
 
 gist:symbol
 	a owl:DatatypeProperty ;
+	rdfs:range rdf:PlainLiteral ;
 	skos:definition "A symbol for something using only ASCII characters."^^xsd:string ;
 	skos:example "The ASCII symbol for square meter is m^2."^^xsd:string ;
 	skos:prefLabel "symbol"^^xsd:string ;
@@ -3408,6 +3428,7 @@ gist:uniqueText
 		owl:FunctionalProperty
 		;
 	rdfs:subPropertyOf gist:containedText ;
+	rdfs:range rdf:PlainLiteral ;
 	skos:definition "The unique string value of some content object, to be used when there is no possibility of having more than one value."^^xsd:string ;
 	skos:example "The unique string for a vehicle identification number."^^xsd:string ;
 	skos:prefLabel "unique text"^^xsd:string ;
