@@ -1,4 +1,3 @@
-@prefix : <https://w3id.org/semanticarts/ontology/gistCore#> .
 @prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
 @prefix gistd: <https://w3id.org/semanticarts/ns/data/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -13,6 +12,7 @@
 	owl:versionIRI <https://w3id.org/semanticarts/ontology/gistCoreX.x.x> ;
 	skos:definition "gist is a minimalist upper ontology created by Semantic Arts."^^xsd:string ;
 	skos:historyNote """
+		gist 14.1.0 released 2026-Apr-17.
 		gist 14.0.0 released 2025-Oct-31.
 		gist 13.0.0 released 2024-Jul-24.
         gist 12.1.0 released 2024-Feb-27.
@@ -119,15 +119,9 @@ gist:Account
 				a owl:Restriction ;
 				owl:onProperty gist:hasMagnitude ;
 				owl:someValuesFrom [
-					a owl:Class ;
-					owl:intersectionOf (
-						gist:Magnitude
-						[
-							a owl:Restriction ;
-							owl:onProperty gist:hasAspect ;
-							owl:hasValue gistd:_Aspect_financial_balance ;
-						]
-					) ;
+					a owl:Restriction ;
+					owl:onProperty gist:hasAspect ;
+					owl:hasValue gistd:_Aspect_financial_balance ;
 				] ;
 			]
 		) ;
@@ -191,9 +185,12 @@ gist:Aspect
 	a owl:Class ;
 	owl:disjointWith gist:Event ;
 	skos:definition "A measurable characteristic."^^xsd:string ;
-	skos:example "Length, weight, cost, cycle time, defect rate."^^xsd:string ;
+	skos:example "Length, weight, cost, cycle time, defect rate, wheelbase, billing rate."^^xsd:string ;
 	skos:prefLabel "Aspect"^^xsd:string ;
-	skos:scopeNote "Depending on implementation, every aspect should be related to a unit group either directly or through a broader aspect. For example, angle of incidence could be related to the broader concept of angle, which in turn is related to a unit group, or it could be related directly to the unit group without the hierarchical relationship."^^xsd:string ;
+	skos:scopeNote
+		"Depending on implementation, every aspect should be related to a unit group either directly or through a broader aspect. For example, angle of incidence could be related to the broader concept of angle, which in turn is related to a unit group, or it could be related directly to the unit group without the hierarchical relationship."^^xsd:string ,
+		"Rule of thumb: use the least specific aspect that serves the intended purpose, increasing specificity only when required (e.g., to distinguish between two magnitudes attached to the same object)."^^xsd:string
+		;
 	.
 
 gist:Assignment
@@ -239,6 +236,7 @@ gist:Behavior
 gist:Building
 	a owl:Class ;
 	rdfs:subClassOf gist:Landmark ;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "A relatively permanent man-made structure situated on a plot of land, having a roof and walls, commonly used for dwelling, entertaining, or working."^^xsd:string ;
 	skos:example
 		"A house, school, store, factory, chicken coop."^^xsd:string ,
@@ -403,9 +401,12 @@ gist:Content
 		gist:UnitOfMeasure
 		;
 	skos:definition "Information available in some medium."^^xsd:string ;
-	skos:example "A document, program, image."^^xsd:string ;
+	skos:example "The literary work 'The Adventures of Huckleberry Finn' by Mark Twain, independent of any particular edition."^^xsd:string ;
 	skos:prefLabel "Content"^^xsd:string ;
-	skos:scopeNote "Categories are not content until they are written down."^^xsd:string ;
+	skos:scopeNote
+		"Categories are not content until they are written down."^^xsd:string ,
+		"This class includes both abstract content and its expression, but it must have at least one expression in order to be content. For example, the idea a writer has for a book is not content until it is expressed in some form, but a single content object may have multiple expressions - e.g., the particular print and audio editions."^^xsd:string
+		;
 	.
 
 gist:ContentExpression
@@ -418,8 +419,13 @@ gist:ContentExpression
 			owl:someValuesFrom gist:GeneralMediaType ;
 		]
 		;
-	skos:definition "Intellectual property reduced to text, audio, etc.  If it contains text (written or spoken), it will be expressed in a language."^^xsd:string ;
+	skos:definition "Content reduced to text, audio, etc."^^xsd:string ;
+	skos:example "A specific print or audio edition of 'The Adventures of Huckleberry Finn,' such as the one identified by ISBN-13 978-1953649805."^^xsd:string ;
 	skos:prefLabel "Content Expression"^^xsd:string ;
+	skos:scopeNote
+		"If it contains text (written or spoken), it will be expressed in a language."^^xsd:string ,
+		"While the content expression is less abstract than a 'Work,' it is more abstract than the specific physical items that render the expression. For example, any physical or electronic book with ISBN-13 978-1953649805 is associated with the same content expression."^^xsd:string
+		;
 	.
 
 gist:ContingentEvent
@@ -432,15 +438,9 @@ gist:ContingentEvent
 				a owl:Restriction ;
 				owl:onProperty gist:hasMagnitude ;
 				owl:someValuesFrom [
-					a owl:Class ;
-					owl:intersectionOf (
-						gist:Magnitude
-						[
-							a owl:Restriction ;
-							owl:onProperty gist:hasAspect ;
-							owl:hasValue gistd:_Aspect_probability ;
-						]
-					) ;
+					a owl:Restriction ;
+					owl:onProperty gist:hasAspect ;
+					owl:hasValue gistd:_Aspect_probability ;
 				] ;
 			]
 			[
@@ -621,7 +621,7 @@ gist:Determination
 	a owl:Class ;
 	rdfs:subClassOf gist:Task ;
 	skos:definition "An activity whose purpose is to establish a specific result, value, or outcome, usually by research, measuring, evaluating, or calculating."^^xsd:string ;
-	skos:example "Measuring the sulphur content of crude oil; evaluating a loan application for approval; estimating the price of gas for the next three months; determining whether and by how much an interest rate should change; classifying a purchase into a budget category."^^xsd:string ;
+	skos:example "Measuring the sulfur content of crude oil; evaluating a loan application for approval; estimating the price of gas for the next three months; determining whether and by how much an interest rate should change; classifying a purchase into a budget category."^^xsd:string ;
 	skos:prefLabel "Determination"^^xsd:string ;
 	.
 
@@ -715,9 +715,10 @@ gist:FormattedContent
 			]
 		) ;
 	] ;
-	skos:definition "Content which is in a particular format."^^xsd:string ;
-	skos:example "An HTML website, a PDF document, a JPG image."^^xsd:string ;
+	skos:definition "Content encoded in a specific format, but existing as data independent of any particular physical medium."^^xsd:string ;
+	skos:example "A document in PDF format; an image in JPEG format."^^xsd:string ;
 	skos:prefLabel "Formatted Content"^^xsd:string ;
+	skos:scopeNote "Each instance of formatted content is a distinct formatting of some Content. Thus, a PDF-formatted version and an HTML-formatted version of the same content are separate instances of formatted content."^^xsd:string ;
 	.
 
 gist:Function
@@ -763,15 +764,9 @@ gist:GeoPoint
 				a owl:Restriction ;
 				owl:onProperty gist:hasMagnitude ;
 				owl:someValuesFrom [
-					a owl:Class ;
-					owl:intersectionOf (
-						gist:Magnitude
-						[
-							a owl:Restriction ;
-							owl:onProperty gist:hasAspect ;
-							owl:hasValue gistd:_Aspect_altitude ;
-						]
-					) ;
+					a owl:Restriction ;
+					owl:onProperty gist:hasAspect ;
+					owl:hasValue gistd:_Aspect_altitude ;
 				] ;
 			]
 			[
@@ -800,15 +795,9 @@ gist:GeoRegion
 				a owl:Restriction ;
 				owl:onProperty gist:hasMagnitude ;
 				owl:someValuesFrom [
-					a owl:Class ;
-					owl:intersectionOf (
-						gist:Magnitude
-						[
-							a owl:Restriction ;
-							owl:onProperty gist:hasAspect ;
-							owl:hasValue gistd:_Aspect_area ;
-						]
-					) ;
+					a owl:Restriction ;
+					owl:onProperty gist:hasAspect ;
+					owl:hasValue gistd:_Aspect_area ;
 				] ;
 			]
 		) ;
@@ -847,7 +836,7 @@ gist:GeoRoute
 	] ;
 	skos:definition "An ordered set of geographic points that defines a path from a starting point to an ending point."^^xsd:string ;
 	skos:prefLabel "Geographic Route"^^xsd:string ;
-	skos:scopeNote "A geographic route could describe a bus route by identifying the points where the bus stops. A geographic route could describe the boundary of a polygonal geographic region (it does not have to be a travelled route)."^^xsd:string ;
+	skos:scopeNote "A geographic route could describe a bus route by identifying the points where the bus stops. A geographic route could describe the boundary of a polygonal geographic region (it does not have to be a traveled route)."^^xsd:string ;
 	.
 
 gist:GeoVolume
@@ -860,15 +849,9 @@ gist:GeoVolume
 				a owl:Restriction ;
 				owl:onProperty gist:hasMagnitude ;
 				owl:someValuesFrom [
-					a owl:Class ;
-					owl:intersectionOf (
-						gist:Magnitude
-						[
-							a owl:Restriction ;
-							owl:onProperty gist:hasAspect ;
-							owl:hasValue gistd:_Aspect_volume ;
-						]
-					) ;
+					a owl:Restriction ;
+					owl:onProperty gist:hasAspect ;
+					owl:hasValue gistd:_Aspect_volume ;
 				] ;
 			]
 			[
@@ -982,7 +965,7 @@ gist:IntellectualProperty
 	skos:example "The Old Man and The Sea; the Page Rank algorithm; the brand Coca Cola."^^xsd:string ;
 	skos:prefLabel "Intellectual Property"^^xsd:string ;
 	skos:scopeNote
-		"For literature this could be called the 'Work', except that 'work' is a highly overloaded term (expenditure of energy, resource consumption, art).  Often the first expression precedes our recognition of the IP, but subsequent expressions are known to be derivatives of the IP, even if they are expression-to-expression translations (or copies)."^^xsd:string ,
+		"For literature this could be called the 'Work,' except that 'work' is a highly overloaded term (expenditure of energy, resource consumption, art). Often the first expression precedes our recognition of the IP, but subsequent expressions are known to be derivatives of the IP, even if they are expression-to-expression translations (or copies)."^^xsd:string ,
 		"This concept includes works that are out of copyright or were never formally registered; the defining feature is not that it is legally protected but that it is an intangible creation of the human mind."^^xsd:string
 		;
 	.
@@ -1030,9 +1013,9 @@ gist:KnowledgeConcept
 	skos:prefLabel "Knowledge Concept"^^xsd:string ;
 	skos:scopeNote """Some knowledge is about specific instances that already exist in the knowledge graph. We may have knowledge that Judge Jones is more lenient on repeat offenders in the morning; we may know that the earliest killing frost in Fort Collins is the last week of September.
 
-These fit the broader definition of knowledge, the distillation of experience. But they do not require any new instances.  Judge Jones and Fort Collins already exist and have a place in our knowledge graph.
+These fit the broader definition of knowledge, the distillation of experience. But they do not require any new instances. Judge Jones and Fort Collins already exist and have a place in our knowledge graph.
 
-But some knowledge requires that we synthesize new instances in order to have a place to consolidate the knowledge.  A disease isn't a tangible thing, like a person or a building. A disease is a prediction that a person's health will decline in a predictable way (without treatment and with treatment). The number of diseases continues to grow as we collectively learn more and more granular distinctions. Lung cancer used to be a single disease, but now we have dozens of fine-grained distinctions; e.g., non-lymphoma small cell fusiform is different from alveolar adenocarcinoma because we now know the prognosis and treatment are different.
+But some knowledge requires that we synthesize new instances in order to have a place to consolidate the knowledge. A disease isn't a tangible thing, like a person or a building. A disease is a prediction that a person's health will decline in a predictable way (without treatment and with treatment). The number of diseases continues to grow as we collectively learn more and more granular distinctions. Lung cancer used to be a single disease, but now we have dozens of fine-grained distinctions; e.g., non-lymphoma small cell fusiform is different from alveolar adenocarcinoma because we now know the prognosis and treatment are different.
 
 This superclass is meant as a place for subclasses that will have the instances that represent the foci of the knowledge we have acquired. Note the distinction between a particular portion of, say, gold, which instantiates gist:PhysicalSubstance, and the concept of gold, which instantiates gist:KnowledgeConcept.
 
@@ -1055,6 +1038,7 @@ gist:Landmark
 			] ;
 		]
 		;
+	owl:deprecated "true"^^xsd:boolean ;
 	skos:definition "Something permanently attached to the Earth."^^xsd:string ;
 	skos:editorialNote "See guidance on removing the term in the next major release at https://github.com/semanticarts/gist/issues/947#issuecomment-1679566885."^^xsd:string ;
 	skos:prefLabel "Landmark"^^xsd:string ;
@@ -1062,6 +1046,7 @@ gist:Landmark
 
 gist:Language
 	a owl:Class ;
+	owl:deprecated "true"^^xsd:boolean ;
 	owl:disjointWith
 		gist:Magnitude ,
 		gist:Organization ,
@@ -1540,30 +1525,18 @@ gist:PhysicalIdentifiableItem
 			a owl:Restriction ;
 			owl:onProperty gist:hasMagnitude ;
 			owl:someValuesFrom [
-				a owl:Class ;
-				owl:intersectionOf (
-					gist:Magnitude
-					[
-						a owl:Restriction ;
-						owl:onProperty gist:hasAspect ;
-						owl:hasValue gistd:_Aspect_mass ;
-					]
-				) ;
+				a owl:Restriction ;
+				owl:onProperty gist:hasAspect ;
+				owl:hasValue gistd:_Aspect_mass ;
 			] ;
 		] ,
 		[
 			a owl:Restriction ;
 			owl:onProperty gist:hasMagnitude ;
 			owl:someValuesFrom [
-				a owl:Class ;
-				owl:intersectionOf (
-					gist:Magnitude
-					[
-						a owl:Restriction ;
-						owl:onProperty gist:hasAspect ;
-						owl:hasValue gistd:_Aspect_volume ;
-					]
-				) ;
+				a owl:Restriction ;
+				owl:onProperty gist:hasAspect ;
+				owl:hasValue gistd:_Aspect_volume ;
 			] ;
 		] ,
 		[
@@ -1577,7 +1550,7 @@ gist:PhysicalIdentifiableItem
 		gist:UnitOfMeasure
 		;
 	skos:definition "A discrete physical object which, if subdivided, will result in parts that are distinguishable in nature from the whole and in general also from the other parts."^^xsd:string ;
-	skos:example "A computer, a book, a car."^^xsd:string ;
+	skos:example "A laptop, a physical book, a car, a building, a landmark (such as a tree stump with an etched marking to denote a campsite)."^^xsd:string ;
 	skos:prefLabel "Physical Identifiable Item"^^xsd:string ;
 	skos:scopeNote "This concept generally corresponds to count nouns in English. By contrast, physical substances, such as an amount of water, flour, or sand, are mass nouns. Physical identifiable items are made up of physical substances; e.g., a cake is made up of butter, flour, and sugar; a statue is made of bronze. If you divide a physical substance such as an amount of water into parts, you have two amounts of water otherwise indistinguishable from one another; if you divide a physical identifiable item such as a computer into parts, each part is different from the whole."^^xsd:string ;
 	.
@@ -1589,30 +1562,18 @@ gist:PhysicalSubstance
 			a owl:Restriction ;
 			owl:onProperty gist:hasMagnitude ;
 			owl:someValuesFrom [
-				a owl:Class ;
-				owl:intersectionOf (
-					gist:Magnitude
-					[
-						a owl:Restriction ;
-						owl:onProperty gist:hasAspect ;
-						owl:hasValue gistd:_Aspect_mass ;
-					]
-				) ;
+				a owl:Restriction ;
+				owl:onProperty gist:hasAspect ;
+				owl:hasValue gistd:_Aspect_mass ;
 			] ;
 		] ,
 		[
 			a owl:Restriction ;
 			owl:onProperty gist:hasMagnitude ;
 			owl:someValuesFrom [
-				a owl:Class ;
-				owl:intersectionOf (
-					gist:Magnitude
-					[
-						a owl:Restriction ;
-						owl:onProperty gist:hasAspect ;
-						owl:hasValue gistd:_Aspect_volume ;
-					]
-				) ;
+				a owl:Restriction ;
+				owl:onProperty gist:hasAspect ;
+				owl:hasValue gistd:_Aspect_volume ;
 			] ;
 		]
 		;
@@ -1695,9 +1656,10 @@ gist:RenderedContent
 			]
 		) ;
 	] ;
-	skos:definition "Content which has been physically expressed."^^xsd:string ;
-	skos:example "Words printed on paper; audio played on speakers; images displayed on monitors."^^xsd:string ;
+	skos:definition "Content expressed via some physical medium."^^xsd:string ;
+	skos:example "Words printed on paper; audio played on speakers; an image displayed on a monitor; an original painting."^^xsd:string ;
 	skos:prefLabel "Rendered Content"^^xsd:string ;
+	skos:scopeNote "Renderings of the same file on two different monitors are separate instances of rendered content."^^xsd:string ;
 	.
 
 gist:Requirement
@@ -1760,6 +1722,7 @@ gist:ScheduledTask
 
 gist:SchemaMetaData
 	a owl:Class ;
+	owl:deprecated "true"^^xsd:boolean ;
 	owl:disjointWith gist:UnitOfMeasure ;
 	skos:definition "Superclass for all types of metadata."^^xsd:string ;
 	skos:example "Relational concepts, such as tables and columns; tool inputs, such as queries and R2RML maps."^^xsd:string ;
@@ -1790,10 +1753,10 @@ gist:ServiceSpecification
 gist:Specification
 	a owl:Class ;
 	rdfs:subClassOf gist:Intention ;
-	skos:definition "One or more characteristics that specify what it means to be a particular type of thing, such as a material, product, service or event. A specification is sufficiently precise to allow evaluating conformance to the specification."^^xsd:string ;
-	skos:example "The specification of the iPhone 14; hypothetical events covered by a homeowner's insurance policy."^^xsd:string ;
+	skos:definition "The set of characteristics and constraints on their values that specify what it means to be a particular type of thing, such as a material, product, service or event. A specification is sufficiently precise to allow evaluating conformance to the specification."^^xsd:string ;
+	skos:example "The specification of the iPhone 14; hypothetical events covered by a homeowner's insurance policy; a drug quality specification - a set of acceptance criteria for quality characteristics that must be controlled to ensure a drug is fit for its intended use."^^xsd:string ;
 	skos:prefLabel "Specification"^^xsd:string ;
-	skos:scopeNote "Although a characterization of how to do something is often called a specification, the intended meaning here is limited to specifying what something is. The focus is on the what, not the how. Use gist:TaskTemplate for specifying the how, such as a plan or process specification."^^xsd:string ;
+	skos:scopeNote "Although a characterization of how to do something is often called a specification, the intended meaning here is limited to specifying what something is. The focus is on the what, not the how. Use gist:TaskTemplate for specifying the how, such as a plan or process specification. Use gist:conformsTo to assert that something conforms to a specification. To represent a definition of a particular type of thing that is not sufficiently precise to be a gist:Specification, consider using gist:KnowledgeConcept."^^xsd:string ;
 	.
 
 gist:SubCountryGovernment
@@ -1840,8 +1803,10 @@ gist:System
 			]
 		) ;
 	] ;
-	skos:definition "A composite with component parts that contribute to the goal of the system."^^xsd:string ;
+	skos:definition "A composite made up of interacting or interdependent components that together operate as a whole."^^xsd:string ;
+	skos:example "A manufacturing system, a storm system."^^xsd:string ;
 	skos:prefLabel "System"^^xsd:string ;
+	skos:scopeNote "May be used to refer to either man-made or natural systems."^^xsd:string ;
 	.
 
 gist:Tag
@@ -1950,9 +1915,10 @@ gist:Text
 			]
 		) ;
 	] ;
-	skos:definition "Content expressed as words and numbers."^^xsd:string ;
-	skos:example "Negative example: graphical content."^^xsd:string ;
+	skos:definition "Content expressed as a written sequence of characters."^^xsd:string ;
+	skos:example "Negative example: photographs or scans of text are not text. These instead depict a subject, which happens to be text."^^xsd:string ;
 	skos:prefLabel "Text"^^xsd:string ;
+	skos:scopeNote "Text is expressed in a language (human or computer) and may but need not specify an encoding."^^xsd:string ;
 	.
 
 gist:TimeInterval
@@ -1972,15 +1938,9 @@ gist:TimeInterval
 			a owl:Restriction ;
 			owl:onProperty gist:hasMagnitude ;
 			owl:onClass [
-				a owl:Class ;
-				owl:intersectionOf (
-					gist:Magnitude
-					[
-						a owl:Restriction ;
-						owl:onProperty gist:hasAspect ;
-						owl:hasValue gistd:_Aspect_duration ;
-					]
-				) ;
+				a owl:Restriction ;
+				owl:onProperty gist:hasAspect ;
+				owl:hasValue gistd:_Aspect_duration ;
 			] ;
 			owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 		]
@@ -2219,10 +2179,13 @@ gist:conformsTo
 gist:containedText
 	a owl:DatatypeProperty ;
 	rdfs:range rdf:PlainLiteral ;
-	skos:definition "A string that is closely associated with an individual."^^xsd:string ;
+	skos:definition "Relates an entity containing textual information to the string constituting that textual information."^^xsd:string ;
 	skos:example "The string associated with a tag or with text content."^^xsd:string ;
 	skos:prefLabel "contained text"^^xsd:string ;
+	skos:scopeNote "If there are multiple strings associated with an entity, it is an implementation decision whether to combine them into a single contained text value or to use multiple contained text assertions."^^xsd:string ;
 	gist:domainIncludes
+		gist:Content ,
+		gist:ContentExpression ,
 		gist:Tag ,
 		gist:Text
 		;
@@ -2230,7 +2193,7 @@ gist:containedText
 
 gist:contributesTo
 	a owl:ObjectProperty ;
-	skos:definition "Relates a part of a system to the system whose goals or function it contributes to."^^xsd:string ;
+	skos:definition "The subject helps achieve or fulfill the goals or functions of the object."^^xsd:string ;
 	skos:prefLabel "contributes to"^^xsd:string ;
 	.
 
@@ -2634,7 +2597,7 @@ gist:goesToAgent
 	skos:prefLabel "goes to agent"^^xsd:string ;
 	skos:scopeNote
 		"This is not the inverse of gist:comesFromAgent, as both properties have the message or shipment as the subject."^^xsd:string ,
-		"This property is intended to describe the physical or electronic transfer of something, such as a package or email, from one agent to another, whereas gist:hasRecipient is typically used in more abstract contexts such as agreements, obligations, contracts, etc. However, there are contexts in which either may be appropriate, such as the recieving of a gift."^^xsd:string
+		"This property is intended to describe the physical or electronic transfer of something, such as a package or email, from one agent to another, whereas gist:hasRecipient is typically used in more abstract contexts such as agreements, obligations, contracts, etc. However, there are contexts in which either may be appropriate, such as the receiving of a gift."^^xsd:string
 		;
 	.
 
@@ -2664,7 +2627,7 @@ gist:hasAccuracy
 	skos:prefLabel "has accuracy"^^xsd:string ;
 	skos:scopeNote """gist uses the ISO-5725 definition of accuracy, which is a combination of trueness (a measure of systemic error) and precision (a measure of random error). The accuracy of a measurement method describes how close its measurements are to actual values. Similarly, the accuracy of an individual measurement is its likely closeness to the actual value. When we say a temperature measurement is accurate to within a tenth of a degree, it means with a certain probability such as 95%.
 
-Note that the unit of measure of the accuracy has to be compatible with the unit of measure of the original magnitude (e.g. something measured in meters could have a accuracy in terms of millimeters or any other unit that measures distance)."""^^xsd:string ;
+Note that the unit of measure of the accuracy has to be compatible with the unit of measure of the original magnitude (e.g. something measured in meters could have an accuracy in terms of millimeters or any other unit that measures distance)."""^^xsd:string ;
 	gist:domainIncludes gist:Magnitude ;
 	.
 
@@ -2875,7 +2838,7 @@ gist:idText
 	skos:example "The id text for a car is '4Y1SL65848Z411439'; the id text for the HR department of some company is H31415."^^xsd:string ;
 	skos:prefLabel "id text"^^xsd:string ;
 	skos:scopeNote
-		"A common use case would be for pre-existing internal company identifiers."^^xsd:string ,
+		"A common use case would be for preexisting internal company identifiers."^^xsd:string ,
 		"Often, there will be just one identifying text string. More would be appropriate if the individual had different identifiers, such as employee number and social security number. A good way to model that would be to have functional subproperties of idText, such as departmentNumber."^^xsd:string ,
 		"This property is an alternative to using the property gist:isIdentifiedBy in conjunction with instances of the class gist:ID."^^xsd:string
 		;
@@ -3106,6 +3069,7 @@ gist:isUnderJurisdictionOf
 	a owl:ObjectProperty ;
 	skos:definition "Relates a law, contract, etc., to the system of law or government which has the power, right, or authority to interpret and apply it."^^xsd:string ;
 	skos:prefLabel "is under jurisdiction of"^^xsd:string ;
+	gist:rangeIncludes gist:GovernmentOrganization ;
 	.
 
 gist:latitude
@@ -3335,7 +3299,7 @@ gist:precedes
 	skos:scopeNote
 		"The less-than symbol is often used to represent this relation."^^xsd:string ,
 		"This is the transitive version of gist:precedesDirectly."^^xsd:string ,
-		"Typically this predicate would be used asymmetricallly and irreflexively, but the ontology does not formalize this."^^xsd:string
+		"Typically this predicate would be used asymmetrically and irreflexively, but the ontology does not formalize this."^^xsd:string
 		;
 	.
 
@@ -3347,7 +3311,7 @@ gist:precedesDirectly
 	skos:scopeNote
 		"If two items in an ordered collection share the same position, they both directly precede the following element."^^xsd:string ,
 		"It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ,
-		"Typically this predicate would be used asymmetricallly and irreflexively, but the ontology does not formalize this."^^xsd:string
+		"Typically this predicate would be used asymmetrically and irreflexively, but the ontology does not formalize this."^^xsd:string
 		;
 	.
 
@@ -3355,9 +3319,26 @@ gist:prevents
 	a owl:ObjectProperty ;
 	rdfs:domain gist:Intention ;
 	rdfs:range gist:Behavior ;
+	owl:deprecated "true"^^xsd:boolean ;
+	owl:equivalentProperty gist:prohibits ;
 	skos:definition "Relates an intention to behavior that it prohibits."^^xsd:string ;
+	skos:editorialNote "See guidance on removing this term in the next major release at https://github.com/semanticarts/gist/issues/1380#issuecomment-3617257248"^^xsd:string ;
 	skos:example "A city ordinance prohibits jaywalking."^^xsd:string ;
 	skos:prefLabel "prevents"^^xsd:string ;
+	gist:isSupersededBy gist:prohibits ;
+	.
+
+gist:prohibits
+	a owl:ObjectProperty ;
+	rdfs:domain gist:Intention ;
+	rdfs:range gist:Behavior ;
+	skos:definition "Relates an intention to a behavior that it forbids or seeks to prevent."^^xsd:string ;
+	skos:example
+		"A city ordinance prohibits jaywalking."^^xsd:string ,
+		"Private property laws prohibit someone from entering private land marked with a 'No Trespassing' sign."^^xsd:string
+		;
+	skos:prefLabel "prohibits"^^xsd:string ;
+	skos:scopeNote "A behavior can be prohibited without being prevented. For example, a speed limit may prohibit driving faster than a stated speed but does not always succeed in preventing drivers from exceeding that speed."^^xsd:string ;
 	.
 
 gist:providesOrderFor

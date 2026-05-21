@@ -260,6 +260,7 @@ Caution: gist is not yet fully aligned with this best practice, which is aspirat
 ### Literals
 
 - Literal values should be typed with one of the  datatypes included in the [OWL 2 Datatype Maps](https://www.w3.org/TR/owl2-syntax/#Datatype_Maps). It is not necessary to explicitly type strings as `xsd:string` because the [serializer](#serialization) will add this to all untyped literals.
+- Literals that contain quotations should have double quotes for the outer quotes and single quotes for inner quotes. For example: `"'gist' is the name of an upper ontology."^^xsd:string`.
 
 ### Documentation
 
