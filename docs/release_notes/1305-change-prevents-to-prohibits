@@ -1,3 +1,0 @@
-### Minor Updates
--  Deprecated `gist:prevents` and added `gist:prohibits`, which will replace it in the next major version. Issue [#1305](https://github.com/semanticarts/gist/issues/1305).
-

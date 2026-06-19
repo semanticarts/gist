@@ -19,15 +19,6 @@ set -x
 # Copy pre-commit-hook to the git hooks directory.
 cp "${base_dir}/tools/pre-commit-hook" "${base_dir}/.git/hooks/pre-commit"
 
-# Make pre-commit hook executable.
-chmod +x "${base_dir}/.git/hooks/pre-commit"
-
-# Ensure that tools/pre-commit-code is executable.
-chmod +x "${base_dir}/tools/pre-commit-code"
-
-# Ensure that the serializer pre-commit hook is executable.
-chmod +x "${base_dir}/tools/serializer/pre-commit"
-
 # Exit linux shell.
 exit
 
