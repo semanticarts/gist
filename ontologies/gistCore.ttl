@@ -206,7 +206,7 @@ gist:Assignment
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isAssignmentOf ;
+				owl:onProperty gist:hasAssignee ;
 				owl:someValuesFrom owl:Thing ;
 			]
 			[
@@ -221,7 +221,7 @@ gist:Assignment
 	skos:prefLabel "Assignment"^^xsd:string ;
 	skos:scopeNote
 		"Based on the Open World Assumption, the assigner may not be asserted or known."^^xsd:string ,
-		"For some assignments, such as the assignment of a person to a task, it may seem equally correct in ordinary speech to say it is an assignment of a task to a person. Since gist:isAssignmentTo and gist:isAssignmentOf have no formal domains or ranges, the choice of which predicate to use for which is left as an implementation decision. Consistency is a key consideration."^^xsd:string
+		"For some assignments, such as the assignment of an employee to a supervisor, using hasAssignee vs isAssignmentTo is equally valid for either party. Who is assigned to whom is left as an implementation decision, so long as consistency is maintained."^^xsd:string
 		;
 	.
 
@@ -2639,6 +2639,25 @@ gist:hasAspect
 	skos:prefLabel "has aspect"^^xsd:string ;
 	.
 
+gist:hasAssignee
+	a owl:ObjectProperty ;
+	skos:definition "Relates something (typically an assignment) to the resource it assigns, such as a person or organization."^^xsd:string ;
+	skos:example "Assignment of a person to a project. The assignment has an assignee of the person."^^xsd:string ;
+	skos:prefLabel "has assignee"^^xsd:string ;
+	skos:scopeNote
+		"Not to be confused with isAssigmentTo."^^xsd:string ,
+		"People, organizations, monetary amounts, equipment can all be assigned."^^xsd:string ,
+		"While typically this predicate will be used with assignment subjects, there may be other use cases, and therefore a domain is not specified."^^xsd:string
+		;
+	gist:domainIncludes gist:Assignment ;
+	gist:rangeIncludes
+		gist:Equipment ,
+		gist:IntellectualProperty ,
+		gist:Organization ,
+		gist:Person
+		;
+	.
+
 gist:hasBiologicalParent
 	a owl:ObjectProperty ;
 	rdfs:domain gist:LivingThing ;
@@ -2859,29 +2878,15 @@ gist:isAllocatedBy
 		;
 	.
 
-gist:isAssignmentOf
-	a owl:ObjectProperty ;
-	skos:definition "Relates an assignment to the resource it assigns."^^xsd:string ;
-	skos:example "Assignment of a person to a project."^^xsd:string ;
-	skos:prefLabel "is assignment of"^^xsd:string ;
-	skos:scopeNote
-		"People, organizations, monetary amounts, equipment can all be assigned."^^xsd:string ,
-		"While typically this predicate will be used with assignment subjects, there may be other use cases, and therefore a domain is not specified."^^xsd:string
-		;
-	gist:domainIncludes gist:Assignment ;
-	gist:rangeIncludes
-		gist:Equipment ,
-		gist:IntellectualProperty ,
-		gist:Organization ,
-		gist:Person
-		;
-	.
-
 gist:isAssignmentTo
 	a owl:ObjectProperty ;
 	skos:definition "Relates something (typically an assignment) to the thing the resource is assigned to, such as a project, position, organization, pay rate, or billing rate."^^xsd:string ;
+	skos:example "A person is assigned to a project."^^xsd:string ;
 	skos:prefLabel "is assignment to"^^xsd:string ;
-	skos:scopeNote "While typically this predicate will be used with gist:Assignment subjects, there may be other use cases, and therefore a domain is not specified."^^xsd:string ;
+	skos:scopeNote
+		"Not to be confused with hasAssignee."^^xsd:string ,
+		"While typically this predicate will be used with gist:Assignment subjects, there may be other use cases, and therefore a domain is not specified."^^xsd:string
+		;
 	gist:domainIncludes gist:Assignment ;
 	.
 
