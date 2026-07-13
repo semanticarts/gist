@@ -2921,7 +2921,7 @@ gist:isDirectPartOf
 
 gist:isExpressedIn
 	a owl:ObjectProperty ;
-	skos:definition "Relates something to the language it is expressed in."^^xsd:string ;
+	skos:definition "Relates something to the form or manner in which it is expressed."^^xsd:string ;
 	skos:prefLabel "is expressed in"^^xsd:string ;
 	gist:domainIncludes gist:Text ;
 	gist:rangeIncludes gist:Language ;
