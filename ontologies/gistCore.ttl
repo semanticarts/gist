@@ -2260,14 +2260,6 @@ gist:domainIncludes
 		;
 	.
 
-gist:encryptedText
-	a owl:DatatypeProperty ;
-	rdfs:subPropertyOf gist:containedText ;
-	rdfs:range xsd:string ;
-	skos:definition "Encoded text produced from readable data by an algorithm so that it can only be understood or restored with a decryption key."^^xsd:string ;
-	skos:prefLabel "encrypted text"^^xsd:string ;
-	.
-
 gist:endDateTime
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf gist:atDateTime ;
