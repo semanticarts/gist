@@ -3004,7 +3004,7 @@ gist:isProducedBy
 	a owl:ObjectProperty ;
 	skos:definition "Relates something to the thing that created, composed, or brought it into existence."^^xsd:string ;
 	skos:example
-		"A deliverable is produces by a task."^^xsd:string ,
+		"A deliverable is produced by a task."^^xsd:string ,
 		"A measurement is produced by a sensor."^^xsd:string ,
 		"A painting is produced by a person."^^xsd:string
 		;
