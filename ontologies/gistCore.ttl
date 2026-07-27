@@ -435,33 +435,6 @@ gist:ContentExpression
 		;
 	.
 
-gist:ContingentEvent
-	a owl:Class ;
-	owl:equivalentClass [
-		a owl:Class ;
-		owl:intersectionOf (
-			gist:Event
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasMagnitude ;
-				owl:someValuesFrom [
-					a owl:Restriction ;
-					owl:onProperty gist:hasAspect ;
-					owl:hasValue gistd:_Aspect_probability ;
-				] ;
-			]
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:isTriggeredBy ;
-				owl:someValuesFrom gist:Event ;
-			]
-		) ;
-	] ;
-	skos:definition "An event with a probability of happening in the future, and usually dependent upon some other event or condition."^^xsd:string ;
-	skos:example "A fire insurance payout is contingent on a particular building burning down; selling 20 shares of stock in a given company is contingent on the price dropping below $200/share; the death benefit payout on a life insurance policy is contingent on the death of the insured person."^^xsd:string ;
-	skos:prefLabel "Contingent Event"^^xsd:string ;
-	.
-
 gist:ContingentObligation
 	a owl:Class ;
 	owl:equivalentClass [
@@ -486,7 +459,7 @@ gist:ContingentObligation
 			]
 		) ;
 	] ;
-	skos:definition "An obligation that is not yet firm. There is some contingent event whose occurrence will cause the obligation to become firm."^^xsd:string ;
+	skos:definition "An obligation that is not yet firm. There is some event whose occurrence will cause the obligation to become firm."^^xsd:string ;
 	skos:prefLabel "Contingent Obligation"^^xsd:string ;
 	skos:scopeNote "A contingent obligation might have a getter counterparty (as in the case of insurance); but it might not (as in the case of an offer)."^^xsd:string ;
 	.
