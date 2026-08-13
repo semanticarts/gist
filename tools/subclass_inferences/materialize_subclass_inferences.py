@@ -1,7 +1,8 @@
 """Materialize rdfs:subClassOf inferences to help OWL-RL reasoners."""
 
-import io
+import os
 import sys
+import tempfile
 
 from argparse import ArgumentParser
 
@@ -55,15 +56,23 @@ def _run_reasoner(inputs: list[str], output_ttl: str, version: str):
         # Format will be guessed from the name suffix
         input_graph.parse(one_input)
 
-    # owlready2 does not accept TTL files. Serialize to N-Triples and stream in memory.
-    nt_data = input_graph.serialize(format='nt', encoding='utf-8')
-    nt_stream = io.BytesIO(nt_data)
+    # owlready2 does not accept TTL files. Convert to N-Triples.
+    # Close the temp file before owlready2 reopens it by path: a still-open
+    # NamedTemporaryFile may not have flushed its writes, and Windows refuses
+    # to open a file that is already open elsewhere.
+    temp_file = tempfile.NamedTemporaryFile('w', suffix='.nt', delete=False)
+    try:
+        input_graph_str = input_graph.serialize(format='nt')
+        temp_file.write(input_graph_str)
+        temp_file.close()
 
-    ontology = get_ontology('file:///tmp/placeholder.nt').load(fileobj=nt_stream)
+        ontology = get_ontology(f'file://{temp_file.name}').load()
 
-    # Run OWL DL reasoner (HermiT reasoner is used by default in owlready2).
-    with ontology:
-        sync_reasoner()
+        # Run OWL DL reasoner (HermiT reasoner is used by default in owlready2).
+        with ontology:
+            sync_reasoner()
+    finally:
+        os.unlink(temp_file.name)
 
     raw_output_graph = Graph().parse(
         data=default_world.as_rdflib_graph().serialize(format='turtle'),
