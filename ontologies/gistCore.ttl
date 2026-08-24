@@ -3124,28 +3124,16 @@ gist:numericValue
 	rdfs:range [
 		a rdfs:Datatype ;
 		owl:unionOf (
-			xsd:byte
 			xsd:decimal
 			xsd:double
 			xsd:float
-			xsd:int
 			xsd:integer
-			xsd:long
-			xsd:negativeInteger
-			xsd:nonNegativeInteger
-			xsd:nonPositiveInteger
-			xsd:positiveInteger
-			xsd:short
-			xsd:unsignedByte
-			xsd:unsignedInt
-			xsd:unsignedLong
-			xsd:unsignedShort
 			owl:rational
-			owl:real
 		) ;
 	] ;
 	skos:definition "The actual value of a magnitude."^^xsd:string ;
 	skos:prefLabel "numeric value"^^xsd:string ;
+	skos:scopeNote "Caution is advised when using the xsd:float, xsd:integer, or owl:rational datatypes. The xsd:float datatype is less precise than xsd:double, and not recommended unless the source data is xsd:float or if precision is not as important as the size of the data or speed of computation. Some downstream applications might be limited to using the 32-bit xsd:int datatype instead of xsd:integer; if so, check to see that the xsd:integer values being passed downstream are within the 32-bit range. Some triple-stores cannot do math using values of the owl:rational datatype."^^xsd:string ;
 	.
 
 gist:occursIn
