@@ -1,0 +1,4 @@
+### Minor Updates
+
+- Replaced `rdfs:subClassOf` with `owl:equivalentClass` in `gist:GeoRegion`. Issue [#1487](https://github.com/semanticarts/gist/issues/1487).
+
