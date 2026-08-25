@@ -826,7 +826,17 @@ gist:GeoRoute
 				owl:onProperty [
 					owl:inverseOf gist:isMemberOf ;
 				] ;
-				owl:someValuesFrom gist:GeoPoint ;
+				owl:allValuesFrom [
+					a owl:Class ;
+					owl:intersectionOf (
+						gist:OrderedMember
+						[
+							a owl:Restriction ;
+							owl:onProperty gist:providesOrderFor ;
+							owl:someValuesFrom gist:GeoPoint ;
+						]
+					) ;
+				] ;
 			]
 		) ;
 	] ;
