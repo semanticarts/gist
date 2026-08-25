@@ -1948,17 +1948,105 @@ gist:Transaction
 
 gist:UnitGroup
 	a owl:Class ;
-	rdfs:subClassOf
-		gist:Collection ,
-		[
-			a owl:Restriction ;
-			owl:onProperty [
-				owl:inverseOf gist:isMemberOf ;
-			] ;
-			owl:someValuesFrom gist:UnitOfMeasure ;
-		]
-		;
 	owl:disjointWith gist:UnitOfMeasure ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:Collection
+			[
+				a owl:Restriction ;
+				owl:onProperty [
+					owl:inverseOf gist:hasUnitGroup ;
+				] ;
+				owl:someValuesFrom gist:Aspect ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty [
+					owl:inverseOf gist:isMemberOf ;
+				] ;
+				owl:someValuesFrom gist:UnitOfMeasure ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:exponentOfAmpere ;
+				owl:onDataRange xsd:decimal ;
+				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:exponentOfBit ;
+				owl:onDataRange xsd:decimal ;
+				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:exponentOfCandela ;
+				owl:onDataRange xsd:decimal ;
+				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:exponentOfKelvin ;
+				owl:onDataRange xsd:decimal ;
+				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:exponentOfKilogram ;
+				owl:onDataRange xsd:decimal ;
+				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:exponentOfMeter ;
+				owl:onDataRange xsd:decimal ;
+				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:exponentOfMole ;
+				owl:onDataRange xsd:decimal ;
+				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:exponentOfNumber ;
+				owl:onDataRange xsd:decimal ;
+				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:exponentOfOther ;
+				owl:onDataRange xsd:integer ;
+				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:exponentOfRadian ;
+				owl:onDataRange xsd:decimal ;
+				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:exponentOfSecond ;
+				owl:onDataRange xsd:decimal ;
+				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:exponentOfSteradian ;
+				owl:onDataRange xsd:decimal ;
+				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:exponentOfUSDollar ;
+				owl:onDataRange xsd:decimal ;
+				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+			]
+		) ;
+	] ;
 	skos:definition "A collection of units of measure that can all be used to measure the same aspects."^^xsd:string ;
 	skos:example "The units of measure bit, byte, kilobit, kilobyte, etc. are all in the same unit group because they can all be used to measure an amount of data."^^xsd:string ;
 	skos:prefLabel "Unit Group"^^xsd:string ;
