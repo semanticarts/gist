@@ -183,6 +183,7 @@ gist:Agreement
 
 gist:Aspect
 	a owl:Class ;
+	rdfs:subClassOf gist:KnowledgeConcept ;
 	owl:disjointWith gist:Event ;
 	skos:definition "A measurable characteristic."^^xsd:string ;
 	skos:example "Length, weight, cost, cycle time, defect rate, wheelbase, billing rate."^^xsd:string ;
