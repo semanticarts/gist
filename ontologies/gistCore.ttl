@@ -835,11 +835,6 @@ gist:GeoRoute
 							owl:onProperty gist:providesOrderFor ;
 							owl:someValuesFrom gist:GeoPoint ;
 						]
-						[
-							a owl:Restriction ;
-							owl:onProperty gist:sequence ;
-							owl:someValuesFrom xsd:integer ;
-						]
 					) ;
 				] ;
 			]
