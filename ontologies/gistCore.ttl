@@ -832,7 +832,7 @@ gist:GeoRoute
 gist:GeoSpatialObject
 	a owl:Class ;
 	skos:definition "A physical location or route, with the earth as a frame of reference."^^xsd:string ;
-	skos:prefLabel "Geographic Spatial Object"^^xsd:string ;
+	skos:prefLabel "Geospatial Object"^^xsd:string ;
 	skos:scopeNote "A geographic spatial object may be a point, region, volume, or route."^^xsd:string ;
 	.
 
