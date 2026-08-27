@@ -1,3 +1,4 @@
+@prefix : <https://w3id.org/semanticarts/ontology/gistCore#> .
 @prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
 @prefix gistd: <https://w3id.org/semanticarts/ns/data/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -134,7 +135,11 @@ gist:Account
 gist:Address
 	a owl:Class ;
 	rdfs:subClassOf gist:Content ;
-	skos:definition "A reference to a place (real or virtual) that can be located by some routing algorithm and where messages or things can be sent or received."^^xsd:string ;
+	owl:disjointUnionOf (
+		gist:ElectronicAddress
+		gist:PhysicalAddress
+	) ;
+	skos:definition "Content that refers to a geospatial object or electronic endpoint and can be used to locate it."^^xsd:string ;
 	skos:example "A PO Box, a URL to a PDF file."^^xsd:string ;
 	skos:prefLabel "Address"^^xsd:string ;
 	.
@@ -633,8 +638,19 @@ gist:ElectronicAddress
 	a owl:Class ;
 	rdfs:subClassOf gist:Address ;
 	owl:disjointWith gist:PhysicalAddress ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:Address
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:refersTo ;
+				owl:allValuesFrom gist:ElectronicEndpoint ;
+			]
+		) ;
+	] ;
 	skos:altLabel "Virtual Address"^^xsd:string ;
-	skos:definition "An address referring to a locatable virtual place that does not physically exist but is made by software or electronics to appear to do so."^^xsd:string ;
+	skos:definition "An address that refers to one or more electronic endpoints. An electronic address is part of a controlled vocabulary and can used by an algorithm to locate the electronic endpoint, e.g., to send a message to it."^^xsd:string ;
 	skos:example "A file system path, website URL, IP address, email address, mobile or landline telephone number."^^xsd:string ;
 	skos:prefLabel "Electronic Address"^^xsd:string ;
 	.
@@ -645,6 +661,32 @@ gist:ElectronicAddressType
 	skos:definition "A category indicating a kind of electronic address. Such a category is usually based on the technology that enables routing to the address referent."^^xsd:string ;
 	skos:example "A URL, file system path, email address, mobile telephone number."^^xsd:string ;
 	skos:prefLabel "Electronic Address Type"^^xsd:string ;
+	.
+
+gist:ElectronicEndpoint
+	a owl:Class ;
+	owl:disjointWith gist:GeoLocation ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:unionOf (
+			[
+				a owl:Restriction ;
+				owl:onProperty [
+					owl:inverseOf gist:comesFromPlace ;
+				] ;
+				owl:someValuesFrom gist:TransmittedContent ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty [
+					owl:inverseOf gist:goesToPlace ;
+				] ;
+				owl:someValuesFrom gist:TransmittedContent ;
+			]
+		) ;
+	] ;
+	skos:definition "A source or destination for transmitted content. The electronic endpoint may be able to both send and receive, or it may be send-only or receive-only."^^xsd:string ;
+	skos:prefLabel "Electronic Endpoint"^^xsd:string ;
 	.
 
 gist:Equipment
@@ -1154,6 +1196,7 @@ gist:Message
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
+						gist:ElectronicEndpoint
 						gist:Organization
 						gist:Person
 					) ;
@@ -1165,6 +1208,7 @@ gist:Message
 				owl:someValuesFrom [
 					a owl:Class ;
 					owl:unionOf (
+						gist:ElectronicEndpoint
 						gist:Organization
 						gist:Person
 					) ;
@@ -1469,7 +1513,7 @@ gist:PhysicalAddress
 			]
 		) ;
 	] ;
-	skos:definition "An address that refers to a locatable place within the physical universe."^^xsd:string ;
+	skos:definition "An address that refers to a geospatial object."^^xsd:string ;
 	skos:example "1600 Pennsylvania Avenue NW, Washington, DC 20500; PO Box 7704, San Francisco, CA 94120-7704; Room 317 in the Louvre Museum."^^xsd:string ;
 	skos:prefLabel "Physical Address"^^xsd:string ;
 	.
@@ -1946,6 +1990,25 @@ gist:Transaction
 	skos:scopeNote "Different sorts of transactions can have different datetime precisions. For example, an electronic transaction would have a gist:actualEndMicrosecond."^^xsd:string ;
 	.
 
+gist:TransmittedContent
+	a owl:Class ;
+	rdfs:subClassOf gist:RenderedContent ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:RenderedContent
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:comesFromPlace ;
+				owl:onClass gist:ElectronicEndpoint ;
+				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+			]
+		) ;
+	] ;
+	skos:definition "Rendered content in the form of messages, data, or signals that are transmitted in either a digital or an analog format."^^xsd:string ;
+	skos:prefLabel "Transmitted Content"^^xsd:string ;
+	.
+
 gist:UnitGroup
 	a owl:Class ;
 	rdfs:subClassOf
@@ -2144,6 +2207,7 @@ gist:comesFromPlace
 		a owl:Class ;
 		owl:unionOf (
 			gist:Address
+			gist:ElectronicEndpoint
 			gist:GeoLocation
 		) ;
 	] ;
@@ -2589,6 +2653,7 @@ gist:goesToPlace
 		a owl:Class ;
 		owl:unionOf (
 			gist:Address
+			gist:ElectronicEndpoint
 			gist:GeoLocation
 		) ;
 	] ;
