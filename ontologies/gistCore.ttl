@@ -2018,7 +2018,7 @@ gist:UnitGroup
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:exponentOfOther ;
-				owl:onDataRange xsd:integer ;
+				owl:onDataRange xsd:decimal ;
 				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
 			]
 			[
@@ -2558,7 +2558,7 @@ gist:exponentOfOther
 	skos:prefLabel "exponent of other"^^xsd:string ;
 	skos:scopeNote """Set the value to 0 if the units of measure in the unit group can be expressed using the standard set of exponents (as in the examples).
 
-		Otherwise set the value to 1, which typically means the units of measure in the group use a logarithmic scale."""^^xsd:string ;
+		Otherwise set the value to 1.0, which typically means the units of measure in the group use a logarithmic scale."""^^xsd:string ;
 	.
 
 gist:exponentOfRadian
