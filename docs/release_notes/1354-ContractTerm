@@ -1,0 +1,5 @@
+### Minor Updates
+
+- Added class equivalence to `gist:ContractTerm`. Issue [#1354](https://github.com/semanticarts/gist/issues/1354).
+- Simplified definition of `gist:ContractTerm`. Issue [#1354](https://github.com/semanticarts/gist/issues/1354).
+
