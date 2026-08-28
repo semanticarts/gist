@@ -1,0 +1,10 @@
+### Major Updates
+
+- Added class equivalence for `gist:ElectronicAddress`. Issue [#1478](https://github.com/semanticarts/gist/issues/1478).
+- Modified definition and added disjoint union for `gist:Address`. Issue [#1478](https://github.com/semanticarts/gist/issues/1478).
+- Modified definition of `gist:Physical Address`. Issue [#1478](https://github.com/semanticarts/gist/issues/1478).
+- Added class `gist:TransmittedContent`. Issue [#1478](https://github.com/semanticarts/gist/issues/1478).
+- Added class `gist:ElectronicEndpoint`. Issue [#1478](https://github.com/semanticarts/gist/issues/1478).
+- Expanded range of `gist:comesFromPlace` and `gist:goesToPlace`. Issue [#1478](https://github.com/semanticarts/gist/issues/1478).
+- Modified class equivalence for `gist:Message`. Issue [#1478](https://github.com/semanticarts/gist/issues/1478).
+
