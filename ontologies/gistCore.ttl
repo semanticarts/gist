@@ -400,8 +400,7 @@ gist:ContemporaryEvent
 gist:Content
 	a owl:Class ;
 	owl:disjointWith
-		gist:GeoPoint ,
-		gist:GeoRegion ,
+		gist:GeoSpatialObject ,
 		gist:Organization ,
 		gist:PhysicalIdentifiableItem ,
 		gist:PhysicalSubstance ,
@@ -736,16 +735,6 @@ gist:GeneralMediaType
 gist:GeoPoint
 	a owl:Class ;
 	rdfs:subClassOf gist:GeoSpatialObject ;
-	owl:disjointWith
-		gist:IntellectualProperty ,
-		gist:Intention ,
-		gist:Language ,
-		gist:Magnitude ,
-		gist:Organization ,
-		gist:PhysicalIdentifiableItem ,
-		gist:PhysicalSubstance ,
-		gist:UnitOfMeasure
-		;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -776,17 +765,6 @@ gist:GeoPoint
 
 gist:GeoRegion
 	a owl:Class ;
-	owl:disjointWith
-		gist:IntellectualProperty ,
-		gist:Intention ,
-		gist:Language ,
-		gist:Magnitude ,
-		gist:Organization ,
-		gist:PhysicalIdentifiableItem ,
-		gist:PhysicalSubstance ,
-		gist:Template ,
-		gist:UnitOfMeasure
-		;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -848,9 +826,21 @@ gist:GeoRoute
 
 gist:GeoSpatialObject
 	a owl:Class ;
+	owl:disjointWith
+		gist:Content ,
+		gist:IntellectualProperty ,
+		gist:Intention ,
+		gist:Language ,
+		gist:Magnitude ,
+		gist:Organization ,
+		gist:PhysicalIdentifiableItem ,
+		gist:PhysicalSubstance ,
+		gist:Template ,
+		gist:UnitOfMeasure
+		;
 	skos:definition "A physical location or route, with the earth as a frame of reference."^^xsd:string ;
 	skos:prefLabel "Geospatial Object"^^xsd:string ;
-	skos:scopeNote "A geographic spatial object may be a point, region, volume, or route."^^xsd:string ;
+	skos:scopeNote "A geospatial object may be a point, region, volume, or route."^^xsd:string ;
 	.
 
 gist:GeoVolume
