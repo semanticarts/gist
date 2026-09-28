@@ -826,7 +826,7 @@ gist:GeoRoute
 				owl:onProperty [
 					owl:inverseOf gist:isMemberOf ;
 				] ;
-				owl:allValuesFrom [
+				owl:someValuesFrom [
 					a owl:Class ;
 					owl:intersectionOf (
 						gist:OrderedMember
