@@ -511,7 +511,18 @@ gist:Contract
 gist:ContractTerm
 	a owl:Class ;
 	rdfs:subClassOf gist:Specification ;
-	skos:definition "A specification of some aspect of a contract."^^xsd:string ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:Specification
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:isPartOf ;
+				owl:someValuesFrom gist:Contract ;
+			]
+		) ;
+	] ;
+	skos:definition "A specification that is part of a contract."^^xsd:string ;
 	skos:prefLabel "Contract Term"^^xsd:string ;
 	.
 
