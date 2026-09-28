@@ -2955,7 +2955,7 @@ gist:isGeoContainedIn
 		;
 	rdfs:domain gist:GeoSpatialObject ;
 	rdfs:range gist:GeoSpatialObject ;
-	skos:definition "Relates one geographic spatial object to another that contains it."^^xsd:string ;
+	skos:definition "Relates one geospatial object to another that contains it."^^xsd:string ;
 	skos:prefLabel "is geographically contained in"^^xsd:string ;
 	.
 
@@ -3158,7 +3158,7 @@ gist:numericValue
 
 gist:occursIn
 	a owl:ObjectProperty ;
-	skos:definition "Relates something, such as an event, to the geographic spatial object where it did, does, or will happen."^^xsd:string ;
+	skos:definition "Relates something, such as an event, to the geospatial object where it did, does, or will happen."^^xsd:string ;
 	skos:prefLabel "occurs in"^^xsd:string ;
 	.
 

@@ -1,4 +1,4 @@
 ### Major Updates
 
-- Changed name from `gist:GeoLocation` to `gist:GeoSpatialObject` and made `gist:GeoRoute` a subclass. Issue [#1368](https://github.com/semanticarts/gist/issues/1368).
+- Changed name from `gist:GeoLocation` to `gist:GeoSpatialObject` and made `gist:GeoRoute` a subclass. Issue [#1368](https://github.com/semanticarts/gist/issues/1368). 
 - Used `gist:GeoSpatialObject` in disjointness statements instead of its subclasses. Issue [#1368](https://github.com/semanticarts/gist/issues/1368).
