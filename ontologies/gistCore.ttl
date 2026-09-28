@@ -1970,8 +1970,8 @@ gist:UnitGroup
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:exponentOfAmpere ;
-				owl:onDataRange xsd:decimal ;
-				owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+				owl:someValuesFrom xsd:decimal ;
+			 
 			]
 			[
 				a owl:Restriction ;
