@@ -400,8 +400,7 @@ gist:ContemporaryEvent
 gist:Content
 	a owl:Class ;
 	owl:disjointWith
-		gist:GeoPoint ,
-		gist:GeoRegion ,
+		gist:GeoSpatialObject ,
 		gist:Organization ,
 		gist:PhysicalIdentifiableItem ,
 		gist:PhysicalSubstance ,
@@ -733,26 +732,9 @@ gist:GeneralMediaType
 	skos:prefLabel "General Media Type"^^xsd:string ;
 	.
 
-gist:GeoLocation
-	a owl:Class ;
-	skos:definition "A physical location, with the earth as a frame of reference."^^xsd:string ;
-	skos:prefLabel "Geographic Location"^^xsd:string ;
-	skos:scopeNote "A geographic location may be a point, region, or volume."^^xsd:string ;
-	.
-
 gist:GeoPoint
 	a owl:Class ;
-	rdfs:subClassOf gist:GeoLocation ;
-	owl:disjointWith
-		gist:IntellectualProperty ,
-		gist:Intention ,
-		gist:Language ,
-		gist:Magnitude ,
-		gist:Organization ,
-		gist:PhysicalIdentifiableItem ,
-		gist:PhysicalSubstance ,
-		gist:UnitOfMeasure
-		;
+	rdfs:subClassOf gist:GeoSpatialObject ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -783,10 +765,10 @@ gist:GeoPoint
 
 gist:GeoRegion
 	a owl:Class ;
-	rdfs:subClassOf [
+	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:GeoLocation
+			gist:GeoSpatialObject
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasMagnitude ;
@@ -796,19 +778,15 @@ gist:GeoRegion
 					owl:hasValue gistd:_Aspect_area ;
 				] ;
 			]
+			[
+				a owl:Restriction ;
+				owl:onProperty [
+					owl:inverseOf gist:isGeoContainedIn ;
+				] ;
+				owl:someValuesFrom gist:GeoPoint ;
+			]
 		) ;
 	] ;
-	owl:disjointWith
-		gist:IntellectualProperty ,
-		gist:Intention ,
-		gist:Language ,
-		gist:Magnitude ,
-		gist:Organization ,
-		gist:PhysicalIdentifiableItem ,
-		gist:PhysicalSubstance ,
-		gist:Template ,
-		gist:UnitOfMeasure
-		;
 	skos:definition "A bounded region (or set of regions) on the surface of the Earth."^^xsd:string ;
 	skos:example "The bounded shape that defines the region occupied by Crater Lake; the bounded area known as the contiguous USA."^^xsd:string ;
 	skos:prefLabel "Geographic Region"^^xsd:string ;
@@ -821,12 +799,23 @@ gist:GeoRoute
 		a owl:Class ;
 		owl:intersectionOf (
 			gist:OrderedCollection
+			gist:GeoSpatialObject
 			[
 				a owl:Restriction ;
 				owl:onProperty [
 					owl:inverseOf gist:isMemberOf ;
 				] ;
-				owl:someValuesFrom gist:GeoPoint ;
+				owl:someValuesFrom [
+					a owl:Class ;
+					owl:intersectionOf (
+						gist:OrderedMember
+						[
+							a owl:Restriction ;
+							owl:onProperty gist:providesOrderFor ;
+							owl:someValuesFrom gist:GeoPoint ;
+						]
+					) ;
+				] ;
 			]
 		) ;
 	] ;
@@ -835,12 +824,31 @@ gist:GeoRoute
 	skos:scopeNote "A geographic route could describe a bus route by identifying the points where the bus stops. A geographic route could describe the boundary of a polygonal geographic region (it does not have to be a traveled route)."^^xsd:string ;
 	.
 
+gist:GeoSpatialObject
+	a owl:Class ;
+	owl:disjointWith
+		gist:Content ,
+		gist:IntellectualProperty ,
+		gist:Intention ,
+		gist:Language ,
+		gist:Magnitude ,
+		gist:Organization ,
+		gist:PhysicalIdentifiableItem ,
+		gist:PhysicalSubstance ,
+		gist:Template ,
+		gist:UnitOfMeasure
+		;
+	skos:definition "A physical location or route, with the earth as a frame of reference."^^xsd:string ;
+	skos:prefLabel "Geospatial Object"^^xsd:string ;
+	skos:scopeNote "A geospatial object may be a point, region, volume, or route."^^xsd:string ;
+	.
+
 gist:GeoVolume
 	a owl:Class ;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:GeoLocation
+			gist:GeoSpatialObject
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasMagnitude ;
@@ -1465,7 +1473,7 @@ gist:PhysicalAddress
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:refersTo ;
-				owl:someValuesFrom gist:GeoLocation ;
+				owl:someValuesFrom gist:GeoSpatialObject ;
 			]
 		) ;
 	] ;
@@ -1491,7 +1499,7 @@ gist:PhysicalEvent
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:occursIn ;
-				owl:someValuesFrom gist:GeoLocation ;
+				owl:someValuesFrom gist:GeoSpatialObject ;
 			]
 		) ;
 	] ;
@@ -2144,7 +2152,7 @@ gist:comesFromPlace
 		a owl:Class ;
 		owl:unionOf (
 			gist:Address
-			gist:GeoLocation
+			gist:GeoSpatialObject
 		) ;
 	] ;
 	skos:definition "Relates something to its place of origin."^^xsd:string ;
@@ -2581,7 +2589,7 @@ gist:goesToPlace
 		a owl:Class ;
 		owl:unionOf (
 			gist:Address
-			gist:GeoLocation
+			gist:GeoSpatialObject
 		) ;
 	] ;
 	skos:definition "Relates something to its destination place."^^xsd:string ;
@@ -2744,7 +2752,7 @@ gist:hasPhysicalLocation
 		owl:ObjectProperty ,
 		owl:TransitiveProperty
 		;
-	rdfs:range gist:GeoLocation ;
+	rdfs:range gist:GeoSpatialObject ;
 	skos:definition "Relates something to its physical location."^^xsd:string ;
 	skos:prefLabel "has physical location"^^xsd:string ;
 	skos:scopeNote "This property does not distinguish between things whose locations are stable and those whose locations change over time; e.g., a fire hydrant vs. a car."^^xsd:string ;
@@ -2937,9 +2945,9 @@ gist:isGeoContainedIn
 		owl:ObjectProperty ,
 		owl:TransitiveProperty
 		;
-	rdfs:domain gist:GeoLocation ;
-	rdfs:range gist:GeoLocation ;
-	skos:definition "Relates one geographic location to another that contains it."^^xsd:string ;
+	rdfs:domain gist:GeoSpatialObject ;
+	rdfs:range gist:GeoSpatialObject ;
+	skos:definition "Relates one geospatial object to another that contains it."^^xsd:string ;
 	skos:prefLabel "is geographically contained in"^^xsd:string ;
 	.
 
@@ -3142,7 +3150,7 @@ gist:numericValue
 
 gist:occursIn
 	a owl:ObjectProperty ;
-	skos:definition "Relates something, such as an event, to the geographic location where it did, does, or will happen."^^xsd:string ;
+	skos:definition "Relates something, such as an event, to the geospatial object where it did, does, or will happen."^^xsd:string ;
 	skos:prefLabel "occurs in"^^xsd:string ;
 	.
 
