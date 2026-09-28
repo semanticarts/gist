@@ -2260,14 +2260,6 @@ gist:domainIncludes
 		;
 	.
 
-gist:encryptedText
-	a owl:DatatypeProperty ;
-	rdfs:subPropertyOf gist:containedText ;
-	rdfs:range xsd:string ;
-	skos:definition "Encoded text produced from readable data by an algorithm so that it can only be understood or restored with a decryption key."^^xsd:string ;
-	skos:prefLabel "encrypted text"^^xsd:string ;
-	.
-
 gist:endDateTime
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf gist:atDateTime ;
@@ -3004,7 +2996,7 @@ gist:isProducedBy
 	a owl:ObjectProperty ;
 	skos:definition "Relates something to the thing that created, composed, or brought it into existence."^^xsd:string ;
 	skos:example
-		"A deliverable is produces by a task."^^xsd:string ,
+		"A deliverable is produced by a task."^^xsd:string ,
 		"A measurement is produced by a sensor."^^xsd:string ,
 		"A painting is produced by a person."^^xsd:string
 		;
