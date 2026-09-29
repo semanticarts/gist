@@ -183,7 +183,7 @@ gist:Agreement
 
 gist:Aspect
 	a owl:Class ;
-	owl:disjointWith gist:Event ;
+	rdfs:subClassOf gist:KnowledgeConcept ;
 	skos:definition "A measurable characteristic."^^xsd:string ;
 	skos:example "Length, weight, cost, cycle time, defect rate, wheelbase, billing rate."^^xsd:string ;
 	skos:prefLabel "Aspect"^^xsd:string ;
@@ -1004,6 +1004,7 @@ gist:IntergovernmentalOrganization
 gist:KnowledgeConcept
 	a owl:Class ;
 	rdfs:subClassOf gist:IntellectualProperty ;
+	owl:disjointWith gist:Event ;
 	skos:definition "An abstract concept that arises from the distillation of experience. It is similar to a category but, rather than being a simple tag, it has rich structure."^^xsd:string ;
 	skos:example "Most domains will define a few subclasses, such as gene, protein, chemical, disease, subject matter, industry, method."^^xsd:string ;
 	skos:prefLabel "Knowledge Concept"^^xsd:string ;
