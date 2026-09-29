@@ -1114,7 +1114,10 @@ gist:Magnitude
 	skos:definition "The amount of a measurable characteristic (aspect)."^^xsd:string ;
 	skos:example "A model of car could have a wheelbase of 113.2 inches. In this example, the aspect is wheelbase, the unit of measure is inch, and the numeric value is 113.2."^^xsd:string ;
 	skos:prefLabel "Magnitude"^^xsd:string ;
-	skos:scopeNote "An accuracy can be assigned to a magnitude using the property has accuracy."^^xsd:string ;
+	skos:scopeNote
+		"An accuracy can be assigned to a magnitude using the property has accuracy."^^xsd:string ,
+		"To retain flexibility in implementation, gist is neutral on identity criteria for magnitudes. For example, if my desk and your desk are both three feet tall, there could be a single magnitude IRI for both desks. Alternatively, there could be multiple magnitude IRIs with optional owl:sameAs or owl:differentFrom assertions between them as needed."^^xsd:string
+		;
 	.
 
 gist:MediaType
@@ -1934,6 +1937,7 @@ gist:TimeInterval
 	skos:prefLabel "Time Interval"^^xsd:string ;
 	skos:scopeNote
 		"An ongoing state of affairs with an unknown end time in the future cannot be a time interval; e.g. the lifespan of a living person cannot be a time interval, as the end time is unknown."^^xsd:string ,
+		"Conceptually, time intervals are uniquely identified by their start and end times. In cases where two IRIs identify time intervals with the same start and end time, we leave it as an implementation decision whether to generate owl:sameAs triples in the knowledge graph."^^xsd:string ,
 		"This is distinct from a duration, which describes how long a time interval lasts (e.g., one hour; 3 days; 22 minutes)."^^xsd:string
 		;
 	.
