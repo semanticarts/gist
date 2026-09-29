@@ -74,6 +74,14 @@ gistd:_Aspect_duration
 	skos:prefLabel "duration"^^xsd:string ;
 	.
 
+gistd:_Aspect_financial_balance
+	a gist:Aspect ;
+	owl:deprecated "true"^^xsd:boolean ;
+	skos:definition "The aspect financial balance."^^xsd:string ;
+	skos:editorialNote "This instance has been duplicated from reference data so it can be used in property restrictions."^^xsd:string ;
+	skos:prefLabel "balance"^^xsd:string ;
+	.
+
 gistd:_Aspect_mass
 	a gist:Aspect ;
 	skos:definition "The aspect mass."^^xsd:string ;
