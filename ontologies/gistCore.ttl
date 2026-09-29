@@ -1116,7 +1116,7 @@ gist:Magnitude
 	skos:prefLabel "Magnitude"^^xsd:string ;
 	skos:scopeNote
 		"An accuracy can be assigned to a magnitude using the property has accuracy."^^xsd:string ,
-		"To retain flexibility in implementation, gist is neutral on whether magnitudes with the same aspect, unit of measure, and numeric value are the same individual. For example, if my desk and your desk are both three feet tall, there could be a single magnitude IRI for both desks. Alternatively, there could be multiple magnitude IRIs with optional owl:sameAs or owl:differentFrom assertions between them as desired."^^xsd:string
+		"To retain flexibility in implementation, gist is neutral on identity criteria for magnitudes. For example, if my desk and your desk are both three feet tall, there could be a single magnitude IRI for both desks. Alternatively, there could be multiple magnitude IRIs with optional owl:sameAs or owl:differentFrom assertions between them as needed."^^xsd:string
 		;
 	.
 
