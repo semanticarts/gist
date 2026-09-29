@@ -1114,7 +1114,10 @@ gist:Magnitude
 	skos:definition "The amount of a measurable characteristic (aspect)."^^xsd:string ;
 	skos:example "A model of car could have a wheelbase of 113.2 inches. In this example, the aspect is wheelbase, the unit of measure is inch, and the numeric value is 113.2."^^xsd:string ;
 	skos:prefLabel "Magnitude"^^xsd:string ;
-	skos:scopeNote "An accuracy can be assigned to a magnitude using the property has accuracy."^^xsd:string ;
+	skos:scopeNote
+		"An accuracy can be assigned to a magnitude using the property has accuracy."^^xsd:string ,
+		"To retain flexibility in implementation, gist is neutral on whether magnitudes with the same aspect, unit of measure, and numeric value are the same individual. For example, if my desk and your desk are both three feet tall, there could be a single magnitude IRI for both desks. Alternatively, there could be multiple magnitude IRIs with optional owl:sameAs or owl:differentFrom assertions between them as desired."^^xsd:string
+		;
 	.
 
 gist:MediaType
