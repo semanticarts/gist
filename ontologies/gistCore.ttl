@@ -74,13 +74,6 @@ gistd:_Aspect_duration
 	skos:prefLabel "duration"^^xsd:string ;
 	.
 
-gistd:_Aspect_financial_balance
-	a gist:Aspect ;
-	skos:definition "The aspect financial balance."^^xsd:string ;
-	skos:editorialNote "This instance has been duplicated from reference data so it can be used in property restrictions."^^xsd:string ;
-	skos:prefLabel "balance"^^xsd:string ;
-	.
-
 gistd:_Aspect_mass
 	a gist:Aspect ;
 	skos:definition "The aspect mass."^^xsd:string ;
@@ -117,18 +110,15 @@ gist:Account
 			gist:Agreement
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasMagnitude ;
-				owl:someValuesFrom [
-					a owl:Restriction ;
-					owl:onProperty gist:hasAspect ;
-					owl:hasValue gistd:_Aspect_financial_balance ;
-				] ;
+				owl:onProperty gist:hasBalance ;
+				owl:someValuesFrom gist:Magnitude ;
 			]
 		) ;
 	] ;
 	skos:definition "An agreement having a balance."^^xsd:string ;
-	skos:example "A bank account, a credit card account, an accounts receivable account."^^xsd:string ;
+	skos:example "A bank account, an airline mileage account, a credit card account, an accounts receivable account."^^xsd:string ;
 	skos:prefLabel "Account"^^xsd:string ;
+	skos:scopeNote "The magnitude representing the balance can have an aspect like dollars, airline miles, or other type of balance."^^xsd:string ;
 	.
 
 gist:Address
@@ -2629,6 +2619,14 @@ gist:hasAspect
 	rdfs:range gist:Aspect ;
 	skos:definition "Relates a magnitude to its aspect (measurable characteristic)."^^xsd:string ;
 	skos:prefLabel "has aspect"^^xsd:string ;
+	.
+
+gist:hasBalance
+	a owl:ObjectProperty ;
+	rdfs:domain gist:Account ;
+	rdfs:range gist:Magnitude ;
+	skos:definition "Relates an acccount to a magnitude that represents its balance."^^xsd:string ;
+	skos:prefLabel "has balance"^^xsd:string ;
 	.
 
 gist:hasBiologicalParent
