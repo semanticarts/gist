@@ -1,3 +1,3 @@
 ### Minor Updates
 
-- Removed logically redundant restriction from formal definitions of `gist:ContingentObligation` and `gist:Offer`, allowing for inheritance of the restiction by inference. Issue [#1511](https://github.com/semanticarts/gist/issues/1511).
+- Removed logically redundant restriction from formal definitions of `gist:ContingentObligation` and `gist:Offer`, allowing for inheritance of the restriction by inference. Issue [#1511](https://github.com/semanticarts/gist/issues/1511).
