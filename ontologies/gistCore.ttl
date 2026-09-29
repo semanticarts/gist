@@ -470,17 +470,6 @@ gist:ContingentObligation
 			gist:Commitment
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasGiver ;
-				owl:someValuesFrom [
-					a owl:Class ;
-					owl:unionOf (
-						gist:Organization
-						gist:Person
-					) ;
-				] ;
-			]
-			[
-				a owl:Restriction ;
 				owl:onProperty gist:isTriggeredBy ;
 				owl:someValuesFrom gist:Event ;
 			]
@@ -1260,17 +1249,6 @@ gist:Offer
 		a owl:Class ;
 		owl:intersectionOf (
 			gist:ContingentObligation
-			[
-				a owl:Restriction ;
-				owl:onProperty gist:hasGiver ;
-				owl:someValuesFrom [
-					a owl:Class ;
-					owl:unionOf (
-						gist:Organization
-						gist:Person
-					) ;
-				] ;
-			]
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:offersToProvide ;
