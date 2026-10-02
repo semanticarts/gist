@@ -1,6 +1,6 @@
-### Minor Updates
+### Major Updates
 
 - Added property `gist:hasBalance`. Issue [#1241](https://github.com/semanticarts/gist/issues/1241).
 - Defined `gist:Account` as an agreement having a balance. Issue [#1241](https://github.com/semanticarts/gist/issues/1241).
-- Deprecated `gist:_Aspect_financial_balance`. Issue [#1241](https://github.com/semanticarts/gist/issues/1241).
+- Removed `gist:_Aspect_financial_balance`. Issue [#1241](https://github.com/semanticarts/gist/issues/1241).
 
