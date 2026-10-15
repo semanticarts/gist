@@ -1075,7 +1075,7 @@ gist:LivingThing
 	] ;
 	skos:definition "Something that is currently, or at some point in time was, alive."^^xsd:string ;
 	skos:example
-		"A cat, a mushroom, a tree."^^xsd:string ,
+		"A cat, a mushroom, a tree"^^xsd:string ,
 		"Negative examples: fictional life forms such as unicorns or Mickey Mouse."^^xsd:string
 		;
 	skos:prefLabel "Living Thing"^^xsd:string ;
