@@ -99,9 +99,9 @@ Some of the examples resulted in changes in gist `10.0.0`, others are hypothetic
 || `isCharacterizedBy`, not `characterizedBy` |
 | Prefer an ordinary verb to "hasX" or "isX" | `precedes`, not `isFollowedBy` |
 | "At" rather than "on" for datetimes | `isRecordedAt`, not `isRecordedOn`. |
-| Present tense only with minimal exceptions when the meaning is inherently in the past | `isRenderedOn`, not `wasRenderedOn`, but `wasLastModifiedBy` rather than `isLastModifiedBy` |
+| Present tense only with minimal exceptions when the meaning is inherently in the past | `isRenderedOn`, not `wasRenderedOn`, but `wasLastModifiedBy`not `isLastModifiedBy`and `wasLastModifiedAt`, not `isLastModifiedAt`  |
 || `precedes`, not `preceded` |
-|| but `wasLastModifiedAt`, not `isLastModifiedAt` |
+|
 | General idiomaticity | `hasRecipient`, not `hasGetter` |
 | No non-standard abbreviations | `hasUnitOfMeasure`, not `hasUoM` |
 | Final prepositions where appropriate | `hasJurisdictionOver`, not `hasJurisdiction` |
@@ -145,7 +145,7 @@ The following conventions apply to `skos:prefLabel` but *not* `skos:altLabel`, w
 
 - Lower case
 - Normalized to natural language standards. E.g., hyphens inserted, acronyms in all caps, proper nouns capitalized, etc.
-- Examples: *has unit of measure*, *has SSN*, *Unicode symbol*, *W2*
+- Examples: *has unit of measure*, *has SSN*, *Unicode symbol*, *W-2*
 
 #### Valid Exceptions to Label Conventions
 
@@ -257,7 +257,7 @@ Caution: gist is not yet fully aligned with this best practice, which is aspirat
 
 ### Literals
 
-- Literal values should be typed with one of the datatypes included in the [OWL 2 Datatype Maps](https://www.w3.org/TR/owl2-syntax/#Datatype_Maps). It is not necessary to explicitly type strings as `xsd:string` because the [serializer](#serialization) will add this to all untyped literals.
+- Literal values should be typed with one of the datatypes included in the [OWL 2 Datatype Maps](https://www.w3.org/TR/owl2-syntax/#Datatype_Maps). It is not necessary to explicitly type strings as `xsd:string` because the [serializer](#serialization) will add this to all untyped literals.  `@en` will not be added to `xsd:string` by the serializer.
 - Literals that contain quotations should have double quotes for the outer quotes and single quotes for inner quotes. For example: `"'gist' is the name of an upper ontology."^^xsd:string`.
 
 ### Documentation
