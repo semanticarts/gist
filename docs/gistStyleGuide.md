@@ -99,7 +99,7 @@ Some of the examples resulted in changes in gist `10.0.0`, others are hypothetic
 || `isCharacterizedBy`, not `characterizedBy` |
 | Prefer an ordinary verb to "hasX" or "isX" | `precedes`, not `isFollowedBy` |
 | "At" rather than "on" for datetimes | `isRecordedAt`, not `isRecordedOn`. |
-| Present tense only with minimal exceptions when the meaning is inherently in the past | `isRenderedOn`, not `wasRenderedOn`, but `wasLastModifiedBy`not `isLastModifiedBy`and `wasLastModifiedAt`, not `isLastModifiedAt`  |
+| Present tense only with minimal exceptions when the meaning is inherently in the past | `isRenderedOn`, not `wasRenderedOn`, but `wasLastModifiedBy`not `isLastModifiedBy` |
 || `precedes`, not `preceded` |
 |
 | General idiomaticity | `hasRecipient`, not `hasGetter` |
