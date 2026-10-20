@@ -196,7 +196,7 @@ gist uses SKOS annotations rather than `rdfs:label` and `rdfs:comment`. The acce
 
 These annotations help the user understand the use and meaning of the term, and prevent definitions from becoming lengthy and unstructured. `skos:definition` is expected to provide a definition, not lengthy usage notes or examples. These should instead be included in a `skos:scopeNote` or `skos:example`, respectively.
 
-Negative examples should be prefaced by the text "Negative example:" or "Negative examples:". For example, the annotation of `gist:LivingThing` includes `skos:example "Negative examples: fictional life forms such as unicorns or Mickey Mouse."`
+Negative examples should be prefaced by the text "Negative example:" or "Negative examples:". For example, the annotations of `gist:LivingThing` include `skos:example "Negative examples: fictional life forms such as unicorns or Mickey Mouse."`
 
 Occasionally a definition can hardly be understood at all without an example or two, in which case they can be included in the `skos:definition`. For example, the term `ResearchProduct` might be defined as "An output of a research project, such as a document or spreadsheet."
 
