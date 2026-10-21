@@ -1,0 +1,4 @@
+### Major Updates
+
+- Simplified the range of `gist:numericValue`. Issue [#1386](https://github.com/semanticarts/gist/issues/1386).
+

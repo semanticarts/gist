@@ -2278,14 +2278,6 @@ gist:domainIncludes
 		;
 	.
 
-gist:encryptedText
-	a owl:DatatypeProperty ;
-	rdfs:subPropertyOf gist:containedText ;
-	rdfs:range xsd:string ;
-	skos:definition "Encoded text produced from readable data by an algorithm so that it can only be understood or restored with a decryption key."^^xsd:string ;
-	skos:prefLabel "encrypted text"^^xsd:string ;
-	.
-
 gist:endDateTime
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf gist:atDateTime ;
@@ -3022,7 +3014,7 @@ gist:isProducedBy
 	a owl:ObjectProperty ;
 	skos:definition "Relates something to the thing that created, composed, or brought it into existence."^^xsd:string ;
 	skos:example
-		"A deliverable is produces by a task."^^xsd:string ,
+		"A deliverable is produced by a task."^^xsd:string ,
 		"A measurement is produced by a sensor."^^xsd:string ,
 		"A painting is produced by a person."^^xsd:string
 		;
@@ -3134,28 +3126,16 @@ gist:numericValue
 	rdfs:range [
 		a rdfs:Datatype ;
 		owl:unionOf (
-			xsd:byte
 			xsd:decimal
 			xsd:double
 			xsd:float
-			xsd:int
 			xsd:integer
-			xsd:long
-			xsd:negativeInteger
-			xsd:nonNegativeInteger
-			xsd:nonPositiveInteger
-			xsd:positiveInteger
-			xsd:short
-			xsd:unsignedByte
-			xsd:unsignedInt
-			xsd:unsignedLong
-			xsd:unsignedShort
 			owl:rational
-			owl:real
 		) ;
 	] ;
 	skos:definition "The actual value of a magnitude."^^xsd:string ;
 	skos:prefLabel "numeric value"^^xsd:string ;
+	skos:scopeNote "Caution is advised when using the xsd:float, xsd:integer, or owl:rational datatypes. The xsd:float datatype is less precise than xsd:double, and not recommended unless the source data is xsd:float or if precision is not as important as the size of the data or speed of computation. Some downstream applications might be limited to using the 32-bit xsd:int datatype instead of xsd:integer; if so, check to see that the xsd:integer values being passed downstream are within the 32-bit range. Some triplestores cannot do math using values of the owl:rational datatype."^^xsd:string ;
 	.
 
 gist:occursIn
