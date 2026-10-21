@@ -74,13 +74,6 @@ gistd:_Aspect_duration
 	skos:prefLabel "duration"^^xsd:string ;
 	.
 
-gistd:_Aspect_financial_balance
-	a gist:Aspect ;
-	skos:definition "The aspect financial balance."^^xsd:string ;
-	skos:editorialNote "This instance has been duplicated from reference data so it can be used in property restrictions."^^xsd:string ;
-	skos:prefLabel "balance"^^xsd:string ;
-	.
-
 gistd:_Aspect_mass
 	a gist:Aspect ;
 	skos:definition "The aspect mass."^^xsd:string ;
@@ -117,18 +110,15 @@ gist:Account
 			gist:Agreement
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:hasMagnitude ;
-				owl:someValuesFrom [
-					a owl:Restriction ;
-					owl:onProperty gist:hasAspect ;
-					owl:hasValue gistd:_Aspect_financial_balance ;
-				] ;
+				owl:onProperty gist:hasBalance ;
+				owl:someValuesFrom gist:Magnitude ;
 			]
 		) ;
 	] ;
 	skos:definition "An agreement having a balance."^^xsd:string ;
-	skos:example "A bank account, a credit card account, an accounts receivable account."^^xsd:string ;
+	skos:example "A bank account, an airline mileage account, a credit card account, an accounts receivable account."^^xsd:string ;
 	skos:prefLabel "Account"^^xsd:string ;
+	skos:scopeNote "The magnitude representing the balance can have an aspect like dollars, airline miles, or other type of balance."^^xsd:string ;
 	.
 
 gist:Address
@@ -2278,14 +2268,6 @@ gist:domainIncludes
 		;
 	.
 
-gist:encryptedText
-	a owl:DatatypeProperty ;
-	rdfs:subPropertyOf gist:containedText ;
-	rdfs:range xsd:string ;
-	skos:definition "Encoded text produced from readable data by an algorithm so that it can only be understood or restored with a decryption key."^^xsd:string ;
-	skos:prefLabel "encrypted text"^^xsd:string ;
-	.
-
 gist:endDateTime
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf gist:atDateTime ;
@@ -2657,6 +2639,14 @@ gist:hasAspect
 	skos:prefLabel "has aspect"^^xsd:string ;
 	.
 
+gist:hasBalance
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:hasMagnitude ;
+	rdfs:domain gist:Account ;
+	skos:definition "Relates an acccount to a magnitude that represents its balance."^^xsd:string ;
+	skos:prefLabel "has balance"^^xsd:string ;
+	.
+
 gist:hasBiologicalParent
 	a owl:ObjectProperty ;
 	rdfs:domain gist:LivingThing ;
@@ -3022,7 +3012,7 @@ gist:isProducedBy
 	a owl:ObjectProperty ;
 	skos:definition "Relates something to the thing that created, composed, or brought it into existence."^^xsd:string ;
 	skos:example
-		"A deliverable is produces by a task."^^xsd:string ,
+		"A deliverable is produced by a task."^^xsd:string ,
 		"A measurement is produced by a sensor."^^xsd:string ,
 		"A painting is produced by a person."^^xsd:string
 		;
