@@ -378,13 +378,13 @@ actions:
   target: "{output}/migration/v14.0/html-doc/"
   includes:
     - "*.html"
+  # Replace .md with .html in local links of HTML files
+  replace:
+    from: "((\\./|(?:\\.\\./)+).+)\\.md"
+    to: "\\g<1>.html"
 - action: "move"
   source: "{output}/migration/v14.0/"
   target: "{output}/migration/v14.0/markdown-doc/"
   includes:
     - "*.md"
-  # Replace .md with .html in local links of HTML files
-  replace:
-    from: "((\\./|(?:\\.\\./)+).+)\\.md"
-    to: "\\g<1>.html"
 
