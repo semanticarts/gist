@@ -1,0 +1,3 @@
+### Major Updates
+
+- Fixed class equivalence statement for `gist:GeoRoute`. Issue [#1389](https://github.com/semanticarts/gist/issues/1389).
