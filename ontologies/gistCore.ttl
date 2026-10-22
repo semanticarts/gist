@@ -890,6 +890,19 @@ gist:GovernmentOrganization
 	a owl:Class ;
 	rdfs:subClassOf gist:Organization ;
 	owl:disjointWith gist:IntergovernmentalOrganization ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:Organization
+			[
+				a owl:Restriction ;
+				owl:onProperty [
+					owl:inverseOf gist:isGovernedBy ;
+				] ;
+				owl:someValuesFrom gist:GeoLocation ;
+			]
+		) ;
+	] ;
 	skos:definition "An independent organization exercising political and/or regulatory authority over a political unit, people, geographical region, etc., as well as performing certain functions for this unit or body."^^xsd:string ;
 	skos:example
 		"Negative example: A corporation, which is owned and therefore not independent."^^xsd:string ,
