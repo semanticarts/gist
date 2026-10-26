@@ -140,20 +140,14 @@ The following conventions apply to `skos:prefLabel` but *not* `skos:altLabel`, w
 #### Class Labels
 
 - Title case (see [definition of title case](#gist-definition-of-title-case)) below
-- Normalized to natural language standards. E.g., hyphens inserted, acronyms in all caps, etc.
+- Local name normalized to natural language standards. E.g., hyphens inserted, acronyms in all caps, proper nouns capitalized, etc.
   - Examples: *AMA Guideline*, *ISBN-10*
 
 #### Property Labels
 
 - Lower case
-- Normalized to natural language standards. E.g., hyphens inserted, acronyms in all caps, proper nouns capitalized, etc.
+- Local name normalized to natural language standards. E.g., hyphens inserted, acronyms in all caps, proper nouns capitalized, etc.
 - Examples: *has unit of measure*, *has SSN*, *Unicode symbol*, *W2*
-
-#### Valid Exceptions to Label Conventions
-
-There may occasionally be valid reasons to deviate from the conventions stated here:
-
-- Deviation from wording of the local name. For example, the predicate `gist:isGeoContainedIn` uses a shortened form of "geographically" for conciseness. The `skos:prefLabel` uses the fully spelled out word: "is geographically contained in."
 
 #### Non-Conforming Labels
 
