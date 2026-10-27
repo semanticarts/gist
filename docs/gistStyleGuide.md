@@ -101,7 +101,6 @@ Some of the examples resulted in changes in gist `10.0.0`, others are hypothetic
 | "At" rather than "on" for datetimes | `isRecordedAt`, not `isRecordedOn`. |
 | Present tense only with minimal exceptions when the meaning is inherently in the past | `isRenderedOn` rather than `wasRenderedOn`, but `wasLastModifiedBy` rather than `isLastModifiedBy` |
 || `precedes`, not `preceded` |
-|
 | General idiomaticity | `hasRecipient`, not `hasGetter` |
 | No non-standard abbreviations | `hasUnitOfMeasure`, not `hasUoM` |
 | Final prepositions where appropriate | `hasJurisdictionOver`, not `hasJurisdiction` |
