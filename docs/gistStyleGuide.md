@@ -13,7 +13,6 @@
   - [Labels](#labels)
     - [Class Labels](#class-labels)
     - [Property Labels](#property-labels)
-    - [Valid Exceptions to Label Conventions](#valid-exceptions-to-label-conventions)
     - [Non-Conforming Labels](#non-conforming-labels)
     - [gist Definition of Title Case](#gist-definition-of-title-case)
   - [Annotations](#annotations)
