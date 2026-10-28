@@ -197,7 +197,7 @@ __log_config__
 
     if [ ${rc} -eq 0 ] ; then
       log "Re-adding potentially re-serialized file to git staging area: ${file}"
-      # Get the file permissions, handling both GNU and BSD stat commands  :
+      # Get the file permissions, handling both GNU and BSD stat commands:
       permissions=$(stat -c "%a" "${file}" 2>/dev/null || stat -f "%Lp" "${file}")
       chmod $permissions "${file}X"
       rm  "${file}"
