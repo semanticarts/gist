@@ -1107,7 +1107,10 @@ gist:Magnitude
 	skos:definition "The amount of a measurable characteristic (aspect)."^^xsd:string ;
 	skos:example "A model of car could have a wheelbase of 113.2 inches. In this example, the aspect is wheelbase, the unit of measure is inch, and the numeric value is 113.2."^^xsd:string ;
 	skos:prefLabel "Magnitude"^^xsd:string ;
-	skos:scopeNote "An accuracy can be assigned to a magnitude using the property has accuracy."^^xsd:string ;
+	skos:scopeNote
+		"An accuracy can be assigned to a magnitude using the property has accuracy."^^xsd:string ,
+		"Conceptually, magnitudes are uniquely identified by their aspect, unit of measure, and numeric value. Two magnitudes that share all three of these values are conceptually identical even if owl:sameAs is not asserted between them."^^xsd:string
+		;
 	.
 
 gist:MediaType
@@ -1928,7 +1931,8 @@ gist:TimeInterval
 	skos:prefLabel "Time Interval"^^xsd:string ;
 	skos:scopeNote
 		"An ongoing state of affairs with an unknown end time in the future cannot be a time interval; e.g. the lifespan of a living person cannot be a time interval, as the end time is unknown."^^xsd:string ,
-		"This is distinct from a duration, which describes how long a time interval lasts (e.g., one hour; 3 days; 22 minutes)."^^xsd:string
+		"This is distinct from a duration, which describes how long a time interval lasts (e.g., one hour; 3 days; 22 minutes)."^^xsd:string ,
+		"Time intervals are uniquely identified by their start and end times; two intervals with the same start and end datetimes are conceptually identical, regardless of whether the identity is formally specified or not."^^xsd:string
 		;
 	.
 
