@@ -1626,7 +1626,7 @@ gist:RenderedContent
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			gist:FormattedContent
+			gist:ContentExpression
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:isRenderedOn ;
