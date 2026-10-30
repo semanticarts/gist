@@ -526,7 +526,14 @@ gist:ControlledVocabulary
 				owl:onProperty [
 					owl:inverseOf gist:isMemberOf ;
 				] ;
-				owl:someValuesFrom gist:Category ;
+				owl:someValuesFrom [ 
+				    a owl:Class ;
+					owl:unionOf (
+					    gist:Category
+						gist:Content
+						gist:KnowledgeConcept
+					)
+				] ;
 			]
 		) ;
 	] ;
