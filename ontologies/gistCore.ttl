@@ -888,7 +888,7 @@ gist:GovernmentOrganization
 				owl:onProperty [
 					owl:inverseOf gist:isGovernedBy ;
 				] ;
-				owl:someValuesFrom gist:GeoLocation ;
+				owl:someValuesFrom gist:GovernedGeoRegion ;
 			]
 		) ;
 	] ;
