@@ -1497,41 +1497,35 @@ gist:PhysicalEvent
 gist:PhysicalIdentifiableItem
 	a owl:Class ;
 	rdfs:subClassOf
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:hasMagnitude ;
-			owl:someValuesFrom [
-				a owl:Restriction ;
-				owl:onProperty gist:hasAspect ;
-				owl:hasValue gistd:_Aspect_mass ;
-			] ;
-		] ,
-		[
-			a owl:Restriction ;
-			owl:onProperty gist:hasMagnitude ;
-			owl:someValuesFrom [
-				a owl:Restriction ;
-				owl:onProperty gist:hasAspect ;
-				owl:hasValue gistd:_Aspect_volume ;
-			] ;
-		] ,
+		gist:PhysicalThing ,
 		[
 			a owl:Restriction ;
 			owl:onProperty gist:isMadeUpOf ;
 			owl:someValuesFrom gist:PhysicalSubstance ;
 		]
 		;
-	owl:disjointWith
-		gist:SchemaMetaData ,
-		gist:UnitOfMeasure
-		;
 	skos:definition "A discrete physical object which, if subdivided, will result in parts that are distinguishable in nature from the whole and in general also from the other parts."^^xsd:string ;
 	skos:example "A laptop, a physical book, a car, a building, a landmark (such as a tree stump with an etched marking to denote a campsite)."^^xsd:string ;
 	skos:prefLabel "Physical Identifiable Item"^^xsd:string ;
-	skos:scopeNote "This concept generally corresponds to count nouns in English. By contrast, physical substances, such as an amount of water, flour, or sand, are mass nouns. Physical identifiable items are made up of physical substances; e.g., a cake is made up of butter, flour, and sugar; a statue is made of bronze. If you divide a physical substance such as an amount of water into parts, you have two amounts of water otherwise indistinguishable from one another; if you divide a physical identifiable item such as a computer into parts, each part is different from the whole."^^xsd:string ;
+	skos:scopeNote "This concept generally corresponds to count nouns in English. By contrast, physical substances, such as an amount of water, flour, or sand, are mass nouns. Physical identifiable items are made up of physical substances; e.g., a cake is made up of butter, flour, and sugar; a statue is made of bronze. If you divide a physical substance such as an amount of water into parts, you have two amounts of water otherwise indistinguishable from one another; if you divide a physical identifiable item such as a computer into parts, each part is different from the whole. However, to some extent whether something is a physical substance or a collection of physical things depends on use case; for instance, at the atomic level a piece of gold is a collection of separable physical things. On the other hand, an undifferentiated mass of discrete physical things, such as a handful of caterpillars, that are input into a biological experiment. In this context the individual caterpillars have no significance, and if you divide this mass of caterpillars into two parts,you have two masses of caterpillars that are indistinguishable except for size, which meets the criteria of physical substance."^^xsd:string ;
 	.
 
 gist:PhysicalSubstance
+	a owl:Class ;
+	rdfs:subClassOf gist:PhysicalThing ;
+	skos:definition "An undifferentiated amount of physical material which, when subdivided, results in each part being indistinguishable in nature from the whole and from every other part."^^xsd:string ;
+	skos:example
+		"An amount of water, penicillin, sand, or gold."^^xsd:string ,
+		"Negative example: the concept of gold."^^xsd:string
+		;
+	skos:prefLabel "Physical Substance"^^xsd:string ;
+	skos:scopeNote
+		"This concept generally corresponds to mass nouns in English. By contrast, instances of gist:PhysicalIdentifiableItem, such as a computer, book, or car, are count nouns. Physical identifiable items are made up of physical substances; e.g., a cake is made up of butter, flour, and sugar; a ring is made of gold. If you divide a physical substance such as an amount of water into parts, you have different amounts of water otherwise indistinguishable from one another; if you divide a physical identifiable item such as a computer into parts, each part will be distinguishable from the original whole. However, to some extent whether something is a physical substance or a collection of physical things depends on use case; for instance, at the atomic level a piece of gold is a collection of separable physical things. On the other hand, an undifferentiated mass of discrete physical things, such as a handful of caterpillars, that are input into a biological experiment. In this context the individual caterpillars have no significance, and if you divide this mass of caterpillars into two parts,you have two masses of caterpillars that are indistinguishable except for size, which meets the criteria of physical substance."^^xsd:string ,
+		"We mean the physical gold in a ring, not the concept of gold that shows up in the periodic table. The latter would be an instance of gist:KnowledgeConcept."^^xsd:string
+		;
+	.
+
+gist:PhysicalThing
 	a owl:Class ;
 	rdfs:subClassOf
 		[
@@ -1553,17 +1547,12 @@ gist:PhysicalSubstance
 			] ;
 		]
 		;
-	owl:disjointWith gist:UnitOfMeasure ;
-	skos:definition "An undifferentiated amount of physical material which, when subdivided, results in each part being indistinguishable in nature from the whole and from every other part."^^xsd:string ;
-	skos:example
-		"An amount of water, penicillin, sand, or gold."^^xsd:string ,
-		"Negative example: the concept of gold."^^xsd:string
+	owl:disjointWith
+		gist:KnowledgeConcept ,
+		gist:UnitOfMeasure
 		;
-	skos:prefLabel "Physical Substance"^^xsd:string ;
-	skos:scopeNote
-		"An instance of this class has weight and takes up space. We mean the physical gold in a ring, not the concept of gold that shows up in the periodic table. The latter would be an instance of gist:KnowledgeConcept."^^xsd:string ,
-		"This concept generally corresponds to mass nouns in English. By contrast, instances of gist:PhysicalIdentifiableItem, such as a computer, book, or car, are count nouns. Physical identifiable items are made up of physical substances; e.g., a cake is made up of butter, flour, and sugar; a ring is made of gold. If you divide a physical substance such as an amount of water into parts, you have different amounts of water otherwise indistinguishable from one another; if you divide a physical identifiable item such as a computer into parts, each part will be distinguishable from the original whole."^^xsd:string
-		;
+	skos:definition "An object in the physical world that has weight and takes up space."^^xsd:string ;
+	skos:prefLabel "Physical Thing"^^xsd:string ;
 	.
 
 gist:ProductCategory
