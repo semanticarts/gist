@@ -652,7 +652,7 @@ gist:EquipmentType
 gist:Event
 	a owl:Class ;
 	owl:disjointWith
-		gist:Language ,
+		gist:KnowledgeConcept ,
 		gist:Magnitude ,
 		gist:TimeInterval ,
 		gist:UnitOfMeasure
@@ -723,6 +723,7 @@ gist:GeoPoint
 	owl:disjointWith
 		gist:IntellectualProperty ,
 		gist:Intention ,
+		gist:KnowledgeConcept ,
 		gist:Language ,
 		gist:Magnitude ,
 		gist:Organization ,
@@ -778,11 +779,10 @@ gist:GeoRegion
 	owl:disjointWith
 		gist:IntellectualProperty ,
 		gist:Intention ,
-		gist:Language ,
+		gist:KnowledgeConcept ,
 		gist:Magnitude ,
 		gist:Organization ,
-		gist:PhysicalIdentifiableItem ,
-		gist:PhysicalSubstance ,
+		gist:PhysicalThing ,
 		gist:Template ,
 		gist:UnitOfMeasure
 		;
@@ -993,8 +993,15 @@ gist:IntergovernmentalOrganization
 
 gist:KnowledgeConcept
 	a owl:Class ;
-	rdfs:subClassOf gist:IntellectualProperty ;
-	owl:disjointWith gist:Event ;
+	owl:disjointWith
+		gist:Event ,
+		gist:GeoSpatialObject ,
+		gist:LivingThing ,
+		gist:Magnitude ,
+		gist:Organization ,
+		gist:PhysicalThing ,
+		gist:UnitOfMeasure
+		;
 	skos:definition "An abstract concept that arises from the distillation of experience. It is similar to a category but, rather than being a simple tag, it has rich structure."^^xsd:string ;
 	skos:example "Most domains will define a few subclasses, such as gene, protein, chemical, disease, subject matter, industry, method."^^xsd:string ;
 	skos:prefLabel "Knowledge Concept"^^xsd:string ;
