@@ -2921,9 +2921,10 @@ gist:isDirectPartOf
 
 gist:isExpressedIn
 	a owl:ObjectProperty ;
-	skos:definition "Relates something to the form or manner in which it is expressed."^^xsd:string ;
+	skos:definition "Relates something to the language, media type, format, etc. in which it is expressed."^^xsd:string ;
+	skos:example "A document is written in German; an image is expressed in media type PNG."^^xsd:string ;
 	skos:prefLabel "is expressed in"^^xsd:string ;
-	gist:domainIncludes gist:Text ;
+	gist:domainIncludes gist:Content ;
 	gist:rangeIncludes gist:Language ;
 	.
 
