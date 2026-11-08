@@ -2925,7 +2925,7 @@ gist:isExpressedIn
 	skos:example "A document is written in German; an image is expressed in media type PNG."^^xsd:string ;
 	skos:prefLabel "is expressed in"^^xsd:string ;
 	gist:domainIncludes gist:Content ;
-	gist:rangeIncludes gist:Language ;
+	gist:rangeIncludes gist:MediaType ;
 	.
 
 gist:isFirstMemberOf
