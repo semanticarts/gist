@@ -15,6 +15,7 @@
     - [Property Labels](#property-labels)
     - [Non-Conforming Labels](#non-conforming-labels)
     - [gist Definition of Title Case](#gist-definition-of-title-case)
+  - [Labels vs Names](#labels-vs-names)
   - [Annotations](#annotations)
     - [Conventions for Annotation Use](#conventions-for-annotation-use)
     - [Formatting Conventions for Annotations](#formatting-conventions-for-annotations)
@@ -170,6 +171,11 @@ This style guide defines the rules for title case as follows:
   - Prepositions: *as*, *at*, *by*, *cum*, *ere*, *for*, *in*, *of*, *off*, *on*, *out*, *per*, *pre*, *pro*, *qua*, *re*, *sub*, *to*, *up*, *via*
 - Acronyms in all caps (e.g., *SSN*, *ISBN*)
 - Capitalize everything else
+
+### Labels vs Names
+
+- Every instance, including ontology and vocabulary terms as well as instances, should be assigned a `skos:prefLabel` because applications expect them.
+- On the other hand, `gist:name` is a datatype property rather than an annotation property and thus has real-world semantic value. Accordingly, only things that have names in the real world, such as people, organizations, pets, and parks, should be given a `gist:name`. The value may or may not be the same as the label.
 
 ### Annotations
 
