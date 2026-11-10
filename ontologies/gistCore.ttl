@@ -1439,8 +1439,9 @@ gist:Person
 		) ;
 	] ;
 	skos:definition "A human being who was or is alive."^^xsd:string ;
-	skos:example "Negative example: fictional characters."^^xsd:string ;
+	skos:example "Negative example: a fictional or mythological character."^^xsd:string ;
 	skos:prefLabel "Person"^^xsd:string ;
+	skos:scopeNote "The restriction appears superficially to be circular, but it allows inference into the class when the parent is known to be a gist:Person."^^xsd:string ;
 	.
 
 gist:PhysicalActionType
@@ -2636,6 +2637,7 @@ gist:hasBiologicalParent
 	rdfs:range gist:LivingThing ;
 	skos:definition "Relates a living thing to its biological parent."^^xsd:string ;
 	skos:prefLabel "has biological parent"^^xsd:string ;
+	skos:scopeNote "The rationale for defining this predicate is to use it to infer into the gist:Person class (and similarly the gist:LivingThing class)."^^xsd:string ;
 	.
 
 gist:hasBroader
