@@ -994,8 +994,6 @@ gist:IntergovernmentalOrganization
 gist:KnowledgeConcept
 	a owl:Class ;
 	owl:disjointWith
-		gist:Event ,
-		gist:GeoSpatialObject ,
 		gist:LivingThing ,
 		gist:Magnitude ,
 		gist:Organization ,
