@@ -84,9 +84,9 @@ These standards involve wording choices, which are often more difficult to defin
 - Explicitness
 - Idiomaticity: Follows English natural language insofar as possible. This includes "reading well", as in `Mary isConnectedTo John` rather than `Mary connectedTo John`.
 - Accuracy: Expresses intended meaning.
-- Alignment with textual definitions. In some cases this requires a re-analysis of the intended meaning, and then perhaps a change in definition rather than local name. However, within the current scope of work, the local name was changed to match the definition, and the re-analysis will be done at a later time.
+- Alignment with textual definitions. (As we went through this process, we noted that in a few cases, after a re-analysis of the intended meaning, this resulted in a change in the definition rather than the local name.)
 
-Some of the examples resulted in changes in gist `10.0.0`, others are hypothetical.
+Some of the examples resulted in actual changes in gist `10.0.0`, others are hypothetical.
 
 | Standard | Examples |
 | ---------: | ------- |
@@ -175,7 +175,7 @@ This style guide defines the rules for title case as follows:
 
 #### Conventions for Annotation Use
 
-gist uses SKOS annotations rather than `rdfs:label` and `rdfs:comment`. The accepted annotations, intended use, and previous usage are shown in the following tables. Refer to the [SKOS ontology](http://www.w3.org/2004/02/skos/core) for formal definitions. SKOS annotations allow a more fine-grained approach to human-readable documentation. This change also aligns with emerging common practice.
+gist uses SKOS annotations rather than `rdfs:label` and `rdfs:comment`. The accepted annotations, intended use, and previous usage are shown in the following tables. Refer to the [SKOS ontology](http://www.w3.org/2004/02/skos/core) for formal definitions. SKOS annotations allow a more fine-grained approach to human-readable documentation. This choice aligns with the common practice that has emerged in the field over the last several years.
 
 *Required Annotations for Classes, Properties, and Taxonomic Terms*
 
@@ -300,7 +300,7 @@ This principle will determine most but not all cases; e.g., `precedes` vs `follo
 
 ### OWL Restrictions
 
-We have defined an in-depth set of best practices governing the use of OWL restrictions (forthcoming). A summary without detailed rationale is provided here.
+We have defined an in-depth set of best practices governing the use of OWL restrictions. A summary without detailed rationale is provided here:
 
 1. Do not use equivalence to an `owl:allValuesFrom` restriction or an exact or maximum cardinality restriction if you want to be able to infer instances into the defined class. Because these restrictions describe what does *not* exist, in combination with the Open World Assumption they prevent inference into the defined class.
 2. Use equivalence to an `owl:allValuesFrom` restriction or an exact or maximum cardinality restriction if you want to be able to infer instances into the *complement* of the defined class.
