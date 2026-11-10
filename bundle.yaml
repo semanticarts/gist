@@ -108,6 +108,8 @@ actions:
 - action: "definedBy"
   message: "Adding rdfs:isDefinedBy."
   versionedDefinedBy: true
+  # "all" mode includes any resource with a type, including named individuals. This is the default mode, but making it explicit here.
+  mode: all
   source: "{output}/ontologies"
   target: "{output}/ontologies"
   includes:
@@ -387,4 +389,3 @@ actions:
   target: "{output}/migration/v14.0/markdown-doc/"
   includes:
     - "*.md"
-
