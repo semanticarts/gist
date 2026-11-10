@@ -1552,10 +1552,7 @@ gist:PhysicalThing
 			] ;
 		]
 		;
-	owl:disjointWith
-		gist:KnowledgeConcept ,
-		gist:UnitOfMeasure
-		;
+	owl:disjointWith gist:UnitOfMeasure ;
 	skos:definition "Something in the physical world that has weight and takes up space."^^xsd:string ;
 	skos:prefLabel "Physical Thing"^^xsd:string ;
 	.
