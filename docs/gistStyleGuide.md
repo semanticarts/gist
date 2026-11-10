@@ -22,6 +22,8 @@
     - [Annotation Cardinality](#annotation-cardinality)
     - [Use of Ontology Terms in Annotations](#use-of-ontology-terms-in-annotations)
   - [Literals](#literals)
+  - [Formulation of Axioms](#formulation-of-axioms)
+    - [Disjointness Axioms](#disjointness-axioms)
   - [Documentation](#documentation)
 - [Ontology Best Practices](#ontology-best-practices)
   - [Inverses](#inverses)
@@ -91,27 +93,27 @@ Some of the examples resulted in changes in gist `10.0.0`, others are hypothetic
 | ---------: | ------- |
 | Datatype properties nominal | `baseConversionFactor`, not `convertToBase` |
 | Object properties verb-initial | `isAbout`, not `about` |
-||`comesFromAgent`, not `fromAgent`|
-|| `isMemberOf`, not `memberOf` |
-|| `precedesDirectly`, not `directlyPrecedes` |
-|| `usesTimeZoneStandard`, not `timeZoneStandardUsed` |
+| | `comesFromAgent`, not `fromAgent` |
+| | `isMemberOf`, not `memberOf` |
+| | `precedesDirectly`, not `directlyPrecedes` |
+| | `usesTimeZoneStandard`, not `timeZoneStandardUsed` |
 | Prefix "is" to "-ed" forms, both past participles and adjectives | `isGovernedBy`, not `governedBy` |
-|| `isCharacterizedBy`, not `characterizedBy` |
+| | `isCharacterizedBy`, not `characterizedBy` |
 | Prefer an ordinary verb to "hasX" or "isX" | `precedes`, not `isFollowedBy` |
 | "At" rather than "on" for datetimes | `isRecordedAt`, not `isRecordedOn`. |
 | Present tense only with minimal exceptions when the meaning is inherently in the past | `isRenderedOn`, not `wasRenderedOn`, but `wasLastModifiedBy` rather than `isLastModifiedBy` |
-|| `precedes`, not `preceded` |
-|| but `wasLastModifiedAt`, not `isLastModifiedAt` |
+| | `precedes`, not `preceded` |
+| | but `wasLastModifiedAt`, not `isLastModifiedAt` |
 | General idiomaticity | `hasRecipient`, not `hasGetter` |
 | No non-standard abbreviations | `hasUnitOfMeasure`, not `hasUoM` |
 | Final prepositions where appropriate | `hasJurisdictionOver`, not `hasJurisdiction` |
-| Alignment with textual definition |  `hasBiologicalParent`, not `hasParent`, where the `skos:definition` precludes non-biological relationships |
+| Alignment with textual definition | `hasBiologicalParent`, not `hasParent`, where the `skos:definition` precludes non-biological relationships |
 | Loose coupling of ontology term names | `hasStart`, not `hasStartTimeInstant` |
 | Unambiguously indicate directionality | `hasBroader`, not `broader` (as in SKOS) |
-| Direction: go up rather than down a tree if a hierarchy exists | `hasParent`, not `hasChild`|
-|| `hasSuperCategory`, not `hasSubCategory` |
-| Word boundaries consistent across ontology rather than following natural language (exception to idiomaticity) |  `hasSubTask`, `hasSubCategory`, `hasSuperCategory`, although "subtask" and "subcategory" are words |
-||`hasBirthDate` and `hasDeathDate`, although "birthdate" is a word |
+| Direction: go up rather than down a tree if a hierarchy exists | `hasParent`, not `hasChild` |
+| | `hasSuperCategory`, not `hasSubCategory` |
+| Word boundaries consistent across ontology rather than following natural language (exception to idiomaticity) | `hasSubTask`, `hasSubCategory`, `hasSuperCategory`, although "subtask" and "subcategory" are words |
+| | `hasBirthDate` and `hasDeathDate`, although "birthdate" is a word |
 
 #### Instance Local Names
 
@@ -185,16 +187,16 @@ gist uses SKOS annotations rather than `rdfs:label` and `rdfs:comment`. The acce
 *Required Annotations for Classes, Properties, and Taxonomic Terms*
 
 | Annotation | Use | Instead Of |
-| ---------: | --- |:---------|
+| ---------: | --- | :--------- |
 | `skos:prefLabel` | Preferred label | `rdfs:label` |
 | `skos:definition` | Definition | `rdfs:comment` |
 
 *Highly recommended*
 
 | Annotation | Use | Instead Of |
-| ---------: | --- |:---------|
+| ---------: | --- | :--------- |
 | `skos:scopeNote` | Additional clarifying comments about the meaning or usage of a term | `rdfs:comment` |
-| `skos:example`   | One or more examples  | `rdfs:comment` |
+| `skos:example` | One or more examples | `rdfs:comment` |
 
 These annotations help the user understand the use and meaning of the term, and prevent definitions from becoming lengthy and unstructured. `skos:definition` is expected to provide a definition, not lengthy usage notes or examples. These should instead be included in a `skos:scopeNote` or `skos:example`, respectively.
 
@@ -205,8 +207,8 @@ Occasionally a definition can hardly be understood at all without an example or 
 *Use where relevant*
 
 | Annotation | Use | Instead Of |
-| ---------: | --- |:---------|
-| `skos:altLabel`  | Alternative label, where relevant | n/a |
+| ---------: | --- | :--------- |
+| `skos:altLabel` | Alternative label, where relevant | n/a |
 | `skos:editorialNote` | Notes for editors | `rdfs:comment` |
 
 *RDFS annotations*
@@ -237,7 +239,7 @@ Certain RDFS annotations are recommended where there is no SKOS equivalent.
 | Annotation | Format |
 | ---------: | ----------- |
 | `skos:prefLabel`, `skos:altLabel` | See section [Labels](#labels) above. |
-| `skos:definition`, `skos:scopeNote`, `skos:note`, `skos:editorialNote` | Full sentence(s) ending in period. It is acceptable to omit the subject at the beginning of the definition in order to avoid the vacuous "This predicate..." or "This class is..." E.g., "Relates a person to his or her spouse." or "A series of steps in a workflow." There should nevertheless be a final period. Use Oxford commas.|
+| `skos:definition`, `skos:scopeNote`, `skos:note`, `skos:editorialNote` | Full sentence(s) ending in period. It is acceptable to omit the subject at the beginning of the definition in order to avoid the vacuous "This predicate..." or "This class is..." E.g., "Relates a person to his or her spouse." or "A series of steps in a workflow." There should nevertheless be a final period. Use Oxford commas. |
 | `skos:example` | May be either a full sentence or a list. Use a final period only in the former case. E.g., "SSN, driver's license number, employee ID" or "NIH sponsors a research project." Lists with short items, such as the first example, can be delimited by either commas (include Oxford commas) or semi-colons; full-sentence examples should be semi-colon-delimited. |
 
 #### Annotation Cardinality
@@ -261,6 +263,20 @@ Caution: gist is not yet fully aligned with this best practice, which is aspirat
 
 - Literal values should be typed with one of the  datatypes included in the [OWL 2 Datatype Maps](https://www.w3.org/TR/owl2-syntax/#Datatype_Maps). It is not necessary to explicitly type strings as `xsd:string` because the [serializer](#serialization) will add this to all untyped literals.
 - Literals that contain quotations should have double quotes for the outer quotes and single quotes for inner quotes. For example: `"'gist' is the name of an upper ontology."^^xsd:string`.
+
+### Formulation of Axioms
+
+This section addresses the stylistic and syntactic formulation of axioms, not semantic/logical best practices.
+
+#### Disjointness Axioms
+
+To avoid duplication, each class should declare disjointness only with classes that follow it in alphabetic sort order. For example, use
+
+`gist:Event owl:disjointWith gist:KnowledgeConcept .`
+
+rather than
+
+`gist:KnowledgeConcept owl:disjointWith gist:Event .`
 
 ### Documentation
 
