@@ -531,7 +531,8 @@ gist:CountryGeoRegion
 		) ;
 	] ;
 	skos:definition "A geographic region governed by exactly one country government."^^xsd:string ;
-	skos:prefLabel "Country Geographic Region"^^xsd:string ;
+	skos:prefLabel "Country Geo Region"^^xsd:string ;
+	skos:altLabel "Country Geographic Region"^^xsd:string ;
 	.
 
 gist:CountryGovernment
@@ -652,7 +653,7 @@ gist:EquipmentType
 gist:Event
 	a owl:Class ;
 	owl:disjointWith
-		gist:Language ,
+		gist:KnowledgeConcept ,
 		gist:Magnitude ,
 		gist:TimeInterval ,
 		gist:UnitOfMeasure
@@ -713,7 +714,8 @@ gist:GeneralMediaType
 gist:GeoLocation
 	a owl:Class ;
 	skos:definition "A physical location, with the earth as a frame of reference."^^xsd:string ;
-	skos:prefLabel "Geographic Location"^^xsd:string ;
+	skos:prefLabel "Geo Location"^^xsd:string ;
+	skos:altLabel "Geographic Location"^^xsd:string ;
 	skos:scopeNote "A geographic location may be a point, region, or volume."^^xsd:string ;
 	.
 
@@ -723,6 +725,7 @@ gist:GeoPoint
 	owl:disjointWith
 		gist:IntellectualProperty ,
 		gist:Intention ,
+		gist:KnowledgeConcept ,
 		gist:Language ,
 		gist:Magnitude ,
 		gist:Organization ,
@@ -755,7 +758,8 @@ gist:GeoPoint
 		) ;
 	] ;
 	skos:definition "An individual point on or above the Earth's surface, identified by latitude, longitude and altitude. Altitude is the distance measured from sea level. If altitude is missing, the point is assumed to be at the Earth's surface. These points are described using decimal latitude/longitude."^^xsd:string ;
-	skos:prefLabel "Geographic Point"^^xsd:string ;
+	skos:prefLabel "Geo Point"^^xsd:string ;
+	skos:altLabel "Geographic Point"^^xsd:string ;
 	.
 
 gist:GeoRegion
@@ -778,17 +782,17 @@ gist:GeoRegion
 	owl:disjointWith
 		gist:IntellectualProperty ,
 		gist:Intention ,
-		gist:Language ,
+		gist:KnowledgeConcept ,
 		gist:Magnitude ,
 		gist:Organization ,
-		gist:PhysicalIdentifiableItem ,
-		gist:PhysicalSubstance ,
+		gist:PhysicalThing ,
 		gist:Template ,
 		gist:UnitOfMeasure
 		;
 	skos:definition "A bounded region (or set of regions) on the surface of the Earth."^^xsd:string ;
 	skos:example "The bounded shape that defines the region occupied by Crater Lake; the bounded area known as the contiguous USA."^^xsd:string ;
-	skos:prefLabel "Geographic Region"^^xsd:string ;
+	skos:prefLabel "Geo Region"^^xsd:string ;
+	skos:altLabel "Geographic Region"^^xsd:string ;
 	skos:scopeNote "A geographic region could be non-contiguous; e.g., the region governed by the US federal government is the contiguous area of the lower 48 states plus Alaska, Hawaii, and overseas territories. Child classes in lower ontologies can make this distinction."^^xsd:string ;
 	.
 
@@ -808,7 +812,8 @@ gist:GeoRoute
 		) ;
 	] ;
 	skos:definition "An ordered set of geographic points that defines a path from a starting point to an ending point."^^xsd:string ;
-	skos:prefLabel "Geographic Route"^^xsd:string ;
+	skos:prefLabel "Geo Route"^^xsd:string ;
+	skos:altLabel "Geographic Route"^^xsd:string ;
 	skos:scopeNote "A geographic route could describe a bus route by identifying the points where the bus stops. A geographic route could describe the boundary of a polygonal geographic region (it does not have to be a traveled route)."^^xsd:string ;
 	.
 
@@ -838,7 +843,8 @@ gist:GeoVolume
 	] ;
 	skos:definition "A three-dimensional space on or near the surface of the Earth."^^xsd:string ;
 	skos:example "An oil reservoir, the body of a lake, or an airspace."^^xsd:string ;
-	skos:prefLabel "Geographic Volume"^^xsd:string ;
+	skos:prefLabel "Geo Volume"^^xsd:string ;
+	skos:altLabel "Geographic Volume"^^xsd:string ;
 	.
 
 gist:GovernedGeoRegion
@@ -855,7 +861,8 @@ gist:GovernedGeoRegion
 		) ;
 	] ;
 	skos:definition "A geographic region governed by at least one government organization."^^xsd:string ;
-	skos:prefLabel "Governed Geographic Region"^^xsd:string ;
+	skos:prefLabel "Governed Geo Region"^^xsd:string ;
+	skos:altLabel "Governed Geographic Region"^^xsd:string ;
 	skos:scopeNote "Geographic regions do not need not be physically contiguous in order to constitute a governed geographic region; e.g., Alaska and Hawaii are part of the region governed by the United States."^^xsd:string ;
 	.
 
@@ -993,8 +1000,13 @@ gist:IntergovernmentalOrganization
 
 gist:KnowledgeConcept
 	a owl:Class ;
-	rdfs:subClassOf gist:IntellectualProperty ;
-	owl:disjointWith gist:Event ;
+	owl:disjointWith
+		gist:LivingThing ,
+		gist:Magnitude ,
+		gist:Organization ,
+		gist:PhysicalThing ,
+		gist:UnitOfMeasure
+		;
 	skos:definition "An abstract concept that arises from the distillation of experience. It is similar to a category but, rather than being a simple tag, it has rich structure."^^xsd:string ;
 	skos:example "Most domains will define a few subclasses, such as gene, protein, chemical, disease, subject matter, industry, method."^^xsd:string ;
 	skos:prefLabel "Knowledge Concept"^^xsd:string ;
@@ -2935,7 +2947,8 @@ gist:isGeoContainedIn
 	rdfs:domain gist:GeoLocation ;
 	rdfs:range gist:GeoLocation ;
 	skos:definition "Relates one geographic location to another that contains it."^^xsd:string ;
-	skos:prefLabel "is geographically contained in"^^xsd:string ;
+	skos:prefLabel "is geo contained in"^^xsd:string ;
+	skos:altLabel "is geographically contained in"^^xsd:string ;
 	.
 
 gist:isGovernedBy
