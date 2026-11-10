@@ -3278,6 +3278,21 @@ gist:precedes
 		;
 	.
 
+gist:isManifestationOf
+	a owl:ObjectProperty ;
+	skos:definition "Relates a concrete thing to the abstraction that it is conceptualized as."^^xsd:string ;
+	skos:prefLabel "is manifestation of"^^xsd:string ;
+	gist:domainIncludes gist:PhysicalThing , gist:Event ;
+	gist:rangeIncludes gist:KnowledgeConcept ;
+	skos:example
+		"A specific mouse is a manifestation of the mouse species.",
+		"A specific chemical reaction occurrence is a manifestation of the concept of that chemical reaction.",
+		"An event of a specific person having a headache is a manifestation of the symptom headache.",
+		"Negative example: a symptom is a manifestation of a disease. Both symptom and disease are abstractions."
+		;
+	skos:scopeNote "A concrete thing is a manifestation of an abstraction in reality if the abstraction arose from experience with concrete things of the same kind." ;
+	.
+
 gist:precedesDirectly
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:precedes ;
