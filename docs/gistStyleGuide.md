@@ -15,12 +15,12 @@
     - [Property Labels](#property-labels)
     - [Non-Conforming Labels](#non-conforming-labels)
     - [gist Definition of Title Case](#gist-definition-of-title-case)
-  - [Labels vs Names](#labels-vs-names)
   - [Annotations](#annotations)
     - [Conventions for Annotation Use](#conventions-for-annotation-use)
     - [Formatting Conventions for Annotations](#formatting-conventions-for-annotations)
     - [Annotation Cardinality](#annotation-cardinality)
     - [Use of Ontology Terms in Annotations](#use-of-ontology-terms-in-annotations)
+    - [Labels vs Names](#labels-vs-names)
   - [Literals](#literals)
   - [Formulation of Axioms](#formulation-of-axioms)
     - [Disjointness Axioms](#disjointness-axioms)
@@ -172,11 +172,6 @@ This style guide defines the rules for title case as follows:
 - Acronyms in all caps (e.g., *SSN*, *ISBN*)
 - Capitalize everything else
 
-### Labels vs Names
-
-- Every instance, including ontology and vocabulary terms as well as instances, should be assigned a `skos:prefLabel` because applications expect them.
-- On the other hand, `gist:name` is a datatype property rather than an annotation property and thus has real-world semantic value. Accordingly, only things that have names in the real world, such as people, organizations, pets, and parks, should be given a `gist:name`. The value may or may not be the same as the label.
-
 ### Annotations
 
 #### Conventions for Annotation Use
@@ -257,6 +252,11 @@ In general it is preferred to use natural language rather than ontology terms in
 The exception is when a note needs to make specific reference to an ontology term rather than to a concept. For example, the scope note on `gist:birthDate` reads "This is a subproperty of `gist:startDateTime` rather than `gist:actualStartDate` because some living things have yet to be born."
 
 Caution: gist is not yet fully aligned with this best practice, which is aspirational.
+
+#### Labels vs Names
+
+- Every instance, including ontology and vocabulary terms as well as instances, should be assigned a `skos:prefLabel` because applications expect them.
+- On the other hand, `gist:name` is a datatype property rather than an annotation property and thus has real-world semantic value. Accordingly, only things that have names in the real world, such as people, organizations, pets, and parks, should be given a `gist:name`. The value may or may not be the same as the label.
 
 ### Literals
 
