@@ -530,9 +530,9 @@ gist:CountryGeoRegion
 			]
 		) ;
 	] ;
+	skos:altLabel "Country Geographic Region"^^xsd:string ;
 	skos:definition "A geographic region governed by exactly one country government."^^xsd:string ;
 	skos:prefLabel "Country Geo Region"^^xsd:string ;
-	skos:altLabel "Country Geographic Region"^^xsd:string ;
 	.
 
 gist:CountryGovernment
@@ -713,9 +713,9 @@ gist:GeneralMediaType
 
 gist:GeoLocation
 	a owl:Class ;
+	skos:altLabel "Geographic Location"^^xsd:string ;
 	skos:definition "A physical location, with the earth as a frame of reference."^^xsd:string ;
 	skos:prefLabel "Geo Location"^^xsd:string ;
-	skos:altLabel "Geographic Location"^^xsd:string ;
 	skos:scopeNote "A geographic location may be a point, region, or volume."^^xsd:string ;
 	.
 
@@ -757,9 +757,9 @@ gist:GeoPoint
 			]
 		) ;
 	] ;
+	skos:altLabel "Geographic Point"^^xsd:string ;
 	skos:definition "An individual point on or above the Earth's surface, identified by latitude, longitude and altitude. Altitude is the distance measured from sea level. If altitude is missing, the point is assumed to be at the Earth's surface. These points are described using decimal latitude/longitude."^^xsd:string ;
 	skos:prefLabel "Geo Point"^^xsd:string ;
-	skos:altLabel "Geographic Point"^^xsd:string ;
 	.
 
 gist:GeoRegion
@@ -789,10 +789,10 @@ gist:GeoRegion
 		gist:Template ,
 		gist:UnitOfMeasure
 		;
+	skos:altLabel "Geographic Region"^^xsd:string ;
 	skos:definition "A bounded region (or set of regions) on the surface of the Earth."^^xsd:string ;
 	skos:example "The bounded shape that defines the region occupied by Crater Lake; the bounded area known as the contiguous USA."^^xsd:string ;
 	skos:prefLabel "Geo Region"^^xsd:string ;
-	skos:altLabel "Geographic Region"^^xsd:string ;
 	skos:scopeNote "A geographic region could be non-contiguous; e.g., the region governed by the US federal government is the contiguous area of the lower 48 states plus Alaska, Hawaii, and overseas territories. Child classes in lower ontologies can make this distinction."^^xsd:string ;
 	.
 
@@ -811,9 +811,9 @@ gist:GeoRoute
 			]
 		) ;
 	] ;
+	skos:altLabel "Geographic Route"^^xsd:string ;
 	skos:definition "An ordered set of geographic points that defines a path from a starting point to an ending point."^^xsd:string ;
 	skos:prefLabel "Geo Route"^^xsd:string ;
-	skos:altLabel "Geographic Route"^^xsd:string ;
 	skos:scopeNote "A geographic route could describe a bus route by identifying the points where the bus stops. A geographic route could describe the boundary of a polygonal geographic region (it does not have to be a traveled route)."^^xsd:string ;
 	.
 
@@ -841,10 +841,10 @@ gist:GeoVolume
 			]
 		) ;
 	] ;
+	skos:altLabel "Geographic Volume"^^xsd:string ;
 	skos:definition "A three-dimensional space on or near the surface of the Earth."^^xsd:string ;
 	skos:example "An oil reservoir, the body of a lake, or an airspace."^^xsd:string ;
 	skos:prefLabel "Geo Volume"^^xsd:string ;
-	skos:altLabel "Geographic Volume"^^xsd:string ;
 	.
 
 gist:GovernedGeoRegion
@@ -860,9 +860,9 @@ gist:GovernedGeoRegion
 			]
 		) ;
 	] ;
+	skos:altLabel "Governed Geographic Region"^^xsd:string ;
 	skos:definition "A geographic region governed by at least one government organization."^^xsd:string ;
 	skos:prefLabel "Governed Geo Region"^^xsd:string ;
-	skos:altLabel "Governed Geographic Region"^^xsd:string ;
 	skos:scopeNote "Geographic regions do not need not be physically contiguous in order to constitute a governed geographic region; e.g., Alaska and Hawaii are part of the region governed by the United States."^^xsd:string ;
 	.
 
@@ -1117,7 +1117,10 @@ gist:Magnitude
 	skos:definition "The amount of a measurable characteristic (aspect)."^^xsd:string ;
 	skos:example "A model of car could have a wheelbase of 113.2 inches. In this example, the aspect is wheelbase, the unit of measure is inch, and the numeric value is 113.2."^^xsd:string ;
 	skos:prefLabel "Magnitude"^^xsd:string ;
-	skos:scopeNote "An accuracy can be assigned to a magnitude using the property has accuracy."^^xsd:string ;
+	skos:scopeNote
+		"An accuracy can be assigned to a magnitude using the property hasAccuracy."^^xsd:string ,
+		"Conceptually, magnitudes are uniquely identified by their aspect, unit of measure, and numeric value. Two magnitudes that share all three of these values are conceptually identical regardless of whether the identity is formally specified."^^xsd:string
+		;
 	.
 
 gist:MediaType
@@ -1938,7 +1941,8 @@ gist:TimeInterval
 	skos:prefLabel "Time Interval"^^xsd:string ;
 	skos:scopeNote
 		"An ongoing state of affairs with an unknown end time in the future cannot be a time interval; e.g. the lifespan of a living person cannot be a time interval, as the end time is unknown."^^xsd:string ,
-		"This is distinct from a duration, which describes how long a time interval lasts (e.g., one hour; 3 days; 22 minutes)."^^xsd:string
+		"This is distinct from a duration, which describes how long a time interval lasts (e.g., one hour; 3 days; 22 minutes)."^^xsd:string ,
+		"Time intervals are uniquely identified by their start and end times; two intervals with the same start and end datetimes are conceptually identical, regardless of whether the identity is formally specified."^^xsd:string
 		;
 	.
 
@@ -2946,9 +2950,9 @@ gist:isGeoContainedIn
 		;
 	rdfs:domain gist:GeoLocation ;
 	rdfs:range gist:GeoLocation ;
+	skos:altLabel "is geographically contained in"^^xsd:string ;
 	skos:definition "Relates one geographic location to another that contains it."^^xsd:string ;
 	skos:prefLabel "is geo contained in"^^xsd:string ;
-	skos:altLabel "is geographically contained in"^^xsd:string ;
 	.
 
 gist:isGovernedBy
