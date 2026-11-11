@@ -3286,7 +3286,8 @@ gist:isManifestationOf
 	gist:rangeIncludes gist:KnowledgeConcept ;
 	skos:example
 		"A specific mouse is a manifestation of the mouse species.",
-		"A specific chemical reaction occurrence is a manifestation of the concept of that chemical reaction.",
+		"A specific chemical reaction occurrence is a manifestation of the concept of that chemical reaction, such as rusting of iron or synthesis of water.",
+		"An amount of water is a manifestation of the concept of water.",
 		"An event of a specific person having a headache is a manifestation of the symptom headache.",
 		"Negative example: a symptom is a manifestation of a disease. Both symptom and disease are abstractions."
 		;
