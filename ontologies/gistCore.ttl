@@ -530,9 +530,9 @@ gist:CountryGeoRegion
 			]
 		) ;
 	] ;
+	skos:altLabel "Country Geographic Region"^^xsd:string ;
 	skos:definition "A geographic region governed by exactly one country government."^^xsd:string ;
 	skos:prefLabel "Country Geo Region"^^xsd:string ;
-	skos:altLabel "Country Geographic Region"^^xsd:string ;
 	.
 
 gist:CountryGovernment
@@ -713,9 +713,9 @@ gist:GeneralMediaType
 
 gist:GeoLocation
 	a owl:Class ;
+	skos:altLabel "Geographic Location"^^xsd:string ;
 	skos:definition "A physical location, with the earth as a frame of reference."^^xsd:string ;
 	skos:prefLabel "Geo Location"^^xsd:string ;
-	skos:altLabel "Geographic Location"^^xsd:string ;
 	skos:scopeNote "A geographic location may be a point, region, or volume."^^xsd:string ;
 	.
 
@@ -757,9 +757,9 @@ gist:GeoPoint
 			]
 		) ;
 	] ;
+	skos:altLabel "Geographic Point"^^xsd:string ;
 	skos:definition "An individual point on or above the Earth's surface, identified by latitude, longitude and altitude. Altitude is the distance measured from sea level. If altitude is missing, the point is assumed to be at the Earth's surface. These points are described using decimal latitude/longitude."^^xsd:string ;
 	skos:prefLabel "Geo Point"^^xsd:string ;
-	skos:altLabel "Geographic Point"^^xsd:string ;
 	.
 
 gist:GeoRegion
@@ -789,10 +789,10 @@ gist:GeoRegion
 		gist:Template ,
 		gist:UnitOfMeasure
 		;
+	skos:altLabel "Geographic Region"^^xsd:string ;
 	skos:definition "A bounded region (or set of regions) on the surface of the Earth."^^xsd:string ;
 	skos:example "The bounded shape that defines the region occupied by Crater Lake; the bounded area known as the contiguous USA."^^xsd:string ;
 	skos:prefLabel "Geo Region"^^xsd:string ;
-	skos:altLabel "Geographic Region"^^xsd:string ;
 	skos:scopeNote "A geographic region could be non-contiguous; e.g., the region governed by the US federal government is the contiguous area of the lower 48 states plus Alaska, Hawaii, and overseas territories. Child classes in lower ontologies can make this distinction."^^xsd:string ;
 	.
 
@@ -811,9 +811,9 @@ gist:GeoRoute
 			]
 		) ;
 	] ;
+	skos:altLabel "Geographic Route"^^xsd:string ;
 	skos:definition "An ordered set of geographic points that defines a path from a starting point to an ending point."^^xsd:string ;
 	skos:prefLabel "Geo Route"^^xsd:string ;
-	skos:altLabel "Geographic Route"^^xsd:string ;
 	skos:scopeNote "A geographic route could describe a bus route by identifying the points where the bus stops. A geographic route could describe the boundary of a polygonal geographic region (it does not have to be a traveled route)."^^xsd:string ;
 	.
 
@@ -841,10 +841,10 @@ gist:GeoVolume
 			]
 		) ;
 	] ;
+	skos:altLabel "Geographic Volume"^^xsd:string ;
 	skos:definition "A three-dimensional space on or near the surface of the Earth."^^xsd:string ;
 	skos:example "An oil reservoir, the body of a lake, or an airspace."^^xsd:string ;
 	skos:prefLabel "Geo Volume"^^xsd:string ;
-	skos:altLabel "Geographic Volume"^^xsd:string ;
 	.
 
 gist:GovernedGeoRegion
@@ -860,9 +860,9 @@ gist:GovernedGeoRegion
 			]
 		) ;
 	] ;
+	skos:altLabel "Governed Geographic Region"^^xsd:string ;
 	skos:definition "A geographic region governed by at least one government organization."^^xsd:string ;
 	skos:prefLabel "Governed Geo Region"^^xsd:string ;
-	skos:altLabel "Governed Geographic Region"^^xsd:string ;
 	skos:scopeNote "Geographic regions do not need not be physically contiguous in order to constitute a governed geographic region; e.g., Alaska and Hawaii are part of the region governed by the United States."^^xsd:string ;
 	.
 
@@ -1519,7 +1519,7 @@ gist:PhysicalIdentifiableItem
 	skos:definition "A discrete physical object which, if subdivided, will result in parts that are distinguishable in nature from the whole and in general also from the other parts."^^xsd:string ;
 	skos:example "A laptop, a physical book, a car, a building, a landmark (such as a tree stump with an etched marking to denote a campsite)."^^xsd:string ;
 	skos:prefLabel "Physical Identifiable Item"^^xsd:string ;
-	skos:scopeNote "This concept generally corresponds to count nouns in English. By contrast, physical substances, such as an amount of water, flour, or sand, are mass nouns. Physical identifiable items are made up of physical substances; e.g., a cake is made up of butter, flour, and sugar; a statue is made of bronze. If you divide a physical substance such as an amount of water into parts, you have two amounts of water otherwise indistinguishable from one another; if you divide a physical identifiable item such as a computer into parts, each part is different from the whole. However, to some extent whether something is a physical substance or a collection of physical things depends on use case; for instance, at the atomic level a piece of gold is a collection of separable physical things. On the other hand, an undifferentiated mass of discrete physical things, such as a handful of caterpillars, that are input into a biological experiment. In this context the individual caterpillars have no significance, and if you divide this mass of caterpillars into two parts, you have two masses of caterpillars that are indistinguishable except for size, which meets the criteria of physical substance. While in this case we are treating a collection of physical identifiable items as a physical substance, in other contexts, such as a batch of goods all manufactured according to the same specification or the separately inventoried fish in an aquarium at a pet store, using a collection of separately instantiated physical identifiable items is more appropriate."^^xsd:string ;
+	skos:scopeNote "This concept generally corresponds to count nouns in English. By contrast, physical substances, such as an amount of water, flour, or sand, are mass nouns. Physical identifiable items are made up of physical substances; e.g., a cake is made up of butter, flour, and sugar; a statue is made of bronze. If you divide a physical substance such as an amount of water into parts, you have two amounts of water otherwise indistinguishable from one another; if you divide a physical identifiable item such as a computer into parts, each part is different from the whole. However, to some extent whether something is a physical substance or a collection of physical things depends on use case; for instance, at the atomic level a piece of gold is a collection of separable physical things. On the other hand, an undifferentiated mass of discrete physical things, such as a handful of caterpillars, that are input into a biological experiment. In this context the individual caterpillars have no significance, and if you divide this mass of caterpillars into two parts, you have two masses of caterpillars that are indistinguishable except for size, which meets the criteria of physical substance. While in this case we are treating a collection of physical identifiable items as a physical substance, in other contexts, such as a the individually inventoried fish in an aquarium at a pet store, using a collection of separately instantiated physical identifiable items is more appropriate."^^xsd:string ;
 	.
 
 gist:PhysicalSubstance
@@ -1532,7 +1532,7 @@ gist:PhysicalSubstance
 		;
 	skos:prefLabel "Physical Substance"^^xsd:string ;
 	skos:scopeNote
-		"This concept generally corresponds to mass nouns in English. By contrast, instances of gist:PhysicalIdentifiableItem, such as a computer, book, or car, are count nouns. Physical identifiable items are made up of physical substances; e.g., a cake is made up of butter, flour, and sugar; a ring is made of gold. If you divide a physical substance such as an amount of water into parts, you have different amounts of water otherwise indistinguishable from one another; if you divide a physical identifiable item such as a computer into parts, each part will be distinguishable from the original whole. However, to some extent whether something is a physical substance or a collection of physical things depends on use case; for instance, at the atomic level a piece of gold is a collection of separable physical things. On the other hand, an undifferentiated mass of discrete physical things, such as a handful of caterpillars, that are input into a biological experiment. In this context the individual caterpillars have no significance, and if you divide this mass of caterpillars into two parts, you have two masses of caterpillars that are indistinguishable except for size, which meets the criteria of physical substance. While in this case we are treating a collection of physical identifiable items as a physical substance, in other contexts, such as a batch of goods all manufactured according to the same specification or the separately inventoried fish in an aquarium at a pet store, using a collection of separately instantiated physical identifiable items is more appropriate."^^xsd:string ,
+		"This concept generally corresponds to mass nouns in English. By contrast, instances of gist:PhysicalIdentifiableItem, such as a computer, book, or car, are count nouns. Physical identifiable items are made up of physical substances; e.g., a cake is made up of butter, flour, and sugar; a ring is made of gold. If you divide a physical substance such as an amount of water into parts, you have different amounts of water otherwise indistinguishable from one another; if you divide a physical identifiable item such as a computer into parts, each part will be distinguishable from the original whole. However, to some extent whether something is a physical substance or a collection of physical things depends on use case; for instance, at the atomic level a piece of gold is a collection of separable physical things. On the other hand, an undifferentiated mass of discrete physical things, such as a handful of caterpillars, that are input into a biological experiment. In this context the individual caterpillars have no significance, and if you divide this mass of caterpillars into two parts, you have two masses of caterpillars that are indistinguishable except for size, which meets the criteria of physical substance. While in this case we are treating a collection of physical identifiable items as a physical substance, in other contexts, such as the individually inventoried fish in an aquarium at a pet store, using a collection of separately instantiated physical identifiable items is more appropriate."^^xsd:string ,
 		"We mean the physical gold in a ring, not the concept of gold that shows up in the periodic table. The latter would be an instance of gist:KnowledgeConcept."^^xsd:string
 		;
 	.
@@ -1543,26 +1543,6 @@ gist:PhysicalThing
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
-			[
-				a owl:Class ;
-				owl:unionOf (
-					gist:PhysicalIdentifiableItem
-					gist:PhysicalSubstance
-					[
-						a owl:Class ;
-						owl:intersectionOf (
-							gist:Collection
-							[
-								a owl:Restriction ;
-								owl:onProperty [
-									owl:inverseOf gist:isMemberOf ;
-								] ;
-								owl:allValuesFrom gist:PhysicalIdentifiableItem ;
-							]
-						) ;
-					]
-				) ;
-			]
 			[
 				a owl:Restriction ;
 				owl:onProperty gist:hasMagnitude ;
@@ -1585,7 +1565,6 @@ gist:PhysicalThing
 	] ;
 	skos:definition "Something in the physical world that has weight and takes up space."^^xsd:string ;
 	skos:prefLabel "Physical Thing"^^xsd:string ;
-	skos:scopeNote "Note that a collection of physical things is also a physical thing, though whether it is instantiated as a collection depends on use case. See the example of a mass of caterpillars in the scope note of PhysicalSubstance."^^xsd:string ;
 	.
 
 gist:ProductCategory
@@ -2956,9 +2935,9 @@ gist:isGeoContainedIn
 		;
 	rdfs:domain gist:GeoLocation ;
 	rdfs:range gist:GeoLocation ;
+	skos:altLabel "is geographically contained in"^^xsd:string ;
 	skos:definition "Relates one geographic location to another that contains it."^^xsd:string ;
 	skos:prefLabel "is geo contained in"^^xsd:string ;
-	skos:altLabel "is geographically contained in"^^xsd:string ;
 	.
 
 gist:isGovernedBy
