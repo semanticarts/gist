@@ -206,12 +206,12 @@ gist:Assignment
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isAssignmentOf ;
+				owl:onProperty gist:hasAssignee ;
 				owl:someValuesFrom owl:Thing ;
 			]
 			[
 				a owl:Restriction ;
-				owl:onProperty gist:isAssignmentTo ;
+				owl:onProperty gist:isAssignmentOf ;
 				owl:someValuesFrom owl:Thing ;
 			]
 		) ;
@@ -221,7 +221,7 @@ gist:Assignment
 	skos:prefLabel "Assignment"^^xsd:string ;
 	skos:scopeNote
 		"Based on the Open World Assumption, the assigner may not be asserted or known."^^xsd:string ,
-		"For some assignments, such as the assignment of a person to a task, it may seem equally correct in ordinary speech to say it is an assignment of a task to a person. Since gist:isAssignmentTo and gist:isAssignmentOf have no formal domains or ranges, the choice of which predicate to use for which is left as an implementation decision. Consistency is a key consideration."^^xsd:string
+		"There is a pair of predicates, gist:hasAssignee and gist:isAssignmentOf, which relate an assignment object to the assignee and the thing assigned. It is not always clear which thing should go with which predicate; e.g., a task could be assigned to a person, or a person to a task. A good rule of thumb (though not a hard-and-fast rule) is that the assignee will generally be agent-like, such as a person or organization. But there are cases where both objects are, say, people: we can say that an employee is assigned to a supervisor or that a supervisor is assigned to a direct report. In such cases either an arbitrary choice must be made, or perhaps consistency with other aspects of the model will suggest a choice."^^xsd:string
 		;
 	.
 
@@ -2637,6 +2637,16 @@ gist:hasAspect
 	skos:prefLabel "has aspect"^^xsd:string ;
 	.
 
+gist:hasAssignee
+	a owl:ObjectProperty ;
+	skos:definition "Relates something (typically an assignment) to the recipient of the assignment, often a person."^^xsd:string ;
+	skos:example "The assignment of a task to a person."^^xsd:string ;
+	skos:prefLabel "has assignee"^^xsd:string ;
+	skos:scopeNote "There is a pair of predicates, gist:hasAssignee and gist:isAssignmentOf, which relate an assignment object to the assignee and the thing assigned. It is not always clear which thing should go with which predicate; e.g., a task could be assigned to a person, or a person to a task. A good rule of thumb (though not a hard-and-fast rule) is that the assignee will generally be agent-like, such as a person or organization. But there are cases where both objects are, say, people: we can say that an employee is assigned to a supervisor or that a supervisor is assigned to a direct report. In such cases either an arbitrary choice must be made, or perhaps consistency with other aspects of the model will suggest a choice."^^xsd:string ;
+	gist:domainIncludes gist:Assignment ;
+	gist:rangeIncludes gist:Person ;
+	.
+
 gist:hasBiologicalParent
 	a owl:ObjectProperty ;
 	rdfs:domain gist:LivingThing ;
@@ -2859,28 +2869,15 @@ gist:isAllocatedBy
 
 gist:isAssignmentOf
 	a owl:ObjectProperty ;
-	skos:definition "Relates an assignment to the resource it assigns."^^xsd:string ;
-	skos:example "Assignment of a person to a project."^^xsd:string ;
+	skos:definition "Relates something (typically an assignment) to the resource it assigns, such as a project or task."^^xsd:string ;
+	skos:example "The assignment of a task to a person (the person is the assignee)."^^xsd:string ;
 	skos:prefLabel "is assignment of"^^xsd:string ;
-	skos:scopeNote
-		"People, organizations, monetary amounts, equipment can all be assigned."^^xsd:string ,
-		"While typically this predicate will be used with assignment subjects, there may be other use cases, and therefore a domain is not specified."^^xsd:string
-		;
+	skos:scopeNote "There is a pair of predicates, gist:hasAssignee and gist:isAssignmentOf, which relate an assignment object to the assignee and the thing assigned. It is not always clear which thing should go with which predicate; e.g., a task could be assigned to a person, or a person to a task. A good rule of thumb (though not a hard-and-fast rule) is that the assignee will generally be agent-like, such as a person or organization. But there are cases where both objects are, say, people: we can say that an employee is assigned to a supervisor or that a supervisor is assigned to a direct report. In such cases either an arbitrary choice must be made, or perhaps consistency with other aspects of the model will suggest a choice."^^xsd:string ;
 	gist:domainIncludes gist:Assignment ;
 	gist:rangeIncludes
 		gist:Equipment ,
-		gist:IntellectualProperty ,
-		gist:Organization ,
-		gist:Person
+		gist:Task
 		;
-	.
-
-gist:isAssignmentTo
-	a owl:ObjectProperty ;
-	skos:definition "Relates something (typically an assignment) to the thing the resource is assigned to, such as a project, position, organization, pay rate, or billing rate."^^xsd:string ;
-	skos:prefLabel "is assignment to"^^xsd:string ;
-	skos:scopeNote "While typically this predicate will be used with gist:Assignment subjects, there may be other use cases, and therefore a domain is not specified."^^xsd:string ;
-	gist:domainIncludes gist:Assignment ;
 	.
 
 gist:isBasedOn
