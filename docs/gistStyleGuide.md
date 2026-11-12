@@ -255,7 +255,7 @@ Caution: gist is not yet fully aligned with this best practice, which is aspirat
 
 #### Labels vs Names
 
-- Every instance, including ontology and vocabulary terms as well as instances, should be assigned a `skos:prefLabel` because applications expect them.
+- Every resource, including ontology and vocabulary terms as well as instances, should be assigned a `skos:prefLabel` because applications expect them.
 - On the other hand, `gist:name` is a datatype property rather than an annotation property and thus has real-world semantic value. Accordingly, only things that have names in the real world, such as people, organizations, pets, and parks, should be given a `gist:name`. The value may or may not be the same as the label.
 
 ### Literals
