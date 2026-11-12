@@ -1539,7 +1539,10 @@ gist:PhysicalSubstance
 
 gist:PhysicalThing
 	a owl:Class ;
-	owl:disjointWith gist:UnitOfMeasure ;
+	owl:disjointWith
+		gist:Template ,
+		gist:UnitOfMeasure
+		;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
