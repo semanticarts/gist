@@ -257,21 +257,10 @@ actions:
 - action: "markdown"
   message: "Formatting documentation as HTML."
   source: "{output}/docs/"
-  target: "{output}/docs/"
+  target: "{output}/docs/html/"
+  renameLinks: true
   includes:
     - "*.md"
-- action: "move"
-  message: "Patching local links in documentation."
-  source: "{output}/docs/"
-  target: "{output}/docs/html/"
-  includes:
-    - "*.html"
-  # Replace .md with .html in local links of HTML files.
-  # PCRE2 version of regex replace:
-  # ((\.\/|(?:\.\.\/)+).+)\.md => $1.html
-  replace:
-    from: "((\\./|(?:\\.\\./)+).+)\\.md"
-    to: "\\g<1>.html"
 - action: "move"
   source: "{output}/docs/"
   target: "{output}/docs/markdown/"
@@ -286,105 +275,30 @@ actions:
 - action: "markdown"
   message: "Formatting model documentation as HTML."
   source: "{output}/docs/markdown/models/"
-  target: "{output}/docs/markdown/models/"
+  target: "{output}/docs/html/models/"
+  renameLinks: true
   includes:
     - "*.md"
-- action: "move"
-  message: "Patching local links in HTML model documentation."
-  source: "{output}/docs/markdown/models/"
-  target: "{output}/docs/html/models/"
-  includes:
-    - "*.html"
-  # Replace .md with .html in local links of HTML files
-  replace:
-    from: "((\\./|(?:\\.\\./)+).+)\\.md"
-    to: "\\g<1>.html"
 - action: "copy"
   message: "Copying migration queries, scripts, and documentation."
   source: "{input}/migration"
   target: "{output}/migration"
 - action: "markdown"
-  message: "Formatting gist 11.0 migration documentation as HTML."
-  source: "{output}/migration/v11.0/"
-  target: "{output}/migration/v11.0/"
+  message: "Formatting legacy migration documentation as HTML."
+  source: "{output}/migration/"
+  target: "{output}/migration/"
+  renameLinks: true
   includes:
-    - "*.md"
+    - "v*/*.md"
+  rename:
+    from: "(v.*)/(.*)\\.md"
+    to: "\\g<1>/html-doc/\\g<2>.html"
 - action: "move"
-  message: "Patching local links in gist 11.0 HTML migration documentation."
-  source: "{output}/migration/v11.0/"
-  target: "{output}/migration/v11.0/html-doc/"
+  message: "Move legacy migration sources into markdown-doc"
+  source: "{output}/migration/"
+  target: "{output}/migration/"
   includes:
-    - "*.html"
-  # Replace .md with .html in local links of HTML files
-  replace:
-    from: "((\\./|(?:\\.\\./)+).+)\\.md"
-    to: "\\g<1>.html"
-- action: "move"
-  source: "{output}/migration/v11.0/"
-  target: "{output}/migration/v11.0/markdown-doc/"
-  includes:
-    - "*.md"
-- action: "markdown"
-  message: "Formatting gist 12.0 migration documentation as HTML."
-  source: "{output}/migration/v12.0/"
-  target: "{output}/migration/v12.0/"
-  includes:
-    - "*.md"
-- action: "move"
-  message: "Patching local links in gist 12.0 HTML migration documentation."
-  source: "{output}/migration/v12.0/"
-  target: "{output}/migration/v12.0/html-doc/"
-  includes:
-    - "*.html"
-  # Replace .md with .html in local links of HTML files
-  replace:
-    from: "((\\./|(?:\\.\\./)+).+)\\.md"
-    to: "\\g<1>.html"
-- action: "move"
-  source: "{output}/migration/v12.0/"
-  target: "{output}/migration/v12.0/markdown-doc/"
-  includes:
-    - "*.md"
-- action: "markdown"
-  message: "Formatting gist 13.0 migration documentation as HTML."
-  source: "{output}/migration/v13.0/"
-  target: "{output}/migration/v13.0/"
-  includes:
-    - "*.md"
-- action: "move"
-  message: "Patching links in gist 13.0 HTML migration documentation."
-  source: "{output}/migration/v13.0/"
-  target: "{output}/migration/v13.0/html-doc/"
-  includes:
-    - "*.html"
-  # Replace .md with .html in local links of HTML files
-  replace:
-    from: "((\\./|(?:\\.\\./)+).+)\\.md"
-    to: "\\g<1>.html"
-- action: "move"
-  source: "{output}/migration/v13.0/"
-  target: "{output}/migration/v13.0/markdown-doc/"
-  includes:
-    - "*.md"
-- action: "markdown"
-  message: "Formatting gist 14.0 migration documentation as HTML."
-  source: "{output}/migration/v14.0/"
-  target: "{output}/migration/v14.0/"
-  includes:
-    - "*.md"
-- action: "move"
-  message: "Patching links in gist 14.0 HTML migration documentation."
-  source: "{output}/migration/v14.0/"
-  target: "{output}/migration/v14.0/html-doc/"
-  includes:
-    - "*.html"
-  # Replace .md with .html in local links of HTML files
-  replace:
-    from: "((\\./|(?:\\.\\./)+).+)\\.md"
-    to: "\\g<1>.html"
-- action: "move"
-  source: "{output}/migration/v14.0/"
-  target: "{output}/migration/v14.0/markdown-doc/"
-  includes:
-    - "*.md"
-
+    - "v*/*.md"
+  rename:
+    from: "(v.*)/(.*)"
+    to: "\\g<1>/markdown-doc/\\g<2>"
