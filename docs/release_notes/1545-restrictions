@@ -1,0 +1,3 @@
+# Major Updates
+
+- Fixed restrictions that violated the best practices articulated in the gist style guide. Issue [#1545](https://github.com/semanticarts/gist/issues/1545).
