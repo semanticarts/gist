@@ -3288,6 +3288,22 @@ gist:precedes
 		;
 	.
 
+gist:isManifestationOf
+	a owl:ObjectProperty ;
+	skos:definition "Relates a concrete thing to the knowledge concept that it is conceptualized as."^^xsd:string ;
+	skos:prefLabel "is manifestation of"^^xsd:string ;
+	gist:domainIncludes gist:PhysicalThing , gist:PhysicalEvent ;
+	gist:range gist:KnowledgeConcept ;
+	skos:example
+		"A specific mouse is a manifestation of the mouse species.",
+		"A specific chemical reaction occurrence is a manifestation of the concept of that chemical reaction, such as rusting of iron or synthesis of water.",
+		"An amount of water is a manifestation of the concept of water.",
+		"An event of a specific person having a headache is a manifestation of the symptom headache.",
+		"Negative example: a symptom is a manifestation of a disease. Both symptom and disease are abstractions."
+		;
+	skos:scopeNote "Manifestations of a knowledge concept are the concrete things that give rise to the concept when they are experienced or studied." ;
+	.
+
 gist:precedesDirectly
 	a owl:ObjectProperty ;
 	rdfs:subPropertyOf gist:precedes ;
