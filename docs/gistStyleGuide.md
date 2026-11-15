@@ -108,10 +108,10 @@ Some of the examples resulted in actual changes in gist `10.0.0`, others are hyp
 | Alignment with textual definition | `hasBiologicalParent`, not `hasParent`, where the `skos:definition` precludes non-biological relationships |
 | Loose coupling of ontology term names | `hasStart`, not `hasStartTimeInstant` |
 | Unambiguously indicate directionality | `hasBroader`, not `broader` (as in SKOS) |
-| Direction: go up rather than down a tree if a hierarchy exists | `hasParent`, not `hasChild`|
-|| `hasSuperCategory`, not `hasSubCategory` |
-| Word boundaries consistent across ontology rather than following natural language (exception to idiomaticity) |  `hasSubTask`, `hasSubCategory`, `hasSuperCategory`, although "subtask" and "subcategory" are words |
-||`birthDate` and `deathDate`, although "birthdate" is a word |
+| Direction: go up rather than down a tree if a hierarchy exists | `hasParent`, not `hasChild` |
+| | `hasSuperCategory`, not `hasSubCategory` |
+| Word boundaries consistent across ontology rather than following natural language (exception to idiomaticity) | `hasSubTask`, `hasSubCategory`, `hasSuperCategory`, although "subtask" and "subcategory" are words |
+| | `birthDate` and `deathDate`, although "birthdate" is a word |
 
 #### Instance Local Names
 
@@ -308,10 +308,11 @@ We have defined an in-depth set of best practices governing the use of OWL restr
 2. Use equivalence to an `owl:allValuesFrom` restriction or an exact or maximum cardinality restriction if you want to be able to infer instances into the *complement* of the defined class.
 3. Use equivalence to an `owl:allValuesFrom` restriction to infer into the *object* of `owl:allValuesFrom`. For example, if a `:ProductId` class is the intersection of `gist:ID` with the restriction class that identifies only instances of `:Product`, then if something is identified by a product ID, we can infer that it is a product.
 4. Choose between 1, 2, and 3 according to the type of inference that you care about.
-5. *Subclassing* to an `owl:allValuesFrom` restriction or an exact or maximum cardinality restriction will provide additional information about the defined class without inferring into it.
-6. Use equivalence with minimum cardinality, `owl:someValuesFrom`, `owl:hasValue` restrictions to infer an instance into the class.
-7. Use `owl:someValuesFrom` rather than minimum cardinality 1 restrictions.
-8. Use minimum cardinality with values greater than 1.
-9. Do not use minimum cardinality 0 restrictions. Use annotations to provide usage hints instead.
-10. Be sure that your restrictions express meaning rather than data integrity constraints. Consider the question "If an instance of X did not conform to Y, would it still be an X?"
-11. Express data constraints on particular data sets with SHACL.
+5. Use the minimal set of necessary and sufficient conditions in an equivalence. For example, if A and B are necessary and sufficient conditions, and separately C and D are necessary and sufficient conditions, write two equivalences rather than combining them into a single equivalence, so that less information is required to infer class membership.
+6. *Subclassing* to an `owl:allValuesFrom` restriction or an exact or maximum cardinality restriction will provide additional information about the defined class without inferring into it.
+7. Use equivalence with minimum cardinality, `owl:someValuesFrom`, `owl:hasValue` restrictions to infer an instance into the class.
+8. Use `owl:someValuesFrom` rather than minimum cardinality 1 restrictions.
+9. Use minimum cardinality with values greater than 1.
+10. Do not use minimum cardinality 0 restrictions. Use annotations to provide usage hints instead.
+11. Be sure that your restrictions express meaning rather than data integrity constraints. Consider the question "If an instance of X did not conform to Y, would it still be an X?"
+12. Express data constraints on particular data sets with SHACL.
