@@ -1651,7 +1651,17 @@ gist:RenderedContent
 
 gist:Requirement
 	a owl:Class ;
-	rdfs:subClassOf gist:Intention ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:Intention
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:requires ;
+				owl:someValuesFrom gist:Behavior ;
+			]
+		) ;
+	] ;
 	skos:definition "The obligation of a person or organization to behave in a certain way."^^xsd:string ;
 	skos:example "In the US, drivers must drive on the right side of the road."^^xsd:string ;
 	skos:prefLabel "Requirement"^^xsd:string ;
