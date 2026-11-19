@@ -1,0 +1,3 @@
+### Major Updates
+
+- Made `gist:Aspect` a subclass of `gist:KnowledgeConcept`. Issue [#1474](https://github.com/semanticarts/gist/issues/1474).

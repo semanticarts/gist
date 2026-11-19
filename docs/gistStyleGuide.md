@@ -13,7 +13,6 @@
   - [Labels](#labels)
     - [Class Labels](#class-labels)
     - [Property Labels](#property-labels)
-    - [Valid Exceptions to Label Conventions](#valid-exceptions-to-label-conventions)
     - [Non-Conforming Labels](#non-conforming-labels)
     - [gist Definition of Title Case](#gist-definition-of-title-case)
   - [Annotations](#annotations)
@@ -21,7 +20,10 @@
     - [Formatting Conventions for Annotations](#formatting-conventions-for-annotations)
     - [Annotation Cardinality](#annotation-cardinality)
     - [Use of Ontology Terms in Annotations](#use-of-ontology-terms-in-annotations)
+    - [Labels vs Names](#labels-vs-names)
   - [Literals](#literals)
+  - [Formulation of Axioms](#formulation-of-axioms)
+    - [Disjointness Axioms](#disjointness-axioms)
   - [Documentation](#documentation)
 - [Ontology Best Practices](#ontology-best-practices)
   - [Inverses](#inverses)
@@ -83,35 +85,33 @@ These standards involve wording choices, which are often more difficult to defin
 - Explicitness
 - Idiomaticity: Follows English natural language insofar as possible. This includes "reading well", as in `Mary isConnectedTo John` rather than `Mary connectedTo John`.
 - Accuracy: Expresses intended meaning.
-- Alignment with textual definitions. In some cases this requires a re-analysis of the intended meaning, and then perhaps a change in definition rather than local name. However, within the current scope of work, the local name was changed to match the definition, and the re-analysis will be done at a later time.
+- Alignment with textual definitions. (As we went through this process, we noted that in a few cases, after a re-analysis of the intended meaning, this resulted in a change in the definition rather than the local name.)
 
-Some of the examples resulted in changes in gist `10.0.0`, others are hypothetical.
+Some of the examples resulted in actual changes in gist `10.0.0`, others are hypothetical.
 
 | Standard | Examples |
 | ---------: | ------- |
 | Datatype properties nominal | `baseConversionFactor`, not `convertToBase` |
 | Object properties verb-initial | `isAbout`, not `about` |
-||`comesFromAgent`, not `fromAgent`|
-|| `isMemberOf`, not `memberOf` |
-|| `precedesDirectly`, not `directlyPrecedes` |
-|| `usesTimeZoneStandard`, not `timeZoneStandardUsed` |
+| | `comesFromAgent`, not `fromAgent` |
+| | `isMemberOf`, not `memberOf` |
+| | `precedesDirectly`, not `directlyPrecedes` |
+| | `usesTimeZoneStandard`, not `timeZoneStandardUsed` |
 | Prefix "is" to "-ed" forms, both past participles and adjectives | `isGovernedBy`, not `governedBy` |
-|| `isCharacterizedBy`, not `characterizedBy` |
+| | `isCharacterizedBy`, not `characterizedBy` |
 | Prefer an ordinary verb to "hasX" or "isX" | `precedes`, not `isFollowedBy` |
 | "At" rather than "on" for datetimes | `isRecordedAt`, not `isRecordedOn`. |
-| Present tense only with minimal exceptions when the meaning is inherently in the past | `isRenderedOn`, not `wasRenderedOn`, but `wasLastModifiedBy` rather than `isLastModifiedBy` |
-|| `precedes`, not `preceded` |
-|| but `wasLastModifiedAt`, not `isLastModifiedAt` |
+| Present tense only with minimal exceptions when the meaning is inherently in the past | `isRenderedOn` rather than `wasRenderedOn` and `precedes` rather than `preceded`, but `wasLastModifiedBy` rather than `isLastModifiedBy` |
 | General idiomaticity | `hasRecipient`, not `hasGetter` |
 | No non-standard abbreviations | `hasUnitOfMeasure`, not `hasUoM` |
 | Final prepositions where appropriate | `hasJurisdictionOver`, not `hasJurisdiction` |
-| Alignment with textual definition |  `hasBiologicalParent`, not `hasParent`, where the `skos:definition` precludes non-biological relationships |
+| Alignment with textual definition | `hasBiologicalParent`, not `hasParent`, where the `skos:definition` precludes non-biological relationships |
 | Loose coupling of ontology term names | `hasStart`, not `hasStartTimeInstant` |
 | Unambiguously indicate directionality | `hasBroader`, not `broader` (as in SKOS) |
 | Direction: go up rather than down a tree if a hierarchy exists | `hasParent`, not `hasChild`|
 || `hasSuperCategory`, not `hasSubCategory` |
 | Word boundaries consistent across ontology rather than following natural language (exception to idiomaticity) |  `hasSubTask`, `hasSubCategory`, `hasSuperCategory`, although "subtask" and "subcategory" are words |
-||`hasBirthDate` and `hasDeathDate`, although "birthdate" is a word |
+||`birthDate` and `deathDate`, although "birthdate" is a word |
 
 #### Instance Local Names
 
@@ -127,11 +127,9 @@ A *rigid* class is one that the instance inherently belongs; it is part of the e
 
 The *most specific rigid* class is the rigid class that the instance most directly belongs to.
 
-For example, given the class hierarchy `Living Thing` > `Person` > `Professor`, where the first two classes are rigid and the third is not, the name for Sir Tim Berners-Lee is `_Person_Sir_Tim_Berners_Lee`.
+For example, given the class hierarchy `LivingThing` > `Person` > `Professor`, where the first two classes are rigid and the third is not, the name for Sir Tim Berners-Lee is `_Person_Sir_Tim_Berners_Lee`.
 
-Exceptions to this guideline arise may arise in IRI minting during data mapping. Based on how the data is presented, it is often difficult or cumbersome to know the most specific type of an instance, so one can fall back on a higher-level class. E.g., when processing a table of organizations, it may not be possible to know which are governmental organizations, which corporations, and which non-profits, so the infix `_Organization_` can be used throughout.
-
-Exceptions to this guideline arise may arise in IRI minting during data mapping. Based on how the data is presented, it is often difficult or cumbersome to know the most specific type of an instance, so one can fall back on a higher-level class. E.g., when processing a table of organizations, it may not be possible to know which are governmental organizations, which corporations, and which non-profits, so the infix `_Organization_` can be used throughout.
+Exceptions to this guideline may arise in IRI minting during data mapping. Based on how the data is presented, it is often difficult or cumbersome to know the most specific type of an instance, so one can fall back on a higher-level class. E.g., when processing a table of organizations, it may not be possible to know which are governmental organizations, which corporations, and which non-profits, so the infix `_Organization_` can be used throughout.
 
 ### Labels
 
@@ -139,7 +137,7 @@ The following conventions apply to `skos:prefLabel` but *not* `skos:altLabel`, w
 
 #### Class Labels
 
-- Title case (see [definition of title case](#gist-definition-of-title-case)) below
+- Title case (see [definition of title case](#gist-definition-of-title-case) below)
 - Normalized to natural language standards. E.g., hyphens inserted, acronyms in all caps, etc.
   - Examples: *AMA Guideline*, *ISBN-10*
 
@@ -147,13 +145,7 @@ The following conventions apply to `skos:prefLabel` but *not* `skos:altLabel`, w
 
 - Lower case
 - Normalized to natural language standards. E.g., hyphens inserted, acronyms in all caps, proper nouns capitalized, etc.
-- Examples: *has unit of measure*, *has SSN*, *Unicode symbol*, *W2*
-
-#### Valid Exceptions to Label Conventions
-
-There may occasionally be valid reasons to deviate from the conventions stated here:
-
-- Deviation from wording of the local name. For example, the predicate `gist:isGeoContainedIn` uses a shortened form of "geographically" for conciseness. The `skos:prefLabel` uses the fully spelled out word: "is geographically contained in."
+- Examples: *has unit of measure*, *has SSN*, *Unicode symbol*, *W-2*
 
 #### Non-Conforming Labels
 
@@ -180,33 +172,33 @@ This style guide defines the rules for title case as follows:
 
 #### Conventions for Annotation Use
 
-gist uses SKOS annotations rather than `rdfs:label` and `rdfs:comment`. The accepted annotations, intended use, and previous usage are shown in the following tables. Refer to the [SKOS ontology](http://www.w3.org/2004/02/skos/core) for formal definitions. SKOS annotations allow a more fine-grained approach to human-readable documentation. This change also aligns with emerging common practice.
+gist uses SKOS annotations rather than `rdfs:label` and `rdfs:comment`. The accepted annotations, intended use, and previous usage are shown in the following tables. Refer to the [SKOS ontology](http://www.w3.org/2004/02/skos/core) for formal definitions. SKOS annotations allow a more fine-grained approach to human-readable documentation. This choice aligns with the common practice that has emerged in the field over the last several years.
 
 *Required Annotations for Classes, Properties, and Taxonomic Terms*
 
 | Annotation | Use | Instead Of |
-| ---------: | --- |:---------|
+| ---------: | --- | :--------- |
 | `skos:prefLabel` | Preferred label | `rdfs:label` |
 | `skos:definition` | Definition | `rdfs:comment` |
 
 *Highly recommended*
 
 | Annotation | Use | Instead Of |
-| ---------: | --- |:---------|
+| ---------: | --- | :--------- |
 | `skos:scopeNote` | Additional clarifying comments about the meaning or usage of a term | `rdfs:comment` |
-| `skos:example`   | One or more examples  | `rdfs:comment` |
+| `skos:example` | One or more examples | `rdfs:comment` |
 
 These annotations help the user understand the use and meaning of the term, and prevent definitions from becoming lengthy and unstructured. `skos:definition` is expected to provide a definition, not lengthy usage notes or examples. These should instead be included in a `skos:scopeNote` or `skos:example`, respectively.
 
-Negative examples should be prefaced by the text "Negative example:" or "Negative examples:". For example, the definition of `gist:LivingThing` includes `skos:example "Negative examples: fictional life forms such as unicorns or Mickey Mouse."`
+Negative examples should be prefaced by the text "Negative example:" or "Negative examples:". For example, the annotations of `gist:LivingThing` include `skos:example "Negative examples: fictional life forms such as unicorns or Mickey Mouse."`
 
 Occasionally a definition can hardly be understood at all without an example or two, in which case they can be included in the `skos:definition`. For example, the term `ResearchProduct` might be defined as "An output of a research project, such as a document or spreadsheet."
 
 *Use where relevant*
 
 | Annotation | Use | Instead Of |
-| ---------: | --- |:---------|
-| `skos:altLabel`  | Alternative label, where relevant | n/a |
+| ---------: | --- | :--------- |
+| `skos:altLabel` | Alternative label, where relevant | n/a |
 | `skos:editorialNote` | Notes for editors | `rdfs:comment` |
 
 *RDFS annotations*
@@ -216,7 +208,7 @@ Certain RDFS annotations are recommended where there is no SKOS equivalent.
 | Annotation | Use |
 | ---------: | --- |
 | `rdfs:seeAlso` | Indicates a resource that may provide additional information about the subject. Should be a link to a web page or RDF resource rather than text. See examples of its use in gist to get an idea of where it would be helpful. |
-| `rdfs:isDefinedBy` | Identifies the ontology module the term is defined in. Added automatically during gist release bundling and does not needed to be added by hand. |
+| `rdfs:isDefinedBy` | Identifies the ontology module the term is defined in. Added automatically during gist release bundling and does not need to be added by hand. |
 
 *Use only rarely*
 
@@ -237,7 +229,7 @@ Certain RDFS annotations are recommended where there is no SKOS equivalent.
 | Annotation | Format |
 | ---------: | ----------- |
 | `skos:prefLabel`, `skos:altLabel` | See section [Labels](#labels) above. |
-| `skos:definition`, `skos:scopeNote`, `skos:note`, `skos:editorialNote` | Full sentence(s) ending in period. It is acceptable to omit the subject at the beginning of the definition in order to avoid the vacuous "This predicate..." or "This class is..." E.g., "Relates a person to his or her spouse." or "A series of steps in a workflow." There should nevertheless be a final period. Use Oxford commas.|
+| `skos:definition`, `skos:scopeNote`, `skos:note`, `skos:editorialNote` | Full sentence(s) ending in period. It is acceptable to omit the subject at the beginning of the definition in order to avoid the vacuous "This predicate..." or "This class is..." E.g., "Relates a person to his or her spouse." or "A series of steps in a workflow." There should nevertheless be a final period. Use Oxford commas. |
 | `skos:example` | May be either a full sentence or a list. Use a final period only in the former case. E.g., "SSN, driver's license number, employee ID" or "NIH sponsors a research project." Lists with short items, such as the first example, can be delimited by either commas (include Oxford commas) or semi-colons; full-sentence examples should be semi-colon-delimited. |
 
 #### Annotation Cardinality
@@ -251,16 +243,35 @@ Certain RDFS annotations are recommended where there is no SKOS equivalent.
 
 #### Use of Ontology Terms in Annotations
 
-In general it is preferred to use natural language rather than ontology terms in annotations. For example, the definition of `gist:GovernedGeoRegion` reads "A defined geographical area (or areas) governed by exactly one country government." rather than using the ontology class names `GeoRegion` and `CountryGovernment`.
+In general it is preferred to use natural language rather than ontology terms in annotations. For example, the definition of `gist:GovernedGeoRegion` reads "A geographic region governed by at least one government organization." rather than using the ontology class names `GeoRegion` and `CountryGovernment`.
 
 The exception is when a note needs to make specific reference to an ontology term rather than to a concept. For example, the scope note on `gist:birthDate` reads "This is a subproperty of `gist:startDateTime` rather than `gist:actualStartDate` because some living things have yet to be born."
 
 Caution: gist is not yet fully aligned with this best practice, which is aspirational.
 
+#### Labels vs Names
+
+- Every resource, including ontology and vocabulary terms as well as instances, should be assigned a `skos:prefLabel` because applications expect them.
+- On the other hand, `gist:name` is a datatype property rather than an annotation property and thus has real-world semantic value. Accordingly, only things that have names in the real world, such as people, organizations, pets, and parks, should be given a `gist:name`. The value may or may not be the same as the label.
+
 ### Literals
 
-- Literal values should be typed with one of the  datatypes included in the [OWL 2 Datatype Maps](https://www.w3.org/TR/owl2-syntax/#Datatype_Maps). It is not necessary to explicitly type strings as `xsd:string` because the [serializer](#serialization) will add this to all untyped literals.
+- Literal values should be typed with one of the datatypes included in the [OWL 2 Datatype Maps](https://www.w3.org/TR/owl2-syntax/#Datatype_Maps). It is not necessary to explicitly type strings as `xsd:string` because the [serializer](#serialization) will add this to all untyped literals.
 - Literals that contain quotations should have double quotes for the outer quotes and single quotes for inner quotes. For example: `"'gist' is the name of an upper ontology."^^xsd:string`.
+
+### Formulation of Axioms
+
+This section addresses the stylistic and syntactic formulation of axioms, not semantic/logical best practices.
+
+#### Disjointness Axioms
+
+To avoid duplication, each class should declare disjointness only with classes that follow it in alphabetic sort order. For example, use
+
+`gist:Event owl:disjointWith gist:KnowledgeConcept .`
+
+rather than
+
+`gist:KnowledgeConcept owl:disjointWith gist:Event .`
 
 ### Documentation
 
@@ -291,7 +302,7 @@ This principle will determine most but not all cases; e.g., `precedes` vs `follo
 
 ### OWL Restrictions
 
-We have defined an in-depth set of best practices governing the use of OWL restrictions (forthcoming). A summary without detailed rationale is provided here.
+We have defined an in-depth set of best practices governing the use of OWL restrictions. A summary without detailed rationale is provided here:
 
 1. Do not use equivalence to an `owl:allValuesFrom` restriction or an exact or maximum cardinality restriction if you want to be able to infer instances into the defined class. Because these restrictions describe what does *not* exist, in combination with the Open World Assumption they prevent inference into the defined class.
 2. Use equivalence to an `owl:allValuesFrom` restriction or an exact or maximum cardinality restriction if you want to be able to infer instances into the *complement* of the defined class.
