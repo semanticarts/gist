@@ -21,6 +21,30 @@ gist:_PrefixDeclaration_gist
 	sh:prefix "gist"^^xsd:string ;
 	.
 
+gist:_PrefixDeclaration_gistd
+	a sh:PrefixDeclaration ;
+	sh:namespace "https://w3id.org/semanticarts/ns/data/gist/"^^xsd:anyURI ;
+	sh:prefix "gistd"^^xsd:string ;
+	.
+
+gist:_PrefixDeclaration_media-app
+	a sh:PrefixDeclaration ;
+	sh:namespace "https://www.iana.org/assignments/media-types/application/"^^xsd:anyURI ;
+	sh:prefix "media-app"^^xsd:string ;
+	.
+
+gist:_PrefixDeclaration_media-img
+	a sh:PrefixDeclaration ;
+	sh:namespace "https://www.iana.org/assignments/media-types/image/"^^xsd:anyURI ;
+	sh:prefix "media-img"^^xsd:string ;
+	.
+
+gist:_PrefixDeclaration_media-txt
+	a sh:PrefixDeclaration ;
+	sh:namespace "https://www.iana.org/assignments/media-types/text/"^^xsd:anyURI ;
+	sh:prefix "media-txt"^^xsd:string ;
+	.
+
 gist:_PrefixDeclaration_owl
 	a sh:PrefixDeclaration ;
 	sh:namespace "http://www.w3.org/2002/07/owl#"^^xsd:anyURI ;
