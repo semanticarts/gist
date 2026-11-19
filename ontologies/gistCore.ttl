@@ -268,10 +268,34 @@ gist:BundledCatalogItem
 
 gist:CatalogItem
 	a owl:Class ;
-	rdfs:subClassOf gist:Specification ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:Specification
+			[
+				a owl:Class ;
+				owl:unionOf (
+					[
+						a owl:Restriction ;
+						owl:onProperty [
+							owl:inverseOf gist:offersToProvide ;
+						] ;
+						owl:someValuesFrom gist:Offer ;
+					]
+					[
+						a owl:Restriction ;
+						owl:onProperty [
+							owl:inverseOf gist:offersToReceive ;
+						] ;
+						owl:someValuesFrom gist:Offer ;
+					]
+				) ;
+			]
+		) ;
+	] ;
 	skos:definition "A description of a product or service to be delivered, given in a sufficient level of detail that a receiver could determine whether delivery constituted discharge of the obligation to deliver."^^xsd:string ;
 	skos:prefLabel "Catalog Item"^^xsd:string ;
-	skos:scopeNote "In short, an unambiguous characterization of what it is that a potential buyer is paying for."^^xsd:string ;
+	skos:scopeNote "In short, an unambiguous characterization of what it is being bought or sold."^^xsd:string ;
 	.
 
 gist:Category
