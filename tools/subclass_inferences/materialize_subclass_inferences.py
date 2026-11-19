@@ -39,7 +39,7 @@ def _add_ontology_declaration(output_graph: Graph, version: str):
                                  "(2) the subclass assertions that are already explicit in gistCore.",
                                  datatype=XSD.string)),
         (GIST.license, Literal("https://creativecommons.org/licenses/by/4.0/",
-                               datatype=XSD.string))
+                               datatype=XSD.anyURI))
     ]
 
     # Add ontology metadata to output graph.
