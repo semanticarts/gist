@@ -291,7 +291,7 @@ actions:
   includes:
     - "v*/*.md"
   rename:
-    from: "(v.*)/(.*)\\.md"
+    from: "(v[^/]+)/(.*)\\.md"
     to: "\\g<1>/html-doc/\\g<2>.html"
 - action: "move"
   message: "Move legacy migration sources into markdown-doc"
@@ -300,5 +300,5 @@ actions:
   includes:
     - "v*/*.md"
   rename:
-    from: "(v.*)/(.*)"
+    from: "(v[^/]+)/(.*)\\.md"
     to: "\\g<1>/markdown-doc/\\g<2>"
