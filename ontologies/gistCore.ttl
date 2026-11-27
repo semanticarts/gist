@@ -367,6 +367,27 @@ gist:Composite
 		;
 	.
 
+gist:Condition
+	a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:Specification
+			[
+				a owl:Restriction ;
+				owl:onProperty [
+					owl:inverseOf gist:evaluates ;
+				] ;
+				owl:someValuesFrom gist:EvaluationTaskTemplate ;
+			]
+		) ;
+	] ;
+	skos:definition "TBD"^^xsd:string ;
+	skos:example "TBD"^^xsd:string ;
+	skos:prefLabel "Evaluation Task Template"^^xsd:string ;
+	skos:scopeNote "TBD"^^xsd:string ;
+	.
+
 gist:ContemporaryEvent
 	a owl:Class ;
 	owl:equivalentClass [
@@ -672,6 +693,40 @@ gist:EquipmentType
 	rdfs:subClassOf gist:Category ;
 	skos:definition "A category of equipment."^^xsd:string ;
 	skos:prefLabel "Equipment Type"^^xsd:string ;
+	.
+
+gist:EvaluationTaskTemplate
+	a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:TaskTemplate
+			[
+				a owl:Class ;
+				owl:unionOf (
+					[
+						a owl:Restriction ;
+						owl:onProperty gist:precedesDirectlyIfTrue ;
+						owl:someValuesFrom owl:TaskTemplate ;
+					]
+					[
+						a owl:Restriction ;
+						owl:onProperty gist:precedesDirectlyIfFalse ;
+						owl:someValuesFrom owl:TaskTemplate ;
+					]
+				) ;
+			]
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:evaluates ;
+				owl:someValuesFrom gist:Condition ;
+			]
+		) ;
+	] ;
+	skos:definition "TBD"^^xsd:string ;
+	skos:example "TBD"^^xsd:string ;
+	skos:prefLabel "Evaluation Task Template"^^xsd:string ;
+	skos:scopeNote "TBD"^^xsd:string ;
 	.
 
 gist:Event
@@ -2020,6 +2075,53 @@ gist:UnitOfMeasure
 	skos:prefLabel "Unit of Measure"^^xsd:string ;
 	.
 
+gist:WorkflowDefinition
+	a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:TaskTemplate
+			gist:Collection
+			[
+				a owl:Restriction ;
+				owl:onProperty [
+					owl:inverseOf gist:isMemberOf ;
+				] ;
+				owl:someValuesFrom [
+					a owl:Class ;
+					owl:unionOf (
+						gist:TaskTemplate
+						gist:OrderedMember
+					) ;
+				] ;
+			]
+		) ;
+	] ;
+	skos:definition "TBD"^^xsd:string ;
+	skos:example "TBD"^^xsd:string ;
+	skos:prefLabel "Workflow Definition"^^xsd:string ;
+	skos:scopeNote "TBD"^^xsd:string ;
+	.
+
+gist:WorkflowExecution
+	a owl:Class ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:intersectionOf (
+			gist:Project
+			[
+				a owl:Restriction ;
+				owl:onProperty gist:isBasedOn ;
+				owl:someValuesFrom gist:WorkflowDefinition ;
+			]
+		) ;
+	] ;
+	skos:definition "TBD"^^xsd:string ;
+	skos:example "TBD"^^xsd:string ;
+	skos:prefLabel "Workflow Execution"^^xsd:string ;
+	skos:scopeNote "TBD"^^xsd:string ;
+	.
+
 gist:actualEndDate
 	a owl:DatatypeProperty ;
 	rdfs:subPropertyOf gist:actualEndDateTime ;
@@ -2320,6 +2422,16 @@ gist:endDateTime
 		"This property is neutral along two dimensions: precision (e.g., day, second, millisecond) and actual vs. planned. As such, it will generally not be asserted directly except in special cases (e.g., for time intervals)."^^xsd:string ,
 		"Values of predicates with different precisions can be compared since they are all formally xsd:datetimes."^^xsd:string
 		;
+	.
+
+gist:evaluates
+	a owl:ObjectProperty ;
+	skos:definition "TBD"^^xsd:string ;
+	skos:example "TBD"^^xsd:string ;
+	skos:prefLabel "evaluates"^^xsd:string ;
+	skos:scopeNote "TBD"^^xsd:string ;
+	gist:domainIncludes gist:EvaluationTaskTemplate ;
+	gist:rangeIncludes gist:Condition ;
 	.
 
 gist:exponentOfAmpere
@@ -2740,6 +2852,19 @@ gist:hasIncumbent
 	skos:scopeNote "To create a temporal view, define a subclass of gist:TemporalRelation for this property (e.g., Incumbency)."^^xsd:string ;
 	.
 
+gist:hasInput
+	a owl:ObjectProperty ;
+	skos:definition "TBD"^^xsd:string ;
+	skos:example "TBD"^^xsd:string ;
+	skos:prefLabel "has input"^^xsd:string ;
+	skos:scopeNote "TBD"^^xsd:string ;
+	gist:domainIncludes
+		gist:Task ,
+		gist:TaskTemmplate
+		;
+	gist:rangeIncludes gist:Specification ;
+	.
+
 gist:hasMagnitude
 	a owl:ObjectProperty ;
 	rdfs:range gist:Magnitude ;
@@ -2761,6 +2886,19 @@ gist:hasNavigationalParent
 	skos:definition "Relates a child category to a parent category in an informal (e.g., faceted) hierarchy."^^xsd:string ;
 	skos:example "Refrigerator handles are not refrigerators, but it may be useful to represent their relationship hierarchically for a faceted UI filter."^^xsd:string ;
 	skos:prefLabel "has navigational parent"^^xsd:string ;
+	.
+
+gist:hasOutput
+	a owl:ObjectProperty ;
+	skos:definition "TBD"^^xsd:string ;
+	skos:example "TBD"^^xsd:string ;
+	skos:prefLabel "has output"^^xsd:string ;
+	skos:scopeNote "TBD"^^xsd:string ;
+	gist:domainIncludes
+		gist:Task ,
+		gist:TaskTemmplate
+		;
+	gist:rangeIncludes gist:Specification ;
 	.
 
 gist:hasParticipant
@@ -2959,6 +3097,21 @@ gist:isDirectPartOf
 	skos:scopeNote
 		"Because the part has independent existence, there is no cascading delete."^^xsd:string ,
 		"It is safest to use this property when semantic directness is inherent in the relationship, rather than simply expressing a chosen granularity. For example, a spark plug is a direct part of an engine block; there cannot be any intermediate parts. Otherwise, there is a risk of making an isDirectPartOf assertion and then later inserting an intermediate part; this will result in making an asserted triple false even though there was no change in the world. When in doubt, use the transitive version gist:isPartOf."^^xsd:string
+		;
+	.
+
+gist:isExecutedBy
+	a owl:ObjectProperty ;
+	skos:example "TBD"^^xsd:string ;
+	skos:prefLabel "is executed by"^^xsd:string ;
+	skos:scopeNote "TBD"^^xsd:string ;
+	gist:domainIncludes
+		gist:Task ,
+		gist:TaskTemplate
+		;
+	gist:rangeIncludes
+		gist:Organization ,
+		gist:Person
 		;
 	.
 
@@ -3360,6 +3513,28 @@ gist:precedesDirectly
 		"It is safest to use this property only when the directness has a semantic correspondence with the world. Only break a direct link by inserting an intermediate item when that change corresponds to a change in the world."^^xsd:string ,
 		"Typically this predicate would be used asymmetrically and irreflexively, but the ontology does not formalize this."^^xsd:string
 		;
+	.
+
+gist:precedesDirectlyIfFalse
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:precedesDirectly ;
+	rdfs:domain gist:EvaluationTaskTemplate ;
+	rdfs:range gist:TaskTemplate ;
+	skos:definition "TBD"^^xsd:string ;
+	skos:example "TBD"^^xsd:string ;
+	skos:prefLabel "precedes directly if false"^^xsd:string ;
+	skos:scopeNote "TBD"^^xsd:string ;
+	.
+
+gist:precedesDirectlyIfTrue
+	a owl:ObjectProperty ;
+	rdfs:subPropertyOf gist:precedesDirectly ;
+	rdfs:domain gist:EvaluationTaskTemplate ;
+	rdfs:range gist:TaskTemplate ;
+	skos:definition "TBD"^^xsd:string ;
+	skos:example "TBD"^^xsd:string ;
+	skos:prefLabel "precedes directly if true"^^xsd:string ;
+	skos:scopeNote "TBD"^^xsd:string ;
 	.
 
 gist:prevents
