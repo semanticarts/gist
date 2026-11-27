@@ -378,14 +378,17 @@ gist:Condition
 				owl:onProperty [
 					owl:inverseOf gist:evaluates ;
 				] ;
-				owl:someValuesFrom gist:EvaluationTaskTemplate ;
+				owl:someValuesFrom owl:Thing ;
 			]
 		) ;
 	] ;
-	skos:definition "A boolean statement evaluated in a branching workflow whose truth value determines the next step to be executed."^^xsd:string ;
-	skos:example "A step in a recipe for baking a cake involves evaluating whether a toothpick inserted into the center of the cake comes out clean. If true, the cake is done and is placed on a cooling rack; if false, it goes back into the oven."^^xsd:string ;
+	skos:definition "A specification of circumstances whose satisfaction can be evaluated."^^xsd:string ;
+	skos:example "Used to model branching workflows; e.g., a step in a recipe for baking a cake involves evaluating whether a toothpick inserted into the center of the cake comes out clean. If true, the cake is done and is placed on a cooling rack; if false, it goes back into the oven."^^xsd:string ;
 	skos:prefLabel "Condition"^^xsd:string ;
-	skos:scopeNote "A condition is relevant only to the workflow definition rather than the workflow execution. The latter is descriptive rather than prescriptive, and the truth value of the condition can be inferred from the step that was executed following the evaluation of the condition."^^xsd:string ;
+	skos:scopeNote
+		"A condition is relevant to workflow definitions but not workflow executions. The latter is descriptive rather than prescriptive, and the truth value of the condition can be inferred from the step that was executed following the evaluation of the condition."^^xsd:string ,
+		"While a condition is semantically Boolean in nature, it may evaluate to true, false, unknown, or indeterminate, depending on the information available and the logic employed. However, branching workflows depend on evaluation as either true or false in order to proceed to the appropriate next step."^^xsd:string
+		;
 	.
 
 gist:ContemporaryEvent
