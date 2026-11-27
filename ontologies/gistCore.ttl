@@ -393,8 +393,6 @@ gist:ContemporaryEvent
 gist:Content
 	a owl:Class ;
 	owl:disjointWith
-		gist:GeoPoint ,
-		gist:GeoRegion ,
 		gist:Organization ,
 		gist:PhysicalIdentifiableItem ,
 		gist:PhysicalSubstance ,
@@ -737,6 +735,18 @@ gist:GeneralMediaType
 
 gist:GeoLocation
 	a owl:Class ;
+	owl:disjointWith
+		gist:Content ,
+		gist:IntellectualProperty ,
+		gist:Intention ,
+		gist:Language ,
+		gist:Magnitude ,
+		gist:Organization ,
+		gist:PhysicalIdentifiableItem ,
+		gist:PhysicalSubstance ,
+		gist:Template ,
+		gist:UnitOfMeasure
+		;
 	skos:altLabel "Geographic Location"^^xsd:string ;
 	skos:definition "A physical location, with the earth as a frame of reference."^^xsd:string ;
 	skos:prefLabel "Geo Location"^^xsd:string ;
@@ -746,17 +756,6 @@ gist:GeoLocation
 gist:GeoPoint
 	a owl:Class ;
 	rdfs:subClassOf gist:GeoLocation ;
-	owl:disjointWith
-		gist:IntellectualProperty ,
-		gist:Intention ,
-		gist:KnowledgeConcept ,
-		gist:Language ,
-		gist:Magnitude ,
-		gist:Organization ,
-		gist:PhysicalIdentifiableItem ,
-		gist:PhysicalSubstance ,
-		gist:UnitOfMeasure
-		;
 	owl:equivalentClass [
 		a owl:Class ;
 		owl:intersectionOf (
@@ -803,16 +802,6 @@ gist:GeoRegion
 			]
 		) ;
 	] ;
-	owl:disjointWith
-		gist:IntellectualProperty ,
-		gist:Intention ,
-		gist:KnowledgeConcept ,
-		gist:Magnitude ,
-		gist:Organization ,
-		gist:PhysicalThing ,
-		gist:Template ,
-		gist:UnitOfMeasure
-		;
 	skos:altLabel "Geographic Region"^^xsd:string ;
 	skos:definition "A bounded region (or set of regions) on the surface of the Earth."^^xsd:string ;
 	skos:example "The bounded shape that defines the region occupied by Crater Lake; the bounded area known as the contiguous USA."^^xsd:string ;
