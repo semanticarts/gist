@@ -2450,12 +2450,17 @@ gist:endDateTime
 
 gist:evaluates
 	a owl:ObjectProperty ;
-	skos:definition "Relates something to something else that it assesses or is designed to asses in order to determine a value, outcome, or truth value."^^xsd:string ;
-	skos:example "A step in a recipe for baking a cake involves evaluating whether a toothpick inserted into the center of the cake comes out clean. If true, the cake is done and is placed on a cooling rack; if false, it goes back into the oven."^^xsd:string ;
+	skos:definition "Relates something to something else whose value or truth value it determines or is designed to determine."^^xsd:string ;
+	skos:example
+		"A step in a recipe for baking a cake involves evaluating whether a toothpick inserted into the center of the cake comes out clean. If true, the cake is done and is placed on a cooling rack; if false, it goes back into the oven."^^xsd:string ,
+		"An algorithm evaluates an expression; a person evaluates a proposal; a system evaluates compliance with a set of requirements."^^xsd:string
+		;
 	skos:prefLabel "evaluates"^^xsd:string ;
 	gist:domainIncludes
 		gist:Determination ,
-		gist:EvaluationTaskTemplate
+		gist:EvaluationTaskTemplate ,
+		gist:Person ,
+		gist:System
 		;
 	gist:rangeIncludes gist:Condition ;
 	.
