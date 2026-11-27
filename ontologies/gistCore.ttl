@@ -2091,7 +2091,17 @@ gist:WorkflowDefinition
 					a owl:Class ;
 					owl:unionOf (
 						gist:TaskTemplate
-						gist:OrderedMember
+						[
+							a owl:Class ;
+							owl:intersectionOf (
+								gist:TaskTemplate
+								[
+									a owl:Restriction ;
+									owl:onProperty gist:providesOrderFor ;
+									owl:someValuesFrom gist:TaskTemplate ;
+								]
+							) ;
+						]
 					) ;
 				] ;
 			]
