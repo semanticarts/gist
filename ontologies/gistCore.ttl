@@ -382,10 +382,10 @@ gist:Condition
 			]
 		) ;
 	] ;
-	skos:definition "TBD"^^xsd:string ;
-	skos:example "TBD"^^xsd:string ;
-	skos:prefLabel "Evaluation Task Template"^^xsd:string ;
-	skos:scopeNote "TBD"^^xsd:string ;
+	skos:definition "A boolean statement which is evaluated in a branching workflow and whose truth value determines the next step to be executed."^^xsd:string ;
+	skos:example "A step in a recipe for baking a cake involves evaluating whether a toothpick inserted into the center of the cake comes out clean. If true, the cake is done and is placed on a cooling rack; if false, it goes back into the oven."^^xsd:string ;
+	skos:prefLabel "Condition"^^xsd:string ;
+	skos:scopeNote "A condition is relevant only to the workflow definition rather than the workflow execution. The latter is descriptive rather than prescriptive, and the truth value of the condition can be inferred from the step that was executed following the evaluation of the condition."^^xsd:string ;
 	.
 
 gist:ContemporaryEvent
@@ -723,10 +723,10 @@ gist:EvaluationTaskTemplate
 			]
 		) ;
 	] ;
-	skos:definition "TBD"^^xsd:string ;
-	skos:example "TBD"^^xsd:string ;
+	skos:definition "A task template in a branching workflow that evaluates a boolean condition and specifies what the next step is based on its truth value."^^xsd:string ;
+	skos:example "A step in a recipe for baking a cake involves evaluating whether a toothpick inserted into the center of the cake comes out clean. If true, the cake is done and is placed on a cooling rack; if false, it goes back into the oven."^^xsd:string ;
 	skos:prefLabel "Evaluation Task Template"^^xsd:string ;
-	skos:scopeNote "TBD"^^xsd:string ;
+	skos:scopeNote "There is no corresponding subclass of gist:Task defined for the evaluation of the condition. The task is inferred to involve an evaluation, and of which condition, by the template it is based on."^^xsd:string ;
 	.
 
 gist:Event
@@ -1684,6 +1684,7 @@ gist:Project
 		a owl:Class ;
 		owl:intersectionOf (
 			gist:Task
+			gist:Composite
 			[
 				a owl:Restriction ;
 				owl:onProperty [
@@ -2107,10 +2108,19 @@ gist:WorkflowDefinition
 			]
 		) ;
 	] ;
-	skos:definition "TBD"^^xsd:string ;
-	skos:example "TBD"^^xsd:string ;
+	skos:definition "A typically sequential collection of task templates describing how work is organized and progresses from start to completion."^^xsd:string ;
+	skos:example
+		"A publication workflow consisting of editorial review, copy editing, various types of approval, preparation of a final version for print or digital storage, and distribution."^^xsd:string ,
+		"A time-off request process in which an employee submits a request, the manager reviews and approves it, and payroll or scheduling updates automatically."^^xsd:string
+		;
 	skos:prefLabel "Workflow Definition"^^xsd:string ;
-	skos:scopeNote "TBD"^^xsd:string ;
+	skos:scopeNote
+		"A workflow definition may consist of unordered or partially ordered task templates, though these are not typical."^^xsd:string ,
+		"An instance of workflow definition can also be typed as an ordered collection in which the ordered members provide order for the task templates. An ordered collection is required to reuse task templates in different orders in different workflows; use the simpler non-ordered collection if no template reuse is needed. Note that 'non-ordered collection' means it is not formally a gist:OrderedCollection involving proxy ordering; the task templates themselves can still be sequenced using gist:sequence or gist:precedesDirectly."^^xsd:string ,
+		"Includes only human activity, not natural processes."^^xsd:string ,
+		"The workflow execution may have start and end datetimes in addition to the start and end datetimes of its component tasks. In this case the start datetime is the start datetime of the first task executed, and the end datetime is the end datetime of the last task executed."^^xsd:string ,
+		"Whether a specific process is modeled as a workflow definition or a single task template depends on the level of granularity to be captured. For example, baking a cake could be a single step in a larger workflow of preparing a dinner party, or a workflow involving breaking eggs, adding milk, mixing in dry ingredients, baking, and frosting. It is also possible to capture both levels, in which baking a cake is a workflow definition embedded in the larger workflow."^^xsd:string
+		;
 	.
 
 gist:WorkflowExecution
@@ -2126,10 +2136,14 @@ gist:WorkflowExecution
 			]
 		) ;
 	] ;
-	skos:definition "TBD"^^xsd:string ;
-	skos:example "TBD"^^xsd:string ;
+	skos:definition "The execution of a workflow definition at a specific time and place and by a specific agent."^^xsd:string ;
+	skos:example "Given a workflow definition for submitting a time-off request, an execution of this workflow occurs when a specific employee submits a time-off request for specific dates, his or her manager approves it, and it is routed to the payroll or scheduling department."^^xsd:string ;
 	skos:prefLabel "Workflow Execution"^^xsd:string ;
-	skos:scopeNote "TBD"^^xsd:string ;
+	skos:scopeNote
+		"A workflow execution based on a workflow definition which is an ordered collection does not itself require formal ordering of its parts through the proxy mechanism. We simply record the order in which the tasks were actually executed, either via dates, gist:sequence, or gist:precedesDirectly."^^xsd:string ,
+		"Considerations of granularity apply to workflow execution as to workflow definition; see scope note on gist:WorkflowDefinition."^^xsd:string ,
+		"Like other tasks, workflow executions may accrete information over time. For example, it may be planned in advance with unknown dates and assignees, then acquire planned dates and an assigned added, dates may be revised, and finally it is executed at an actual time and place."^^xsd:string
+		;
 	.
 
 gist:actualEndDate
@@ -2436,11 +2450,13 @@ gist:endDateTime
 
 gist:evaluates
 	a owl:ObjectProperty ;
-	skos:definition "TBD"^^xsd:string ;
-	skos:example "TBD"^^xsd:string ;
+	skos:definition "Relates something to something else that it assesses or is designed to asses in order to determine a value, outcome, or truth value."^^xsd:string ;
+	skos:example "A step in a recipe for baking a cake involves evaluating whether a toothpick inserted into the center of the cake comes out clean. If true, the cake is done and is placed on a cooling rack; if false, it goes back into the oven."^^xsd:string ;
 	skos:prefLabel "evaluates"^^xsd:string ;
-	skos:scopeNote "TBD"^^xsd:string ;
-	gist:domainIncludes gist:EvaluationTaskTemplate ;
+	gist:domainIncludes
+		gist:Determination ,
+		gist:EvaluationTaskTemplate
+		;
 	gist:rangeIncludes gist:Condition ;
 	.
 
@@ -2864,13 +2880,13 @@ gist:hasIncumbent
 
 gist:hasInput
 	a owl:ObjectProperty ;
-	skos:definition "TBD"^^xsd:string ;
-	skos:example "TBD"^^xsd:string ;
+	skos:definition "Relates something, such as a system, process, workflow, task, or task template, to something that it receives or is designed to receive for processing, evaluation, or transformation."^^xsd:string ;
+	skos:example "A document is entered into a publication approval workflow."^^xsd:string ;
 	skos:prefLabel "has input"^^xsd:string ;
-	skos:scopeNote "TBD"^^xsd:string ;
 	gist:domainIncludes
+		gist:System ,
 		gist:Task ,
-		gist:TaskTemmplate
+		gist:TaskTemplate
 		;
 	gist:rangeIncludes gist:Specification ;
 	.
@@ -2900,13 +2916,13 @@ gist:hasNavigationalParent
 
 gist:hasOutput
 	a owl:ObjectProperty ;
-	skos:definition "TBD"^^xsd:string ;
-	skos:example "TBD"^^xsd:string ;
+	skos:definition "Relates something, such as a system, process, workflow, task, or task template, to something that it yields or is designed to yield as a result of its operation or execution."^^xsd:string ;
+	skos:example "Approvals and an edited document are output from a publication workflow."^^xsd:string ;
 	skos:prefLabel "has output"^^xsd:string ;
-	skos:scopeNote "TBD"^^xsd:string ;
 	gist:domainIncludes
+		gist:System ,
 		gist:Task ,
-		gist:TaskTemmplate
+		gist:TaskTemplate
 		;
 	gist:rangeIncludes gist:Specification ;
 	.
@@ -3112,16 +3128,21 @@ gist:isDirectPartOf
 
 gist:isExecutedBy
 	a owl:ObjectProperty ;
-	skos:example "TBD"^^xsd:string ;
+	skos:definition "Relates something to someone or something that carries out or is designated to carry out its execution."^^xsd:string ;
+	skos:example "The vice president of research executes a publication approval task; a supervisor executes an approval of a time-off request from a direct report."^^xsd:string ;
 	skos:prefLabel "is executed by"^^xsd:string ;
-	skos:scopeNote "TBD"^^xsd:string ;
+	skos:scopeNote
+		"For a task template or workflow definition, the object of this predicate might be, rather than a specific person, organization, or other agent, a description of the type of agent allowed to carry out the task. For example, an approval task in a publication workflow must be executed by someone in the position of VP of Research; a time-off request approval must be executed by someone in a supervisory role."^^xsd:string ,
+		"gist also provides the class gist:Assignment and the predicate gist:hasAssignee to indicate someone or something designated to perform a task or activity. gist:isExecutedBy can be used when details of the assignment are either not known or not relevant. If more information about the assignment needs to be modeled, such as the date of assignment or the assigner, the assignment pattern should be used."^^xsd:string
+		;
 	gist:domainIncludes
 		gist:Task ,
 		gist:TaskTemplate
 		;
 	gist:rangeIncludes
 		gist:Organization ,
-		gist:Person
+		gist:Person ,
+		gist:System
 		;
 	.
 
@@ -3530,10 +3551,9 @@ gist:precedesDirectlyIfFalse
 	rdfs:subPropertyOf gist:precedesDirectly ;
 	rdfs:domain gist:EvaluationTaskTemplate ;
 	rdfs:range gist:TaskTemplate ;
-	skos:definition "TBD"^^xsd:string ;
-	skos:example "TBD"^^xsd:string ;
+	skos:definition "Relates a workflow task template that evaluates a true/false condition to the task template that follows it if the condition is false."^^xsd:string ;
+	skos:example "A recipe for baking a cake involves a step that evaluates whether a toothpick inserted into the center of the cake comes out clean; if it does not, the cake must go back into the oven."^^xsd:string ;
 	skos:prefLabel "precedes directly if false"^^xsd:string ;
-	skos:scopeNote "TBD"^^xsd:string ;
 	.
 
 gist:precedesDirectlyIfTrue
@@ -3541,10 +3561,9 @@ gist:precedesDirectlyIfTrue
 	rdfs:subPropertyOf gist:precedesDirectly ;
 	rdfs:domain gist:EvaluationTaskTemplate ;
 	rdfs:range gist:TaskTemplate ;
-	skos:definition "TBD"^^xsd:string ;
-	skos:example "TBD"^^xsd:string ;
+	skos:definition "Relates a workflow task template that evaluates a true/false condition to the task template that follows it if the condition is true."^^xsd:string ;
+	skos:example "A recipe for baking a cake involves a step that evaluates whether a toothpick inserted into the center of the cake comes out clean; if it does, the cake is done and goes onto a cooling rack."^^xsd:string ;
 	skos:prefLabel "precedes directly if true"^^xsd:string ;
-	skos:scopeNote "TBD"^^xsd:string ;
 	.
 
 gist:prevents
